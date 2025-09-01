@@ -1,0 +1,1115 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 187339
+Node: gpuvm17
+Time: Mon 28 Jul 11:47:40 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Mon Jul 28 11:47:42 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   32C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Training...
+
+⚠️ Could not import data loaders. You'll need to adjust the imports.
+Please check the exact names of your data loading functions.
+============================================================
+TOPOLOGICAL AUTOENCODER TRAINING WITH TORCHPH
+============================================================
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/sw_topological_autoencoder_attention_20250728_114750
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/sw_topological_autoencoder_attention_20250728_114750/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 182
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 3
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 3000
+  Balanced sampling: True
+  Train batches: 182
+  Val batches: 3
+  Test batches: 4
+Data loading completed!
+  Train: 549367 samples, 182 batches
+  Val: 9842 samples, 3 batches
+  Test: 9824 samples, 4 batches
+AttentionAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Attention Heads: 5
+  Total parameters: 5,881,841
+FullDatasetContrastiveLoss initialized:
+  Positive Margin: 2.0
+  Negative Margin: 10.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 0.0
+  Base reconstruction weight: 100.0
+SlicedWassersteinTopologicalLoss initialized:
+  SW weight: 1.0
+  Distance weight: 1.0
+  Num directions: 10
+No prototypes being used for topological loss - whole dataset instead.
+TopologicalTrainer initialized on device: cuda
+Model parameters: 5,881,841
+Enhanced with topological loss monitoring
+Starting Phase 1: Pure Topological Training
+  Contrastive weight: 0.0
+  Topological weight: 1.0
+  Reconstruction weight: 100.0
+
+======================================================================
+🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED
+======================================================================
+
+============================================================
+EPOCH 1 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+  SW Loss Components:
+    Raw SW loss: 258.886353
+    Raw distance loss: 0.152537
+    Weighted SW: 258.886353
+    Weighted distance: 0.152537
+    Total loss: 259.038879
+    SW/Distance ratio: 1697.198
+  SW Loss Components:
+    Raw SW loss: 294.825623
+    Raw distance loss: 0.178623
+    Weighted SW: 294.825623
+    Weighted distance: 0.178623
+    Total loss: 295.004242
+    SW/Distance ratio: 1650.550
+  SW Loss Components:
+    Raw SW loss: 317.584747
+    Raw distance loss: 0.194241
+    Weighted SW: 317.584747
+    Weighted distance: 0.194241
+    Total loss: 317.778992
+    SW/Distance ratio: 1635.006
+Batch   0/182: Loss=291.7143 (C:8.0581, R:0.0111, T:290.6074(w:1.000)⚠️)
+  SW Loss Components:
+    Raw SW loss: 229.627640
+    Raw distance loss: 0.110449
+    Weighted SW: 229.627640
+    Weighted distance: 0.110449
+    Total loss: 229.738083
+    SW/Distance ratio: 2079.044
+  SW Loss Components:
+    Raw SW loss: 267.724670
+    Raw distance loss: 0.113053
+    Weighted SW: 267.724670
+    Weighted distance: 0.113053
+    Total loss: 267.837738
+    SW/Distance ratio: 2368.131
+  SW Loss Components:
+    Raw SW loss: 289.654358
+    Raw distance loss: 0.117135
+    Weighted SW: 289.654358
+    Weighted distance: 0.117135
+    Total loss: 289.771484
+    SW/Distance ratio: 2472.820
+  SW Loss Components:
+    Raw SW loss: 200.054352
+    Raw distance loss: 0.091463
+    Weighted SW: 200.054352
+    Weighted distance: 0.091463
+    Total loss: 200.145813
+    SW/Distance ratio: 2187.266
+  SW Loss Components:
+    Raw SW loss: 254.262054
+    Raw distance loss: 0.117068
+    Weighted SW: 254.262054
+    Weighted distance: 0.117068
+    Total loss: 254.379120
+    SW/Distance ratio: 2171.919
+  SW Loss Components:
+    Raw SW loss: 259.771362
+    Raw distance loss: 0.101129
+    Weighted SW: 259.771362
+    Weighted distance: 0.101129
+    Total loss: 259.872498
+    SW/Distance ratio: 2568.702
+  SW Loss Components:
+    Raw SW loss: 198.150421
+    Raw distance loss: 0.100438
+    Weighted SW: 198.150421
+    Weighted distance: 0.100438
+    Total loss: 198.250854
+    SW/Distance ratio: 1972.860
+  SW Loss Components:
+    Raw SW loss: 240.315384
+    Raw distance loss: 0.114184
+    Weighted SW: 240.315384
+    Weighted distance: 0.114184
+    Total loss: 240.429565
+    SW/Distance ratio: 2104.624
+  SW Loss Components:
+    Raw SW loss: 266.745544
+    Raw distance loss: 0.113808
+    Weighted SW: 266.745544
+    Weighted distance: 0.113808
+    Total loss: 266.859344
+    SW/Distance ratio: 2343.814
+  SW Loss Components:
+    Raw SW loss: 196.181091
+    Raw distance loss: 0.109360
+    Weighted SW: 196.181091
+    Weighted distance: 0.109360
+    Total loss: 196.290451
+    SW/Distance ratio: 1793.895
+  SW Loss Components:
+    Raw SW loss: 221.618286
+    Raw distance loss: 0.084510
+    Weighted SW: 221.618286
+    Weighted distance: 0.084510
+    Total loss: 221.702789
+    SW/Distance ratio: 2622.388
+  SW Loss Components:
+    Raw SW loss: 259.391541
+    Raw distance loss: 0.099760
+    Weighted SW: 259.391541
+    Weighted distance: 0.099760
+    Total loss: 259.491302
+    SW/Distance ratio: 2600.143
+  SW Loss Components:
+    Raw SW loss: 177.304153
+    Raw distance loss: 0.085663
+    Weighted SW: 177.304153
+    Weighted distance: 0.085663
+    Total loss: 177.389816
+    SW/Distance ratio: 2069.794
+  SW Loss Components:
+    Raw SW loss: 221.241165
+    Raw distance loss: 0.083743
+    Weighted SW: 221.241165
+    Weighted distance: 0.083743
+    Total loss: 221.324905
+    SW/Distance ratio: 2641.913
+  SW Loss Components:
+    Raw SW loss: 244.832809
+    Raw distance loss: 0.088349
+    Weighted SW: 244.832809
+    Weighted distance: 0.088349
+    Total loss: 244.921158
+    SW/Distance ratio: 2771.195
+  SW Loss Components:
+    Raw SW loss: 167.242523
+    Raw distance loss: 0.077734
+    Weighted SW: 167.242523
+    Weighted distance: 0.077734
+    Total loss: 167.320251
+    SW/Distance ratio: 2151.482
+  SW Loss Components:
+    Raw SW loss: 212.889755
+    Raw distance loss: 0.082948
+    Weighted SW: 212.889755
+    Weighted distance: 0.082948
+    Total loss: 212.972702
+    SW/Distance ratio: 2566.557
+  SW Loss Components:
+    Raw SW loss: 237.819199
+    Raw distance loss: 0.086212
+    Weighted SW: 237.819199
+    Weighted distance: 0.086212
+    Total loss: 237.905411
+    SW/Distance ratio: 2758.548
+  SW Loss Components:
+    Raw SW loss: 152.311462
+    Raw distance loss: 0.064440
+    Weighted SW: 152.311462
+    Weighted distance: 0.064440
+    Total loss: 152.375900
+    SW/Distance ratio: 2363.634
+  SW Loss Components:
+    Raw SW loss: 211.150497
+    Raw distance loss: 0.076554
+    Weighted SW: 211.150497
+    Weighted distance: 0.076554
+    Total loss: 211.227051
+    SW/Distance ratio: 2758.186
+  SW Loss Components:
+    Raw SW loss: 241.068970
+    Raw distance loss: 0.087427
+    Weighted SW: 241.068970
+    Weighted distance: 0.087427
+    Total loss: 241.156403
+    SW/Distance ratio: 2757.386
+  SW Loss Components:
+    Raw SW loss: 160.285812
+    Raw distance loss: 0.069789
+    Weighted SW: 160.285812
+    Weighted distance: 0.069789
+    Total loss: 160.355606
+    SW/Distance ratio: 2296.709
+  SW Loss Components:
+    Raw SW loss: 196.417358
+    Raw distance loss: 0.062924
+    Weighted SW: 196.417358
+    Weighted distance: 0.062924
+    Total loss: 196.480286
+    SW/Distance ratio: 3121.500
+  SW Loss Components:
+    Raw SW loss: 233.258469
+    Raw distance loss: 0.076431
+    Weighted SW: 233.258469
+    Weighted distance: 0.076431
+    Total loss: 233.334900
+    SW/Distance ratio: 3051.877
+  SW Loss Components:
+    Raw SW loss: 160.007614
+    Raw distance loss: 0.069997
+    Weighted SW: 160.007614
+    Weighted distance: 0.069997
+    Total loss: 160.077606
+    SW/Distance ratio: 2285.921
+  SW Loss Components:
+    Raw SW loss: 191.399704
+    Raw distance loss: 0.062315
+    Weighted SW: 191.399704
+    Weighted distance: 0.062315
+    Total loss: 191.462021
+    SW/Distance ratio: 3071.477
+  SW Loss Components:
+    Raw SW loss: 231.678589
+    Raw distance loss: 0.068893
+    Weighted SW: 231.678589
+    Weighted distance: 0.068893
+    Total loss: 231.747482
+    SW/Distance ratio: 3362.878
+  SW Loss Components:
+    Raw SW loss: 147.944702
+    Raw distance loss: 0.058949
+    Weighted SW: 147.944702
+    Weighted distance: 0.058949
+    Total loss: 148.003647
+    SW/Distance ratio: 2509.704
+  SW Loss Components:
+    Raw SW loss: 183.256332
+    Raw distance loss: 0.052506
+    Weighted SW: 183.256332
+    Weighted distance: 0.052506
+    Total loss: 183.308838
+    SW/Distance ratio: 3490.222
+  SW Loss Components:
+    Raw SW loss: 215.962494
+    Raw distance loss: 0.059128
+    Weighted SW: 215.962494
+    Weighted distance: 0.059128
+    Total loss: 216.021622
+    SW/Distance ratio: 3652.484
+  SW Loss Components:
+    Raw SW loss: 135.154358
+    Raw distance loss: 0.044165
+    Weighted SW: 135.154358
+    Weighted distance: 0.044165
+    Total loss: 135.198517
+    SW/Distance ratio: 3060.190
+  SW Loss Components:
+    Raw SW loss: 190.987228
+    Raw distance loss: 0.051447
+    Weighted SW: 190.987228
+    Weighted distance: 0.051447
+    Total loss: 191.038681
+    SW/Distance ratio: 3712.339
+  SW Loss Components:
+    Raw SW loss: 218.844131
+    Raw distance loss: 0.059237
+    Weighted SW: 218.844131
+    Weighted distance: 0.059237
+    Total loss: 218.903366
+    SW/Distance ratio: 3694.373
+  SW Loss Components:
+    Raw SW loss: 123.545197
+    Raw distance loss: 0.038839
+    Weighted SW: 123.545197
+    Weighted distance: 0.038839
+    Total loss: 123.584038
+    SW/Distance ratio: 3180.937
+  SW Loss Components:
+    Raw SW loss: 178.230927
+    Raw distance loss: 0.044732
+    Weighted SW: 178.230927
+    Weighted distance: 0.044732
+    Total loss: 178.275665
+    SW/Distance ratio: 3984.394
+  SW Loss Components:
+    Raw SW loss: 213.157578
+    Raw distance loss: 0.056733
+    Weighted SW: 213.157578
+    Weighted distance: 0.056733
+    Total loss: 213.214310
+    SW/Distance ratio: 3757.224
+  SW Loss Components:
+    Raw SW loss: 115.377853
+    Raw distance loss: 0.035782
+    Weighted SW: 115.377853
+    Weighted distance: 0.035782
+    Total loss: 115.413635
+    SW/Distance ratio: 3224.492
+  SW Loss Components:
+    Raw SW loss: 166.529419
+    Raw distance loss: 0.039227
+    Weighted SW: 166.529419
+    Weighted distance: 0.039227
+    Total loss: 166.568649
+    SW/Distance ratio: 4245.267
+  SW Loss Components:
+    Raw SW loss: 192.940399
+    Raw distance loss: 0.041251
+    Weighted SW: 192.940399
+    Weighted distance: 0.041251
+    Total loss: 192.981644
+    SW/Distance ratio: 4677.201
+  SW Loss Components:
+    Raw SW loss: 129.744598
+    Raw distance loss: 0.042876
+    Weighted SW: 129.744598
+    Weighted distance: 0.042876
+    Total loss: 129.787476
+    SW/Distance ratio: 3026.074
+  SW Loss Components:
+    Raw SW loss: 179.159653
+    Raw distance loss: 0.044045
+    Weighted SW: 179.159653
+    Weighted distance: 0.044045
+    Total loss: 179.203705
+    SW/Distance ratio: 4067.638
+  SW Loss Components:
+    Raw SW loss: 191.479767
+    Raw distance loss: 0.037922
+    Weighted SW: 191.479767
+    Weighted distance: 0.037922
+    Total loss: 191.517685
+    SW/Distance ratio: 5049.343
+  SW Loss Components:
+    Raw SW loss: 95.395569
+    Raw distance loss: 0.024471
+    Weighted SW: 95.395569
+    Weighted distance: 0.024471
+    Total loss: 95.420036
+    SW/Distance ratio: 3898.341
+  SW Loss Components:
+    Raw SW loss: 162.535400
+    Raw distance loss: 0.032598
+    Weighted SW: 162.535400
+    Weighted distance: 0.032598
+    Total loss: 162.567993
+    SW/Distance ratio: 4986.017
+  SW Loss Components:
+    Raw SW loss: 194.445923
+    Raw distance loss: 0.036077
+    Weighted SW: 194.445923
+    Weighted distance: 0.036077
+    Total loss: 194.481995
+    SW/Distance ratio: 5389.814
+  SW Loss Components:
+    Raw SW loss: 107.858063
+    Raw distance loss: 0.031443
+    Weighted SW: 107.858063
+    Weighted distance: 0.031443
+    Total loss: 107.889503
+    SW/Distance ratio: 3430.277
+  SW Loss Components:
+    Raw SW loss: 159.863708
+    Raw distance loss: 0.030663
+    Weighted SW: 159.863708
+    Weighted distance: 0.030663
+    Total loss: 159.894379
+    SW/Distance ratio: 5213.575
+  SW Loss Components:
+    Raw SW loss: 199.283157
+    Raw distance loss: 0.037574
+    Weighted SW: 199.283157
+    Weighted distance: 0.037574
+    Total loss: 199.320724
+    SW/Distance ratio: 5303.742
+  SW Loss Components:
+    Raw SW loss: 90.160820
+    Raw distance loss: 0.023536
+    Weighted SW: 90.160820
+    Weighted distance: 0.023536
+    Total loss: 90.184357
+    SW/Distance ratio: 3830.809
+  SW Loss Components:
+    Raw SW loss: 149.769318
+    Raw distance loss: 0.029007
+    Weighted SW: 149.769318
+    Weighted distance: 0.029007
+    Total loss: 149.798325
+    SW/Distance ratio: 5163.164
+  SW Loss Components:
+    Raw SW loss: 182.331390
+    Raw distance loss: 0.029891
+    Weighted SW: 182.331390
+    Weighted distance: 0.029891
+    Total loss: 182.361282
+    SW/Distance ratio: 6099.799
+  SW Loss Components:
+    Raw SW loss: 105.885193
+    Raw distance loss: 0.030372
+    Weighted SW: 105.885193
+    Weighted distance: 0.030372
+    Total loss: 105.915565
+    SW/Distance ratio: 3486.326
+  SW Loss Components:
+    Raw SW loss: 151.189957
+    Raw distance loss: 0.028340
+    Weighted SW: 151.189957
+    Weighted distance: 0.028340
+    Total loss: 151.218292
+    SW/Distance ratio: 5334.784
+  SW Loss Components:
+    Raw SW loss: 190.149231
+    Raw distance loss: 0.035356
+    Weighted SW: 190.149231
+    Weighted distance: 0.035356
+    Total loss: 190.184586
+    SW/Distance ratio: 5378.158
+  SW Loss Components:
+    Raw SW loss: 105.112396
+    Raw distance loss: 0.029873
+    Weighted SW: 105.112396
+    Weighted distance: 0.029873
+    Total loss: 105.142273
+    SW/Distance ratio: 3518.629
+  SW Loss Components:
+    Raw SW loss: 143.558502
+    Raw distance loss: 0.027830
+    Weighted SW: 143.558502
+    Weighted distance: 0.027830
+    Total loss: 143.586334
+    SW/Distance ratio: 5158.407
+  SW Loss Components:
+    Raw SW loss: 182.259979
+    Raw distance loss: 0.031412
+    Weighted SW: 182.259979
+    Weighted distance: 0.031412
+    Total loss: 182.291397
+    SW/Distance ratio: 5802.168
+  SW Loss Components:
+    Raw SW loss: 105.438431
+    Raw distance loss: 0.031732
+    Weighted SW: 105.438431
+    Weighted distance: 0.031732
+    Total loss: 105.470161
+    SW/Distance ratio: 3322.795
+  SW Loss Components:
+    Raw SW loss: 147.916382
+    Raw distance loss: 0.028940
+    Weighted SW: 147.916382
+    Weighted distance: 0.028940
+    Total loss: 147.945328
+    SW/Distance ratio: 5111.132
+  SW Loss Components:
+    Raw SW loss: 190.230438
+    Raw distance loss: 0.040258
+    Weighted SW: 190.230438
+    Weighted distance: 0.040258
+    Total loss: 190.270691
+    SW/Distance ratio: 4725.224
+  SW Loss Components:
+    Raw SW loss: 96.151894
+    Raw distance loss: 0.029385
+    Weighted SW: 96.151894
+    Weighted distance: 0.029385
+    Total loss: 96.181282
+    SW/Distance ratio: 3272.155
+  SW Loss Components:
+    Raw SW loss: 158.526917
+    Raw distance loss: 0.034810
+    Weighted SW: 158.526917
+    Weighted distance: 0.034810
+    Total loss: 158.561722
+    SW/Distance ratio: 4554.075
+  SW Loss Components:
+    Raw SW loss: 179.195160
+    Raw distance loss: 0.032522
+    Weighted SW: 179.195160
+    Weighted distance: 0.032522
+    Total loss: 179.227676
+    SW/Distance ratio: 5509.901
+  SW Loss Components:
+    Raw SW loss: 99.275833
+    Raw distance loss: 0.027136
+    Weighted SW: 99.275833
+    Weighted distance: 0.027136
+    Total loss: 99.302971
+    SW/Distance ratio: 3658.419
+  SW Loss Components:
+    Raw SW loss: 154.300629
+    Raw distance loss: 0.031857
+    Weighted SW: 154.300629
+    Weighted distance: 0.031857
+    Total loss: 154.332489
+    SW/Distance ratio: 4843.501
+  SW Loss Components:
+    Raw SW loss: 181.399460
+    Raw distance loss: 0.031045
+    Weighted SW: 181.399460
+    Weighted distance: 0.031045
+    Total loss: 181.430511
+    SW/Distance ratio: 5843.108
+  SW Loss Components:
+    Raw SW loss: 93.279526
+    Raw distance loss: 0.023857
+    Weighted SW: 93.279526
+    Weighted distance: 0.023857
+    Total loss: 93.303383
+    SW/Distance ratio: 3909.878
+  SW Loss Components:
+    Raw SW loss: 154.942108
+    Raw distance loss: 0.031564
+    Weighted SW: 154.942108
+    Weighted distance: 0.031564
+    Total loss: 154.973679
+    SW/Distance ratio: 4908.831
+  SW Loss Components:
+    Raw SW loss: 172.803146
+    Raw distance loss: 0.028415
+    Weighted SW: 172.803146
+    Weighted distance: 0.028415
+    Total loss: 172.831558
+    SW/Distance ratio: 6081.335
+  SW Loss Components:
+    Raw SW loss: 90.506653
+    Raw distance loss: 0.023406
+    Weighted SW: 90.506653
+    Weighted distance: 0.023406
+    Total loss: 90.530060
+    SW/Distance ratio: 3866.731
+  SW Loss Components:
+    Raw SW loss: 146.688202
+    Raw distance loss: 0.028779
+    Weighted SW: 146.688202
+    Weighted distance: 0.028779
+    Total loss: 146.716980
+    SW/Distance ratio: 5097.011
+  SW Loss Components:
+    Raw SW loss: 183.645325
+    Raw distance loss: 0.032985
+    Weighted SW: 183.645325
+    Weighted distance: 0.032985
+    Total loss: 183.678314
+    SW/Distance ratio: 5567.605
+  SW Loss Components:
+    Raw SW loss: 84.083527
+    Raw distance loss: 0.021997
+    Weighted SW: 84.083527
+    Weighted distance: 0.021997
+    Total loss: 84.105522
+    SW/Distance ratio: 3822.443
+  SW Loss Components:
+    Raw SW loss: 132.708115
+    Raw distance loss: 0.021693
+    Weighted SW: 132.708115
+    Weighted distance: 0.021693
+    Total loss: 132.729813
+    SW/Distance ratio: 6117.519
+  SW Loss Components:
+    Raw SW loss: 172.144562
+    Raw distance loss: 0.027880
+    Weighted SW: 172.144562
+    Weighted distance: 0.027880
+    Total loss: 172.172440
+    SW/Distance ratio: 6174.411
+Batch  25/182: Loss=130.6646 (C:8.9695, R:0.0100, T:129.6693(w:1.000)⚠️)
+  SW Loss Components:
+    Raw SW loss: 99.485016
+    Raw distance loss: 0.026953
+    Weighted SW: 99.485016
+    Weighted distance: 0.026953
+    Total loss: 99.511971
+    SW/Distance ratio: 3691.008
+  SW Loss Components:
+    Raw SW loss: 145.796051
+    Raw distance loss: 0.028489
+    Weighted SW: 145.796051
+    Weighted distance: 0.028489
+    Total loss: 145.824539
+    SW/Distance ratio: 5117.547
+  SW Loss Components:
+    Raw SW loss: 179.630203
+    Raw distance loss: 0.028158
+    Weighted SW: 179.630203
+    Weighted distance: 0.028158
+    Total loss: 179.658356
+    SW/Distance ratio: 6379.271
+  SW Loss Components:
+    Raw SW loss: 95.705521
+    Raw distance loss: 0.028799
+    Weighted SW: 95.705521
+    Weighted distance: 0.028799
+    Total loss: 95.734322
+    SW/Distance ratio: 3323.188
+  SW Loss Components:
+    Raw SW loss: 154.005981
+    Raw distance loss: 0.031379
+    Weighted SW: 154.005981
+    Weighted distance: 0.031379
+    Total loss: 154.037354
+    SW/Distance ratio: 4908.005
+  SW Loss Components:
+    Raw SW loss: 169.806488
+    Raw distance loss: 0.027739
+    Weighted SW: 169.806488
+    Weighted distance: 0.027739
+    Total loss: 169.834229
+    SW/Distance ratio: 6121.517
+  SW Loss Components:
+    Raw SW loss: 99.493256
+    Raw distance loss: 0.029155
+    Weighted SW: 99.493256
+    Weighted distance: 0.029155
+    Total loss: 99.522408
+    SW/Distance ratio: 3412.579
+  SW Loss Components:
+    Raw SW loss: 144.102371
+    Raw distance loss: 0.029113
+    Weighted SW: 144.102371
+    Weighted distance: 0.029113
+    Total loss: 144.131485
+    SW/Distance ratio: 4949.830
+  SW Loss Components:
+    Raw SW loss: 172.097290
+    Raw distance loss: 0.026112
+    Weighted SW: 172.097290
+    Weighted distance: 0.026112
+    Total loss: 172.123398
+    SW/Distance ratio: 6590.818
+  SW Loss Components:
+    Raw SW loss: 91.598282
+    Raw distance loss: 0.027082
+    Weighted SW: 91.598282
+    Weighted distance: 0.027082
+    Total loss: 91.625366
+    SW/Distance ratio: 3382.224
+  SW Loss Components:
+    Raw SW loss: 143.035629
+    Raw distance loss: 0.028477
+    Weighted SW: 143.035629
+    Weighted distance: 0.028477
+    Total loss: 143.064102
+    SW/Distance ratio: 5022.808
+  SW Loss Components:
+    Raw SW loss: 169.726532
+    Raw distance loss: 0.027830
+    Weighted SW: 169.726532
+    Weighted distance: 0.027830
+    Total loss: 169.754364
+    SW/Distance ratio: 6098.776
+  SW Loss Components:
+    Raw SW loss: 85.287910
+    Raw distance loss: 0.022753
+    Weighted SW: 85.287910
+    Weighted distance: 0.022753
+    Total loss: 85.310661
+    SW/Distance ratio: 3748.489
+  SW Loss Components:
+    Raw SW loss: 142.380127
+    Raw distance loss: 0.028470
+    Weighted SW: 142.380127
+    Weighted distance: 0.028470
+    Total loss: 142.408600
+    SW/Distance ratio: 5000.987
+  SW Loss Components:
+    Raw SW loss: 175.400604
+    Raw distance loss: 0.030606
+    Weighted SW: 175.400604
+    Weighted distance: 0.030606
+    Total loss: 175.431213
+    SW/Distance ratio: 5730.995
+  SW Loss Components:
+    Raw SW loss: 94.264984
+    Raw distance loss: 0.026619
+    Weighted SW: 94.264984
+    Weighted distance: 0.026619
+    Total loss: 94.291603
+    SW/Distance ratio: 3541.291
+  SW Loss Components:
+    Raw SW loss: 146.013184
+    Raw distance loss: 0.027786
+    Weighted SW: 146.013184
+    Weighted distance: 0.027786
+    Total loss: 146.040970
+    SW/Distance ratio: 5255.005
+  SW Loss Components:
+    Raw SW loss: 174.381683
+    Raw distance loss: 0.027667
+    Weighted SW: 174.381683
+    Weighted distance: 0.027667
+    Total loss: 174.409348
+    SW/Distance ratio: 6302.795
+  SW Loss Components:
+    Raw SW loss: 80.368095
+    Raw distance loss: 0.022366
+    Weighted SW: 80.368095
+    Weighted distance: 0.022366
+    Total loss: 80.390465
+    SW/Distance ratio: 3593.354
+  SW Loss Components:
+    Raw SW loss: 134.070648
+    Raw distance loss: 0.023799
+    Weighted SW: 134.070648
+    Weighted distance: 0.023799
+    Total loss: 134.094452
+    SW/Distance ratio: 5633.365
+  SW Loss Components:
+    Raw SW loss: 170.397430
+    Raw distance loss: 0.027510
+    Weighted SW: 170.397430
+    Weighted distance: 0.027510
+    Total loss: 170.424942
+    SW/Distance ratio: 6193.947
+  SW Loss Components:
+    Raw SW loss: 82.366898
+    Raw distance loss: 0.022124
+    Weighted SW: 82.366898
+    Weighted distance: 0.022124
+    Total loss: 82.389023
+    SW/Distance ratio: 3722.906
+  SW Loss Components:
+    Raw SW loss: 136.813614
+    Raw distance loss: 0.027343
+    Weighted SW: 136.813614
+    Weighted distance: 0.027343
+    Total loss: 136.840958
+    SW/Distance ratio: 5003.667
+  SW Loss Components:
+    Raw SW loss: 162.391663
+    Raw distance loss: 0.025624
+    Weighted SW: 162.391663
+    Weighted distance: 0.025624
+    Total loss: 162.417282
+    SW/Distance ratio: 6337.358
+  SW Loss Components:
+    Raw SW loss: 85.085175
+    Raw distance loss: 0.024190
+    Weighted SW: 85.085175
+    Weighted distance: 0.024190
+    Total loss: 85.109367
+    SW/Distance ratio: 3517.437
+  SW Loss Components:
+    Raw SW loss: 140.721329
+    Raw distance loss: 0.026455
+    Weighted SW: 140.721329
+    Weighted distance: 0.026455
+    Total loss: 140.747787
+    SW/Distance ratio: 5319.262
+  SW Loss Components:
+    Raw SW loss: 175.947754
+    Raw distance loss: 0.029955
+    Weighted SW: 175.947754
+    Weighted distance: 0.029955
+    Total loss: 175.977707
+    SW/Distance ratio: 5873.822
+  SW Loss Components:
+    Raw SW loss: 79.995293
+    Raw distance loss: 0.022907
+    Weighted SW: 79.995293
+    Weighted distance: 0.022907
+    Total loss: 80.018196
+    SW/Distance ratio: 3492.226
+  SW Loss Components:
+    Raw SW loss: 156.658600
+    Raw distance loss: 0.034555
+    Weighted SW: 156.658600
+    Weighted distance: 0.034555
+    Total loss: 156.693161
+    SW/Distance ratio: 4533.546
+  SW Loss Components:
+    Raw SW loss: 158.803741
+    Raw distance loss: 0.025182
+    Weighted SW: 158.803741
+    Weighted distance: 0.025182
+    Total loss: 158.828918
+    SW/Distance ratio: 6306.307
+  SW Loss Components:
+    Raw SW loss: 98.450012
+    Raw distance loss: 0.028199
+    Weighted SW: 98.450012
+    Weighted distance: 0.028199
+    Total loss: 98.478210
+    SW/Distance ratio: 3491.242
+  SW Loss Components:
+    Raw SW loss: 146.631149
+    Raw distance loss: 0.031627
+    Weighted SW: 146.631149
+    Weighted distance: 0.031627
+    Total loss: 146.662781
+    SW/Distance ratio: 4636.231
+  SW Loss Components:
+    Raw SW loss: 170.090851
+    Raw distance loss: 0.028157
+    Weighted SW: 170.090851
+    Weighted distance: 0.028157
+    Total loss: 170.119003
+    SW/Distance ratio: 6040.804
+  SW Loss Components:
+    Raw SW loss: 90.632172
+    Raw distance loss: 0.025969
+    Weighted SW: 90.632172
+    Weighted distance: 0.025969
+    Total loss: 90.658142
+    SW/Distance ratio: 3490.029
+  SW Loss Components:
+    Raw SW loss: 133.608749
+    Raw distance loss: 0.025971
+    Weighted SW: 133.608749
+    Weighted distance: 0.025971
+    Total loss: 133.634720
+    SW/Distance ratio: 5144.550
+  SW Loss Components:
+    Raw SW loss: 166.670883
+    Raw distance loss: 0.027048
+    Weighted SW: 166.670883
+    Weighted distance: 0.027048
+    Total loss: 166.697937
+    SW/Distance ratio: 6162.103
+  SW Loss Components:
+    Raw SW loss: 77.478416
+    Raw distance loss: 0.021511
+    Weighted SW: 77.478416
+    Weighted distance: 0.021511
+    Total loss: 77.499931
+    SW/Distance ratio: 3601.773
+  SW Loss Components:
+    Raw SW loss: 139.809998
+    Raw distance loss: 0.026456
+    Weighted SW: 139.809998
+    Weighted distance: 0.026456
+    Total loss: 139.836456
+    SW/Distance ratio: 5284.587
+  SW Loss Components:
+    Raw SW loss: 161.030151
+    Raw distance loss: 0.023754
+    Weighted SW: 161.030151
+    Weighted distance: 0.023754
+    Total loss: 161.053909
+    SW/Distance ratio: 6779.096
+  SW Loss Components:
+    Raw SW loss: 92.606995
+    Raw distance loss: 0.024487
+    Weighted SW: 92.606995
+    Weighted distance: 0.024487
+    Total loss: 92.631485
+    SW/Distance ratio: 3781.828
+  SW Loss Components:
+    Raw SW loss: 119.213524
+    Raw distance loss: 0.019443
+    Weighted SW: 119.213524
+    Weighted distance: 0.019443
+    Total loss: 119.232964
+    SW/Distance ratio: 6131.351
+  SW Loss Components:
+    Raw SW loss: 167.882660
+    Raw distance loss: 0.025844
+    Weighted SW: 167.882660
+    Weighted distance: 0.025844
+    Total loss: 167.908508
+    SW/Distance ratio: 6495.945
+  SW Loss Components:
+    Raw SW loss: 76.135590
+    Raw distance loss: 0.020102
+    Weighted SW: 76.135590
+    Weighted distance: 0.020102
+    Total loss: 76.155693
+    SW/Distance ratio: 3787.401

@@ -1,0 +1,193 @@
+Training set: 3000 samples, 21 features
+Validation set: 886 samples, 21 features
+
+============================================================
+CLASSIFICATION RESULTS (21 Interpretable Features)
+============================================================
+
+Training Random Forest...
+Random Forest Validation Accuracy: 0.685
+
+Training SVM...
+SVM Validation Accuracy: 0.679
+
+Training Logistic Regression...
+Logistic Regression Validation Accuracy: 0.675
+
+Training PyTorch Neural Network...
+Epoch 0: Train Loss 0.7885, Val Loss 0.7823, Val Acc 0.6670
+Epoch 20: Train Loss 0.5356, Val Loss 0.7790, Val Acc 0.6874
+Epoch 40: Train Loss 0.5368, Val Loss 0.7930, Val Acc 0.6862
+Epoch 60: Train Loss 0.5188, Val Loss 0.7999, Val Acc 0.6851
+Epoch 80: Train Loss 0.5383, Val Loss 0.7986, Val Acc 0.6851
+PyTorch NN Validation Accuracy: 0.694
+
+============================================================
+BEST CLASSIFIER: PyTorch NN
+============================================================
+
+PyTorch NN Classification Report:
+               precision    recall  f1-score   support
+
+   entailment       0.71      0.74      0.72       254
+      neutral       0.61      0.67      0.64       344
+contradiction       0.78      0.66      0.71       288
+
+     accuracy                           0.69       886
+    macro avg       0.70      0.69      0.69       886
+ weighted avg       0.69      0.69      0.69       886
+
+
+PyTorch NN Confusion Matrix:
+[[189  60   5]
+ [ 66 229  49]
+ [ 13  86 189]]
+
+============================================================
+FEATURE IMPORTANCE ANALYSIS
+============================================================
+Top 15 Most Important Features:
+---------------------------------------------
+ 1. forward_energy            0.1971
+ 2. h0_lifespan_std           0.1270
+ 3. h0_total_persistence      0.0710
+ 4. h0_mean_lifespan          0.0559
+ 5. h1_h0_ratio               0.0546
+ 6. h1_mean_birth             0.0485
+ 7. gap_energy                0.0470
+ 8. h1_count                  0.0417
+ 9. h1_total_persistence      0.0359
+10. h1_mean_death             0.0348
+11. hypothesis_size           0.0313
+12. backward_energy           0.0292
+13. premise_size              0.0277
+14. h0_max_lifespan           0.0275
+15. total_features            0.0273
+
+Statistical Analysis of Top 5 Features:
+----------------------------------------
+
+forward_energy:
+  Importance: 0.1971
+  F-statistic: 2030.12, p-value: 0.0000
+  Entailment:       0.264 ± 0.236 (n=1000)
+  Neutral:          0.779 ± 0.402 (n=1000)
+  Contradiction:    2.115 ± 1.063 (n=1000)
+
+h0_lifespan_std:
+  Importance: 0.1270
+  F-statistic: 2138.30, p-value: 0.0000
+  Entailment:       0.114 ± 0.010 (n=1000)
+  Neutral:          0.131 ± 0.020 (n=1000)
+  Contradiction:    0.189 ± 0.041 (n=1000)
+
+h0_total_persistence:
+  Importance: 0.0710
+  F-statistic: 1199.06, p-value: 0.0000
+  Entailment:      46.504 ± 7.364 (n=1000)
+  Neutral:         53.584 ± 7.827 (n=1000)
+  Contradiction:   63.491 ± 8.152 (n=1000)
+
+h0_mean_lifespan:
+  Importance: 0.0559
+  F-statistic: 891.85, p-value: 0.0000
+  Entailment:       0.088 ± 0.015 (n=1000)
+  Neutral:          0.105 ± 0.019 (n=1000)
+  Contradiction:    0.121 ± 0.019 (n=1000)
+
+h1_h0_ratio:
+  Importance: 0.0546
+  F-statistic: 1460.94, p-value: 0.0000
+  Entailment:       0.458 ± 0.099 (n=1000)
+  Neutral:          0.318 ± 0.094 (n=1000)
+  Contradiction:    0.240 ± 0.080 (n=1000)
+
+============================================================
+COMPARISON WITH CLUSTERING BASELINE
+============================================================
+Clustering Baseline: 66.6%
+Best Classification: 0.694 (PyTorch NN)
+Improvement: +0.028 (+2.8%)
+✅ SUCCESS: Classification improves over clustering baseline
+
+
+
+============================================================
+SBERT BASELINE RESULTS
+============================================================
+
+Training Random Forest on SBERT features...
+Random Forest SBERT Validation Accuracy: 0.628
+
+Training SVM on SBERT features...
+SVM SBERT Validation Accuracy: 0.694
+
+Training Logistic Regression on SBERT features...
+Logistic Regression SBERT Validation Accuracy: 0.634
+
+Training PyTorch Neural Network on SBERT features...
+Epoch 0: Train Loss 0.8964, Val Loss 0.7800, Val Acc 0.6524
+Epoch 20: Train Loss 0.0573, Val Loss 1.1181, Val Acc 0.6603
+Epoch 40: Train Loss 0.0387, Val Loss 1.1637, Val Acc 0.6682
+Epoch 60: Train Loss 0.0327, Val Loss 1.1616, Val Acc 0.6704
+Epoch 80: Train Loss 0.0290, Val Loss 1.1578, Val Acc 0.6749
+PyTorch NN SBERT Validation Accuracy: 0.686
+
+============================================================
+SBERT BASELINE SUMMARY
+============================================================
+Best SBERT Classifier: SVM
+Best SBERT Accuracy: 0.694
+
+================================================================================
+FINAL COMPARISON RESULTS
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.694      21        
+SBERT Baseline            SVM             0.694      3072      
+
+Topological vs SBERT Improvement: +0.000 (+0.0%)
+🤝 TIE: Both approaches perform similarly
+
+
+Successfully processed 886 samples for SBERT baseline
+Hybrid feature dimensions:
+  Topological: 21 features
+  SBERT: 3072 features
+  Total: 3093 features
+
+============================================================
+HYBRID CLASSIFICATION RESULTS
+============================================================
+
+Training Random Forest on hybrid features...
+Random Forest Hybrid Validation Accuracy: 0.669
+
+Training SVM on hybrid features...
+SVM Hybrid Validation Accuracy: 0.717
+
+Training Logistic Regression on hybrid features...
+Logistic Regression Hybrid Validation Accuracy: 0.648
+
+Training PyTorch Neural Network on hybrid features...
+Epoch 0: Train Loss 0.8054, Val Loss 0.7204, Val Acc 0.6806
+Epoch 20: Train Loss 0.0243, Val Loss 1.1838, Val Acc 0.6885
+Epoch 40: Train Loss 0.0169, Val Loss 1.2124, Val Acc 0.6919
+Epoch 60: Train Loss 0.0139, Val Loss 1.2393, Val Acc 0.6919
+Epoch 80: Train Loss 0.0187, Val Loss 1.2412, Val Acc 0.6862
+PyTorch NN Hybrid Validation Accuracy: 0.695
+
+================================================================================
+COMPREHENSIVE COMPARISON
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.694      21        
+SBERT Baseline            SVM             0.694      3072      
+Hybrid (Top-{top_k_features}) SVM             0.717      3093      
+
+Hybrid Improvements:
+  vs Topological: +0.023 (+2.3%)
+  vs SBERT: +0.023 (+2.3%)
+🚀 GREAT: Hybrid approach improves over both baselines!

@@ -1,0 +1,244 @@
+SEPARATE MODEL POINT CLOUD CLUSTERING VALIDATION RESULTS
+============================================================
+
+METHODOLOGY:
+------------
+1. OrderEmbeddingModel: Trained with Vendrov max-margin loss
+2. AsymmetryTransformModel: Trained with asymmetric directional loss
+3. Point cloud generation: SBERT + Order + Asymmetric features
+4. Clustering: Persistence images → k-means
+
+MODELS USED:
+------------
+Order Model: order_embedding_model.pt
+Asymmetry Model: new_independent_asymmetry_transform_model_v2.pt
+
+CLUSTERING PERFORMANCE:
+----------------------
+Accuracy: 0.670
+Silhouette Score: 0.522
+Adjusted Rand Index: 0.261
+Success (>70%): NO
+
+PH-DIMENSION STATISTICS:
+------------------------
+entailment: 3.14 ± 0.98 (range: 1.80-8.83)
+neutral: 3.25 ± 1.36 (range: 1.75-14.04)
+contradiction: 3.41 ± 1.49 (range: 1.44-14.34)
+
+POINT CLOUD STATISTICS:
+-----------------------
+entailment:
+  Combined: 564 ± 118 points
+  Premise: 131 points
+  Hypothesis: 59 points
+  Sufficient for PHD: 100%
+
+neutral:
+  Combined: 535 ± 82 points
+  Premise: 121 points
+  Hypothesis: 63 points
+  Sufficient for PHD: 100%
+
+contradiction:
+  Combined: 549 ± 129 points
+  Premise: 128 points
+  Hypothesis: 58 points
+  Sufficient for PHD: 100%
+
+NEXT STEPS:
+-----------
+- Check model training convergence (energy rankings)
+- Analyze point cloud generation statistics
+- Consider adjusting model architectures or training parameters
+- Experiment with different point cloud aggregation strategies
+
+
+
+Additional Debug Logs:
+==================================================
+CLUSTERING FAILURE ANALYSIS
+==================================================
+Misclassified samples: 292/886
+Confusion breakdown:
+  entailment_as_neutral: 61
+  entailment_as_contradiction: 4
+  neutral_as_entailment: 85
+  neutral_as_contradiction: 31
+  contradiction_as_entailment: 17
+  contradiction_as_neutral: 94
+Clustering results:
+  Best accuracy: 0.670
+  Silhouette score: 0.522
+  Adjusted Rand Index: 0.261
+  Best permutation: (1, 2, 0)
+
+Confusion analysis:
+  True entailment: predicted as [189  61   4]
+  True neutral: predicted as [ 85 228  31]
+  True contradiction: predicted as [ 17  94 177]
+
+================================================================================
+SEPARATE MODEL CLUSTERING RESULTS
+================================================================================
+Clustering Accuracy: 0.670
+Silhouette Score: 0.522
+Adjusted Rand Index: 0.261
+Success (>70%): ❌ NO
+
+PH-Dimension Statistics:
+  entailment: 3.14 ± 0.98
+  neutral: 3.25 ± 1.36
+  contradiction: 3.41 ± 1.49
+
+Point Cloud Statistics:
+  entailment:
+    Combined: 564 ± 118 points
+    Premise: 131, Hypothesis: 59
+    Sufficient for PHD: 100%
+  neutral:
+    Combined: 535 ± 82 points
+    Premise: 121, Hypothesis: 63
+    Sufficient for PHD: 100%
+  contradiction:
+    Combined: 549 ± 129 points
+    Premise: 128, Hypothesis: 58
+    Sufficient for PHD: 100%
+
+============================================================
+SEPARATE MODEL PERFORMANCE ANALYSIS
+============================================================
+Order Model (Vendrov Max-Margin Loss):
+  entailment: 0.5008 ± 0.3886
+  neutral: 1.0826 ± 0.5160
+  contradiction: 2.1276 ± 1.0895
+  ✅ ORDER MODEL SUCCESS: Correct energy ranking!
+
+Asymmetry Model (Directional Pattern Loss):
+  entailment:
+    Asymmetric energy: 0.7981 ± 0.7413
+    Forward energy: 0.5008
+    Backward energy: 2.0346
+  neutral:
+    Asymmetric energy: 0.9729 ± 0.7950
+    Forward energy: 1.0826
+    Backward energy: 1.9643
+  contradiction:
+    Asymmetric energy: 1.3698 ± 1.0469
+    Forward energy: 2.1276
+    Backward energy: 2.6753
+
+Asymmetry Pattern Analysis:
+  ✅ Forward energy: Entailment < Contradiction
+  ✅ Asymmetric energy: Contradiction > Neutral
+
+============================================================
+DEBUGGING NEUTRAL DETECTION LOGIC
+============================================================
+Generating maximum sample indices...
+  entailment: 3329 total samples available
+Token filtering: 254/3329 samples have ≥40 tokens
+    Using ALL 254 samples after token filtering
+Token count stats: 47 ± 8 (range: 40-90)
+  neutral: 3235 total samples available
+Token filtering: 344/3235 samples have ≥40 tokens
+    Using ALL 344 samples after token filtering
+Token count stats: 46 ± 7 (range: 40-78)
+  contradiction: 3278 total samples available
+Token filtering: 288/3278 samples have ≥40 tokens
+    Using ALL 288 samples after token filtering
+Token count stats: 46 ± 8 (range: 40-114)
+
+Energy Analysis:
+FROM ORDER MODEL
+  entailment:
+    Forward: 0.350
+    Backward: 0.910
+    Gap: 0.680
+    Low forward (<0.6): 211/254
+    Low backward (<0.8): 147/254
+    Mid forward (0.6< x <=1.4): 36/254
+    Low backward and low gap (<0.8 backward, < 0.5 gap): 137/254
+    Symmetric (<0.2): 95/254
+FROM ASYMMETRY MODEL
+    Asymmetric: 0.875
+    Asymmetric (<0.4): 88/254
+FROM ORDER MODEL
+  neutral:
+    Forward: 0.843
+    Backward: 0.948
+    Gap: 0.518
+    Low forward (<0.6): 120/344
+    Low backward (<0.8): 171/344
+    Mid forward (0.6< x <=1.4): 184/344
+    Low backward and low gap (<0.8 backward, < 0.5 gap): 120/344
+    Symmetric (<0.2): 92/344
+FROM ASYMMETRY MODEL
+    Asymmetric: 1.049
+    Asymmetric (<0.4): 90/344
+FROM ORDER MODEL
+  contradiction:
+    Forward: 1.990
+    Backward: 1.518
+    Gap: 0.866
+    Low forward (<0.6): 21/288
+    Low backward (<0.8): 56/288
+    Mid forward (0.6< x <=1.4): 79/288
+    Low backward and low gap (<0.8 backward, < 0.5 gap): 30/288
+    Symmetric (<0.2): 54/288
+FROM ASYMMETRY MODEL
+    Asymmetric: 1.464
+    Asymmetric (<0.4): 50/288
+Generating maximum sample indices...
+  entailment: 3329 total samples available
+Token filtering: 254/3329 samples have ≥40 tokens
+    Using ALL 254 samples after token filtering
+Token count stats: 47 ± 8 (range: 40-90)
+  neutral: 3235 total samples available
+Token filtering: 344/3235 samples have ≥40 tokens
+    Using ALL 344 samples after token filtering
+Token count stats: 46 ± 7 (range: 40-78)
+  contradiction: 3278 total samples available
+Token filtering: 288/3278 samples have ≥40 tokens
+    Using ALL 288 samples after token filtering
+Token count stats: 46 ± 8 (range: 40-114)
+
+=== COLLECTING ENTAILMENT DATA ===
+
+=== COLLECTING NEUTRAL DATA ===
+
+=== COLLECTING CONTRADICTION DATA ===
+
+=== COMPREHENSIVE ENERGY STATISTICS ===
+
+FORWARD Energy Statistics:
+entailment: mean=0.365, std=0.403, median=0.217
+  25%=0.078, 75%=0.503, range=[0.000, 2.246]
+neutral: mean=0.775, std=0.465, median=0.723
+  25%=0.440, 75%=1.022, range=[0.116, 2.385]
+contradiction: mean=1.997, std=1.139, median=1.772
+  25%=1.144, 75%=2.717, range=[0.032, 5.927]
+
+BACKWARD Energy Statistics:
+entailment: mean=1.051, std=1.137, median=0.693
+  25%=0.293, 75%=1.400, range=[0.000, 5.395]
+neutral: mean=0.892, std=0.672, median=0.743
+  25%=0.413, 75%=1.287, range=[0.054, 3.398]
+contradiction: mean=1.552, std=0.870, median=1.510
+  25%=0.959, 75%=2.097, range=[0.062, 5.863]
+
+GAP Energy Statistics:
+entailment: mean=0.855, std=1.158, median=0.379
+  25%=0.109, 75%=1.142, range=[0.000, 5.374]
+neutral: mean=0.501, std=0.514, median=0.328
+  25%=0.155, 75%=0.702, range=[0.006, 2.925]
+contradiction: mean=0.922, std=0.798, median=0.755
+  25%=0.323, 75%=1.289, range=[0.001, 4.340]
+
+ASYMMETRIC Energy Statistics:
+entailment: mean=0.886, std=0.918, median=0.654
+  25%=0.234, 75%=1.194, range=[0.000, 5.152]
+neutral: mean=1.014, std=0.829, median=0.767
+  25%=0.419, 75%=1.458, range=[0.007, 3.735]
+contradiction: mean=1.604, std=1.046, median=1.342
+  25%=0.813, 75%=2.294, range=[0.035, 4.398]

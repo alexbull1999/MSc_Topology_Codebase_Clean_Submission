@@ -1,0 +1,57 @@
+Job ID: 189454
+Node: parrot
+Time: Sat  2 Aug 12:45:28 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sat Aug  2 12:45:33 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:98:00.0 Off |                    0 |
+|  0%   35C    P8             15W /   62W |       0MiB /  15356MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 15.7 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+STEP 1: TRAINING ORDER EMBEDDING MODEL
+================================================================================
+Loading dataset metadata: /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens_all_roberta_large_v1.pkl
+Loaded 150000 samples (lazy loading)
+Label distribution: {'contradiction': 49717, 'entailment': 50214, 'neutral': 50069}
+OrderEmbeddingTrainer initialized on cuda
+Training OrderEmbeddingModel - Pure Vendrov et al. max-margin loss
+
+Epoch 1/20
+
+Analysis completed with exit code: 1
+Time: Sat  2 Aug 12:47:51 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

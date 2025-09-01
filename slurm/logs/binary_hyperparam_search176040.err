@@ -1,0 +1,746 @@
+INFO:__main__:Using default configuration
+INFO:__main__:Saved config to results/overnight_binary_hyperparam_search/binary_training_config.json
+INFO:__main__:
+Loading data from results/tda_integration/landmark_tda_features/enhanced_neural_network_features_snli_10k.pt
+INFO:binary_neural_classifier_landmark_asymmetry:Loading enhanced classifier data from results/tda_integration/landmark_tda_features/enhanced_neural_network_features_snli_10k.pt...
+/homes/ahb24/MSc_Topology_Codebase/classifiers/binary_neural_classifier_landmark_asymmetry.py:174: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(data_path, map_location='cpu')
+INFO:__main__:Binary class distribution:
+INFO:__main__:  Entailment: 3330 samples (33.3%)
+INFO:__main__:  Non-entailment: 6660 samples (66.7%)
+INFO:__main__:Prepared binary training data: 9990 samples, 14 features
+INFO:__main__:Loaded 9990 samples with 14 features each for binary classification.
+INFO:__main__:Running binary hyperparameter search with up to 50 combinations
+INFO:__main__:
+======================================================================
+INFO:__main__:STARTING BINARY HYPERPARAMETER SEARCH
+INFO:__main__:======================================================================
+INFO:__main__:Random search: 50 combinations (max: 50)
+INFO:__main__:Total hyperparameter combinations to test: 50
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 1/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 256, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:NEW BEST RESULT!
+INFO:__main__:Results: Accuracy = 77.43% ± 1.44%
+INFO:__main__:         F1-Macro = 0.7625 ± 0.0116
+INFO:__main__:         Score = 75.98
+INFO:__main__:         Time = 83.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 2/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.3, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:NEW BEST RESULT!
+INFO:__main__:Results: Accuracy = 79.22% ± 0.72%
+INFO:__main__:         F1-Macro = 0.7805 ± 0.0072
+INFO:__main__:         Score = 78.50
+INFO:__main__:         Time = 32.7s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 3/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 128, 'dropout_rate': 0.3, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:NEW BEST RESULT!
+INFO:__main__:Results: Accuracy = 79.13% ± 0.36%
+INFO:__main__:         F1-Macro = 0.7801 ± 0.0039
+INFO:__main__:         Score = 78.77
+INFO:__main__:         Time = 50.9s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 4/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.5, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.92% ± 0.52%
+INFO:__main__:         F1-Macro = 0.7781 ± 0.0056
+INFO:__main__:         Score = 78.40
+INFO:__main__:         Time = 41.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 5/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.08% ± 0.47%
+INFO:__main__:         F1-Macro = 0.7794 ± 0.0049
+INFO:__main__:         Score = 78.61
+INFO:__main__:         Time = 71.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 6/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 128, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.37% ± 0.69%
+INFO:__main__:         F1-Macro = 0.7819 ± 0.0073
+INFO:__main__:         Score = 78.68
+INFO:__main__:         Time = 48.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 7/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 64, 'dropout_rate': 0.1, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.49% ± 0.44%
+INFO:__main__:         F1-Macro = 0.7737 ± 0.0045
+INFO:__main__:         Score = 78.05
+INFO:__main__:         Time = 173.2s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 8/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.24% ± 1.18%
+INFO:__main__:         F1-Macro = 0.7709 ± 0.0113
+INFO:__main__:         Score = 77.06
+INFO:__main__:         Time = 179.1s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 9/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.23% ± 1.17%
+INFO:__main__:         F1-Macro = 0.7708 ± 0.0112
+INFO:__main__:         Score = 77.06
+INFO:__main__:         Time = 180.2s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 10/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 32, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.18% ± 1.64%
+INFO:__main__:         F1-Macro = 0.7698 ± 0.0142
+INFO:__main__:         Score = 76.53
+INFO:__main__:         Time = 349.1s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 11/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 128, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.01% ± 0.24%
+INFO:__main__:         F1-Macro = 0.7792 ± 0.0033
+INFO:__main__:         Score = 78.76
+INFO:__main__:         Time = 69.0s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 12/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.09% ± 0.44%
+INFO:__main__:         F1-Macro = 0.7795 ± 0.0046
+INFO:__main__:         Score = 78.65
+INFO:__main__:         Time = 74.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 13/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.19% ± 0.81%
+INFO:__main__:         F1-Macro = 0.7803 ± 0.0081
+INFO:__main__:         Score = 78.38
+INFO:__main__:         Time = 89.6s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 14/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.15% ± 0.78%
+INFO:__main__:         F1-Macro = 0.7800 ± 0.0080
+INFO:__main__:         Score = 78.37
+INFO:__main__:         Time = 93.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 15/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 32, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:NEW BEST RESULT!
+INFO:__main__:Results: Accuracy = 79.42% ± 0.46%
+INFO:__main__:         F1-Macro = 0.7817 ± 0.0054
+INFO:__main__:         Score = 78.95
+INFO:__main__:         Time = 166.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 16/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 128, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 77.65% ± 0.77%
+INFO:__main__:         F1-Macro = 0.7652 ± 0.0069
+INFO:__main__:         Score = 76.87
+INFO:__main__:         Time = 101.7s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 17/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 32, 'dropout_rate': 0.1, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:NEW BEST RESULT!
+INFO:__main__:Results: Accuracy = 79.77% ± 0.75%
+INFO:__main__:         F1-Macro = 0.7846 ± 0.0073
+INFO:__main__:         Score = 79.02
+INFO:__main__:         Time = 159.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 18/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.32% ± 0.64%
+INFO:__main__:         F1-Macro = 0.7816 ± 0.0065
+INFO:__main__:         Score = 78.67
+INFO:__main__:         Time = 127.0s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 19/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.1, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.05% ± 0.54%
+INFO:__main__:         F1-Macro = 0.7783 ± 0.0056
+INFO:__main__:         Score = 78.51
+INFO:__main__:         Time = 84.7s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 20/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.33% ± 0.64%
+INFO:__main__:         F1-Macro = 0.7817 ± 0.0065
+INFO:__main__:         Score = 78.69
+INFO:__main__:         Time = 127.9s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 21/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 128, 'dropout_rate': 0.1, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.02% ± 0.73%
+INFO:__main__:         F1-Macro = 0.7781 ± 0.0079
+INFO:__main__:         Score = 78.28
+INFO:__main__:         Time = 53.4s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 22/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 32, 'dropout_rate': 0.5, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.08% ± 0.65%
+INFO:__main__:         F1-Macro = 0.7794 ± 0.0071
+INFO:__main__:         Score = 78.43
+INFO:__main__:         Time = 131.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 23/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.26% ± 0.67%
+INFO:__main__:         F1-Macro = 0.7806 ± 0.0070
+INFO:__main__:         Score = 78.59
+INFO:__main__:         Time = 93.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 24/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'dropout_rate': 0.1, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.11% ± 0.59%
+INFO:__main__:         F1-Macro = 0.7797 ± 0.0063
+INFO:__main__:         Score = 78.52
+INFO:__main__:         Time = 151.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 25/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.21% ± 0.66%
+INFO:__main__:         F1-Macro = 0.7800 ± 0.0069
+INFO:__main__:         Score = 78.55
+INFO:__main__:         Time = 87.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 26/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.09% ± 0.56%
+INFO:__main__:         F1-Macro = 0.7790 ± 0.0066
+INFO:__main__:         Score = 78.53
+INFO:__main__:         Time = 73.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 27/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 128, 'dropout_rate': 0.1, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.37% ± 0.93%
+INFO:__main__:         F1-Macro = 0.7725 ± 0.0094
+INFO:__main__:         Score = 77.43
+INFO:__main__:         Time = 114.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 28/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.1, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.49% ± 0.64%
+INFO:__main__:         F1-Macro = 0.7823 ± 0.0065
+INFO:__main__:         Score = 78.85
+INFO:__main__:         Time = 88.4s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 29/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 64, 'dropout_rate': 0.1, 'weight_decay': 1e-05}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.21% ± 0.73%
+INFO:__main__:         F1-Macro = 0.7803 ± 0.0073
+INFO:__main__:         Score = 78.48
+INFO:__main__:         Time = 63.9s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 30/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.25% ± 0.65%
+INFO:__main__:         F1-Macro = 0.7813 ± 0.0064
+INFO:__main__:         Score = 78.60
+INFO:__main__:         Time = 40.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 31/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.21% ± 0.39%
+INFO:__main__:         F1-Macro = 0.7804 ± 0.0044
+INFO:__main__:         Score = 78.82
+INFO:__main__:         Time = 81.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 32/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.21% ± 0.69%
+INFO:__main__:         F1-Macro = 0.7799 ± 0.0070
+INFO:__main__:         Score = 78.51
+INFO:__main__:         Time = 94.1s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 33/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.29% ± 1.20%
+INFO:__main__:         F1-Macro = 0.7714 ± 0.0113
+INFO:__main__:         Score = 77.09
+INFO:__main__:         Time = 179.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 34/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 256, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.23% ± 0.59%
+INFO:__main__:         F1-Macro = 0.7809 ± 0.0059
+INFO:__main__:         Score = 78.64
+INFO:__main__:         Time = 40.1s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 35/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 128, 'dropout_rate': 0.1, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.11% ± 0.64%
+INFO:__main__:         F1-Macro = 0.7795 ± 0.0063
+INFO:__main__:         Score = 78.47
+INFO:__main__:         Time = 41.2s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 36/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 32, 'dropout_rate': 0.3, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.35% ± 0.46%
+INFO:__main__:         F1-Macro = 0.7723 ± 0.0054
+INFO:__main__:         Score = 77.89
+INFO:__main__:         Time = 289.4s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 37/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.1, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.01% ± 0.65%
+INFO:__main__:         F1-Macro = 0.7784 ± 0.0066
+INFO:__main__:         Score = 78.36
+INFO:__main__:         Time = 27.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 38/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.5, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.24% ± 0.38%
+INFO:__main__:         F1-Macro = 0.7811 ± 0.0045
+INFO:__main__:         Score = 78.86
+INFO:__main__:         Time = 53.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 39/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:NEW BEST RESULT!
+INFO:__main__:Results: Accuracy = 79.27% ± 0.17%
+INFO:__main__:         F1-Macro = 0.7803 ± 0.0032
+INFO:__main__:         Score = 79.10
+INFO:__main__:         Time = 105.7s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 40/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 128, 'dropout_rate': 0.5, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.13% ± 0.42%
+INFO:__main__:         F1-Macro = 0.7798 ± 0.0050
+INFO:__main__:         Score = 78.71
+INFO:__main__:         Time = 77.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 41/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 64, 'dropout_rate': 0.1, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.92% ± 0.49%
+INFO:__main__:         F1-Macro = 0.7778 ± 0.0050
+INFO:__main__:         Score = 78.42
+INFO:__main__:         Time = 69.6s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 42/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.03% ± 0.59%
+INFO:__main__:         F1-Macro = 0.7785 ± 0.0067
+INFO:__main__:         Score = 78.44
+INFO:__main__:         Time = 87.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 43/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 128, 'dropout_rate': 0.5, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 77.54% ± 1.26%
+INFO:__main__:         F1-Macro = 0.7640 ± 0.0101
+INFO:__main__:         Score = 76.28
+INFO:__main__:         Time = 108.4s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 44/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.1, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.31% ± 0.38%
+INFO:__main__:         F1-Macro = 0.7814 ± 0.0042
+INFO:__main__:         Score = 78.93
+INFO:__main__:         Time = 32.3s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 45/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 1e-05, 'batch_size': 256, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 77.61% ± 0.76%
+INFO:__main__:         F1-Macro = 0.7645 ± 0.0068
+INFO:__main__:         Score = 76.85
+INFO:__main__:         Time = 73.2s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 46/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.005, 'batch_size': 256, 'dropout_rate': 0.1, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.28% ± 0.58%
+INFO:__main__:         F1-Macro = 0.7812 ± 0.0054
+INFO:__main__:         Score = 78.70
+INFO:__main__:         Time = 26.6s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 47/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 32, 'dropout_rate': 0.3, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.19% ± 0.71%
+INFO:__main__:         F1-Macro = 0.7796 ± 0.0075
+INFO:__main__:         Score = 78.47
+INFO:__main__:         Time = 153.6s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 48/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 32, 'dropout_rate': 0.3, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 78.96% ± 0.57%
+INFO:__main__:         F1-Macro = 0.7779 ± 0.0063
+INFO:__main__:         Score = 78.39
+INFO:__main__:         Time = 130.5s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 49/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.0005, 'batch_size': 128, 'dropout_rate': 0.1, 'weight_decay': 0.005}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.04% ± 0.52%
+INFO:__main__:         F1-Macro = 0.7787 ± 0.0055
+INFO:__main__:         Score = 78.52
+INFO:__main__:         Time = 49.8s
+INFO:__main__:
+--------------------------------------------------
+INFO:__main__:COMBINATION 50/50
+INFO:__main__:--------------------------------------------------
+INFO:__main__:Hyperparameters: {'learning_rate': 0.001, 'batch_size': 128, 'dropout_rate': 0.3, 'weight_decay': 0.001}
+INFO:__main__:Using device: cuda
+INFO:__main__:Results: Accuracy = 79.08% ± 0.36%
+INFO:__main__:         F1-Macro = 0.7796 ± 0.0043
+INFO:__main__:         Score = 78.72
+INFO:__main__:         Time = 50.4s
+INFO:__main__:
+======================================================================
+INFO:__main__:BINARY HYPERPARAMETER SEARCH COMPLETED
+INFO:__main__:======================================================================
+INFO:__main__:
+Top 5 Hyperparameter Combinations:
+INFO:__main__:1. Score: 79.10 | Accuracy: 79.27% ± 0.17% | Params: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:2. Score: 79.02 | Accuracy: 79.77% ± 0.75% | Params: {'learning_rate': 0.005, 'batch_size': 32, 'dropout_rate': 0.1, 'weight_decay': 0.0001}
+INFO:__main__:3. Score: 78.95 | Accuracy: 79.42% ± 0.46% | Params: {'learning_rate': 0.005, 'batch_size': 32, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:4. Score: 78.93 | Accuracy: 79.31% ± 0.38% | Params: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.1, 'weight_decay': 0.005}
+INFO:__main__:5. Score: 78.86 | Accuracy: 79.24% ± 0.38% | Params: {'learning_rate': 0.001, 'batch_size': 256, 'dropout_rate': 0.5, 'weight_decay': 0.001}
+INFO:__main__:
+BEST HYPERPARAMETERS:
+INFO:__main__:Parameters: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Validation Accuracy: 79.27% ± 0.17%
+INFO:__main__:Validation F1-Macro: 0.7803 ± 0.0032
+INFO:__main__:Optimization Score: 79.10
+INFO:__main__:
+Binary hyperparameter search results saved to results/overnight_binary_hyperparam_search/binary_hyperparameter_search_results.json
+INFO:__main__:
+Training final binary model with best hyperparameters...
+INFO:__main__:Best hyperparameters: {'learning_rate': 0.005, 'batch_size': 64, 'dropout_rate': 0.5, 'weight_decay': 0.0001}
+INFO:__main__:Using device: cuda
+INFO:__main__:
+Preparing fold 1/5
+INFO:__main__:
+==================================================
+INFO:__main__:TRAINING FOLD 1
+INFO:__main__:==================================================
+INFO:__main__:Epoch   1/100 | Train Loss: 0.5100 | Val Loss: 0.4412 | Train Acc: 76.50% | Val Acc: 79.88% | LR: 0.005000
+INFO:__main__:Epoch  10/100 | Train Loss: 0.4648 | Val Loss: 0.4335 | Train Acc: 78.18% | Val Acc: 79.23% | LR: 0.005000
+INFO:__main__:Epoch  20/100 | Train Loss: 0.4524 | Val Loss: 0.4313 | Train Acc: 78.88% | Val Acc: 79.53% | LR: 0.001250
+INFO:__main__:Epoch  30/100 | Train Loss: 0.4501 | Val Loss: 0.4321 | Train Acc: 78.62% | Val Acc: 78.63% | LR: 0.000625
+INFO:__main__:Early stopping triggered at epoch 39
+INFO:__main__:
+Fold 1 Results:
+INFO:__main__:Training Time: 16.02 seconds
+INFO:__main__:Epochs Trained: 39
+INFO:__main__:Final Train Accuracy: 79.30%
+INFO:__main__:Final Val Accuracy: 79.23%
+INFO:__main__:Validation F1-Macro: 0.7816
+INFO:__main__:Best Val Accuracy: 80.48%
+INFO:__main__:
+Detailed Classification Report:
+INFO:__main__:
+                precision    recall  f1-score   support
+
+    entailment       0.64      0.86      0.73       666
+non-entailment       0.91      0.76      0.83      1332
+
+      accuracy                           0.79      1998
+     macro avg       0.78      0.81      0.78      1998
+  weighted avg       0.82      0.79      0.80      1998
+
+INFO:__main__:Saved binary model checkpoint: results/overnight_binary_hyperparam_search/final_binary_model/binary_model_fold_1.pt
+INFO:__main__:
+Preparing fold 2/5
+INFO:__main__:
+==================================================
+INFO:__main__:TRAINING FOLD 2
+INFO:__main__:==================================================
+INFO:__main__:Epoch   1/100 | Train Loss: 0.5274 | Val Loss: 0.4567 | Train Acc: 74.25% | Val Acc: 77.58% | LR: 0.005000
+INFO:__main__:Epoch  10/100 | Train Loss: 0.4538 | Val Loss: 0.4486 | Train Acc: 78.50% | Val Acc: 78.83% | LR: 0.005000
+INFO:__main__:Epoch  20/100 | Train Loss: 0.4521 | Val Loss: 0.4476 | Train Acc: 78.73% | Val Acc: 78.68% | LR: 0.002500
+INFO:__main__:Epoch  30/100 | Train Loss: 0.4524 | Val Loss: 0.4429 | Train Acc: 79.14% | Val Acc: 78.68% | LR: 0.001250
+INFO:__main__:Epoch  40/100 | Train Loss: 0.4485 | Val Loss: 0.4455 | Train Acc: 78.88% | Val Acc: 79.08% | LR: 0.000625
+INFO:__main__:Epoch  50/100 | Train Loss: 0.4466 | Val Loss: 0.4433 | Train Acc: 79.13% | Val Acc: 79.13% | LR: 0.000313
+INFO:__main__:Epoch  60/100 | Train Loss: 0.4431 | Val Loss: 0.4421 | Train Acc: 79.38% | Val Acc: 78.78% | LR: 0.000078
+INFO:__main__:Epoch  70/100 | Train Loss: 0.4443 | Val Loss: 0.4451 | Train Acc: 78.92% | Val Acc: 79.23% | LR: 0.000039
+INFO:__main__:Early stopping triggered at epoch 77
+INFO:__main__:
+Fold 2 Results:
+INFO:__main__:Training Time: 31.28 seconds
+INFO:__main__:Epochs Trained: 77
+INFO:__main__:Final Train Accuracy: 80.37%
+INFO:__main__:Final Val Accuracy: 79.33%
+INFO:__main__:Validation F1-Macro: 0.7775
+INFO:__main__:Best Val Accuracy: 79.48%
+INFO:__main__:
+Detailed Classification Report:
+INFO:__main__:
+                precision    recall  f1-score   support
+
+    entailment       0.66      0.79      0.72       666
+non-entailment       0.88      0.80      0.84      1332
+
+      accuracy                           0.79      1998
+     macro avg       0.77      0.79      0.78      1998
+  weighted avg       0.81      0.79      0.80      1998
+
+INFO:__main__:Saved binary model checkpoint: results/overnight_binary_hyperparam_search/final_binary_model/binary_model_fold_2.pt
+INFO:__main__:
+Preparing fold 3/5
+INFO:__main__:
+==================================================
+INFO:__main__:TRAINING FOLD 3
+INFO:__main__:==================================================
+INFO:__main__:Epoch   1/100 | Train Loss: 0.5250 | Val Loss: 0.4632 | Train Acc: 74.85% | Val Acc: 76.58% | LR: 0.005000
+INFO:__main__:Epoch  10/100 | Train Loss: 0.4571 | Val Loss: 0.4518 | Train Acc: 78.37% | Val Acc: 78.18% | LR: 0.005000
+INFO:__main__:Epoch  20/100 | Train Loss: 0.4514 | Val Loss: 0.4471 | Train Acc: 78.99% | Val Acc: 78.68% | LR: 0.002500
+INFO:__main__:Epoch  30/100 | Train Loss: 0.4502 | Val Loss: 0.4464 | Train Acc: 79.34% | Val Acc: 78.83% | LR: 0.001250
+INFO:__main__:Epoch  40/100 | Train Loss: 0.4472 | Val Loss: 0.4463 | Train Acc: 79.34% | Val Acc: 78.63% | LR: 0.000625
+INFO:__main__:Early stopping triggered at epoch 47
+INFO:__main__:
+Fold 3 Results:
+INFO:__main__:Training Time: 19.35 seconds
+INFO:__main__:Epochs Trained: 47
+INFO:__main__:Final Train Accuracy: 80.48%
+INFO:__main__:Final Val Accuracy: 78.98%
+INFO:__main__:Validation F1-Macro: 0.7760
+INFO:__main__:Best Val Accuracy: 79.23%
+INFO:__main__:
+Detailed Classification Report:
+INFO:__main__:
+                precision    recall  f1-score   support
+
+    entailment       0.65      0.81      0.72       666
+non-entailment       0.89      0.78      0.83      1332
+
+      accuracy                           0.79      1998
+     macro avg       0.77      0.80      0.78      1998
+  weighted avg       0.81      0.79      0.79      1998
+
+INFO:__main__:Saved binary model checkpoint: results/overnight_binary_hyperparam_search/final_binary_model/binary_model_fold_3.pt
+INFO:__main__:
+Preparing fold 4/5
+INFO:__main__:
+==================================================
+INFO:__main__:TRAINING FOLD 4
+INFO:__main__:==================================================
+INFO:__main__:Epoch   1/100 | Train Loss: 0.5250 | Val Loss: 0.4507 | Train Acc: 75.75% | Val Acc: 79.78% | LR: 0.005000
+INFO:__main__:Epoch  10/100 | Train Loss: 0.4661 | Val Loss: 0.4456 | Train Acc: 78.05% | Val Acc: 79.03% | LR: 0.005000
+INFO:__main__:Epoch  20/100 | Train Loss: 0.4538 | Val Loss: 0.4388 | Train Acc: 78.35% | Val Acc: 79.98% | LR: 0.002500
+INFO:__main__:Epoch  30/100 | Train Loss: 0.4541 | Val Loss: 0.4407 | Train Acc: 78.29% | Val Acc: 79.43% | LR: 0.001250
+INFO:__main__:Early stopping triggered at epoch 39
+INFO:__main__:
+Fold 4 Results:
+INFO:__main__:Training Time: 15.75 seconds
+INFO:__main__:Epochs Trained: 39
+INFO:__main__:Final Train Accuracy: 78.54%
+INFO:__main__:Final Val Accuracy: 79.48%
+INFO:__main__:Validation F1-Macro: 0.7850
+INFO:__main__:Best Val Accuracy: 80.78%
+INFO:__main__:
+Detailed Classification Report:
+INFO:__main__:
+                precision    recall  f1-score   support
+
+    entailment       0.64      0.87      0.74       666
+non-entailment       0.92      0.76      0.83      1332
+
+      accuracy                           0.79      1998
+     macro avg       0.78      0.81      0.79      1998
+  weighted avg       0.83      0.79      0.80      1998
+
+INFO:__main__:Saved binary model checkpoint: results/overnight_binary_hyperparam_search/final_binary_model/binary_model_fold_4.pt
+INFO:__main__:
+Preparing fold 5/5
+INFO:__main__:
+==================================================
+INFO:__main__:TRAINING FOLD 5
+INFO:__main__:==================================================
+INFO:__main__:Epoch   1/100 | Train Loss: 0.5146 | Val Loss: 0.4414 | Train Acc: 75.78% | Val Acc: 78.18% | LR: 0.005000
+INFO:__main__:Epoch  10/100 | Train Loss: 0.4571 | Val Loss: 0.4341 | Train Acc: 78.50% | Val Acc: 79.63% | LR: 0.005000
+INFO:__main__:Epoch  20/100 | Train Loss: 0.4558 | Val Loss: 0.4339 | Train Acc: 78.54% | Val Acc: 79.38% | LR: 0.002500
+INFO:__main__:Epoch  30/100 | Train Loss: 0.4522 | Val Loss: 0.4337 | Train Acc: 78.78% | Val Acc: 79.28% | LR: 0.001250
+INFO:__main__:Epoch  40/100 | Train Loss: 0.4468 | Val Loss: 0.4328 | Train Acc: 79.03% | Val Acc: 79.83% | LR: 0.000313
+INFO:__main__:Early stopping triggered at epoch 41
+INFO:__main__:
+Fold 5 Results:
+INFO:__main__:Training Time: 16.91 seconds
+INFO:__main__:Epochs Trained: 41
+INFO:__main__:Final Train Accuracy: 79.68%
+INFO:__main__:Final Val Accuracy: 79.33%
+INFO:__main__:Validation F1-Macro: 0.7816
+INFO:__main__:Best Val Accuracy: 80.08%
+INFO:__main__:
+Detailed Classification Report:
+INFO:__main__:
+                precision    recall  f1-score   support
+
+    entailment       0.65      0.84      0.73       666
+non-entailment       0.91      0.77      0.83      1332
+
+      accuracy                           0.79      1998
+     macro avg       0.78      0.81      0.78      1998
+  weighted avg       0.82      0.79      0.80      1998
+
+INFO:__main__:Saved binary model checkpoint: results/overnight_binary_hyperparam_search/final_binary_model/binary_model_fold_5.pt
+INFO:__main__:
+============================================================
+INFO:__main__:BINARY CROSS-VALIDATION SUMMARY
+INFO:__main__:============================================================
+INFO:__main__:Binary Validation Accuracy: 79.27% ± 0.17%
+INFO:__main__:Range: 78.98% - 79.48%
+INFO:__main__:Binary Validation F1-Macro: 0.7803 ± 0.0032
+INFO:__main__:Total Training Time: 99.31 seconds
+INFO:__main__:Average Epochs: 48.6
+INFO:__main__:
+Per-Fold Results:
+INFO:__main__:Fold 1: Val Acc = 79.23%, F1 = 0.7816, Epochs = 39
+INFO:__main__:Fold 2: Val Acc = 79.33%, F1 = 0.7775, Epochs = 77
+INFO:__main__:Fold 3: Val Acc = 78.98%, F1 = 0.7760, Epochs = 47
+INFO:__main__:Fold 4: Val Acc = 79.48%, F1 = 0.7850, Epochs = 39
+INFO:__main__:Fold 5: Val Acc = 79.33%, F1 = 0.7816, Epochs = 41
+INFO:__main__:
+Diagnostic Analysis:
+INFO:__main__:Train-Val gap is reasonable: 0.41%
+INFO:__main__:Low variance across folds: 0.17%
+INFO:__main__:
+PERFORMANCE COMPARISON:
+INFO:__main__:Binary Classification Accuracy: 79.27%
+INFO:__main__:3-Way Classification Baseline: 58.90%
+INFO:__main__:Improvement: +20.37 percentage points
+INFO:__main__:DECENT: Binary accuracy > 75%! Reasonable improvement!
+INFO:__main__:Final binary model results saved to results/overnight_binary_hyperparam_search/final_binary_model/final_binary_cv_results.json
+INFO:__main__:
+Binary classifier training completed successfully!
+INFO:__main__:Expected improvement: Binary classification should perform much better
+INFO:__main__:than 3-way classification since your geometric features excel at
+INFO:__main__:distinguishing entailment from non-entailment relationships!

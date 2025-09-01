@@ -1,0 +1,90 @@
+{
+  "timestamp": "20250708_170830",
+  "experiment_config": {
+    "sample_size": 5,
+    "embedding_space": "lattice_containment",
+    "classifier": "SGD",
+    "loss_function": "hinge",
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "performance_metrics": {
+    "test_accuracy": 0.6179714946211115,
+    "confusion_matrix": [
+      [
+        32224,
+        1505,
+        2954
+      ],
+      [
+        17677,
+        5071,
+        13805
+      ],
+      [
+        4717,
+        1317,
+        30604
+      ]
+    ],
+    "classification_report": {
+      "Entailment": {
+        "precision": 0.5899886484309202,
+        "recall": 0.8784450562931058,
+        "f1-score": 0.7058849300664835,
+        "support": 36683.0
+      },
+      "Neutral": {
+        "precision": 0.642468009628785,
+        "recall": 0.1387300631959073,
+        "f1-score": 0.2281870134545291,
+        "support": 36553.0
+      },
+      "Contradiction": {
+        "precision": 0.6461583936828326,
+        "recall": 0.8353076041268628,
+        "f1-score": 0.7286579921667599,
+        "support": 36638.0
+      },
+      "accuracy": 0.6179714946211115,
+      "macro avg": {
+        "precision": 0.6262050172475127,
+        "recall": 0.617494241205292,
+        "f1-score": 0.5542433118959241,
+        "support": 109874.0
+      },
+      "weighted avg": {
+        "precision": 0.626177603200976,
+        "recall": 0.6179714946211115,
+        "f1-score": 0.5545576597688076,
+        "support": 109874.0
+      }
+    }
+  },
+  "decision_function_stats": {
+    "shape": [
+      109874,
+      3
+    ],
+    "mean_per_class": [
+      -0.982984185218811,
+      -0.9902717471122742,
+      -0.8317252993583679
+    ],
+    "std_per_class": [
+      1.7595311403274536,
+      0.1241045594215393,
+      1.6003011465072632
+    ],
+    "min_per_class": [
+      -8.3074312210083,
+      -1.5238302946090698,
+      -5.327620029449463
+    ],
+    "max_per_class": [
+      4.706974029541016,
+      -0.2992953658103943,
+      5.7278571128845215
+    ]
+  }
+}

@@ -1,0 +1,1819 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 177912
+Node: gpuvm12
+Time: Fri 27 Jun 15:21:30 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Jun 27 15:21:32 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.120                Driver Version: 550.120        CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:01:00.0 Off |                    0 |
+| N/A   35C    P0             29W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.2 GB
+PyTorch setup verified!
+
+Checking for required input data and models...
+Found BERT data: data/processed/snli_full_standard_BERT.pt
+✓ Found order model: models/enhanced_order_embeddings_snli_full.pt
+
+Starting Surface Distance Metric Analysis...
+Analysis parameters:
+  - Embedding spaces: 17 total
+  - Distance metrics: 12 total
+  - Total combinations: 204
+  - Max samples per class: 20000 (for initial run)
+  - Random seed: 42
+
+Surface Distance Metric Analyzer initialized
+FOCUS: Testing distance metrics for premise-hypothesis pair relationships
+Device: cuda
+BERT data: data/processed/snli_full_standard_BERT.pt
+Order model: models/enhanced_order_embeddings_snli_full.pt
+Distance metrics: 10 total
+Relational embedding spaces: 9 total
+Each space represents premise-hypothesis pair relationships
+Loading pre-processed data...
+Loading BERT embeddings from data/processed/snli_full_standard_BERT.pt
+BERT data loaded:
+  Premise embeddings: torch.Size([549367, 768])
+  Hypothesis embeddings: torch.Size([549367, 768])
+  Labels: 549367
+  Label distribution: {'contradiction': 183187, 'entailment': 183416, 'neutral': 182764}
+Loading order model from models/enhanced_order_embeddings_snli_full.pt
+Order model loaded (validation loss: 1.6769452275199535)
+Loaded enhanced order model (val_loss: 1.6769)
+Model asymmetry_weight: 0.3
+Pipeline initialized: 50D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 0.3
+Hyperbolic pipeline loaded successfully
+Enhanced Hyperbolic Entailment Cones using device: cuda
+Loaded enhanced order model (val_loss: 1.6769)
+Model asymmetry_weight: 0.3
+Pipeline initialized: 50D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 0.3
+Successfully loaded enhanced hyperbolic projection of order embeddings
+Enhanced cone pipeline loaded successfully
+================================================================================
+COMPREHENSIVE SURFACE DISTANCE METRIC ANALYSIS (GPU-OPTIMIZED)
+Testing all distance metrics across all embedding spaces
+Device: cuda
+GPU Memory: 3221.0 MB allocated
+================================================================================
+Extracting all embedding spaces...
+  entailment: 20000 samples
+  neutral: 20000 samples
+  contradiction: 20000 samples
+Computing EUCLIDEAN order embeddings...
+Computing ALL HYPERBOLIC features from enhanced cone pipeline...
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Extracting bert_concat...
+  bert_concat entailment: torch.Size([20000, 1536])
+  bert_concat neutral: torch.Size([20000, 1536])
+  bert_concat contradiction: torch.Size([20000, 1536])
+Extracting bert_difference...
+  bert_difference entailment: torch.Size([20000, 768])
+  bert_difference neutral: torch.Size([20000, 768])
+  bert_difference contradiction: torch.Size([20000, 768])
+Extracting order_concat...
+  order_concat entailment: torch.Size([20000, 100])
+  order_concat neutral: torch.Size([20000, 100])
+  order_concat contradiction: torch.Size([20000, 100])
+Extracting order_difference...
+  order_difference entailment: torch.Size([20000, 50])
+  order_difference neutral: torch.Size([20000, 50])
+  order_difference contradiction: torch.Size([20000, 50])
+Extracting order_violations...
+  order_violations entailment: torch.Size([20000, 1])
+  order_violations neutral: torch.Size([20000, 1])
+  order_violations contradiction: torch.Size([20000, 1])
+Extracting hyperbolic_concat...
+  hyperbolic_concat entailment: torch.Size([20000, 60])
+  hyperbolic_concat neutral: torch.Size([20000, 60])
+  hyperbolic_concat contradiction: torch.Size([20000, 60])
+Extracting hyperbolic_distances...
+  hyperbolic_distances entailment: torch.Size([20000, 1])
+  hyperbolic_distances neutral: torch.Size([20000, 1])
+  hyperbolic_distances contradiction: torch.Size([20000, 1])
+Extracting cone_energies...
+  cone_energies entailment: torch.Size([20000, 1])
+  cone_energies neutral: torch.Size([20000, 1])
+  cone_energies contradiction: torch.Size([20000, 1])
+Extracting cone_features...
+  cone_features entailment: torch.Size([20000, 5])
+  cone_features neutral: torch.Size([20000, 5])
+  cone_features contradiction: torch.Size([20000, 5])
+
+============================================================
+TESTING SPACE: bert_concat
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in bert_concat using euclidean
+    entailment PH-Dim: 22.6324
+  Computing PH-Dim for neutral in bert_concat using euclidean
+    neutral PH-Dim: 28.0793
+  Computing PH-Dim for contradiction in bert_concat using euclidean
+    contradiction PH-Dim: 21.7052
+  Computing cross-class surface analysis for bert_concat using euclidean
+    Entailment separation: 0.5387
+    Surface gradient: 0.0000
+    Surface learning score: 0.0269
+  STEP 1 - PH-Dim scores: {'entailment': 22.632434432880675, 'neutral': 28.0793272297081, 'contradiction': 21.7052154986708}
+  STEP 1 - Surface quality: 0.4672
+  STEP 2 - Cross-class surface score: 0.0269
+  COMBINED surface learning potential: 0.2471
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in bert_concat using manhattan
+    entailment PH-Dim: 22.2550
+  Computing PH-Dim for neutral in bert_concat using manhattan
+    neutral PH-Dim: 21.2291
+  Computing PH-Dim for contradiction in bert_concat using manhattan
+    contradiction PH-Dim: 24.0821
+  Computing cross-class surface analysis for bert_concat using manhattan
+    Entailment separation: 12.9574
+    Surface gradient: 0.0000
+    Surface learning score: 0.6479
+  STEP 1 - PH-Dim scores: {'entailment': 22.254977448028654, 'neutral': 21.22907677932451, 'contradiction': 24.08211143899823}
+  STEP 1 - Surface quality: 0.3772
+  STEP 2 - Cross-class surface score: 0.6479
+  COMBINED surface learning potential: 0.5125
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in bert_concat using chebyshev
+    entailment PH-Dim: 18.4338
+  Computing PH-Dim for neutral in bert_concat using chebyshev
+    neutral PH-Dim: 17.5088
+  Computing PH-Dim for contradiction in bert_concat using chebyshev
+    contradiction PH-Dim: 19.1839
+  Computing cross-class surface analysis for bert_concat using chebyshev
+    Entailment separation: 0.0768
+    Surface gradient: 1.0000
+    Surface learning score: 0.5038
+  STEP 1 - PH-Dim scores: {'entailment': 18.433788463980125, 'neutral': 17.50877774779053, 'contradiction': 19.18387596690951}
+  STEP 1 - Surface quality: 0.3472
+  STEP 2 - Cross-class surface score: 0.5038
+  COMBINED surface learning potential: 0.4255
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in bert_concat using cosine
+    entailment PH-Dim: 14.1144
+  Computing PH-Dim for neutral in bert_concat using cosine
+    neutral PH-Dim: 11.0365
+  Computing PH-Dim for contradiction in bert_concat using cosine
+    contradiction PH-Dim: 12.1140
+  Computing cross-class surface analysis for bert_concat using cosine
+    Entailment separation: 0.0006
+    Surface gradient: 0.0000
+    Surface learning score: 0.0000
+  STEP 1 - PH-Dim scores: {'entailment': 14.114429156396646, 'neutral': 11.036510251898072, 'contradiction': 12.114030161659723}
+  STEP 1 - Surface quality: 0.2596
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.1298
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in bert_concat using minkowski_3
+    entailment PH-Dim: 21.4445
+  Computing PH-Dim for neutral in bert_concat using minkowski_3
+    neutral PH-Dim: 21.3335
+  Computing PH-Dim for contradiction in bert_concat using minkowski_3
+    contradiction PH-Dim: 22.0767
+  Computing cross-class surface analysis for bert_concat using minkowski_3
+    Entailment separation: 0.2093
+    Surface gradient: 0.0000
+    Surface learning score: 0.0105
+  STEP 1 - PH-Dim scores: {'entailment': 21.44447835528322, 'neutral': 21.333517714928995, 'contradiction': 22.076650172375683}
+  STEP 1 - Surface quality: 0.3232
+  STEP 2 - Cross-class surface score: 0.0105
+  COMBINED surface learning potential: 0.1668
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in bert_concat using minkowski_4
+    entailment PH-Dim: 21.2564
+  Computing PH-Dim for neutral in bert_concat using minkowski_4
+    neutral PH-Dim: 25.2014
+  Computing PH-Dim for contradiction in bert_concat using minkowski_4
+    contradiction PH-Dim: 27.9672
+  Computing cross-class surface analysis for bert_concat using minkowski_4
+    Entailment separation: 0.1378
+    Surface gradient: 0.0000
+    Surface learning score: 0.0069
+  STEP 1 - PH-Dim scores: {'entailment': 21.256420738641737, 'neutral': 25.201351498675276, 'contradiction': 27.9672280957762}
+  STEP 1 - Surface quality: 0.6009
+  STEP 2 - Cross-class surface score: 0.0069
+  COMBINED surface learning potential: 0.3039
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in bert_concat using canberra
+    entailment PH-Dim: 41.0533
+  Computing PH-Dim for neutral in bert_concat using canberra
+    neutral PH-Dim: 46.0111
+  Computing PH-Dim for contradiction in bert_concat using canberra
+    contradiction PH-Dim: 41.7061
+  Computing cross-class surface analysis for bert_concat using canberra
+    Entailment separation: 68.9640
+    Surface gradient: 0.0000
+    Surface learning score: 3.4482
+  STEP 1 - PH-Dim scores: {'entailment': 41.05327220434001, 'neutral': 46.011069365763966, 'contradiction': 41.70609173179346}
+  STEP 1 - Surface quality: 0.5546
+  STEP 2 - Cross-class surface score: 3.4482
+  COMBINED surface learning potential: 2.0014
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in bert_concat using braycurtis
+    entailment PH-Dim: 22.5952
+  Computing PH-Dim for neutral in bert_concat using braycurtis
+    neutral PH-Dim: 20.1489
+  Computing PH-Dim for contradiction in bert_concat using braycurtis
+    contradiction PH-Dim: 22.9650
+  Computing cross-class surface analysis for bert_concat using braycurtis
+    Entailment separation: 0.0142
+    Surface gradient: 0.0000
+    Surface learning score: 0.0007
+  STEP 1 - PH-Dim scores: {'entailment': 22.5951609162011, 'neutral': 20.14889382658986, 'contradiction': 22.964994820627567}
+  STEP 1 - Surface quality: 0.3763
+  STEP 2 - Cross-class surface score: 0.0007
+  COMBINED surface learning potential: 0.1885
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in bert_concat using hyperbolic
+    entailment PH-Dim: 27.6709
+  Computing PH-Dim for neutral in bert_concat using hyperbolic
+    neutral PH-Dim: 29.6535
+  Computing PH-Dim for contradiction in bert_concat using hyperbolic
+    contradiction PH-Dim: 21.6636
+  Computing cross-class surface analysis for bert_concat using hyperbolic
+    Entailment separation: 1.9676
+    Surface gradient: 0.0000
+    Surface learning score: 0.0984
+  STEP 1 - PH-Dim scores: {'entailment': 27.670894919620473, 'neutral': 29.65353736054249, 'contradiction': 21.66355249961119}
+  STEP 1 - Surface quality: 0.5085
+  STEP 2 - Cross-class surface score: 0.0984
+  COMBINED surface learning potential: 0.3035
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in bert_concat using order_violation
+    entailment PH-Dim: 24.2619
+  Computing PH-Dim for neutral in bert_concat using order_violation
+    neutral PH-Dim: 24.7022
+  Computing PH-Dim for contradiction in bert_concat using order_violation
+    contradiction PH-Dim: 25.4230
+  Computing cross-class surface analysis for bert_concat using order_violation
+    Entailment separation: 12.9574
+    Surface gradient: 0.0000
+    Surface learning score: 0.6479
+  STEP 1 - PH-Dim scores: {'entailment': 24.26190252660092, 'neutral': 24.702245141715785, 'contradiction': 25.42301334627197}
+  STEP 1 - Surface quality: 0.4588
+  STEP 2 - Cross-class surface score: 0.6479
+  COMBINED surface learning potential: 0.5533
+
+Saved bert_concat results to entailment_surfaces/results/surface_analysis_bert_concat_20250627_152202.json
+
+============================================================
+TESTING SPACE: bert_difference
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in bert_difference using euclidean
+    entailment PH-Dim: 34.7672
+  Computing PH-Dim for neutral in bert_difference using euclidean
+    neutral PH-Dim: 45.8216
+  Computing PH-Dim for contradiction in bert_difference using euclidean
+    contradiction PH-Dim: 21.3355
+  Computing cross-class surface analysis for bert_difference using euclidean
+    Entailment separation: 0.4028
+    Surface gradient: 0.0000
+    Surface learning score: 0.0201
+  STEP 1 - PH-Dim scores: {'entailment': 34.76715008581471, 'neutral': 45.821606424307944, 'contradiction': 21.33546758333842}
+  STEP 1 - Surface quality: 0.9307
+  STEP 2 - Cross-class surface score: 0.0201
+  COMBINED surface learning potential: 0.4754
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in bert_difference using manhattan
+    entailment PH-Dim: 32.7178
+  Computing PH-Dim for neutral in bert_difference using manhattan
+    neutral PH-Dim: 28.4785
+  Computing PH-Dim for contradiction in bert_difference using manhattan
+    contradiction PH-Dim: 21.1676
+  Computing cross-class surface analysis for bert_difference using manhattan
+    Entailment separation: 8.9078
+    Surface gradient: 0.0000
+    Surface learning score: 0.4454
+  STEP 1 - PH-Dim scores: {'entailment': 32.717830162333264, 'neutral': 28.478490839801097, 'contradiction': 21.167617010562598}
+  STEP 1 - Surface quality: 0.4747
+  STEP 2 - Cross-class surface score: 0.4454
+  COMBINED surface learning potential: 0.4601
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in bert_difference using chebyshev
+    entailment PH-Dim: 19.1916
+  Computing PH-Dim for neutral in bert_difference using chebyshev
+    neutral PH-Dim: 22.9893
+  Computing PH-Dim for contradiction in bert_difference using chebyshev
+    contradiction PH-Dim: 17.8562
+  Computing cross-class surface analysis for bert_difference using chebyshev
+    Entailment separation: 0.0553
+    Surface gradient: 1.0000
+    Surface learning score: 0.5028
+  STEP 1 - PH-Dim scores: {'entailment': 19.19163475030537, 'neutral': 22.989300011345588, 'contradiction': 17.856235215474104}
+  STEP 1 - Surface quality: 0.4361
+  STEP 2 - Cross-class surface score: 0.5028
+  COMBINED surface learning potential: 0.4694
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in bert_difference using cosine
+    entailment PH-Dim: 16.4449
+  Computing PH-Dim for neutral in bert_difference using cosine
+    neutral PH-Dim: 14.8681
+  Computing PH-Dim for contradiction in bert_difference using cosine
+    contradiction PH-Dim: 12.1120
+  Computing cross-class surface analysis for bert_difference using cosine
+    Entailment separation: 0.0201
+    Surface gradient: 0.0000
+    Surface learning score: 0.0010
+  STEP 1 - PH-Dim scores: {'entailment': 16.444867323174645, 'neutral': 14.868084379744873, 'contradiction': 12.11198150227666}
+  STEP 1 - Surface quality: 0.2920
+  STEP 2 - Cross-class surface score: 0.0010
+  COMBINED surface learning potential: 0.1465
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in bert_difference using minkowski_3
+    entailment PH-Dim: 24.5103
+  Computing PH-Dim for neutral in bert_difference using minkowski_3
+    neutral PH-Dim: 25.9642
+  Computing PH-Dim for contradiction in bert_difference using minkowski_3
+    contradiction PH-Dim: 25.9764
+  Computing cross-class surface analysis for bert_difference using minkowski_3
+    Entailment separation: 0.1567
+    Surface gradient: 0.0000
+    Surface learning score: 0.0078
+  STEP 1 - PH-Dim scores: {'entailment': 24.510316287325555, 'neutral': 25.964200988392736, 'contradiction': 25.976430035297998}
+  STEP 1 - Surface quality: 0.4666
+  STEP 2 - Cross-class surface score: 0.0078
+  COMBINED surface learning potential: 0.2372
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in bert_difference using minkowski_4
+    entailment PH-Dim: 27.4170
+  Computing PH-Dim for neutral in bert_difference using minkowski_4
+    neutral PH-Dim: 19.8472
+  Computing PH-Dim for contradiction in bert_difference using minkowski_4
+    contradiction PH-Dim: 30.6877
+  Computing cross-class surface analysis for bert_difference using minkowski_4
+    Entailment separation: 0.1026
+    Surface gradient: 0.0000
+    Surface learning score: 0.0051
+  STEP 1 - PH-Dim scores: {'entailment': 27.417044760353335, 'neutral': 19.847238205952113, 'contradiction': 30.68770230121942}
+  STEP 1 - Surface quality: 0.5820
+  STEP 2 - Cross-class surface score: 0.0051
+  COMBINED surface learning potential: 0.2936
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in bert_difference using canberra
+    entailment PH-Dim: 37.2144
+  Computing PH-Dim for neutral in bert_difference using canberra
+    neutral PH-Dim: 41.4086
+  Computing PH-Dim for contradiction in bert_difference using canberra
+    contradiction PH-Dim: 47.9838
+  Computing cross-class surface analysis for bert_difference using canberra
+    Entailment separation: 110.0551
+    Surface gradient: 0.0000
+    Surface learning score: 5.5028
+  STEP 1 - PH-Dim scores: {'entailment': 37.21435852448172, 'neutral': 41.40861201102173, 'contradiction': 47.98384314012409}
+  STEP 1 - Surface quality: 0.7020
+  STEP 2 - Cross-class surface score: 5.5028
+  COMBINED surface learning potential: 3.1024
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in bert_difference using braycurtis
+    entailment PH-Dim: 18.7274
+  Computing PH-Dim for neutral in bert_difference using braycurtis
+    neutral PH-Dim: 18.1680
+  Computing PH-Dim for contradiction in bert_difference using braycurtis
+    contradiction PH-Dim: 21.7881
+  Computing cross-class surface analysis for bert_difference using braycurtis
+    Entailment separation: 0.0772
+    Surface gradient: 0.0000
+    Surface learning score: 0.0039
+  STEP 1 - PH-Dim scores: {'entailment': 18.72737036088916, 'neutral': 18.168036495861095, 'contradiction': 21.78809112420415}
+  STEP 1 - Surface quality: 0.3972
+  STEP 2 - Cross-class surface score: 0.0039
+  COMBINED surface learning potential: 0.2005
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in bert_difference using hyperbolic
+    entailment PH-Dim: 28.9130
+  Computing PH-Dim for neutral in bert_difference using hyperbolic
+    neutral PH-Dim: 35.9779
+  Computing PH-Dim for contradiction in bert_difference using hyperbolic
+    contradiction PH-Dim: 23.7401
+  Computing cross-class surface analysis for bert_difference using hyperbolic
+    Entailment separation: 3.3275
+    Surface gradient: 0.0000
+    Surface learning score: 0.1664
+  STEP 1 - PH-Dim scores: {'entailment': 28.913034493823236, 'neutral': 35.97792647037628, 'contradiction': 23.740069835121528}
+  STEP 1 - Surface quality: 0.6166
+  STEP 2 - Cross-class surface score: 0.1664
+  COMBINED surface learning potential: 0.3915
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in bert_difference using order_violation
+    entailment PH-Dim: 24.3196
+  Computing PH-Dim for neutral in bert_difference using order_violation
+    neutral PH-Dim: 27.1888
+  Computing PH-Dim for contradiction in bert_difference using order_violation
+    contradiction PH-Dim: 29.3348
+  Computing cross-class surface analysis for bert_difference using order_violation
+    Entailment separation: 8.9078
+    Surface gradient: 0.0000
+    Surface learning score: 0.4454
+  STEP 1 - PH-Dim scores: {'entailment': 24.31962924619115, 'neutral': 27.188806591402116, 'contradiction': 29.334760285551514}
+  STEP 1 - Surface quality: 0.5571
+  STEP 2 - Cross-class surface score: 0.4454
+  COMBINED surface learning potential: 0.5013
+
+Saved bert_difference results to entailment_surfaces/results/surface_analysis_bert_difference_20250627_152202.json
+
+============================================================
+TESTING SPACE: order_concat
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in order_concat using euclidean
+    entailment PH-Dim: 11.8455
+  Computing PH-Dim for neutral in order_concat using euclidean
+    neutral PH-Dim: 12.6504
+  Computing PH-Dim for contradiction in order_concat using euclidean
+    contradiction PH-Dim: 12.0535
+  Computing cross-class surface analysis for order_concat using euclidean
+    Entailment separation: 1.5988
+    Surface gradient: 0.0000
+    Surface learning score: 0.0799
+  STEP 1 - PH-Dim scores: {'entailment': 11.84548882936284, 'neutral': 12.65043610816187, 'contradiction': 12.05354233897086}
+  STEP 1 - Surface quality: 0.4501
+  STEP 2 - Cross-class surface score: 0.0799
+  COMBINED surface learning potential: 0.2650
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in order_concat using manhattan
+    entailment PH-Dim: 12.7595
+  Computing PH-Dim for neutral in order_concat using manhattan
+    neutral PH-Dim: 11.9113
+  Computing PH-Dim for contradiction in order_concat using manhattan
+    contradiction PH-Dim: 11.3186
+  Computing cross-class surface analysis for order_concat using manhattan
+    Entailment separation: 7.6374
+    Surface gradient: 0.0000
+    Surface learning score: 0.3819
+  STEP 1 - PH-Dim scores: {'entailment': 12.759501278495073, 'neutral': 11.911344705236157, 'contradiction': 11.318627995702387}
+  STEP 1 - Surface quality: 0.2168
+  STEP 2 - Cross-class surface score: 0.3819
+  COMBINED surface learning potential: 0.2993
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in order_concat using chebyshev
+    entailment PH-Dim: 10.5879
+  Computing PH-Dim for neutral in order_concat using chebyshev
+    neutral PH-Dim: 10.3753
+  Computing PH-Dim for contradiction in order_concat using chebyshev
+    contradiction PH-Dim: 10.4348
+  Computing cross-class surface analysis for order_concat using chebyshev
+    Entailment separation: 0.7962
+    Surface gradient: 0.0000
+    Surface learning score: 0.0398
+  STEP 1 - PH-Dim scores: {'entailment': 10.587875361907116, 'neutral': 10.375272214607234, 'contradiction': 10.434818886677272}
+  STEP 1 - Surface quality: 0.1847
+  STEP 2 - Cross-class surface score: 0.0398
+  COMBINED surface learning potential: 0.1123
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in order_concat using cosine
+    entailment PH-Dim: 6.4002
+  Computing PH-Dim for neutral in order_concat using cosine
+    neutral PH-Dim: 5.6946
+  Computing PH-Dim for contradiction in order_concat using cosine
+    contradiction PH-Dim: 5.9062
+  Computing cross-class surface analysis for order_concat using cosine
+    Entailment separation: 0.0805
+    Surface gradient: 0.0000
+    Surface learning score: 0.0040
+  STEP 1 - PH-Dim scores: {'entailment': 6.400215828137707, 'neutral': 5.694624429698853, 'contradiction': 5.906194741528244}
+  STEP 1 - Surface quality: 0.1984
+  STEP 2 - Cross-class surface score: 0.0040
+  COMBINED surface learning potential: 0.1012
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in order_concat using minkowski_3
+    entailment PH-Dim: 11.7729
+  Computing PH-Dim for neutral in order_concat using minkowski_3
+    neutral PH-Dim: 12.7901
+  Computing PH-Dim for contradiction in order_concat using minkowski_3
+    contradiction PH-Dim: 10.9768
+  Computing cross-class surface analysis for order_concat using minkowski_3
+    Entailment separation: 1.0768
+    Surface gradient: 1.0000
+    Surface learning score: 0.5538
+  STEP 1 - PH-Dim scores: {'entailment': 11.7729419501396, 'neutral': 12.790110741911612, 'contradiction': 10.976797124460594}
+  STEP 1 - Surface quality: 0.3516
+  STEP 2 - Cross-class surface score: 0.5538
+  COMBINED surface learning potential: 0.4527
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in order_concat using minkowski_4
+    entailment PH-Dim: 11.8066
+  Computing PH-Dim for neutral in order_concat using minkowski_4
+    neutral PH-Dim: 11.4568
+  Computing PH-Dim for contradiction in order_concat using minkowski_4
+    contradiction PH-Dim: 11.2941
+  Computing cross-class surface analysis for order_concat using minkowski_4
+    Entailment separation: 0.9280
+    Surface gradient: 1.0000
+    Surface learning score: 0.5464
+  STEP 1 - PH-Dim scores: {'entailment': 11.806580974716042, 'neutral': 11.456797127886862, 'contradiction': 11.2941053627169}
+  STEP 1 - Surface quality: 0.1925
+  STEP 2 - Cross-class surface score: 0.5464
+  COMBINED surface learning potential: 0.3695
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in order_concat using canberra
+    entailment PH-Dim: 15.7849
+  Computing PH-Dim for neutral in order_concat using canberra
+    neutral PH-Dim: 16.5988
+  Computing PH-Dim for contradiction in order_concat using canberra
+    contradiction PH-Dim: 16.6851
+  Computing cross-class surface analysis for order_concat using canberra
+    Entailment separation: 68.8889
+    Surface gradient: 1.0000
+    Surface learning score: 3.9444
+  STEP 1 - PH-Dim scores: {'entailment': 15.784917491951209, 'neutral': 16.598799544303, 'contradiction': 16.685118746787843}
+  STEP 1 - Surface quality: 0.4524
+  STEP 2 - Cross-class surface score: 3.9444
+  COMBINED surface learning potential: 2.1984
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in order_concat using braycurtis
+    entailment PH-Dim: 12.1564
+  Computing PH-Dim for neutral in order_concat using braycurtis
+    neutral PH-Dim: 12.3973
+  Computing PH-Dim for contradiction in order_concat using braycurtis
+    contradiction PH-Dim: 10.9907
+  Computing cross-class surface analysis for order_concat using braycurtis
+    Entailment separation: 0.4776
+    Surface gradient: 0.0000
+    Surface learning score: 0.0239
+  STEP 1 - PH-Dim scores: {'entailment': 12.156372989390054, 'neutral': 12.397265487713316, 'contradiction': 10.99065994140926}
+  STEP 1 - Surface quality: 0.3409
+  STEP 2 - Cross-class surface score: 0.0239
+  COMBINED surface learning potential: 0.1824
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in order_concat using hyperbolic
+    entailment PH-Dim: 11.2793
+  Computing PH-Dim for neutral in order_concat using hyperbolic
+    neutral PH-Dim: 13.0488
+  Computing PH-Dim for contradiction in order_concat using hyperbolic
+    contradiction PH-Dim: 11.4417
+  Computing cross-class surface analysis for order_concat using hyperbolic
+    Entailment separation: 34.2005
+    Surface gradient: 0.0000
+    Surface learning score: 1.7100
+  STEP 1 - PH-Dim scores: {'entailment': 11.279333286593111, 'neutral': 13.048821641450138, 'contradiction': 11.441719792341843}
+  STEP 1 - Surface quality: 0.4754
+  STEP 2 - Cross-class surface score: 1.7100
+  COMBINED surface learning potential: 1.0927
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in order_concat using order_violation
+    entailment PH-Dim: 11.2331
+  Computing PH-Dim for neutral in order_concat using order_violation
+    neutral PH-Dim: 13.1422
+  Computing PH-Dim for contradiction in order_concat using order_violation
+    contradiction PH-Dim: 14.3975
+  Computing cross-class surface analysis for order_concat using order_violation
+    Entailment separation: 7.6374
+    Surface gradient: 0.0000
+    Surface learning score: 0.3819
+  STEP 1 - PH-Dim scores: {'entailment': 11.233130307008436, 'neutral': 13.142208075311526, 'contradiction': 14.39745111172545}
+  STEP 1 - Surface quality: 0.5118
+  STEP 2 - Cross-class surface score: 0.3819
+  COMBINED surface learning potential: 0.4468
+
+Saved order_concat results to entailment_surfaces/results/surface_analysis_order_concat_20250627_152202.json
+
+============================================================
+TESTING SPACE: order_difference
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in order_difference using euclidean
+    entailment PH-Dim: 13.2186
+  Computing PH-Dim for neutral in order_difference using euclidean
+    neutral PH-Dim: 12.1029
+  Computing PH-Dim for contradiction in order_difference using euclidean
+    contradiction PH-Dim: 11.0958
+  Computing cross-class surface analysis for order_difference using euclidean
+    Entailment separation: 1.5769
+    Surface gradient: 0.0000
+    Surface learning score: 0.0788
+  STEP 1 - PH-Dim scores: {'entailment': 13.218588331015212, 'neutral': 12.102894252639054, 'contradiction': 11.095814764111598}
+  STEP 1 - Surface quality: 0.2346
+  STEP 2 - Cross-class surface score: 0.0788
+  COMBINED surface learning potential: 0.1567
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in order_difference using manhattan
+    entailment PH-Dim: 14.3901
+  Computing PH-Dim for neutral in order_difference using manhattan
+    neutral PH-Dim: 12.6574
+  Computing PH-Dim for contradiction in order_difference using manhattan
+    contradiction PH-Dim: 12.4741
+  Computing cross-class surface analysis for order_difference using manhattan
+    Entailment separation: 7.3558
+    Surface gradient: 0.0000
+    Surface learning score: 0.3678
+  STEP 1 - PH-Dim scores: {'entailment': 14.390066157177325, 'neutral': 12.657413600466848, 'contradiction': 12.474118992312166}
+  STEP 1 - Surface quality: 0.2290
+  STEP 2 - Cross-class surface score: 0.3678
+  COMBINED surface learning potential: 0.2984
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in order_difference using chebyshev
+    entailment PH-Dim: 10.8688
+  Computing PH-Dim for neutral in order_difference using chebyshev
+    neutral PH-Dim: 9.6198
+  Computing PH-Dim for contradiction in order_difference using chebyshev
+    contradiction PH-Dim: 9.9314
+  Computing cross-class surface analysis for order_difference using chebyshev
+    Entailment separation: 0.7832
+    Surface gradient: 0.0000
+    Surface learning score: 0.0392
+  STEP 1 - PH-Dim scores: {'entailment': 10.868756732538653, 'neutral': 9.619833930957624, 'contradiction': 9.931352658798243}
+  STEP 1 - Surface quality: 0.2120
+  STEP 2 - Cross-class surface score: 0.0392
+  COMBINED surface learning potential: 0.1256
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in order_difference using cosine
+    entailment PH-Dim: 5.4068
+  Computing PH-Dim for neutral in order_difference using cosine
+    neutral PH-Dim: 5.6059
+  Computing PH-Dim for contradiction in order_difference using cosine
+    contradiction PH-Dim: 6.2706
+  Computing cross-class surface analysis for order_difference using cosine
+    Entailment separation: 1.4100
+    Surface gradient: 0.0000
+    Surface learning score: 0.0705
+  STEP 1 - PH-Dim scores: {'entailment': 5.406775630016886, 'neutral': 5.605880092047107, 'contradiction': 6.270595808731746}
+  STEP 1 - Surface quality: 0.4528
+  STEP 2 - Cross-class surface score: 0.0705
+  COMBINED surface learning potential: 0.2616
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in order_difference using minkowski_3
+    entailment PH-Dim: 12.5000
+  Computing PH-Dim for neutral in order_difference using minkowski_3
+    neutral PH-Dim: 10.2825
+  Computing PH-Dim for contradiction in order_difference using minkowski_3
+    contradiction PH-Dim: 10.6625
+  Computing cross-class surface analysis for order_difference using minkowski_3
+    Entailment separation: 1.0629
+    Surface gradient: 1.0000
+    Surface learning score: 0.5531
+  STEP 1 - PH-Dim scores: {'entailment': 12.500040814943851, 'neutral': 10.282514635612337, 'contradiction': 10.662472278116786}
+  STEP 1 - Surface quality: 0.2373
+  STEP 2 - Cross-class surface score: 0.5531
+  COMBINED surface learning potential: 0.3952
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in order_difference using minkowski_4
+    entailment PH-Dim: 12.2891
+  Computing PH-Dim for neutral in order_difference using minkowski_4
+    neutral PH-Dim: 11.7718
+  Computing PH-Dim for contradiction in order_difference using minkowski_4
+    contradiction PH-Dim: 9.7331
+  Computing cross-class surface analysis for order_difference using minkowski_4
+    Entailment separation: 0.9158
+    Surface gradient: 1.0000
+    Surface learning score: 0.5458
+  STEP 1 - PH-Dim scores: {'entailment': 12.289128415104233, 'neutral': 11.771847065892866, 'contradiction': 9.733099253938102}
+  STEP 1 - Surface quality: 0.2464
+  STEP 2 - Cross-class surface score: 0.5458
+  COMBINED surface learning potential: 0.3961
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in order_difference using canberra
+    entailment PH-Dim: 15.1031
+  Computing PH-Dim for neutral in order_difference using canberra
+    neutral PH-Dim: 14.6635
+  Computing PH-Dim for contradiction in order_difference using canberra
+    contradiction PH-Dim: 14.4850
+  Computing cross-class surface analysis for order_difference using canberra
+    Entailment separation: 137.3311
+    Surface gradient: 0.0000
+    Surface learning score: 6.8666
+  STEP 1 - PH-Dim scores: {'entailment': 15.103115947001575, 'neutral': 14.66347865043618, 'contradiction': 14.485000415317513}
+  STEP 1 - Surface quality: 0.1952
+  STEP 2 - Cross-class surface score: 6.8666
+  COMBINED surface learning potential: 3.5309
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in order_difference using braycurtis
+    entailment PH-Dim: 11.1358
+  Computing PH-Dim for neutral in order_difference using braycurtis
+    neutral PH-Dim: 10.8530
+  Computing PH-Dim for contradiction in order_difference using braycurtis
+    contradiction PH-Dim: 9.5443
+  Computing cross-class surface analysis for order_difference using braycurtis
+    Entailment separation: 2.3591
+    Surface gradient: 0.0000
+    Surface learning score: 0.1180
+  STEP 1 - PH-Dim scores: {'entailment': 11.135777022725833, 'neutral': 10.852993675328594, 'contradiction': 9.544278388902335}
+  STEP 1 - Surface quality: 0.2210
+  STEP 2 - Cross-class surface score: 0.1180
+  COMBINED surface learning potential: 0.1695
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in order_difference using hyperbolic
+    entailment PH-Dim: 13.4196
+  Computing PH-Dim for neutral in order_difference using hyperbolic
+    neutral PH-Dim: 12.3165
+  Computing PH-Dim for contradiction in order_difference using hyperbolic
+    contradiction PH-Dim: 11.4291
+  Computing cross-class surface analysis for order_difference using hyperbolic
+    Entailment separation: 3.6143
+    Surface gradient: 0.0000
+    Surface learning score: 0.1807
+  STEP 1 - PH-Dim scores: {'entailment': 13.41962002519789, 'neutral': 12.31647043668982, 'contradiction': 11.429053761358412}
+  STEP 1 - Surface quality: 0.2311
+  STEP 2 - Cross-class surface score: 0.1807
+  COMBINED surface learning potential: 0.2059
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in order_difference using order_violation
+    entailment PH-Dim: 11.4087
+  Computing PH-Dim for neutral in order_difference using order_violation
+    neutral PH-Dim: 11.5128
+  Computing PH-Dim for contradiction in order_difference using order_violation
+    contradiction PH-Dim: 11.9422
+  Computing cross-class surface analysis for order_difference using order_violation
+    Entailment separation: 7.3558
+    Surface gradient: 0.0000
+    Surface learning score: 0.3678
+  STEP 1 - PH-Dim scores: {'entailment': 11.408735779885687, 'neutral': 11.51284792054357, 'contradiction': 11.942174323691631}
+  STEP 1 - Surface quality: 0.4431
+  STEP 2 - Cross-class surface score: 0.3678
+  COMBINED surface learning potential: 0.4054
+
+Saved order_difference results to entailment_surfaces/results/surface_analysis_order_difference_20250627_152202.json
+
+============================================================
+TESTING SPACE: order_violations
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in order_violations using euclidean
+    entailment PH-Dim: 1.0981
+  Computing PH-Dim for neutral in order_violations using euclidean
+    neutral PH-Dim: 1.2067
+  Computing PH-Dim for contradiction in order_violations using euclidean
+    contradiction PH-Dim: 1.2347
+  Computing cross-class surface analysis for order_violations using euclidean
+    Entailment separation: 2.6516
+    Surface gradient: 1.0000
+    Surface learning score: 0.6326
+  STEP 1 - PH-Dim scores: {'entailment': 1.098091734597491, 'neutral': 1.2067336175651295, 'contradiction': 1.2346693175185925}
+  STEP 1 - Surface quality: 0.4341
+  STEP 2 - Cross-class surface score: 0.6326
+  COMBINED surface learning potential: 0.5334
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in order_violations using manhattan
+    entailment PH-Dim: 1.1626
+  Computing PH-Dim for neutral in order_violations using manhattan
+    neutral PH-Dim: 1.2886
+  Computing PH-Dim for contradiction in order_violations using manhattan
+    contradiction PH-Dim: 1.2566
+  Computing cross-class surface analysis for order_violations using manhattan
+    Entailment separation: 2.6516
+    Surface gradient: 1.0000
+    Surface learning score: 0.6326
+  STEP 1 - PH-Dim scores: {'entailment': 1.1626286694622283, 'neutral': 1.2886197493084957, 'contradiction': 1.2565633273306522}
+  STEP 1 - Surface quality: 0.4337
+  STEP 2 - Cross-class surface score: 0.6326
+  COMBINED surface learning potential: 0.5331
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in order_violations using chebyshev
+    entailment PH-Dim: 1.0307
+  Computing PH-Dim for neutral in order_violations using chebyshev
+    neutral PH-Dim: 1.0370
+  Computing PH-Dim for contradiction in order_violations using chebyshev
+    contradiction PH-Dim: 1.0731
+  Computing cross-class surface analysis for order_violations using chebyshev
+    Entailment separation: 2.6516
+    Surface gradient: 1.0000
+    Surface learning score: 0.6326
+  STEP 1 - PH-Dim scores: {'entailment': 1.0306624561278146, 'neutral': 1.0370148976278504, 'contradiction': 1.073140973137667}
+  STEP 1 - Surface quality: 0.4307
+  STEP 2 - Cross-class surface score: 0.6326
+  COMBINED surface learning potential: 0.5317
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in order_violations using cosine
+    entailment PH-Dim: -2.1059
+  Computing PH-Dim for neutral in order_violations using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for contradiction in order_violations using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing cross-class surface analysis for order_violations using cosine
+    Entailment separation: 0.0000
+    Surface gradient: 0.0000
+    Surface learning score: 0.0000
+  STEP 1 - PH-Dim scores: {'entailment': -2.1058792704994755, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in order_violations using minkowski_3
+    entailment PH-Dim: 1.1613
+  Computing PH-Dim for neutral in order_violations using minkowski_3
+    neutral PH-Dim: 1.0604
+  Computing PH-Dim for contradiction in order_violations using minkowski_3
+    contradiction PH-Dim: 1.0343
+  Computing cross-class surface analysis for order_violations using minkowski_3
+    Entailment separation: 2.6516
+    Surface gradient: 1.0000
+    Surface learning score: 0.6326
+  STEP 1 - PH-Dim scores: {'entailment': 1.1613354894971217, 'neutral': 1.0603504232901055, 'contradiction': 1.0342881256802383}
+  STEP 1 - Surface quality: 0.1839
+  STEP 2 - Cross-class surface score: 0.6326
+  COMBINED surface learning potential: 0.4082
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in order_violations using minkowski_4
+    entailment PH-Dim: 1.1923
+  Computing PH-Dim for neutral in order_violations using minkowski_4
+    neutral PH-Dim: 1.7071
+  Computing PH-Dim for contradiction in order_violations using minkowski_4
+    contradiction PH-Dim: 1.1335
+  Computing cross-class surface analysis for order_violations using minkowski_4
+    Entailment separation: 2.6516
+    Surface gradient: 1.0000
+    Surface learning score: 0.6326
+  STEP 1 - PH-Dim scores: {'entailment': 1.192302504543063, 'neutral': 1.7070986770515835, 'contradiction': 1.1335154881527718}
+  STEP 1 - Surface quality: 0.3248
+  STEP 2 - Cross-class surface score: 0.6326
+  COMBINED surface learning potential: 0.4787
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in order_violations using canberra
+    entailment PH-Dim: 1.3748
+  Computing PH-Dim for neutral in order_violations using canberra
+    neutral PH-Dim: 1.0931
+  Computing PH-Dim for contradiction in order_violations using canberra
+    contradiction PH-Dim: 1.1489
+  Computing cross-class surface analysis for order_violations using canberra
+    Entailment separation: 6.5143
+    Surface gradient: 1.0000
+    Surface learning score: 0.8257
+  STEP 1 - PH-Dim scores: {'entailment': 1.3747997694570186, 'neutral': 1.0931421808328377, 'contradiction': 1.1489156026979996}
+  STEP 1 - Surface quality: 0.1894
+  STEP 2 - Cross-class surface score: 0.8257
+  COMBINED surface learning potential: 0.5076
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in order_violations using braycurtis
+    Invalid PH-Dim result for braycurtis, skipping
+  Computing PH-Dim for neutral in order_violations using braycurtis
+    Invalid PH-Dim result for braycurtis, skipping
+  Computing PH-Dim for contradiction in order_violations using braycurtis
+    contradiction PH-Dim: 1.1161
+  Computing cross-class surface analysis for order_violations using braycurtis
+    Entailment separation: 6.5143
+    Surface gradient: 1.0000
+    Surface learning score: 0.8257
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': 1.1161307063181687}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.8257
+  COMBINED surface learning potential: 0.4129
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in order_violations using hyperbolic
+    entailment PH-Dim: 1.0334
+  Computing PH-Dim for neutral in order_violations using hyperbolic
+    neutral PH-Dim: 1.2876
+  Computing PH-Dim for contradiction in order_violations using hyperbolic
+    contradiction PH-Dim: 1.1433
+  Computing cross-class surface analysis for order_violations using hyperbolic
+    Entailment separation: 5.5618
+    Surface gradient: 1.0000
+    Surface learning score: 0.7781
+  STEP 1 - PH-Dim scores: {'entailment': 1.0333726284564904, 'neutral': 1.287623936567063, 'contradiction': 1.143323784800953}
+  STEP 1 - Surface quality: 0.4386
+  STEP 2 - Cross-class surface score: 0.7781
+  COMBINED surface learning potential: 0.6083
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in order_violations using order_violation
+    entailment PH-Dim: 1.5208
+  Computing PH-Dim for neutral in order_violations using order_violation
+    neutral PH-Dim: 1.0576
+  Computing PH-Dim for contradiction in order_violations using order_violation
+    contradiction PH-Dim: 1.1821
+  Computing cross-class surface analysis for order_violations using order_violation
+    Entailment separation: 2.6516
+    Surface gradient: 1.0000
+    Surface learning score: 0.6326
+  STEP 1 - PH-Dim scores: {'entailment': 1.520790920837177, 'neutral': 1.0576193291448204, 'contradiction': 1.1821357165153945}
+  STEP 1 - Surface quality: 0.1962
+  STEP 2 - Cross-class surface score: 0.6326
+  COMBINED surface learning potential: 0.4144
+
+Saved order_violations results to entailment_surfaces/results/surface_analysis_order_violations_20250627_152202.json
+
+============================================================
+TESTING SPACE: hyperbolic_concat
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using euclidean
+    entailment PH-Dim: 11.5811
+  Computing PH-Dim for neutral in hyperbolic_concat using euclidean
+    neutral PH-Dim: 11.7142
+  Computing PH-Dim for contradiction in hyperbolic_concat using euclidean
+    contradiction PH-Dim: 13.1585
+  Computing cross-class surface analysis for hyperbolic_concat using euclidean
+    Entailment separation: 1.3044
+    Surface gradient: 1.0000
+    Surface learning score: 0.5652
+  STEP 1 - PH-Dim scores: {'entailment': 11.581063698255253, 'neutral': 11.714231590155249, 'contradiction': 13.158490713239432}
+  STEP 1 - Surface quality: 0.4703
+  STEP 2 - Cross-class surface score: 0.5652
+  COMBINED surface learning potential: 0.5178
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using manhattan
+    entailment PH-Dim: 10.5583
+  Computing PH-Dim for neutral in hyperbolic_concat using manhattan
+    neutral PH-Dim: 10.9710
+  Computing PH-Dim for contradiction in hyperbolic_concat using manhattan
+    contradiction PH-Dim: 10.6169
+  Computing cross-class surface analysis for hyperbolic_concat using manhattan
+    Entailment separation: 6.0921
+    Surface gradient: 1.0000
+    Surface learning score: 0.8046
+  STEP 1 - PH-Dim scores: {'entailment': 10.558330000309128, 'neutral': 10.970974542575036, 'contradiction': 10.616871860352495}
+  STEP 1 - Surface quality: 0.4400
+  STEP 2 - Cross-class surface score: 0.8046
+  COMBINED surface learning potential: 0.6223
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using chebyshev
+    entailment PH-Dim: 10.3132
+  Computing PH-Dim for neutral in hyperbolic_concat using chebyshev
+    neutral PH-Dim: 11.5011
+  Computing PH-Dim for contradiction in hyperbolic_concat using chebyshev
+    contradiction PH-Dim: 11.0138
+  Computing cross-class surface analysis for hyperbolic_concat using chebyshev
+    Entailment separation: 0.5057
+    Surface gradient: 0.0000
+    Surface learning score: 0.0253
+  STEP 1 - PH-Dim scores: {'entailment': 10.313209551792648, 'neutral': 11.501107880403437, 'contradiction': 11.013823704188303}
+  STEP 1 - Surface quality: 0.4603
+  STEP 2 - Cross-class surface score: 0.0253
+  COMBINED surface learning potential: 0.2428
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using cosine
+    entailment PH-Dim: 5.7142
+  Computing PH-Dim for neutral in hyperbolic_concat using cosine
+    neutral PH-Dim: 5.6950
+  Computing PH-Dim for contradiction in hyperbolic_concat using cosine
+    contradiction PH-Dim: 6.1563
+  Computing cross-class surface analysis for hyperbolic_concat using cosine
+    Entailment separation: 1.0475
+    Surface gradient: 1.0000
+    Surface learning score: 0.5524
+  STEP 1 - PH-Dim scores: {'entailment': 5.714184997594796, 'neutral': 5.695028809434145, 'contradiction': 6.1563355512604}
+  STEP 1 - Surface quality: 0.3167
+  STEP 2 - Cross-class surface score: 0.5524
+  COMBINED surface learning potential: 0.4345
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using minkowski_3
+    entailment PH-Dim: 13.2553
+  Computing PH-Dim for neutral in hyperbolic_concat using minkowski_3
+    neutral PH-Dim: 11.7358
+  Computing PH-Dim for contradiction in hyperbolic_concat using minkowski_3
+    contradiction PH-Dim: 10.9643
+  Computing cross-class surface analysis for hyperbolic_concat using minkowski_3
+    Entailment separation: 0.8363
+    Surface gradient: 1.0000
+    Surface learning score: 0.5418
+  STEP 1 - PH-Dim scores: {'entailment': 13.255347656795111, 'neutral': 11.73575910434871, 'contradiction': 10.964260274283857}
+  STEP 1 - Surface quality: 0.2391
+  STEP 2 - Cross-class surface score: 0.5418
+  COMBINED surface learning potential: 0.3904
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using minkowski_4
+    entailment PH-Dim: 11.2945
+  Computing PH-Dim for neutral in hyperbolic_concat using minkowski_4
+    neutral PH-Dim: 12.5361
+  Computing PH-Dim for contradiction in hyperbolic_concat using minkowski_4
+    contradiction PH-Dim: 11.0825
+  Computing cross-class surface analysis for hyperbolic_concat using minkowski_4
+    Entailment separation: 0.6876
+    Surface gradient: 0.0000
+    Surface learning score: 0.0344
+  STEP 1 - PH-Dim scores: {'entailment': 11.294513435161047, 'neutral': 12.536063167732557, 'contradiction': 11.082511205700397}
+  STEP 1 - Surface quality: 0.3421
+  STEP 2 - Cross-class surface score: 0.0344
+  COMBINED surface learning potential: 0.1883
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using canberra
+    entailment PH-Dim: 16.6031
+  Computing PH-Dim for neutral in hyperbolic_concat using canberra
+    neutral PH-Dim: 15.5474
+  Computing PH-Dim for contradiction in hyperbolic_concat using canberra
+    contradiction PH-Dim: 12.8884
+  Computing cross-class surface analysis for hyperbolic_concat using canberra
+    Entailment separation: 650.0268
+    Surface gradient: 0.0000
+    Surface learning score: 32.5013
+  STEP 1 - PH-Dim scores: {'entailment': 16.603080250278705, 'neutral': 15.547434332592529, 'contradiction': 12.888435360552535}
+  STEP 1 - Surface quality: 0.2756
+  STEP 2 - Cross-class surface score: 32.5013
+  COMBINED surface learning potential: 16.3885
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using braycurtis
+    entailment PH-Dim: 11.2297
+  Computing PH-Dim for neutral in hyperbolic_concat using braycurtis
+    neutral PH-Dim: 10.6533
+  Computing PH-Dim for contradiction in hyperbolic_concat using braycurtis
+    contradiction PH-Dim: 10.6730
+  Computing cross-class surface analysis for hyperbolic_concat using braycurtis
+    Entailment separation: 5.2950
+    Surface gradient: 1.0000
+    Surface learning score: 0.7648
+  STEP 1 - PH-Dim scores: {'entailment': 11.22974703880701, 'neutral': 10.653279407624341, 'contradiction': 10.673018278879548}
+  STEP 1 - Surface quality: 0.1943
+  STEP 2 - Cross-class surface score: 0.7648
+  COMBINED surface learning potential: 0.4795
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using hyperbolic
+    entailment PH-Dim: 10.3363
+  Computing PH-Dim for neutral in hyperbolic_concat using hyperbolic
+    neutral PH-Dim: 11.3617
+  Computing PH-Dim for contradiction in hyperbolic_concat using hyperbolic
+    contradiction PH-Dim: 10.9277
+  Computing cross-class surface analysis for hyperbolic_concat using hyperbolic
+    Entailment separation: 2.6308
+    Surface gradient: 1.0000
+    Surface learning score: 0.6315
+  STEP 1 - PH-Dim scores: {'entailment': 10.336339546577403, 'neutral': 11.361656084856962, 'contradiction': 10.92770876881437}
+  STEP 1 - Surface quality: 0.4560
+  STEP 2 - Cross-class surface score: 0.6315
+  COMBINED surface learning potential: 0.5438
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using order_violation
+    entailment PH-Dim: 11.6935
+  Computing PH-Dim for neutral in hyperbolic_concat using order_violation
+    neutral PH-Dim: 11.7181
+  Computing PH-Dim for contradiction in hyperbolic_concat using order_violation
+    contradiction PH-Dim: 11.5531
+  Computing cross-class surface analysis for hyperbolic_concat using order_violation
+    Entailment separation: 6.0921
+    Surface gradient: 1.0000
+    Surface learning score: 0.8046
+  STEP 1 - PH-Dim scores: {'entailment': 11.693514797612101, 'neutral': 11.718073776110465, 'contradiction': 11.553052358801134}
+  STEP 1 - Surface quality: 0.3085
+  STEP 2 - Cross-class surface score: 0.8046
+  COMBINED surface learning potential: 0.5565
+
+Saved hyperbolic_concat results to entailment_surfaces/results/surface_analysis_hyperbolic_concat_20250627_152202.json
+
+============================================================
+TESTING SPACE: hyperbolic_distances
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using euclidean
+    entailment PH-Dim: 1.1113
+  Computing PH-Dim for neutral in hyperbolic_distances using euclidean
+    neutral PH-Dim: 1.0521
+  Computing PH-Dim for contradiction in hyperbolic_distances using euclidean
+    contradiction PH-Dim: 1.0499
+  Computing cross-class surface analysis for hyperbolic_distances using euclidean
+    Entailment separation: 1.0265
+    Surface gradient: 1.0000
+    Surface learning score: 0.5513
+  STEP 1 - PH-Dim scores: {'entailment': 1.1113387669884998, 'neutral': 1.0521212365290635, 'contradiction': 1.0499309035036155}
+  STEP 1 - Surface quality: 0.1814
+  STEP 2 - Cross-class surface score: 0.5513
+  COMBINED surface learning potential: 0.3664
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using manhattan
+    entailment PH-Dim: 1.1959
+  Computing PH-Dim for neutral in hyperbolic_distances using manhattan
+    neutral PH-Dim: 1.0886
+  Computing PH-Dim for contradiction in hyperbolic_distances using manhattan
+    contradiction PH-Dim: 1.0693
+  Computing cross-class surface analysis for hyperbolic_distances using manhattan
+    Entailment separation: 1.0265
+    Surface gradient: 1.0000
+    Surface learning score: 0.5513
+  STEP 1 - PH-Dim scores: {'entailment': 1.1958961603805491, 'neutral': 1.0886302036008646, 'contradiction': 1.0693356029380863}
+  STEP 1 - Surface quality: 0.1838
+  STEP 2 - Cross-class surface score: 0.5513
+  COMBINED surface learning potential: 0.3676
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using chebyshev
+    entailment PH-Dim: 1.1163
+  Computing PH-Dim for neutral in hyperbolic_distances using chebyshev
+    neutral PH-Dim: 1.1217
+  Computing PH-Dim for contradiction in hyperbolic_distances using chebyshev
+    contradiction PH-Dim: 1.0830
+  Computing cross-class surface analysis for hyperbolic_distances using chebyshev
+    Entailment separation: 1.0265
+    Surface gradient: 1.0000
+    Surface learning score: 0.5513
+  STEP 1 - PH-Dim scores: {'entailment': 1.1162555413917, 'neutral': 1.1217370231405603, 'contradiction': 1.083004701471197}
+  STEP 1 - Surface quality: 0.3056
+  STEP 2 - Cross-class surface score: 0.5513
+  COMBINED surface learning potential: 0.4285
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for neutral in hyperbolic_distances using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for contradiction in hyperbolic_distances using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing cross-class surface analysis for hyperbolic_distances using cosine
+    Entailment separation: 0.0000
+    Surface gradient: 0.0000
+    Surface learning score: 0.0000
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using minkowski_3
+    entailment PH-Dim: 1.1159
+  Computing PH-Dim for neutral in hyperbolic_distances using minkowski_3
+    neutral PH-Dim: 1.1725
+  Computing PH-Dim for contradiction in hyperbolic_distances using minkowski_3
+    contradiction PH-Dim: 1.1197
+  Computing cross-class surface analysis for hyperbolic_distances using minkowski_3
+    Entailment separation: 1.0265
+    Surface gradient: 1.0000
+    Surface learning score: 0.5513
+  STEP 1 - PH-Dim scores: {'entailment': 1.1159187425945545, 'neutral': 1.1724673103665486, 'contradiction': 1.119737720894464}
+  STEP 1 - Surface quality: 0.4312
+  STEP 2 - Cross-class surface score: 0.5513
+  COMBINED surface learning potential: 0.4913
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using minkowski_4
+    entailment PH-Dim: 1.1100
+  Computing PH-Dim for neutral in hyperbolic_distances using minkowski_4
+    neutral PH-Dim: 1.0996
+  Computing PH-Dim for contradiction in hyperbolic_distances using minkowski_4
+    contradiction PH-Dim: 1.0807
+  Computing cross-class surface analysis for hyperbolic_distances using minkowski_4
+    Entailment separation: 1.0265
+    Surface gradient: 1.0000
+    Surface learning score: 0.5513
+  STEP 1 - PH-Dim scores: {'entailment': 1.110048700627421, 'neutral': 1.0996302957694926, 'contradiction': 1.0806827334683782}
+  STEP 1 - Surface quality: 0.1802
+  STEP 2 - Cross-class surface score: 0.5513
+  COMBINED surface learning potential: 0.3658
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using canberra
+    entailment PH-Dim: 2.7361
+  Computing PH-Dim for neutral in hyperbolic_distances using canberra
+    neutral PH-Dim: 1.1243
+  Computing PH-Dim for contradiction in hyperbolic_distances using canberra
+    contradiction PH-Dim: 1.2668
+  Computing cross-class surface analysis for hyperbolic_distances using canberra
+    Entailment separation: 5.0551
+    Surface gradient: 1.0000
+    Surface learning score: 0.7528
+  STEP 1 - PH-Dim scores: {'entailment': 2.7361135828124308, 'neutral': 1.1243195186408095, 'contradiction': 1.2667556923202545}
+  STEP 1 - Surface quality: 0.2374
+  STEP 2 - Cross-class surface score: 0.7528
+  COMBINED surface learning potential: 0.4951
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using braycurtis
+    Invalid PH-Dim result for braycurtis, skipping
+  Computing PH-Dim for neutral in hyperbolic_distances using braycurtis
+    neutral PH-Dim: 1.0901
+  Computing PH-Dim for contradiction in hyperbolic_distances using braycurtis
+    contradiction PH-Dim: 1.0651
+  Computing cross-class surface analysis for hyperbolic_distances using braycurtis
+    Entailment separation: 5.0551
+    Surface gradient: 1.0000
+    Surface learning score: 0.7528
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': 1.0900866352114411, 'contradiction': 1.0650633340496276}
+  STEP 1 - Surface quality: 0.2634
+  STEP 2 - Cross-class surface score: 0.7528
+  COMBINED surface learning potential: 0.5081
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using hyperbolic
+    entailment PH-Dim: 1.0974
+  Computing PH-Dim for neutral in hyperbolic_distances using hyperbolic
+    neutral PH-Dim: 1.0298
+  Computing PH-Dim for contradiction in hyperbolic_distances using hyperbolic
+    contradiction PH-Dim: 1.0365
+  Computing cross-class surface analysis for hyperbolic_distances using hyperbolic
+    Entailment separation: 2.0745
+    Surface gradient: 1.0000
+    Surface learning score: 0.6037
+  STEP 1 - PH-Dim scores: {'entailment': 1.0974069055583475, 'neutral': 1.0298495695151506, 'contradiction': 1.0364860280091084}
+  STEP 1 - Surface quality: 0.1817
+  STEP 2 - Cross-class surface score: 0.6037
+  COMBINED surface learning potential: 0.3927
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using order_violation
+    entailment PH-Dim: 1.1307
+  Computing PH-Dim for neutral in hyperbolic_distances using order_violation
+    neutral PH-Dim: 1.1140
+  Computing PH-Dim for contradiction in hyperbolic_distances using order_violation
+    contradiction PH-Dim: 1.0259
+  Computing cross-class surface analysis for hyperbolic_distances using order_violation
+    Entailment separation: 1.0265
+    Surface gradient: 1.0000
+    Surface learning score: 0.5513
+  STEP 1 - PH-Dim scores: {'entailment': 1.1307458731242606, 'neutral': 1.1139685059895594, 'contradiction': 1.025919185122089}
+  STEP 1 - Surface quality: 0.1831
+  STEP 2 - Cross-class surface score: 0.5513
+  COMBINED surface learning potential: 0.3672
+
+Saved hyperbolic_distances results to entailment_surfaces/results/surface_analysis_hyperbolic_distances_20250627_152202.json
+
+============================================================
+TESTING SPACE: cone_energies
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in cone_energies using euclidean
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using euclidean
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using euclidean
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using euclidean
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in cone_energies using manhattan
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using manhattan
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using manhattan
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using manhattan
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in cone_energies using chebyshev
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using chebyshev
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using chebyshev
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using chebyshev
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in cone_energies using cosine
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using cosine
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using cosine
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using cosine
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in cone_energies using minkowski_3
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using minkowski_3
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using minkowski_3
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using minkowski_3
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in cone_energies using minkowski_4
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using minkowski_4
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using minkowski_4
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using minkowski_4
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in cone_energies using canberra
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using canberra
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using canberra
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using canberra
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in cone_energies using braycurtis
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using braycurtis
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using braycurtis
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using braycurtis
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in cone_energies using hyperbolic
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using hyperbolic
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using hyperbolic
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using hyperbolic
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in cone_energies using order_violation
+    Error computing PH-Dim for entailment: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for neutral in cone_energies using order_violation
+    Error computing PH-Dim for neutral: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing PH-Dim for contradiction in cone_energies using order_violation
+    Error computing PH-Dim for contradiction: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  Computing cross-class surface analysis for cone_energies using order_violation
+    Error in cross-class analysis: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  STEP 1 - PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+  STEP 1 - Surface quality: 0.0000
+  STEP 2 - Cross-class surface score: 0.0000
+  COMBINED surface learning potential: 0.0000
+
+Saved cone_energies results to entailment_surfaces/results/surface_analysis_cone_energies_20250627_152202.json
+
+============================================================
+TESTING SPACE: cone_features
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in cone_features using euclidean
+    entailment PH-Dim: 3.3141
+  Computing PH-Dim for neutral in cone_features using euclidean
+    neutral PH-Dim: 3.5633
+  Computing PH-Dim for contradiction in cone_features using euclidean
+    contradiction PH-Dim: 3.6681
+  Computing cross-class surface analysis for cone_features using euclidean
+    Entailment separation: 1.7952
+    Surface gradient: 1.0000
+    Surface learning score: 0.5898
+  STEP 1 - PH-Dim scores: {'entailment': 3.314096557222953, 'neutral': 3.563270597423238, 'contradiction': 3.6680667200293784}
+  STEP 1 - Surface quality: 0.4394
+  STEP 2 - Cross-class surface score: 0.5898
+  COMBINED surface learning potential: 0.5146
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in cone_features using manhattan
+    entailment PH-Dim: 3.8098
+  Computing PH-Dim for neutral in cone_features using manhattan
+    neutral PH-Dim: 3.4092
+  Computing PH-Dim for contradiction in cone_features using manhattan
+    contradiction PH-Dim: 3.3017
+  Computing cross-class surface analysis for cone_features using manhattan
+    Entailment separation: 3.6906
+    Surface gradient: 1.0000
+    Surface learning score: 0.6845
+  STEP 1 - PH-Dim scores: {'entailment': 3.8098409680686967, 'neutral': 3.4092071400970725, 'contradiction': 3.301726929582846}
+  STEP 1 - Surface quality: 0.1938
+  STEP 2 - Cross-class surface score: 0.6845
+  COMBINED surface learning potential: 0.4392
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in cone_features using chebyshev
+    entailment PH-Dim: 3.3608
+  Computing PH-Dim for neutral in cone_features using chebyshev
+    neutral PH-Dim: 3.7583
+  Computing PH-Dim for contradiction in cone_features using chebyshev
+    contradiction PH-Dim: 3.4627
+  Computing cross-class surface analysis for cone_features using chebyshev
+    Entailment separation: 1.2177
+    Surface gradient: 1.0000
+    Surface learning score: 0.5609
+  STEP 1 - PH-Dim scores: {'entailment': 3.360757695331156, 'neutral': 3.758289219709915, 'contradiction': 3.4626938087634636}
+  STEP 1 - Surface quality: 0.4406
+  STEP 2 - Cross-class surface score: 0.5609
+  COMBINED surface learning potential: 0.5007
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in cone_features using cosine
+    entailment PH-Dim: 1.3841
+  Computing PH-Dim for neutral in cone_features using cosine
+    neutral PH-Dim: 1.3655
+  Computing PH-Dim for contradiction in cone_features using cosine
+    contradiction PH-Dim: 1.4389
+  Computing cross-class surface analysis for cone_features using cosine
+    Entailment separation: 0.1377
+    Surface gradient: 1.0000
+    Surface learning score: 0.5069
+  STEP 1 - PH-Dim scores: {'entailment': 1.3840934292639275, 'neutral': 1.365538796665895, 'contradiction': 1.4388526835114097}
+  STEP 1 - Surface quality: 0.3067
+  STEP 2 - Cross-class surface score: 0.5069
+  COMBINED surface learning potential: 0.4068
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in cone_features using minkowski_3
+    entailment PH-Dim: 3.5172
+  Computing PH-Dim for neutral in cone_features using minkowski_3
+    neutral PH-Dim: 3.4572
+  Computing PH-Dim for contradiction in cone_features using minkowski_3
+    contradiction PH-Dim: 3.4731
+  Computing cross-class surface analysis for cone_features using minkowski_3
+    Entailment separation: 1.4575
+    Surface gradient: 1.0000
+    Surface learning score: 0.5729
+  STEP 1 - PH-Dim scores: {'entailment': 3.5172164733801217, 'neutral': 3.457221198264611, 'contradiction': 3.4731120910524926}
+  STEP 1 - Surface quality: 0.1809
+  STEP 2 - Cross-class surface score: 0.5729
+  COMBINED surface learning potential: 0.3769
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in cone_features using minkowski_4
+    entailment PH-Dim: 3.2948
+  Computing PH-Dim for neutral in cone_features using minkowski_4
+    neutral PH-Dim: 3.4582
+  Computing PH-Dim for contradiction in cone_features using minkowski_4
+    contradiction PH-Dim: 3.5923
+  Computing cross-class surface analysis for cone_features using minkowski_4
+    Entailment separation: 1.3351
+    Surface gradient: 1.0000
+    Surface learning score: 0.5668
+  STEP 1 - PH-Dim scores: {'entailment': 3.294840234760985, 'neutral': 3.4581933530768043, 'contradiction': 3.592317000334179}
+  STEP 1 - Surface quality: 0.4377
+  STEP 2 - Cross-class surface score: 0.5668
+  COMBINED surface learning potential: 0.5022
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in cone_features using canberra
+    entailment PH-Dim: 3.7469
+  Computing PH-Dim for neutral in cone_features using canberra
+    neutral PH-Dim: 3.3526
+  Computing PH-Dim for contradiction in cone_features using canberra
+    contradiction PH-Dim: 3.4174
+  Computing cross-class surface analysis for cone_features using canberra
+    Entailment separation: 3.6096
+    Surface gradient: 1.0000
+    Surface learning score: 0.6805
+  STEP 1 - PH-Dim scores: {'entailment': 3.746853409084352, 'neutral': 3.352553423097142, 'contradiction': 3.4174441870486922}
+  STEP 1 - Surface quality: 0.1905
+  STEP 2 - Cross-class surface score: 0.6805
+  COMBINED surface learning potential: 0.4355
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in cone_features using braycurtis
+    entailment PH-Dim: 3.4969
+  Computing PH-Dim for neutral in cone_features using braycurtis
+    neutral PH-Dim: 3.2725
+  Computing PH-Dim for contradiction in cone_features using braycurtis
+    contradiction PH-Dim: 3.5607
+  Computing cross-class surface analysis for cone_features using braycurtis
+    Entailment separation: 0.5195
+    Surface gradient: 1.0000
+    Surface learning score: 0.5260
+  STEP 1 - PH-Dim scores: {'entailment': 3.4968519573839507, 'neutral': 3.272487363102289, 'contradiction': 3.560702737851034}
+  STEP 1 - Surface quality: 0.3125
+  STEP 2 - Cross-class surface score: 0.5260
+  COMBINED surface learning potential: 0.4192
+
+--- Testing hyperbolic metric ---
+  Computing PH-Dim for entailment in cone_features using hyperbolic
+    entailment PH-Dim: 3.4947
+  Computing PH-Dim for neutral in cone_features using hyperbolic
+    neutral PH-Dim: 3.3834
+  Computing PH-Dim for contradiction in cone_features using hyperbolic
+    contradiction PH-Dim: 3.2289
+  Computing cross-class surface analysis for cone_features using hyperbolic
+    Entailment separation: 21.1877
+    Surface gradient: 1.0000
+    Surface learning score: 1.5594
+  STEP 1 - PH-Dim scores: {'entailment': 3.4947135412103494, 'neutral': 3.383427668432258, 'contradiction': 3.228915327728321}
+  STEP 1 - Surface quality: 0.1868
+  STEP 2 - Cross-class surface score: 1.5594
+  COMBINED surface learning potential: 0.8731
+
+--- Testing order_violation metric ---
+  Computing PH-Dim for entailment in cone_features using order_violation
+    entailment PH-Dim: 3.4174
+  Computing PH-Dim for neutral in cone_features using order_violation
+    neutral PH-Dim: 3.6804
+  Computing PH-Dim for contradiction in cone_features using order_violation
+    contradiction PH-Dim: 3.7003
+  Computing cross-class surface analysis for cone_features using order_violation
+    Entailment separation: 3.6906
+    Surface gradient: 1.0000
+    Surface learning score: 0.6845
+  STEP 1 - PH-Dim scores: {'entailment': 3.417359887285, 'neutral': 3.6804425369663414, 'contradiction': 3.700283610915043}
+  STEP 1 - Surface quality: 0.4373
+  STEP 2 - Cross-class surface score: 0.6845
+  COMBINED surface learning potential: 0.5609
+
+Saved cone_features results to entailment_surfaces/results/surface_analysis_cone_features_20250627_152202.json
+Simple report saved to: entailment_surfaces/results/simple_analysis_report_20250627_152202.txt
+
+================================================================================
+COMPREHENSIVE ANALYSIS COMPLETE
+Final GPU Memory: 3809.5 MB allocated
+Results saved to: entailment_surfaces/results/comprehensive_surface_analysis_20250627_152202.json
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Fri 27 Jun 15:34:56 BST 2025
+
+Results created in results/step_1_1_analysis/:
+No results directory found
+
+Disk usage:
+No results to measure
+
+=== ANALYSIS SUCCESSFUL ===
+Surface distance metric analysis completed successfully!
+
+Key outputs:
+  - JSON results: results/step_1_1_analysis/comprehensive_surface_analysis_*.json
+  - Plain report: results/step_1_1_analysis/simple_analysis_report_*.txt
+  - Individual space results: results/step_1_1_analysis/surface_analysis_*_*.json
+
+Next steps:
+  1. Review the simple_analysis_report_*.txt for plain results
+  2. Identify top-performing space+metric combinations
+  3. Consider re-running with --max_samples 167000 for full analysis
+
+To run full analysis on promising combinations:
+  python step_1_1_surface_analysis_corrected.py \
+    --bert_data 'data/processed/snli_full_standard_BERT.pt' \
+    --order_model 'models/enhanced_order_embeddings_snli_full.pt' \
+    --max_samples 167000
+
+Job finished.

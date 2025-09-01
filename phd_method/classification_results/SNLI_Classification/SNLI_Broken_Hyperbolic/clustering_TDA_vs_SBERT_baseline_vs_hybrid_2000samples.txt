@@ -1,0 +1,219 @@
+Topological Features only 2000 train samples:
+
+
+Training set: 6000 samples, 21 features
+Validation set: 886 samples, 21 features
+
+============================================================
+CLASSIFICATION RESULTS (21 Interpretable Features)
+============================================================
+
+Training Random Forest...
+Random Forest Validation Accuracy: 0.687
+
+Training SVM...
+SVM Validation Accuracy: 0.682
+
+Training Logistic Regression...
+Logistic Regression Validation Accuracy: 0.686
+
+Training PyTorch Neural Network...
+Epoch 0: Train Loss 0.7031, Val Loss 0.7605, Val Acc 0.6772
+Epoch 20: Train Loss 0.5494, Val Loss 0.7724, Val Acc 0.6851
+Epoch 40: Train Loss 0.5365, Val Loss 0.7600, Val Acc 0.6930
+Epoch 60: Train Loss 0.5447, Val Loss 0.7697, Val Acc 0.6874
+Epoch 80: Train Loss 0.5295, Val Loss 0.7643, Val Acc 0.6953
+PyTorch NN Validation Accuracy: 0.696
+
+============================================================
+BEST CLASSIFIER: PyTorch NN
+============================================================
+
+PyTorch NN Classification Report:
+               precision    recall  f1-score   support
+
+   entailment       0.66      0.80      0.72       254
+      neutral       0.64      0.64      0.64       344
+contradiction       0.80      0.65      0.72       288
+
+     accuracy                           0.69       886
+    macro avg       0.70      0.70      0.69       886
+ weighted avg       0.70      0.69      0.69       886
+
+
+PyTorch NN Confusion Matrix:
+[[202  47   5]
+ [ 81 221  42]
+ [ 21  80 187]]
+
+============================================================
+FEATURE IMPORTANCE ANALYSIS
+============================================================
+Top 15 Most Important Features:
+---------------------------------------------
+ 1. forward_energy            0.1937
+ 2. h0_lifespan_std           0.1289
+ 3. h0_total_persistence      0.0718
+ 4. h1_mean_birth             0.0612
+ 5. h1_h0_ratio               0.0533
+ 6. gap_energy                0.0481
+ 7. h0_mean_lifespan          0.0428
+ 8. h1_count                  0.0425
+ 9. h1_mean_death             0.0383
+10. h1_total_persistence      0.0356
+11. hypothesis_size           0.0313
+12. premise_size              0.0306
+13. backward_energy           0.0301
+14. asymmetric_energy         0.0268
+15. total_features            0.0261
+
+Statistical Analysis of Top 5 Features:
+----------------------------------------
+
+forward_energy:
+  Importance: 0.1937
+  F-statistic: 4011.85, p-value: 0.0000
+  Entailment:       0.278 ± 0.262 (n=2000)
+  Neutral:          0.772 ± 0.396 (n=2000)
+  Contradiction:    2.121 ± 1.065 (n=2000)
+
+h0_lifespan_std:
+  Importance: 0.1289
+  F-statistic: 4221.07, p-value: 0.0000
+  Entailment:       0.120 ± 0.011 (n=2000)
+  Neutral:          0.135 ± 0.018 (n=2000)
+  Contradiction:    0.191 ± 0.040 (n=2000)
+
+h0_total_persistence:
+  Importance: 0.0718
+  F-statistic: 2193.10, p-value: 0.0000
+  Entailment:      48.368 ± 7.950 (n=2000)
+  Neutral:         54.953 ± 7.922 (n=2000)
+  Contradiction:   65.193 ± 8.404 (n=2000)
+
+h1_mean_birth:
+  Importance: 0.0612
+  F-statistic: 2419.83, p-value: 0.0000
+  Entailment:       0.150 ± 0.036 (n=2000)
+  Neutral:          0.207 ± 0.049 (n=2000)
+  Contradiction:    0.257 ± 0.058 (n=2000)
+
+h1_h0_ratio:
+  Importance: 0.0533
+  F-statistic: 2786.63, p-value: 0.0000
+  Entailment:       0.423 ± 0.092 (n=2000)
+  Neutral:          0.302 ± 0.081 (n=2000)
+  Contradiction:    0.232 ± 0.072 (n=2000)
+
+============================================================
+COMPARISON WITH CLUSTERING BASELINE
+============================================================
+Clustering Baseline: 66.9%
+Best Classification: 0.696 (PyTorch NN)
+Improvement: +0.027 (+4.1%)
+✅ SUCCESS: Classification improves over clustering baseline
+
+
+================================================================================
+SBERT BASELINE COMPARISON (NO TOPOLOGICAL PROCESSING)
+================================================================================
+
+SBERT Baseline Used:
+baseline_features = torch.cat([
+                        premise_mean,                                          # Premise representation [768]
+                        hypothesis_mean,                                       # Hypothesis representation [768]
+                        premise_mean - hypothesis_mean,                        # Difference [768]
+                        premise_mean * hypothesis_mean,                        # Element-wise product [768]
+                    ]).numpy()  # Total: 3072 features
+
+
+SBERT Training set: 6000 samples, 3072 features
+SBERT Validation set: 886 samples, 3072 features
+
+============================================================
+SBERT BASELINE RESULTS
+============================================================
+
+Training Random Forest on SBERT features...
+Random Forest SBERT Validation Accuracy: 0.640
+
+Training SVM on SBERT features...
+SVM SBERT Validation Accuracy: 0.735
+
+Training Logistic Regression on SBERT features...
+Logistic Regression SBERT Validation Accuracy: 0.630
+
+Training PyTorch Neural Network on SBERT features...
+Epoch 0: Train Loss 0.8544, Val Loss 0.7121, Val Acc 0.7235
+Epoch 20: Train Loss 0.0727, Val Loss 1.0418, Val Acc 0.7223
+Epoch 40: Train Loss 0.0667, Val Loss 1.0831, Val Acc 0.7156
+Epoch 60: Train Loss 0.0646, Val Loss 1.0867, Val Acc 0.7133
+Epoch 80: Train Loss 0.0613, Val Loss 1.0908, Val Acc 0.7099
+PyTorch NN SBERT Validation Accuracy: 0.723
+
+============================================================
+SBERT BASELINE SUMMARY
+============================================================
+Best SBERT Classifier: SVM
+Best SBERT Accuracy: 0.735
+
+================================================================================
+FINAL COMPARISON RESULTS
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.696      21        
+SBERT Baseline            SVM             0.735      3072      
+
+Topological vs SBERT Improvement: -0.038 (-5.2%)
+📊 SBERT BASELINE WINS: Raw embeddings more discriminative
+
+
+================================================================================
+HYBRID CLASSIFICATION: TOPOLOGICAL + SBERT
+================================================================================
+
+
+Hybrid feature dimensions:
+  Topological: 21 features
+  SBERT: 3072 features
+  Total: 3093 features
+
+============================================================
+HYBRID CLASSIFICATION RESULTS
+============================================================
+
+Training Random Forest on hybrid features...
+Random Forest Hybrid Validation Accuracy: 0.668
+
+Training SVM on hybrid features...
+SVM Hybrid Validation Accuracy: 0.762
+
+Training Logistic Regression on hybrid features...
+Logistic Regression Hybrid Validation Accuracy: 0.653
+
+Training PyTorch Neural Network on hybrid features...
+Epoch 0: Train Loss 0.7598, Val Loss 0.6666, Val Acc 0.7223
+Epoch 20: Train Loss 0.0358, Val Loss 1.1408, Val Acc 0.6964
+Epoch 40: Train Loss 0.0215, Val Loss 1.1644, Val Acc 0.6998
+Epoch 60: Train Loss 0.0236, Val Loss 1.1594, Val Acc 0.6975
+Epoch 80: Train Loss 0.0296, Val Loss 1.1631, Val Acc 0.7099
+PyTorch NN Hybrid Validation Accuracy: 0.722
+
+================================================================================
+COMPREHENSIVE COMPARISON
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.700      21        
+SBERT Baseline            SVM             0.694      3072      
+Hybrid (Top-{top_k_features}) SVM             0.762      3093      
+
+Hybrid Improvements:
+  vs Topological: +0.062 (+8.8%)
+  vs SBERT: +0.068 (+9.8%)
+🎉 EXCELLENT: Hybrid approach achieves >72% accuracy!
+
+
+
+

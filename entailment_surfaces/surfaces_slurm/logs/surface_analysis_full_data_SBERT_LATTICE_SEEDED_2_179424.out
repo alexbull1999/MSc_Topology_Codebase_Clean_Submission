@@ -1,0 +1,3038 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 179424
+Node: gpuvm07
+Time: Thu  3 Jul 17:51:23 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul  3 17:51:24 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:00:10.0 Off |                    0 |
+| N/A   28C    P0             25W /  165W |       0MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.3 GB
+PyTorch setup verified!
+
+Checking for required input data and models...
+Found BERT data: data/processed/snli_full_standard_BERT.pt
+✓ Found order model: models/enhanced_order_embeddings_snli_full.pt
+
+Starting Surface Distance Metric Analysis...
+Analysis parameters:
+  - Random seed: 42
+
+Surface Distance Metric Analyzer initialized
+FOCUS: Testing distance metrics for premise-hypothesis pair relationships
+Device: cuda
+BERT data: data/processed/snli_full_standard_SBERT.pt
+Order model: models/enhanced_order_embeddings_snli_SBERT_full.pt
+Distance metrics: 8 total
+Relational embedding spaces: 14 total
+Each space represents premise-hypothesis pair relationships
+Loading pre-processed data...
+Loading BERT embeddings from data/processed/snli_full_standard_SBERT.pt
+BERT data loaded:
+  Premise embeddings: torch.Size([549367, 768])
+  Hypothesis embeddings: torch.Size([549367, 768])
+  Labels: 549367
+  Label distribution: {'contradiction': 183187, 'entailment': 183416, 'neutral': 182764}
+Loading order model from models/enhanced_order_embeddings_snli_SBERT_full.pt
+Order model loaded (validation loss: 3.202074103355408)
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Hyperbolic pipeline loaded successfully
+Enhanced Hyperbolic Entailment Cones using device: cuda
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Successfully loaded enhanced hyperbolic projection of order embeddings
+Enhanced cone pipeline loaded successfully
+================================================================================
+COMPREHENSIVE SURFACE DISTANCE METRIC ANALYSIS (GPU-OPTIMIZED)
+Testing all distance metrics across all embedding spaces
+Device: cuda
+GPU Memory: 3222.8 MB allocated
+================================================================================
+Extracting all embedding spaces...
+  entailment: 183416 samples
+  neutral: 182764 samples
+  contradiction: 183187 samples
+Computing EUCLIDEAN order embeddings...
+Computing ALL HYPERBOLIC features from enhanced cone pipeline...
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 416 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 764 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 187 samples on cuda
+Extracting sbert_concat...
+  sbert_concat entailment: torch.Size([183416, 1536])
+  sbert_concat neutral: torch.Size([182764, 1536])
+  sbert_concat contradiction: torch.Size([183187, 1536])
+Extracting sbert_difference...
+  sbert_difference entailment: torch.Size([183416, 768])
+  sbert_difference neutral: torch.Size([182764, 768])
+  sbert_difference contradiction: torch.Size([183187, 768])
+Extracting order_concat...
+  order_concat entailment: torch.Size([183416, 250])
+  order_concat neutral: torch.Size([182764, 250])
+  order_concat contradiction: torch.Size([183187, 250])
+Extracting order_difference...
+  order_difference entailment: torch.Size([183416, 125])
+  order_difference neutral: torch.Size([182764, 125])
+  order_difference contradiction: torch.Size([183187, 125])
+Extracting order_violations...
+  order_violations entailment: torch.Size([183416, 1])
+  order_violations neutral: torch.Size([182764, 1])
+  order_violations contradiction: torch.Size([183187, 1])
+Extracting hyperbolic_concat...
+  hyperbolic_concat entailment: torch.Size([183416, 60])
+  hyperbolic_concat neutral: torch.Size([182764, 60])
+  hyperbolic_concat contradiction: torch.Size([183187, 60])
+Extracting hyperbolic_distances...
+  hyperbolic_distances entailment: torch.Size([183416, 1])
+  hyperbolic_distances neutral: torch.Size([182764, 1])
+  hyperbolic_distances contradiction: torch.Size([183187, 1])
+Extracting cone_features...
+  cone_features entailment: torch.Size([183416, 5])
+  cone_features neutral: torch.Size([182764, 5])
+  cone_features contradiction: torch.Size([183187, 5])
+Extracting lattice_containment...
+  lattice_containment entailment: torch.Size([183416, 768])
+  lattice_containment neutral: torch.Size([182764, 768])
+  lattice_containment contradiction: torch.Size([183187, 768])
+Extracting lattice_order_violations...
+  lattice_order_violations entailment: torch.Size([183416, 768])
+  lattice_order_violations neutral: torch.Size([182764, 768])
+  lattice_order_violations contradiction: torch.Size([183187, 768])
+Extracting lattice_height...
+  lattice_height entailment: torch.Size([183416, 768])
+  lattice_height neutral: torch.Size([182764, 768])
+  lattice_height contradiction: torch.Size([183187, 768])
+Extracting lattice_subsumption...
+  lattice_subsumption entailment: torch.Size([183416, 768])
+  lattice_subsumption neutral: torch.Size([182764, 768])
+  lattice_subsumption contradiction: torch.Size([183187, 768])
+Extracting lattice_bidirectional_order_violations...
+  lattice_bidirectional_order_violations entailment: torch.Size([183416, 1536])
+  lattice_bidirectional_order_violations neutral: torch.Size([182764, 1536])
+  lattice_bidirectional_order_violations contradiction: torch.Size([183187, 1536])
+Extracting lattice_enhanced...
+  lattice_enhanced entailment: torch.Size([183416, 3072])
+  lattice_enhanced neutral: torch.Size([182764, 3072])
+  lattice_enhanced contradiction: torch.Size([183187, 3072])
+
+============================================================
+TESTING SPACE: sbert_concat
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in sbert_concat using euclidean
+    entailment PH-Dim: 15.0301
+  Computing PH-Dim for neutral in sbert_concat using euclidean
+    neutral PH-Dim: 25.7421
+  Computing PH-Dim for contradiction in sbert_concat using euclidean
+    contradiction PH-Dim: 28.0260
+  Computing cross-class surface analysis for sbert_concat using euclidean
+ PH-Dim scores: {'entailment': 15.030089283637388, 'neutral': 25.742104809188465, 'contradiction': 28.02600065433569}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in sbert_concat using manhattan
+    entailment PH-Dim: 14.0500
+  Computing PH-Dim for neutral in sbert_concat using manhattan
+    neutral PH-Dim: 24.2140
+  Computing PH-Dim for contradiction in sbert_concat using manhattan
+    contradiction PH-Dim: 25.3702
+  Computing cross-class surface analysis for sbert_concat using manhattan
+ PH-Dim scores: {'entailment': 14.049992058546602, 'neutral': 24.213985107100974, 'contradiction': 25.37015621543923}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in sbert_concat using chebyshev
+    entailment PH-Dim: 18.5118
+  Computing PH-Dim for neutral in sbert_concat using chebyshev
+    neutral PH-Dim: 27.1470
+  Computing PH-Dim for contradiction in sbert_concat using chebyshev
+    contradiction PH-Dim: 33.0761
+  Computing cross-class surface analysis for sbert_concat using chebyshev
+ PH-Dim scores: {'entailment': 18.511813263642647, 'neutral': 27.14698767550993, 'contradiction': 33.076137347574985}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in sbert_concat using cosine
+    entailment PH-Dim: 7.5352
+  Computing PH-Dim for neutral in sbert_concat using cosine
+    neutral PH-Dim: 12.0465
+  Computing PH-Dim for contradiction in sbert_concat using cosine
+    contradiction PH-Dim: 13.7744
+  Computing cross-class surface analysis for sbert_concat using cosine
+ PH-Dim scores: {'entailment': 7.535180775580796, 'neutral': 12.04646296114112, 'contradiction': 13.774424706783392}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in sbert_concat using minkowski_3
+    entailment PH-Dim: 15.7972
+  Computing PH-Dim for neutral in sbert_concat using minkowski_3
+    neutral PH-Dim: 26.7759
+  Computing PH-Dim for contradiction in sbert_concat using minkowski_3
+    contradiction PH-Dim: 29.9636
+  Computing cross-class surface analysis for sbert_concat using minkowski_3
+ PH-Dim scores: {'entailment': 15.797171215336059, 'neutral': 26.77587039454182, 'contradiction': 29.9635577997173}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in sbert_concat using minkowski_4
+    entailment PH-Dim: 16.3790
+  Computing PH-Dim for neutral in sbert_concat using minkowski_4
+    neutral PH-Dim: 27.3692
+  Computing PH-Dim for contradiction in sbert_concat using minkowski_4
+    contradiction PH-Dim: 31.2815
+  Computing cross-class surface analysis for sbert_concat using minkowski_4
+ PH-Dim scores: {'entailment': 16.379013179167206, 'neutral': 27.369212647179715, 'contradiction': 31.28147505036333}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in sbert_concat using canberra
+    entailment PH-Dim: 23.0985
+  Computing PH-Dim for neutral in sbert_concat using canberra
+    neutral PH-Dim: 38.7494
+  Computing PH-Dim for contradiction in sbert_concat using canberra
+    contradiction PH-Dim: 42.6755
+  Computing cross-class surface analysis for sbert_concat using canberra
+ PH-Dim scores: {'entailment': 23.098521999998237, 'neutral': 38.749387565261394, 'contradiction': 42.6754611957568}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in sbert_concat using braycurtis
+    entailment PH-Dim: 10.6539
+  Computing PH-Dim for neutral in sbert_concat using braycurtis
+    neutral PH-Dim: 16.6459
+  Computing PH-Dim for contradiction in sbert_concat using braycurtis
+    contradiction PH-Dim: 17.9412
+  Computing cross-class surface analysis for sbert_concat using braycurtis
+ PH-Dim scores: {'entailment': 10.653934183551161, 'neutral': 16.645874313361848, 'contradiction': 17.941206876905746}
+
+Saved sbert_concat results to entailment_surfaces/results/surface_analysis_sbert_concat_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: sbert_difference
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in sbert_difference using euclidean
+    entailment PH-Dim: 52.3363
+  Computing PH-Dim for neutral in sbert_difference using euclidean
+    neutral PH-Dim: 31.9363
+  Computing PH-Dim for contradiction in sbert_difference using euclidean
+    contradiction PH-Dim: 18.7004
+  Computing cross-class surface analysis for sbert_difference using euclidean
+ PH-Dim scores: {'entailment': 52.336277065959926, 'neutral': 31.936303774075338, 'contradiction': 18.70037224818659}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in sbert_difference using manhattan
+    entailment PH-Dim: 52.1185
+  Computing PH-Dim for neutral in sbert_difference using manhattan
+    neutral PH-Dim: 31.7105
+  Computing PH-Dim for contradiction in sbert_difference using manhattan
+    contradiction PH-Dim: 18.3942
+  Computing cross-class surface analysis for sbert_difference using manhattan
+ PH-Dim scores: {'entailment': 52.11846925405177, 'neutral': 31.71048991217693, 'contradiction': 18.394221193299536}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in sbert_difference using chebyshev
+    entailment PH-Dim: 31.4335
+  Computing PH-Dim for neutral in sbert_difference using chebyshev
+    neutral PH-Dim: 26.2515
+  Computing PH-Dim for contradiction in sbert_difference using chebyshev
+    contradiction PH-Dim: 21.0229
+  Computing cross-class surface analysis for sbert_difference using chebyshev
+ PH-Dim scores: {'entailment': 31.43348887644565, 'neutral': 26.251468752774578, 'contradiction': 21.022885820429856}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in sbert_difference using cosine
+    entailment PH-Dim: 14.0088
+  Computing PH-Dim for neutral in sbert_difference using cosine
+    neutral PH-Dim: 16.0402
+  Computing PH-Dim for contradiction in sbert_difference using cosine
+    contradiction PH-Dim: 13.1523
+  Computing cross-class surface analysis for sbert_difference using cosine
+ PH-Dim scores: {'entailment': 14.008771465638961, 'neutral': 16.040160501467685, 'contradiction': 13.152339208193249}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in sbert_difference using minkowski_3
+    entailment PH-Dim: 50.9976
+  Computing PH-Dim for neutral in sbert_difference using minkowski_3
+    neutral PH-Dim: 32.1489
+  Computing PH-Dim for contradiction in sbert_difference using minkowski_3
+    contradiction PH-Dim: 19.0188
+  Computing cross-class surface analysis for sbert_difference using minkowski_3
+ PH-Dim scores: {'entailment': 50.99762540214523, 'neutral': 32.148888351164246, 'contradiction': 19.018817427709465}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in sbert_difference using minkowski_4
+    entailment PH-Dim: 49.1891
+  Computing PH-Dim for neutral in sbert_difference using minkowski_4
+    neutral PH-Dim: 32.4276
+  Computing PH-Dim for contradiction in sbert_difference using minkowski_4
+    contradiction PH-Dim: 19.3329
+  Computing cross-class surface analysis for sbert_difference using minkowski_4
+ PH-Dim scores: {'entailment': 49.18911210544801, 'neutral': 32.427578134335576, 'contradiction': 19.332898551988247}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in sbert_difference using canberra
+    entailment PH-Dim: 56.9883
+  Computing PH-Dim for neutral in sbert_difference using canberra
+    neutral PH-Dim: 63.3942
+  Computing PH-Dim for contradiction in sbert_difference using canberra
+    contradiction PH-Dim: 50.7250
+  Computing cross-class surface analysis for sbert_difference using canberra
+ PH-Dim scores: {'entailment': 56.98831486930742, 'neutral': 63.394229582185076, 'contradiction': 50.72498237083571}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in sbert_difference using braycurtis
+    entailment PH-Dim: 19.7275
+  Computing PH-Dim for neutral in sbert_difference using braycurtis
+    neutral PH-Dim: 22.6394
+  Computing PH-Dim for contradiction in sbert_difference using braycurtis
+    contradiction PH-Dim: 19.0871
+  Computing cross-class surface analysis for sbert_difference using braycurtis
+ PH-Dim scores: {'entailment': 19.72751504016658, 'neutral': 22.639422938608075, 'contradiction': 19.087108151109618}
+
+Saved sbert_difference results to entailment_surfaces/results/surface_analysis_sbert_difference_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: order_concat
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in order_concat using euclidean
+    entailment PH-Dim: 15.7325
+  Computing PH-Dim for neutral in order_concat using euclidean
+    neutral PH-Dim: 21.9997
+  Computing PH-Dim for contradiction in order_concat using euclidean
+    contradiction PH-Dim: 22.7924
+  Computing cross-class surface analysis for order_concat using euclidean
+ PH-Dim scores: {'entailment': 15.732461541767393, 'neutral': 21.999702118966376, 'contradiction': 22.792378949274262}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in order_concat using manhattan
+    entailment PH-Dim: 14.8474
+  Computing PH-Dim for neutral in order_concat using manhattan
+    neutral PH-Dim: 21.0580
+  Computing PH-Dim for contradiction in order_concat using manhattan
+    contradiction PH-Dim: 21.8952
+  Computing cross-class surface analysis for order_concat using manhattan
+ PH-Dim scores: {'entailment': 14.8473722963231, 'neutral': 21.057989763043967, 'contradiction': 21.895196626708426}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in order_concat using chebyshev
+    entailment PH-Dim: 16.8315
+  Computing PH-Dim for neutral in order_concat using chebyshev
+    neutral PH-Dim: 19.2640
+  Computing PH-Dim for contradiction in order_concat using chebyshev
+    contradiction PH-Dim: 19.0060
+  Computing cross-class surface analysis for order_concat using chebyshev
+ PH-Dim scores: {'entailment': 16.83153914579573, 'neutral': 19.264008617755753, 'contradiction': 19.005963147861}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in order_concat using cosine
+    entailment PH-Dim: 8.0165
+  Computing PH-Dim for neutral in order_concat using cosine
+    neutral PH-Dim: 9.8933
+  Computing PH-Dim for contradiction in order_concat using cosine
+    contradiction PH-Dim: 12.3409
+  Computing cross-class surface analysis for order_concat using cosine
+ PH-Dim scores: {'entailment': 8.016459172727744, 'neutral': 9.893255273142739, 'contradiction': 12.340936895769778}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in order_concat using minkowski_3
+    entailment PH-Dim: 16.1380
+  Computing PH-Dim for neutral in order_concat using minkowski_3
+    neutral PH-Dim: 22.3533
+  Computing PH-Dim for contradiction in order_concat using minkowski_3
+    contradiction PH-Dim: 22.6759
+  Computing cross-class surface analysis for order_concat using minkowski_3
+ PH-Dim scores: {'entailment': 16.137992272586384, 'neutral': 22.35327218977266, 'contradiction': 22.67588196433502}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in order_concat using minkowski_4
+    entailment PH-Dim: 16.4357
+  Computing PH-Dim for neutral in order_concat using minkowski_4
+    neutral PH-Dim: 22.4285
+  Computing PH-Dim for contradiction in order_concat using minkowski_4
+    contradiction PH-Dim: 22.3211
+  Computing cross-class surface analysis for order_concat using minkowski_4
+ PH-Dim scores: {'entailment': 16.435729455354625, 'neutral': 22.428526485420942, 'contradiction': 22.321098408850226}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in order_concat using canberra
+    entailment PH-Dim: 20.1222
+  Computing PH-Dim for neutral in order_concat using canberra
+    neutral PH-Dim: 26.3011
+  Computing PH-Dim for contradiction in order_concat using canberra
+    contradiction PH-Dim: 30.6438
+  Computing cross-class surface analysis for order_concat using canberra
+ PH-Dim scores: {'entailment': 20.12220893401806, 'neutral': 26.301128151351282, 'contradiction': 30.64379032319938}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in order_concat using braycurtis
+    entailment PH-Dim: 15.4823
+  Computing PH-Dim for neutral in order_concat using braycurtis
+    neutral PH-Dim: 19.6752
+  Computing PH-Dim for contradiction in order_concat using braycurtis
+    contradiction PH-Dim: 23.7582
+  Computing cross-class surface analysis for order_concat using braycurtis
+ PH-Dim scores: {'entailment': 15.482339001459602, 'neutral': 19.67523414327182, 'contradiction': 23.7582347296343}
+
+Saved order_concat results to entailment_surfaces/results/surface_analysis_order_concat_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: order_difference
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in order_difference using euclidean
+    entailment PH-Dim: 22.7107
+  Computing PH-Dim for neutral in order_difference using euclidean
+    neutral PH-Dim: 25.9519
+  Computing PH-Dim for contradiction in order_difference using euclidean
+    contradiction PH-Dim: 18.7418
+  Computing cross-class surface analysis for order_difference using euclidean
+ PH-Dim scores: {'entailment': 22.710715221967906, 'neutral': 25.9519498991145, 'contradiction': 18.741778832189365}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in order_difference using manhattan
+    entailment PH-Dim: 22.4056
+  Computing PH-Dim for neutral in order_difference using manhattan
+    neutral PH-Dim: 25.5396
+  Computing PH-Dim for contradiction in order_difference using manhattan
+    contradiction PH-Dim: 18.4601
+  Computing cross-class surface analysis for order_difference using manhattan
+ PH-Dim scores: {'entailment': 22.405577613191248, 'neutral': 25.539604084598647, 'contradiction': 18.46011016361732}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in order_difference using chebyshev
+    entailment PH-Dim: 17.6250
+  Computing PH-Dim for neutral in order_difference using chebyshev
+    neutral PH-Dim: 20.8023
+  Computing PH-Dim for contradiction in order_difference using chebyshev
+    contradiction PH-Dim: 15.5384
+  Computing cross-class surface analysis for order_difference using chebyshev
+ PH-Dim scores: {'entailment': 17.625029342027375, 'neutral': 20.80227022939158, 'contradiction': 15.538395916517148}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in order_difference using cosine
+    entailment PH-Dim: 10.2825
+  Computing PH-Dim for neutral in order_difference using cosine
+    neutral PH-Dim: 9.9647
+  Computing PH-Dim for contradiction in order_difference using cosine
+    contradiction PH-Dim: 11.0361
+  Computing cross-class surface analysis for order_difference using cosine
+ PH-Dim scores: {'entailment': 10.282455352139573, 'neutral': 9.964730672368258, 'contradiction': 11.036123474383103}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in order_difference using minkowski_3
+    entailment PH-Dim: 22.4049
+  Computing PH-Dim for neutral in order_difference using minkowski_3
+    neutral PH-Dim: 25.4543
+  Computing PH-Dim for contradiction in order_difference using minkowski_3
+    contradiction PH-Dim: 18.5790
+  Computing cross-class surface analysis for order_difference using minkowski_3
+ PH-Dim scores: {'entailment': 22.404916575407753, 'neutral': 25.4543019288203, 'contradiction': 18.57898345732344}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in order_difference using minkowski_4
+    entailment PH-Dim: 21.9490
+  Computing PH-Dim for neutral in order_difference using minkowski_4
+    neutral PH-Dim: 24.8626
+  Computing PH-Dim for contradiction in order_difference using minkowski_4
+    contradiction PH-Dim: 18.2410
+  Computing cross-class surface analysis for order_difference using minkowski_4
+ PH-Dim scores: {'entailment': 21.94897199589092, 'neutral': 24.86262807221776, 'contradiction': 18.241042092971252}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in order_difference using canberra
+    entailment PH-Dim: 33.4140
+  Computing PH-Dim for neutral in order_difference using canberra
+    neutral PH-Dim: 33.7981
+  Computing PH-Dim for contradiction in order_difference using canberra
+    contradiction PH-Dim: 40.1604
+  Computing cross-class surface analysis for order_difference using canberra
+ PH-Dim scores: {'entailment': 33.414042786727876, 'neutral': 33.79814140621655, 'contradiction': 40.160448890283654}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in order_difference using braycurtis
+    entailment PH-Dim: 16.6691
+  Computing PH-Dim for neutral in order_difference using braycurtis
+    neutral PH-Dim: 16.4820
+  Computing PH-Dim for contradiction in order_difference using braycurtis
+    contradiction PH-Dim: 18.5336
+  Computing cross-class surface analysis for order_difference using braycurtis
+ PH-Dim scores: {'entailment': 16.669093853709665, 'neutral': 16.48197496936809, 'contradiction': 18.53360852795108}
+
+Saved order_difference results to entailment_surfaces/results/surface_analysis_order_difference_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: order_violations
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in order_violations using euclidean
+    entailment PH-Dim: 1.5301
+  Computing PH-Dim for neutral in order_violations using euclidean
+    neutral PH-Dim: 1.2614
+  Computing PH-Dim for contradiction in order_violations using euclidean
+    contradiction PH-Dim: 1.0452
+  Computing cross-class surface analysis for order_violations using euclidean
+ PH-Dim scores: {'entailment': 1.5301049957241672, 'neutral': 1.2613684023413918, 'contradiction': 1.045220557358436}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in order_violations using manhattan
+    entailment PH-Dim: 1.5301
+  Computing PH-Dim for neutral in order_violations using manhattan
+    neutral PH-Dim: 1.2614
+  Computing PH-Dim for contradiction in order_violations using manhattan
+    contradiction PH-Dim: 1.0452
+  Computing cross-class surface analysis for order_violations using manhattan
+ PH-Dim scores: {'entailment': 1.5301049957241672, 'neutral': 1.2613736686374089, 'contradiction': 1.045220557358436}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in order_violations using chebyshev
+    entailment PH-Dim: 1.5301
+  Computing PH-Dim for neutral in order_violations using chebyshev
+    neutral PH-Dim: 1.2614
+  Computing PH-Dim for contradiction in order_violations using chebyshev
+    contradiction PH-Dim: 1.0452
+  Computing cross-class surface analysis for order_violations using chebyshev
+ PH-Dim scores: {'entailment': 1.5301049957241672, 'neutral': 1.2613736686374089, 'contradiction': 1.045220557358436}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in order_violations using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for neutral in order_violations using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for contradiction in order_violations using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing cross-class surface analysis for order_violations using cosine
+ PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in order_violations using minkowski_3
+    entailment PH-Dim: 1.5301
+  Computing PH-Dim for neutral in order_violations using minkowski_3
+    neutral PH-Dim: 1.2614
+  Computing PH-Dim for contradiction in order_violations using minkowski_3
+    contradiction PH-Dim: 1.0452
+  Computing cross-class surface analysis for order_violations using minkowski_3
+ PH-Dim scores: {'entailment': 1.5301049957241672, 'neutral': 1.2613684023413918, 'contradiction': 1.045220557358436}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in order_violations using minkowski_4
+    entailment PH-Dim: 1.5301
+  Computing PH-Dim for neutral in order_violations using minkowski_4
+    neutral PH-Dim: 1.2614
+  Computing PH-Dim for contradiction in order_violations using minkowski_4
+    contradiction PH-Dim: 1.0452
+  Computing cross-class surface analysis for order_violations using minkowski_4
+ PH-Dim scores: {'entailment': 1.5301049957241672, 'neutral': 1.2613736686374089, 'contradiction': 1.045220557358436}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in order_violations using canberra
+    entailment PH-Dim: 1.3740
+  Computing PH-Dim for neutral in order_violations using canberra
+    neutral PH-Dim: 1.2711
+  Computing PH-Dim for contradiction in order_violations using canberra
+    contradiction PH-Dim: 1.1796
+  Computing cross-class surface analysis for order_violations using canberra
+ PH-Dim scores: {'entailment': 1.374006808626471, 'neutral': 1.2710878878125174, 'contradiction': 1.1796068095134524}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in order_violations using braycurtis
+    entailment PH-Dim: 1.3740
+  Computing PH-Dim for neutral in order_violations using braycurtis
+    neutral PH-Dim: 1.2711
+  Computing PH-Dim for contradiction in order_violations using braycurtis
+    contradiction PH-Dim: 1.1796
+  Computing cross-class surface analysis for order_violations using braycurtis
+ PH-Dim scores: {'entailment': 1.374006808626471, 'neutral': 1.2710878878125174, 'contradiction': 1.1796068095134524}
+
+Saved order_violations results to entailment_surfaces/results/surface_analysis_order_violations_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: hyperbolic_concat
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using euclidean
+    entailment PH-Dim: 15.2156
+  Computing PH-Dim for neutral in hyperbolic_concat using euclidean
+    neutral PH-Dim: 19.4962
+  Computing PH-Dim for contradiction in hyperbolic_concat using euclidean
+    contradiction PH-Dim: 18.2712
+  Computing cross-class surface analysis for hyperbolic_concat using euclidean
+ PH-Dim scores: {'entailment': 15.215580127109186, 'neutral': 19.496182027703117, 'contradiction': 18.271197778579772}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using manhattan
+    entailment PH-Dim: 14.6433
+  Computing PH-Dim for neutral in hyperbolic_concat using manhattan
+    neutral PH-Dim: 18.9639
+  Computing PH-Dim for contradiction in hyperbolic_concat using manhattan
+    contradiction PH-Dim: 17.7288
+  Computing cross-class surface analysis for hyperbolic_concat using manhattan
+ PH-Dim scores: {'entailment': 14.643311905092315, 'neutral': 18.963877207773592, 'contradiction': 17.728825368248096}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using chebyshev
+    entailment PH-Dim: 14.3339
+  Computing PH-Dim for neutral in hyperbolic_concat using chebyshev
+    neutral PH-Dim: 17.8903
+  Computing PH-Dim for contradiction in hyperbolic_concat using chebyshev
+    contradiction PH-Dim: 15.2122
+  Computing cross-class surface analysis for hyperbolic_concat using chebyshev
+ PH-Dim scores: {'entailment': 14.333905710671086, 'neutral': 17.890299400637, 'contradiction': 15.212244685315188}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using cosine
+    entailment PH-Dim: 7.9641
+  Computing PH-Dim for neutral in hyperbolic_concat using cosine
+    neutral PH-Dim: 8.7041
+  Computing PH-Dim for contradiction in hyperbolic_concat using cosine
+    contradiction PH-Dim: 9.5378
+  Computing cross-class surface analysis for hyperbolic_concat using cosine
+ PH-Dim scores: {'entailment': 7.964113224950898, 'neutral': 8.704131673184714, 'contradiction': 9.537840924295237}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using minkowski_3
+    entailment PH-Dim: 15.1609
+  Computing PH-Dim for neutral in hyperbolic_concat using minkowski_3
+    neutral PH-Dim: 19.5971
+  Computing PH-Dim for contradiction in hyperbolic_concat using minkowski_3
+    contradiction PH-Dim: 18.2006
+  Computing cross-class surface analysis for hyperbolic_concat using minkowski_3
+ PH-Dim scores: {'entailment': 15.16094244298176, 'neutral': 19.5970718268188, 'contradiction': 18.200620540817997}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using minkowski_4
+    entailment PH-Dim: 15.0631
+  Computing PH-Dim for neutral in hyperbolic_concat using minkowski_4
+    neutral PH-Dim: 19.4598
+  Computing PH-Dim for contradiction in hyperbolic_concat using minkowski_4
+    contradiction PH-Dim: 17.7290
+  Computing cross-class surface analysis for hyperbolic_concat using minkowski_4
+ PH-Dim scores: {'entailment': 15.063122897214908, 'neutral': 19.459760214759353, 'contradiction': 17.72895589306554}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using canberra
+    entailment PH-Dim: 16.2221
+  Computing PH-Dim for neutral in hyperbolic_concat using canberra
+    neutral PH-Dim: 24.9758
+  Computing PH-Dim for contradiction in hyperbolic_concat using canberra
+    contradiction PH-Dim: 22.4301
+  Computing cross-class surface analysis for hyperbolic_concat using canberra
+ PH-Dim scores: {'entailment': 16.222088384631544, 'neutral': 24.975776424146627, 'contradiction': 22.43008422665279}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in hyperbolic_concat using braycurtis
+    entailment PH-Dim: 14.1011
+  Computing PH-Dim for neutral in hyperbolic_concat using braycurtis
+    neutral PH-Dim: 17.1289
+  Computing PH-Dim for contradiction in hyperbolic_concat using braycurtis
+    contradiction PH-Dim: 17.7004
+  Computing cross-class surface analysis for hyperbolic_concat using braycurtis
+ PH-Dim scores: {'entailment': 14.101117662832179, 'neutral': 17.12885501311326, 'contradiction': 17.70044342665641}
+
+Saved hyperbolic_concat results to entailment_surfaces/results/surface_analysis_hyperbolic_concat_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: hyperbolic_distances
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using euclidean
+    entailment PH-Dim: 1.1435
+  Computing PH-Dim for neutral in hyperbolic_distances using euclidean
+    neutral PH-Dim: 1.2532
+  Computing PH-Dim for contradiction in hyperbolic_distances using euclidean
+    contradiction PH-Dim: 1.0887
+  Computing cross-class surface analysis for hyperbolic_distances using euclidean
+ PH-Dim scores: {'entailment': 1.1435046854436053, 'neutral': 1.2532431776643032, 'contradiction': 1.0887144681067273}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using manhattan
+    entailment PH-Dim: 1.1435
+  Computing PH-Dim for neutral in hyperbolic_distances using manhattan
+    neutral PH-Dim: 1.2532
+  Computing PH-Dim for contradiction in hyperbolic_distances using manhattan
+    contradiction PH-Dim: 1.0887
+  Computing cross-class surface analysis for hyperbolic_distances using manhattan
+ PH-Dim scores: {'entailment': 1.1435046854436053, 'neutral': 1.2532431776643032, 'contradiction': 1.0887144681067273}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using chebyshev
+    entailment PH-Dim: 1.1435
+  Computing PH-Dim for neutral in hyperbolic_distances using chebyshev
+    neutral PH-Dim: 1.2532
+  Computing PH-Dim for contradiction in hyperbolic_distances using chebyshev
+    contradiction PH-Dim: 1.0887
+  Computing cross-class surface analysis for hyperbolic_distances using chebyshev
+ PH-Dim scores: {'entailment': 1.1435046854436053, 'neutral': 1.2532431776643032, 'contradiction': 1.0887144681067273}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for neutral in hyperbolic_distances using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing PH-Dim for contradiction in hyperbolic_distances using cosine
+    Invalid PH-Dim result for cosine, skipping
+  Computing cross-class surface analysis for hyperbolic_distances using cosine
+ PH-Dim scores: {'entailment': nan, 'neutral': nan, 'contradiction': nan}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using minkowski_3
+    entailment PH-Dim: 1.1435
+  Computing PH-Dim for neutral in hyperbolic_distances using minkowski_3
+    neutral PH-Dim: 1.2532
+  Computing PH-Dim for contradiction in hyperbolic_distances using minkowski_3
+    contradiction PH-Dim: 1.0887
+  Computing cross-class surface analysis for hyperbolic_distances using minkowski_3
+ PH-Dim scores: {'entailment': 1.1435046854436053, 'neutral': 1.2532431776643032, 'contradiction': 1.0887144681067273}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using minkowski_4
+    entailment PH-Dim: 1.1435
+  Computing PH-Dim for neutral in hyperbolic_distances using minkowski_4
+    neutral PH-Dim: 1.2532
+  Computing PH-Dim for contradiction in hyperbolic_distances using minkowski_4
+    contradiction PH-Dim: 1.0887
+  Computing cross-class surface analysis for hyperbolic_distances using minkowski_4
+ PH-Dim scores: {'entailment': 1.1435046854436053, 'neutral': 1.2532431776643032, 'contradiction': 1.0887144681067273}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using canberra
+    entailment PH-Dim: 1.8597
+  Computing PH-Dim for neutral in hyperbolic_distances using canberra
+    neutral PH-Dim: 1.3949
+  Computing PH-Dim for contradiction in hyperbolic_distances using canberra
+    contradiction PH-Dim: 1.2991
+  Computing cross-class surface analysis for hyperbolic_distances using canberra
+ PH-Dim scores: {'entailment': 1.8596620979272709, 'neutral': 1.3948744142535796, 'contradiction': 1.2991401103678832}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in hyperbolic_distances using braycurtis
+    entailment PH-Dim: 1.8597
+  Computing PH-Dim for neutral in hyperbolic_distances using braycurtis
+    neutral PH-Dim: 1.3949
+  Computing PH-Dim for contradiction in hyperbolic_distances using braycurtis
+    contradiction PH-Dim: 1.2991
+  Computing cross-class surface analysis for hyperbolic_distances using braycurtis
+ PH-Dim scores: {'entailment': 1.8596620979272709, 'neutral': 1.3948744142535796, 'contradiction': 1.2991401103678832}
+
+Saved hyperbolic_distances results to entailment_surfaces/results/surface_analysis_hyperbolic_distances_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: cone_features
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in cone_features using euclidean
+    entailment PH-Dim: 3.8014
+  Computing PH-Dim for neutral in cone_features using euclidean
+    neutral PH-Dim: 3.6582
+  Computing PH-Dim for contradiction in cone_features using euclidean
+    contradiction PH-Dim: 3.4606
+  Computing cross-class surface analysis for cone_features using euclidean
+ PH-Dim scores: {'entailment': 3.801421046715742, 'neutral': 3.658201623892881, 'contradiction': 3.460627142821399}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in cone_features using manhattan
+    entailment PH-Dim: 3.6216
+  Computing PH-Dim for neutral in cone_features using manhattan
+    neutral PH-Dim: 3.5931
+  Computing PH-Dim for contradiction in cone_features using manhattan
+    contradiction PH-Dim: 3.3878
+  Computing cross-class surface analysis for cone_features using manhattan
+ PH-Dim scores: {'entailment': 3.621603169797095, 'neutral': 3.5930975731234396, 'contradiction': 3.387753538758853}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in cone_features using chebyshev
+    entailment PH-Dim: 3.8874
+  Computing PH-Dim for neutral in cone_features using chebyshev
+    neutral PH-Dim: 3.6284
+  Computing PH-Dim for contradiction in cone_features using chebyshev
+    contradiction PH-Dim: 3.4057
+  Computing cross-class surface analysis for cone_features using chebyshev
+ PH-Dim scores: {'entailment': 3.8874425589633494, 'neutral': 3.6283902089035465, 'contradiction': 3.4056971109804683}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in cone_features using cosine
+    entailment PH-Dim: 1.6602
+  Computing PH-Dim for neutral in cone_features using cosine
+    neutral PH-Dim: 1.5677
+  Computing PH-Dim for contradiction in cone_features using cosine
+    contradiction PH-Dim: 1.4386
+  Computing cross-class surface analysis for cone_features using cosine
+ PH-Dim scores: {'entailment': 1.6601660193531431, 'neutral': 1.5677213817194424, 'contradiction': 1.4386027143609155}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in cone_features using minkowski_3
+    entailment PH-Dim: 3.8422
+  Computing PH-Dim for neutral in cone_features using minkowski_3
+    neutral PH-Dim: 3.6826
+  Computing PH-Dim for contradiction in cone_features using minkowski_3
+    contradiction PH-Dim: 3.4409
+  Computing cross-class surface analysis for cone_features using minkowski_3
+ PH-Dim scores: {'entailment': 3.8422339014589513, 'neutral': 3.682596848288151, 'contradiction': 3.4408651761743663}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in cone_features using minkowski_4
+    entailment PH-Dim: 3.8583
+  Computing PH-Dim for neutral in cone_features using minkowski_4
+    neutral PH-Dim: 3.6784
+  Computing PH-Dim for contradiction in cone_features using minkowski_4
+    contradiction PH-Dim: 3.4293
+  Computing cross-class surface analysis for cone_features using minkowski_4
+ PH-Dim scores: {'entailment': 3.8582937592176636, 'neutral': 3.6783807439918585, 'contradiction': 3.4293091522580434}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in cone_features using canberra
+    entailment PH-Dim: 3.6124
+  Computing PH-Dim for neutral in cone_features using canberra
+    neutral PH-Dim: 3.4885
+  Computing PH-Dim for contradiction in cone_features using canberra
+    contradiction PH-Dim: 3.7934
+  Computing cross-class surface analysis for cone_features using canberra
+ PH-Dim scores: {'entailment': 3.6123637835978855, 'neutral': 3.4885335080918867, 'contradiction': 3.79339164196921}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in cone_features using braycurtis
+    entailment PH-Dim: 3.6464
+  Computing PH-Dim for neutral in cone_features using braycurtis
+    neutral PH-Dim: 3.5717
+  Computing PH-Dim for contradiction in cone_features using braycurtis
+    contradiction PH-Dim: 3.5392
+  Computing cross-class surface analysis for cone_features using braycurtis
+ PH-Dim scores: {'entailment': 3.6464149251205504, 'neutral': 3.5717067641276437, 'contradiction': 3.53921515809769}
+
+Saved cone_features results to entailment_surfaces/results/surface_analysis_cone_features_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: lattice_containment
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in lattice_containment using euclidean
+    entailment PH-Dim: 28.0143
+  Computing PH-Dim for neutral in lattice_containment using euclidean
+    neutral PH-Dim: 53.3547
+  Computing PH-Dim for contradiction in lattice_containment using euclidean
+    contradiction PH-Dim: 61.4428
+  Computing cross-class surface analysis for lattice_containment using euclidean
+ PH-Dim scores: {'entailment': 28.014278063487613, 'neutral': 53.354674818052644, 'contradiction': 61.44277908873078}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in lattice_containment using manhattan
+    entailment PH-Dim: 26.8926
+  Computing PH-Dim for neutral in lattice_containment using manhattan
+    neutral PH-Dim: 51.2828
+  Computing PH-Dim for contradiction in lattice_containment using manhattan
+    contradiction PH-Dim: 54.4793
+  Computing cross-class surface analysis for lattice_containment using manhattan
+ PH-Dim scores: {'entailment': 26.892579781396197, 'neutral': 51.282847699052304, 'contradiction': 54.47932519555352}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in lattice_containment using chebyshev
+    entailment PH-Dim: 31.7263
+  Computing PH-Dim for neutral in lattice_containment using chebyshev
+    neutral PH-Dim: 41.0593
+  Computing PH-Dim for contradiction in lattice_containment using chebyshev
+    contradiction PH-Dim: 40.2210
+  Computing cross-class surface analysis for lattice_containment using chebyshev
+ PH-Dim scores: {'entailment': 31.726323273863603, 'neutral': 41.059294965588805, 'contradiction': 40.2209781543124}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in lattice_containment using cosine
+    entailment PH-Dim: 14.5798
+  Computing PH-Dim for neutral in lattice_containment using cosine
+    neutral PH-Dim: 24.7829
+  Computing PH-Dim for contradiction in lattice_containment using cosine
+    contradiction PH-Dim: 26.6368
+  Computing cross-class surface analysis for lattice_containment using cosine
+ PH-Dim scores: {'entailment': 14.579810402792345, 'neutral': 24.78288021663555, 'contradiction': 26.636835889607784}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in lattice_containment using minkowski_3
+    entailment PH-Dim: 29.1707
+  Computing PH-Dim for neutral in lattice_containment using minkowski_3
+    neutral PH-Dim: 55.0149
+  Computing PH-Dim for contradiction in lattice_containment using minkowski_3
+    contradiction PH-Dim: 65.1649
+  Computing cross-class surface analysis for lattice_containment using minkowski_3
+ PH-Dim scores: {'entailment': 29.1706815463325, 'neutral': 55.0148579093041, 'contradiction': 65.1649159507222}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in lattice_containment using minkowski_4
+    entailment PH-Dim: 30.4367
+  Computing PH-Dim for neutral in lattice_containment using minkowski_4
+    neutral PH-Dim: 54.9080
+  Computing PH-Dim for contradiction in lattice_containment using minkowski_4
+    contradiction PH-Dim: 66.2901
+  Computing cross-class surface analysis for lattice_containment using minkowski_4
+ PH-Dim scores: {'entailment': 30.43674186464741, 'neutral': 54.90800436776634, 'contradiction': 66.29013896495667}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in lattice_containment using canberra
+    entailment PH-Dim: 63.4830
+  Computing PH-Dim for neutral in lattice_containment using canberra
+    neutral PH-Dim: 75.2795
+  Computing PH-Dim for contradiction in lattice_containment using canberra
+    contradiction PH-Dim: 91.0358
+  Computing cross-class surface analysis for lattice_containment using canberra
+ PH-Dim scores: {'entailment': 63.48301290842736, 'neutral': 75.27948685853178, 'contradiction': 91.03583033665255}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in lattice_containment using braycurtis
+    entailment PH-Dim: 28.7195
+  Computing PH-Dim for neutral in lattice_containment using braycurtis
+    neutral PH-Dim: 41.1669
+  Computing PH-Dim for contradiction in lattice_containment using braycurtis
+    contradiction PH-Dim: 34.5246
+  Computing cross-class surface analysis for lattice_containment using braycurtis
+ PH-Dim scores: {'entailment': 28.71951708511811, 'neutral': 41.16690473906759, 'contradiction': 34.5245998943727}
+
+Saved lattice_containment results to entailment_surfaces/results/surface_analysis_lattice_containment_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: lattice_order_violations
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using euclidean
+    entailment PH-Dim: 75.6451
+  Computing PH-Dim for neutral in lattice_order_violations using euclidean
+    neutral PH-Dim: 124.5126
+  Computing PH-Dim for contradiction in lattice_order_violations using euclidean
+    contradiction PH-Dim: 47.4752
+  Computing cross-class surface analysis for lattice_order_violations using euclidean
+ PH-Dim scores: {'entailment': 75.64507235327012, 'neutral': 124.51260683799431, 'contradiction': 47.475174520249205}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using manhattan
+    entailment PH-Dim: 179.0375
+  Computing PH-Dim for neutral in lattice_order_violations using manhattan
+    neutral PH-Dim: 53.8511
+  Computing PH-Dim for contradiction in lattice_order_violations using manhattan
+    contradiction PH-Dim: 21.5044
+  Computing cross-class surface analysis for lattice_order_violations using manhattan
+ PH-Dim scores: {'entailment': 179.03750655729897, 'neutral': 53.851142426377, 'contradiction': 21.50440829818537}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using chebyshev
+    entailment PH-Dim: 24.9512
+  Computing PH-Dim for neutral in lattice_order_violations using chebyshev
+    neutral PH-Dim: 21.1904
+  Computing PH-Dim for contradiction in lattice_order_violations using chebyshev
+    contradiction PH-Dim: 21.5989
+  Computing cross-class surface analysis for lattice_order_violations using chebyshev
+ PH-Dim scores: {'entailment': 24.951241619362577, 'neutral': 21.190420389505917, 'contradiction': 21.598883896029335}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using cosine
+    entailment PH-Dim: 18.3990
+  Computing PH-Dim for neutral in lattice_order_violations using cosine
+    neutral PH-Dim: 19.5062
+  Computing PH-Dim for contradiction in lattice_order_violations using cosine
+    contradiction PH-Dim: 16.7802
+  Computing cross-class surface analysis for lattice_order_violations using cosine
+ PH-Dim scores: {'entailment': 18.399032657239573, 'neutral': 19.506238802239345, 'contradiction': 16.780227376099205}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using minkowski_3
+    entailment PH-Dim: 50.8278
+  Computing PH-Dim for neutral in lattice_order_violations using minkowski_3
+    neutral PH-Dim: 59.4526
+  Computing PH-Dim for contradiction in lattice_order_violations using minkowski_3
+    contradiction PH-Dim: 38.4300
+  Computing cross-class surface analysis for lattice_order_violations using minkowski_3
+ PH-Dim scores: {'entailment': 50.82780961004505, 'neutral': 59.45263141634076, 'contradiction': 38.42996114219493}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using minkowski_4
+    entailment PH-Dim: 41.8036
+  Computing PH-Dim for neutral in lattice_order_violations using minkowski_4
+    neutral PH-Dim: 44.1181
+  Computing PH-Dim for contradiction in lattice_order_violations using minkowski_4
+    contradiction PH-Dim: 32.6334
+  Computing cross-class surface analysis for lattice_order_violations using minkowski_4
+ PH-Dim scores: {'entailment': 41.803568824052896, 'neutral': 44.11808602730701, 'contradiction': 32.63343485884082}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using canberra
+    entailment PH-Dim: 8.9087
+  Computing PH-Dim for neutral in lattice_order_violations using canberra
+    neutral PH-Dim: 54.1618
+  Computing PH-Dim for contradiction in lattice_order_violations using canberra
+    contradiction PH-Dim: 43.6849
+  Computing cross-class surface analysis for lattice_order_violations using canberra
+ PH-Dim scores: {'entailment': 8.908726753390928, 'neutral': 54.16175230832198, 'contradiction': 43.68492812748952}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in lattice_order_violations using braycurtis
+    entailment PH-Dim: 37.9694
+  Computing PH-Dim for neutral in lattice_order_violations using braycurtis
+    neutral PH-Dim: 40.4510
+  Computing PH-Dim for contradiction in lattice_order_violations using braycurtis
+    contradiction PH-Dim: 32.9603
+  Computing cross-class surface analysis for lattice_order_violations using braycurtis
+ PH-Dim scores: {'entailment': 37.96942219494281, 'neutral': 40.45100589849565, 'contradiction': 32.96028067032105}
+
+Saved lattice_order_violations results to entailment_surfaces/results/surface_analysis_lattice_order_violations_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: lattice_height
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in lattice_height using euclidean
+    entailment PH-Dim: 52.3363
+  Computing PH-Dim for neutral in lattice_height using euclidean
+    neutral PH-Dim: 31.9363
+  Computing PH-Dim for contradiction in lattice_height using euclidean
+    contradiction PH-Dim: 18.7004
+  Computing cross-class surface analysis for lattice_height using euclidean
+ PH-Dim scores: {'entailment': 52.336277065959926, 'neutral': 31.936303774075338, 'contradiction': 18.70037224818659}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in lattice_height using manhattan
+    entailment PH-Dim: 52.1185
+  Computing PH-Dim for neutral in lattice_height using manhattan
+    neutral PH-Dim: 31.7105
+  Computing PH-Dim for contradiction in lattice_height using manhattan
+    contradiction PH-Dim: 18.3942
+  Computing cross-class surface analysis for lattice_height using manhattan
+ PH-Dim scores: {'entailment': 52.11846925405177, 'neutral': 31.71048991217693, 'contradiction': 18.394221193299536}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in lattice_height using chebyshev
+    entailment PH-Dim: 31.4335
+  Computing PH-Dim for neutral in lattice_height using chebyshev
+    neutral PH-Dim: 26.2515
+  Computing PH-Dim for contradiction in lattice_height using chebyshev
+    contradiction PH-Dim: 21.0229
+  Computing cross-class surface analysis for lattice_height using chebyshev
+ PH-Dim scores: {'entailment': 31.43348887644565, 'neutral': 26.251468752774578, 'contradiction': 21.022885820429856}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in lattice_height using cosine
+    entailment PH-Dim: 14.0088
+  Computing PH-Dim for neutral in lattice_height using cosine
+    neutral PH-Dim: 16.0402
+  Computing PH-Dim for contradiction in lattice_height using cosine
+    contradiction PH-Dim: 13.1523
+  Computing cross-class surface analysis for lattice_height using cosine
+ PH-Dim scores: {'entailment': 14.008771465638961, 'neutral': 16.040160501467685, 'contradiction': 13.152339208193249}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in lattice_height using minkowski_3
+    entailment PH-Dim: 50.9976
+  Computing PH-Dim for neutral in lattice_height using minkowski_3
+    neutral PH-Dim: 32.1489
+  Computing PH-Dim for contradiction in lattice_height using minkowski_3
+    contradiction PH-Dim: 19.0188
+  Computing cross-class surface analysis for lattice_height using minkowski_3
+ PH-Dim scores: {'entailment': 50.99762540214523, 'neutral': 32.148888351164246, 'contradiction': 19.018817427709465}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in lattice_height using minkowski_4
+    entailment PH-Dim: 49.1891
+  Computing PH-Dim for neutral in lattice_height using minkowski_4
+    neutral PH-Dim: 32.4276
+  Computing PH-Dim for contradiction in lattice_height using minkowski_4
+    contradiction PH-Dim: 19.3329
+  Computing cross-class surface analysis for lattice_height using minkowski_4
+ PH-Dim scores: {'entailment': 49.18911210544801, 'neutral': 32.427578134335576, 'contradiction': 19.332898551988247}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in lattice_height using canberra
+    entailment PH-Dim: 56.9883
+  Computing PH-Dim for neutral in lattice_height using canberra
+    neutral PH-Dim: 63.3942
+  Computing PH-Dim for contradiction in lattice_height using canberra
+    contradiction PH-Dim: 50.7250
+  Computing cross-class surface analysis for lattice_height using canberra
+ PH-Dim scores: {'entailment': 56.98831486930742, 'neutral': 63.394229582185076, 'contradiction': 50.72498237083571}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in lattice_height using braycurtis
+    entailment PH-Dim: 19.7275
+  Computing PH-Dim for neutral in lattice_height using braycurtis
+    neutral PH-Dim: 22.6394
+  Computing PH-Dim for contradiction in lattice_height using braycurtis
+    contradiction PH-Dim: 19.0871
+  Computing cross-class surface analysis for lattice_height using braycurtis
+ PH-Dim scores: {'entailment': 19.72751504016658, 'neutral': 22.639422938608075, 'contradiction': 19.087108151109618}
+
+Saved lattice_height results to entailment_surfaces/results/surface_analysis_lattice_height_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: lattice_subsumption
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using euclidean
+    entailment PH-Dim: -5.9118
+  Computing PH-Dim for neutral in lattice_subsumption using euclidean
+    neutral PH-Dim: 25.1047
+  Computing PH-Dim for contradiction in lattice_subsumption using euclidean
+    contradiction PH-Dim: 5.5637
+  Computing cross-class surface analysis for lattice_subsumption using euclidean
+ PH-Dim scores: {'entailment': -5.911755595709566, 'neutral': 25.104666469389564, 'contradiction': 5.563670646641955}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using manhattan
+    entailment PH-Dim: -25.6483
+  Computing PH-Dim for neutral in lattice_subsumption using manhattan
+    neutral PH-Dim: 45.6798
+  Computing PH-Dim for contradiction in lattice_subsumption using manhattan
+    contradiction PH-Dim: 9.1504
+  Computing cross-class surface analysis for lattice_subsumption using manhattan
+ PH-Dim scores: {'entailment': -25.648299457149047, 'neutral': 45.67981987551839, 'contradiction': 9.150437674949266}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using chebyshev
+    entailment PH-Dim: -5.2298
+  Computing PH-Dim for neutral in lattice_subsumption using chebyshev
+    neutral PH-Dim: 15.5345
+  Computing PH-Dim for contradiction in lattice_subsumption using chebyshev
+    contradiction PH-Dim: 5.1113
+  Computing cross-class surface analysis for lattice_subsumption using chebyshev
+ PH-Dim scores: {'entailment': -5.2298471389168775, 'neutral': 15.534518860875536, 'contradiction': 5.111253676156418}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using cosine
+    entailment PH-Dim: 4.0280
+  Computing PH-Dim for neutral in lattice_subsumption using cosine
+    neutral PH-Dim: 4.4461
+  Computing PH-Dim for contradiction in lattice_subsumption using cosine
+    contradiction PH-Dim: 3.9367
+  Computing cross-class surface analysis for lattice_subsumption using cosine
+ PH-Dim scores: {'entailment': 4.028031297466327, 'neutral': 4.446087213193306, 'contradiction': 3.9366930659521313}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using minkowski_3
+    entailment PH-Dim: -5.4742
+  Computing PH-Dim for neutral in lattice_subsumption using minkowski_3
+    neutral PH-Dim: 19.4640
+  Computing PH-Dim for contradiction in lattice_subsumption using minkowski_3
+    contradiction PH-Dim: 5.2880
+  Computing cross-class surface analysis for lattice_subsumption using minkowski_3
+ PH-Dim scores: {'entailment': -5.474225815895283, 'neutral': 19.46401920806593, 'contradiction': 5.288049156762868}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using minkowski_4
+    entailment PH-Dim: -5.3548
+  Computing PH-Dim for neutral in lattice_subsumption using minkowski_4
+    neutral PH-Dim: 17.7447
+  Computing PH-Dim for contradiction in lattice_subsumption using minkowski_4
+    contradiction PH-Dim: 5.2056
+  Computing cross-class surface analysis for lattice_subsumption using minkowski_4
+ PH-Dim scores: {'entailment': -5.354791324558215, 'neutral': 17.74466853345898, 'contradiction': 5.205629876224168}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using canberra
+    entailment PH-Dim: 21.9538
+  Computing PH-Dim for neutral in lattice_subsumption using canberra
+    neutral PH-Dim: 37.4087
+  Computing PH-Dim for contradiction in lattice_subsumption using canberra
+    contradiction PH-Dim: 41.4982
+  Computing cross-class surface analysis for lattice_subsumption using canberra
+ PH-Dim scores: {'entailment': 21.953787670636068, 'neutral': 37.40866422677645, 'contradiction': 41.498233165185866}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in lattice_subsumption using braycurtis
+    entailment PH-Dim: 24.2140
+  Computing PH-Dim for neutral in lattice_subsumption using braycurtis
+    neutral PH-Dim: 30.9539
+  Computing PH-Dim for contradiction in lattice_subsumption using braycurtis
+    contradiction PH-Dim: 28.5297
+  Computing cross-class surface analysis for lattice_subsumption using braycurtis
+ PH-Dim scores: {'entailment': 24.214034305213957, 'neutral': 30.953913884654, 'contradiction': 28.529664689684928}
+
+Saved lattice_subsumption results to entailment_surfaces/results/surface_analysis_lattice_subsumption_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: lattice_bidirectional_order_violations
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using euclidean
+    entailment PH-Dim: 84.9942
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using euclidean
+    neutral PH-Dim: 140.7259
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using euclidean
+    contradiction PH-Dim: 51.7630
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using euclidean
+ PH-Dim scores: {'entailment': 84.99417452751291, 'neutral': 140.72593855910188, 'contradiction': 51.76303762189246}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using manhattan
+    entailment PH-Dim: 185.2896
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using manhattan
+    neutral PH-Dim: 49.1585
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using manhattan
+    contradiction PH-Dim: 20.3841
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using manhattan
+ PH-Dim scores: {'entailment': 185.2896415657658, 'neutral': 49.158521574394946, 'contradiction': 20.384088682422025}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using chebyshev
+    entailment PH-Dim: 27.6852
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using chebyshev
+    neutral PH-Dim: 24.9636
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using chebyshev
+    contradiction PH-Dim: 23.3499
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using chebyshev
+ PH-Dim scores: {'entailment': 27.685201528784248, 'neutral': 24.963603330568738, 'contradiction': 23.3498682473444}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using cosine
+    entailment PH-Dim: 19.3526
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using cosine
+    neutral PH-Dim: 21.7424
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using cosine
+    contradiction PH-Dim: 17.7286
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using cosine
+ PH-Dim scores: {'entailment': 19.3525668018197, 'neutral': 21.74242038651508, 'contradiction': 17.72863371187437}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using minkowski_3
+    entailment PH-Dim: 59.9199
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using minkowski_3
+    neutral PH-Dim: 66.7335
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using minkowski_3
+    contradiction PH-Dim: 49.4474
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using minkowski_3
+ PH-Dim scores: {'entailment': 59.91987426779616, 'neutral': 66.73350195174112, 'contradiction': 49.44739225122949}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using minkowski_4
+    entailment PH-Dim: 51.3137
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using minkowski_4
+    neutral PH-Dim: 50.0322
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using minkowski_4
+    contradiction PH-Dim: 41.6868
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using minkowski_4
+ PH-Dim scores: {'entailment': 51.31370962146128, 'neutral': 50.03219809200141, 'contradiction': 41.68682962971729}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using canberra
+    entailment PH-Dim: 8.7959
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using canberra
+    neutral PH-Dim: 56.0851
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using canberra
+    contradiction PH-Dim: 44.9456
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using canberra
+ PH-Dim scores: {'entailment': 8.79593971866609, 'neutral': 56.085063709656396, 'contradiction': 44.94557293544795}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in lattice_bidirectional_order_violations using braycurtis
+    entailment PH-Dim: 37.2741
+  Computing PH-Dim for neutral in lattice_bidirectional_order_violations using braycurtis
+    neutral PH-Dim: 41.0421
+  Computing PH-Dim for contradiction in lattice_bidirectional_order_violations using braycurtis
+    contradiction PH-Dim: 32.8624
+  Computing cross-class surface analysis for lattice_bidirectional_order_violations using braycurtis
+ PH-Dim scores: {'entailment': 37.27411610500449, 'neutral': 41.04209791411835, 'contradiction': 32.86239629492254}
+
+Saved lattice_bidirectional_order_violations results to entailment_surfaces/results/surface_analysis_lattice_bidirectional_order_violations_20250703_175155_SEED2.json
+
+============================================================
+TESTING SPACE: lattice_enhanced
+============================================================
+
+--- Testing euclidean metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using euclidean
+    entailment PH-Dim: -5.9117
+  Computing PH-Dim for neutral in lattice_enhanced using euclidean
+    neutral PH-Dim: 25.1122
+  Computing PH-Dim for contradiction in lattice_enhanced using euclidean
+    contradiction PH-Dim: 5.5635
+  Computing cross-class surface analysis for lattice_enhanced using euclidean
+ PH-Dim scores: {'entailment': -5.911661978472289, 'neutral': 25.112219931512552, 'contradiction': 5.563522166095451}
+
+--- Testing manhattan metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using manhattan
+    entailment PH-Dim: -27.1270
+  Computing PH-Dim for neutral in lattice_enhanced using manhattan
+    neutral PH-Dim: 45.5059
+  Computing PH-Dim for contradiction in lattice_enhanced using manhattan
+    contradiction PH-Dim: 9.2228
+  Computing cross-class surface analysis for lattice_enhanced using manhattan
+ PH-Dim scores: {'entailment': -27.126969565981533, 'neutral': 45.50587282050398, 'contradiction': 9.222768263282102}
+
+--- Testing chebyshev metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using chebyshev
+    entailment PH-Dim: -5.2298
+  Computing PH-Dim for neutral in lattice_enhanced using chebyshev
+    neutral PH-Dim: 15.5345
+  Computing PH-Dim for contradiction in lattice_enhanced using chebyshev
+    contradiction PH-Dim: 5.1113
+  Computing cross-class surface analysis for lattice_enhanced using chebyshev
+ PH-Dim scores: {'entailment': -5.2298471389168775, 'neutral': 15.534518860875536, 'contradiction': 5.111253676156418}
+
+--- Testing cosine metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using cosine
+    entailment PH-Dim: 4.0288
+  Computing PH-Dim for neutral in lattice_enhanced using cosine
+    neutral PH-Dim: 4.4468
+  Computing PH-Dim for contradiction in lattice_enhanced using cosine
+    contradiction PH-Dim: 3.9373
+  Computing cross-class surface analysis for lattice_enhanced using cosine
+ PH-Dim scores: {'entailment': 4.028826590248714, 'neutral': 4.446821210947945, 'contradiction': 3.937302164128701}
+
+--- Testing minkowski_3 metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using minkowski_3
+    entailment PH-Dim: -5.4742
+  Computing PH-Dim for neutral in lattice_enhanced using minkowski_3
+    neutral PH-Dim: 19.4647
+  Computing PH-Dim for contradiction in lattice_enhanced using minkowski_3
+    contradiction PH-Dim: 5.2880
+  Computing cross-class surface analysis for lattice_enhanced using minkowski_3
+ PH-Dim scores: {'entailment': -5.474225815895283, 'neutral': 19.46471022690009, 'contradiction': 5.288049156762868}
+
+--- Testing minkowski_4 metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using minkowski_4
+    entailment PH-Dim: -5.3548
+  Computing PH-Dim for neutral in lattice_enhanced using minkowski_4
+    neutral PH-Dim: 17.7447
+  Computing PH-Dim for contradiction in lattice_enhanced using minkowski_4
+    contradiction PH-Dim: 5.2056
+  Computing cross-class surface analysis for lattice_enhanced using minkowski_4
+ PH-Dim scores: {'entailment': -5.354791324558215, 'neutral': 17.74466853345898, 'contradiction': 5.205629876224168}
+
+--- Testing canberra metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using canberra
+    entailment PH-Dim: 50.7257
+  Computing PH-Dim for neutral in lattice_enhanced using canberra
+    neutral PH-Dim: 65.7544
+  Computing PH-Dim for contradiction in lattice_enhanced using canberra
+    contradiction PH-Dim: 58.2918
+  Computing cross-class surface analysis for lattice_enhanced using canberra
+ PH-Dim scores: {'entailment': 50.725685305000155, 'neutral': 65.75441438375474, 'contradiction': 58.29182604296451}
+
+--- Testing braycurtis metric ---
+  Computing PH-Dim for entailment in lattice_enhanced using braycurtis
+    entailment PH-Dim: 24.6683
+  Computing PH-Dim for neutral in lattice_enhanced using braycurtis
+    neutral PH-Dim: 31.7903
+  Computing PH-Dim for contradiction in lattice_enhanced using braycurtis
+    contradiction PH-Dim: 29.4324
+  Computing cross-class surface analysis for lattice_enhanced using braycurtis
+ PH-Dim scores: {'entailment': 24.66831543677367, 'neutral': 31.790260018294607, 'contradiction': 29.43238715647213}
+
+Saved lattice_enhanced results to entailment_surfaces/results/surface_analysis_lattice_enhanced_20250703_175155_SEED2.json
+Simple report saved to: entailment_surfaces/results/simple_analysis_report_20250703_175155_SEED2.txt
+
+================================================================================
+COMPREHENSIVE ANALYSIS COMPLETE
+Final GPU Memory: 3230.9 MB allocated
+Results saved to: entailment_surfaces/results/comprehensive_surface_analysis_20250703_175155_SEED2.json
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Thu  3 Jul 18:14:04 BST 2025
+
+Results created in results/step_1_1_analysis/:
+No results directory found
+
+Disk usage:
+No results to measure
+
+=== ANALYSIS SUCCESSFUL ===
+Surface distance metric analysis completed successfully!
+
+Key outputs:
+  - JSON results: results/step_1_1_analysis/comprehensive_surface_analysis_*.json
+  - Plain report: results/step_1_1_analysis/simple_analysis_report_*.txt
+  - Individual space results: results/step_1_1_analysis/surface_analysis_*_*.json
+
+Next steps:
+  1. Review the simple_analysis_report_*.txt for plain results
+  2. Identify top-performing space+metric combinations
+  3. Consider re-running with --max_samples 167000 for full analysis
+
+To run full analysis on promising combinations:
+  python step_1_1_surface_analysis_corrected.py \
+    --bert_data 'data/processed/snli_full_standard_BERT.pt' \
+    --order_model 'models/enhanced_order_embeddings_snli_full.pt' \
+    --max_samples 167000
+
+Job finished.

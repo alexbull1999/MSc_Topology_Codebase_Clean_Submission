@@ -1,0 +1,254 @@
+Job ID: 199603
+Node: parrot
+Time: Sat 30 Aug 10:24:55 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sat Aug 30 10:25:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:C8:00.0 Off |                  Off |
+|  0%   39C    P8             16W /   62W |       0MiB /  16380MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 16.8 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+🚀 Starting separate ChaosNLI-S and ChaosNLI-M evaluation...
+   Device: cuda
+   Weight range: α ∈ [0.0, 1.0] (11 steps)
+Loading published model predictions...
+Available models: ['bert-base', 'xlnet-base', 'roberta-base', 'bert-large', 'xlnet-large', 'roberta-large', 'bart-large', 'albert-xxlarge', 'distilbert']
+Loading persistence images and ground truth (separate datasets)...
+ChaosNLI-S (SNLI): 1514 samples
+ChaosNLI-M (MNLI): 1599 samples
+================================================================================
+SEPARATE ChaosNLI-S and ChaosNLI-M EVALUATION
+================================================================================
+Step 1: Training persistence CNN on SNLI+MNLI train/val...
+Training persistence CNN following ChaosNLI evaluation protocol...
+Loading ALL SNLI+MNLI chunks for training and validation data...
+Loading SNLI chunks...
+  SNLI chunk 1: 109873 samples
+  SNLI chunk 2: 109873 samples
+  SNLI chunk 3: 109873 samples
+  SNLI chunk 4: 109872 samples
+  SNLI chunk 5: 109869 samples
+Loading MNLI chunks...
+  MNLI chunk 1: 78541 samples
+  MNLI chunk 2: 78540 samples
+  MNLI chunk 3: 78539 samples
+  MNLI chunk 4: 78541 samples
+  MNLI chunk 5: 78537 samples
+  SNLI val: 9842 samples
+  MNLI val: 9815 samples
+  Combined train: 942058 samples
+  Combined val: 19657 samples
+Training persistence CNN...
+Epoch  0: Train Acc 0.654, Val Acc 0.639
+Epoch 10: Train Acc 0.691, Val Acc 0.672
+Epoch 20: Train Acc 0.693, Val Acc 0.680
+Epoch 30: Train Acc 0.700, Val Acc 0.680
+Epoch 40: Train Acc 0.701, Val Acc 0.677
+Early stopping at epoch 46
+Persistence CNN training completed. Best val accuracy: 0.684
+
+============================================================
+EVALUATING MODEL: BERT-BASE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 bert-base Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2345, KL=0.4810
+   ChaosNLI-S: Best (α=0.4) JSD=0.2088, KL=0.3157
+   ChaosNLI-S: Improvements JSD=+0.0257, KL=+0.1653
+   ChaosNLI-M: Baseline JSD=0.3055, KL=0.7204
+   ChaosNLI-M: Best (α=0.6) JSD=0.2485, KL=0.3718
+   ChaosNLI-M: Improvements JSD=+0.0570, KL=+0.3487
+
+============================================================
+EVALUATING MODEL: XLNET-BASE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 xlnet-base Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2331, KL=0.5121
+   ChaosNLI-S: Best (α=0.5) JSD=0.2036, KL=0.3023
+   ChaosNLI-S: Improvements JSD=+0.0295, KL=+0.2098
+   ChaosNLI-M: Baseline JSD=0.3069, KL=0.7927
+   ChaosNLI-M: Best (α=0.6) JSD=0.2416, KL=0.3656
+   ChaosNLI-M: Improvements JSD=+0.0653, KL=+0.4271
+
+============================================================
+EVALUATING MODEL: ROBERTA-BASE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 roberta-base Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2294, KL=0.5045
+   ChaosNLI-S: Best (α=0.5) JSD=0.2007, KL=0.2963
+   ChaosNLI-S: Improvements JSD=+0.0288, KL=+0.2082
+   ChaosNLI-M: Baseline JSD=0.3073, KL=0.7807
+   ChaosNLI-M: Best (α=0.7) JSD=0.2388, KL=0.3466
+   ChaosNLI-M: Improvements JSD=+0.0685, KL=+0.4341
+
+============================================================
+EVALUATING MODEL: BERT-LARGE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 bert-large Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2300, KL=0.5017
+   ChaosNLI-S: Best (α=0.5) JSD=0.2026, KL=0.2924
+   ChaosNLI-S: Improvements JSD=+0.0275, KL=+0.2093
+   ChaosNLI-M: Baseline JSD=0.3152, KL=0.8449
+   ChaosNLI-M: Best (α=0.7) JSD=0.2434, KL=0.3597
+   ChaosNLI-M: Improvements JSD=+0.0718, KL=+0.4852
+
+============================================================
+EVALUATING MODEL: XLNET-LARGE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 xlnet-large Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2259, KL=0.5054
+   ChaosNLI-S: Best (α=0.5) JSD=0.1915, KL=0.2734
+   ChaosNLI-S: Improvements JSD=+0.0344, KL=+0.2320
+   ChaosNLI-M: Baseline JSD=0.3116, KL=0.8818
+   ChaosNLI-M: Best (α=0.7) JSD=0.2275, KL=0.3183
+   ChaosNLI-M: Improvements JSD=+0.0840, KL=+0.5635
+
+============================================================
+EVALUATING MODEL: ROBERTA-LARGE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 roberta-large Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2210, KL=0.4937
+   ChaosNLI-S: Best (α=0.5) JSD=0.1877, KL=0.2636
+   ChaosNLI-S: Improvements JSD=+0.0332, KL=+0.2302
+   ChaosNLI-M: Baseline JSD=0.3112, KL=0.8701
+   ChaosNLI-M: Best (α=0.7) JSD=0.2251, KL=0.3084
+   ChaosNLI-M: Improvements JSD=+0.0861, KL=+0.5617
+
+============================================================
+EVALUATING MODEL: BART-LARGE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 bart-large Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2203, KL=0.4714
+   ChaosNLI-S: Best (α=0.5) JSD=0.1901, KL=0.2607
+   ChaosNLI-S: Improvements JSD=+0.0302, KL=+0.2107
+   ChaosNLI-M: Baseline JSD=0.3165, KL=0.8845
+   ChaosNLI-M: Best (α=0.7) JSD=0.2331, KL=0.3326
+   ChaosNLI-M: Improvements JSD=+0.0834, KL=+0.5518
+
+============================================================
+EVALUATING MODEL: ALBERT-XXLARGE
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 albert-xxlarge Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2350, KL=0.5342
+   ChaosNLI-S: Best (α=0.5) JSD=0.1931, KL=0.2795
+   ChaosNLI-S: Improvements JSD=+0.0419, KL=+0.2547
+   ChaosNLI-M: Baseline JSD=0.3159, KL=0.8620
+   ChaosNLI-M: Best (α=0.7) JSD=0.2367, KL=0.3375
+   ChaosNLI-M: Improvements JSD=+0.0792, KL=+0.5246
+
+============================================================
+EVALUATING MODEL: DISTILBERT
+============================================================
+  ChaosNLI-S: Matched 1514/1514 (100.0%)
+  ChaosNLI-M: Matched 1599/1599 (100.0%)
+Evaluating ChaosNLI-S (SNLI)...
+Evaluating ChaosNLI-M (MNLI)...
+
+📊 distilbert Results Summary:
+   ChaosNLI-S: Baseline JSD=0.2439, KL=0.4682
+   ChaosNLI-S: Best (α=0.4) JSD=0.2208, KL=0.3286
+   ChaosNLI-S: Improvements JSD=+0.0231, KL=+0.1396
+   ChaosNLI-M: Baseline JSD=0.3133, KL=0.6652
+   ChaosNLI-M: Best (α=0.6) JSD=0.2609, KL=0.3888
+   ChaosNLI-M: Improvements JSD=+0.0524, KL=+0.2765
+
+========================================================================================================================
+📊 RESULTS IN CHAOSNLI TABLE 5 FORMAT
+========================================================================================================================
+Model           ChaosNLI-S                          ChaosNLI-M                         
+                JSD↓     KL↓      Best α  vs Pub       JSD↓     KL↓      Best α  vs Pub
+------------------------------------------------------------------------------------------------------------------------
+bert-base       0.2088   0.3157   0.4     -0.0257      0.2485   0.3718   0.6     -0.0570
+xlnet-base      0.2036   0.3023   0.5     -0.0295      0.2416   0.3656   0.6     -0.0653
+roberta-base    0.2007   0.2963   0.5     -0.0287      0.2388   0.3466   0.7     -0.0685
+bert-large      0.2026   0.2924   0.5     -0.0274      0.2434   0.3597   0.7     -0.0718
+xlnet-large     0.1915   0.2734   0.5     -0.0344      0.2275   0.3183   0.7     -0.0841
+roberta-large   0.1877   0.2636   0.5     -0.0333      0.2251   0.3084   0.7     -0.0861
+bart-large      0.1901   0.2607   0.5     -0.0302      0.2331   0.3326   0.7     -0.0834
+albert-xxlarge  0.1931   0.2795   0.5     -0.0419      0.2367   0.3375   0.7     -0.0792
+distilbert      0.2208   0.3286   0.4     -0.0231      0.2609   0.3888   0.6     -0.0524
+
+🏆 BEST RESULTS:
+   ChaosNLI-S: roberta-large (α=0.5) → JSD=0.1877
+   ChaosNLI-M: roberta-large (α=0.7) → JSD=0.2251
+   🎉 BEATS ChaosNLI-S SOTA by 0.0326!
+   🎉 BEATS ChaosNLI-M SOTA by 0.0804!
+
+🎉 Separate evaluation completed!
+💡 Results can now be directly compared with ChaosNLI Table 5!
+
+Analysis completed with exit code: 0
+Time: Sat 30 Aug 12:08:29 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

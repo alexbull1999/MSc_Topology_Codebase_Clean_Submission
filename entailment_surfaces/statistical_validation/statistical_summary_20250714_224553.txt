@@ -1,0 +1,49 @@
+============================================================
+PHASE 1 STATISTICAL VALIDATION: ROBUST STATISTICAL TESTING
+============================================================
+Testing 10 independent validation runs per combination
+Each run uses 30 samples (10 per class) for clustering
+Computing confidence intervals and significance tests
+
+============================================================
+STATISTICAL VALIDATION: sbert_concat + euclidean
+============================================================
+ Testing with 10 independent validation runs...
+    Accuracy: 0.990 ± 0.015
+    Silhouette: 0.758 ± 0.041
+    Perfect clustering rate: 70.0%
+
+  SUMMARY for sbert_concat + euclidean:
+    10 samples: Acc=0.990±0.015, Perfect=70.0%
+    Significantly > 70%: NO (p=0.6496)
+    Perfect clustering: 7/10 runs
+
+============================================================
+STATISTICAL VALIDATION: sbert_concat + chebyshev
+============================================================
+Testing with 10 independent validation runs...
+    Accuracy: 0.967 ± 0.039
+    Silhouette: 0.619 ± 0.025
+    Perfect clustering rate: 40.0%
+
+  SUMMARY for sbert_concat + chebyshev:
+    10 samples: Acc=0.967±0.039, Perfect=40.0%
+    Significantly > 70%: NO (p=0.9894)
+    Perfect clustering: 4/10 runs
+
+============================================================
+STATISTICAL VALIDATION: sbert_concat + cosine
+============================================================
+ Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.758 ± 0.033
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for sbert_concat + cosine:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs
+
+============================================================
+STATISTICAL VALIDATION: sbert_concat + minkowski_3
+============================================================

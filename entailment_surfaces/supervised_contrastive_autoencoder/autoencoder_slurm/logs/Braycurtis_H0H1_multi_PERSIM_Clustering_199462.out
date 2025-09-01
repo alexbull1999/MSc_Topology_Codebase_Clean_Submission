@@ -1,0 +1,511 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 199462
+Node: gpuvm17
+Time: Fri 29 Aug 15:41:25 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Aug 29 15:41:27 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   33C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Latent PERSIM clustering...
+
+Latent Embeddings Clustering Validation
+==================================================
+Model: pure_topo+recon
+Output directory: entailment_surfaces/supervised_contrastive_autoencoder/latent_clustering_PERSIM_validation_results
+Testing k-means clustering performance on latent embeddings
+Comparing to original 100% SBERT clustering accuracy
+Using device: cuda
+Loading data...
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: 5000
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Subsampled to 5000 samples
+  Final dataset: 5000 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 5000 samples in batches of 1000
+  Processing batch 1/5
+Generated concat embeddings: torch.Size([5000, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 5000 samples
+  Embedding shape: torch.Size([5000, 1536])
+  Class distribution: {'entailment': 1672, 'neutral': 1662, 'contradiction': 1666}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+DataLoaders created:
+  Batch size: 5000
+  Balanced sampling: False
+  Train batches: 1
+  Val batches: 2
+  Test batches: 2
+Data loaded: 1 train batches, 2 val batches
+
+======================================================================
+TESTING PERSISTENCE IMAGE CLUSTERING: pure_topo+recon
+======================================================================
+CORRECTED Methodology: Extract samples -> Compute H0+H1 diagrams -> Create combined images -> Cluster
+Statistical significance testing with 10 clustering runs
+Extracting latent embeddings by class from entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/pure_moor_topological_autoencoder_no_attention_20250724_224242/checkpoints/best_model.pt
+ContrastiveAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Dropout rate: 0.2
+  Total parameters: 3,045,451
+  entailment: 3329 samples, dim: 75
+  neutral: 3235 samples, dim: 75
+  contradiction: 3278 samples, dim: 75
+
+Evaluating persistence image clustering with statistical significance (n_runs=10)
+Computing COMBINED H0+H1 persistence images and clustering on them...
+Each run uses 10 samples per class (30 total images per run)
+
+  Persistence image clustering run 1/10
+  Extracting persistence image samples (seed=42)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.933
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 2/10
+  Extracting persistence image samples (seed=43)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.933
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 3/10
+  Extracting persistence image samples (seed=44)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.900
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 4/10
+  Extracting persistence image samples (seed=45)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 1.000
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 5/10
+  Extracting persistence image samples (seed=46)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.967
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 6/10
+  Extracting persistence image samples (seed=47)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.967
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 7/10
+  Extracting persistence image samples (seed=48)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.967
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 8/10
+  Extracting persistence image samples (seed=49)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.967
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 9/10
+  Extracting persistence image samples (seed=50)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    contradiction: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+  Extracted 30 valid persistence images
+    Clustering 30 persistence images with 400 features each
+    Natural Accuracy: 0.900
+    Images processed: 30 (shape: (30, 400))
+
+  Persistence image clustering run 10/10
+  Extracting persistence image samples (seed=51)
+    entailment: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+      Sample 7: SUCCESS (image shape: (400,))
+      Sample 8: SUCCESS (image shape: (400,))
+      Sample 9: SUCCESS (image shape: (400,))
+      Sample 10: SUCCESS (image shape: (400,))
+    neutral: extracting 10 samples of size 1000
+      Sample 1: SUCCESS (image shape: (400,))
+      Sample 2: SUCCESS (image shape: (400,))
+      Sample 3: SUCCESS (image shape: (400,))
+      Sample 4: SUCCESS (image shape: (400,))
+      Sample 5: SUCCESS (image shape: (400,))
+      Sample 6: SUCCESS (image shape: (400,))
+
+Analysis completed with exit code: 137
+Time: Fri 29 Aug 16:10:17 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

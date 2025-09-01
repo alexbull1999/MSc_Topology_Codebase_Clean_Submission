@@ -1,0 +1,407 @@
+Job ID: 189703
+Node: parrot
+Time: Sun  3 Aug 16:04:15 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sun Aug  3 16:04:18 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:98:00.0 Off |                    0 |
+|  0%   40C    P8             16W /   62W |       0MiB /  15356MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 15.7 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+TRAINING ORDER EMBEDDING MODEL WITH SEPARATE MARGINS
+================================================================================
+Loading processed dataset: /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Loaded 150000 samples
+Label distribution: {'contradiction': 49717, 'entailment': 50214, 'neutral': 50069}
+OrderEmbeddingTrainerSeparateMargins initialized on cuda
+Training OrderEmbeddingModel - Separate Margin Loss
+Neutral margin: 1.0, Upper bound: 1.5, Contradiction margin: 2.0
+
+Epoch 1/50
+Train Loss: 0.4409, Val Loss: 0.4079
+Energy Rankings:
+  entailment: 0.5897 ± 0.2746
+  neutral: 0.9853 ± 0.3746
+  contradiction: 1.6909 ± 0.6621
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 2/50
+Train Loss: 0.3860, Val Loss: 0.3741
+Energy Rankings:
+  entailment: 0.5338 ± 0.2872
+  neutral: 0.9966 ± 0.4153
+  contradiction: 1.8521 ± 0.7662
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 3/50
+Train Loss: 0.3589, Val Loss: 0.3613
+Energy Rankings:
+  entailment: 0.4869 ± 0.2848
+  neutral: 0.9758 ± 0.4252
+  contradiction: 1.9079 ± 0.8340
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 4/50
+Train Loss: 0.3410, Val Loss: 0.3486
+Energy Rankings:
+  entailment: 0.4696 ± 0.2942
+  neutral: 0.9840 ± 0.4492
+  contradiction: 2.0036 ± 0.8848
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 5/50
+Train Loss: 0.3274, Val Loss: 0.3421
+Energy Rankings:
+  entailment: 0.4489 ± 0.2936
+  neutral: 0.9788 ± 0.4560
+  contradiction: 2.0356 ± 0.9142
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 6/50
+Train Loss: 0.3164, Val Loss: 0.3366
+Energy Rankings:
+  entailment: 0.4375 ± 0.2941
+  neutral: 0.9843 ± 0.4651
+  contradiction: 2.0676 ± 0.9362
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 7/50
+Train Loss: 0.3071, Val Loss: 0.3312
+Energy Rankings:
+  entailment: 0.4326 ± 0.3022
+  neutral: 0.9944 ± 0.4807
+  contradiction: 2.1541 ± 1.0041
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 8/50
+Train Loss: 0.2989, Val Loss: 0.3296
+Energy Rankings:
+  entailment: 0.4216 ± 0.3002
+  neutral: 0.9874 ± 0.4805
+  contradiction: 2.1160 ± 0.9640
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 9/50
+Train Loss: 0.2914, Val Loss: 0.3277
+Energy Rankings:
+  entailment: 0.4061 ± 0.2963
+  neutral: 0.9795 ± 0.4818
+  contradiction: 2.1061 ± 0.9670
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 10/50
+Train Loss: 0.2851, Val Loss: 0.3240
+Energy Rankings:
+  entailment: 0.4055 ± 0.3016
+  neutral: 0.9924 ± 0.4913
+  contradiction: 2.1474 ± 0.9901
+  ✅ Correct ordering maintained
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 11/50
+Train Loss: 0.2787, Val Loss: 0.3202
+Energy Rankings:
+  entailment: 0.4072 ± 0.3102
+  neutral: 1.0146 ± 0.5110
+  contradiction: 2.2210 ± 1.0364
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 12/50
+Train Loss: 0.2729, Val Loss: 0.3206
+Energy Rankings:
+  entailment: 0.3969 ± 0.3048
+  neutral: 0.9950 ± 0.5020
+  contradiction: 2.1845 ± 1.0158
+  ✅ Correct ordering maintained
+
+Epoch 13/50
+Train Loss: 0.2676, Val Loss: 0.3173
+Energy Rankings:
+  entailment: 0.3990 ± 0.3113
+  neutral: 1.0137 ± 0.5137
+  contradiction: 2.2389 ± 1.0521
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 14/50
+Train Loss: 0.2628, Val Loss: 0.3178
+Energy Rankings:
+  entailment: 0.3865 ± 0.3100
+  neutral: 0.9978 ± 0.5167
+  contradiction: 2.2425 ± 1.0732
+  ✅ Correct ordering maintained
+
+Epoch 15/50
+Train Loss: 0.2581, Val Loss: 0.3152
+Energy Rankings:
+  entailment: 0.3924 ± 0.3149
+  neutral: 1.0211 ± 0.5268
+  contradiction: 2.2770 ± 1.0811
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 16/50
+Train Loss: 0.2535, Val Loss: 0.3147
+Energy Rankings:
+  entailment: 0.3849 ± 0.3137
+  neutral: 1.0166 ± 0.5289
+  contradiction: 2.2647 ± 1.0789
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 17/50
+Train Loss: 0.2491, Val Loss: 0.3151
+Energy Rankings:
+  entailment: 0.3822 ± 0.3143
+  neutral: 1.0191 ± 0.5325
+  contradiction: 2.2690 ± 1.0908
+  ✅ Perfect target zones achieved!
+
+Epoch 18/50
+Train Loss: 0.2452, Val Loss: 0.3125
+Energy Rankings:
+  entailment: 0.3834 ± 0.3193
+  neutral: 1.0251 ± 0.5400
+  contradiction: 2.2977 ± 1.0951
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 19/50
+Train Loss: 0.2412, Val Loss: 0.3120
+Energy Rankings:
+  entailment: 0.3791 ± 0.3189
+  neutral: 1.0319 ± 0.5465
+  contradiction: 2.3184 ± 1.1184
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 20/50
+Train Loss: 0.2375, Val Loss: 0.3126
+Energy Rankings:
+  entailment: 0.3745 ± 0.3199
+  neutral: 1.0269 ± 0.5455
+  contradiction: 2.2955 ± 1.1078
+  ✅ Perfect target zones achieved!
+
+Epoch 21/50
+Train Loss: 0.2338, Val Loss: 0.3109
+Energy Rankings:
+  entailment: 0.3707 ± 0.3216
+  neutral: 1.0334 ± 0.5565
+  contradiction: 2.3459 ± 1.1507
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 22/50
+Train Loss: 0.2303, Val Loss: 0.3104
+Energy Rankings:
+  entailment: 0.3711 ± 0.3238
+  neutral: 1.0387 ± 0.5561
+  contradiction: 2.3414 ± 1.1483
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 23/50
+Train Loss: 0.2275, Val Loss: 0.3108
+Energy Rankings:
+  entailment: 0.3649 ± 0.3242
+  neutral: 1.0240 ± 0.5597
+  contradiction: 2.3671 ± 1.1778
+  ✅ Perfect target zones achieved!
+
+Epoch 24/50
+Train Loss: 0.2238, Val Loss: 0.3102
+Energy Rankings:
+  entailment: 0.3718 ± 0.3254
+  neutral: 1.0459 ± 0.5639
+  contradiction: 2.3502 ± 1.1501
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 25/50
+Train Loss: 0.2210, Val Loss: 0.3099
+Energy Rankings:
+  entailment: 0.3661 ± 0.3268
+  neutral: 1.0414 ± 0.5669
+  contradiction: 2.3661 ± 1.1733
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 26/50
+Train Loss: 0.2178, Val Loss: 0.3100
+Energy Rankings:
+  entailment: 0.3619 ± 0.3271
+  neutral: 1.0394 ± 0.5717
+  contradiction: 2.3650 ± 1.1697
+  ✅ Perfect target zones achieved!
+
+Epoch 27/50
+Train Loss: 0.2148, Val Loss: 0.3103
+Energy Rankings:
+  entailment: 0.3613 ± 0.3292
+  neutral: 1.0413 ± 0.5755
+  contradiction: 2.3956 ± 1.2066
+  ✅ Perfect target zones achieved!
+
+Epoch 28/50
+Train Loss: 0.2120, Val Loss: 0.3101
+Energy Rankings:
+  entailment: 0.3611 ± 0.3308
+  neutral: 1.0493 ± 0.5793
+  contradiction: 2.3756 ± 1.1807
+  ✅ Perfect target zones achieved!
+
+Epoch 29/50
+Train Loss: 0.2090, Val Loss: 0.3107
+Energy Rankings:
+  entailment: 0.3603 ± 0.3309
+  neutral: 1.0431 ± 0.5786
+  contradiction: 2.3940 ± 1.2079
+  ✅ Perfect target zones achieved!
+
+Epoch 30/50
+Train Loss: 0.2068, Val Loss: 0.3097
+Energy Rankings:
+  entailment: 0.3590 ± 0.3322
+  neutral: 1.0391 ± 0.5816
+  contradiction: 2.4183 ± 1.2226
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 31/50
+Train Loss: 0.2041, Val Loss: 0.3096
+Energy Rankings:
+  entailment: 0.3565 ± 0.3348
+  neutral: 1.0577 ± 0.5949
+  contradiction: 2.4468 ± 1.2561
+  ✅ Perfect target zones achieved!
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+
+Epoch 32/50
+Train Loss: 0.2015, Val Loss: 0.3105
+Energy Rankings:
+  entailment: 0.3533 ± 0.3334
+  neutral: 1.0471 ± 0.5963
+  contradiction: 2.4363 ± 1.2500
+  ✅ Perfect target zones achieved!
+
+Epoch 33/50
+Train Loss: 0.1991, Val Loss: 0.3101
+Energy Rankings:
+  entailment: 0.3533 ± 0.3349
+  neutral: 1.0507 ± 0.5962
+  contradiction: 2.4164 ± 1.2269
+  ✅ Perfect target zones achieved!
+
+Epoch 34/50
+Train Loss: 0.1969, Val Loss: 0.3109
+Energy Rankings:
+  entailment: 0.3502 ± 0.3324
+  neutral: 1.0446 ± 0.5959
+  contradiction: 2.4238 ± 1.2510
+  ✅ Perfect target zones achieved!
+
+Epoch 35/50
+Train Loss: 0.1944, Val Loss: 0.3118
+Energy Rankings:
+  entailment: 0.3482 ± 0.3325
+  neutral: 1.0386 ± 0.5954
+  contradiction: 2.3878 ± 1.2139
+  ✅ Perfect target zones achieved!
+
+Epoch 36/50
+Train Loss: 0.1925, Val Loss: 0.3101
+Energy Rankings:
+  entailment: 0.3525 ± 0.3396
+  neutral: 1.0623 ± 0.6122
+  contradiction: 2.4794 ± 1.2848
+  ✅ Perfect target zones achieved!
+
+Epoch 37/50
+Train Loss: 0.1903, Val Loss: 0.3118
+Energy Rankings:
+  entailment: 0.3446 ± 0.3344
+  neutral: 1.0461 ± 0.6039
+  contradiction: 2.4261 ± 1.2580
+  ✅ Perfect target zones achieved!
+
+Epoch 38/50
+Train Loss: 0.1879, Val Loss: 0.3109
+Energy Rankings:
+  entailment: 0.3494 ± 0.3385
+  neutral: 1.0579 ± 0.6137
+  contradiction: 2.4660 ± 1.2794
+  ✅ Perfect target zones achieved!
+
+Epoch 39/50
+Train Loss: 0.1860, Val Loss: 0.3119
+Energy Rankings:
+  entailment: 0.3468 ± 0.3372
+  neutral: 1.0542 ± 0.6132
+  contradiction: 2.4382 ± 1.2595
+  ✅ Perfect target zones achieved!
+Early stopping at epoch 39
+Training progress plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_separate_margins_training_20250803_182539.png
+Analysis summary saved to: MSc_Topology_Codebase/phd_method/models/separate_models/separate_margins_analysis_20250803_182539.txt
+
+================================================================================
+ORDER EMBEDDING MODEL WITH SEPARATE MARGINS TRAINING COMPLETE!
+✅ Separate margin loss: Enhanced neutral class separation
+✅ Target energy zones: E<1.0, 1.0≤N≤1.5, C>1.8
+✅ Comprehensive analysis and plots generated
+Next: Use this model for improved point cloud clustering
+================================================================================
+Training progress plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_separate_margins_training_20250803_182544.png
+
+================================================================================
+SEPARATE MARGINS ORDER EMBEDDING TRAINING COMPLETE!
+Next: Update point_cloud_clustering_test.py to use new model
+================================================================================
+
+Analysis completed with exit code: 1
+Time: Sun  3 Aug 18:25:54 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

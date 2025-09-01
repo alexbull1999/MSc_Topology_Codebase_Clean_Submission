@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/homes/ahb24/MSc_Topology_Codebase/phd_method/src_phd/snli+mnli_chaosNLI_persistence_image_classification.py", line 1315, in <module>
+    hybrid_results = run_hybrid_snli_train_chaosnli_eval(
+  File "/homes/ahb24/MSc_Topology_Codebase/phd_method/src_phd/snli+mnli_chaosNLI_persistence_image_classification.py", line 1210, in run_hybrid_snli_train_chaosnli_eval
+    logits = model_hybrid(p_batch, s_batch)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/homes/ahb24/MSc_Topology_Codebase/phd_method/src_phd/snli+mnli_chaosNLI_persistence_image_classification.py", line 334, in forward
+    combined = torch.cat([cnn_features, sbert_features], dim=1)
+RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 128 but got size 106 for tensor number 1 in the list.

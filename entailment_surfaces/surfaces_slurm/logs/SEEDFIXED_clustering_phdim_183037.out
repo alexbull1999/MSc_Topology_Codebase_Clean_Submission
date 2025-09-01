@@ -1,0 +1,2566 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 183037
+Node: gpuvm13
+Time: Wed 16 Jul 19:21:01 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jul 16 19:21:03 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   34C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Checking for required input data and models...
+
+Starting PH-Dim Clustering Analysis...
+
+Phase 1 Clustering Validator initialized
+Target spaces: ['lattice_containment', 'sbert_concat', 'hyperbolic_concat', 'order_asymmetry', 'directional_order_asymmetry']
+Distance metrics: ['euclidean', 'manhattan', 'chebyshev', 'cosine', 'minkowski_3', 'minkowski_4', 'canberra', 'braycurtis']
+Samples per class: 10
+Points per sample: 1000
+Surface Distance Metric Analyzer initialized
+FOCUS: Testing distance metrics for premise-hypothesis pair relationships
+Device: cuda
+BERT data: data/processed/snli_full_standard_SBERT.pt
+Order model: models/enhanced_order_embeddings_snli_SBERT_full.pt
+Distance metrics: 8 total
+Relational embedding spaces: 14 total
+Each space represents premise-hypothesis pair relationships
+Loading pre-processed data...
+Loading BERT embeddings from data/processed/snli_full_standard_SBERT.pt
+BERT data loaded:
+  Premise embeddings: torch.Size([549367, 768])
+  Hypothesis embeddings: torch.Size([549367, 768])
+  Labels: 549367
+  Label distribution: {'contradiction': 183187, 'entailment': 183416, 'neutral': 182764}
+Loading order model from models/enhanced_order_embeddings_snli_SBERT_full.pt
+Order model loaded (validation loss: 3.202074103355408)
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Hyperbolic pipeline loaded successfully
+Enhanced Hyperbolic Entailment Cones using device: cuda
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Successfully loaded enhanced hyperbolic projection of order embeddings
+Enhanced cone pipeline loaded successfully
+============================================================
+PHASE 1: TOPOLOGICAL CLUSTERING VALIDATION
+============================================================
+Using fixed samples across all combinations for fair comparison
+Extracting all embedding spaces using analyzer...
+Extracting all embedding spaces...
+  entailment: 183416 samples
+  neutral: 182764 samples
+  contradiction: 183187 samples
+Computing EUCLIDEAN order embeddings...
+Computing ALL HYPERBOLIC features from enhanced cone pipeline...
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 416 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 764 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 1000 samples on cuda
+Using GPU batch processing for enhanced hyperbolic energies
+Using GPU batch processing for enhanced cone energies
+Computing enhanced cone violations for 187 samples on cuda
+Extracting sbert_concat...
+  sbert_concat entailment: torch.Size([183416, 1536])
+  sbert_concat neutral: torch.Size([182764, 1536])
+  sbert_concat contradiction: torch.Size([183187, 1536])
+Extracting sbert_difference...
+  sbert_difference entailment: torch.Size([183416, 768])
+  sbert_difference neutral: torch.Size([182764, 768])
+  sbert_difference contradiction: torch.Size([183187, 768])
+Extracting order_concat...
+  order_concat entailment: torch.Size([183416, 250])
+  order_concat neutral: torch.Size([182764, 250])
+  order_concat contradiction: torch.Size([183187, 250])
+Extracting order_difference...
+  order_difference entailment: torch.Size([183416, 125])
+  order_difference neutral: torch.Size([182764, 125])
+  order_difference contradiction: torch.Size([183187, 125])
+Extracting order_violations...
+  order_violations entailment: torch.Size([183416, 1])
+  order_violations neutral: torch.Size([182764, 1])
+  order_violations contradiction: torch.Size([183187, 1])
+Extracting hyperbolic_concat...
+  hyperbolic_concat entailment: torch.Size([183416, 60])
+  hyperbolic_concat neutral: torch.Size([182764, 60])
+  hyperbolic_concat contradiction: torch.Size([183187, 60])
+Extracting hyperbolic_distances...
+  hyperbolic_distances entailment: torch.Size([183416, 1])
+  hyperbolic_distances neutral: torch.Size([182764, 1])
+  hyperbolic_distances contradiction: torch.Size([183187, 1])
+Extracting cone_features...
+  cone_features entailment: torch.Size([183416, 5])
+  cone_features neutral: torch.Size([182764, 5])
+  cone_features contradiction: torch.Size([183187, 5])
+Extracting lattice_containment...
+  lattice_containment entailment: torch.Size([183416, 768])
+  lattice_containment neutral: torch.Size([182764, 768])
+  lattice_containment contradiction: torch.Size([183187, 768])
+Extracting lattice_order_violations...
+  lattice_order_violations entailment: torch.Size([183416, 768])
+  lattice_order_violations neutral: torch.Size([182764, 768])
+  lattice_order_violations contradiction: torch.Size([183187, 768])
+Extracting lattice_height...
+  lattice_height entailment: torch.Size([183416, 768])
+  lattice_height neutral: torch.Size([182764, 768])
+  lattice_height contradiction: torch.Size([183187, 768])
+Extracting lattice_subsumption...
+  lattice_subsumption entailment: torch.Size([183416, 768])
+  lattice_subsumption neutral: torch.Size([182764, 768])
+  lattice_subsumption contradiction: torch.Size([183187, 768])
+Extracting lattice_bidirectional_order_violations...
+  lattice_bidirectional_order_violations entailment: torch.Size([183416, 1536])
+  lattice_bidirectional_order_violations neutral: torch.Size([182764, 1536])
+  lattice_bidirectional_order_violations contradiction: torch.Size([183187, 1536])
+Extracting lattice_enhanced...
+  lattice_enhanced entailment: torch.Size([183416, 3072])
+  lattice_enhanced neutral: torch.Size([182764, 3072])
+  lattice_enhanced contradiction: torch.Size([183187, 3072])
+  lattice_containment: Available
+  sbert_concat: Available
+  hyperbolic_concat: Available
+  order_asymmetry: Not available in extracted embeddings
+  directional_order_asymmetry: Not available in extracted embeddings
+
+Generating fixed sample indices...
+  entailment: 183416 total samples available
+    Generated 10 sample index sets
+  neutral: 182764 total samples available
+    Generated 10 sample index sets
+  contradiction: 183187 total samples available
+    Generated 10 sample index sets
+
+============================================================
+PROCESSING EMBEDDING SPACE 1/5: lattice_containment
+============================================================
+
+Validating lattice_containment + euclidean
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.828, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.811, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.874, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.846, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.871, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.898, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.898, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.893, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.883, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.888, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.923, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.904, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.909, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.908, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.914, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.828, ARI=1.000
+  PH-Dims: E=['32.0', '30.5', '30.8', '32.8', '29.1', '34.5', '34.1', '36.4', '33.2', '31.9']
+           N=['46.9', '37.2', '40.9', '46.8', '46.7', '50.8', '49.7', '47.6', '47.9', '45.6']
+           C=['69.1', '61.4', '80.0', '61.2', '54.8', '76.6', '76.4', '73.4', '55.0', '72.4']
+  SUCCESS: YES
+Clearing memory after lattice_containment + euclidean...
+
+Validating lattice_containment + manhattan
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.367, Sil=-0.136, ARI=0.005
+    Sample size 250: Acc=0.400, Sil=0.933, ARI=-0.002
+    Sample size 300: Acc=0.400, Sil=0.933, ARI=-0.002
+    Sample size 350: Acc=0.400, Sil=0.749, ARI=-0.002
+    Sample size 400: Acc=0.400, Sil=0.573, ARI=-0.016
+    Sample size 450: Acc=0.400, Sil=0.877, ARI=-0.002
+    Sample size 500: Acc=0.367, Sil=0.887, ARI=0.005
+    Sample size 550: Acc=0.367, Sil=0.917, ARI=0.005
+    Sample size 600: Acc=0.400, Sil=0.901, ARI=-0.002
+    Sample size 650: Acc=0.367, Sil=0.933, ARI=0.005
+    Sample size 700: Acc=0.367, Sil=0.933, ARI=0.005
+    Sample size 750: Acc=0.367, Sil=0.878, ARI=-0.014
+    Sample size 800: Acc=0.367, Sil=0.921, ARI=0.005
+    Sample size 850: Acc=0.367, Sil=0.917, ARI=0.005
+    Sample size 900: Acc=0.400, Sil=0.928, ARI=-0.002
+    Sample size 950: Acc=0.367, Sil=0.929, ARI=0.005
+  Best sample size: 250 points
+  Results: Accuracy=0.400, Silhouette=0.933, ARI=-0.002
+  PH-Dims: E=['33.7', '30.5', '27.1', '32.2', '26.1', '29.3', '32.3', '31.5', '30.5', '27.1']
+           N=['44.0', '37.9', '44.7', '44.5', '42.6', '48.7', '44.6', '43.1', '49.3', '40.9']
+           C=['61.1', '56.7', '61.9', '63.2', '58.7', '65.1', '72.1', '62.3', '70.8', '59.6']
+  SUCCESS: NO
+Clearing memory after lattice_containment + manhattan...
+
+Validating lattice_containment + chebyshev
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.833, Sil=0.504, ARI=0.571
+    Sample size 250: Acc=0.967, Sil=0.544, ARI=0.898
+    Sample size 300: Acc=0.967, Sil=0.454, ARI=0.898
+    Sample size 350: Acc=1.000, Sil=0.496, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.487, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.603, ARI=1.000
+    Sample size 500: Acc=0.933, Sil=0.565, ARI=0.808
+    Sample size 550: Acc=1.000, Sil=0.574, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.580, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.569, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.617, ARI=1.000
+    Sample size 750: Acc=0.967, Sil=0.580, ARI=0.898
+    Sample size 800: Acc=1.000, Sil=0.634, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.659, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.596, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.626, ARI=1.000
+  Best sample size: 350 points
+  Results: Accuracy=1.000, Silhouette=0.496, ARI=1.000
+  PH-Dims: E=['33.0', '38.5', '34.4', '37.3', '34.1', '37.3', '34.8', '33.1', '38.2', '37.6']
+           N=['39.4', '47.5', '38.3', '37.9', '44.5', '41.8', '42.9', '40.2', '45.3', '40.0']
+           C=['42.5', '45.0', '46.2', '44.3', '46.6', '44.7', '46.5', '45.6', '44.6', '44.3']
+  SUCCESS: YES
+Clearing memory after lattice_containment + chebyshev...
+
+Validating lattice_containment + cosine
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.914, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.917, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.930, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.924, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.943, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.952, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.952, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.951, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.954, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.954, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.952, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.956, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.962, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.962, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.962, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.959, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.914, ARI=1.000
+  PH-Dims: E=['15.2', '19.7', '17.6', '15.6', '17.1', '15.6', '16.4', '14.8', '16.5', '17.2']
+           N=['21.7', '29.0', '20.2', '24.0', '24.2', '23.2', '29.3', '21.1', '22.1', '23.8']
+           C=['25.9', '33.9', '36.4', '32.1', '34.8', '32.8', '25.1', '31.0', '28.7', '28.0']
+  SUCCESS: YES
+Clearing memory after lattice_containment + cosine...
+
+Validating lattice_containment + minkowski_3
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.823, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.823, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.849, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.841, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.867, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.869, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.874, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.878, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.879, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.896, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.905, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.897, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.895, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.902, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.916, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.907, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.823, ARI=1.000
+  PH-Dims: E=['41.3', '38.5', '32.8', '35.1', '29.0', '34.3', '33.1', '31.3', '34.6', '32.2']
+           N=['45.5', '49.6', '53.9', '47.8', '52.2', '49.9', '55.4', '50.2', '50.5', '45.8']
+           C=['63.8', '72.0', '76.7', '71.2', '69.9', '78.5', '87.8', '59.0', '74.3', '83.2']
+  SUCCESS: YES
+Clearing memory after lattice_containment + minkowski_3...
+
+Validating lattice_containment + minkowski_4
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.842, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.834, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.838, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.856, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.850, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.854, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.863, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.859, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.892, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.874, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.878, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.885, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.898, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.882, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.887, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.893, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.842, ARI=1.000
+  PH-Dims: E=['31.0', '38.8', '30.4', '32.7', '35.5', '38.3', '36.9', '34.8', '33.8', '32.0']
+           N=['44.7', '48.4', '48.4', '50.1', '52.3', '62.6', '53.0', '52.1', '48.6', '54.3']
+           C=['62.2', '73.6', '70.3', '83.4', '75.3', '69.7', '65.5', '71.0', '70.5', '72.2']
+  SUCCESS: YES
+Clearing memory after lattice_containment + minkowski_4...
+
+Validating lattice_containment + canberra
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 250: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 300: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 350: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 400: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 450: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 500: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 550: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 600: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 650: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 700: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 750: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 800: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 850: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 900: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 950: Acc=0.333, Sil=0.000, ARI=0.000
+  Best sample size: 200 points
+  Results: Accuracy=0.333, Silhouette=0.000, ARI=0.000
+  PH-Dims: E=['79.8', '100.3', '77.9', '218.7', '49.7', '78.8', '98.1', '99.2', '104.8', '71.7']
+           N=['143.4', '97.0', '119.1', '92.0', '105.9', '86.4', '209.5', '87.3', '147.5', '74.4']
+           C=['221.1', '182.9', '108.1', '128.3', '127.2', '127.4', '175.8', '129.3', '132.0', '91.4']
+  SUCCESS: NO
+Clearing memory after lattice_containment + canberra...
+
+Validating lattice_containment + braycurtis
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.896, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.915, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.928, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.936, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.942, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.939, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.947, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.943, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.953, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.956, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.958, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.957, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.957, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.953, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.962, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.960, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.896, ARI=1.000
+  PH-Dims: E=['33.6', '35.6', '27.4', '30.7', '33.6', '36.0', '52.9', '42.2', '28.4', '28.2']
+           N=['42.3', '50.6', '39.2', '40.4', '43.1', '38.8', '37.2', '34.2', '61.0', '30.2']
+           C=['54.6', '48.2', '62.8', '52.7', '60.7', '49.7', '38.1', '72.8', '35.8', '43.9']
+  SUCCESS: YES
+Clearing memory after lattice_containment + braycurtis...
+
+============================================================
+PROCESSING EMBEDDING SPACE 2/5: sbert_concat
+============================================================
+
+Validating sbert_concat + euclidean
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.702, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.750, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.800, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.842, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.832, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.856, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.839, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.846, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.879, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.861, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.874, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.895, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.877, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.894, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.903, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.702, ARI=1.000
+  PH-Dims: E=['16.5', '17.4', '16.8', '17.4', '18.9', '17.1', '16.8', '17.6', '16.7', '15.4']
+           N=['22.6', '23.4', '21.5', '21.3', '20.7', '22.4', '23.2', '20.7', '21.8', '21.6']
+           C=['25.0', '25.8', '30.0', '28.6', '26.5', '28.8', '27.0', '25.9', '28.3', '27.3']
+  SUCCESS: YES
+Clearing memory after sbert_concat + euclidean...
+
+Validating sbert_concat + manhattan
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 250: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 300: Acc=0.367, Sil=0.967, ARI=0.000
+    Sample size 350: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 400: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 450: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 500: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 550: Acc=0.367, Sil=0.967, ARI=0.000
+    Sample size 600: Acc=0.367, Sil=0.933, ARI=0.005
+    Sample size 650: Acc=0.367, Sil=0.967, ARI=0.000
+    Sample size 700: Acc=0.367, Sil=0.967, ARI=0.000
+    Sample size 750: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 800: Acc=0.367, Sil=0.967, ARI=0.000
+    Sample size 850: Acc=0.367, Sil=0.933, ARI=0.005
+    Sample size 900: Acc=0.367, Sil=0.967, ARI=0.000
+    Sample size 950: Acc=0.367, Sil=0.933, ARI=0.005
+  Best sample size: 300 points
+  Results: Accuracy=0.367, Silhouette=0.967, ARI=0.000
+  PH-Dims: E=['17.4', '17.2', '15.5', '17.5', '16.1', '16.1', '15.0', '17.9', '15.4', '13.9']
+           N=['22.3', '21.0', '20.7', '19.9', '21.7', '22.8', '23.0', '21.6', '19.3', '21.2']
+           C=['22.0', '22.8', '26.1', '26.3', '25.7', '24.3', '25.0', '26.9', '24.9', '22.8']
+  SUCCESS: NO
+Clearing memory after sbert_concat + manhattan...
+
+Validating sbert_concat + chebyshev
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.630, ARI=1.000
+    Sample size 250: Acc=0.967, Sil=0.688, ARI=0.898
+    Sample size 300: Acc=1.000, Sil=0.680, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.641, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.742, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.761, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.766, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.748, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.796, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.788, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.785, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.796, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.831, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.817, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.836, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.830, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.630, ARI=1.000
+  PH-Dims: E=['22.6', '21.2', '20.8', '21.2', '21.4', '20.1', '22.0', '21.9', '22.0', '21.7']
+           N=['27.1', '24.5', '25.4', '26.0', '24.6', '27.5', '29.3', '24.8', '26.9', '27.2']
+           C=['27.1', '31.1', '34.9', '32.6', '35.4', '33.3', '31.3', '28.7', '30.0', '33.8']
+  SUCCESS: YES
+Clearing memory after sbert_concat + chebyshev...
+
+Validating sbert_concat + cosine
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.711, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.785, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.818, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.831, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.827, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.827, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.806, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.841, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.864, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.870, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.865, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.880, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.876, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.886, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.711, ARI=1.000
+  PH-Dims: E=['8.1', '8.6', '8.2', '8.6', '8.1', '8.6', '8.6', '7.9', '8.4', '8.2']
+           N=['10.7', '10.7', '10.0', '12.4', '12.2', '10.9', '11.4', '11.4', '10.6', '12.0']
+           C=['12.8', '13.3', '12.0', '13.5', '13.2', '12.9', '14.1', '12.5', '13.0', '13.3']
+  SUCCESS: YES
+Clearing memory after sbert_concat + cosine...
+
+Validating sbert_concat + minkowski_3
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.795, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.793, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.826, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.846, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.858, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.857, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.904, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.870, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.861, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.880, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.893, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.904, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.911, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.887, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.912, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.911, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.795, ARI=1.000
+  PH-Dims: E=['17.6', '18.3', '18.4', '18.1', '18.1', '18.6', '17.0', '16.9', '18.0', '17.2']
+           N=['23.7', '24.0', '22.2', '24.8', '22.6', '27.1', '24.0', '23.2', '24.6', '25.0']
+           C=['29.9', '33.6', '31.6', '29.3', '29.5', '30.4', '29.0', '25.3', '28.3', '27.1']
+  SUCCESS: YES
+Clearing memory after sbert_concat + minkowski_3...
+
+Validating sbert_concat + minkowski_4
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.753, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.827, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.814, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.856, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.812, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.839, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.849, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.878, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.891, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.891, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.895, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.893, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.896, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.901, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.753, ARI=1.000
+  PH-Dims: E=['17.8', '19.3', '18.9', '21.5', '21.3', '20.1', '19.5', '18.2', '16.6', '17.4']
+           N=['25.5', '24.3', '22.8', '23.7', '23.7', '26.8', '24.4', '24.6', '23.3', '24.9']
+           C=['28.6', '32.1', '31.4', '28.9', '27.9', '29.7', '26.2', '31.1', '30.8', '29.8']
+  SUCCESS: YES
+Clearing memory after sbert_concat + minkowski_4...
+
+Validating sbert_concat + canberra
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 250: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 300: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 350: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 400: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 450: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 500: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 550: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 600: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 650: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 700: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 750: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 800: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 850: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 900: Acc=0.333, Sil=0.000, ARI=0.000
+    Sample size 950: Acc=0.333, Sil=0.000, ARI=0.000
+  Best sample size: 200 points
+  Results: Accuracy=0.333, Silhouette=0.000, ARI=0.000
+  PH-Dims: E=['24.3', '26.7', '27.0', '24.7', '24.5', '25.0', '24.6', '25.4', '23.9', '23.2']
+           N=['38.8', '34.1', '35.2', '35.3', '31.0', '35.1', '39.9', '33.8', '33.4', '38.3']
+           C=['35.5', '41.1', '38.0', '42.6', '39.8', '45.0', '42.3', '36.3', '48.1', '42.6']
+  SUCCESS: NO
+Clearing memory after sbert_concat + canberra...
+
+Validating sbert_concat + braycurtis
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.797, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.782, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.797, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.819, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.845, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.813, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.849, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.850, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.844, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.864, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.861, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.878, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.865, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.863, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.880, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.890, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.797, ARI=1.000
+  PH-Dims: E=['11.8', '12.4', '12.2', '11.8', '12.6', '12.5', '11.5', '12.3', '11.6', '11.1']
+           N=['17.6', '16.4', '14.7', '16.2', '17.5', '14.0', '14.2', '15.1', '14.9', '14.8']
+           C=['15.6', '16.6', '17.6', '18.5', '16.6', '15.2', '16.4', '16.5', '18.4', '16.3']
+  SUCCESS: YES
+Clearing memory after sbert_concat + braycurtis...
+
+============================================================
+PROCESSING EMBEDDING SPACE 3/5: hyperbolic_concat
+============================================================
+
+Validating hyperbolic_concat + euclidean
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.737, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.794, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.830, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.832, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.849, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.831, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.854, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.856, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.875, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.873, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.891, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.899, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.896, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.892, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.904, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.912, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.737, ARI=1.000
+  PH-Dims: E=['15.7', '17.1', '15.9', '16.2', '18.0', '15.0', '16.2', '16.0', '16.4', '16.5']
+           N=['19.0', '20.2', '21.2', '17.6', '20.5', '16.6', '18.9', '17.1', '18.3', '17.1']
+           C=['19.4', '18.2', '17.5', '17.0', '18.2', '17.5', '18.6', '17.6', '18.0', '19.5']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + euclidean...
+
+Validating hyperbolic_concat + manhattan
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.802, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.780, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.811, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.810, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.857, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.846, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.853, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.859, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.874, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.869, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.893, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.882, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.901, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.894, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.905, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.904, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.802, ARI=1.000
+  PH-Dims: E=['13.2', '14.6', '14.8', '18.3', '15.3', '14.6', '15.7', '16.6', '13.2', '15.4']
+           N=['17.0', '18.0', '17.7', '19.3', '16.8', '17.9', '18.2', '17.5', '20.1', '17.6']
+           C=['17.6', '17.2', '15.7', '16.5', '17.9', '17.6', '18.9', '16.5', '16.5', '16.7']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + manhattan...
+
+Validating hyperbolic_concat + chebyshev
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.641, ARI=1.000
+    Sample size 250: Acc=0.967, Sil=0.714, ARI=0.898
+    Sample size 300: Acc=1.000, Sil=0.728, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.766, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.734, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.774, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.804, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.769, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.754, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.793, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.810, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.805, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.847, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.824, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.849, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.845, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.641, ARI=1.000
+  PH-Dims: E=['14.8', '14.0', '15.4', '15.8', '14.7', '12.9', '14.8', '15.7', '15.0', '15.7']
+           N=['18.4', '16.2', '16.6', '18.5', '15.0', '13.9', '15.8', '15.3', '17.4', '16.1']
+           C=['15.7', '16.8', '15.7', '17.9', '16.8', '16.6', '16.2', '15.5', '15.0', '16.7']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + chebyshev...
+
+Validating hyperbolic_concat + cosine
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.733, Sil=0.513, ARI=0.484
+    Sample size 250: Acc=0.867, Sil=0.567, ARI=0.667
+    Sample size 300: Acc=0.933, Sil=0.565, ARI=0.808
+    Sample size 350: Acc=0.967, Sil=0.585, ARI=0.898
+    Sample size 400: Acc=0.967, Sil=0.649, ARI=0.898
+    Sample size 450: Acc=0.967, Sil=0.683, ARI=0.898
+    Sample size 500: Acc=0.967, Sil=0.625, ARI=0.898
+    Sample size 550: Acc=1.000, Sil=0.728, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.711, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.767, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.737, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.775, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.745, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.747, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.763, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.764, ARI=1.000
+  Best sample size: 550 points
+  Results: Accuracy=1.000, Silhouette=0.728, ARI=1.000
+  PH-Dims: E=['7.4', '8.4', '7.3', '8.4', '8.1', '7.4', '7.8', '7.6', '7.5', '7.4']
+           N=['9.3', '9.5', '8.7', '8.5', '9.0', '10.8', '8.7', '9.9', '10.0', '8.7']
+           C=['8.9', '9.9', '9.2', '8.9', '8.9', '9.1', '9.0', '8.5', '9.6', '9.3']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + cosine...
+
+Validating hyperbolic_concat + minkowski_3
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.705, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.827, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.807, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.868, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.827, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.868, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.879, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.880, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.868, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.870, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.883, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.872, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.899, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.901, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.907, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.912, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.705, ARI=1.000
+  PH-Dims: E=['16.7', '17.3', '15.5', '16.1', '17.0', '17.2', '13.9', '18.9', '16.8', '15.2']
+           N=['16.7', '21.3', '17.6', '18.7', '17.4', '19.6', '18.6', '19.2', '18.8', '18.6']
+           C=['18.3', '20.2', '18.7', '18.5', '19.1', '17.5', '17.5', '18.3', '21.6', '19.8']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + minkowski_3...
+
+Validating hyperbolic_concat + minkowski_4
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=1.000, Sil=0.770, ARI=1.000
+    Sample size 250: Acc=1.000, Sil=0.794, ARI=1.000
+    Sample size 300: Acc=1.000, Sil=0.805, ARI=1.000
+    Sample size 350: Acc=1.000, Sil=0.808, ARI=1.000
+    Sample size 400: Acc=1.000, Sil=0.846, ARI=1.000
+    Sample size 450: Acc=1.000, Sil=0.825, ARI=1.000
+    Sample size 500: Acc=1.000, Sil=0.866, ARI=1.000
+    Sample size 550: Acc=1.000, Sil=0.868, ARI=1.000
+    Sample size 600: Acc=1.000, Sil=0.882, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.895, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.872, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.884, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.879, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.885, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.897, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.904, ARI=1.000
+  Best sample size: 200 points
+  Results: Accuracy=1.000, Silhouette=0.770, ARI=1.000
+  PH-Dims: E=['16.2', '15.8', '18.3', '19.0', '16.4', '16.0', '14.5', '15.9', '16.6', '16.5']
+           N=['18.6', '17.5', '18.5', '20.3', '21.2', '17.0', '17.1', '17.6', '16.5', '19.4']
+           C=['18.6', '18.0', '17.2', '19.6', '20.0', '16.6', '17.2', '16.6', '18.2', '18.2']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + minkowski_4...
+
+Validating hyperbolic_concat + canberra
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.400, Sil=0.889, ARI=-0.002
+    Sample size 250: Acc=0.367, Sil=0.839, ARI=-0.008
+    Sample size 300: Acc=0.400, Sil=0.907, ARI=-0.002
+    Sample size 350: Acc=0.400, Sil=0.876, ARI=-0.002
+    Sample size 400: Acc=0.400, Sil=0.905, ARI=-0.002
+    Sample size 450: Acc=0.433, Sil=0.795, ARI=0.011
+    Sample size 500: Acc=0.367, Sil=0.741, ARI=-0.014
+    Sample size 550: Acc=0.400, Sil=0.847, ARI=-0.002
+    Sample size 600: Acc=0.367, Sil=0.923, ARI=-0.009
+    Sample size 650: Acc=0.367, Sil=0.900, ARI=0.005
+    Sample size 700: Acc=0.400, Sil=0.871, ARI=-0.003
+    Sample size 750: Acc=0.400, Sil=0.854, ARI=-0.002
+    Sample size 800: Acc=0.367, Sil=0.918, ARI=0.005
+    Sample size 850: Acc=0.367, Sil=0.910, ARI=0.005
+    Sample size 900: Acc=0.367, Sil=0.889, ARI=-0.009
+    Sample size 950: Acc=0.367, Sil=0.902, ARI=0.005
+  Best sample size: 450 points
+  Results: Accuracy=0.433, Silhouette=0.795, ARI=0.011
+  PH-Dims: E=['17.4', '17.6', '18.6', '19.5', '16.9', '18.0', '19.6', '17.8', '17.5', '17.5']
+           N=['22.7', '22.2', '22.9', '25.9', '22.0', '21.4', '23.4', '22.0', '20.8', '23.0']
+           C=['23.4', '24.9', '20.4', '25.4', '21.0', '23.8', '25.0', '23.5', '23.4', '21.8']
+  SUCCESS: NO
+Clearing memory after hyperbolic_concat + canberra...
+
+Validating hyperbolic_concat + braycurtis
+  Analyzing clustering across 16 different sample sizes
+    Sample size 200: Acc=0.767, Sil=0.484, ARI=0.461
+    Sample size 250: Acc=0.833, Sil=0.487, ARI=0.568
+    Sample size 300: Acc=0.833, Sil=0.547, ARI=0.587
+    Sample size 350: Acc=0.967, Sil=0.618, ARI=0.898
+    Sample size 400: Acc=0.967, Sil=0.538, ARI=0.898
+    Sample size 450: Acc=0.900, Sil=0.557, ARI=0.731
+    Sample size 500: Acc=0.967, Sil=0.603, ARI=0.898
+    Sample size 550: Acc=0.967, Sil=0.627, ARI=0.898
+    Sample size 600: Acc=1.000, Sil=0.632, ARI=1.000
+    Sample size 650: Acc=1.000, Sil=0.675, ARI=1.000
+    Sample size 700: Acc=1.000, Sil=0.693, ARI=1.000
+    Sample size 750: Acc=1.000, Sil=0.746, ARI=1.000
+    Sample size 800: Acc=1.000, Sil=0.723, ARI=1.000
+    Sample size 850: Acc=1.000, Sil=0.725, ARI=1.000
+    Sample size 900: Acc=1.000, Sil=0.725, ARI=1.000
+    Sample size 950: Acc=1.000, Sil=0.707, ARI=1.000
+  Best sample size: 600 points
+  Results: Accuracy=1.000, Silhouette=0.632, ARI=1.000
+  PH-Dims: E=['14.2', '15.2', '15.5', '14.1', '15.7', '15.9', '13.2', '15.6', '14.7', '14.1']
+           N=['17.6', '18.6', '18.6', '19.6', '18.1', '17.2', '18.1', '15.6', '18.0', '17.7']
+           C=['15.9', '17.4', '16.3', '18.2', '15.5', '14.4', '19.4', '18.4', '17.2', '17.2']
+  SUCCESS: YES
+Clearing memory after hyperbolic_concat + braycurtis...
+
+============================================================
+PROCESSING EMBEDDING SPACE 4/5: order_asymmetry
+============================================================
+
+Validating order_asymmetry + euclidean
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + euclidean...
+
+Validating order_asymmetry + manhattan
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + manhattan...
+
+Validating order_asymmetry + chebyshev
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + chebyshev...
+
+Validating order_asymmetry + cosine
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + cosine...
+
+Validating order_asymmetry + minkowski_3
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + minkowski_3...
+
+Validating order_asymmetry + minkowski_4
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + minkowski_4...
+
+Validating order_asymmetry + canberra
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + canberra...
+
+Validating order_asymmetry + braycurtis
+  ERROR: 'order_asymmetry'
+Clearing memory after order_asymmetry + braycurtis...
+
+============================================================
+PROCESSING EMBEDDING SPACE 5/5: directional_order_asymmetry
+============================================================
+
+Validating directional_order_asymmetry + euclidean
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + euclidean...
+
+Validating directional_order_asymmetry + manhattan
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + manhattan...
+
+Validating directional_order_asymmetry + chebyshev
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + chebyshev...
+
+Validating directional_order_asymmetry + cosine
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + cosine...
+
+Validating directional_order_asymmetry + minkowski_3
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + minkowski_3...
+
+Validating directional_order_asymmetry + minkowski_4
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + minkowski_4...
+
+Validating directional_order_asymmetry + canberra
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + canberra...
+
+Validating directional_order_asymmetry + braycurtis
+  ERROR: 'directional_order_asymmetry'
+Clearing memory after directional_order_asymmetry + braycurtis...
+
+============================================================
+PHASE 1 VALIDATION SUMMARY
+============================================================
+Total combinations tested: 24
+Successful combinations (>70% accuracy): 19
+
+SUCCESSFUL COMBINATIONS:
+  lattice_containment + euclidean: 1.000
+  lattice_containment + chebyshev: 1.000
+  lattice_containment + cosine: 1.000
+  lattice_containment + minkowski_3: 1.000
+  lattice_containment + minkowski_4: 1.000
+  lattice_containment + braycurtis: 1.000
+  sbert_concat + euclidean: 1.000
+  sbert_concat + chebyshev: 1.000
+  sbert_concat + cosine: 1.000
+  sbert_concat + minkowski_3: 1.000
+  sbert_concat + minkowski_4: 1.000
+  sbert_concat + braycurtis: 1.000
+  hyperbolic_concat + euclidean: 1.000
+  hyperbolic_concat + manhattan: 1.000
+  hyperbolic_concat + chebyshev: 1.000
+  hyperbolic_concat + cosine: 1.000
+  hyperbolic_concat + minkowski_3: 1.000
+  hyperbolic_concat + minkowski_4: 1.000
+  hyperbolic_concat + braycurtis: 1.000
+
+Generating sample size analysis plots...
+  Saved plot for lattice_containment: entailment_surfaces/clustering/plots/sample_size_analysis_lattice_containment_20250716_203041.png
+  Saved plot for sbert_concat: entailment_surfaces/clustering/plots/sample_size_analysis_sbert_concat_20250716_203041.png
+  Saved plot for hyperbolic_concat: entailment_surfaces/clustering/plots/sample_size_analysis_hyperbolic_concat_20250716_203041.png
+  Saved summary plot: entailment_surfaces/clustering/plots/sample_size_summary_hyperbolic_concat_20250716_203041.png
+
+Results saved to: entailment_surfaces/clustering/order_asymmetry_clustering_results_20250716_203041.json
+Summary report saved to: entailment_surfaces/clustering/order_asymmetry_summary_report_20250716_203041.txt
+Sample size plots saved to: entailment_surfaces/clustering/plots
+
+Phase 1 clustering validation completed!
+
+Analysis completed with exit code: 0
+Time: Wed 16 Jul 20:30:45 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+PHDIM Clustering successful!
+
+
+Job finished.

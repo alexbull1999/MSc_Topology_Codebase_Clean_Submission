@@ -1,0 +1,254 @@
+Job ID: 189529
+Node: parrot
+Time: Sat  2 Aug 19:15:35 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sat Aug  2 19:15:39 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:C9:00.0 Off |                  Off |
+|  0%   33C    P8             15W /   62W |       3MiB /  16380MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 16.8 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+TRAINING NEW ASYMMETRY TRANSFORM MODEL
+================================================================================
+Loading processed dataset: /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Loaded 150000 samples
+Label distribution: {'contradiction': 49717, 'entailment': 50214, 'neutral': 50069}
+AsymmetryTrainer initialized on cuda
+Training asymmetry model directly on SBERT tokens
+Training AsymmetryTransformModel directly on SBERT tokens
+Target: Entailment=HIGH asymmetric, Neutral=LOW asymmetric, Contradiction=MEDIUM
+Epochs: 50, Batch size: 1020
+
+Epoch 1/50
+Train Loss: 4.7144, Val Loss: 4.0958
+Asymmetry Stats:
+  entailment: fwd=7.206, bwd=7.119, asym=1.991
+  neutral: fwd=8.316, bwd=8.174, asym=1.960
+  contradiction: fwd=10.033, bwd=9.668, asym=2.613
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 2/50
+Train Loss: 3.8328, Val Loss: 3.7606
+Asymmetry Stats:
+  entailment: fwd=7.691, bwd=7.569, asym=2.162
+  neutral: fwd=8.745, bwd=8.566, asym=1.990
+  contradiction: fwd=10.613, bwd=10.174, asym=2.741
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 3/50
+Train Loss: 3.4883, Val Loss: 3.6637
+Asymmetry Stats:
+  entailment: fwd=8.112, bwd=7.955, asym=2.333
+  neutral: fwd=9.149, bwd=8.935, asym=2.048
+  contradiction: fwd=11.138, bwd=10.634, asym=2.761
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 4/50
+Train Loss: 3.2454, Val Loss: 3.5924
+Asymmetry Stats:
+  entailment: fwd=8.451, bwd=8.249, asym=2.466
+  neutral: fwd=9.511, bwd=9.244, asym=2.124
+  contradiction: fwd=11.622, bwd=11.027, asym=2.838
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 5/50
+Train Loss: 3.0400, Val Loss: 3.4914
+Asymmetry Stats:
+  entailment: fwd=8.675, bwd=8.457, asym=2.507
+  neutral: fwd=9.733, bwd=9.455, asym=2.102
+  contradiction: fwd=11.893, bwd=11.282, asym=2.776
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 6/50
+Train Loss: 2.8737, Val Loss: 3.4390
+Asymmetry Stats:
+  entailment: fwd=8.882, bwd=8.641, asym=2.487
+  neutral: fwd=9.943, bwd=9.645, asym=2.064
+  contradiction: fwd=12.169, bwd=11.538, asym=2.742
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 7/50
+Train Loss: 2.7159, Val Loss: 3.4211
+Asymmetry Stats:
+  entailment: fwd=9.014, bwd=8.756, asym=2.578
+  neutral: fwd=10.097, bwd=9.774, asym=2.132
+  contradiction: fwd=12.366, bwd=11.710, asym=2.800
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 8/50
+Train Loss: 2.5862, Val Loss: 3.3990
+Asymmetry Stats:
+  entailment: fwd=9.129, bwd=8.866, asym=2.586
+  neutral: fwd=10.219, bwd=9.898, asym=2.122
+  contradiction: fwd=12.545, bwd=11.894, asym=2.813
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 9/50
+Train Loss: 2.4611, Val Loss: 3.3867
+Asymmetry Stats:
+  entailment: fwd=9.267, bwd=8.987, asym=2.582
+  neutral: fwd=10.357, bwd=10.024, asym=2.077
+  contradiction: fwd=12.708, bwd=12.034, asym=2.725
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 10/50
+Train Loss: 2.3498, Val Loss: 3.3855
+Asymmetry Stats:
+  entailment: fwd=9.390, bwd=9.098, asym=2.636
+  neutral: fwd=10.482, bwd=10.126, asym=2.133
+  contradiction: fwd=12.869, bwd=12.155, asym=2.797
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 11/50
+Train Loss: 2.2477, Val Loss: 3.3645
+Asymmetry Stats:
+  entailment: fwd=9.473, bwd=9.171, asym=2.601
+  neutral: fwd=10.594, bwd=10.219, asym=2.143
+  contradiction: fwd=13.001, bwd=12.266, asym=2.815
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+
+Epoch 12/50
+Train Loss: 2.1518, Val Loss: 3.3883
+Asymmetry Stats:
+  entailment: fwd=9.581, bwd=9.273, asym=2.679
+  neutral: fwd=10.693, bwd=10.318, asym=2.169
+  contradiction: fwd=13.145, bwd=12.411, asym=2.827
+Patience: 1/12
+
+Epoch 13/50
+Train Loss: 2.0611, Val Loss: 3.4484
+Asymmetry Stats:
+  entailment: fwd=9.610, bwd=9.288, asym=2.763
+  neutral: fwd=10.715, bwd=10.335, asym=2.229
+  contradiction: fwd=13.158, bwd=12.418, asym=2.853
+Patience: 2/12
+
+Epoch 14/50
+Train Loss: 1.9808, Val Loss: 3.4034
+Asymmetry Stats:
+  entailment: fwd=9.689, bwd=9.355, asym=2.713
+  neutral: fwd=10.804, bwd=10.418, asym=2.187
+  contradiction: fwd=13.289, bwd=12.538, asym=2.840
+Patience: 3/12
+
+Epoch 15/50
+Train Loss: 1.8951, Val Loss: 3.4149
+Asymmetry Stats:
+  entailment: fwd=9.748, bwd=9.412, asym=2.693
+  neutral: fwd=10.875, bwd=10.475, asym=2.175
+  contradiction: fwd=13.395, bwd=12.616, asym=2.878
+Patience: 4/12
+
+Epoch 16/50
+Train Loss: 1.8281, Val Loss: 3.4156
+Asymmetry Stats:
+  entailment: fwd=9.810, bwd=9.470, asym=2.696
+  neutral: fwd=10.943, bwd=10.543, asym=2.187
+  contradiction: fwd=13.492, bwd=12.700, asym=2.892
+Patience: 5/12
+
+Epoch 17/50
+Train Loss: 1.7561, Val Loss: 3.4119
+Asymmetry Stats:
+  entailment: fwd=9.832, bwd=9.491, asym=2.707
+  neutral: fwd=10.975, bwd=10.571, asym=2.187
+  contradiction: fwd=13.516, bwd=12.738, asym=2.829
+Patience: 6/12
+
+Epoch 18/50
+Train Loss: 1.6902, Val Loss: 3.4442
+Asymmetry Stats:
+  entailment: fwd=9.914, bwd=9.570, asym=2.741
+  neutral: fwd=11.043, bwd=10.637, asym=2.213
+  contradiction: fwd=13.606, bwd=12.825, asym=2.825
+Patience: 7/12
+
+Epoch 19/50
+Train Loss: 1.6188, Val Loss: 3.4567
+Asymmetry Stats:
+  entailment: fwd=9.934, bwd=9.580, asym=2.747
+  neutral: fwd=11.068, bwd=10.650, asym=2.216
+  contradiction: fwd=13.630, bwd=12.828, asym=2.836
+Patience: 8/12
+
+Epoch 20/50
+Train Loss: 1.5661, Val Loss: 3.4943
+Asymmetry Stats:
+  entailment: fwd=10.004, bwd=9.643, asym=2.811
+  neutral: fwd=11.138, bwd=10.711, asym=2.275
+  contradiction: fwd=13.725, bwd=12.916, asym=2.928
+Patience: 9/12
+
+Epoch 21/50
+Train Loss: 1.4398, Val Loss: 3.4668
+Asymmetry Stats:
+  entailment: fwd=10.013, bwd=9.657, asym=2.777
+  neutral: fwd=11.154, bwd=10.731, asym=2.246
+  contradiction: fwd=13.758, bwd=12.956, asym=2.865
+Patience: 10/12
+
+Epoch 22/50
+Train Loss: 1.4009, Val Loss: 3.4873
+Asymmetry Stats:
+  entailment: fwd=10.066, bwd=9.698, asym=2.806
+  neutral: fwd=11.201, bwd=10.774, asym=2.261
+  contradiction: fwd=13.821, bwd=13.014, asym=2.901
+Patience: 11/12
+
+Epoch 23/50
+Train Loss: 1.3667, Val Loss: 3.5434
+Asymmetry Stats:
+  entailment: fwd=10.097, bwd=9.731, asym=2.843
+  neutral: fwd=11.239, bwd=10.806, asym=2.310
+  contradiction: fwd=13.862, bwd=13.046, asym=2.933
+Patience: 12/12
+Early stopping at epoch 23
+Training plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_v2_training_progress_20250802_214203.png
+Training summary saved to: MSc_Topology_Codebase/phd_method/models/separate_models/new_asymmetry_training_v2_summary_20250802_214203.txt
+
+================================================================================
+NEW ASYMMETRY MODEL TRAINING COMPLETE!
+✅ Trained for up to 50 epochs with early stopping
+✅ Now uses SBERT tokens directly (not order embeddings)
+✅ Corrected loss: Entailment=HIGH, Neutral=LOW, Contradiction=MEDIUM
+✅ Includes forward/backward energy computation
+✅ Training plots and summary generated
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Sat  2 Aug 21:42:16 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Training successful!
+
+
+Job finished.

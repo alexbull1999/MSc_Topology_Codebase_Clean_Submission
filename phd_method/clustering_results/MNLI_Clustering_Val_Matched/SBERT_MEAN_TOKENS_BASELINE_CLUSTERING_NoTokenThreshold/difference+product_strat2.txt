@@ -1,0 +1,81 @@
+================================================================================
+SBERT CLUSTERING COMPARISON
+================================================================================
+Loading validation data: /vol/bitbucket/ahb24/tda_entailment_new/mnli_val_matched_sbert_tokens.pkl
+Loaded 9815 validation samples
+Separate model clustering validator initialized
+Samples per class: 100
+Generating maximum sample indices...
+  entailment: 3479 total samples available
+Token filtering: 3479/3479 samples have ≥0 tokens
+    Using ALL 3479 samples after token filtering
+Token count stats: 40 ± 19 (range: 7-227)
+  neutral: 3123 total samples available
+Token filtering: 3123/3123 samples have ≥0 tokens
+    Using ALL 3123 samples after token filtering
+Token count stats: 41 ± 19 (range: 7-238)
+  contradiction: 3213 total samples available
+Token filtering: 3213/3213 samples have ≥0 tokens
+    Using ALL 3213 samples after token filtering
+Token count stats: 40 ± 19 (range: 7-226)
+Extracting SBERT embeddings for clustering...
+Processing entailment: 3479 samples
+Processing neutral: 3123 samples
+Processing contradiction: 3213 samples
+SBERT clustering data: 9815 samples, 3072 dimensions
+
+============================================================
+SBERT CLUSTERING RESULTS
+============================================================
+SBERT Clustering Accuracy: 0.455
+Silhouette Score: 0.015
+Adjusted Rand Index: 0.060
+
+Comparison:
+Topological Clustering: ...%
+SBERT Clustering: 45.5%
+Difference: ...
+
+
+--- rerunning for confusion matrix:
+
+============================================================
+SBERT CLUSTERING RESULTS
+============================================================
+SBERT Clustering Accuracy: 0.666
+Silhouette Score: 0.015
+Adjusted Rand Index: 0.060
+
+Comparison:
+Topological Clustering: 66.6%
+SBERT Clustering: 45.5%
+Difference: 
+
+Detailed confusion analysis:
+  True entailment (3479 samples):
+    → predicted as entailment: 2120 (60.9%)
+    → predicted as neutral: 1212 (34.8%)
+    → predicted as contradiction: 147 (4.2%)
+  True neutral (3123 samples):
+    → predicted as entailment: 1810 (58.0%)
+    → predicted as neutral: 1014 (32.5%)
+    → predicted as contradiction: 299 (9.6%)
+  True contradiction (3213 samples):
+    → predicted as entailment: 1320 (41.1%)
+    → predicted as neutral: 562 (17.5%)
+    → predicted as contradiction: 1331 (41.4%)
+
+Per-class accuracy breakdown:
+  entailment: 0.609 (2120/3479)
+  neutral: 0.325 (1014/3123)
+  contradiction: 0.414 (1331/3213)
+
+Misclassification analysis:
+  Total misclassified: 5350/9815 (54.5%)
+  Confusion breakdown:
+    entailment_as_neutral: 1212
+    entailment_as_contradiction: 147
+    neutral_as_entailment: 1810
+    neutral_as_contradiction: 299
+    contradiction_as_entailment: 1320
+    contradiction_as_neutral: 562

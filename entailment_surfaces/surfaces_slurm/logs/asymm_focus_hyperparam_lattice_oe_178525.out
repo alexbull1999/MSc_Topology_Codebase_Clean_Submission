@@ -1,0 +1,708 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 178525
+Node: gpuvm01
+Time: Mon 30 Jun 16:58:15 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Mon Jun 30 16:58:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.120                Driver Version: 550.120        CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:02:00.0 Off |                    0 |
+| N/A   29C    P0             28W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.2 GB
+PyTorch setup verified!
+
+Checking for required input data and models...
+
+Starting Hyperparam Search...
+
+Starting Comprehensive Order Embeddings Hyperparameter Search
+This will test all combinations with full lattice metric evaluation...
+📂 Loading data from data/processed/snli_full_standard_SBERT.pt
+Sampling 10000 from 549367 for efficiency
+Split: 8000 train, 2000 eval samples
+Train split saved to: data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Eval split saved to: data/processed/snli_full_standard_SBERT_eval_OELattice_split.pt
+\Combination 1/7
+order_dim=100, asymmetry_weight=0.9
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=0.9
+Epoch 5 / 50
+Train Loss: 0.8771, Val Loss: 1.8447
+  Energy Rankings:
+    entailment: 0.2133 ± 0.1695
+    neutral: 0.5114 ± 0.3329
+    contradiction: 1.0725 ± 0.6963
+Epoch 10 / 50
+Train Loss: 0.7044, Val Loss: 1.8004
+  Energy Rankings:
+    entailment: 0.2135 ± 0.1962
+    neutral: 0.5533 ± 0.3997
+    contradiction: 1.1702 ± 0.8378
+Epoch 15 / 50
+Train Loss: 0.6269, Val Loss: 1.7658
+  Energy Rankings:
+    entailment: 0.2093 ± 0.2136
+    neutral: 0.5790 ± 0.4362
+    contradiction: 1.3038 ± 1.0132
+Epoch 20 / 50
+Train Loss: 0.5743, Val Loss: 1.7642
+  Energy Rankings:
+    entailment: 0.2192 ± 0.2238
+    neutral: 0.5930 ± 0.4499
+    contradiction: 1.3660 ± 1.0621
+Epoch 25 / 50
+Train Loss: 0.5469, Val Loss: 1.7402
+  Energy Rankings:
+    entailment: 0.2382 ± 0.2532
+    neutral: 0.6592 ± 0.5132
+    contradiction: 1.4875 ± 1.1767
+Early stopping at epoch 28
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0453 → 0.0655 → 0.1075
+    Range: 0.0623, Avg Std: 0.0372
+    Gap/Std Ratio: 1.6729
+    Monotonic: True
+    Metric Score: 1.0543
+  asymmetric_energy_score:
+    Means: 0.2079 → 0.6627 → 1.4041
+    Range: 1.1962, Avg Std: 0.5898
+    Gap/Std Ratio: 2.0283
+    Monotonic: True
+    Metric Score: 1.1745
+  lattice_height_score:
+    Means: 0.0349 → 0.1435 → 0.2664
+    Range: 0.2314, Avg Std: 0.2089
+    Gap/Std Ratio: 1.1076
+    Monotonic: True
+    Metric Score: 0.5917
+  subsumption_distance_score:
+    Means: 0.1901 → 0.2543 → 0.3064
+    Range: 0.1164, Avg Std: 0.0819
+    Gap/Std Ratio: 1.4204
+    Monotonic: True
+    Metric Score: 1.1853
+Overall Score: 0.8012
+Val Loss: 1.7430
+NEW BEST! (Score: 0.8012)
+Config saved to: entailment_surfaces/results/hyperparameter_search_lattice_OE_model/best_config_lattice_OE_config.json
+Model saved to: entailment_surfaces/results/hyperparameter_search_lattice_OE_model/best_config_lattice_OE_model.pt
+Score: 0.8012
+\Combination 2/7
+order_dim=100, asymmetry_weight=0.95
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=0.95
+Epoch 5 / 50
+Train Loss: 0.8951, Val Loss: 1.9001
+  Energy Rankings:
+    entailment: 0.2136 ± 0.1522
+    neutral: 0.5322 ± 0.3462
+    contradiction: 1.0078 ± 0.6970
+Epoch 10 / 50
+Train Loss: 0.7271, Val Loss: 1.8243
+  Energy Rankings:
+    entailment: 0.2148 ± 0.1726
+    neutral: 0.5716 ± 0.4027
+    contradiction: 1.1444 ± 0.8199
+Epoch 15 / 50
+Train Loss: 0.6347, Val Loss: 1.7752
+  Energy Rankings:
+    entailment: 0.2277 ± 0.1977
+    neutral: 0.6080 ± 0.4326
+    contradiction: 1.2697 ± 0.9333
+Epoch 20 / 50
+Train Loss: 0.6035, Val Loss: 1.7863
+  Energy Rankings:
+    entailment: 0.2153 ± 0.1925
+    neutral: 0.5923 ± 0.4426
+    contradiction: 1.2890 ± 0.9680
+Epoch 25 / 50
+Train Loss: 0.5698, Val Loss: 1.7911
+  Energy Rankings:
+    entailment: 0.2127 ± 0.1930
+    neutral: 0.5861 ± 0.4393
+    contradiction: 1.2502 ± 0.9410
+Epoch 30 / 50
+Train Loss: 0.5305, Val Loss: 1.7831
+  Energy Rankings:
+    entailment: 0.2149 ± 0.2050
+    neutral: 0.6218 ± 0.4872
+    contradiction: 1.3198 ± 1.0250
+Epoch 35 / 50
+Train Loss: 0.5220, Val Loss: 1.7760
+  Energy Rankings:
+    entailment: 0.2175 ± 0.2049
+    neutral: 0.6093 ± 0.4766
+    contradiction: 1.3186 ± 1.0237
+Epoch 40 / 50
+Train Loss: 0.5146, Val Loss: 1.7359
+  Energy Rankings:
+    entailment: 0.2321 ± 0.2173
+    neutral: 0.6244 ± 0.4536
+    contradiction: 1.3931 ± 1.0423
+Epoch 45 / 50
+Train Loss: 0.4925, Val Loss: 1.7526
+  Energy Rankings:
+    entailment: 0.2308 ± 0.2251
+    neutral: 0.6448 ± 0.4949
+    contradiction: 1.4095 ± 1.0949
+Epoch 50 / 50
+Train Loss: 0.4895, Val Loss: 1.7787
+  Energy Rankings:
+    entailment: 0.2308 ± 0.2234
+    neutral: 0.6392 ± 0.4926
+    contradiction: 1.3529 ± 1.0268
+Early stopping at epoch 50
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0451 → 0.0624 → 0.1041
+    Range: 0.0591, Avg Std: 0.0371
+    Gap/Std Ratio: 1.5924
+    Monotonic: True
+    Metric Score: 1.0120
+  asymmetric_energy_score:
+    Means: 0.2288 → 0.6848 → 1.3822
+    Range: 1.1534, Avg Std: 0.6017
+    Gap/Std Ratio: 1.9169
+    Monotonic: True
+    Metric Score: 1.1196
+  lattice_height_score:
+    Means: 0.0325 → 0.1438 → 0.2279
+    Range: 0.1954, Avg Std: 0.2030
+    Gap/Std Ratio: 0.9627
+    Monotonic: True
+    Metric Score: 0.5226
+  subsumption_distance_score:
+    Means: 0.1739 → 0.2315 → 0.2768
+    Range: 0.1029, Avg Std: 0.0799
+    Gap/Std Ratio: 1.2882
+    Monotonic: True
+    Metric Score: 1.0915
+Overall Score: 0.7492
+Val Loss: 1.7787
+\Combination 3/7
+order_dim=100, asymmetry_weight=1.0
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=1.0
+Epoch 5 / 50
+Train Loss: 0.9132, Val Loss: 1.9786
+  Energy Rankings:
+    entailment: 0.2142 ± 0.1596
+    neutral: 0.5237 ± 0.3175
+    contradiction: 0.9249 ± 0.5711
+Epoch 10 / 50
+Train Loss: 0.7442, Val Loss: 1.8648
+  Energy Rankings:
+    entailment: 0.2106 ± 0.1778
+    neutral: 0.5885 ± 0.4040
+    contradiction: 1.0612 ± 0.7081
+Epoch 15 / 50
+Train Loss: 0.6649, Val Loss: 1.8476
+  Energy Rankings:
+    entailment: 0.2141 ± 0.1885
+    neutral: 0.6166 ± 0.4538
+    contradiction: 1.1590 ± 0.8405
+Epoch 20 / 50
+Train Loss: 0.6148, Val Loss: 1.8567
+  Energy Rankings:
+    entailment: 0.2224 ± 0.2181
+    neutral: 0.6471 ± 0.5054
+    contradiction: 1.2116 ± 0.9225
+Epoch 25 / 50
+Train Loss: 0.5819, Val Loss: 1.8067
+  Energy Rankings:
+    entailment: 0.2260 ± 0.2207
+    neutral: 0.6528 ± 0.5035
+    contradiction: 1.3115 ± 0.9932
+Epoch 30 / 50
+Train Loss: 0.5559, Val Loss: 1.8168
+  Energy Rankings:
+    entailment: 0.2246 ± 0.2138
+    neutral: 0.6636 ± 0.5042
+    contradiction: 1.3154 ± 1.0394
+Early stopping at epoch 34
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0481 → 0.0646 → 0.1092
+    Range: 0.0611, Avg Std: 0.0384
+    Gap/Std Ratio: 1.5886
+    Monotonic: True
+    Metric Score: 1.0155
+  asymmetric_energy_score:
+    Means: 0.2150 → 0.6675 → 1.4458
+    Range: 1.2308, Avg Std: 0.6041
+    Gap/Std Ratio: 2.0372
+    Monotonic: True
+    Metric Score: 1.1801
+  lattice_height_score:
+    Means: 0.0368 → 0.1578 → 0.2876
+    Range: 0.2509, Avg Std: 0.2235
+    Gap/Std Ratio: 1.1227
+    Monotonic: True
+    Metric Score: 0.6015
+  subsumption_distance_score:
+    Means: 0.2060 → 0.2617 → 0.3155
+    Range: 0.1095, Avg Std: 0.0851
+    Gap/Std Ratio: 1.2868
+    Monotonic: True
+    Metric Score: 1.1348
+Overall Score: 0.7864
+Val Loss: 1.8083
+\Combination 4/7
+order_dim=100, asymmetry_weight=1.05
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=1.05
+Epoch 5 / 50
+Train Loss: 0.9357, Val Loss: 1.9962
+  Energy Rankings:
+    entailment: 0.2157 ± 0.1630
+    neutral: 0.5024 ± 0.3192
+    contradiction: 1.0088 ± 0.6331
+Epoch 10 / 50
+Train Loss: 0.7689, Val Loss: 1.8908
+  Energy Rankings:
+    entailment: 0.2130 ± 0.1780
+    neutral: 0.5471 ± 0.3827
+    contradiction: 1.2153 ± 0.8418
+Epoch 15 / 50
+Train Loss: 0.6812, Val Loss: 1.8576
+  Energy Rankings:
+    entailment: 0.2202 ± 0.2102
+    neutral: 0.5910 ± 0.4404
+    contradiction: 1.2642 ± 0.8820
+Epoch 20 / 50
+Train Loss: 0.6276, Val Loss: 1.8478
+  Energy Rankings:
+    entailment: 0.2235 ± 0.2200
+    neutral: 0.6092 ± 0.4655
+    contradiction: 1.3558 ± 0.9538
+Epoch 25 / 50
+Train Loss: 0.5840, Val Loss: 1.8629
+  Energy Rankings:
+    entailment: 0.2285 ± 0.2207
+    neutral: 0.6073 ± 0.4795
+    contradiction: 1.3566 ± 0.9973
+Epoch 30 / 50
+Train Loss: 0.5722, Val Loss: 1.8638
+  Energy Rankings:
+    entailment: 0.2221 ± 0.2174
+    neutral: 0.6093 ± 0.4841
+    contradiction: 1.3409 ± 0.9588
+Epoch 35 / 50
+Train Loss: 0.5505, Val Loss: 1.8255
+  Energy Rankings:
+    entailment: 0.2221 ± 0.2354
+    neutral: 0.6199 ± 0.4924
+    contradiction: 1.4121 ± 1.0492
+Epoch 40 / 50
+Train Loss: 0.5319, Val Loss: 1.8410
+  Energy Rankings:
+    entailment: 0.2252 ± 0.2486
+    neutral: 0.6225 ± 0.4948
+    contradiction: 1.4857 ± 1.1424
+Epoch 45 / 50
+Train Loss: 0.5231, Val Loss: 1.8341
+  Energy Rankings:
+    entailment: 0.2341 ± 0.2358
+    neutral: 0.6361 ± 0.4863
+    contradiction: 1.4531 ± 1.1121
+Early stopping at epoch 45
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0462 → 0.0637 → 0.1054
+    Range: 0.0592, Avg Std: 0.0377
+    Gap/Std Ratio: 1.5703
+    Monotonic: True
+    Metric Score: 1.0036
+  asymmetric_energy_score:
+    Means: 0.2269 → 0.6853 → 1.3896
+    Range: 1.1626, Avg Std: 0.6010
+    Gap/Std Ratio: 1.9344
+    Monotonic: True
+    Metric Score: 1.1274
+  lattice_height_score:
+    Means: 0.0350 → 0.1420 → 0.2388
+    Range: 0.2039, Avg Std: 0.2078
+    Gap/Std Ratio: 0.9811
+    Monotonic: True
+    Metric Score: 0.5324
+  subsumption_distance_score:
+    Means: 0.1860 → 0.2391 → 0.2941
+    Range: 0.1080, Avg Std: 0.0866
+    Gap/Std Ratio: 1.2475
+    Monotonic: True
+    Metric Score: 1.0600
+Overall Score: 0.7447
+Val Loss: 1.8341
+\Combination 5/7
+order_dim=100, asymmetry_weight=1.1
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=1.1
+Epoch 5 / 50
+Train Loss: 0.9571, Val Loss: 2.0017
+  Energy Rankings:
+    entailment: 0.2068 ± 0.1396
+    neutral: 0.5260 ± 0.3241
+    contradiction: 1.0363 ± 0.7316
+Epoch 10 / 50
+Train Loss: 0.7857, Val Loss: 1.9058
+  Energy Rankings:
+    entailment: 0.2080 ± 0.1648
+    neutral: 0.5794 ± 0.3848
+    contradiction: 1.1644 ± 0.8138
+Epoch 15 / 50
+Train Loss: 0.7003, Val Loss: 1.8958
+  Energy Rankings:
+    entailment: 0.2062 ± 0.1782
+    neutral: 0.5871 ± 0.4185
+    contradiction: 1.2507 ± 0.9493
+Epoch 20 / 50
+Train Loss: 0.6507, Val Loss: 1.8604
+  Energy Rankings:
+    entailment: 0.2107 ± 0.1877
+    neutral: 0.6090 ± 0.4325
+    contradiction: 1.2906 ± 0.9368
+Epoch 25 / 50
+Train Loss: 0.5991, Val Loss: 1.8633
+  Energy Rankings:
+    entailment: 0.2093 ± 0.1880
+    neutral: 0.6113 ± 0.4438
+    contradiction: 1.2905 ± 0.9435
+Epoch 30 / 50
+Train Loss: 0.5865, Val Loss: 1.8466
+  Energy Rankings:
+    entailment: 0.2084 ± 0.1879
+    neutral: 0.6155 ± 0.4495
+    contradiction: 1.2926 ± 0.9542
+Epoch 35 / 50
+Train Loss: 0.5587, Val Loss: 1.8640
+  Energy Rankings:
+    entailment: 0.2072 ± 0.1837
+    neutral: 0.6236 ± 0.4677
+    contradiction: 1.2632 ± 0.9220
+Epoch 40 / 50
+Train Loss: 0.5570, Val Loss: 1.8388
+  Energy Rankings:
+    entailment: 0.2180 ± 0.1902
+    neutral: 0.6432 ± 0.4828
+    contradiction: 1.3631 ± 1.0266
+Epoch 45 / 50
+Train Loss: 0.5465, Val Loss: 1.8437
+  Energy Rankings:
+    entailment: 0.2207 ± 0.1973
+    neutral: 0.6477 ± 0.4830
+    contradiction: 1.3337 ± 0.9510
+Early stopping at epoch 47
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0441 → 0.0611 → 0.1005
+    Range: 0.0564, Avg Std: 0.0360
+    Gap/Std Ratio: 1.5641
+    Monotonic: True
+    Metric Score: 1.0011
+  asymmetric_energy_score:
+    Means: 0.2137 → 0.6551 → 1.3787
+    Range: 1.1650, Avg Std: 0.5846
+    Gap/Std Ratio: 1.9930
+    Monotonic: True
+    Metric Score: 1.1557
+  lattice_height_score:
+    Means: 0.0338 → 0.1426 → 0.2412
+    Range: 0.2074, Avg Std: 0.1992
+    Gap/Std Ratio: 1.0410
+    Monotonic: True
+    Metric Score: 0.5615
+  subsumption_distance_score:
+    Means: 0.1760 → 0.2318 → 0.2823
+    Range: 0.1063, Avg Std: 0.0794
+    Gap/Std Ratio: 1.3387
+    Monotonic: True
+    Metric Score: 1.1203
+Overall Score: 0.7677
+Val Loss: 1.8420
+\Combination 6/7
+order_dim=100, asymmetry_weight=1.2
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=1.2
+Epoch 5 / 50
+Train Loss: 0.9820, Val Loss: 2.1131
+  Energy Rankings:
+    entailment: 0.2165 ± 0.1744
+    neutral: 0.5155 ± 0.3239
+    contradiction: 1.0264 ± 0.6232
+Epoch 10 / 50
+Train Loss: 0.8203, Val Loss: 2.0406
+  Energy Rankings:
+    entailment: 0.2115 ± 0.1917
+    neutral: 0.5367 ± 0.3672
+    contradiction: 1.1577 ± 0.7723
+Epoch 15 / 50
+Train Loss: 0.7196, Val Loss: 2.0087
+  Energy Rankings:
+    entailment: 0.2233 ± 0.2159
+    neutral: 0.5709 ± 0.4054
+    contradiction: 1.2062 ± 0.7993
+Epoch 20 / 50
+Train Loss: 0.6820, Val Loss: 2.0132
+  Energy Rankings:
+    entailment: 0.2159 ± 0.2113
+    neutral: 0.5643 ± 0.4226
+    contradiction: 1.2796 ± 0.9034
+Epoch 25 / 50
+Train Loss: 0.6426, Val Loss: 1.9843
+  Energy Rankings:
+    entailment: 0.2248 ± 0.2474
+    neutral: 0.5922 ± 0.4495
+    contradiction: 1.3965 ± 1.0312
+Epoch 30 / 50
+Train Loss: 0.6156, Val Loss: 1.9685
+  Energy Rankings:
+    entailment: 0.2262 ± 0.2327
+    neutral: 0.5995 ± 0.4398
+    contradiction: 1.3533 ± 0.9333
+Epoch 35 / 50
+Train Loss: 0.6024, Val Loss: 1.9722
+  Energy Rankings:
+    entailment: 0.2262 ± 0.2343
+    neutral: 0.5917 ± 0.4457
+    contradiction: 1.3801 ± 0.9750
+Epoch 40 / 50
+Train Loss: 0.5804, Val Loss: 1.9867
+  Energy Rankings:
+    entailment: 0.2269 ± 0.2463
+    neutral: 0.6207 ± 0.4995
+    contradiction: 1.4073 ± 0.9848
+Epoch 45 / 50
+Train Loss: 0.5746, Val Loss: 1.9509
+  Energy Rankings:
+    entailment: 0.2426 ± 0.2532
+    neutral: 0.6266 ± 0.4645
+    contradiction: 1.4520 ± 1.0263
+Epoch 50 / 50
+Train Loss: 0.5783, Val Loss: 1.9709
+  Energy Rankings:
+    entailment: 0.2342 ± 0.2647
+    neutral: 0.6075 ± 0.4760
+    contradiction: 1.4468 ± 1.0570
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0450 → 0.0640 → 0.1083
+    Range: 0.0632, Avg Std: 0.0370
+    Gap/Std Ratio: 1.7080
+    Monotonic: True
+    Metric Score: 1.0689
+  asymmetric_energy_score:
+    Means: 0.2180 → 0.6325 → 1.3906
+    Range: 1.1726, Avg Std: 0.5765
+    Gap/Std Ratio: 2.0340
+    Monotonic: True
+    Metric Score: 1.1751
+  lattice_height_score:
+    Means: 0.0309 → 0.1195 → 0.2324
+    Range: 0.2015, Avg Std: 0.1917
+    Gap/Std Ratio: 1.0513
+    Monotonic: True
+    Metric Score: 0.5584
+  subsumption_distance_score:
+    Means: 0.1831 → 0.2426 → 0.2966
+    Range: 0.1136, Avg Std: 0.0795
+    Gap/Std Ratio: 1.4280
+    Monotonic: True
+    Metric Score: 1.1825
+Overall Score: 0.7970
+Val Loss: 1.9709
+\Combination 7/7
+order_dim=100, asymmetry_weight=1.5
+margin=1.0, lr=0.001
+Loading data from data/processed/snli_full_standard_SBERT_train_OELattice_split.pt
+Training on 6400 samples, validating on 1600 samples
+Training on cuda with asymmetry_weight=1.5
+Epoch 5 / 50
+Train Loss: 1.1167, Val Loss: 2.3460
+  Energy Rankings:
+    entailment: 0.2298 ± 0.1616
+    neutral: 0.5520 ± 0.3520
+    contradiction: 1.0565 ± 0.6440
+Epoch 10 / 50
+Train Loss: 0.9231, Val Loss: 2.2950
+  Energy Rankings:
+    entailment: 0.2187 ± 0.1740
+    neutral: 0.5534 ± 0.3846
+    contradiction: 1.1509 ± 0.7465
+Epoch 15 / 50
+Train Loss: 0.8338, Val Loss: 2.2251
+  Energy Rankings:
+    entailment: 0.2284 ± 0.1886
+    neutral: 0.6019 ± 0.4377
+    contradiction: 1.3347 ± 0.9378
+Epoch 20 / 50
+Train Loss: 0.7757, Val Loss: 2.2424
+  Energy Rankings:
+    entailment: 0.2240 ± 0.2035
+    neutral: 0.6102 ± 0.4591
+    contradiction: 1.3348 ± 0.9455
+Epoch 25 / 50
+Train Loss: 0.7336, Val Loss: 2.2329
+  Energy Rankings:
+    entailment: 0.2235 ± 0.2082
+    neutral: 0.6288 ± 0.4756
+    contradiction: 1.3270 ± 0.9168
+Early stopping at epoch 29
+Training completed
+Testing order_embeddings...
+  entailment: 684 samples
+  neutral: 661 samples
+  contradiction: 655 samples
+  containment_proxy_score:
+    Means: 0.0465 → 0.0652 → 0.1119
+    Range: 0.0654, Avg Std: 0.0374
+    Gap/Std Ratio: 1.7479
+    Monotonic: True
+    Metric Score: 1.0910
+  asymmetric_energy_score:
+    Means: 0.2177 → 0.6431 → 1.3346
+    Range: 1.1169, Avg Std: 0.5185
+    Gap/Std Ratio: 2.1542
+    Monotonic: True
+    Metric Score: 1.2405
+  lattice_height_score:
+    Means: 0.0284 → 0.1291 → 0.2176
+    Range: 0.1891, Avg Std: 0.1797
+    Gap/Std Ratio: 1.0526
+    Monotonic: True
+    Metric Score: 0.5633
+  subsumption_distance_score:
+    Means: 0.1983 → 0.2532 → 0.3006
+    Range: 0.1022, Avg Std: 0.0769
+    Gap/Std Ratio: 1.3302
+    Monotonic: True
+    Metric Score: 1.1903
+Overall Score: 0.8170
+Val Loss: 2.2302
+NEW BEST! (Score: 0.8170)
+Config saved to: entailment_surfaces/results/hyperparameter_search_lattice_OE_model/best_config_lattice_OE_config.json
+Model saved to: entailment_surfaces/results/hyperparameter_search_lattice_OE_model/best_config_lattice_OE_model.pt
+Score: 0.8170
+
+================================================================================
+COMPREHENSIVE RESULTS ANALYSIS
+================================================================================
+
+TOP 5 CONFIGURATIONS:
+--------------------------------------------------------------------------------
+
+1.RANK 1 (Score: 0.8170)
+   Dimensions: 100D
+   Asymmetry Weight: 1.5
+   Margin: 1.0, LR: 0.001
+   Val Loss: 2.2302
+   Key Metrics:
+
+2.RANK 2 (Score: 0.8012)
+   Dimensions: 100D
+   Asymmetry Weight: 0.9
+   Margin: 1.0, LR: 0.001
+   Val Loss: 1.7430
+   Key Metrics:
+
+3.RANK 3 (Score: 0.7970)
+   Dimensions: 100D
+   Asymmetry Weight: 1.2
+   Margin: 1.0, LR: 0.001
+   Val Loss: 1.9709
+   Key Metrics:
+
+4.RANK 4 (Score: 0.7864)
+   Dimensions: 100D
+   Asymmetry Weight: 1.0
+   Margin: 1.0, LR: 0.001
+   Val Loss: 1.8083
+
+5.RANK 5 (Score: 0.7677)
+   Dimensions: 100D
+   Asymmetry Weight: 1.1
+   Margin: 1.0, LR: 0.001
+   Val Loss: 1.8420
+
+RECOMMENDED CONFIGURATION:
+--------------------------------------------------
+   order_dim: 100
+   asymmetry_weight: 1.5
+   margin: 1.0
+   lr: 0.001
+
+EXPECTED PERFORMANCE:
+------------------------------
+   Overall Score: 0.8170
+   Validation Loss: 2.2302
+
+Search completed successfully!
+Best configuration found with score: 0.8170
+
+Analysis completed with exit code: 0
+Time: Mon 30 Jun 17:15:53 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+
+
+Job finished.

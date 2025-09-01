@@ -1,0 +1,158 @@
+HIERARCHICAL SVM VALIDATION RESULTS
+============================================================
+
+Timestamp: 20250709_133545
+Approach: Hierarchical Classification
+Sample Size: 20000
+Embedding Space: lattice_containment
+Method: Binary SVM + Thresholds
+
+THRESHOLDS
+------------------------------
+Entailment Threshold: > -0.847
+Contradiction Threshold: < 0.867
+Neutral Range: [0.867, -0.847]
+
+PERFORMANCE METRICS
+------------------------------
+Test Accuracy: 0.6225
+
+Confusion Matrix:
+                Predicted
+               E   N   C
+Actual E  817 503  17
+Actual N  320 826 176
+Actual C   56 438 847
+
+Classification Report:
+Entailment  : precision=0.685, recall=0.611, f1=0.646
+Neutral     : precision=0.467, recall=0.625, f1=0.535
+Contradiction: precision=0.814, recall=0.632, f1=0.711
+
+ENTAILMENT SCORES STATISTICS
+------------------------------
+Mean: 0.034
+Std: 1.276
+Range: [-2.641, 3.698]
+
+
+FULL PRINT STATEMENTS:
+
+
+==================================================
+LATTICE CONTAINMENT EMBEDDING ANALYSIS
+==================================================
+Embedding shape: (20000, 768)
+Total samples: 20000
+
+Entailment Class:
+  Count: 6684
+  Mean norm: 1.2192
+  Std norm: 0.0890
+  Mean per dimension: [0.01901406 0.03503703 0.0119783  0.02624365 0.02336202]...
+  Std per dimension: [0.03072502 0.04552096 0.01915631 0.0344714  0.03228919]...
+
+Neutral Class:
+  Count: 6609
+  Mean norm: 1.1614
+  Std norm: 0.0827
+  Mean per dimension: [0.01452191 0.02391717 0.00835278 0.02151337 0.01822664]...
+  Std per dimension: [0.03251456 0.04564863 0.02012716 0.03469324 0.03343669]...
+
+Contradiction Class:
+  Count: 6707
+  Mean norm: 1.0954
+  Std norm: 0.0677
+  Mean per dimension: [0.00785042 0.01809739 0.00439246 0.0121336  0.01004714]...
+  Std per dimension: [0.03345339 0.04771494 0.02066628 0.03556354 0.03438456]...
+Creating binary dataset and training E vs C SVM...
+Creating binary Entailment vs Contradiction dataset
+Binary dataset: 10713 samples
+  Entailment (0): 5347 samples
+  Contradiction (1): 5366 samples
+
+============================================================
+STEP 1: TRAINING BINARY ENTAILMENT vs CONTRADICTION SVM
+============================================================
+Scaling features
+Setting up GridSearchCV for binary SVM optimization
+Parameter grid: {'C': [1], 'gamma': ['scale']}
+Total combinations to test: 1
+Starting GridSearchCV for binary classification...
+Fitting 3 folds for each of 1 candidates, totalling 3 fits
+[CV] END ...................................C=1, gamma=scale; total time= 4.4min
+[CV] END ...................................C=1, gamma=scale; total time= 4.5min
+[CV] END ...................................C=1, gamma=scale; total time= 4.5min
+Binary GridSearchCV completed!
+Best parameters: {'C': 1, 'gamma': 'scale'}
+Best cross-validation score: 0.8787
+Binary SVM Training Accuracy: 0.9614
+
+============================================================
+STEP 2: COMPUTING CONTINUOUS ENTAILMENT for TRAINING DATASET SCORES
+============================================================
+Computed entailment scores for 16000 samples
+Score range: [-3.131, 3.865]
+
+Entailment Score Distribution by Class:
+  Entailment  : mean=-1.186, std=0.479, range=[-2.959,  1.906]
+  Neutral     : mean=-0.122, std=0.932, range=[-3.131,  2.903]
+  Contradiction: mean= 1.394, std=0.860, range=[-1.878,  3.865]
+
+============================================================
+STEP 2: COMPUTING CONTINUOUS ENTAILMENT for TEST DATASET SCORES
+============================================================
+Computed entailment scores for 4000 samples
+Score range: [-2.641, 3.698]
+
+Entailment Score Distribution by Class:
+  Entailment  : mean=-0.952, std=0.705, range=[-2.641,  2.125]
+  Neutral     : mean=-0.135, std=0.916, range=[-2.591,  2.898]
+  Contradiction: mean= 1.184, std=1.104, range=[-2.467,  3.698]
+
+============================================================
+STEP 3: OPTIMIZING CLASSIFICATION THRESHOLDS
+============================================================
+Searching for optimal thresholds...
+Best threshold optimization accuracy: 0.7660
+Best thresholds: Entailment < -0.847, Contradiction > 0.867
+
+============================================================
+FINAL HIERARCHICAL CLASSIFIER VALIDATION ON TEST SET
+============================================================
+
+============================================================
+HIERARCHICAL CLASSIFIER VALIDATION RESULTS
+============================================================
+Overall Test Accuracy: 0.6225
+
+Classification Report:
+               precision    recall  f1-score   support
+
+   Entailment       0.68      0.61      0.65      1337
+      Neutral       0.47      0.62      0.53      1322
+Contradiction       0.81      0.63      0.71      1341
+
+     accuracy                           0.62      4000
+    macro avg       0.66      0.62      0.63      4000
+ weighted avg       0.66      0.62      0.63      4000
+
+
+Confusion Matrix:
+                Predicted
+               E   N   C
+Actual E  817 503  17
+Actual N  320 826 176
+Actual C   56 438 847
+
+Results saved to:
+  JSON: entailment_surfaces/svm_validation_results/binary_hierarchical_svm_20250709_133545_n20000.json
+  TXT:  entailment_surfaces/svm_validation_results/binary_hierarchical_svm_20250709_133545_n20000.txt
+
+PIPELINE COMPLETE
+
+============================================================
+HIERARCHICAL SVM TRAINING COMPLETE
+============================================================
+Final Test Accuracy: 0.6225
+Improvement over baseline: -0.0335

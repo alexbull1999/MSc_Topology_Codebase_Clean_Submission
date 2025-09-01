@@ -1,0 +1,220 @@
+Job ID: 191015
+Node: gpuvm15
+Time: Wed  6 Aug 17:30:41 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Aug  6 17:30:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   39C    P8             14W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+TESTING POINT CLOUD CLASSIFICATION ACCURACY  
+================================================================================
+Loading separate models...
+Order model: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+Asymmetry model: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+Both models loaded on cuda
+Order model training stats: Best val loss = 0.3095578676823919
+Asymmetry model training stats: Best val loss = 3.3644538818131413
+====================================================================================================
+COMPREHENSIVE TOPOLOGICAL vs SBERT BASELINE COMPARISON
+====================================================================================================
+
+🔬 RUNNING TOPOLOGICAL APPROACH...
+
+📊 RUNNING SBERT BASELINE...
+================================================================================
+SBERT BASELINE COMPARISON (NO TOPOLOGICAL PROCESSING)
+================================================================================
+Loading training data...
+  entailment: 50214 total samples available
+    Token filtering: 2986/50214 samples have ≥40 tokens
+    After token filtering: 2986 samples
+    Sampling down to 1000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-104)
+  neutral: 50069 total samples available
+    Token filtering: 4211/50069 samples have ≥40 tokens
+    After token filtering: 4211 samples
+    Sampling down to 1000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-111)
+  contradiction: 49717 total samples available
+    Token filtering: 3264/49717 samples have ≥40 tokens
+    After token filtering: 3264 samples
+    Sampling down to 1000 samples with random_seed=42...
+    Token count stats: 45 ± 6 (range: 40-99)
+Final loaded samples: {'entailment': 1000, 'neutral': 1000, 'contradiction': 1000}
+Loading validation data...
+  entailment: 3329 total samples available
+    Token filtering: 254/3329 samples have ≥40 tokens
+    After token filtering: 254 samples
+    Token count stats: 47 ± 8 (range: 40-90)
+  neutral: 3235 total samples available
+    Token filtering: 344/3235 samples have ≥40 tokens
+    After token filtering: 344 samples
+    Token count stats: 46 ± 7 (range: 40-78)
+  contradiction: 3278 total samples available
+    Token filtering: 288/3278 samples have ≥40 tokens
+    After token filtering: 288 samples
+    Token count stats: 46 ± 8 (range: 40-114)
+Final loaded samples: {'entailment': 254, 'neutral': 344, 'contradiction': 288}
+
+Extracting SBERT baseline features...
+Processing 3000 samples for SBERT baseline...
+Processing entailment: 1000 samples
+  Processed 50/1000 entailment samples
+  Processed 100/1000 entailment samples
+  Processed 150/1000 entailment samples
+  Processed 200/1000 entailment samples
+  Processed 250/1000 entailment samples
+  Processed 300/1000 entailment samples
+  Processed 350/1000 entailment samples
+  Processed 400/1000 entailment samples
+  Processed 450/1000 entailment samples
+  Processed 500/1000 entailment samples
+  Processed 550/1000 entailment samples
+  Processed 600/1000 entailment samples
+  Processed 650/1000 entailment samples
+  Processed 700/1000 entailment samples
+  Processed 750/1000 entailment samples
+  Processed 800/1000 entailment samples
+  Processed 850/1000 entailment samples
+  Processed 900/1000 entailment samples
+  Processed 950/1000 entailment samples
+Processing neutral: 1000 samples
+  Processed 50/1000 neutral samples
+  Processed 100/1000 neutral samples
+  Processed 150/1000 neutral samples
+  Processed 200/1000 neutral samples
+  Processed 250/1000 neutral samples
+  Processed 300/1000 neutral samples
+  Processed 350/1000 neutral samples
+  Processed 400/1000 neutral samples
+  Processed 450/1000 neutral samples
+  Processed 500/1000 neutral samples
+  Processed 550/1000 neutral samples
+  Processed 600/1000 neutral samples
+  Processed 650/1000 neutral samples
+  Processed 700/1000 neutral samples
+  Processed 750/1000 neutral samples
+  Processed 800/1000 neutral samples
+  Processed 850/1000 neutral samples
+  Processed 900/1000 neutral samples
+  Processed 950/1000 neutral samples
+Processing contradiction: 1000 samples
+  Processed 50/1000 contradiction samples
+  Processed 100/1000 contradiction samples
+  Processed 150/1000 contradiction samples
+  Processed 200/1000 contradiction samples
+  Processed 250/1000 contradiction samples
+  Processed 300/1000 contradiction samples
+  Processed 350/1000 contradiction samples
+  Processed 400/1000 contradiction samples
+  Processed 450/1000 contradiction samples
+  Processed 500/1000 contradiction samples
+  Processed 550/1000 contradiction samples
+  Processed 600/1000 contradiction samples
+  Processed 650/1000 contradiction samples
+  Processed 700/1000 contradiction samples
+  Processed 750/1000 contradiction samples
+  Processed 800/1000 contradiction samples
+  Processed 850/1000 contradiction samples
+  Processed 900/1000 contradiction samples
+  Processed 950/1000 contradiction samples
+Successfully processed 3000 samples for SBERT baseline
+Extracting SBERT validation features...
+Processing 886 samples for SBERT baseline...
+Processing entailment: 254 samples
+  Processed 50/254 entailment samples
+  Processed 100/254 entailment samples
+  Processed 150/254 entailment samples
+  Processed 200/254 entailment samples
+  Processed 250/254 entailment samples
+Processing neutral: 344 samples
+  Processed 50/344 neutral samples
+  Processed 100/344 neutral samples
+  Processed 150/344 neutral samples
+  Processed 200/344 neutral samples
+  Processed 250/344 neutral samples
+  Processed 300/344 neutral samples
+Processing contradiction: 288 samples
+  Processed 50/288 contradiction samples
+  Processed 100/288 contradiction samples
+  Processed 150/288 contradiction samples
+  Processed 200/288 contradiction samples
+  Processed 250/288 contradiction samples
+Successfully processed 886 samples for SBERT baseline
+
+SBERT Training set: 3000 samples, 1536 features
+SBERT Validation set: 886 samples, 1536 features
+
+============================================================
+SBERT BASELINE RESULTS
+============================================================
+
+Training Random Forest on SBERT features...
+Random Forest SBERT Validation Accuracy: 0.569
+
+Training SVM on SBERT features...
+SVM SBERT Validation Accuracy: 0.603
+
+Training Logistic Regression on SBERT features...
+Logistic Regression SBERT Validation Accuracy: 0.499
+
+Training PyTorch Neural Network on SBERT features...
+Epoch 0: Train Loss 1.0516, Val Loss 0.9676, Val Acc 0.5451
+Epoch 20: Train Loss 0.1372, Val Loss 1.3425, Val Acc 0.5576
+Epoch 40: Train Loss 0.0971, Val Loss 1.4068, Val Acc 0.5666
+Epoch 60: Train Loss 0.1002, Val Loss 1.4165, Val Acc 0.5609
+Epoch 80: Train Loss 0.0994, Val Loss 1.4142, Val Acc 0.5609
+PyTorch NN SBERT Validation Accuracy: 0.603
+
+============================================================
+SBERT BASELINE SUMMARY
+============================================================
+Best SBERT Classifier: SVM
+Best SBERT Accuracy: 0.603
+
+================================================================================
+FINAL COMPARISON RESULTS
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+SBERT Baseline            SVM             0.603      1536      
+
+Analysis completed with exit code: 0
+Time: Wed  6 Aug 17:36:40 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

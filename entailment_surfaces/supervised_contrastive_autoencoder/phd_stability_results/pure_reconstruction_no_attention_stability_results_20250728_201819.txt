@@ -1,0 +1,117 @@
+{
+  "timestamp": "20250728_201819",
+  "test_config": {
+    "n_runs": 10,
+    "min_points": 200,
+    "max_points": 1000,
+    "point_jump": 50,
+    "seed_base": 42,
+    "note": "Each run uses different random sample of latent embeddings"
+  },
+  "results": {
+    "model_name": "pure_reconstruction_no_attention",
+    "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/global_concat_pure_reconstruction_20250724_123815_no_attention/checkpoints/best_model.pt",
+    "n_runs": 10,
+    "class_results": {
+      "entailment": {
+        "mean": 11.65111757015885,
+        "std": 0.6227467372143621,
+        "min": 10.43366204099286,
+        "max": 12.433838459684633,
+        "range": 2.0001764186917725,
+        "cv": 0.0534495282074363,
+        "valid_runs": 10,
+        "all_values": [
+          10.696618704626967,
+          12.259961240925286,
+          11.95344347103455,
+          12.080407781851966,
+          11.317160742719558,
+          11.704591829147013,
+          11.646565658159712,
+          11.98492577244595,
+          10.43366204099286,
+          12.433838459684633
+        ],
+        "stability": "EXCELLENT"
+      },
+      "neutral": {
+        "mean": 14.717506585500667,
+        "std": 0.7419497566204681,
+        "min": 13.035432855756994,
+        "max": 15.485342469138383,
+        "range": 2.4499096133813882,
+        "cv": 0.050412734814157936,
+        "valid_runs": 10,
+        "all_values": [
+          15.485342469138383,
+          13.035432855756994,
+          14.722621109533277,
+          14.910722387513418,
+          13.70677153223372,
+          15.384895956483852,
+          14.644892132312489,
+          15.028676032241737,
+          15.394994187435707,
+          14.86071719235708
+        ],
+        "stability": "EXCELLENT"
+      },
+      "contradiction": {
+        "mean": 17.75840960531447,
+        "std": 0.6878275304903793,
+        "min": 16.24192355537357,
+        "max": 18.537901056042397,
+        "range": 2.295977500668826,
+        "cv": 0.03873249608368852,
+        "valid_runs": 10,
+        "all_values": [
+          16.24192355537357,
+          18.222334359313653,
+          18.179882341053663,
+          18.537901056042397,
+          17.63439775389723,
+          18.0809412368775,
+          18.366280015751478,
+          16.793433777571895,
+          17.83672184454261,
+          17.6902801127207
+        ],
+        "stability": "EXCELLENT"
+      }
+    }
+  }
+}
+
+  ENTAILMENT STABILITY ANALYSIS:
+    Mean: 11.6511 ± 0.6227
+    Range: [10.4337, 12.4338]
+    Coefficient of Variation: 0.0534
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  NEUTRAL STABILITY ANALYSIS:
+    Mean: 14.7175 ± 0.7419
+    Range: [13.0354, 15.4853]
+    Coefficient of Variation: 0.0504
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  CONTRADICTION STABILITY ANALYSIS:
+    Mean: 17.7584 ± 0.6878
+    Range: [16.2419, 18.5379]
+    Coefficient of Variation: 0.0387
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+Results saved to: entailment_surfaces/supervised_contrastive_autoencoder/phd_stability_results/pure_reconstruction_no_attention_stability_results_20250728_201819.json
+
+================================================================================
+PH DIMENSION STABILITY SUMMARY
+================================================================================
+
+Model: pure_reconstruction_no_attention
+--------------------------------------------------
+  entailment: 11.651 ± 0.623 (CV: 0.053, EXCELLENT)
+  neutral: 14.718 ± 0.742 (CV: 0.050, EXCELLENT)
+  contradiction: 17.758 ± 0.688 (CV: 0.039, EXCELLENT)

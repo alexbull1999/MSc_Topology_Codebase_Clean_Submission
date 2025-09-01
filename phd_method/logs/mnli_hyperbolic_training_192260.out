@@ -1,0 +1,75 @@
+Job ID: 192260
+Node: gpuvm09
+Time: Sat  9 Aug 10:32:15 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sat Aug  9 10:32:17 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:02:00.0 Off |                    0 |
+| N/A   31C    P0             28W /  165W |       0MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.3 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+Training Token-Level Hyperbolic Projector
+==================================================
+Loading order model from: MSc_Topology_Codebase/phd_method/models/separate_models/mnli_order_embedding_model_separate_margins.pt
+✅ Order model loaded (768D→768D)
+Loading asymmetry model from: MSc_Topology_Codebase/phd_method/models/separate_models/mnli_asymmetry_transform_model_(match_SNLI_v2).pt
+✅ Asymmetry model loaded (768D→768D)
+Hyperbolic trainer initialized on cuda
+Training hyperbolic projector for 50 epochs...
+Train samples: 120000, Val samples: 30000
+Epoch 1/50: Train Loss=0.0826, Val Loss=0.0759
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/mnli_best_hyperbolic_projector.pt (Val Loss: 0.0759)
+Epoch 2/50: Train Loss=0.0770, Val Loss=0.0688
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/mnli_best_hyperbolic_projector.pt (Val Loss: 0.0688)
+Epoch 3/50: Train Loss=0.0737, Val Loss=0.0750
+Epoch 4/50: Train Loss=0.0751, Val Loss=0.0658
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/mnli_best_hyperbolic_projector.pt (Val Loss: 0.0658)
+Epoch 5/50: Train Loss=0.0737, Val Loss=0.0739
+Epoch 6/50: Train Loss=0.0738, Val Loss=0.0703
+Epoch 7/50: Train Loss=0.0733, Val Loss=0.0731
+Epoch 8/50: Train Loss=0.0732, Val Loss=0.0671
+Epoch 9/50: Train Loss=0.0740, Val Loss=0.0758
+Epoch 10/50: Train Loss=0.0734, Val Loss=0.0711
+Epoch 11/50: Train Loss=0.0679, Val Loss=0.0681
+Epoch 12/50: Train Loss=0.0678, Val Loss=0.0678
+Epoch 13/50: Train Loss=0.0678, Val Loss=0.0689
+Epoch 14/50: Train Loss=0.0678, Val Loss=0.0694
+Early stopping triggered after 14 epochs.
+✅ Training completed! Best validation loss: 0.0658
+
+Analysis completed with exit code: 0
+Time: Sat  9 Aug 10:59:23 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Training successful!
+
+
+Job finished.

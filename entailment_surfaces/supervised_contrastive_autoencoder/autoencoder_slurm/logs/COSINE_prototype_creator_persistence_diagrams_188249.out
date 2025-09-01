@@ -1,0 +1,248 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 188249
+Node: gpuvm17
+Time: Wed 30 Jul 11:26:35 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jul 30 11:26:38 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   32C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Persistence Diagram Prototype Creation...
+
+Persim library available for bottleneck distance computation
+Creating persistence diagram prototypes...
+Initialized prototype creator
+
+Creating prototypes using bottleneck method...
+==================================================
+
+--- Creating prototypes for ENTAILMENT ---
+  Processing H0...
+    Computing bottleneck distance Fréchet mean with 100 diagrams...
+      Subsampling to 10 diagrams for efficiency...
+      Computing pairwise bottleneck distances...
+        Diagram 0: total bottleneck distance = 0.429310
+        Diagram 1: total bottleneck distance = 0.694989
+        Diagram 2: total bottleneck distance = 0.657307
+        Diagram 3: total bottleneck distance = 0.498430
+        Diagram 4: total bottleneck distance = 0.402863
+        Diagram 5: total bottleneck distance = 0.523169
+        Diagram 6: total bottleneck distance = 0.414202
+        Diagram 7: total bottleneck distance = 0.481224
+        Diagram 8: total bottleneck distance = 0.547319
+        Diagram 9: total bottleneck distance = 0.514932
+      Selected diagram 4 as Fréchet mean
+      Total bottleneck distance: 0.402863
+      Mean bottleneck distance: 0.044763
+      Features: 949
+      Total persistence: 434.5062
+      Max persistence: 0.726750
+    H0 prototype: 949 features
+    Total persistence: 434.5062
+    Max persistence: 0.7267
+  Processing H1...
+    Computing bottleneck distance Fréchet mean with 100 diagrams...
+      Subsampling to 10 diagrams for efficiency...
+      Computing pairwise bottleneck distances...
+        Diagram 0: total bottleneck distance = 0.319554
+        Diagram 1: total bottleneck distance = 0.333349
+        Diagram 2: total bottleneck distance = 0.297764
+        Diagram 3: total bottleneck distance = 0.352570
+        Diagram 4: total bottleneck distance = 0.287797
+        Diagram 5: total bottleneck distance = 0.356189
+        Diagram 6: total bottleneck distance = 0.359004
+        Diagram 7: total bottleneck distance = 0.282994
+        Diagram 8: total bottleneck distance = 0.317171
+        Diagram 9: total bottleneck distance = 0.283364
+      Selected diagram 7 as Fréchet mean
+      Total bottleneck distance: 0.282994
+      Mean bottleneck distance: 0.031444
+      Features: 1529
+      Total persistence: 65.1319
+      Max persistence: 0.229627
+    H1 prototype: 1529 features
+    Total persistence: 65.1319
+    Max persistence: 0.2296
+
+--- Creating prototypes for NEUTRAL ---
+  Processing H0...
+    Computing bottleneck distance Fréchet mean with 100 diagrams...
+      Subsampling to 10 diagrams for efficiency...
+      Computing pairwise bottleneck distances...
+        Diagram 0: total bottleneck distance = 0.682632
+        Diagram 1: total bottleneck distance = 0.746421
+        Diagram 2: total bottleneck distance = 0.750439
+        Diagram 3: total bottleneck distance = 0.655759
+        Diagram 4: total bottleneck distance = 0.642177
+        Diagram 5: total bottleneck distance = 0.847297
+        Diagram 6: total bottleneck distance = 0.876503
+        Diagram 7: total bottleneck distance = 0.632310
+        Diagram 8: total bottleneck distance = 0.672510
+        Diagram 9: total bottleneck distance = 0.887349
+      Selected diagram 7 as Fréchet mean
+      Total bottleneck distance: 0.632310
+      Mean bottleneck distance: 0.070257
+      Features: 949
+      Total persistence: 511.9681
+      Max persistence: 0.735710
+    H0 prototype: 949 features
+    Total persistence: 511.9681
+    Max persistence: 0.7357
+  Processing H1...
+    Computing bottleneck distance Fréchet mean with 100 diagrams...
+      Subsampling to 10 diagrams for efficiency...
+      Computing pairwise bottleneck distances...
+        Diagram 0: total bottleneck distance = 0.269052
+        Diagram 1: total bottleneck distance = 0.274935
+        Diagram 2: total bottleneck distance = 0.306678
+        Diagram 3: total bottleneck distance = 0.261310
+        Diagram 4: total bottleneck distance = 0.294638
+        Diagram 5: total bottleneck distance = 0.263430
+        Diagram 6: total bottleneck distance = 0.267877
+        Diagram 7: total bottleneck distance = 0.310735
+        Diagram 8: total bottleneck distance = 0.267786
+        Diagram 9: total bottleneck distance = 0.244295
+      Selected diagram 9 as Fréchet mean
+      Total bottleneck distance: 0.244295
+      Mean bottleneck distance: 0.027144
+      Features: 2038
+      Total persistence: 76.3136
+      Max persistence: 0.189779
+    H1 prototype: 2038 features
+    Total persistence: 76.3136
+    Max persistence: 0.1898
+
+--- Creating prototypes for CONTRADICTION ---
+  Processing H0...
+    Computing bottleneck distance Fréchet mean with 100 diagrams...
+      Subsampling to 10 diagrams for efficiency...
+      Computing pairwise bottleneck distances...
+        Diagram 0: total bottleneck distance = 0.604672
+        Diagram 1: total bottleneck distance = 0.766803
+        Diagram 2: total bottleneck distance = 0.471345
+        Diagram 3: total bottleneck distance = 0.792487
+        Diagram 4: total bottleneck distance = 0.516427
+        Diagram 5: total bottleneck distance = 0.583747
+        Diagram 6: total bottleneck distance = 0.718353
+        Diagram 7: total bottleneck distance = 0.563770
+        Diagram 8: total bottleneck distance = 0.489346
+        Diagram 9: total bottleneck distance = 0.513641
+      Selected diagram 2 as Fréchet mean
+      Total bottleneck distance: 0.471345
+      Mean bottleneck distance: 0.052372
+      Features: 949
+      Total persistence: 551.3904
+      Max persistence: 0.753116
+    H0 prototype: 949 features
+    Total persistence: 551.3904
+    Max persistence: 0.7531
+  Processing H1...
+    Computing bottleneck distance Fréchet mean with 100 diagrams...
+      Subsampling to 10 diagrams for efficiency...
+      Computing pairwise bottleneck distances...
+        Diagram 0: total bottleneck distance = 0.277510
+        Diagram 1: total bottleneck distance = 0.298155
+        Diagram 2: total bottleneck distance = 0.291679
+        Diagram 3: total bottleneck distance = 0.282759
+        Diagram 4: total bottleneck distance = 0.287358
+        Diagram 5: total bottleneck distance = 0.331300
+        Diagram 6: total bottleneck distance = 0.321712
+        Diagram 7: total bottleneck distance = 0.267093
+        Diagram 8: total bottleneck distance = 0.272175
+        Diagram 9: total bottleneck distance = 0.297813
+      Selected diagram 7 as Fréchet mean
+      Total bottleneck distance: 0.267093
+      Mean bottleneck distance: 0.029677
+      Features: 2793
+      Total persistence: 102.2732
+      Max persistence: 0.174402
+    H1 prototype: 2793 features
+    Total persistence: 102.2732
+    Max persistence: 0.1744
+
+Prototypes saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_bottleneck_COSINE.pkl
+
+============================================================
+PERSISTENCE DIAGRAM PROTOTYPES SUMMARY
+============================================================
+
+ENTAILMENT CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 434.5062
+    Max persistence: 0.7267
+    Mean persistence: 0.4579
+  H1:
+    Features: 1529
+    Total persistence: 65.1319
+    Max persistence: 0.2296
+    Mean persistence: 0.0426
+
+NEUTRAL CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 511.9681
+    Max persistence: 0.7357
+    Mean persistence: 0.5395
+  H1:
+    Features: 2038
+    Total persistence: 76.3136
+    Max persistence: 0.1898
+    Mean persistence: 0.0374
+
+CONTRADICTION CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 551.3904
+    Max persistence: 0.7531
+    Mean persistence: 0.5810
+  H1:
+    Features: 2793
+    Total persistence: 102.2732
+    Max persistence: 0.1744
+    Mean persistence: 0.0366
+
+Prototype visualization saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__bottleneck_visualizations_COSINE.png
+
+Prototype creation complete!
+Files created:
+  - Prototypes: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_bottleneck_COSINE.pkl
+  - Summary: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__bottleneck_summary_COSINE.txt
+  - Visualizations: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__bottleneck_visualizations_COSINE.png
+
+Analysis completed with exit code: 0
+Time: Thu 31 Jul 06:37:20 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Persistence Diagram Prototypes successful!
+
+
+Job finished.

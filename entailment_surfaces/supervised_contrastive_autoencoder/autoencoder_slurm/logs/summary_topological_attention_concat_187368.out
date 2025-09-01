@@ -1,0 +1,4334 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 187368
+Node: gpuvm13
+Time: Mon 28 Jul 12:40:58 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Mon Jul 28 12:41:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   35C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Training...
+
+⚠️ Could not import data loaders. You'll need to adjust the imports.
+Please check the exact names of your data loading functions.
+============================================================
+TOPOLOGICAL AUTOENCODER TRAINING WITH TORCHPH
+============================================================
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/summary_topological_autoencoder_attention_20250728_124116
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/summary_topological_autoencoder_attention_20250728_124116/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 182
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 3
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 3000
+  Balanced sampling: True
+  Train batches: 182
+  Val batches: 3
+  Test batches: 4
+Data loading completed!
+  Train: 549367 samples, 182 batches
+  Val: 9842 samples, 3 batches
+  Test: 9824 samples, 4 batches
+AttentionAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Attention Heads: 5
+  Total parameters: 3,068,401
+FullDatasetContrastiveLoss initialized:
+  Positive Margin: 2.0
+  Negative Margin: 10.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 0.0
+  Base reconstruction weight: 100.0
+SummaryStatisticTopologicalLoss initialized:
+  Summary statistic: total_persistence
+  Summary weight: 1.0
+  Distance weight: 1.0
+No prototypes being used for topological loss - whole dataset instead.
+TopologicalTrainer initialized on device: cuda
+Model parameters: 3,068,401
+Enhanced with topological loss monitoring
+Starting Phase 1: Pure Topological Training
+  Contrastive weight: 0.0
+  Topological weight: 1.0
+  Reconstruction weight: 100.0
+
+======================================================================
+🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED
+======================================================================
+
+============================================================
+EPOCH 1 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+  Summary Loss Components:
+    Raw Summary loss: 274.394043
+    Raw distance loss: 0.154340
+    Weighted Summary: 274.394043
+    Weighted distance: 0.154340
+    Total loss: 274.548370
+    Summary/Distance ratio: 1777.857
+  Summary Loss Components:
+    Raw Summary loss: 327.917908
+    Raw distance loss: 0.158085
+    Weighted Summary: 327.917908
+    Weighted distance: 0.158085
+    Total loss: 328.075989
+    Summary/Distance ratio: 2074.318
+  Summary Loss Components:
+    Raw Summary loss: 374.576141
+    Raw distance loss: 0.179483
+    Weighted Summary: 374.576141
+    Weighted distance: 0.179483
+    Total loss: 374.755615
+    Summary/Distance ratio: 2086.977
+Batch   0/182: Loss=359.7441 (C:8.0629, R:0.3395, T:325.7933(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 239.561310
+    Raw distance loss: 0.119437
+    Weighted Summary: 239.561310
+    Weighted distance: 0.119437
+    Total loss: 239.680740
+    Summary/Distance ratio: 2005.763
+  Summary Loss Components:
+    Raw Summary loss: 294.097717
+    Raw distance loss: 0.129150
+    Weighted Summary: 294.097717
+    Weighted distance: 0.129150
+    Total loss: 294.226868
+    Summary/Distance ratio: 2277.188
+  Summary Loss Components:
+    Raw Summary loss: 330.834198
+    Raw distance loss: 0.129467
+    Weighted Summary: 330.834198
+    Weighted distance: 0.129467
+    Total loss: 330.963654
+    Summary/Distance ratio: 2555.349
+  Summary Loss Components:
+    Raw Summary loss: 205.408630
+    Raw distance loss: 0.106280
+    Weighted Summary: 205.408630
+    Weighted distance: 0.106280
+    Total loss: 205.514908
+    Summary/Distance ratio: 1932.706
+  Summary Loss Components:
+    Raw Summary loss: 256.848785
+    Raw distance loss: 0.096758
+    Weighted Summary: 256.848785
+    Weighted distance: 0.096758
+    Total loss: 256.945557
+    Summary/Distance ratio: 2654.542
+  Summary Loss Components:
+    Raw Summary loss: 302.880920
+    Raw distance loss: 0.104108
+    Weighted Summary: 302.880920
+    Weighted distance: 0.104108
+    Total loss: 302.985016
+    Summary/Distance ratio: 2909.295
+  Summary Loss Components:
+    Raw Summary loss: 187.258224
+    Raw distance loss: 0.088411
+    Weighted Summary: 187.258224
+    Weighted distance: 0.088411
+    Total loss: 187.346634
+    Summary/Distance ratio: 2118.031
+  Summary Loss Components:
+    Raw Summary loss: 226.260864
+    Raw distance loss: 0.077943
+    Weighted Summary: 226.260864
+    Weighted distance: 0.077943
+    Total loss: 226.338806
+    Summary/Distance ratio: 2902.889
+  Summary Loss Components:
+    Raw Summary loss: 271.668518
+    Raw distance loss: 0.087959
+    Weighted Summary: 271.668518
+    Weighted distance: 0.087959
+    Total loss: 271.756470
+    Summary/Distance ratio: 3088.584
+  Summary Loss Components:
+    Raw Summary loss: 153.154266
+    Raw distance loss: 0.065898
+    Weighted Summary: 153.154266
+    Weighted distance: 0.065898
+    Total loss: 153.220169
+    Summary/Distance ratio: 2324.096
+  Summary Loss Components:
+    Raw Summary loss: 211.874725
+    Raw distance loss: 0.068819
+    Weighted Summary: 211.874725
+    Weighted distance: 0.068819
+    Total loss: 211.943542
+    Summary/Distance ratio: 3078.743
+  Summary Loss Components:
+    Raw Summary loss: 248.647079
+    Raw distance loss: 0.074067
+    Weighted Summary: 248.647079
+    Weighted distance: 0.074067
+    Total loss: 248.721146
+    Summary/Distance ratio: 3357.052
+  Summary Loss Components:
+    Raw Summary loss: 173.652985
+    Raw distance loss: 0.076597
+    Weighted Summary: 173.652985
+    Weighted distance: 0.076597
+    Total loss: 173.729584
+    Summary/Distance ratio: 2267.087
+  Summary Loss Components:
+    Raw Summary loss: 231.937424
+    Raw distance loss: 0.094150
+    Weighted Summary: 231.937424
+    Weighted distance: 0.094150
+    Total loss: 232.031570
+    Summary/Distance ratio: 2463.483
+  Summary Loss Components:
+    Raw Summary loss: 251.667130
+    Raw distance loss: 0.075829
+    Weighted Summary: 251.667130
+    Weighted distance: 0.075829
+    Total loss: 251.742966
+    Summary/Distance ratio: 3318.872
+  Summary Loss Components:
+    Raw Summary loss: 138.031021
+    Raw distance loss: 0.057937
+    Weighted Summary: 138.031021
+    Weighted distance: 0.057937
+    Total loss: 138.088959
+    Summary/Distance ratio: 2382.442
+  Summary Loss Components:
+    Raw Summary loss: 200.375534
+    Raw distance loss: 0.063161
+    Weighted Summary: 200.375534
+    Weighted distance: 0.063161
+    Total loss: 200.438690
+    Summary/Distance ratio: 3172.464
+  Summary Loss Components:
+    Raw Summary loss: 245.150452
+    Raw distance loss: 0.067634
+    Weighted Summary: 245.150452
+    Weighted distance: 0.067634
+    Total loss: 245.218079
+    Summary/Distance ratio: 3624.637
+  Summary Loss Components:
+    Raw Summary loss: 139.931503
+    Raw distance loss: 0.056554
+    Weighted Summary: 139.931503
+    Weighted distance: 0.056554
+    Total loss: 139.988052
+    Summary/Distance ratio: 2474.311
+  Summary Loss Components:
+    Raw Summary loss: 199.237000
+    Raw distance loss: 0.055744
+    Weighted Summary: 199.237000
+    Weighted distance: 0.055744
+    Total loss: 199.292740
+    Summary/Distance ratio: 3574.145
+  Summary Loss Components:
+    Raw Summary loss: 236.307556
+    Raw distance loss: 0.061758
+    Weighted Summary: 236.307556
+    Weighted distance: 0.061758
+    Total loss: 236.369308
+    Summary/Distance ratio: 3826.332
+  Summary Loss Components:
+    Raw Summary loss: 138.154099
+    Raw distance loss: 0.055374
+    Weighted Summary: 138.154099
+    Weighted distance: 0.055374
+    Total loss: 138.209473
+    Summary/Distance ratio: 2494.904
+  Summary Loss Components:
+    Raw Summary loss: 185.368912
+    Raw distance loss: 0.052706
+    Weighted Summary: 185.368912
+    Weighted distance: 0.052706
+    Total loss: 185.421616
+    Summary/Distance ratio: 3517.004
+  Summary Loss Components:
+    Raw Summary loss: 244.382812
+    Raw distance loss: 0.071832
+    Weighted Summary: 244.382812
+    Weighted distance: 0.071832
+    Total loss: 244.454651
+    Summary/Distance ratio: 3402.147
+  Summary Loss Components:
+    Raw Summary loss: 104.485580
+    Raw distance loss: 0.041291
+    Weighted Summary: 104.485580
+    Weighted distance: 0.041291
+    Total loss: 104.526871
+    Summary/Distance ratio: 2530.472
+  Summary Loss Components:
+    Raw Summary loss: 178.535965
+    Raw distance loss: 0.047153
+    Weighted Summary: 178.535965
+    Weighted distance: 0.047153
+    Total loss: 178.583115
+    Summary/Distance ratio: 3786.325
+  Summary Loss Components:
+    Raw Summary loss: 223.112976
+    Raw distance loss: 0.053262
+    Weighted Summary: 223.112976
+    Weighted distance: 0.053262
+    Total loss: 223.166245
+    Summary/Distance ratio: 4188.959
+  Summary Loss Components:
+    Raw Summary loss: 109.600510
+    Raw distance loss: 0.041035
+    Weighted Summary: 109.600510
+    Weighted distance: 0.041035
+    Total loss: 109.641548
+    Summary/Distance ratio: 2670.875
+  Summary Loss Components:
+    Raw Summary loss: 162.785767
+    Raw distance loss: 0.038043
+    Weighted Summary: 162.785767
+    Weighted distance: 0.038043
+    Total loss: 162.823807
+    Summary/Distance ratio: 4279.011
+  Summary Loss Components:
+    Raw Summary loss: 211.587219
+    Raw distance loss: 0.043379
+    Weighted Summary: 211.587219
+    Weighted distance: 0.043379
+    Total loss: 211.630600
+    Summary/Distance ratio: 4877.655
+  Summary Loss Components:
+    Raw Summary loss: 95.790833
+    Raw distance loss: 0.031929
+    Weighted Summary: 95.790833
+    Weighted distance: 0.031929
+    Total loss: 95.822762
+    Summary/Distance ratio: 3000.131
+  Summary Loss Components:
+    Raw Summary loss: 165.346863
+    Raw distance loss: 0.043134
+    Weighted Summary: 165.346863
+    Weighted distance: 0.043134
+    Total loss: 165.389999
+    Summary/Distance ratio: 3833.316
+  Summary Loss Components:
+    Raw Summary loss: 181.808121
+    Raw distance loss: 0.032393
+    Weighted Summary: 181.808121
+    Weighted distance: 0.032393
+    Total loss: 181.840515
+    Summary/Distance ratio: 5612.570
+  Summary Loss Components:
+    Raw Summary loss: 80.023163
+    Raw distance loss: 0.029085
+    Weighted Summary: 80.023163
+    Weighted distance: 0.029085
+    Total loss: 80.052246
+    Summary/Distance ratio: 2751.365
+  Summary Loss Components:
+    Raw Summary loss: 146.229706
+    Raw distance loss: 0.031766
+    Weighted Summary: 146.229706
+    Weighted distance: 0.031766
+    Total loss: 146.261475
+    Summary/Distance ratio: 4603.384
+  Summary Loss Components:
+    Raw Summary loss: 181.635437
+    Raw distance loss: 0.030149
+    Weighted Summary: 181.635437
+    Weighted distance: 0.030149
+    Total loss: 181.665588
+    Summary/Distance ratio: 6024.525
+  Summary Loss Components:
+    Raw Summary loss: 99.192993
+    Raw distance loss: 0.035996
+    Weighted Summary: 99.192993
+    Weighted distance: 0.035996
+    Total loss: 99.228989
+    Summary/Distance ratio: 2755.645
+  Summary Loss Components:
+    Raw Summary loss: 145.283081
+    Raw distance loss: 0.030155
+    Weighted Summary: 145.283081
+    Weighted distance: 0.030155
+    Total loss: 145.313232
+    Summary/Distance ratio: 4817.884
+  Summary Loss Components:
+    Raw Summary loss: 165.820190
+    Raw distance loss: 0.026093
+    Weighted Summary: 165.820190
+    Weighted distance: 0.026093
+    Total loss: 165.846283
+    Summary/Distance ratio: 6354.933
+  Summary Loss Components:
+    Raw Summary loss: 77.857544
+    Raw distance loss: 0.028149
+    Weighted Summary: 77.857544
+    Weighted distance: 0.028149
+    Total loss: 77.885689
+    Summary/Distance ratio: 2765.948
+  Summary Loss Components:
+    Raw Summary loss: 128.238861
+    Raw distance loss: 0.024640
+    Weighted Summary: 128.238861
+    Weighted distance: 0.024640
+    Total loss: 128.263504
+    Summary/Distance ratio: 5204.598
+  Summary Loss Components:
+    Raw Summary loss: 171.015198
+    Raw distance loss: 0.028473
+    Weighted Summary: 171.015198
+    Weighted distance: 0.028473
+    Total loss: 171.043671
+    Summary/Distance ratio: 6006.274
+  Summary Loss Components:
+    Raw Summary loss: 60.975586
+    Raw distance loss: 0.022829
+    Weighted Summary: 60.975586
+    Weighted distance: 0.022829
+    Total loss: 60.998417
+    Summary/Distance ratio: 2670.932
+  Summary Loss Components:
+    Raw Summary loss: 138.468140
+    Raw distance loss: 0.028795
+    Weighted Summary: 138.468140
+    Weighted distance: 0.028795
+    Total loss: 138.496933
+    Summary/Distance ratio: 4808.751
+  Summary Loss Components:
+    Raw Summary loss: 150.996399
+    Raw distance loss: 0.022422
+    Weighted Summary: 150.996399
+    Weighted distance: 0.022422
+    Total loss: 151.018814
+    Summary/Distance ratio: 6734.228
+  Summary Loss Components:
+    Raw Summary loss: 86.979706
+    Raw distance loss: 0.032001
+    Weighted Summary: 86.979706
+    Weighted distance: 0.032001
+    Total loss: 87.011703
+    Summary/Distance ratio: 2718.015
+  Summary Loss Components:
+    Raw Summary loss: 122.228302
+    Raw distance loss: 0.024030
+    Weighted Summary: 122.228302
+    Weighted distance: 0.024030
+    Total loss: 122.252335
+    Summary/Distance ratio: 5086.436
+  Summary Loss Components:
+    Raw Summary loss: 170.023315
+    Raw distance loss: 0.028640
+    Weighted Summary: 170.023315
+    Weighted distance: 0.028640
+    Total loss: 170.051956
+    Summary/Distance ratio: 5936.513
+  Summary Loss Components:
+    Raw Summary loss: 59.253418
+    Raw distance loss: 0.022117
+    Weighted Summary: 59.253418
+    Weighted distance: 0.022117
+    Total loss: 59.275536
+    Summary/Distance ratio: 2679.083
+  Summary Loss Components:
+    Raw Summary loss: 122.083374
+    Raw distance loss: 0.023821
+    Weighted Summary: 122.083374
+    Weighted distance: 0.023821
+    Total loss: 122.107193
+    Summary/Distance ratio: 5125.066
+  Summary Loss Components:
+    Raw Summary loss: 148.863708
+    Raw distance loss: 0.021841
+    Weighted Summary: 148.863708
+    Weighted distance: 0.021841
+    Total loss: 148.885544
+    Summary/Distance ratio: 6815.750
+  Summary Loss Components:
+    Raw Summary loss: 49.635254
+    Raw distance loss: 0.019291
+    Weighted Summary: 49.635254
+    Weighted distance: 0.019291
+    Total loss: 49.654545
+    Summary/Distance ratio: 2573.028
+  Summary Loss Components:
+    Raw Summary loss: 106.291809
+    Raw distance loss: 0.020480
+    Weighted Summary: 106.291809
+    Weighted distance: 0.020480
+    Total loss: 106.312286
+    Summary/Distance ratio: 5190.144
+  Summary Loss Components:
+    Raw Summary loss: 158.359406
+    Raw distance loss: 0.024157
+    Weighted Summary: 158.359406
+    Weighted distance: 0.024157
+    Total loss: 158.383560
+    Summary/Distance ratio: 6555.471
+  Summary Loss Components:
+    Raw Summary loss: 42.095032
+    Raw distance loss: 0.017223
+    Weighted Summary: 42.095032
+    Weighted distance: 0.017223
+    Total loss: 42.112255
+    Summary/Distance ratio: 2444.049
+  Summary Loss Components:
+    Raw Summary loss: 109.238190
+    Raw distance loss: 0.021064
+    Weighted Summary: 109.238190
+    Weighted distance: 0.021064
+    Total loss: 109.259254
+    Summary/Distance ratio: 5186.047
+  Summary Loss Components:
+    Raw Summary loss: 149.576721
+    Raw distance loss: 0.022581
+    Weighted Summary: 149.576721
+    Weighted distance: 0.022581
+    Total loss: 149.599304
+    Summary/Distance ratio: 6623.961
+  Summary Loss Components:
+    Raw Summary loss: 60.112885
+    Raw distance loss: 0.021824
+    Weighted Summary: 60.112885
+    Weighted distance: 0.021824
+    Total loss: 60.134708
+    Summary/Distance ratio: 2754.460
+  Summary Loss Components:
+    Raw Summary loss: 111.262512
+    Raw distance loss: 0.021389
+    Weighted Summary: 111.262512
+    Weighted distance: 0.021389
+    Total loss: 111.283905
+    Summary/Distance ratio: 5201.785
+  Summary Loss Components:
+    Raw Summary loss: 143.784973
+    Raw distance loss: 0.023500
+    Weighted Summary: 143.784973
+    Weighted distance: 0.023500
+    Total loss: 143.808472
+    Summary/Distance ratio: 6118.506
+  Summary Loss Components:
+    Raw Summary loss: 53.226807
+    Raw distance loss: 0.020182
+    Weighted Summary: 53.226807
+    Weighted distance: 0.020182
+    Total loss: 53.246990
+    Summary/Distance ratio: 2637.289
+  Summary Loss Components:
+    Raw Summary loss: 102.996063
+    Raw distance loss: 0.019270
+    Weighted Summary: 102.996063
+    Weighted distance: 0.019270
+    Total loss: 103.015335
+    Summary/Distance ratio: 5344.825
+  Summary Loss Components:
+    Raw Summary loss: 155.679352
+    Raw distance loss: 0.024680
+    Weighted Summary: 155.679352
+    Weighted distance: 0.024680
+    Total loss: 155.704025
+    Summary/Distance ratio: 6307.868
+  Summary Loss Components:
+    Raw Summary loss: 37.484497
+    Raw distance loss: 0.017194
+    Weighted Summary: 37.484497
+    Weighted distance: 0.017194
+    Total loss: 37.501690
+    Summary/Distance ratio: 2180.115
+  Summary Loss Components:
+    Raw Summary loss: 116.533600
+    Raw distance loss: 0.021728
+    Weighted Summary: 116.533600
+    Weighted distance: 0.021728
+    Total loss: 116.555328
+    Summary/Distance ratio: 5363.338
+  Summary Loss Components:
+    Raw Summary loss: 154.846039
+    Raw distance loss: 0.024573
+    Weighted Summary: 154.846039
+    Weighted distance: 0.024573
+    Total loss: 154.870605
+    Summary/Distance ratio: 6301.343
+  Summary Loss Components:
+    Raw Summary loss: 55.801025
+    Raw distance loss: 0.020854
+    Weighted Summary: 55.801025
+    Weighted distance: 0.020854
+    Total loss: 55.821880
+    Summary/Distance ratio: 2675.799
+  Summary Loss Components:
+    Raw Summary loss: 104.971252
+    Raw distance loss: 0.020687
+    Weighted Summary: 104.971252
+    Weighted distance: 0.020687
+    Total loss: 104.991943
+    Summary/Distance ratio: 5074.195
+  Summary Loss Components:
+    Raw Summary loss: 150.417145
+    Raw distance loss: 0.023270
+    Weighted Summary: 150.417145
+    Weighted distance: 0.023270
+    Total loss: 150.440414
+    Summary/Distance ratio: 6463.967
+  Summary Loss Components:
+    Raw Summary loss: 62.378967
+    Raw distance loss: 0.025009
+    Weighted Summary: 62.378967
+    Weighted distance: 0.025009
+    Total loss: 62.403976
+    Summary/Distance ratio: 2494.287
+  Summary Loss Components:
+    Raw Summary loss: 117.316132
+    Raw distance loss: 0.022858
+    Weighted Summary: 117.316132
+    Weighted distance: 0.022858
+    Total loss: 117.338989
+    Summary/Distance ratio: 5132.443
+  Summary Loss Components:
+    Raw Summary loss: 150.674988
+    Raw distance loss: 0.023602
+    Weighted Summary: 150.674988
+    Weighted distance: 0.023602
+    Total loss: 150.698593
+    Summary/Distance ratio: 6384.042
+  Summary Loss Components:
+    Raw Summary loss: 46.686371
+    Raw distance loss: 0.019290
+    Weighted Summary: 46.686371
+    Weighted distance: 0.019290
+    Total loss: 46.705662
+    Summary/Distance ratio: 2420.242
+  Summary Loss Components:
+    Raw Summary loss: 104.555695
+    Raw distance loss: 0.020947
+    Weighted Summary: 104.555695
+    Weighted distance: 0.020947
+    Total loss: 104.576645
+    Summary/Distance ratio: 4991.424
+  Summary Loss Components:
+    Raw Summary loss: 159.670471
+    Raw distance loss: 0.026447
+    Weighted Summary: 159.670471
+    Weighted distance: 0.026447
+    Total loss: 159.696915
+    Summary/Distance ratio: 6037.334
+Batch  25/182: Loss=131.9824 (C:9.1842, R:0.2832, T:103.6597(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 58.635406
+    Raw distance loss: 0.022218
+    Weighted Summary: 58.635406
+    Weighted distance: 0.022218
+    Total loss: 58.657623
+    Summary/Distance ratio: 2639.085
+  Summary Loss Components:
+    Raw Summary loss: 104.553528
+    Raw distance loss: 0.020339
+    Weighted Summary: 104.553528
+    Weighted distance: 0.020339
+    Total loss: 104.573868
+    Summary/Distance ratio: 5140.474
+  Summary Loss Components:
+    Raw Summary loss: 144.799377
+    Raw distance loss: 0.022267
+    Weighted Summary: 144.799377
+    Weighted distance: 0.022267
+    Total loss: 144.821640
+    Summary/Distance ratio: 6502.942
+  Summary Loss Components:
+    Raw Summary loss: 29.112274
+    Raw distance loss: 0.016186
+    Weighted Summary: 29.112274
+    Weighted distance: 0.016186
+    Total loss: 29.128460
+    Summary/Distance ratio: 1798.575
+  Summary Loss Components:
+    Raw Summary loss: 97.073761
+    Raw distance loss: 0.019437
+    Weighted Summary: 97.073761
+    Weighted distance: 0.019437
+    Total loss: 97.093201
+    Summary/Distance ratio: 4994.184
+  Summary Loss Components:
+    Raw Summary loss: 134.811798
+    Raw distance loss: 0.019772
+    Weighted Summary: 134.811798
+    Weighted distance: 0.019772
+    Total loss: 134.831573
+    Summary/Distance ratio: 6818.175
+  Summary Loss Components:
+    Raw Summary loss: 36.848724
+    Raw distance loss: 0.017536
+    Weighted Summary: 36.848724
+    Weighted distance: 0.017536
+    Total loss: 36.866261
+    Summary/Distance ratio: 2101.277
+  Summary Loss Components:
+    Raw Summary loss: 104.369781
+    Raw distance loss: 0.019887
+    Weighted Summary: 104.369781
+    Weighted distance: 0.019887
+    Total loss: 104.389671
+    Summary/Distance ratio: 5248.079
+  Summary Loss Components:
+    Raw Summary loss: 132.343323
+    Raw distance loss: 0.018802
+    Weighted Summary: 132.343323
+    Weighted distance: 0.018802
+    Total loss: 132.362122
+    Summary/Distance ratio: 7038.956
+  Summary Loss Components:
+    Raw Summary loss: 26.931183
+    Raw distance loss: 0.016766
+    Weighted Summary: 26.931183
+    Weighted distance: 0.016766
+    Total loss: 26.947948
+    Summary/Distance ratio: 1606.332
+  Summary Loss Components:
+    Raw Summary loss: 92.040710
+    Raw distance loss: 0.017441
+    Weighted Summary: 92.040710
+    Weighted distance: 0.017441
+    Total loss: 92.058151
+    Summary/Distance ratio: 5277.347
+  Summary Loss Components:
+    Raw Summary loss: 138.516144
+    Raw distance loss: 0.020866
+    Weighted Summary: 138.516144
+    Weighted distance: 0.020866
+    Total loss: 138.537003
+    Summary/Distance ratio: 6638.389
+  Summary Loss Components:
+    Raw Summary loss: 24.973297
+    Raw distance loss: 0.015309
+    Weighted Summary: 24.973297
+    Weighted distance: 0.015309
+    Total loss: 24.988605
+    Summary/Distance ratio: 1631.301
+  Summary Loss Components:
+    Raw Summary loss: 99.673340
+    Raw distance loss: 0.019704
+    Weighted Summary: 99.673340
+    Weighted distance: 0.019704
+    Total loss: 99.693047
+    Summary/Distance ratio: 5058.616
+  Summary Loss Components:
+    Raw Summary loss: 146.406891
+    Raw distance loss: 0.024484
+    Weighted Summary: 146.406891
+    Weighted distance: 0.024484
+    Total loss: 146.431381
+    Summary/Distance ratio: 5979.615
+  Summary Loss Components:
+    Raw Summary loss: 36.776917
+    Raw distance loss: 0.017451
+    Weighted Summary: 36.776917
+    Weighted distance: 0.017451
+    Total loss: 36.794369
+    Summary/Distance ratio: 2107.381
+  Summary Loss Components:
+    Raw Summary loss: 105.193542
+    Raw distance loss: 0.021458
+    Weighted Summary: 105.193542
+    Weighted distance: 0.021458
+    Total loss: 105.215004
+    Summary/Distance ratio: 4902.211
+  Summary Loss Components:
+    Raw Summary loss: 145.804596
+    Raw distance loss: 0.023516
+    Weighted Summary: 145.804596
+    Weighted distance: 0.023516
+    Total loss: 145.828110
+    Summary/Distance ratio: 6200.312
+  Summary Loss Components:
+    Raw Summary loss: 41.247864
+    Raw distance loss: 0.019149
+    Weighted Summary: 41.247864
+    Weighted distance: 0.019149
+    Total loss: 41.267014
+    Summary/Distance ratio: 2153.996
+  Summary Loss Components:
+    Raw Summary loss: 97.689545
+    Raw distance loss: 0.019690
+    Weighted Summary: 97.689545
+    Weighted distance: 0.019690
+    Total loss: 97.709236
+    Summary/Distance ratio: 4961.480
+  Summary Loss Components:
+    Raw Summary loss: 132.868439
+    Raw distance loss: 0.020800
+    Weighted Summary: 132.868439
+    Weighted distance: 0.020800
+    Total loss: 132.889236
+    Summary/Distance ratio: 6387.776
+  Summary Loss Components:
+    Raw Summary loss: 40.109283
+    Raw distance loss: 0.018698
+    Weighted Summary: 40.109283
+    Weighted distance: 0.018698
+    Total loss: 40.127983
+    Summary/Distance ratio: 2145.137
+  Summary Loss Components:
+    Raw Summary loss: 76.857391
+    Raw distance loss: 0.015278
+    Weighted Summary: 76.857391
+    Weighted distance: 0.015278
+    Total loss: 76.872673
+    Summary/Distance ratio: 5030.516
+  Summary Loss Components:
+    Raw Summary loss: 127.106720
+    Raw distance loss: 0.018034
+    Weighted Summary: 127.106720
+    Weighted distance: 0.018034
+    Total loss: 127.124756
+    Summary/Distance ratio: 7048.066
+  Summary Loss Components:
+    Raw Summary loss: 31.477539
+    Raw distance loss: 0.017725
+    Weighted Summary: 31.477539
+    Weighted distance: 0.017725
+    Total loss: 31.495264
+    Summary/Distance ratio: 1775.889
+  Summary Loss Components:
+    Raw Summary loss: 71.513641
+    Raw distance loss: 0.014056
+    Weighted Summary: 71.513641
+    Weighted distance: 0.014056
+    Total loss: 71.527695
+    Summary/Distance ratio: 5087.837
+  Summary Loss Components:
+    Raw Summary loss: 138.146820
+    Raw distance loss: 0.020973
+    Weighted Summary: 138.146820
+    Weighted distance: 0.020973
+    Total loss: 138.167786
+    Summary/Distance ratio: 6586.912
+  Summary Loss Components:
+    Raw Summary loss: 15.847717
+    Raw distance loss: 0.014237
+    Weighted Summary: 15.847717
+    Weighted distance: 0.014237
+    Total loss: 15.861955
+    Summary/Distance ratio: 1113.106
+  Summary Loss Components:
+    Raw Summary loss: 77.255310
+    Raw distance loss: 0.014681
+    Weighted Summary: 77.255310
+    Weighted distance: 0.014681
+    Total loss: 77.269989
+    Summary/Distance ratio: 5262.409
+  Summary Loss Components:
+    Raw Summary loss: 132.913055
+    Raw distance loss: 0.020258
+    Weighted Summary: 132.913055
+    Weighted distance: 0.020258
+    Total loss: 132.933319
+    Summary/Distance ratio: 6561.021
+  Summary Loss Components:
+    Raw Summary loss: 20.821594
+    Raw distance loss: 0.014719
+    Weighted Summary: 20.821594
+    Weighted distance: 0.014719
+    Total loss: 20.836313
+    Summary/Distance ratio: 1414.587
+  Summary Loss Components:
+    Raw Summary loss: 89.554077
+    Raw distance loss: 0.018039
+    Weighted Summary: 89.554077
+    Weighted distance: 0.018039
+    Total loss: 89.572113
+    Summary/Distance ratio: 4964.425
+  Summary Loss Components:
+    Raw Summary loss: 133.389008
+    Raw distance loss: 0.020543
+    Weighted Summary: 133.389008
+    Weighted distance: 0.020543
+    Total loss: 133.409546
+    Summary/Distance ratio: 6493.150
+  Summary Loss Components:
+    Raw Summary loss: 24.448608
+    Raw distance loss: 0.017210
+    Weighted Summary: 24.448608
+    Weighted distance: 0.017210
+    Total loss: 24.465818
+    Summary/Distance ratio: 1420.586
+  Summary Loss Components:
+    Raw Summary loss: 84.899017
+    Raw distance loss: 0.017244
+    Weighted Summary: 84.899017
+    Weighted distance: 0.017244
+    Total loss: 84.916260
+    Summary/Distance ratio: 4923.287
+  Summary Loss Components:
+    Raw Summary loss: 145.755829
+    Raw distance loss: 0.022741
+    Weighted Summary: 145.755829
+    Weighted distance: 0.022741
+    Total loss: 145.778564
+    Summary/Distance ratio: 6409.490
+  Summary Loss Components:
+    Raw Summary loss: 27.452789
+    Raw distance loss: 0.017033
+    Weighted Summary: 27.452789
+    Weighted distance: 0.017033
+    Total loss: 27.469822
+    Summary/Distance ratio: 1611.747
+  Summary Loss Components:
+    Raw Summary loss: 79.786987
+    Raw distance loss: 0.014540
+    Weighted Summary: 79.786987
+    Weighted distance: 0.014540
+    Total loss: 79.801529
+    Summary/Distance ratio: 5487.551
+  Summary Loss Components:
+    Raw Summary loss: 121.030151
+    Raw distance loss: 0.018358
+    Weighted Summary: 121.030151
+    Weighted distance: 0.018358
+    Total loss: 121.048508
+    Summary/Distance ratio: 6592.834
+  Summary Loss Components:
+    Raw Summary loss: 0.551025
+    Raw distance loss: 0.012367
+    Weighted Summary: 0.551025
+    Weighted distance: 0.012367
+    Total loss: 0.563392
+    Summary/Distance ratio: 44.556
+  Summary Loss Components:
+    Raw Summary loss: 77.993134
+    Raw distance loss: 0.015854
+    Weighted Summary: 77.993134
+    Weighted distance: 0.015854
+    Total loss: 78.008987
+    Summary/Distance ratio: 4919.532
+  Summary Loss Components:
+    Raw Summary loss: 124.539337
+    Raw distance loss: 0.018257
+    Weighted Summary: 124.539337
+    Weighted distance: 0.018257
+    Total loss: 124.557594
+    Summary/Distance ratio: 6821.407
+  Summary Loss Components:
+    Raw Summary loss: 13.321838
+    Raw distance loss: 0.014999
+    Weighted Summary: 13.321838
+    Weighted distance: 0.014999
+    Total loss: 13.336838
+    Summary/Distance ratio: 888.182
+  Summary Loss Components:
+    Raw Summary loss: 86.616577
+    Raw distance loss: 0.017749
+    Weighted Summary: 86.616577
+    Weighted distance: 0.017749
+    Total loss: 86.634323
+    Summary/Distance ratio: 4880.134
+  Summary Loss Components:
+    Raw Summary loss: 122.996735
+    Raw distance loss: 0.017945
+    Weighted Summary: 122.996735
+    Weighted distance: 0.017945
+    Total loss: 123.014679
+    Summary/Distance ratio: 6854.102
+  Summary Loss Components:
+    Raw Summary loss: 16.877014
+    Raw distance loss: 0.015548
+    Weighted Summary: 16.877014
+    Weighted distance: 0.015548
+    Total loss: 16.892563
+    Summary/Distance ratio: 1085.455
+  Summary Loss Components:
+    Raw Summary loss: 82.121063
+    Raw distance loss: 0.016609
+    Weighted Summary: 82.121063
+    Weighted distance: 0.016609
+    Total loss: 82.137672
+    Summary/Distance ratio: 4944.349
+  Summary Loss Components:
+    Raw Summary loss: 138.534576
+    Raw distance loss: 0.021885
+    Weighted Summary: 138.534576
+    Weighted distance: 0.021885
+    Total loss: 138.556458
+    Summary/Distance ratio: 6330.141
+  Summary Loss Components:
+    Raw Summary loss: 7.343964
+    Raw distance loss: 0.014004
+    Weighted Summary: 7.343964
+    Weighted distance: 0.014004
+    Total loss: 7.357968
+    Summary/Distance ratio: 524.404
+  Summary Loss Components:
+    Raw Summary loss: 85.981049
+    Raw distance loss: 0.017426
+    Weighted Summary: 85.981049
+    Weighted distance: 0.017426
+    Total loss: 85.998474
+    Summary/Distance ratio: 4934.136
+  Summary Loss Components:
+    Raw Summary loss: 111.019379
+    Raw distance loss: 0.016584
+    Weighted Summary: 111.019379
+    Weighted distance: 0.016584
+    Total loss: 111.035965
+    Summary/Distance ratio: 6694.408
+  Summary Loss Components:
+    Raw Summary loss: 37.350525
+    Raw distance loss: 0.018693
+    Weighted Summary: 37.350525
+    Weighted distance: 0.018693
+    Total loss: 37.369217
+    Summary/Distance ratio: 1998.075
+  Summary Loss Components:
+    Raw Summary loss: 94.808075
+    Raw distance loss: 0.019883
+    Weighted Summary: 94.808075
+    Weighted distance: 0.019883
+    Total loss: 94.827957
+    Summary/Distance ratio: 4768.265
+  Summary Loss Components:
+    Raw Summary loss: 135.811127
+    Raw distance loss: 0.020712
+    Weighted Summary: 135.811127
+    Weighted distance: 0.020712
+    Total loss: 135.831833
+    Summary/Distance ratio: 6557.028
+  Summary Loss Components:
+    Raw Summary loss: 29.701050
+    Raw distance loss: 0.016582
+    Weighted Summary: 29.701050
+    Weighted distance: 0.016582
+    Total loss: 29.717632
+    Summary/Distance ratio: 1791.141
+  Summary Loss Components:
+    Raw Summary loss: 95.776337
+    Raw distance loss: 0.019899
+    Weighted Summary: 95.776337
+    Weighted distance: 0.019899
+    Total loss: 95.796234
+    Summary/Distance ratio: 4813.212
+  Summary Loss Components:
+    Raw Summary loss: 134.919861
+    Raw distance loss: 0.021782
+    Weighted Summary: 134.919861
+    Weighted distance: 0.021782
+    Total loss: 134.941650
+    Summary/Distance ratio: 6193.964
+  Summary Loss Components:
+    Raw Summary loss: 23.331116
+    Raw distance loss: 0.016334
+    Weighted Summary: 23.331116
+    Weighted distance: 0.016334
+    Total loss: 23.347450
+    Summary/Distance ratio: 1428.382
+  Summary Loss Components:
+    Raw Summary loss: 71.014862
+    Raw distance loss: 0.015015
+    Weighted Summary: 71.014862
+    Weighted distance: 0.015015
+    Total loss: 71.029877
+    Summary/Distance ratio: 4729.667
+  Summary Loss Components:
+    Raw Summary loss: 115.962555
+    Raw distance loss: 0.018819
+    Weighted Summary: 115.962555
+    Weighted distance: 0.018819
+    Total loss: 115.981377
+    Summary/Distance ratio: 6161.950
+  Summary Loss Components:
+    Raw Summary loss: 31.350372
+    Raw distance loss: 0.017735
+    Weighted Summary: 31.350372
+    Weighted distance: 0.017735
+    Total loss: 31.368107
+    Summary/Distance ratio: 1767.699
+  Summary Loss Components:
+    Raw Summary loss: 88.795319
+    Raw distance loss: 0.017774
+    Weighted Summary: 88.795319
+    Weighted distance: 0.017774
+    Total loss: 88.813095
+    Summary/Distance ratio: 4995.763
+  Summary Loss Components:
+    Raw Summary loss: 120.927490
+    Raw distance loss: 0.018705
+    Weighted Summary: 120.927490
+    Weighted distance: 0.018705
+    Total loss: 120.946198
+    Summary/Distance ratio: 6465.096
+  Summary Loss Components:
+    Raw Summary loss: 6.031433
+    Raw distance loss: 0.013944
+    Weighted Summary: 6.031433
+    Weighted distance: 0.013944
+    Total loss: 6.045377
+    Summary/Distance ratio: 432.544
+  Summary Loss Components:
+    Raw Summary loss: 81.636719
+    Raw distance loss: 0.016152
+    Weighted Summary: 81.636719
+    Weighted distance: 0.016152
+    Total loss: 81.652870
+    Summary/Distance ratio: 5054.314
+  Summary Loss Components:
+    Raw Summary loss: 128.999054
+    Raw distance loss: 0.018669
+    Weighted Summary: 128.999054
+    Weighted distance: 0.018669
+    Total loss: 129.017731
+    Summary/Distance ratio: 6909.695
+  Summary Loss Components:
+    Raw Summary loss: 8.208008
+    Raw distance loss: 0.013611
+    Weighted Summary: 8.208008
+    Weighted distance: 0.013611
+    Total loss: 8.221619
+    Summary/Distance ratio: 603.046
+  Summary Loss Components:
+    Raw Summary loss: 78.874603
+    Raw distance loss: 0.015756
+    Weighted Summary: 78.874603
+    Weighted distance: 0.015756
+    Total loss: 78.890358
+    Summary/Distance ratio: 5005.935
+  Summary Loss Components:
+    Raw Summary loss: 116.435150
+    Raw distance loss: 0.017796
+    Weighted Summary: 116.435150
+    Weighted distance: 0.017796
+    Total loss: 116.452950
+    Summary/Distance ratio: 6542.816
+  Summary Loss Components:
+    Raw Summary loss: 2.785980
+    Raw distance loss: 0.013207
+    Weighted Summary: 2.785980
+    Weighted distance: 0.013207
+    Total loss: 2.799187
+    Summary/Distance ratio: 210.954
+  Summary Loss Components:
+    Raw Summary loss: 66.925415
+    Raw distance loss: 0.014240
+    Weighted Summary: 66.925415
+    Weighted distance: 0.014240
+    Total loss: 66.939651
+    Summary/Distance ratio: 4699.819
+  Summary Loss Components:
+    Raw Summary loss: 110.607391
+    Raw distance loss: 0.016619
+    Weighted Summary: 110.607391
+    Weighted distance: 0.016619
+    Total loss: 110.624008
+    Summary/Distance ratio: 6655.535
+  Summary Loss Components:
+    Raw Summary loss: 4.411011
+    Raw distance loss: 0.013092
+    Weighted Summary: 4.411011
+    Weighted distance: 0.013092
+    Total loss: 4.424102
+    Summary/Distance ratio: 336.936
+  Summary Loss Components:
+    Raw Summary loss: 75.674469
+    Raw distance loss: 0.014922
+    Weighted Summary: 75.674469
+    Weighted distance: 0.014922
+    Total loss: 75.689392
+    Summary/Distance ratio: 5071.428
+  Summary Loss Components:
+    Raw Summary loss: 116.384216
+    Raw distance loss: 0.017597
+    Weighted Summary: 116.384216
+    Weighted distance: 0.017597
+    Total loss: 116.401810
+    Summary/Distance ratio: 6613.953
+Batch  50/182: Loss=85.6675 (C:9.4841, R:0.2016, T:65.5051(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 36.900818
+    Raw distance loss: 0.018384
+    Weighted Summary: 36.900818
+    Weighted distance: 0.018384
+    Total loss: 36.919201
+    Summary/Distance ratio: 2007.261
+  Summary Loss Components:
+    Raw Summary loss: 93.890411
+    Raw distance loss: 0.019468
+    Weighted Summary: 93.890411
+    Weighted distance: 0.019468
+    Total loss: 93.909882
+    Summary/Distance ratio: 4822.738
+  Summary Loss Components:
+    Raw Summary loss: 104.200684
+    Raw distance loss: 0.014726
+    Weighted Summary: 104.200684
+    Weighted distance: 0.014726
+    Total loss: 104.215408
+    Summary/Distance ratio: 7076.190
+  Summary Loss Components:
+    Raw Summary loss: 30.742432
+    Raw distance loss: 0.018162
+    Weighted Summary: 30.742432
+    Weighted distance: 0.018162
+    Total loss: 30.760593
+    Summary/Distance ratio: 1692.644
+  Summary Loss Components:
+    Raw Summary loss: 80.467896
+    Raw distance loss: 0.017821
+    Weighted Summary: 80.467896
+    Weighted distance: 0.017821
+    Total loss: 80.485718
+    Summary/Distance ratio: 4515.269
+  Summary Loss Components:
+    Raw Summary loss: 111.366669
+    Raw distance loss: 0.016491
+    Weighted Summary: 111.366669
+    Weighted distance: 0.016491
+    Total loss: 111.383163
+    Summary/Distance ratio: 6753.007
+  Summary Loss Components:
+    Raw Summary loss: 17.830566
+    Raw distance loss: 0.015136
+    Weighted Summary: 17.830566
+    Weighted distance: 0.015136
+    Total loss: 17.845703
+    Summary/Distance ratio: 1178.032
+  Summary Loss Components:
+    Raw Summary loss: 71.491302
+    Raw distance loss: 0.014648
+    Weighted Summary: 71.491302
+    Weighted distance: 0.014648
+    Total loss: 71.505951
+    Summary/Distance ratio: 4880.480
+  Summary Loss Components:
+    Raw Summary loss: 118.388336
+    Raw distance loss: 0.018071
+    Weighted Summary: 118.388336
+    Weighted distance: 0.018071
+    Total loss: 118.406410
+    Summary/Distance ratio: 6551.150
+  Summary Loss Components:
+    Raw Summary loss: 10.518402
+    Raw distance loss: 0.014482
+    Weighted Summary: 10.518402
+    Weighted distance: 0.014482
+    Total loss: 10.532884
+    Summary/Distance ratio: 726.320
+  Summary Loss Components:
+    Raw Summary loss: 59.711273
+    Raw distance loss: 0.012584
+    Weighted Summary: 59.711273
+    Weighted distance: 0.012584
+    Total loss: 59.723858
+    Summary/Distance ratio: 4745.137
+  Summary Loss Components:
+    Raw Summary loss: 111.739990
+    Raw distance loss: 0.015939
+    Weighted Summary: 111.739990
+    Weighted distance: 0.015939
+    Total loss: 111.755928
+    Summary/Distance ratio: 7010.449
+  Summary Loss Components:
+    Raw Summary loss: 10.522217
+    Raw distance loss: 0.013886
+    Weighted Summary: 10.522217
+    Weighted distance: 0.013886
+    Total loss: 10.536102
+    Summary/Distance ratio: 757.769
+  Summary Loss Components:
+    Raw Summary loss: 70.128876
+    Raw distance loss: 0.015015
+    Weighted Summary: 70.128876
+    Weighted distance: 0.015015
+    Total loss: 70.143890
+    Summary/Distance ratio: 4670.466
+  Summary Loss Components:
+    Raw Summary loss: 96.638824
+    Raw distance loss: 0.013570
+    Weighted Summary: 96.638824
+    Weighted distance: 0.013570
+    Total loss: 96.652397
+    Summary/Distance ratio: 7121.357
+  Summary Loss Components:
+    Raw Summary loss: 8.511414
+    Raw distance loss: 0.012916
+    Weighted Summary: 8.511414
+    Weighted distance: 0.012916
+    Total loss: 8.524329
+    Summary/Distance ratio: 658.998
+  Summary Loss Components:
+    Raw Summary loss: 49.953461
+    Raw distance loss: 0.012065
+    Weighted Summary: 49.953461
+    Weighted distance: 0.012065
+    Total loss: 49.965527
+    Summary/Distance ratio: 4140.391
+  Summary Loss Components:
+    Raw Summary loss: 105.008759
+    Raw distance loss: 0.014838
+    Weighted Summary: 105.008759
+    Weighted distance: 0.014838
+    Total loss: 105.023598
+    Summary/Distance ratio: 7076.894
+  Summary Loss Components:
+    Raw Summary loss: 5.229431
+    Raw distance loss: 0.013455
+    Weighted Summary: 5.229431
+    Weighted distance: 0.013455
+    Total loss: 5.242886
+    Summary/Distance ratio: 388.658
+  Summary Loss Components:
+    Raw Summary loss: 72.369690
+    Raw distance loss: 0.016514
+    Weighted Summary: 72.369690
+    Weighted distance: 0.016514
+    Total loss: 72.386200
+    Summary/Distance ratio: 4382.375
+  Summary Loss Components:
+    Raw Summary loss: 113.104401
+    Raw distance loss: 0.017207
+    Weighted Summary: 113.104401
+    Weighted distance: 0.017207
+    Total loss: 113.121605
+    Summary/Distance ratio: 6573.234
+  Summary Loss Components:
+    Raw Summary loss: 20.466949
+    Raw distance loss: 0.016075
+    Weighted Summary: 20.466949
+    Weighted distance: 0.016075
+    Total loss: 20.483025
+    Summary/Distance ratio: 1273.191
+  Summary Loss Components:
+    Raw Summary loss: 64.856384
+    Raw distance loss: 0.013732
+    Weighted Summary: 64.856384
+    Weighted distance: 0.013732
+    Total loss: 64.870117
+    Summary/Distance ratio: 4722.848
+  Summary Loss Components:
+    Raw Summary loss: 110.105469
+    Raw distance loss: 0.017888
+    Weighted Summary: 110.105469
+    Weighted distance: 0.017888
+    Total loss: 110.123360
+    Summary/Distance ratio: 6155.406
+  Summary Loss Components:
+    Raw Summary loss: 13.507782
+    Raw distance loss: 0.015064
+    Weighted Summary: 13.507782
+    Weighted distance: 0.015064
+    Total loss: 13.522845
+    Summary/Distance ratio: 896.716
+  Summary Loss Components:
+    Raw Summary loss: 74.200195
+    Raw distance loss: 0.016069
+    Weighted Summary: 74.200195
+    Weighted distance: 0.016069
+    Total loss: 74.216263
+    Summary/Distance ratio: 4617.467
+  Summary Loss Components:
+    Raw Summary loss: 102.186432
+    Raw distance loss: 0.014529
+    Weighted Summary: 102.186432
+    Weighted distance: 0.014529
+    Total loss: 102.200958
+    Summary/Distance ratio: 7033.285
+  Summary Loss Components:
+    Raw Summary loss: 18.952484
+    Raw distance loss: 0.016131
+    Weighted Summary: 18.952484
+    Weighted distance: 0.016131
+    Total loss: 18.968615
+    Summary/Distance ratio: 1174.945
+  Summary Loss Components:
+    Raw Summary loss: 59.930481
+    Raw distance loss: 0.013643
+    Weighted Summary: 59.930481
+    Weighted distance: 0.013643
+    Total loss: 59.944126
+    Summary/Distance ratio: 4392.646
+  Summary Loss Components:
+    Raw Summary loss: 103.908661
+    Raw distance loss: 0.015420
+    Weighted Summary: 103.908661
+    Weighted distance: 0.015420
+    Total loss: 103.924080
+    Summary/Distance ratio: 6738.550
+  Summary Loss Components:
+    Raw Summary loss: 17.749969
+    Raw distance loss: 0.015719
+    Weighted Summary: 17.749969
+    Weighted distance: 0.015719
+    Total loss: 17.765688
+    Summary/Distance ratio: 1129.213
+  Summary Loss Components:
+    Raw Summary loss: 68.890320
+    Raw distance loss: 0.014737
+    Weighted Summary: 68.890320
+    Weighted distance: 0.014737
+    Total loss: 68.905060
+    Summary/Distance ratio: 4674.738
+  Summary Loss Components:
+    Raw Summary loss: 114.324829
+    Raw distance loss: 0.017428
+    Weighted Summary: 114.324829
+    Weighted distance: 0.017428
+    Total loss: 114.342255
+    Summary/Distance ratio: 6559.899
+  Summary Loss Components:
+    Raw Summary loss: 5.307648
+    Raw distance loss: 0.014192
+    Weighted Summary: 5.307648
+    Weighted distance: 0.014192
+    Total loss: 5.321839
+    Summary/Distance ratio: 373.999
+  Summary Loss Components:
+    Raw Summary loss: 81.509979
+    Raw distance loss: 0.017196
+    Weighted Summary: 81.509979
+    Weighted distance: 0.017196
+    Total loss: 81.527176
+    Summary/Distance ratio: 4740.036
+  Summary Loss Components:
+    Raw Summary loss: 112.565643
+    Raw distance loss: 0.017275
+    Weighted Summary: 112.565643
+    Weighted distance: 0.017275
+    Total loss: 112.582916
+    Summary/Distance ratio: 6516.026
+  Summary Loss Components:
+    Raw Summary loss: 14.587524
+    Raw distance loss: 0.014854
+    Weighted Summary: 14.587524
+    Weighted distance: 0.014854
+    Total loss: 14.602379
+    Summary/Distance ratio: 982.041
+  Summary Loss Components:
+    Raw Summary loss: 87.847687
+    Raw distance loss: 0.017776
+    Weighted Summary: 87.847687
+    Weighted distance: 0.017776
+    Total loss: 87.865463
+    Summary/Distance ratio: 4941.999
+  Summary Loss Components:
+    Raw Summary loss: 111.382355
+    Raw distance loss: 0.016961
+    Weighted Summary: 111.382355
+    Weighted distance: 0.016961
+    Total loss: 111.399315
+    Summary/Distance ratio: 6566.895
+  Summary Loss Components:
+    Raw Summary loss: 2.026978
+    Raw distance loss: 0.013364
+    Weighted Summary: 2.026978
+    Weighted distance: 0.013364
+    Total loss: 2.040341
+    Summary/Distance ratio: 151.677
+  Summary Loss Components:
+    Raw Summary loss: 71.880676
+    Raw distance loss: 0.015376
+    Weighted Summary: 71.880676
+    Weighted distance: 0.015376
+    Total loss: 71.896049
+    Summary/Distance ratio: 4674.803
+  Summary Loss Components:
+    Raw Summary loss: 92.321625
+    Raw distance loss: 0.014086
+    Weighted Summary: 92.321625
+    Weighted distance: 0.014086
+    Total loss: 92.335709
+    Summary/Distance ratio: 6553.989
+  Summary Loss Components:
+    Raw Summary loss: 4.227753
+    Raw distance loss: 0.014139
+    Weighted Summary: 4.227753
+    Weighted distance: 0.014139
+    Total loss: 4.241892
+    Summary/Distance ratio: 299.011
+  Summary Loss Components:
+    Raw Summary loss: 71.551331
+    Raw distance loss: 0.014627
+    Weighted Summary: 71.551331
+    Weighted distance: 0.014627
+    Total loss: 71.565956
+    Summary/Distance ratio: 4891.803
+  Summary Loss Components:
+    Raw Summary loss: 107.556274
+    Raw distance loss: 0.016518
+    Weighted Summary: 107.556274
+    Weighted distance: 0.016518
+    Total loss: 107.572792
+    Summary/Distance ratio: 6511.536
+  Summary Loss Components:
+    Raw Summary loss: 5.797638
+    Raw distance loss: 0.013889
+    Weighted Summary: 5.797638
+    Weighted distance: 0.013889
+    Total loss: 5.811526
+    Summary/Distance ratio: 417.439
+  Summary Loss Components:
+    Raw Summary loss: 67.603729
+    Raw distance loss: 0.014698
+    Weighted Summary: 67.603729
+    Weighted distance: 0.014698
+    Total loss: 67.618423
+    Summary/Distance ratio: 4599.535
+  Summary Loss Components:
+    Raw Summary loss: 102.833374
+    Raw distance loss: 0.015287
+    Weighted Summary: 102.833374
+    Weighted distance: 0.015287
+    Total loss: 102.848663
+    Summary/Distance ratio: 6726.925
+  Summary Loss Components:
+    Raw Summary loss: 16.200195
+    Raw distance loss: 0.015939
+    Weighted Summary: 16.200195
+    Weighted distance: 0.015939
+    Total loss: 16.216135
+    Summary/Distance ratio: 1016.387
+  Summary Loss Components:
+    Raw Summary loss: 73.146881
+    Raw distance loss: 0.015456
+    Weighted Summary: 73.146881
+    Weighted distance: 0.015456
+    Total loss: 73.162338
+    Summary/Distance ratio: 4732.574
+  Summary Loss Components:
+    Raw Summary loss: 102.821472
+    Raw distance loss: 0.014444
+    Weighted Summary: 102.821472
+    Weighted distance: 0.014444
+    Total loss: 102.835915
+    Summary/Distance ratio: 7118.481
+  Summary Loss Components:
+    Raw Summary loss: 5.472198
+    Raw distance loss: 0.013901
+    Weighted Summary: 5.472198
+    Weighted distance: 0.013901
+    Total loss: 5.486099
+    Summary/Distance ratio: 393.665
+  Summary Loss Components:
+    Raw Summary loss: 72.513397
+    Raw distance loss: 0.015135
+    Weighted Summary: 72.513397
+    Weighted distance: 0.015135
+    Total loss: 72.528534
+    Summary/Distance ratio: 4790.971
+  Summary Loss Components:
+    Raw Summary loss: 101.720978
+    Raw distance loss: 0.014474
+    Weighted Summary: 101.720978
+    Weighted distance: 0.014474
+    Total loss: 101.735451
+    Summary/Distance ratio: 7027.910
+  Summary Loss Components:
+    Raw Summary loss: 13.050293
+    Raw distance loss: 0.016188
+    Weighted Summary: 13.050293
+    Weighted distance: 0.016188
+    Total loss: 13.066482
+    Summary/Distance ratio: 806.149
+  Summary Loss Components:
+    Raw Summary loss: 72.409088
+    Raw distance loss: 0.015280
+    Weighted Summary: 72.409088
+    Weighted distance: 0.015280
+    Total loss: 72.424370
+    Summary/Distance ratio: 4738.882
+  Summary Loss Components:
+    Raw Summary loss: 94.937439
+    Raw distance loss: 0.014323
+    Weighted Summary: 94.937439
+    Weighted distance: 0.014323
+    Total loss: 94.951759
+    Summary/Distance ratio: 6628.312
+  Summary Loss Components:
+    Raw Summary loss: 33.979279
+    Raw distance loss: 0.018423
+    Weighted Summary: 33.979279
+    Weighted distance: 0.018423
+    Total loss: 33.997700
+    Summary/Distance ratio: 1844.409
+  Summary Loss Components:
+    Raw Summary loss: 63.720978
+    Raw distance loss: 0.014216
+    Weighted Summary: 63.720978
+    Weighted distance: 0.014216
+    Total loss: 63.735195
+    Summary/Distance ratio: 4482.425
+  Summary Loss Components:
+    Raw Summary loss: 89.367432
+    Raw distance loss: 0.012883
+    Weighted Summary: 89.367432
+    Weighted distance: 0.012883
+    Total loss: 89.380318
+    Summary/Distance ratio: 6936.627
+  Summary Loss Components:
+    Raw Summary loss: 0.790771
+    Raw distance loss: 0.013505
+    Weighted Summary: 0.790771
+    Weighted distance: 0.013505
+    Total loss: 0.804276
+    Summary/Distance ratio: 58.555
+  Summary Loss Components:
+    Raw Summary loss: 60.452728
+    Raw distance loss: 0.012977
+    Weighted Summary: 60.452728
+    Weighted distance: 0.012977
+    Total loss: 60.465706
+    Summary/Distance ratio: 4658.482
+  Summary Loss Components:
+    Raw Summary loss: 107.176331
+    Raw distance loss: 0.015403
+    Weighted Summary: 107.176331
+    Weighted distance: 0.015403
+    Total loss: 107.191734
+    Summary/Distance ratio: 6958.042
+  Summary Loss Components:
+    Raw Summary loss: 12.942749
+    Raw distance loss: 0.015282
+    Weighted Summary: 12.942749
+    Weighted distance: 0.015282
+    Total loss: 12.958032
+    Summary/Distance ratio: 846.901
+  Summary Loss Components:
+    Raw Summary loss: 73.508057
+    Raw distance loss: 0.016679
+    Weighted Summary: 73.508057
+    Weighted distance: 0.016679
+    Total loss: 73.524734
+    Summary/Distance ratio: 4407.298
+  Summary Loss Components:
+    Raw Summary loss: 101.860779
+    Raw distance loss: 0.015040
+    Weighted Summary: 101.860779
+    Weighted distance: 0.015040
+    Total loss: 101.875816
+    Summary/Distance ratio: 6772.674
+  Summary Loss Components:
+    Raw Summary loss: 16.156250
+    Raw distance loss: 0.016543
+    Weighted Summary: 16.156250
+    Weighted distance: 0.016543
+    Total loss: 16.172792
+    Summary/Distance ratio: 976.620
+  Summary Loss Components:
+    Raw Summary loss: 84.501099
+    Raw distance loss: 0.018676
+    Weighted Summary: 84.501099
+    Weighted distance: 0.018676
+    Total loss: 84.519775
+    Summary/Distance ratio: 4524.496
+  Summary Loss Components:
+    Raw Summary loss: 115.638519
+    Raw distance loss: 0.018405
+    Weighted Summary: 115.638519
+    Weighted distance: 0.018405
+    Total loss: 115.656921
+    Summary/Distance ratio: 6282.863
+  Summary Loss Components:
+    Raw Summary loss: 27.174866
+    Raw distance loss: 0.017527
+    Weighted Summary: 27.174866
+    Weighted distance: 0.017527
+    Total loss: 27.192392
+    Summary/Distance ratio: 1550.463
+  Summary Loss Components:
+    Raw Summary loss: 73.404022
+    Raw distance loss: 0.016898
+    Weighted Summary: 73.404022
+    Weighted distance: 0.016898
+    Total loss: 73.420921
+    Summary/Distance ratio: 4344.053
+  Summary Loss Components:
+    Raw Summary loss: 125.266479
+    Raw distance loss: 0.019400
+    Weighted Summary: 125.266479
+    Weighted distance: 0.019400
+    Total loss: 125.285881
+    Summary/Distance ratio: 6457.018
+  Summary Loss Components:
+    Raw Summary loss: 31.595551
+    Raw distance loss: 0.019623
+    Weighted Summary: 31.595551
+    Weighted distance: 0.019623
+    Total loss: 31.615173
+    Summary/Distance ratio: 1610.123
+  Summary Loss Components:
+    Raw Summary loss: 83.758301
+    Raw distance loss: 0.019075
+    Weighted Summary: 83.758301
+    Weighted distance: 0.019075
+    Total loss: 83.777374
+    Summary/Distance ratio: 4391.027
+  Summary Loss Components:
+    Raw Summary loss: 123.432587
+    Raw distance loss: 0.020288
+    Weighted Summary: 123.432587
+    Weighted distance: 0.020288
+    Total loss: 123.452873
+    Summary/Distance ratio: 6084.140
+Batch  75/182: Loss=93.4888 (C:9.1463, R:0.1387, T:79.6151(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 32.900696
+    Raw distance loss: 0.020232
+    Weighted Summary: 32.900696
+    Weighted distance: 0.020232
+    Total loss: 32.920929
+    Summary/Distance ratio: 1626.208
+  Summary Loss Components:
+    Raw Summary loss: 83.511017
+    Raw distance loss: 0.019083
+    Weighted Summary: 83.511017
+    Weighted distance: 0.019083
+    Total loss: 83.530098
+    Summary/Distance ratio: 4376.278
+  Summary Loss Components:
+    Raw Summary loss: 126.885620
+    Raw distance loss: 0.021803
+    Weighted Summary: 126.885620
+    Weighted distance: 0.021803
+    Total loss: 126.907425
+    Summary/Distance ratio: 5819.539
+  Summary Loss Components:
+    Raw Summary loss: 10.990540
+    Raw distance loss: 0.015279
+    Weighted Summary: 10.990540
+    Weighted distance: 0.015279
+    Total loss: 11.005818
+    Summary/Distance ratio: 719.310
+  Summary Loss Components:
+    Raw Summary loss: 77.691437
+    Raw distance loss: 0.017331
+    Weighted Summary: 77.691437
+    Weighted distance: 0.017331
+    Total loss: 77.708771
+    Summary/Distance ratio: 4482.813
+  Summary Loss Components:
+    Raw Summary loss: 97.969299
+    Raw distance loss: 0.015107
+    Weighted Summary: 97.969299
+    Weighted distance: 0.015107
+    Total loss: 97.984406
+    Summary/Distance ratio: 6485.063
+  Summary Loss Components:
+    Raw Summary loss: 2.283264
+    Raw distance loss: 0.012404
+    Weighted Summary: 2.283264
+    Weighted distance: 0.012404
+    Total loss: 2.295668
+    Summary/Distance ratio: 184.070
+  Summary Loss Components:
+    Raw Summary loss: 64.835876
+    Raw distance loss: 0.014572
+    Weighted Summary: 64.835876
+    Weighted distance: 0.014572
+    Total loss: 64.850449
+    Summary/Distance ratio: 4449.363
+  Summary Loss Components:
+    Raw Summary loss: 106.452728
+    Raw distance loss: 0.016606
+    Weighted Summary: 106.452728
+    Weighted distance: 0.016606
+    Total loss: 106.469337
+    Summary/Distance ratio: 6410.533
+  Summary Loss Components:
+    Raw Summary loss: 13.254547
+    Raw distance loss: 0.016118
+    Weighted Summary: 13.254547
+    Weighted distance: 0.016118
+    Total loss: 13.270665
+    Summary/Distance ratio: 822.364
+  Summary Loss Components:
+    Raw Summary loss: 67.296295
+    Raw distance loss: 0.015122
+    Weighted Summary: 67.296295
+    Weighted distance: 0.015122
+    Total loss: 67.311417
+    Summary/Distance ratio: 4450.216
+  Summary Loss Components:
+    Raw Summary loss: 100.609589
+    Raw distance loss: 0.014797
+    Weighted Summary: 100.609589
+    Weighted distance: 0.014797
+    Total loss: 100.624382
+    Summary/Distance ratio: 6799.254
+  Summary Loss Components:
+    Raw Summary loss: 22.450806
+    Raw distance loss: 0.016556
+    Weighted Summary: 22.450806
+    Weighted distance: 0.016556
+    Total loss: 22.467361
+    Summary/Distance ratio: 1356.089
+  Summary Loss Components:
+    Raw Summary loss: 61.080048
+    Raw distance loss: 0.014361
+    Weighted Summary: 61.080048
+    Weighted distance: 0.014361
+    Total loss: 61.094410
+    Summary/Distance ratio: 4253.242
+  Summary Loss Components:
+    Raw Summary loss: 101.907532
+    Raw distance loss: 0.015739
+    Weighted Summary: 101.907532
+    Weighted distance: 0.015739
+    Total loss: 101.923271
+    Summary/Distance ratio: 6474.776
+  Summary Loss Components:
+    Raw Summary loss: 12.414764
+    Raw distance loss: 0.014583
+    Weighted Summary: 12.414764
+    Weighted distance: 0.014583
+    Total loss: 12.429348
+    Summary/Distance ratio: 851.297
+  Summary Loss Components:
+    Raw Summary loss: 54.420959
+    Raw distance loss: 0.012945
+    Weighted Summary: 54.420959
+    Weighted distance: 0.012945
+    Total loss: 54.433907
+    Summary/Distance ratio: 4203.851
+  Summary Loss Components:
+    Raw Summary loss: 109.456604
+    Raw distance loss: 0.016446
+    Weighted Summary: 109.456604
+    Weighted distance: 0.016446
+    Total loss: 109.473053
+    Summary/Distance ratio: 6655.536
+  Summary Loss Components:
+    Raw Summary loss: 2.994232
+    Raw distance loss: 0.014059
+    Weighted Summary: 2.994232
+    Weighted distance: 0.014059
+    Total loss: 3.008291
+    Summary/Distance ratio: 212.970
+  Summary Loss Components:
+    Raw Summary loss: 53.696320
+    Raw distance loss: 0.013393
+    Weighted Summary: 53.696320
+    Weighted distance: 0.013393
+    Total loss: 53.709713
+    Summary/Distance ratio: 4009.245
+  Summary Loss Components:
+    Raw Summary loss: 80.523438
+    Raw distance loss: 0.012589
+    Weighted Summary: 80.523438
+    Weighted distance: 0.012589
+    Total loss: 80.536026
+    Summary/Distance ratio: 6396.118
+  Summary Loss Components:
+    Raw Summary loss: 1.742920
+    Raw distance loss: 0.012318
+    Weighted Summary: 1.742920
+    Weighted distance: 0.012318
+    Total loss: 1.755238
+    Summary/Distance ratio: 141.490
+  Summary Loss Components:
+    Raw Summary loss: 48.284546
+    Raw distance loss: 0.011941
+    Weighted Summary: 48.284546
+    Weighted distance: 0.011941
+    Total loss: 48.296486
+    Summary/Distance ratio: 4043.434
+  Summary Loss Components:
+    Raw Summary loss: 102.204956
+    Raw distance loss: 0.015391
+    Weighted Summary: 102.204956
+    Weighted distance: 0.015391
+    Total loss: 102.220345
+    Summary/Distance ratio: 6640.397
+  Summary Loss Components:
+    Raw Summary loss: 17.645752
+    Raw distance loss: 0.016853
+    Weighted Summary: 17.645752
+    Weighted distance: 0.016853
+    Total loss: 17.662605
+    Summary/Distance ratio: 1047.035
+  Summary Loss Components:
+    Raw Summary loss: 59.138916
+    Raw distance loss: 0.013389
+    Weighted Summary: 59.138916
+    Weighted distance: 0.013389
+    Total loss: 59.152306
+    Summary/Distance ratio: 4416.818
+  Summary Loss Components:
+    Raw Summary loss: 97.578491
+    Raw distance loss: 0.014034
+    Weighted Summary: 97.578491
+    Weighted distance: 0.014034
+    Total loss: 97.592522
+    Summary/Distance ratio: 6952.984
+  Summary Loss Components:
+    Raw Summary loss: 15.939178
+    Raw distance loss: 0.011404
+    Weighted Summary: 15.939178
+    Weighted distance: 0.011404
+    Total loss: 15.950583
+    Summary/Distance ratio: 1397.627
+  Summary Loss Components:
+    Raw Summary loss: 55.235260
+    Raw distance loss: 0.013973
+    Weighted Summary: 55.235260
+    Weighted distance: 0.013973
+    Total loss: 55.249233
+    Summary/Distance ratio: 3952.895
+  Summary Loss Components:
+    Raw Summary loss: 105.328369
+    Raw distance loss: 0.016198
+    Weighted Summary: 105.328369
+    Weighted distance: 0.016198
+    Total loss: 105.344566
+    Summary/Distance ratio: 6502.458
+  Summary Loss Components:
+    Raw Summary loss: 24.087494
+    Raw distance loss: 0.018313
+    Weighted Summary: 24.087494
+    Weighted distance: 0.018313
+    Total loss: 24.105806
+    Summary/Distance ratio: 1315.319
+  Summary Loss Components:
+    Raw Summary loss: 59.630951
+    Raw distance loss: 0.014471
+    Weighted Summary: 59.630951
+    Weighted distance: 0.014471
+    Total loss: 59.645420
+    Summary/Distance ratio: 4120.706
+  Summary Loss Components:
+    Raw Summary loss: 94.530945
+    Raw distance loss: 0.014605
+    Weighted Summary: 94.530945
+    Weighted distance: 0.014605
+    Total loss: 94.545547
+    Summary/Distance ratio: 6472.581
+  Summary Loss Components:
+    Raw Summary loss: 24.770538
+    Raw distance loss: 0.017514
+    Weighted Summary: 24.770538
+    Weighted distance: 0.017514
+    Total loss: 24.788052
+    Summary/Distance ratio: 1414.364
+  Summary Loss Components:
+    Raw Summary loss: 53.276215
+    Raw distance loss: 0.012761
+    Weighted Summary: 53.276215
+    Weighted distance: 0.012761
+    Total loss: 53.288975
+    Summary/Distance ratio: 4175.025
+  Summary Loss Components:
+    Raw Summary loss: 121.308136
+    Raw distance loss: 0.019626
+    Weighted Summary: 121.308136
+    Weighted distance: 0.019626
+    Total loss: 121.327759
+    Summary/Distance ratio: 6181.094
+  Summary Loss Components:
+    Raw Summary loss: 11.448578
+    Raw distance loss: 0.012271
+    Weighted Summary: 11.448578
+    Weighted distance: 0.012271
+    Total loss: 11.460849
+    Summary/Distance ratio: 932.982
+  Summary Loss Components:
+    Raw Summary loss: 77.652191
+    Raw distance loss: 0.017769
+    Weighted Summary: 77.652191
+    Weighted distance: 0.017769
+    Total loss: 77.669960
+    Summary/Distance ratio: 4370.042
+  Summary Loss Components:
+    Raw Summary loss: 121.769440
+    Raw distance loss: 0.019834
+    Weighted Summary: 121.769440
+    Weighted distance: 0.019834
+    Total loss: 121.789276
+    Summary/Distance ratio: 6139.433
+  Summary Loss Components:
+    Raw Summary loss: 9.894623
+    Raw distance loss: 0.015501
+    Weighted Summary: 9.894623
+    Weighted distance: 0.015501
+    Total loss: 9.910124
+    Summary/Distance ratio: 638.324
+  Summary Loss Components:
+    Raw Summary loss: 73.224396
+    Raw distance loss: 0.016549
+    Weighted Summary: 73.224396
+    Weighted distance: 0.016549
+    Total loss: 73.240944
+    Summary/Distance ratio: 4424.720
+  Summary Loss Components:
+    Raw Summary loss: 105.975037
+    Raw distance loss: 0.015895
+    Weighted Summary: 105.975037
+    Weighted distance: 0.015895
+    Total loss: 105.990929
+    Summary/Distance ratio: 6667.124
+  Summary Loss Components:
+    Raw Summary loss: 6.731964
+    Raw distance loss: 0.014640
+    Weighted Summary: 6.731964
+    Weighted distance: 0.014640
+    Total loss: 6.746603
+    Summary/Distance ratio: 459.848
+  Summary Loss Components:
+    Raw Summary loss: 74.552155
+    Raw distance loss: 0.018081
+    Weighted Summary: 74.552155
+    Weighted distance: 0.018081
+    Total loss: 74.570236
+    Summary/Distance ratio: 4123.122
+  Summary Loss Components:
+    Raw Summary loss: 119.878998
+    Raw distance loss: 0.018834
+    Weighted Summary: 119.878998
+    Weighted distance: 0.018834
+    Total loss: 119.897835
+    Summary/Distance ratio: 6365.021
+  Summary Loss Components:
+    Raw Summary loss: 18.471375
+    Raw distance loss: 0.017069
+    Weighted Summary: 18.471375
+    Weighted distance: 0.017069
+    Total loss: 18.488443
+    Summary/Distance ratio: 1082.189
+  Summary Loss Components:
+    Raw Summary loss: 70.028778
+    Raw distance loss: 0.015932
+    Weighted Summary: 70.028778
+    Weighted distance: 0.015932
+    Total loss: 70.044708
+    Summary/Distance ratio: 4395.537
+  Summary Loss Components:
+    Raw Summary loss: 122.696259
+    Raw distance loss: 0.020093
+    Weighted Summary: 122.696259
+    Weighted distance: 0.020093
+    Total loss: 122.716354
+    Summary/Distance ratio: 6106.510
+  Summary Loss Components:
+    Raw Summary loss: 17.850952
+    Raw distance loss: 0.016694
+    Weighted Summary: 17.850952
+    Weighted distance: 0.016694
+    Total loss: 17.867647
+    Summary/Distance ratio: 1069.275
+  Summary Loss Components:
+    Raw Summary loss: 59.262787
+    Raw distance loss: 0.014283
+    Weighted Summary: 59.262787
+    Weighted distance: 0.014283
+    Total loss: 59.277069
+    Summary/Distance ratio: 4149.300
+  Summary Loss Components:
+    Raw Summary loss: 122.886414
+    Raw distance loss: 0.019393
+    Weighted Summary: 122.886414
+    Weighted distance: 0.019393
+    Total loss: 122.905807
+    Summary/Distance ratio: 6336.558
+  Summary Loss Components:
+    Raw Summary loss: 7.560883
+    Raw distance loss: 0.013253
+    Weighted Summary: 7.560883
+    Weighted distance: 0.013253
+    Total loss: 7.574136
+    Summary/Distance ratio: 570.499
+  Summary Loss Components:
+    Raw Summary loss: 71.465210
+    Raw distance loss: 0.016363
+    Weighted Summary: 71.465210
+    Weighted distance: 0.016363
+    Total loss: 71.481575
+    Summary/Distance ratio: 4367.508
+  Summary Loss Components:
+    Raw Summary loss: 102.931061
+    Raw distance loss: 0.014875
+    Weighted Summary: 102.931061
+    Weighted distance: 0.014875
+    Total loss: 102.945938
+    Summary/Distance ratio: 6919.919
+  Summary Loss Components:
+    Raw Summary loss: 0.827087
+    Raw distance loss: 0.013504
+    Weighted Summary: 0.827087
+    Weighted distance: 0.013504
+    Total loss: 0.840592
+    Summary/Distance ratio: 61.246
+  Summary Loss Components:
+    Raw Summary loss: 73.986176
+    Raw distance loss: 0.016724
+    Weighted Summary: 73.986176
+    Weighted distance: 0.016724
+    Total loss: 74.002899
+    Summary/Distance ratio: 4423.932
+  Summary Loss Components:
+    Raw Summary loss: 112.821289
+    Raw distance loss: 0.018128
+    Weighted Summary: 112.821289
+    Weighted distance: 0.018128
+    Total loss: 112.839417
+    Summary/Distance ratio: 6223.558
+  Summary Loss Components:
+    Raw Summary loss: 22.197968
+    Raw distance loss: 0.017110
+    Weighted Summary: 22.197968
+    Weighted distance: 0.017110
+    Total loss: 22.215078
+    Summary/Distance ratio: 1297.370
+  Summary Loss Components:
+    Raw Summary loss: 61.739136
+    Raw distance loss: 0.013984
+    Weighted Summary: 61.739136
+    Weighted distance: 0.013984
+    Total loss: 61.753120
+    Summary/Distance ratio: 4414.852
+  Summary Loss Components:
+    Raw Summary loss: 122.932983
+    Raw distance loss: 0.019147
+    Weighted Summary: 122.932983
+    Weighted distance: 0.019147
+    Total loss: 122.952133
+    Summary/Distance ratio: 6420.550
+  Summary Loss Components:
+    Raw Summary loss: 7.291870
+    Raw distance loss: 0.014815
+    Weighted Summary: 7.291870
+    Weighted distance: 0.014815
+    Total loss: 7.306685
+    Summary/Distance ratio: 492.196
+  Summary Loss Components:
+    Raw Summary loss: 63.686157
+    Raw distance loss: 0.015022
+    Weighted Summary: 63.686157
+    Weighted distance: 0.015022
+    Total loss: 63.701180
+    Summary/Distance ratio: 4239.586
+  Summary Loss Components:
+    Raw Summary loss: 116.428101
+    Raw distance loss: 0.018483
+    Weighted Summary: 116.428101
+    Weighted distance: 0.018483
+    Total loss: 116.446587
+    Summary/Distance ratio: 6299.303
+  Summary Loss Components:
+    Raw Summary loss: 6.140106
+    Raw distance loss: 0.014756
+    Weighted Summary: 6.140106
+    Weighted distance: 0.014756
+    Total loss: 6.154862
+    Summary/Distance ratio: 416.120
+  Summary Loss Components:
+    Raw Summary loss: 78.223450
+    Raw distance loss: 0.017708
+    Weighted Summary: 78.223450
+    Weighted distance: 0.017708
+    Total loss: 78.241158
+    Summary/Distance ratio: 4417.514
+  Summary Loss Components:
+    Raw Summary loss: 115.994965
+    Raw distance loss: 0.019155
+    Weighted Summary: 115.994965
+    Weighted distance: 0.019155
+    Total loss: 116.014122
+    Summary/Distance ratio: 6055.649
+  Summary Loss Components:
+    Raw Summary loss: 3.687378
+    Raw distance loss: 0.013938
+    Weighted Summary: 3.687378
+    Weighted distance: 0.013938
+    Total loss: 3.701316
+    Summary/Distance ratio: 264.551
+  Summary Loss Components:
+    Raw Summary loss: 60.383636
+    Raw distance loss: 0.013616
+    Weighted Summary: 60.383636
+    Weighted distance: 0.013616
+    Total loss: 60.397251
+    Summary/Distance ratio: 4434.649
+  Summary Loss Components:
+    Raw Summary loss: 108.463593
+    Raw distance loss: 0.016252
+    Weighted Summary: 108.463593
+    Weighted distance: 0.016252
+    Total loss: 108.479843
+    Summary/Distance ratio: 6673.837
+  Summary Loss Components:
+    Raw Summary loss: 16.856476
+    Raw distance loss: 0.015671
+    Weighted Summary: 16.856476
+    Weighted distance: 0.015671
+    Total loss: 16.872147
+    Summary/Distance ratio: 1075.635
+  Summary Loss Components:
+    Raw Summary loss: 55.330566
+    Raw distance loss: 0.012860
+    Weighted Summary: 55.330566
+    Weighted distance: 0.012860
+    Total loss: 55.343426
+    Summary/Distance ratio: 4302.688
+  Summary Loss Components:
+    Raw Summary loss: 112.549561
+    Raw distance loss: 0.016818
+    Weighted Summary: 112.549561
+    Weighted distance: 0.016818
+    Total loss: 112.566376
+    Summary/Distance ratio: 6692.238
+  Summary Loss Components:
+    Raw Summary loss: 4.021606
+    Raw distance loss: 0.012458
+    Weighted Summary: 4.021606
+    Weighted distance: 0.012458
+    Total loss: 4.034065
+    Summary/Distance ratio: 322.808
+  Summary Loss Components:
+    Raw Summary loss: 53.678406
+    Raw distance loss: 0.012310
+    Weighted Summary: 53.678406
+    Weighted distance: 0.012310
+    Total loss: 53.690716
+    Summary/Distance ratio: 4360.613
+  Summary Loss Components:
+    Raw Summary loss: 90.951080
+    Raw distance loss: 0.012612
+    Weighted Summary: 90.951080
+    Weighted distance: 0.012612
+    Total loss: 90.963692
+    Summary/Distance ratio: 7211.661
+Batch 100/182: Loss=59.5795 (C:9.5690, R:0.1002, T:49.5628(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 0.420990
+    Raw distance loss: 0.013141
+    Weighted Summary: 0.420990
+    Weighted distance: 0.013141
+    Total loss: 0.434131
+    Summary/Distance ratio: 32.036
+  Summary Loss Components:
+    Raw Summary loss: 57.221466
+    Raw distance loss: 0.012980
+    Weighted Summary: 57.221466
+    Weighted distance: 0.012980
+    Total loss: 57.234447
+    Summary/Distance ratio: 4408.473
+  Summary Loss Components:
+    Raw Summary loss: 98.014191
+    Raw distance loss: 0.016315
+    Weighted Summary: 98.014191
+    Weighted distance: 0.016315
+    Total loss: 98.030502
+    Summary/Distance ratio: 6007.790
+  Summary Loss Components:
+    Raw Summary loss: 23.984711
+    Raw distance loss: 0.017399
+    Weighted Summary: 23.984711
+    Weighted distance: 0.017399
+    Total loss: 24.002110
+    Summary/Distance ratio: 1378.529
+  Summary Loss Components:
+    Raw Summary loss: 68.303680
+    Raw distance loss: 0.016528
+    Weighted Summary: 68.303680
+    Weighted distance: 0.016528
+    Total loss: 68.320206
+    Summary/Distance ratio: 4132.595
+  Summary Loss Components:
+    Raw Summary loss: 121.505951
+    Raw distance loss: 0.018974
+    Weighted Summary: 121.505951
+    Weighted distance: 0.018974
+    Total loss: 121.524925
+    Summary/Distance ratio: 6403.678
+  Summary Loss Components:
+    Raw Summary loss: 35.752960
+    Raw distance loss: 0.019523
+    Weighted Summary: 35.752960
+    Weighted distance: 0.019523
+    Total loss: 35.772484
+    Summary/Distance ratio: 1831.333
+  Summary Loss Components:
+    Raw Summary loss: 84.085358
+    Raw distance loss: 0.017835
+    Weighted Summary: 84.085358
+    Weighted distance: 0.017835
+    Total loss: 84.103195
+    Summary/Distance ratio: 4714.701
+  Summary Loss Components:
+    Raw Summary loss: 106.007904
+    Raw distance loss: 0.016637
+    Weighted Summary: 106.007904
+    Weighted distance: 0.016637
+    Total loss: 106.024544
+    Summary/Distance ratio: 6371.760
+  Summary Loss Components:
+    Raw Summary loss: 11.666901
+    Raw distance loss: 0.015758
+    Weighted Summary: 11.666901
+    Weighted distance: 0.015758
+    Total loss: 11.682658
+    Summary/Distance ratio: 740.399
+  Summary Loss Components:
+    Raw Summary loss: 93.242401
+    Raw distance loss: 0.021530
+    Weighted Summary: 93.242401
+    Weighted distance: 0.021530
+    Total loss: 93.263931
+    Summary/Distance ratio: 4330.901
+  Summary Loss Components:
+    Raw Summary loss: 135.946381
+    Raw distance loss: 0.024685
+    Weighted Summary: 135.946381
+    Weighted distance: 0.024685
+    Total loss: 135.971069
+    Summary/Distance ratio: 5507.147
+  Summary Loss Components:
+    Raw Summary loss: 21.122314
+    Raw distance loss: 0.016570
+    Weighted Summary: 21.122314
+    Weighted distance: 0.016570
+    Total loss: 21.138885
+    Summary/Distance ratio: 1274.704
+  Summary Loss Components:
+    Raw Summary loss: 95.425018
+    Raw distance loss: 0.019385
+    Weighted Summary: 95.425018
+    Weighted distance: 0.019385
+    Total loss: 95.444405
+    Summary/Distance ratio: 4922.588
+  Summary Loss Components:
+    Raw Summary loss: 110.646149
+    Raw distance loss: 0.017005
+    Weighted Summary: 110.646149
+    Weighted distance: 0.017005
+    Total loss: 110.663155
+    Summary/Distance ratio: 6506.520
+  Summary Loss Components:
+    Raw Summary loss: 19.393127
+    Raw distance loss: 0.016912
+    Weighted Summary: 19.393127
+    Weighted distance: 0.016912
+    Total loss: 19.410040
+    Summary/Distance ratio: 1146.708
+  Summary Loss Components:
+    Raw Summary loss: 88.740234
+    Raw distance loss: 0.019887
+    Weighted Summary: 88.740234
+    Weighted distance: 0.019887
+    Total loss: 88.760124
+    Summary/Distance ratio: 4462.211
+  Summary Loss Components:
+    Raw Summary loss: 124.500702
+    Raw distance loss: 0.021989
+    Weighted Summary: 124.500702
+    Weighted distance: 0.021989
+    Total loss: 124.522690
+    Summary/Distance ratio: 5661.843
+  Summary Loss Components:
+    Raw Summary loss: 1.680664
+    Raw distance loss: 0.013625
+    Weighted Summary: 1.680664
+    Weighted distance: 0.013625
+    Total loss: 1.694289
+    Summary/Distance ratio: 123.352
+  Summary Loss Components:
+    Raw Summary loss: 72.075897
+    Raw distance loss: 0.015299
+    Weighted Summary: 72.075897
+    Weighted distance: 0.015299
+    Total loss: 72.091194
+    Summary/Distance ratio: 4711.191
+  Summary Loss Components:
+    Raw Summary loss: 125.022858
+    Raw distance loss: 0.020124
+    Weighted Summary: 125.022858
+    Weighted distance: 0.020124
+    Total loss: 125.042984
+    Summary/Distance ratio: 6212.494
+  Summary Loss Components:
+    Raw Summary loss: 0.222626
+    Raw distance loss: 0.013716
+    Weighted Summary: 0.222626
+    Weighted distance: 0.013716
+    Total loss: 0.236342
+    Summary/Distance ratio: 16.231
+  Summary Loss Components:
+    Raw Summary loss: 71.610046
+    Raw distance loss: 0.016522
+    Weighted Summary: 71.610046
+    Weighted distance: 0.016522
+    Total loss: 71.626572
+    Summary/Distance ratio: 4334.154
+  Summary Loss Components:
+    Raw Summary loss: 100.045044
+    Raw distance loss: 0.014034
+    Weighted Summary: 100.045044
+    Weighted distance: 0.014034
+    Total loss: 100.059074
+    Summary/Distance ratio: 7128.684
+  Summary Loss Components:
+    Raw Summary loss: 1.709717
+    Raw distance loss: 0.013846
+    Weighted Summary: 1.709717
+    Weighted distance: 0.013846
+    Total loss: 1.723563
+    Summary/Distance ratio: 123.479
+  Summary Loss Components:
+    Raw Summary loss: 64.929901
+    Raw distance loss: 0.014774
+    Weighted Summary: 64.929901
+    Weighted distance: 0.014774
+    Total loss: 64.944672
+    Summary/Distance ratio: 4394.968
+  Summary Loss Components:
+    Raw Summary loss: 104.119415
+    Raw distance loss: 0.015950
+    Weighted Summary: 104.119415
+    Weighted distance: 0.015950
+    Total loss: 104.135368
+    Summary/Distance ratio: 6527.999
+  Summary Loss Components:
+    Raw Summary loss: 15.039917
+    Raw distance loss: 0.016136
+    Weighted Summary: 15.039917
+    Weighted distance: 0.016136
+    Total loss: 15.056052
+    Summary/Distance ratio: 932.091
+  Summary Loss Components:
+    Raw Summary loss: 74.345886
+    Raw distance loss: 0.016778
+    Weighted Summary: 74.345886
+    Weighted distance: 0.016778
+    Total loss: 74.362663
+    Summary/Distance ratio: 4431.097
+  Summary Loss Components:
+    Raw Summary loss: 106.711304
+    Raw distance loss: 0.016959
+    Weighted Summary: 106.711304
+    Weighted distance: 0.016959
+    Total loss: 106.728264
+    Summary/Distance ratio: 6292.366
+  Summary Loss Components:
+    Raw Summary loss: 21.499908
+    Raw distance loss: 0.017875
+    Weighted Summary: 21.499908
+    Weighted distance: 0.017875
+    Total loss: 21.517784
+    Summary/Distance ratio: 1202.789
+  Summary Loss Components:
+    Raw Summary loss: 71.501282
+    Raw distance loss: 0.016415
+    Weighted Summary: 71.501282
+    Weighted distance: 0.016415
+    Total loss: 71.517700
+    Summary/Distance ratio: 4355.807
+  Summary Loss Components:
+    Raw Summary loss: 114.810242
+    Raw distance loss: 0.018562
+    Weighted Summary: 114.810242
+    Weighted distance: 0.018562
+    Total loss: 114.828804
+    Summary/Distance ratio: 6185.136
+  Summary Loss Components:
+    Raw Summary loss: 20.631866
+    Raw distance loss: 0.017249
+    Weighted Summary: 20.631866
+    Weighted distance: 0.017249
+    Total loss: 20.649117
+    Summary/Distance ratio: 1196.089
+  Summary Loss Components:
+    Raw Summary loss: 74.880280
+    Raw distance loss: 0.016544
+    Weighted Summary: 74.880280
+    Weighted distance: 0.016544
+    Total loss: 74.896820
+    Summary/Distance ratio: 4526.094
+  Summary Loss Components:
+    Raw Summary loss: 102.672577
+    Raw distance loss: 0.015364
+    Weighted Summary: 102.672577
+    Weighted distance: 0.015364
+    Total loss: 102.687943
+    Summary/Distance ratio: 6682.786
+  Summary Loss Components:
+    Raw Summary loss: 3.836609
+    Raw distance loss: 0.014588
+    Weighted Summary: 3.836609
+    Weighted distance: 0.014588
+    Total loss: 3.851197
+    Summary/Distance ratio: 262.999
+  Summary Loss Components:
+    Raw Summary loss: 74.993347
+    Raw distance loss: 0.016532
+    Weighted Summary: 74.993347
+    Weighted distance: 0.016532
+    Total loss: 75.009880
+    Summary/Distance ratio: 4536.196
+  Summary Loss Components:
+    Raw Summary loss: 104.522034
+    Raw distance loss: 0.016445
+    Weighted Summary: 104.522034
+    Weighted distance: 0.016445
+    Total loss: 104.538475
+    Summary/Distance ratio: 6355.877
+  Summary Loss Components:
+    Raw Summary loss: 10.145996
+    Raw distance loss: 0.011729
+    Weighted Summary: 10.145996
+    Weighted distance: 0.011729
+    Total loss: 10.157725
+    Summary/Distance ratio: 865.030
+  Summary Loss Components:
+    Raw Summary loss: 76.669495
+    Raw distance loss: 0.016930
+    Weighted Summary: 76.669495
+    Weighted distance: 0.016930
+    Total loss: 76.686424
+    Summary/Distance ratio: 4528.578
+  Summary Loss Components:
+    Raw Summary loss: 107.081421
+    Raw distance loss: 0.017479
+    Weighted Summary: 107.081421
+    Weighted distance: 0.017479
+    Total loss: 107.098900
+    Summary/Distance ratio: 6126.175
+  Summary Loss Components:
+    Raw Summary loss: 14.831909
+    Raw distance loss: 0.016182
+    Weighted Summary: 14.831909
+    Weighted distance: 0.016182
+    Total loss: 14.848091
+    Summary/Distance ratio: 916.557
+  Summary Loss Components:
+    Raw Summary loss: 79.771027
+    Raw distance loss: 0.017440
+    Weighted Summary: 79.771027
+    Weighted distance: 0.017440
+    Total loss: 79.788467
+    Summary/Distance ratio: 4574.108
+  Summary Loss Components:
+    Raw Summary loss: 104.336578
+    Raw distance loss: 0.016299
+    Weighted Summary: 104.336578
+    Weighted distance: 0.016299
+    Total loss: 104.352875
+    Summary/Distance ratio: 6401.344
+  Summary Loss Components:
+    Raw Summary loss: 16.937988
+    Raw distance loss: 0.017236
+    Weighted Summary: 16.937988
+    Weighted distance: 0.017236
+    Total loss: 16.955225
+    Summary/Distance ratio: 982.694
+  Summary Loss Components:
+    Raw Summary loss: 80.276062
+    Raw distance loss: 0.018028
+    Weighted Summary: 80.276062
+    Weighted distance: 0.018028
+    Total loss: 80.294090
+    Summary/Distance ratio: 4452.961
+  Summary Loss Components:
+    Raw Summary loss: 129.882538
+    Raw distance loss: 0.021832
+    Weighted Summary: 129.882538
+    Weighted distance: 0.021832
+    Total loss: 129.904373
+    Summary/Distance ratio: 5949.243
+  Summary Loss Components:
+    Raw Summary loss: 10.657806
+    Raw distance loss: 0.016316
+    Weighted Summary: 10.657806
+    Weighted distance: 0.016316
+    Total loss: 10.674123
+    Summary/Distance ratio: 653.209
+  Summary Loss Components:
+    Raw Summary loss: 75.192352
+    Raw distance loss: 0.016968
+    Weighted Summary: 75.192352
+    Weighted distance: 0.016968
+    Total loss: 75.209320
+    Summary/Distance ratio: 4431.349
+  Summary Loss Components:
+    Raw Summary loss: 116.733917
+    Raw distance loss: 0.018489
+    Weighted Summary: 116.733917
+    Weighted distance: 0.018489
+    Total loss: 116.752403
+    Summary/Distance ratio: 6313.814
+  Summary Loss Components:
+    Raw Summary loss: 21.850983
+    Raw distance loss: 0.018469
+    Weighted Summary: 21.850983
+    Weighted distance: 0.018469
+    Total loss: 21.869452
+    Summary/Distance ratio: 1183.114
+  Summary Loss Components:
+    Raw Summary loss: 84.019745
+    Raw distance loss: 0.019422
+    Weighted Summary: 84.019745
+    Weighted distance: 0.019422
+    Total loss: 84.039169
+    Summary/Distance ratio: 4325.924
+  Summary Loss Components:
+    Raw Summary loss: 93.783508
+    Raw distance loss: 0.015008
+    Weighted Summary: 93.783508
+    Weighted distance: 0.015008
+    Total loss: 93.798515
+    Summary/Distance ratio: 6248.745
+  Summary Loss Components:
+    Raw Summary loss: 0.872498
+    Raw distance loss: 0.014168
+    Weighted Summary: 0.872498
+    Weighted distance: 0.014168
+    Total loss: 0.886665
+    Summary/Distance ratio: 61.584
+  Summary Loss Components:
+    Raw Summary loss: 64.939301
+    Raw distance loss: 0.015018
+    Weighted Summary: 64.939301
+    Weighted distance: 0.015018
+    Total loss: 64.954315
+    Summary/Distance ratio: 4323.965
+  Summary Loss Components:
+    Raw Summary loss: 106.499359
+    Raw distance loss: 0.015922
+    Weighted Summary: 106.499359
+    Weighted distance: 0.015922
+    Total loss: 106.515282
+    Summary/Distance ratio: 6688.772
+  Summary Loss Components:
+    Raw Summary loss: 7.153717
+    Raw distance loss: 0.012413
+    Weighted Summary: 7.153717
+    Weighted distance: 0.012413
+    Total loss: 7.166130
+    Summary/Distance ratio: 576.306
+  Summary Loss Components:
+    Raw Summary loss: 76.514679
+    Raw distance loss: 0.018349
+    Weighted Summary: 76.514679
+    Weighted distance: 0.018349
+    Total loss: 76.533028
+    Summary/Distance ratio: 4169.941
+  Summary Loss Components:
+    Raw Summary loss: 95.563416
+    Raw distance loss: 0.014424
+    Weighted Summary: 95.563416
+    Weighted distance: 0.014424
+    Total loss: 95.577843
+    Summary/Distance ratio: 6625.206
+  Summary Loss Components:
+    Raw Summary loss: 33.682861
+    Raw distance loss: 0.019781
+    Weighted Summary: 33.682861
+    Weighted distance: 0.019781
+    Total loss: 33.702641
+    Summary/Distance ratio: 1702.785
+  Summary Loss Components:
+    Raw Summary loss: 80.070312
+    Raw distance loss: 0.019783
+    Weighted Summary: 80.070312
+    Weighted distance: 0.019783
+    Total loss: 80.090096
+    Summary/Distance ratio: 4047.399
+  Summary Loss Components:
+    Raw Summary loss: 115.227753
+    Raw distance loss: 0.018632
+    Weighted Summary: 115.227753
+    Weighted distance: 0.018632
+    Total loss: 115.246384
+    Summary/Distance ratio: 6184.312
+  Summary Loss Components:
+    Raw Summary loss: 18.403839
+    Raw distance loss: 0.015723
+    Weighted Summary: 18.403839
+    Weighted distance: 0.015723
+    Total loss: 18.419561
+    Summary/Distance ratio: 1170.540
+  Summary Loss Components:
+    Raw Summary loss: 85.049347
+    Raw distance loss: 0.019394
+    Weighted Summary: 85.049347
+    Weighted distance: 0.019394
+    Total loss: 85.068741
+    Summary/Distance ratio: 4385.365
+  Summary Loss Components:
+    Raw Summary loss: 120.063934
+    Raw distance loss: 0.019099
+    Weighted Summary: 120.063934
+    Weighted distance: 0.019099
+    Total loss: 120.083031
+    Summary/Distance ratio: 6286.448
+  Summary Loss Components:
+    Raw Summary loss: 43.701050
+    Raw distance loss: 0.021523
+    Weighted Summary: 43.701050
+    Weighted distance: 0.021523
+    Total loss: 43.722572
+    Summary/Distance ratio: 2030.426
+  Summary Loss Components:
+    Raw Summary loss: 88.785614
+    Raw distance loss: 0.019871
+    Weighted Summary: 88.785614
+    Weighted distance: 0.019871
+    Total loss: 88.805489
+    Summary/Distance ratio: 4468.002
+  Summary Loss Components:
+    Raw Summary loss: 128.828766
+    Raw distance loss: 0.021790
+    Weighted Summary: 128.828766
+    Weighted distance: 0.021790
+    Total loss: 128.850555
+    Summary/Distance ratio: 5912.325
+  Summary Loss Components:
+    Raw Summary loss: 9.529236
+    Raw distance loss: 0.015442
+    Weighted Summary: 9.529236
+    Weighted distance: 0.015442
+    Total loss: 9.544678
+    Summary/Distance ratio: 617.110
+  Summary Loss Components:
+    Raw Summary loss: 83.124329
+    Raw distance loss: 0.017919
+    Weighted Summary: 83.124329
+    Weighted distance: 0.017919
+    Total loss: 83.142250
+    Summary/Distance ratio: 4638.886
+  Summary Loss Components:
+    Raw Summary loss: 132.124390
+    Raw distance loss: 0.022735
+    Weighted Summary: 132.124390
+    Weighted distance: 0.022735
+    Total loss: 132.147125
+    Summary/Distance ratio: 5811.543
+  Summary Loss Components:
+    Raw Summary loss: 28.471619
+    Raw distance loss: 0.018159
+    Weighted Summary: 28.471619
+    Weighted distance: 0.018159
+    Total loss: 28.489779
+    Summary/Distance ratio: 1567.880
+  Summary Loss Components:
+    Raw Summary loss: 50.351501
+    Raw distance loss: 0.012595
+    Weighted Summary: 50.351501
+    Weighted distance: 0.012595
+    Total loss: 50.364098
+    Summary/Distance ratio: 3997.652
+  Summary Loss Components:
+    Raw Summary loss: 88.952209
+    Raw distance loss: 0.013434
+    Weighted Summary: 88.952209
+    Weighted distance: 0.013434
+    Total loss: 88.965645
+    Summary/Distance ratio: 6621.259
+Batch 125/182: Loss=63.5208 (C:9.2108, R:0.0758, T:55.9398(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 6.306244
+    Raw distance loss: 0.012561
+    Weighted Summary: 6.306244
+    Weighted distance: 0.012561
+    Total loss: 6.318805
+    Summary/Distance ratio: 502.038
+  Summary Loss Components:
+    Raw Summary loss: 61.864502
+    Raw distance loss: 0.015108
+    Weighted Summary: 61.864502
+    Weighted distance: 0.015108
+    Total loss: 61.879612
+    Summary/Distance ratio: 4094.767
+  Summary Loss Components:
+    Raw Summary loss: 99.559967
+    Raw distance loss: 0.015442
+    Weighted Summary: 99.559967
+    Weighted distance: 0.015442
+    Total loss: 99.575409
+    Summary/Distance ratio: 6447.231
+  Summary Loss Components:
+    Raw Summary loss: 7.467194
+    Raw distance loss: 0.012545
+    Weighted Summary: 7.467194
+    Weighted distance: 0.012545
+    Total loss: 7.479739
+    Summary/Distance ratio: 595.231
+  Summary Loss Components:
+    Raw Summary loss: 54.465149
+    Raw distance loss: 0.012707
+    Weighted Summary: 54.465149
+    Weighted distance: 0.012707
+    Total loss: 54.477856
+    Summary/Distance ratio: 4286.292
+  Summary Loss Components:
+    Raw Summary loss: 95.716644
+    Raw distance loss: 0.014349
+    Weighted Summary: 95.716644
+    Weighted distance: 0.014349
+    Total loss: 95.730995
+    Summary/Distance ratio: 6670.475
+  Summary Loss Components:
+    Raw Summary loss: 4.380371
+    Raw distance loss: 0.015381
+    Weighted Summary: 4.380371
+    Weighted distance: 0.015381
+    Total loss: 4.395752
+    Summary/Distance ratio: 284.786
+  Summary Loss Components:
+    Raw Summary loss: 62.728760
+    Raw distance loss: 0.015065
+    Weighted Summary: 62.728760
+    Weighted distance: 0.015065
+    Total loss: 62.743824
+    Summary/Distance ratio: 4163.985
+  Summary Loss Components:
+    Raw Summary loss: 113.097229
+    Raw distance loss: 0.018194
+    Weighted Summary: 113.097229
+    Weighted distance: 0.018194
+    Total loss: 113.115425
+    Summary/Distance ratio: 6216.036
+  Summary Loss Components:
+    Raw Summary loss: 5.950226
+    Raw distance loss: 0.014880
+    Weighted Summary: 5.950226
+    Weighted distance: 0.014880
+    Total loss: 5.965106
+    Summary/Distance ratio: 399.873
+  Summary Loss Components:
+    Raw Summary loss: 63.131409
+    Raw distance loss: 0.014566
+    Weighted Summary: 63.131409
+    Weighted distance: 0.014566
+    Total loss: 63.145973
+    Summary/Distance ratio: 4334.236
+  Summary Loss Components:
+    Raw Summary loss: 119.063385
+    Raw distance loss: 0.019376
+    Weighted Summary: 119.063385
+    Weighted distance: 0.019376
+    Total loss: 119.082764
+    Summary/Distance ratio: 6144.858
+  Summary Loss Components:
+    Raw Summary loss: 9.511902
+    Raw distance loss: 0.015654
+    Weighted Summary: 9.511902
+    Weighted distance: 0.015654
+    Total loss: 9.527555
+    Summary/Distance ratio: 607.647
+  Summary Loss Components:
+    Raw Summary loss: 72.021973
+    Raw distance loss: 0.017807
+    Weighted Summary: 72.021973
+    Weighted distance: 0.017807
+    Total loss: 72.039780
+    Summary/Distance ratio: 4044.664
+  Summary Loss Components:
+    Raw Summary loss: 83.181793
+    Raw distance loss: 0.012885
+    Weighted Summary: 83.181793
+    Weighted distance: 0.012885
+    Total loss: 83.194679
+    Summary/Distance ratio: 6455.656
+  Summary Loss Components:
+    Raw Summary loss: 3.911957
+    Raw distance loss: 0.014101
+    Weighted Summary: 3.911957
+    Weighted distance: 0.014101
+    Total loss: 3.926058
+    Summary/Distance ratio: 277.423
+  Summary Loss Components:
+    Raw Summary loss: 52.201263
+    Raw distance loss: 0.013194
+    Weighted Summary: 52.201263
+    Weighted distance: 0.013194
+    Total loss: 52.214458
+    Summary/Distance ratio: 3956.550
+  Summary Loss Components:
+    Raw Summary loss: 99.808380
+    Raw distance loss: 0.014980
+    Weighted Summary: 99.808380
+    Weighted distance: 0.014980
+    Total loss: 99.823357
+    Summary/Distance ratio: 6662.636
+  Summary Loss Components:
+    Raw Summary loss: 11.296997
+    Raw distance loss: 0.011242
+    Weighted Summary: 11.296997
+    Weighted distance: 0.011242
+    Total loss: 11.308239
+    Summary/Distance ratio: 1004.928
+  Summary Loss Components:
+    Raw Summary loss: 36.311554
+    Raw distance loss: 0.010802
+    Weighted Summary: 36.311554
+    Weighted distance: 0.010802
+    Total loss: 36.322357
+    Summary/Distance ratio: 3361.469
+  Summary Loss Components:
+    Raw Summary loss: 98.752747
+    Raw distance loss: 0.015704
+    Weighted Summary: 98.752747
+    Weighted distance: 0.015704
+    Total loss: 98.768448
+    Summary/Distance ratio: 6288.304
+  Summary Loss Components:
+    Raw Summary loss: 0.761047
+    Raw distance loss: 0.014242
+    Weighted Summary: 0.761047
+    Weighted distance: 0.014242
+    Total loss: 0.775289
+    Summary/Distance ratio: 53.438
+  Summary Loss Components:
+    Raw Summary loss: 46.787354
+    Raw distance loss: 0.012556
+    Weighted Summary: 46.787354
+    Weighted distance: 0.012556
+    Total loss: 46.799911
+    Summary/Distance ratio: 3726.239
+  Summary Loss Components:
+    Raw Summary loss: 116.872894
+    Raw distance loss: 0.019874
+    Weighted Summary: 116.872894
+    Weighted distance: 0.019874
+    Total loss: 116.892769
+    Summary/Distance ratio: 5880.747
+  Summary Loss Components:
+    Raw Summary loss: 7.891022
+    Raw distance loss: 0.013190
+    Weighted Summary: 7.891022
+    Weighted distance: 0.013190
+    Total loss: 7.904212
+    Summary/Distance ratio: 598.267
+  Summary Loss Components:
+    Raw Summary loss: 41.002289
+    Raw distance loss: 0.011353
+    Weighted Summary: 41.002289
+    Weighted distance: 0.011353
+    Total loss: 41.013641
+    Summary/Distance ratio: 3611.702
+  Summary Loss Components:
+    Raw Summary loss: 87.498718
+    Raw distance loss: 0.013417
+    Weighted Summary: 87.498718
+    Weighted distance: 0.013417
+    Total loss: 87.512138
+    Summary/Distance ratio: 6521.458
+  Summary Loss Components:
+    Raw Summary loss: 14.987976
+    Raw distance loss: 0.016105
+    Weighted Summary: 14.987976
+    Weighted distance: 0.016105
+    Total loss: 15.004081
+    Summary/Distance ratio: 930.633
+  Summary Loss Components:
+    Raw Summary loss: 63.481323
+    Raw distance loss: 0.014929
+    Weighted Summary: 63.481323
+    Weighted distance: 0.014929
+    Total loss: 63.496254
+    Summary/Distance ratio: 4252.103
+  Summary Loss Components:
+    Raw Summary loss: 132.480042
+    Raw distance loss: 0.022488
+    Weighted Summary: 132.480042
+    Weighted distance: 0.022488
+    Total loss: 132.502533
+    Summary/Distance ratio: 5891.067
+  Summary Loss Components:
+    Raw Summary loss: 5.220642
+    Raw distance loss: 0.015072
+    Weighted Summary: 5.220642
+    Weighted distance: 0.015072
+    Total loss: 5.235714
+    Summary/Distance ratio: 346.373
+  Summary Loss Components:
+    Raw Summary loss: 71.088074
+    Raw distance loss: 0.016253
+    Weighted Summary: 71.088074
+    Weighted distance: 0.016253
+    Total loss: 71.104324
+    Summary/Distance ratio: 4373.867
+  Summary Loss Components:
+    Raw Summary loss: 113.614594
+    Raw distance loss: 0.017504
+    Weighted Summary: 113.614594
+    Weighted distance: 0.017504
+    Total loss: 113.632095
+    Summary/Distance ratio: 6490.802
+  Summary Loss Components:
+    Raw Summary loss: 14.182068
+    Raw distance loss: 0.016568
+    Weighted Summary: 14.182068
+    Weighted distance: 0.016568
+    Total loss: 14.198635
+    Summary/Distance ratio: 856.017
+  Summary Loss Components:
+    Raw Summary loss: 48.346222
+    Raw distance loss: 0.012599
+    Weighted Summary: 48.346222
+    Weighted distance: 0.012599
+    Total loss: 48.358822
+    Summary/Distance ratio: 3837.407
+  Summary Loss Components:
+    Raw Summary loss: 92.212128
+    Raw distance loss: 0.014233
+    Weighted Summary: 92.212128
+    Weighted distance: 0.014233
+    Total loss: 92.226357
+    Summary/Distance ratio: 6478.965
+  Summary Loss Components:
+    Raw Summary loss: 6.412720
+    Raw distance loss: 0.015661
+    Weighted Summary: 6.412720
+    Weighted distance: 0.015661
+    Total loss: 6.428381
+    Summary/Distance ratio: 409.461
+  Summary Loss Components:
+    Raw Summary loss: 53.053558
+    Raw distance loss: 0.013192
+    Weighted Summary: 53.053558
+    Weighted distance: 0.013192
+    Total loss: 53.066750
+    Summary/Distance ratio: 4021.625
+  Summary Loss Components:
+    Raw Summary loss: 108.259033
+    Raw distance loss: 0.016593
+    Weighted Summary: 108.259033
+    Weighted distance: 0.016593
+    Total loss: 108.275627
+    Summary/Distance ratio: 6524.232
+  Summary Loss Components:
+    Raw Summary loss: 5.634399
+    Raw distance loss: 0.012462
+    Weighted Summary: 5.634399
+    Weighted distance: 0.012462
+    Total loss: 5.646862
+    Summary/Distance ratio: 452.110
+  Summary Loss Components:
+    Raw Summary loss: 56.367828
+    Raw distance loss: 0.014414
+    Weighted Summary: 56.367828
+    Weighted distance: 0.014414
+    Total loss: 56.382244
+    Summary/Distance ratio: 3910.617
+  Summary Loss Components:
+    Raw Summary loss: 97.068115
+    Raw distance loss: 0.015595
+    Weighted Summary: 97.068115
+    Weighted distance: 0.015595
+    Total loss: 97.083710
+    Summary/Distance ratio: 6224.250
+  Summary Loss Components:
+    Raw Summary loss: 0.459412
+    Raw distance loss: 0.012747
+    Weighted Summary: 0.459412
+    Weighted distance: 0.012747
+    Total loss: 0.472158
+    Summary/Distance ratio: 36.042
+  Summary Loss Components:
+    Raw Summary loss: 62.342926
+    Raw distance loss: 0.014544
+    Weighted Summary: 62.342926
+    Weighted distance: 0.014544
+    Total loss: 62.357471
+    Summary/Distance ratio: 4286.506
+  Summary Loss Components:
+    Raw Summary loss: 91.684448
+    Raw distance loss: 0.014265
+    Weighted Summary: 91.684448
+    Weighted distance: 0.014265
+    Total loss: 91.698715
+    Summary/Distance ratio: 6427.301
+  Summary Loss Components:
+    Raw Summary loss: 14.235138
+    Raw distance loss: 0.015892
+    Weighted Summary: 14.235138
+    Weighted distance: 0.015892
+    Total loss: 14.251030
+    Summary/Distance ratio: 895.758
+  Summary Loss Components:
+    Raw Summary loss: 68.768036
+    Raw distance loss: 0.016287
+    Weighted Summary: 68.768036
+    Weighted distance: 0.016287
+    Total loss: 68.784325
+    Summary/Distance ratio: 4222.326
+  Summary Loss Components:
+    Raw Summary loss: 114.703735
+    Raw distance loss: 0.019337
+    Weighted Summary: 114.703735
+    Weighted distance: 0.019337
+    Total loss: 114.723076
+    Summary/Distance ratio: 5931.738
+  Summary Loss Components:
+    Raw Summary loss: 19.516052
+    Raw distance loss: 0.017481
+    Weighted Summary: 19.516052
+    Weighted distance: 0.017481
+    Total loss: 19.533533
+    Summary/Distance ratio: 1116.437
+  Summary Loss Components:
+    Raw Summary loss: 70.495789
+    Raw distance loss: 0.015848
+    Weighted Summary: 70.495789
+    Weighted distance: 0.015848
+    Total loss: 70.511635
+    Summary/Distance ratio: 4448.301
+  Summary Loss Components:
+    Raw Summary loss: 102.735718
+    Raw distance loss: 0.015865
+    Weighted Summary: 102.735718
+    Weighted distance: 0.015865
+    Total loss: 102.751579
+    Summary/Distance ratio: 6475.630
+  Summary Loss Components:
+    Raw Summary loss: 0.242371
+    Raw distance loss: 0.013973
+    Weighted Summary: 0.242371
+    Weighted distance: 0.013973
+    Total loss: 0.256344
+    Summary/Distance ratio: 17.346
+  Summary Loss Components:
+    Raw Summary loss: 66.915527
+    Raw distance loss: 0.015800
+    Weighted Summary: 66.915527
+    Weighted distance: 0.015800
+    Total loss: 66.931328
+    Summary/Distance ratio: 4235.232
+  Summary Loss Components:
+    Raw Summary loss: 111.470428
+    Raw distance loss: 0.018087
+    Weighted Summary: 111.470428
+    Weighted distance: 0.018087
+    Total loss: 111.488518
+    Summary/Distance ratio: 6162.935
+  Summary Loss Components:
+    Raw Summary loss: 8.981232
+    Raw distance loss: 0.014921
+    Weighted Summary: 8.981232
+    Weighted distance: 0.014921
+    Total loss: 8.996153
+    Summary/Distance ratio: 601.901
+  Summary Loss Components:
+    Raw Summary loss: 56.481232
+    Raw distance loss: 0.014327
+    Weighted Summary: 56.481232
+    Weighted distance: 0.014327
+    Total loss: 56.495560
+    Summary/Distance ratio: 3942.161
+  Summary Loss Components:
+    Raw Summary loss: 91.288208
+    Raw distance loss: 0.014950
+    Weighted Summary: 91.288208
+    Weighted distance: 0.014950
+    Total loss: 91.303162
+    Summary/Distance ratio: 6106.149
+  Summary Loss Components:
+    Raw Summary loss: 1.807068
+    Raw distance loss: 0.013800
+    Weighted Summary: 1.807068
+    Weighted distance: 0.013800
+    Total loss: 1.820868
+    Summary/Distance ratio: 130.944
+  Summary Loss Components:
+    Raw Summary loss: 67.590302
+    Raw distance loss: 0.015949
+    Weighted Summary: 67.590302
+    Weighted distance: 0.015949
+    Total loss: 67.606255
+    Summary/Distance ratio: 4237.794
+  Summary Loss Components:
+    Raw Summary loss: 80.574219
+    Raw distance loss: 0.012806
+    Weighted Summary: 80.574219
+    Weighted distance: 0.012806
+    Total loss: 80.587029
+    Summary/Distance ratio: 6291.861
+  Summary Loss Components:
+    Raw Summary loss: 8.767883
+    Raw distance loss: 0.012815
+    Weighted Summary: 8.767883
+    Weighted distance: 0.012815
+    Total loss: 8.780699
+    Summary/Distance ratio: 684.166
+  Summary Loss Components:
+    Raw Summary loss: 66.980713
+    Raw distance loss: 0.016144
+    Weighted Summary: 66.980713
+    Weighted distance: 0.016144
+    Total loss: 66.996857
+    Summary/Distance ratio: 4148.956
+  Summary Loss Components:
+    Raw Summary loss: 89.583527
+    Raw distance loss: 0.013155
+    Weighted Summary: 89.583527
+    Weighted distance: 0.013155
+    Total loss: 89.596680
+    Summary/Distance ratio: 6809.778
+  Summary Loss Components:
+    Raw Summary loss: 3.748383
+    Raw distance loss: 0.012876
+    Weighted Summary: 3.748383
+    Weighted distance: 0.012876
+    Total loss: 3.761259
+    Summary/Distance ratio: 291.110
+  Summary Loss Components:
+    Raw Summary loss: 61.418121
+    Raw distance loss: 0.014134
+    Weighted Summary: 61.418121
+    Weighted distance: 0.014134
+    Total loss: 61.432255
+    Summary/Distance ratio: 4345.500
+  Summary Loss Components:
+    Raw Summary loss: 103.616791
+    Raw distance loss: 0.017067
+    Weighted Summary: 103.616791
+    Weighted distance: 0.017067
+    Total loss: 103.633858
+    Summary/Distance ratio: 6071.292
+  Summary Loss Components:
+    Raw Summary loss: 13.993591
+    Raw distance loss: 0.015700
+    Weighted Summary: 13.993591
+    Weighted distance: 0.015700
+    Total loss: 14.009292
+    Summary/Distance ratio: 891.295
+  Summary Loss Components:
+    Raw Summary loss: 62.705261
+    Raw distance loss: 0.014765
+    Weighted Summary: 62.705261
+    Weighted distance: 0.014765
+    Total loss: 62.720028
+    Summary/Distance ratio: 4246.756
+  Summary Loss Components:
+    Raw Summary loss: 106.677521
+    Raw distance loss: 0.016322
+    Weighted Summary: 106.677521
+    Weighted distance: 0.016322
+    Total loss: 106.693840
+    Summary/Distance ratio: 6535.959
+  Summary Loss Components:
+    Raw Summary loss: 6.466095
+    Raw distance loss: 0.014583
+    Weighted Summary: 6.466095
+    Weighted distance: 0.014583
+    Total loss: 6.480678
+    Summary/Distance ratio: 443.398
+  Summary Loss Components:
+    Raw Summary loss: 86.944000
+    Raw distance loss: 0.019517
+    Weighted Summary: 86.944000
+    Weighted distance: 0.019517
+    Total loss: 86.963516
+    Summary/Distance ratio: 4454.851
+  Summary Loss Components:
+    Raw Summary loss: 102.244812
+    Raw distance loss: 0.015854
+    Weighted Summary: 102.244812
+    Weighted distance: 0.015854
+    Total loss: 102.260666
+    Summary/Distance ratio: 6449.146
+  Summary Loss Components:
+    Raw Summary loss: 18.455994
+    Raw distance loss: 0.011640
+    Weighted Summary: 18.455994
+    Weighted distance: 0.011640
+    Total loss: 18.467634
+    Summary/Distance ratio: 1585.501
+  Summary Loss Components:
+    Raw Summary loss: 60.717407
+    Raw distance loss: 0.015314
+    Weighted Summary: 60.717407
+    Weighted distance: 0.015314
+    Total loss: 60.732719
+    Summary/Distance ratio: 3964.912
+  Summary Loss Components:
+    Raw Summary loss: 105.161713
+    Raw distance loss: 0.016777
+    Weighted Summary: 105.161713
+    Weighted distance: 0.016777
+    Total loss: 105.178490
+    Summary/Distance ratio: 6268.212
+Batch 150/182: Loss=67.2759 (C:9.1794, R:0.0582, T:61.4596(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 13.540833
+    Raw distance loss: 0.015700
+    Weighted Summary: 13.540833
+    Weighted distance: 0.015700
+    Total loss: 13.556533
+    Summary/Distance ratio: 862.462
+  Summary Loss Components:
+    Raw Summary loss: 81.209656
+    Raw distance loss: 0.018715
+    Weighted Summary: 81.209656
+    Weighted distance: 0.018715
+    Total loss: 81.228371
+    Summary/Distance ratio: 4339.262
+  Summary Loss Components:
+    Raw Summary loss: 103.299286
+    Raw distance loss: 0.016041
+    Weighted Summary: 103.299286
+    Weighted distance: 0.016041
+    Total loss: 103.315331
+    Summary/Distance ratio: 6439.673
+  Summary Loss Components:
+    Raw Summary loss: 13.095337
+    Raw distance loss: 0.015190
+    Weighted Summary: 13.095337
+    Weighted distance: 0.015190
+    Total loss: 13.110527
+    Summary/Distance ratio: 862.083
+  Summary Loss Components:
+    Raw Summary loss: 65.436340
+    Raw distance loss: 0.015332
+    Weighted Summary: 65.436340
+    Weighted distance: 0.015332
+    Total loss: 65.451675
+    Summary/Distance ratio: 4268.034
+  Summary Loss Components:
+    Raw Summary loss: 113.199493
+    Raw distance loss: 0.018412
+    Weighted Summary: 113.199493
+    Weighted distance: 0.018412
+    Total loss: 113.217903
+    Summary/Distance ratio: 6148.041
+  Summary Loss Components:
+    Raw Summary loss: 8.372589
+    Raw distance loss: 0.012192
+    Weighted Summary: 8.372589
+    Weighted distance: 0.012192
+    Total loss: 8.384781
+    Summary/Distance ratio: 686.724
+  Summary Loss Components:
+    Raw Summary loss: 63.779724
+    Raw distance loss: 0.014499
+    Weighted Summary: 63.779724
+    Weighted distance: 0.014499
+    Total loss: 63.794224
+    Summary/Distance ratio: 4399.042
+  Summary Loss Components:
+    Raw Summary loss: 102.360626
+    Raw distance loss: 0.016115
+    Weighted Summary: 102.360626
+    Weighted distance: 0.016115
+    Total loss: 102.376740
+    Summary/Distance ratio: 6351.720
+  Summary Loss Components:
+    Raw Summary loss: 6.593842
+    Raw distance loss: 0.015478
+    Weighted Summary: 6.593842
+    Weighted distance: 0.015478
+    Total loss: 6.609319
+    Summary/Distance ratio: 426.021
+  Summary Loss Components:
+    Raw Summary loss: 87.654541
+    Raw distance loss: 0.020238
+    Weighted Summary: 87.654541
+    Weighted distance: 0.020238
+    Total loss: 87.674782
+    Summary/Distance ratio: 4331.090
+  Summary Loss Components:
+    Raw Summary loss: 84.313385
+    Raw distance loss: 0.013968
+    Weighted Summary: 84.313385
+    Weighted distance: 0.013968
+    Total loss: 84.327354
+    Summary/Distance ratio: 6036.285
+  Summary Loss Components:
+    Raw Summary loss: 15.769165
+    Raw distance loss: 0.016777
+    Weighted Summary: 15.769165
+    Weighted distance: 0.016777
+    Total loss: 15.785942
+    Summary/Distance ratio: 939.946
+  Summary Loss Components:
+    Raw Summary loss: 55.642456
+    Raw distance loss: 0.013953
+    Weighted Summary: 55.642456
+    Weighted distance: 0.013953
+    Total loss: 55.656410
+    Summary/Distance ratio: 3987.947
+  Summary Loss Components:
+    Raw Summary loss: 123.195404
+    Raw distance loss: 0.022185
+    Weighted Summary: 123.195404
+    Weighted distance: 0.022185
+    Total loss: 123.217590
+    Summary/Distance ratio: 5552.988
+  Summary Loss Components:
+    Raw Summary loss: 4.270569
+    Raw distance loss: 0.013641
+    Weighted Summary: 4.270569
+    Weighted distance: 0.013641
+    Total loss: 4.284210
+    Summary/Distance ratio: 313.061
+  Summary Loss Components:
+    Raw Summary loss: 76.039581
+    Raw distance loss: 0.016586
+    Weighted Summary: 76.039581
+    Weighted distance: 0.016586
+    Total loss: 76.056168
+    Summary/Distance ratio: 4584.644
+  Summary Loss Components:
+    Raw Summary loss: 117.090088
+    Raw distance loss: 0.019914
+    Weighted Summary: 117.090088
+    Weighted distance: 0.019914
+    Total loss: 117.110001
+    Summary/Distance ratio: 5879.760
+  Summary Loss Components:
+    Raw Summary loss: 2.346069
+    Raw distance loss: 0.014105
+    Weighted Summary: 2.346069
+    Weighted distance: 0.014105
+    Total loss: 2.360175
+    Summary/Distance ratio: 166.324
+  Summary Loss Components:
+    Raw Summary loss: 57.597168
+    Raw distance loss: 0.014172
+    Weighted Summary: 57.597168
+    Weighted distance: 0.014172
+    Total loss: 57.611340
+    Summary/Distance ratio: 4064.034
+  Summary Loss Components:
+    Raw Summary loss: 113.812653
+    Raw distance loss: 0.018050
+    Weighted Summary: 113.812653
+    Weighted distance: 0.018050
+    Total loss: 113.830704
+    Summary/Distance ratio: 6305.536
+  Summary Loss Components:
+    Raw Summary loss: 2.394318
+    Raw distance loss: 0.013963
+    Weighted Summary: 2.394318
+    Weighted distance: 0.013963
+    Total loss: 2.408281
+    Summary/Distance ratio: 171.475
+  Summary Loss Components:
+    Raw Summary loss: 65.279358
+    Raw distance loss: 0.015098
+    Weighted Summary: 65.279358
+    Weighted distance: 0.015098
+    Total loss: 65.294456
+    Summary/Distance ratio: 4323.607
+  Summary Loss Components:
+    Raw Summary loss: 97.207062
+    Raw distance loss: 0.014622
+    Weighted Summary: 97.207062
+    Weighted distance: 0.014622
+    Total loss: 97.221680
+    Summary/Distance ratio: 6648.188
+  Summary Loss Components:
+    Raw Summary loss: 6.601379
+    Raw distance loss: 0.011846
+    Weighted Summary: 6.601379
+    Weighted distance: 0.011846
+    Total loss: 6.613225
+    Summary/Distance ratio: 557.262
+  Summary Loss Components:
+    Raw Summary loss: 55.881104
+    Raw distance loss: 0.013975
+    Weighted Summary: 55.881104
+    Weighted distance: 0.013975
+    Total loss: 55.895077
+    Summary/Distance ratio: 3998.752
+  Summary Loss Components:
+    Raw Summary loss: 91.188293
+    Raw distance loss: 0.013744
+    Weighted Summary: 91.188293
+    Weighted distance: 0.013744
+    Total loss: 91.202034
+    Summary/Distance ratio: 6634.615
+  Summary Loss Components:
+    Raw Summary loss: 5.884888
+    Raw distance loss: 0.014585
+    Weighted Summary: 5.884888
+    Weighted distance: 0.014585
+    Total loss: 5.899472
+    Summary/Distance ratio: 403.498
+  Summary Loss Components:
+    Raw Summary loss: 68.148224
+    Raw distance loss: 0.015306
+    Weighted Summary: 68.148224
+    Weighted distance: 0.015306
+    Total loss: 68.163528
+    Summary/Distance ratio: 4452.259
+  Summary Loss Components:
+    Raw Summary loss: 97.754364
+    Raw distance loss: 0.016414
+    Weighted Summary: 97.754364
+    Weighted distance: 0.016414
+    Total loss: 97.770775
+    Summary/Distance ratio: 5955.584
+  Summary Loss Components:
+    Raw Summary loss: 2.483398
+    Raw distance loss: 0.013762
+    Weighted Summary: 2.483398
+    Weighted distance: 0.013762
+    Total loss: 2.497160
+    Summary/Distance ratio: 180.457
+  Summary Loss Components:
+    Raw Summary loss: 53.390503
+    Raw distance loss: 0.013089
+    Weighted Summary: 53.390503
+    Weighted distance: 0.013089
+    Total loss: 53.403591
+    Summary/Distance ratio: 4078.925
+  Summary Loss Components:
+    Raw Summary loss: 126.641327
+    Raw distance loss: 0.022777
+    Weighted Summary: 126.641327
+    Weighted distance: 0.022777
+    Total loss: 126.664101
+    Summary/Distance ratio: 5560.052
+  Summary Loss Components:
+    Raw Summary loss: 4.197601
+    Raw distance loss: 0.015526
+    Weighted Summary: 4.197601
+    Weighted distance: 0.015526
+    Total loss: 4.213128
+    Summary/Distance ratio: 270.353
+  Summary Loss Components:
+    Raw Summary loss: 72.268646
+    Raw distance loss: 0.016534
+    Weighted Summary: 72.268646
+    Weighted distance: 0.016534
+    Total loss: 72.285179
+    Summary/Distance ratio: 4370.918
+  Summary Loss Components:
+    Raw Summary loss: 108.168488
+    Raw distance loss: 0.018062
+    Weighted Summary: 108.168488
+    Weighted distance: 0.018062
+    Total loss: 108.186546
+    Summary/Distance ratio: 5988.895
+  Summary Loss Components:
+    Raw Summary loss: 8.779816
+    Raw distance loss: 0.015312
+    Weighted Summary: 8.779816
+    Weighted distance: 0.015312
+    Total loss: 8.795127
+    Summary/Distance ratio: 573.411
+  Summary Loss Components:
+    Raw Summary loss: 68.123016
+    Raw distance loss: 0.015914
+    Weighted Summary: 68.123016
+    Weighted distance: 0.015914
+    Total loss: 68.138931
+    Summary/Distance ratio: 4280.713
+  Summary Loss Components:
+    Raw Summary loss: 117.491760
+    Raw distance loss: 0.020053
+    Weighted Summary: 117.491760
+    Weighted distance: 0.020053
+    Total loss: 117.511810
+    Summary/Distance ratio: 5859.109
+  Summary Loss Components:
+    Raw Summary loss: 23.083191
+    Raw distance loss: 0.017701
+    Weighted Summary: 23.083191
+    Weighted distance: 0.017701
+    Total loss: 23.100893
+    Summary/Distance ratio: 1304.028
+  Summary Loss Components:
+    Raw Summary loss: 64.237366
+    Raw distance loss: 0.014285
+    Weighted Summary: 64.237366
+    Weighted distance: 0.014285
+    Total loss: 64.251648
+    Summary/Distance ratio: 4496.900
+  Summary Loss Components:
+    Raw Summary loss: 121.430511
+    Raw distance loss: 0.022844
+    Weighted Summary: 121.430511
+    Weighted distance: 0.022844
+    Total loss: 121.453354
+    Summary/Distance ratio: 5315.611
+  Summary Loss Components:
+    Raw Summary loss: 16.452393
+    Raw distance loss: 0.015694
+    Weighted Summary: 16.452393
+    Weighted distance: 0.015694
+    Total loss: 16.468086
+    Summary/Distance ratio: 1048.315
+  Summary Loss Components:
+    Raw Summary loss: 81.523834
+    Raw distance loss: 0.019640
+    Weighted Summary: 81.523834
+    Weighted distance: 0.019640
+    Total loss: 81.543472
+    Summary/Distance ratio: 4150.865
+  Summary Loss Components:
+    Raw Summary loss: 113.174530
+    Raw distance loss: 0.017420
+    Weighted Summary: 113.174530
+    Weighted distance: 0.017420
+    Total loss: 113.191948
+    Summary/Distance ratio: 6496.927
+  Summary Loss Components:
+    Raw Summary loss: 1.809692
+    Raw distance loss: 0.012639
+    Weighted Summary: 1.809692
+    Weighted distance: 0.012639
+    Total loss: 1.822331
+    Summary/Distance ratio: 143.183
+  Summary Loss Components:
+    Raw Summary loss: 44.539764
+    Raw distance loss: 0.012680
+    Weighted Summary: 44.539764
+    Weighted distance: 0.012680
+    Total loss: 44.552444
+    Summary/Distance ratio: 3512.670
+  Summary Loss Components:
+    Raw Summary loss: 98.194336
+    Raw distance loss: 0.014843
+    Weighted Summary: 98.194336
+    Weighted distance: 0.014843
+    Total loss: 98.209183
+    Summary/Distance ratio: 6615.435
+  Summary Loss Components:
+    Raw Summary loss: 4.904419
+    Raw distance loss: 0.012963
+    Weighted Summary: 4.904419
+    Weighted distance: 0.012963
+    Total loss: 4.917382
+    Summary/Distance ratio: 378.347
+  Summary Loss Components:
+    Raw Summary loss: 47.312073
+    Raw distance loss: 0.012392
+    Weighted Summary: 47.312073
+    Weighted distance: 0.012392
+    Total loss: 47.324463
+    Summary/Distance ratio: 3818.048
+  Summary Loss Components:
+    Raw Summary loss: 93.232513
+    Raw distance loss: 0.014968
+    Weighted Summary: 93.232513
+    Weighted distance: 0.014968
+    Total loss: 93.247482
+    Summary/Distance ratio: 6228.579
+  Summary Loss Components:
+    Raw Summary loss: 0.215118
+    Raw distance loss: 0.013797
+    Weighted Summary: 0.215118
+    Weighted distance: 0.013797
+    Total loss: 0.228915
+    Summary/Distance ratio: 15.592
+  Summary Loss Components:
+    Raw Summary loss: 68.173737
+    Raw distance loss: 0.015298
+    Weighted Summary: 68.173737
+    Weighted distance: 0.015298
+    Total loss: 68.189034
+    Summary/Distance ratio: 4456.439
+  Summary Loss Components:
+    Raw Summary loss: 88.595825
+    Raw distance loss: 0.013615
+    Weighted Summary: 88.595825
+    Weighted distance: 0.013615
+    Total loss: 88.609444
+    Summary/Distance ratio: 6507.059
+  Summary Loss Components:
+    Raw Summary loss: 10.659393
+    Raw distance loss: 0.011843
+    Weighted Summary: 10.659393
+    Weighted distance: 0.011843
+    Total loss: 10.671237
+    Summary/Distance ratio: 900.035
+  Summary Loss Components:
+    Raw Summary loss: 71.642426
+    Raw distance loss: 0.016648
+    Weighted Summary: 71.642426
+    Weighted distance: 0.016648
+    Total loss: 71.659073
+    Summary/Distance ratio: 4303.290
+  Summary Loss Components:
+    Raw Summary loss: 125.488586
+    Raw distance loss: 0.020477
+    Weighted Summary: 125.488586
+    Weighted distance: 0.020477
+    Total loss: 125.509064
+    Summary/Distance ratio: 6128.176
+  Summary Loss Components:
+    Raw Summary loss: 25.607910
+    Raw distance loss: 0.019755
+    Weighted Summary: 25.607910
+    Weighted distance: 0.019755
+    Total loss: 25.627665
+    Summary/Distance ratio: 1296.304
+  Summary Loss Components:
+    Raw Summary loss: 77.984344
+    Raw distance loss: 0.018535
+    Weighted Summary: 77.984344
+    Weighted distance: 0.018535
+    Total loss: 78.002876
+    Summary/Distance ratio: 4207.345
+  Summary Loss Components:
+    Raw Summary loss: 108.684875
+    Raw distance loss: 0.018174
+    Weighted Summary: 108.684875
+    Weighted distance: 0.018174
+    Total loss: 108.703049
+    Summary/Distance ratio: 5980.246
+  Summary Loss Components:
+    Raw Summary loss: 35.604370
+    Raw distance loss: 0.022251
+    Weighted Summary: 35.604370
+    Weighted distance: 0.022251
+    Total loss: 35.626621
+    Summary/Distance ratio: 1600.133
+  Summary Loss Components:
+    Raw Summary loss: 77.373779
+    Raw distance loss: 0.018003
+    Weighted Summary: 77.373779
+    Weighted distance: 0.018003
+    Total loss: 77.391785
+    Summary/Distance ratio: 4297.939
+  Summary Loss Components:
+    Raw Summary loss: 123.960327
+    Raw distance loss: 0.022399
+    Weighted Summary: 123.960327
+    Weighted distance: 0.022399
+    Total loss: 123.982727
+    Summary/Distance ratio: 5534.148
+  Summary Loss Components:
+    Raw Summary loss: 16.456848
+    Raw distance loss: 0.015864
+    Weighted Summary: 16.456848
+    Weighted distance: 0.015864
+    Total loss: 16.472712
+    Summary/Distance ratio: 1037.350
+  Summary Loss Components:
+    Raw Summary loss: 48.238525
+    Raw distance loss: 0.012766
+    Weighted Summary: 48.238525
+    Weighted distance: 0.012766
+    Total loss: 48.251289
+    Summary/Distance ratio: 3778.722
+  Summary Loss Components:
+    Raw Summary loss: 119.106750
+    Raw distance loss: 0.019541
+    Weighted Summary: 119.106750
+    Weighted distance: 0.019541
+    Total loss: 119.126289
+    Summary/Distance ratio: 6095.109
+  Summary Loss Components:
+    Raw Summary loss: 1.263794
+    Raw distance loss: 0.012976
+    Weighted Summary: 1.263794
+    Weighted distance: 0.012976
+    Total loss: 1.276770
+    Summary/Distance ratio: 97.398
+  Summary Loss Components:
+    Raw Summary loss: 52.319489
+    Raw distance loss: 0.013042
+    Weighted Summary: 52.319489
+    Weighted distance: 0.013042
+    Total loss: 52.332531
+    Summary/Distance ratio: 4011.634
+  Summary Loss Components:
+    Raw Summary loss: 104.938354
+    Raw distance loss: 0.018058
+    Weighted Summary: 104.938354
+    Weighted distance: 0.018058
+    Total loss: 104.956413
+    Summary/Distance ratio: 5811.305
+  Summary Loss Components:
+    Raw Summary loss: 7.724640
+    Raw distance loss: 0.012856
+    Weighted Summary: 7.724640
+    Weighted distance: 0.012856
+    Total loss: 7.737495
+    Summary/Distance ratio: 600.873
+  Summary Loss Components:
+    Raw Summary loss: 47.459442
+    Raw distance loss: 0.012076
+    Weighted Summary: 47.459442
+    Weighted distance: 0.012076
+    Total loss: 47.471519
+    Summary/Distance ratio: 3930.061
+  Summary Loss Components:
+    Raw Summary loss: 79.459412
+    Raw distance loss: 0.012020
+    Weighted Summary: 79.459412
+    Weighted distance: 0.012020
+    Total loss: 79.471428
+    Summary/Distance ratio: 6610.569
+  Summary Loss Components:
+    Raw Summary loss: 3.998779
+    Raw distance loss: 0.013606
+    Weighted Summary: 3.998779
+    Weighted distance: 0.013606
+    Total loss: 4.012385
+    Summary/Distance ratio: 293.901
+  Summary Loss Components:
+    Raw Summary loss: 55.390411
+    Raw distance loss: 0.013811
+    Weighted Summary: 55.390411
+    Weighted distance: 0.013811
+    Total loss: 55.404224
+    Summary/Distance ratio: 4010.538
+  Summary Loss Components:
+    Raw Summary loss: 89.811676
+    Raw distance loss: 0.014930
+    Weighted Summary: 89.811676
+    Weighted distance: 0.014930
+    Total loss: 89.826607
+    Summary/Distance ratio: 6015.709
+Batch 175/182: Loss=54.1903 (C:9.4211, R:0.0444, T:49.7477(w:1.000)⚠️)
+  Summary Loss Components:
+    Raw Summary loss: 15.621033
+    Raw distance loss: 0.016007
+    Weighted Summary: 15.621033
+    Weighted distance: 0.016007
+    Total loss: 15.637039
+    Summary/Distance ratio: 975.907
+  Summary Loss Components:
+    Raw Summary loss: 81.151611
+    Raw distance loss: 0.018060
+    Weighted Summary: 81.151611
+    Weighted distance: 0.018060
+    Total loss: 81.169670
+    Summary/Distance ratio: 4493.544
+  Summary Loss Components:
+    Raw Summary loss: 89.225555
+    Raw distance loss: 0.013651
+    Weighted Summary: 89.225555
+    Weighted distance: 0.013651
+    Total loss: 89.239204
+    Summary/Distance ratio: 6536.198
+  Summary Loss Components:
+    Raw Summary loss: 31.419281
+    Raw distance loss: 0.021946
+    Weighted Summary: 31.419281
+    Weighted distance: 0.021946
+    Total loss: 31.441227
+    Summary/Distance ratio: 1431.685
+  Summary Loss Components:
+    Raw Summary loss: 85.848694
+    Raw distance loss: 0.020186
+    Weighted Summary: 85.848694
+    Weighted distance: 0.020186
+    Total loss: 85.868881
+    Summary/Distance ratio: 4252.865
+  Summary Loss Components:
+    Raw Summary loss: 114.939453
+    Raw distance loss: 0.019516
+    Weighted Summary: 114.939453
+    Weighted distance: 0.019516
+    Total loss: 114.958969
+    Summary/Distance ratio: 5889.466
+  Summary Loss Components:
+    Raw Summary loss: 0.498352
+    Raw distance loss: 0.014219
+    Weighted Summary: 0.498352
+    Weighted distance: 0.014219
+    Total loss: 0.512571
+    Summary/Distance ratio: 35.047
+  Summary Loss Components:
+    Raw Summary loss: 73.357422
+    Raw distance loss: 0.018435
+    Weighted Summary: 73.357422
+    Weighted distance: 0.018435
+    Total loss: 73.375854
+    Summary/Distance ratio: 3979.240
+  Summary Loss Components:
+    Raw Summary loss: 129.439819
+    Raw distance loss: 0.022422
+    Weighted Summary: 129.439819
+    Weighted distance: 0.022422
+    Total loss: 129.462234
+    Summary/Distance ratio: 5772.982
+  Summary Loss Components:
+    Raw Summary loss: 6.446014
+    Raw distance loss: 0.015996
+    Weighted Summary: 6.446014
+    Weighted distance: 0.015996
+    Total loss: 6.462010
+    Summary/Distance ratio: 402.987
+  Summary Loss Components:
+    Raw Summary loss: 69.715240
+    Raw distance loss: 0.016842
+    Weighted Summary: 69.715240
+    Weighted distance: 0.016842
+    Total loss: 69.732079
+    Summary/Distance ratio: 4139.462
+  Summary Loss Components:
+    Raw Summary loss: 126.333435
+    Raw distance loss: 0.022499
+    Weighted Summary: 126.333435
+    Weighted distance: 0.022499
+    Total loss: 126.355934
+    Summary/Distance ratio: 5615.136
+  Summary Loss Components:
+    Raw Summary loss: 2.652649
+    Raw distance loss: 0.014453
+    Weighted Summary: 2.652649
+    Weighted distance: 0.014453
+    Total loss: 2.667101
+    Summary/Distance ratio: 183.542
+  Summary Loss Components:
+    Raw Summary loss: 70.223297
+    Raw distance loss: 0.015915
+    Weighted Summary: 70.223297
+    Weighted distance: 0.015915
+    Total loss: 70.239212
+    Summary/Distance ratio: 4412.284
+  Summary Loss Components:
+    Raw Summary loss: 107.270264
+    Raw distance loss: 0.017807
+    Weighted Summary: 107.270264
+    Weighted distance: 0.017807
+    Total loss: 107.288071
+    Summary/Distance ratio: 6024.045
+  Summary Loss Components:
+    Raw Summary loss: 1.379761
+    Raw distance loss: 0.013914
+    Weighted Summary: 1.379761
+    Weighted distance: 0.013914
+    Total loss: 1.393675
+    Summary/Distance ratio: 99.162
+  Summary Loss Components:
+    Raw Summary loss: 52.649170
+    Raw distance loss: 0.013339
+    Weighted Summary: 52.649170
+    Weighted distance: 0.013339
+    Total loss: 52.662510
+    Summary/Distance ratio: 3947.127
+  Summary Loss Components:
+    Raw Summary loss: 110.088074
+    Raw distance loss: 0.017086
+    Weighted Summary: 110.088074
+    Weighted distance: 0.017086
+    Total loss: 110.105156
+    Summary/Distance ratio: 6443.235
+🎉 MILESTONE: First topological learning detected at epoch 1!
+   Initial topological loss: 78.8838
+📈 New best topological loss: 78.8838
+
+📊 EPOCH 1 TRAINING SUMMARY:
+  Total Loss: 93.1089
+  Contrastive: 9.2208
+  Reconstruction: 0.1423
+  Topological: 78.8838 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+  Summary Loss Components:
+    Raw Summary loss: 335.192566
+    Raw distance loss: 0.405756
+    Weighted Summary: 335.192566
+    Weighted distance: 0.405756
+    Total loss: 335.598328
+    Summary/Distance ratio: 826.093
+  Summary Loss Components:
+    Raw Summary loss: 407.130646
+    Raw distance loss: 0.401916
+    Weighted Summary: 407.130646
+    Weighted distance: 0.401916
+    Total loss: 407.532562
+    Summary/Distance ratio: 1012.975
+  Summary Loss Components:
+    Raw Summary loss: 441.479248
+    Raw distance loss: 0.401961
+    Weighted Summary: 441.479248
+    Weighted distance: 0.401961
+    Total loss: 441.881195
+    Summary/Distance ratio: 1098.314
+  Summary Loss Components:
+    Raw Summary loss: 335.098175
+    Raw distance loss: 0.396023
+    Weighted Summary: 335.098175
+    Weighted distance: 0.396023
+    Total loss: 335.494202
+    Summary/Distance ratio: 846.158
+  Summary Loss Components:
+    Raw Summary loss: 395.126617
+    Raw distance loss: 0.399127
+    Weighted Summary: 395.126617
+    Weighted distance: 0.399127
+    Total loss: 395.525757
+    Summary/Distance ratio: 989.976
+  Summary Loss Components:
+    Raw Summary loss: 440.537018
+    Raw distance loss: 0.427951
+    Weighted Summary: 440.537018
+    Weighted distance: 0.427951
+    Total loss: 440.964966
+    Summary/Distance ratio: 1029.411
+  Summary Loss Components:
+    Raw Summary loss: 346.827240
+    Raw distance loss: 0.433208
+    Weighted Summary: 346.827240
+    Weighted distance: 0.433208
+    Total loss: 347.260437
+    Summary/Distance ratio: 800.601
+  Summary Loss Components:
+    Raw Summary loss: 398.693268
+    Raw distance loss: 0.407484
+    Weighted Summary: 398.693268
+    Weighted distance: 0.407484
+    Total loss: 399.100739
+    Summary/Distance ratio: 978.427
+  Summary Loss Components:
+    Raw Summary loss: 440.719910
+    Raw distance loss: 0.432289
+    Weighted Summary: 440.719910
+    Weighted distance: 0.432289
+    Total loss: 441.152191
+    Summary/Distance ratio: 1019.504
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 398.7826
+  Contrastive: 8.2353
+  Reconstruction: 0.0495
+  Topological: 393.8345 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 1/100 COMPLETE (1701.2s)
+Train Loss: 93.1089 (C:9.2208, R:0.1423, T:78.8838)
+Val Loss:   398.7826 (C:8.2353, R:0.0495, T:393.8345)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 2 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=58.0131 (C:9.3117, R:0.0427, T:53.7406(w:1.000)⚠️)
+Batch  25/182: Loss=61.8105 (C:9.2558, R:0.0340, T:58.4131(w:1.000)⚠️)
+Batch  50/182: Loss=58.2605 (C:9.5127, R:0.0281, T:55.4471(w:1.000)⚠️)
+Batch  75/182: Loss=52.6312 (C:9.2752, R:0.0248, T:50.1504(w:1.000)⚠️)
+Batch 100/182: Loss=51.4997 (C:9.2275, R:0.0212, T:49.3780(w:1.000)⚠️)
+Batch 125/182: Loss=57.2381 (C:9.0478, R:0.0182, T:55.4216(w:1.000)⚠️)
+Batch 150/182: Loss=55.2626 (C:9.3882, R:0.0170, T:53.5660(w:1.000)⚠️)
+Batch 175/182: Loss=49.2464 (C:9.0876, R:0.0152, T:47.7253(w:1.000)⚠️)
+📈 New best topological loss: 54.1543
+
+📊 EPOCH 2 TRAINING SUMMARY:
+  Total Loss: 56.5628
+  Contrastive: 9.2300
+  Reconstruction: 0.0241
+  Topological: 54.1543 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 392.8336
+  Contrastive: 8.1559
+  Reconstruction: 0.0220
+  Topological: 390.6349 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 2/100 COMPLETE (1768.6s)
+Train Loss: 56.5628 (C:9.2300, R:0.0241, T:54.1543)
+Val Loss:   392.8336 (C:8.1559, R:0.0220, T:390.6349)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 3 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=46.8485 (C:9.4006, R:0.0155, T:45.2949(w:1.000)⚠️)
+Batch  25/182: Loss=53.8991 (C:9.0471, R:0.0137, T:52.5267(w:1.000)⚠️)
+Batch  50/182: Loss=57.1673 (C:9.0347, R:0.0139, T:55.7812(w:1.000)⚠️)
+Batch  75/182: Loss=52.5042 (C:9.3947, R:0.0126, T:51.2469(w:1.000)⚠️)
+Batch 100/182: Loss=64.8868 (C:8.9630, R:0.0123, T:63.6561(w:1.000)⚠️)
+Batch 125/182: Loss=43.0636 (C:9.2032, R:0.0118, T:41.8855(w:1.000)⚠️)
+Batch 150/182: Loss=46.3491 (C:9.4339, R:0.0116, T:45.1931(w:1.000)⚠️)
+Batch 175/182: Loss=53.5601 (C:9.0076, R:0.0109, T:52.4726(w:1.000)⚠️)
+📈 New best topological loss: 53.5161
+
+📊 EPOCH 3 TRAINING SUMMARY:
+  Total Loss: 54.7797
+  Contrastive: 9.1137
+  Reconstruction: 0.0126
+  Topological: 53.5161 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 393.7586
+  Contrastive: 8.2834
+  Reconstruction: 0.0101
+  Topological: 392.7528 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 3/100 COMPLETE (1556.4s)
+Train Loss: 54.7797 (C:9.1137, R:0.0126, T:53.5161)
+Val Loss:   393.7586 (C:8.2834, R:0.0101, T:392.7528)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 4 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=51.7634 (C:8.9719, R:0.0108, T:50.6867(w:1.000)⚠️)
+Batch  25/182: Loss=51.0224 (C:9.3799, R:0.0106, T:49.9596(w:1.000)⚠️)
+Batch  50/182: Loss=46.0249 (C:9.1088, R:0.0105, T:44.9797(w:1.000)⚠️)
+Batch  75/182: Loss=41.7072 (C:9.1996, R:0.0102, T:40.6831(w:1.000)⚠️)
+Batch 100/182: Loss=40.9246 (C:9.2618, R:0.0102, T:39.9042(w:1.000)⚠️)
+Batch 125/182: Loss=58.6206 (C:9.0296, R:0.0101, T:57.6109(w:1.000)⚠️)
+Batch 150/182: Loss=50.9246 (C:8.9804, R:0.0101, T:49.9152(w:1.000)⚠️)
+Batch 175/182: Loss=48.3481 (C:9.0103, R:0.0099, T:47.3534(w:1.000)⚠️)
+📈 New best topological loss: 50.9976
+
+📊 EPOCH 4 TRAINING SUMMARY:
+  Total Loss: 52.0265
+  Contrastive: 9.1387
+  Reconstruction: 0.0103
+  Topological: 50.9976 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 395.1207
+  Contrastive: 8.2329
+  Reconstruction: 0.0099
+  Topological: 394.1288 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 4/100 COMPLETE (1580.5s)
+Train Loss: 52.0265 (C:9.1387, R:0.0103, T:50.9976)
+Val Loss:   395.1207 (C:8.2329, R:0.0099, T:394.1288)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 5 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=55.5987 (C:9.2011, R:0.0099, T:54.6046(w:1.000)⚠️)
+Batch  25/182: Loss=46.1623 (C:9.2602, R:0.0100, T:45.1601(w:1.000)⚠️)
+Batch  50/182: Loss=46.6767 (C:9.1613, R:0.0099, T:45.6852(w:1.000)⚠️)
+Batch  75/182: Loss=64.2428 (C:8.9032, R:0.0099, T:63.2510(w:1.000)⚠️)
+Batch 100/182: Loss=60.9152 (C:9.0501, R:0.0099, T:59.9295(w:1.000)⚠️)
+Batch 125/182: Loss=49.3816 (C:9.2064, R:0.0099, T:48.3875(w:1.000)⚠️)
+Batch 150/182: Loss=44.7840 (C:9.1718, R:0.0099, T:43.7927(w:1.000)⚠️)
+Batch 175/182: Loss=44.4021 (C:9.3173, R:0.0098, T:43.4181(w:1.000)⚠️)
+📈 New best topological loss: 50.7423
+
+📊 EPOCH 5 TRAINING SUMMARY:
+  Total Loss: 51.7316
+  Contrastive: 9.1592
+  Reconstruction: 0.0099
+  Topological: 50.7423 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 393.3881
+  Contrastive: 8.2048
+  Reconstruction: 0.0096
+  Topological: 392.4265 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 5/100 COMPLETE (1592.2s)
+Train Loss: 51.7316 (C:9.1592, R:0.0099, T:50.7423)
+Val Loss:   393.3881 (C:8.2048, R:0.0096, T:392.4265)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 6 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=45.5788 (C:9.1378, R:0.0098, T:44.5951(w:1.000)⚠️)
+Batch  25/182: Loss=47.5349 (C:9.0750, R:0.0098, T:46.5500(w:1.000)⚠️)
+Batch  50/182: Loss=41.4785 (C:9.1837, R:0.0099, T:40.4927(w:1.000)⚠️)
+Batch  75/182: Loss=51.6850 (C:9.1346, R:0.0099, T:50.6990(w:1.000)⚠️)
+Batch 100/182: Loss=36.6344 (C:9.3255, R:0.0098, T:35.6557(w:1.000)⚠️)
+Batch 125/182: Loss=50.4805 (C:9.1830, R:0.0097, T:49.5085(w:1.000)⚠️)
+Batch 150/182: Loss=43.3054 (C:9.1815, R:0.0098, T:42.3282(w:1.000)⚠️)

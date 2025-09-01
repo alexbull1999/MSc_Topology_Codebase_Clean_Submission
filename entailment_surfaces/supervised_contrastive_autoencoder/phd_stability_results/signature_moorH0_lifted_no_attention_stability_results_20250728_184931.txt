@@ -1,0 +1,121 @@
+{
+  "timestamp": "20250728_184931",
+  "test_config": {
+    "n_runs": 10,
+    "min_points": 200,
+    "max_points": 1000,
+    "point_jump": 50,
+    "seed_base": 42,
+    "note": "Each run uses different random sample of latent embeddings"
+  },
+  "results": {
+    "model_name": "signature_moorH0_lifted_no_attention",
+    "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/signature_moor_lifted_autoencoder_no_attention_20250728_143530/checkpoints/best_model.pt",
+    "n_runs": 10,
+    "class_results": {
+      "entailment": {
+        "mean": 4.398174446056186,
+        "std": 0.12007346969257654,
+        "min": 4.208423743323698,
+        "max": 4.611482925341218,
+        "range": 0.40305918201752,
+        "cv": 0.027300751974548357,
+        "valid_runs": 10,
+        "all_values": [
+          4.295813310040837,
+          4.264032419598784,
+          4.611482925341218,
+          4.521571027505507,
+          4.442057268141854,
+          4.3090808361174044,
+          4.449243547354208,
+          4.401299752788561,
+          4.208423743323698,
+          4.478739630349775
+        ],
+        "stability": "EXCELLENT"
+      },
+      "neutral": {
+        "mean": 4.812453317850542,
+        "std": 0.15570654449202295,
+        "min": 4.5555009009944465,
+        "max": 5.157264173762557,
+        "range": 0.6017632727681104,
+        "cv": 0.03235492049646904,
+        "valid_runs": 10,
+        "all_values": [
+          4.866069378088469,
+          4.880559649155738,
+          4.5555009009944465,
+          4.878012523925811,
+          4.732320645914154,
+          4.7451387616215825,
+          5.157264173762557,
+          4.88227380483769,
+          4.641648424568566,
+          4.785744915636403
+        ],
+        "stability": "EXCELLENT"
+      },
+      "contradiction": {
+        "mean": 5.278505406369108,
+        "std": 0.24534712233378794,
+        "min": 4.886437853630011,
+        "max": 5.712687946053661,
+        "range": 0.82625009242365,
+        "cv": 0.04648041508828411,
+        "valid_runs": 10,
+        "all_values": [
+          5.258474173556177,
+          5.618707388254289,
+          5.712687946053661,
+          5.295528480480113,
+          5.385032097443984,
+          5.22037676698601,
+          4.951985327350172,
+          5.319647007585289,
+          5.136177022351376,
+          4.886437853630011
+        ],
+        "stability": "EXCELLENT"
+      }
+    }
+  }
+}
+
+
+  ENTAILMENT STABILITY ANALYSIS:
+    Mean: 4.3982 ± 0.1201
+    Range: [4.2084, 4.6115]
+    Coefficient of Variation: 0.0273
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  NEUTRAL STABILITY ANALYSIS:
+    Mean: 4.8125 ± 0.1557
+    Range: [4.5555, 5.1573]
+    Coefficient of Variation: 0.0324
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  CONTRADICTION STABILITY ANALYSIS:
+    Mean: 5.2785 ± 0.2453
+    Range: [4.8864, 5.7127]
+    Coefficient of Variation: 0.0465
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+Results saved to: entailment_surfaces/supervised_contrastive_autoencoder/phd_stability_results/signature_moorH0_lifted_no_attention_stability_results_20250728_184931.json
+
+================================================================================
+PH DIMENSION STABILITY SUMMARY
+================================================================================
+
+Model: signature_moorH0_lifted_no_attention
+--------------------------------------------------
+  entailment: 4.398 ± 0.120 (CV: 0.027, EXCELLENT)
+  neutral: 4.812 ± 0.156 (CV: 0.032, EXCELLENT)
+  contradiction: 5.279 ± 0.245 (CV: 0.046, EXCELLENT)
+
+
+  

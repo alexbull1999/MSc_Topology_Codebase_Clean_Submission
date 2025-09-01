@@ -1,0 +1,54 @@
+3000 input (train) samples, 1000x per class
+
+SBERT Baseline Used:
+baseline_features = torch.cat([
+                        premise_mean,                                          # Premise representation [768]
+                        hypothesis_mean,                                       # Hypothesis representation [768]
+                        premise_mean - hypothesis_mean,                        # Difference [768]
+                        premise_mean * hypothesis_mean,                        # Element-wise product [768]
+                    ]).numpy()  # Total: 3072 features
+
+
+
+Hybrid feature dimensions:
+  Topological: 21 features
+  SBERT: 3072 features
+  Total: 3093 features
+
+============================================================
+HYBRID CLASSIFICATION RESULTS
+============================================================
+
+Training Random Forest on hybrid features...
+Random Forest Hybrid Validation Accuracy: 0.682
+
+Training SVM on hybrid features...
+SVM Hybrid Validation Accuracy: 0.719
+
+Training Logistic Regression on hybrid features...
+Logistic Regression Hybrid Validation Accuracy: 0.649
+
+Training PyTorch Neural Network on hybrid features...
+Epoch 0: Train Loss 0.7995, Val Loss 0.7160, Val Acc 0.6795
+Epoch 20: Train Loss 0.0238, Val Loss 1.1626, Val Acc 0.6907
+Epoch 40: Train Loss 0.0210, Val Loss 1.1876, Val Acc 0.6930
+Epoch 60: Train Loss 0.0145, Val Loss 1.2087, Val Acc 0.6874
+Epoch 80: Train Loss 0.0194, Val Loss 1.2094, Val Acc 0.6919
+PyTorch NN Hybrid Validation Accuracy: 0.700
+
+================================================================================
+COMPREHENSIVE COMPARISON
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.700      21        
+SBERT Baseline            SVM             0.694      3072      
+Hybrid (Top-{top_k_features}) SVM             0.719      3093      
+
+Hybrid Improvements:
+  vs Topological: +0.019 (+2.7%)
+  vs SBERT: +0.025 (+3.6%)
+🚀 GREAT: Hybrid approach improves over both baselines!
+
+
+Note -- Look at Validation Loss in NN; overfitted -- 3,093 features is quite high-dimensional, and NNs need more data as dimensions increase, probs not enough.

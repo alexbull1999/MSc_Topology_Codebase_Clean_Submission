@@ -1,0 +1,155 @@
+Starting hyperbolic projection job...
+Job ID: 175776
+Node: gpuvm01
+Time: Wed 18 Jun 14:24:33 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jun 18 14:24:34 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.120                Driver Version: 550.120        CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:01:00.0 Off |                    0 |
+| N/A   29C    P0             27W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing required packages...
+PyTorch version: 2.4.1
+Geoopt version: 0.5.0
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.2 GB
+All packages loaded successfully!
+
+Checking for required input files...
+All required files found!
+
+Starting hyperbolic projection analysis...
+Analysis parameters:
+  - Input: SNLI 10k subset
+  - Order model: Pre-trained order embeddings
+  - Hyperbolic dimension: 30D
+  - Target space: Poincaré ball
+
+Loaded order model (val_loss: 0.6916)
+Pipeline initialized: 50D → 30D hyperbolic
+Running on: cuda
+Testing on batch: 9990 examples
+
+DEBUG: First 5 examples:
+Example 0 (neutral):
+  Premise norm: 0.3530
+  Hypothesis norm: 0.0885
+  Order energy: 0.0003
+
+Example 1 (neutral):
+  Premise norm: 0.1148
+  Hypothesis norm: 0.1972
+  Order energy: 1.4069
+
+Example 2 (entailment):
+  Premise norm: 0.2432
+  Hypothesis norm: 0.1776
+  Order energy: 0.6228
+
+Example 3 (entailment):
+  Premise norm: 0.2023
+  Hypothesis norm: 0.1789
+  Order energy: 0.3305
+
+Example 4 (contradiction):
+  Premise norm: 0.2091
+  Hypothesis norm: 0.2264
+  Order energy: 1.1914
+
+Hyperbolic Projection Results:
+------------------------------------------------------------
+
+NEUTRAL:
+  Hyperbolic Distance:  0.1687 ± 0.0636
+  Order Energy:         0.9733 ± 1.0441
+  Premise Norm:         0.1830 ± 0.0762
+  Hypothesis Norm:      0.1930 ± 0.0795
+
+ENTAILMENT:
+  Hyperbolic Distance:  0.1375 ± 0.0638
+  Order Energy:         0.1406 ± 0.2733
+  Premise Norm:         0.1849 ± 0.0773
+  Hypothesis Norm:      0.1051 ± 0.0696
+
+CONTRADICTION:
+  Hyperbolic Distance:  0.1695 ± 0.0638
+  Order Energy:         0.9177 ± 1.0359
+  Premise Norm:         0.1839 ± 0.0765
+  Hypothesis Norm:      0.1838 ± 0.0779
+Validation Checks:
+All points inside unit ball (max norm: 0.5153)
+Order energy hierarchy changed after hyperbolic projection
+Hyperbolic distance range: 0.0000 - 0.4413
+Hyperbolic visualization saved to plots/
+
+Hyperbolic projection completed with exit code: 0
+Time: Wed 18 Jun 14:24:46 BST 2025
+
+Files created in plots/:
+-rw-r--r-- 1 ahb24 mcs  546301 Jun 17 16:42 plots/hyperbolic_projection_analysis_large.png
+-rw-r--r-- 1 ahb24 mcs  546385 Jun 17 16:42 plots/hyperbolic_projection_analysis_small.png
+-rw-r--r-- 1 ahb24 mcs 1026788 Jun 18 14:24 plots/hyperbolic_projection_analysis_snli_10k.png
+-rw-r--r-- 1 ahb24 mcs  770151 Jun 17 16:42 plots/hyperbolic_projection_analysis_SNLI_1k.png
+
+Current directory contents:
+Models:
+total 332
+drwxr-xr-x  2 ahb24 mcs     50 Jun 18 12:18 .
+drwxr-xr-x 14 ahb24 mcs   4096 Jun 18 14:08 ..
+-rw-r--r--  1 ahb24 mcs 333472 Jun 18 12:18 order_embeddings_snli_10k.pt
+Plots:
+total 3892
+drwxr-xr-x  4 ahb24 mcs    4096 Jun 18 14:19 .
+drwxr-xr-x 14 ahb24 mcs    4096 Jun 18 14:08 ..
+drwxr-xr-x  2 ahb24 mcs     142 Jun 17 16:42 cone_visualizations
+-rw-r--r--  1 ahb24 mcs  546301 Jun 17 16:42 hyperbolic_projection_analysis_large.png
+-rw-r--r--  1 ahb24 mcs  546385 Jun 17 16:42 hyperbolic_projection_analysis_small.png
+-rw-r--r--  1 ahb24 mcs 1026788 Jun 18 14:24 hyperbolic_projection_analysis_snli_10k.png
+-rw-r--r--  1 ahb24 mcs  770151 Jun 17 16:42 hyperbolic_projection_analysis_SNLI_1k.png
+-rw-r--r--  1 ahb24 mcs  218635 Jun 17 16:42 order_embedding_training_large.png
+-rw-r--r--  1 ahb24 mcs  239648 Jun 17 16:42 order_embedding_training_small.png
+-rw-r--r--  1 ahb24 mcs  296186 Jun 18 12:18 order_embedding_training_snli_10k.png
+-rw-r--r--  1 ahb24 mcs  307996 Jun 17 16:42 order_embedding_training_SNLI_1k.png
+drwxr-xr-x  2 ahb24 mcs    4096 Jun 17 16:42 real_data_cone_visualizations
+
+=== HYPERBOLIC PROJECTION SUCCESSFUL ===
+The hyperbolic projection has been completed successfully.
+
+Key validation checks performed:
+  ✓ All points projected inside Poincaré ball unit sphere
+  ✓ Order energy hierarchy preservation verified
+  ✓ Hyperbolic distance statistics computed
+  ✓ Visualizations generated
+
+Generated outputs:
+  - Hyperbolic projection analysis plots
+  - Statistical validation of geometric properties
+  - Distance and energy distribution analysis
+
+Next steps:
+  1. Review the generated plots for geometric validation
+  2. Proceed to TDA cone analysis
+  3. Apply persistent homology to hyperbolic structures
+
+Job finished.

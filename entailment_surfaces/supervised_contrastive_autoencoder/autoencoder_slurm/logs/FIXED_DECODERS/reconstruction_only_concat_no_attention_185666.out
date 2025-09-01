@@ -1,0 +1,1386 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 185666
+Node: gpuvm13
+Time: Thu 24 Jul 12:38:06 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 24 12:38:09 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   34C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting AutoEncoder Pipeline...
+
+GLOBAL DATASET CONTRASTIVE AUTOENCODER PIPELINE
+============================================================
+Start time: 2025-07-24 12:38:15.522215
+Using device: cuda
+
+Configuration:
+  Embedding type: concat
+  Batch size: 1020
+  Global update frequency: 3 epochs
+  Training epochs: 200
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 340
+  Effective batch size: 1020
+  Number of batches: 537
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 340
+  Effective batch size: 1020
+  Number of batches: 9
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 1020
+  Balanced sampling: True
+  Train batches: 537
+  Val batches: 9
+  Test batches: 10
+Data loading completed!
+  Train: 549367 samples, 537 batches
+  Val: 9842 samples, 9 batches
+  Test: 9824 samples, 10 batches
+Creating model and trainer...
+========================================
+ContrastiveAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 100
+  Hidden dims: []
+  Dropout rate: 0.2
+  Total parameters: 308,836
+Model created with 308,836 parameters
+FullDatasetContrastiveLoss initialized:
+  Margin: 2.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 0.0
+  Base reconstruction weight: 1.0
+Optimizer created: Adam (lr=0.0001)
+GlobalDatasetTrainer initialized on device: cuda
+Model parameters: 308,836
+Starting training...
+========================================
+Starting Global Dataset Training...
+============================================================
+
+Epoch 1 Training
+----------------------------------------
+Batch   0/537: Loss=0.0151 (C:1.9966, R:0.0151)
+Batch  25/537: Loss=0.0134 (C:1.9971, R:0.0134)
+Batch  50/537: Loss=0.0119 (C:1.9975, R:0.0119)
+Batch  75/537: Loss=0.0106 (C:1.9978, R:0.0106)
+Batch 100/537: Loss=0.0099 (C:1.9969, R:0.0099)
+Batch 125/537: Loss=0.0094 (C:1.9955, R:0.0094)
+Batch 150/537: Loss=0.0091 (C:1.9947, R:0.0091)
+Batch 175/537: Loss=0.0089 (C:1.9936, R:0.0089)
+Batch 200/537: Loss=0.0086 (C:1.9948, R:0.0086)
+Batch 225/537: Loss=0.0084 (C:1.9946, R:0.0084)
+Batch 250/537: Loss=0.0082 (C:1.9930, R:0.0082)
+Batch 275/537: Loss=0.0080 (C:1.9912, R:0.0080)
+Batch 300/537: Loss=0.0078 (C:1.9936, R:0.0078)
+Batch 325/537: Loss=0.0077 (C:1.9958, R:0.0077)
+Batch 350/537: Loss=0.0075 (C:1.9990, R:0.0075)
+Batch 375/537: Loss=0.0073 (C:2.0068, R:0.0073)
+Batch 400/537: Loss=0.0072 (C:2.0168, R:0.0072)
+Batch 425/537: Loss=0.0070 (C:2.0392, R:0.0070)
+Batch 450/537: Loss=0.0068 (C:2.0708, R:0.0068)
+Batch 475/537: Loss=0.0067 (C:2.1040, R:0.0067)
+Batch 500/537: Loss=0.0067 (C:2.1309, R:0.0067)
+Batch 525/537: Loss=0.0066 (C:2.1708, R:0.0066)
+
+============================================================
+Epoch 1/200 completed in 9.3s
+Train: Loss=0.0086 (C:2.0218, R:0.0086) Ratio=1.01x
+Val:   Loss=0.0065 (C:2.1733, R:0.0065) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0065)
+============================================================
+
+Epoch 2 Training
+----------------------------------------
+Batch   0/537: Loss=0.0065 (C:2.1833, R:0.0065)
+Batch  25/537: Loss=0.0064 (C:2.2258, R:0.0064)
+Batch  50/537: Loss=0.0063 (C:2.2845, R:0.0063)
+Batch  75/537: Loss=0.0062 (C:2.3260, R:0.0062)
+Batch 100/537: Loss=0.0061 (C:2.3716, R:0.0061)
+Batch 125/537: Loss=0.0060 (C:2.4314, R:0.0060)
+Batch 150/537: Loss=0.0059 (C:2.4912, R:0.0059)
+Batch 175/537: Loss=0.0058 (C:2.5322, R:0.0058)
+Batch 200/537: Loss=0.0057 (C:2.5981, R:0.0057)
+Batch 225/537: Loss=0.0056 (C:2.6522, R:0.0056)
+Batch 250/537: Loss=0.0056 (C:2.7106, R:0.0056)
+Batch 275/537: Loss=0.0055 (C:2.7585, R:0.0055)
+Batch 300/537: Loss=0.0054 (C:2.8030, R:0.0054)
+Batch 325/537: Loss=0.0053 (C:2.8429, R:0.0053)
+Batch 350/537: Loss=0.0053 (C:2.8905, R:0.0053)
+Batch 375/537: Loss=0.0052 (C:2.9423, R:0.0052)
+Batch 400/537: Loss=0.0051 (C:2.9926, R:0.0051)
+Batch 425/537: Loss=0.0050 (C:3.0399, R:0.0050)
+Batch 450/537: Loss=0.0050 (C:3.0853, R:0.0050)
+Batch 475/537: Loss=0.0049 (C:3.1394, R:0.0049)
+Batch 500/537: Loss=0.0049 (C:3.1821, R:0.0049)
+Batch 525/537: Loss=0.0048 (C:3.2063, R:0.0048)
+
+============================================================
+Epoch 2/200 completed in 8.6s
+Train: Loss=0.0055 (C:2.7218, R:0.0055) Ratio=1.01x
+Val:   Loss=0.0048 (C:3.2055, R:0.0048) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0048)
+============================================================
+
+Epoch 3 Training
+----------------------------------------
+Batch   0/537: Loss=0.0048 (C:3.2443, R:0.0048)
+Batch  25/537: Loss=0.0047 (C:3.2882, R:0.0047)
+Batch  50/537: Loss=0.0047 (C:3.3085, R:0.0047)
+Batch  75/537: Loss=0.0047 (C:3.3392, R:0.0047)
+Batch 100/537: Loss=0.0045 (C:3.3944, R:0.0045)
+Batch 125/537: Loss=0.0045 (C:3.4429, R:0.0045)
+Batch 150/537: Loss=0.0044 (C:3.4666, R:0.0044)
+Batch 175/537: Loss=0.0045 (C:3.4997, R:0.0045)
+Batch 200/537: Loss=0.0044 (C:3.5264, R:0.0044)
+Batch 225/537: Loss=0.0043 (C:3.5868, R:0.0043)
+Batch 250/537: Loss=0.0043 (C:3.5805, R:0.0043)
+Batch 275/537: Loss=0.0043 (C:3.6331, R:0.0043)
+Batch 300/537: Loss=0.0042 (C:3.6682, R:0.0042)
+Batch 325/537: Loss=0.0042 (C:3.6804, R:0.0042)
+Batch 350/537: Loss=0.0041 (C:3.7110, R:0.0041)
+Batch 375/537: Loss=0.0041 (C:3.7593, R:0.0041)
+Batch 400/537: Loss=0.0041 (C:3.7545, R:0.0041)
+Batch 425/537: Loss=0.0041 (C:3.7893, R:0.0041)
+Batch 450/537: Loss=0.0040 (C:3.8051, R:0.0040)
+Batch 475/537: Loss=0.0040 (C:3.8222, R:0.0040)
+Batch 500/537: Loss=0.0040 (C:3.8681, R:0.0040)
+Batch 525/537: Loss=0.0040 (C:3.8691, R:0.0040)
+
+============================================================
+Epoch 3/200 completed in 9.2s
+Train: Loss=0.0043 (C:3.5974, R:0.0043) Ratio=1.01x
+Val:   Loss=0.0040 (C:3.8424, R:0.0040) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0040)
+============================================================
+
+Epoch 4 Training
+----------------------------------------
+Batch   0/537: Loss=0.0040 (C:3.8799, R:0.0040)
+Batch  25/537: Loss=0.0039 (C:3.8964, R:0.0039)
+Batch  50/537: Loss=0.0039 (C:3.9144, R:0.0039)
+Batch  75/537: Loss=0.0038 (C:3.9520, R:0.0038)
+Batch 100/537: Loss=0.0039 (C:3.9460, R:0.0039)
+Batch 125/537: Loss=0.0039 (C:3.9521, R:0.0039)
+Batch 150/537: Loss=0.0038 (C:3.9823, R:0.0038)
+Batch 175/537: Loss=0.0039 (C:3.9853, R:0.0039)
+Batch 200/537: Loss=0.0038 (C:4.0018, R:0.0038)
+Batch 225/537: Loss=0.0038 (C:4.0150, R:0.0038)
+Batch 250/537: Loss=0.0038 (C:4.0362, R:0.0038)
+Batch 275/537: Loss=0.0038 (C:4.0209, R:0.0038)
+Batch 300/537: Loss=0.0038 (C:4.0503, R:0.0038)
+Batch 325/537: Loss=0.0037 (C:4.0533, R:0.0037)
+Batch 350/537: Loss=0.0037 (C:4.0690, R:0.0037)
+Batch 375/537: Loss=0.0038 (C:4.0645, R:0.0038)
+Batch 400/537: Loss=0.0037 (C:4.0647, R:0.0037)
+Batch 425/537: Loss=0.0038 (C:4.0723, R:0.0038)
+Batch 450/537: Loss=0.0037 (C:4.0751, R:0.0037)
+Batch 475/537: Loss=0.0038 (C:4.0975, R:0.0038)
+Batch 500/537: Loss=0.0037 (C:4.1055, R:0.0037)
+Batch 525/537: Loss=0.0037 (C:4.1131, R:0.0037)
+
+============================================================
+Epoch 4/200 completed in 11.2s
+Train: Loss=0.0038 (C:4.0159, R:0.0038) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.0795, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 5 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1147, R:0.0037)
+Batch  25/537: Loss=0.0037 (C:4.1230, R:0.0037)
+Batch  50/537: Loss=0.0037 (C:4.1050, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1414, R:0.0037)
+Batch 100/537: Loss=0.0037 (C:4.1223, R:0.0037)
+Batch 125/537: Loss=0.0037 (C:4.1240, R:0.0037)
+Batch 150/537: Loss=0.0037 (C:4.1260, R:0.0037)
+Batch 175/537: Loss=0.0037 (C:4.1253, R:0.0037)
+Batch 200/537: Loss=0.0038 (C:4.1327, R:0.0038)
+Batch 225/537: Loss=0.0036 (C:4.1614, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.1586, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1438, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.1569, R:0.0037)
+Batch 325/537: Loss=0.0037 (C:4.1473, R:0.0037)
+Batch 350/537: Loss=0.0037 (C:4.1602, R:0.0037)
+Batch 375/537: Loss=0.0037 (C:4.1716, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.1759, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1741, R:0.0037)
+Batch 450/537: Loss=0.0037 (C:4.1591, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1678, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.1627, R:0.0037)
+Batch 525/537: Loss=0.0037 (C:4.1647, R:0.0037)
+
+============================================================
+Epoch 5/200 completed in 8.9s
+Train: Loss=0.0037 (C:4.1469, R:0.0037) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1385, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 6 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1647, R:0.0037)
+Batch  25/537: Loss=0.0037 (C:4.1504, R:0.0037)
+Batch  50/537: Loss=0.0037 (C:4.1752, R:0.0037)
+Batch  75/537: Loss=0.0036 (C:4.1838, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1894, R:0.0037)
+Batch 125/537: Loss=0.0038 (C:4.1665, R:0.0038)
+Batch 150/537: Loss=0.0037 (C:4.1615, R:0.0037)
+Batch 175/537: Loss=0.0037 (C:4.1690, R:0.0037)
+Batch 200/537: Loss=0.0037 (C:4.1628, R:0.0037)
+Batch 225/537: Loss=0.0037 (C:4.1714, R:0.0037)
+Batch 250/537: Loss=0.0037 (C:4.1859, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1777, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.1977, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.1752, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.1919, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1805, R:0.0037)
+Batch 400/537: Loss=0.0037 (C:4.1759, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.1848, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1872, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1874, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.1949, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.1820, R:0.0036)
+
+============================================================
+Epoch 6/200 completed in 8.5s
+Train: Loss=0.0037 (C:4.1805, R:0.0037) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1560, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 7 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.1907, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.1819, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1905, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1792, R:0.0037)
+Batch 100/537: Loss=0.0037 (C:4.1650, R:0.0037)
+Batch 125/537: Loss=0.0037 (C:4.1841, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2157, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1947, R:0.0037)
+Batch 200/537: Loss=0.0036 (C:4.1984, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.1888, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.1936, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.1990, R:0.0036)
+Batch 300/537: Loss=0.0037 (C:4.1973, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.1905, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.1893, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2177, R:0.0036)
+Batch 400/537: Loss=0.0037 (C:4.1925, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.1852, R:0.0036)
+Batch 450/537: Loss=0.0036 (C:4.1939, R:0.0036)
+Batch 475/537: Loss=0.0036 (C:4.1980, R:0.0036)
+Batch 500/537: Loss=0.0037 (C:4.1929, R:0.0037)
+Batch 525/537: Loss=0.0037 (C:4.2036, R:0.0037)
+
+============================================================
+Epoch 7/200 completed in 8.7s
+Train: Loss=0.0037 (C:4.1902, R:0.0037) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1604, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 8 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.2101, R:0.0037)
+Batch  25/537: Loss=0.0036 (C:4.2128, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1732, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1937, R:0.0037)
+Batch 100/537: Loss=0.0037 (C:4.1815, R:0.0037)
+Batch 125/537: Loss=0.0037 (C:4.1761, R:0.0037)
+Batch 150/537: Loss=0.0037 (C:4.1945, R:0.0037)
+Batch 175/537: Loss=0.0037 (C:4.1789, R:0.0037)
+Batch 200/537: Loss=0.0037 (C:4.1865, R:0.0037)
+Batch 225/537: Loss=0.0037 (C:4.1829, R:0.0037)
+Batch 250/537: Loss=0.0037 (C:4.1982, R:0.0037)
+Batch 275/537: Loss=0.0036 (C:4.2012, R:0.0036)
+Batch 300/537: Loss=0.0036 (C:4.2023, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.2003, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.1878, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.1956, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.2103, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1872, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.1848, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.1911, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.1948, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.2045, R:0.0036)
+
+============================================================
+Epoch 8/200 completed in 8.8s
+Train: Loss=0.0037 (C:4.1940, R:0.0037) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1636, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 9 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.1880, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1980, R:0.0037)
+Batch  50/537: Loss=0.0037 (C:4.1965, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1965, R:0.0037)
+Batch 100/537: Loss=0.0037 (C:4.1983, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.2094, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1902, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2042, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.1908, R:0.0036)
+Batch 225/537: Loss=0.0037 (C:4.1864, R:0.0037)
+Batch 250/537: Loss=0.0036 (C:4.2215, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.2006, R:0.0036)
+Batch 300/537: Loss=0.0037 (C:4.1968, R:0.0037)
+Batch 325/537: Loss=0.0037 (C:4.1860, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.1952, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1960, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.1795, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2017, R:0.0036)
+Batch 450/537: Loss=0.0036 (C:4.2022, R:0.0036)
+Batch 475/537: Loss=0.0036 (C:4.1953, R:0.0036)
+Batch 500/537: Loss=0.0037 (C:4.1831, R:0.0037)
+Batch 525/537: Loss=0.0037 (C:4.1891, R:0.0037)
+
+============================================================
+Epoch 9/200 completed in 8.8s
+Train: Loss=0.0037 (C:4.1959, R:0.0037) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1647, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 10 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.2089, R:0.0037)
+Batch  25/537: Loss=0.0037 (C:4.1882, R:0.0037)
+Batch  50/537: Loss=0.0037 (C:4.2037, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1909, R:0.0037)
+Batch 100/537: Loss=0.0037 (C:4.1826, R:0.0037)
+Batch 125/537: Loss=0.0037 (C:4.1912, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.1949, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.1965, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2143, R:0.0036)
+Batch 225/537: Loss=0.0037 (C:4.1968, R:0.0037)
+Batch 250/537: Loss=0.0036 (C:4.2012, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.2087, R:0.0036)
+Batch 300/537: Loss=0.0037 (C:4.1974, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.2196, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.1909, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.1977, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.2146, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2067, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1843, R:0.0037)
+Batch 475/537: Loss=0.0036 (C:4.2091, R:0.0036)
+Batch 500/537: Loss=0.0037 (C:4.1777, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.1911, R:0.0036)
+
+============================================================
+Epoch 10/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1970, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1658, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 11 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.1899, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.1978, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1990, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1963, R:0.0037)
+Batch 100/537: Loss=0.0036 (C:4.2066, R:0.0036)
+Batch 125/537: Loss=0.0037 (C:4.1951, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2128, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.2079, R:0.0036)
+Batch 200/537: Loss=0.0037 (C:4.1976, R:0.0037)
+Batch 225/537: Loss=0.0037 (C:4.1935, R:0.0037)
+Batch 250/537: Loss=0.0036 (C:4.2094, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.2023, R:0.0036)
+Batch 300/537: Loss=0.0037 (C:4.1936, R:0.0037)
+Batch 325/537: Loss=0.0037 (C:4.1861, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.2073, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2069, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.2064, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1950, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.1954, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.1943, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.1912, R:0.0037)
+Batch 525/537: Loss=0.0037 (C:4.1929, R:0.0037)
+
+============================================================
+Epoch 11/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1979, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1682, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 12 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1921, R:0.0037)
+Batch  25/537: Loss=0.0036 (C:4.1990, R:0.0036)
+Batch  50/537: Loss=0.0036 (C:4.1924, R:0.0036)
+Batch  75/537: Loss=0.0037 (C:4.1995, R:0.0037)
+Batch 100/537: Loss=0.0036 (C:4.2099, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.2027, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.1981, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1946, R:0.0037)
+Batch 200/537: Loss=0.0037 (C:4.1910, R:0.0037)
+Batch 225/537: Loss=0.0036 (C:4.1915, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.1889, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.1897, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.2047, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.1898, R:0.0037)
+Batch 350/537: Loss=0.0037 (C:4.1864, R:0.0037)
+Batch 375/537: Loss=0.0036 (C:4.2002, R:0.0036)
+Batch 400/537: Loss=0.0037 (C:4.1863, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.1897, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1869, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1880, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2005, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.1889, R:0.0036)
+
+============================================================
+Epoch 12/200 completed in 8.6s
+Train: Loss=0.0036 (C:4.1984, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1666, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 1 epochs
+============================================================
+
+Epoch 13 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1853, R:0.0037)
+Batch  25/537: Loss=0.0036 (C:4.2173, R:0.0036)
+Batch  50/537: Loss=0.0036 (C:4.2083, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.1762, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1880, R:0.0037)
+Batch 125/537: Loss=0.0037 (C:4.1954, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2130, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1989, R:0.0037)
+Batch 200/537: Loss=0.0037 (C:4.2083, R:0.0037)
+Batch 225/537: Loss=0.0037 (C:4.2013, R:0.0037)
+Batch 250/537: Loss=0.0037 (C:4.1904, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.2005, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.2032, R:0.0036)
+Batch 325/537: Loss=0.0036 (C:4.2092, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.1991, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2001, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.2016, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2077, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1840, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1807, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.2013, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.2049, R:0.0036)
+
+============================================================
+Epoch 13/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1987, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1683, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 2 epochs
+============================================================
+
+Epoch 14 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2055, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.2125, R:0.0036)
+Batch  50/537: Loss=0.0036 (C:4.2133, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.2091, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.2048, R:0.0036)
+Batch 125/537: Loss=0.0037 (C:4.1875, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2038, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1971, R:0.0037)
+Batch 200/537: Loss=0.0036 (C:4.2055, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.1956, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.2012, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.2021, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.2089, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.2174, R:0.0036)
+Batch 350/537: Loss=0.0037 (C:4.1726, R:0.0037)
+Batch 375/537: Loss=0.0037 (C:4.1737, R:0.0037)
+Batch 400/537: Loss=0.0037 (C:4.1869, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.1949, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.2029, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1917, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2020, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.1952, R:0.0037)
+
+============================================================
+Epoch 14/200 completed in 8.3s
+Train: Loss=0.0036 (C:4.1988, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1684, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 3 epochs
+============================================================
+
+Epoch 15 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2163, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.2110, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1912, R:0.0037)
+Batch  75/537: Loss=0.0036 (C:4.1936, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1950, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.2025, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1902, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2084, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2036, R:0.0036)
+Batch 225/537: Loss=0.0037 (C:4.2056, R:0.0037)
+Batch 250/537: Loss=0.0036 (C:4.2013, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.1906, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.2021, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.1980, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.2156, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2128, R:0.0036)
+Batch 400/537: Loss=0.0037 (C:4.1991, R:0.0037)
+Batch 425/537: Loss=0.0037 (C:4.1960, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.1895, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.2001, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.2125, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.2043, R:0.0036)
+
+============================================================
+Epoch 15/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1989, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1681, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 4 epochs
+============================================================
+
+Epoch 16 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2100, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1803, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.2024, R:0.0036)
+Batch  75/537: Loss=0.0037 (C:4.2047, R:0.0037)
+Batch 100/537: Loss=0.0036 (C:4.2053, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.2026, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.2045, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.2082, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2123, R:0.0036)
+Batch 225/537: Loss=0.0037 (C:4.1906, R:0.0037)
+Batch 250/537: Loss=0.0036 (C:4.2226, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.1791, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.1952, R:0.0036)
+Batch 325/537: Loss=0.0036 (C:4.2033, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.1945, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2044, R:0.0036)
+Batch 400/537: Loss=0.0037 (C:4.2009, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.2083, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1911, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.2063, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2048, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.1856, R:0.0037)
+
+============================================================
+Epoch 16/200 completed in 8.7s
+Train: Loss=0.0036 (C:4.1990, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1674, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 5 epochs
+============================================================
+
+Epoch 17 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2117, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1785, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.1943, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.2109, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.2137, R:0.0036)
+Batch 125/537: Loss=0.0037 (C:4.1999, R:0.0037)
+Batch 150/537: Loss=0.0037 (C:4.2021, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.1957, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2039, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.2084, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.2037, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1933, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.1988, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.2035, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.1916, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2036, R:0.0036)
+Batch 400/537: Loss=0.0037 (C:4.2010, R:0.0037)
+Batch 425/537: Loss=0.0037 (C:4.1903, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.1863, R:0.0036)
+Batch 475/537: Loss=0.0036 (C:4.1885, R:0.0036)
+Batch 500/537: Loss=0.0037 (C:4.1745, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.2057, R:0.0036)
+
+============================================================
+Epoch 17/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1991, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1679, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 6 epochs
+============================================================
+
+Epoch 18 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2070, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1942, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.1960, R:0.0036)
+Batch  75/537: Loss=0.0037 (C:4.2191, R:0.0037)
+Batch 100/537: Loss=0.0036 (C:4.1893, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.2079, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1889, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2180, R:0.0036)
+Batch 200/537: Loss=0.0037 (C:4.1896, R:0.0037)
+Batch 225/537: Loss=0.0036 (C:4.1966, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.1860, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.1974, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.2030, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.2030, R:0.0037)
+Batch 350/537: Loss=0.0037 (C:4.1866, R:0.0037)
+Batch 375/537: Loss=0.0037 (C:4.1819, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.1994, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2037, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.2010, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1983, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2084, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.1840, R:0.0037)
+
+============================================================
+Epoch 18/200 completed in 8.6s
+Train: Loss=0.0036 (C:4.1991, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1665, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 7 epochs
+============================================================
+
+Epoch 19 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1923, R:0.0037)
+Batch  25/537: Loss=0.0037 (C:4.2043, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.2101, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.1821, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1922, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.1959, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.2022, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.1914, R:0.0036)
+Batch 200/537: Loss=0.0037 (C:4.1883, R:0.0037)
+Batch 225/537: Loss=0.0036 (C:4.2035, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.2003, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1969, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.1951, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.1879, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.2080, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1853, R:0.0037)
+Batch 400/537: Loss=0.0037 (C:4.1973, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.2246, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1904, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1860, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2107, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.2193, R:0.0036)
+
+============================================================
+Epoch 19/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1686, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 20 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.2001, R:0.0037)
+Batch  25/537: Loss=0.0036 (C:4.2255, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1877, R:0.0037)
+Batch  75/537: Loss=0.0036 (C:4.2193, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.2012, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.1863, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1845, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.1844, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2022, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.2107, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.1854, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1830, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.2004, R:0.0037)
+Batch 325/537: Loss=0.0037 (C:4.2006, R:0.0037)
+Batch 350/537: Loss=0.0037 (C:4.1876, R:0.0037)
+Batch 375/537: Loss=0.0036 (C:4.2048, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.1979, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2095, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1884, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1925, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.1989, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.2004, R:0.0036)
+
+============================================================
+Epoch 20/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1993, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1675, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+Checkpoint saved at epoch 20
+============================================================
+
+Epoch 21 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2242, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.1990, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1966, R:0.0037)
+Batch  75/537: Loss=0.0036 (C:4.2020, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1981, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.2096, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.2070, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.1888, R:0.0036)
+Batch 200/537: Loss=0.0037 (C:4.1970, R:0.0037)
+Batch 225/537: Loss=0.0037 (C:4.1987, R:0.0037)
+Batch 250/537: Loss=0.0037 (C:4.1913, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1997, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.1941, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.1943, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.2126, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1945, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.2172, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2119, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.2071, R:0.0037)
+Batch 475/537: Loss=0.0036 (C:4.1924, R:0.0036)
+Batch 500/537: Loss=0.0036 (C:4.2113, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.2105, R:0.0036)
+
+============================================================
+Epoch 21/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1668, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0037)
+============================================================
+
+Epoch 22 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2298, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1856, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.2151, R:0.0036)
+Batch  75/537: Loss=0.0037 (C:4.1893, R:0.0037)
+Batch 100/537: Loss=0.0036 (C:4.2137, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.1888, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1928, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2122, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.1938, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.1901, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.1911, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.2106, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.1807, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.2031, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.1913, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.1982, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.1808, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1942, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.2065, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.1951, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2051, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.2053, R:0.0036)
+
+============================================================
+Epoch 22/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1685, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 1 epochs
+============================================================
+
+Epoch 23 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.1983, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1942, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.2038, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.2090, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1758, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.2048, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.2180, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1978, R:0.0037)
+Batch 200/537: Loss=0.0036 (C:4.2034, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.2004, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.2083, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.2084, R:0.0036)
+Batch 300/537: Loss=0.0036 (C:4.1812, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.2154, R:0.0037)
+Batch 350/537: Loss=0.0037 (C:4.1776, R:0.0037)
+Batch 375/537: Loss=0.0037 (C:4.1899, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.2094, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1830, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.1955, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.2019, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.1954, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.2067, R:0.0037)
+
+============================================================
+Epoch 23/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0036 (C:4.1690, R:0.0036) Ratio=1.01x
+Reconstruction weight: 1.000
+✅ New best model saved (Val Loss: 0.0036)
+============================================================
+
+Epoch 24 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1962, R:0.0037)
+Batch  25/537: Loss=0.0037 (C:4.2000, R:0.0037)
+Batch  50/537: Loss=0.0037 (C:4.1972, R:0.0037)
+Batch  75/537: Loss=0.0036 (C:4.2028, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.1999, R:0.0036)
+Batch 125/537: Loss=0.0037 (C:4.1957, R:0.0037)
+Batch 150/537: Loss=0.0037 (C:4.1924, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2246, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.1982, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.2038, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.1967, R:0.0037)
+Batch 275/537: Loss=0.0036 (C:4.2042, R:0.0036)
+Batch 300/537: Loss=0.0036 (C:4.2150, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.1868, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.2032, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1952, R:0.0037)
+Batch 400/537: Loss=0.0037 (C:4.1969, R:0.0037)
+Batch 425/537: Loss=0.0037 (C:4.1975, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.2056, R:0.0036)
+Batch 475/537: Loss=0.0036 (C:4.2066, R:0.0036)
+Batch 500/537: Loss=0.0036 (C:4.2177, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.2015, R:0.0037)
+
+============================================================
+Epoch 24/200 completed in 8.8s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1676, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 1 epochs
+============================================================
+
+Epoch 25 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2110, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.2065, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1900, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1990, R:0.0037)
+Batch 100/537: Loss=0.0037 (C:4.2108, R:0.0037)
+Batch 125/537: Loss=0.0037 (C:4.2032, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2208, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.2107, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2016, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.2057, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.1908, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.1782, R:0.0037)
+Batch 300/537: Loss=0.0037 (C:4.1891, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.1933, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.2003, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1870, R:0.0037)
+Batch 400/537: Loss=0.0037 (C:4.1947, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.2121, R:0.0036)
+Batch 450/537: Loss=0.0036 (C:4.2072, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.1956, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.1963, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.1962, R:0.0037)
+
+============================================================
+Epoch 25/200 completed in 8.9s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1678, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 2 epochs
+============================================================
+
+Epoch 26 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2085, R:0.0036)
+Batch  25/537: Loss=0.0037 (C:4.1825, R:0.0037)
+Batch  50/537: Loss=0.0036 (C:4.1992, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.2065, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.2176, R:0.0036)
+Batch 125/537: Loss=0.0037 (C:4.1966, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2006, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.2011, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2067, R:0.0036)
+Batch 225/537: Loss=0.0037 (C:4.2105, R:0.0037)
+Batch 250/537: Loss=0.0037 (C:4.2062, R:0.0037)
+Batch 275/537: Loss=0.0036 (C:4.1984, R:0.0036)
+Batch 300/537: Loss=0.0036 (C:4.1938, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.2127, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.1973, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.1928, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.2073, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.1871, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.2030, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1828, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.2042, R:0.0036)
+Batch 525/537: Loss=0.0037 (C:4.1954, R:0.0037)
+
+============================================================
+Epoch 26/200 completed in 9.1s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1685, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 3 epochs
+============================================================
+
+Epoch 27 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.2106, R:0.0037)
+Batch  25/537: Loss=0.0037 (C:4.1937, R:0.0037)
+Batch  50/537: Loss=0.0037 (C:4.1953, R:0.0037)
+Batch  75/537: Loss=0.0037 (C:4.1880, R:0.0037)
+Batch 100/537: Loss=0.0036 (C:4.1998, R:0.0036)
+Batch 125/537: Loss=0.0037 (C:4.2109, R:0.0037)
+Batch 150/537: Loss=0.0036 (C:4.2018, R:0.0036)
+Batch 175/537: Loss=0.0036 (C:4.2067, R:0.0036)
+Batch 200/537: Loss=0.0037 (C:4.1823, R:0.0037)
+Batch 225/537: Loss=0.0036 (C:4.1948, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.2170, R:0.0036)
+Batch 275/537: Loss=0.0037 (C:4.1965, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.1972, R:0.0036)
+Batch 325/537: Loss=0.0036 (C:4.2098, R:0.0036)
+Batch 350/537: Loss=0.0037 (C:4.1994, R:0.0037)
+Batch 375/537: Loss=0.0037 (C:4.2006, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.1912, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.1929, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1807, R:0.0037)
+Batch 475/537: Loss=0.0036 (C:4.2002, R:0.0036)
+Batch 500/537: Loss=0.0036 (C:4.2096, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.1897, R:0.0036)
+
+============================================================
+Epoch 27/200 completed in 8.7s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1680, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 4 epochs
+============================================================
+
+Epoch 28 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.1888, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.1961, R:0.0036)
+Batch  50/537: Loss=0.0037 (C:4.1992, R:0.0037)
+Batch  75/537: Loss=0.0036 (C:4.2102, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1864, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.2018, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.2070, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1948, R:0.0037)
+Batch 200/537: Loss=0.0036 (C:4.2017, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.1832, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.2026, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.2010, R:0.0036)
+Batch 300/537: Loss=0.0037 (C:4.1954, R:0.0037)
+Batch 325/537: Loss=0.0037 (C:4.1943, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.1989, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.1999, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.2027, R:0.0036)
+Batch 425/537: Loss=0.0036 (C:4.2052, R:0.0036)
+Batch 450/537: Loss=0.0037 (C:4.1968, R:0.0037)
+Batch 475/537: Loss=0.0037 (C:4.1771, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.1950, R:0.0037)
+Batch 525/537: Loss=0.0037 (C:4.2018, R:0.0037)
+
+============================================================
+Epoch 28/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1683, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 5 epochs
+============================================================
+
+Epoch 29 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1873, R:0.0037)
+Batch  25/537: Loss=0.0036 (C:4.1985, R:0.0036)
+Batch  50/537: Loss=0.0036 (C:4.1868, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.1927, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.2019, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.2053, R:0.0036)
+Batch 150/537: Loss=0.0036 (C:4.2096, R:0.0036)
+Batch 175/537: Loss=0.0037 (C:4.1898, R:0.0037)
+Batch 200/537: Loss=0.0037 (C:4.1817, R:0.0037)
+Batch 225/537: Loss=0.0036 (C:4.1971, R:0.0036)
+Batch 250/537: Loss=0.0036 (C:4.1955, R:0.0036)
+Batch 275/537: Loss=0.0036 (C:4.2184, R:0.0036)
+Batch 300/537: Loss=0.0037 (C:4.2096, R:0.0037)
+Batch 325/537: Loss=0.0036 (C:4.2120, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.2072, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2122, R:0.0036)
+Batch 400/537: Loss=0.0037 (C:4.2015, R:0.0037)
+Batch 425/537: Loss=0.0036 (C:4.2042, R:0.0036)
+Batch 450/537: Loss=0.0036 (C:4.2146, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.2014, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.1931, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.2086, R:0.0036)
+
+============================================================
+Epoch 29/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1993, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1660, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 6 epochs
+============================================================
+
+Epoch 30 Training
+----------------------------------------
+Batch   0/537: Loss=0.0037 (C:4.1906, R:0.0037)
+Batch  25/537: Loss=0.0036 (C:4.1985, R:0.0036)
+Batch  50/537: Loss=0.0036 (C:4.2173, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.2144, R:0.0036)
+Batch 100/537: Loss=0.0037 (C:4.1883, R:0.0037)
+Batch 125/537: Loss=0.0036 (C:4.1977, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1833, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2096, R:0.0036)
+Batch 200/537: Loss=0.0036 (C:4.2010, R:0.0036)
+Batch 225/537: Loss=0.0036 (C:4.2160, R:0.0036)
+Batch 250/537: Loss=0.0037 (C:4.1926, R:0.0037)
+Batch 275/537: Loss=0.0037 (C:4.1862, R:0.0037)
+Batch 300/537: Loss=0.0036 (C:4.1983, R:0.0036)
+Batch 325/537: Loss=0.0037 (C:4.2032, R:0.0037)
+Batch 350/537: Loss=0.0036 (C:4.1960, R:0.0036)
+Batch 375/537: Loss=0.0036 (C:4.2007, R:0.0036)
+Batch 400/537: Loss=0.0036 (C:4.1994, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1969, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.2027, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.2066, R:0.0037)
+Batch 500/537: Loss=0.0037 (C:4.1950, R:0.0037)
+Batch 525/537: Loss=0.0036 (C:4.2104, R:0.0036)
+
+============================================================
+Epoch 30/200 completed in 8.4s
+Train: Loss=0.0036 (C:4.1992, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1666, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 7 epochs
+============================================================
+
+Epoch 31 Training
+----------------------------------------
+Batch   0/537: Loss=0.0036 (C:4.2017, R:0.0036)
+Batch  25/537: Loss=0.0036 (C:4.2014, R:0.0036)
+Batch  50/537: Loss=0.0036 (C:4.2172, R:0.0036)
+Batch  75/537: Loss=0.0036 (C:4.2086, R:0.0036)
+Batch 100/537: Loss=0.0036 (C:4.2111, R:0.0036)
+Batch 125/537: Loss=0.0036 (C:4.2112, R:0.0036)
+Batch 150/537: Loss=0.0037 (C:4.1799, R:0.0037)
+Batch 175/537: Loss=0.0036 (C:4.2303, R:0.0036)
+Batch 200/537: Loss=0.0037 (C:4.1966, R:0.0037)
+Batch 225/537: Loss=0.0037 (C:4.1896, R:0.0037)
+Batch 250/537: Loss=0.0037 (C:4.1929, R:0.0037)
+Batch 275/537: Loss=0.0036 (C:4.2117, R:0.0036)
+Batch 300/537: Loss=0.0036 (C:4.1901, R:0.0036)
+Batch 325/537: Loss=0.0036 (C:4.2056, R:0.0036)
+Batch 350/537: Loss=0.0036 (C:4.2157, R:0.0036)
+Batch 375/537: Loss=0.0037 (C:4.2019, R:0.0037)
+Batch 400/537: Loss=0.0036 (C:4.2065, R:0.0036)
+Batch 425/537: Loss=0.0037 (C:4.1897, R:0.0037)
+Batch 450/537: Loss=0.0036 (C:4.2072, R:0.0036)
+Batch 475/537: Loss=0.0037 (C:4.1935, R:0.0037)
+Batch 500/537: Loss=0.0036 (C:4.1965, R:0.0036)
+Batch 525/537: Loss=0.0036 (C:4.1906, R:0.0036)
+
+============================================================
+Epoch 31/200 completed in 8.5s
+Train: Loss=0.0036 (C:4.1993, R:0.0036) Ratio=1.01x
+Val:   Loss=0.0037 (C:4.1674, R:0.0037) Ratio=1.01x
+Reconstruction weight: 1.000
+No improvement for 8 epochs
+
+Early stopping triggered after 31 epochs
+Best model was at epoch 23 with Val Loss: 0.0036
+
+Global Dataset Training Completed!
+Best epoch: 23
+Best validation loss: 0.0036
+Final separation ratios: Train=1.01x, Val=1.01x
+Training completed!
+Loading best model from entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/checkpoints/best_model.pt
+Starting model evaluation...
+========================================
+GlobalContrastiveEvaluator initialized on cuda
+Starting comprehensive evaluation...
+============================================================
+Extracting latent representations...
+  Processed 1/10 batches
+Extracted representations: torch.Size([9824, 100])
+Evaluating clustering performance...
+Clustering Results:
+  Silhouette Score: -0.0050
+  Adjusted Rand Score: 0.0001
+  Clustering Accuracy: 0.3421
+Evaluating classification performance...
+  Extracting training representations...
+Extracting latent representations...
+  Processed 1/537 batches
+  Processed 51/537 batches
+  Processed 101/537 batches
+  Processed 151/537 batches
+  Processed 201/537 batches
+  Processed 251/537 batches
+  Processed 301/537 batches
+  Processed 351/537 batches
+  Processed 401/537 batches
+  Processed 451/537 batches
+  Processed 501/537 batches
+Extracted representations: torch.Size([547740, 100])
+  Extracting validation representations...
+Extracting latent representations...
+  Processed 1/9 batches
+Extracted representations: torch.Size([9180, 100])
+Subsampled training to 50000 samples
+  Training on 50000 samples, evaluating on 9180 samples
+Classification Results:
+  Accuracy: 0.5499
+  Per-class F1: [0.5891570832806774, 0.43421998562185476, 0.6180626663936105]
+Evaluating reconstruction quality...
+Reconstruction Results:
+  Average MSE: 0.003630
+Evaluating separation quality...
+Separation Results:
+  Positive distances: 4.173 ± 0.429
+  Negative distances: 4.193 ± 0.409
+  Separation ratio: 1.00x
+  Gap: -5.762
+  Perfect separation: No
+
+Comprehensive evaluation completed!
+
+============================================================
+EVALUATION SUMMARY
+============================================================
+Clustering Performance:
+  Silhouette Score: -0.0050
+  Clustering Accuracy: 0.3421
+  Adjusted Rand Score: 0.0001
+
+Classification Performance:
+  Accuracy: 0.5499
+
+Separation Quality:
+  Separation Ratio: 1.00x
+  Gap: -5.762
+  Perfect Separation: False
+
+Reconstruction Quality:
+  Average MSE: 0.003630
+============================================================
+Evaluation results saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/results/evaluation_results_20250724_124308.json
+Evaluation results saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/results/evaluation_results_20250724_124308.json
+Saving final experiment results...
+Final results saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/final_results.json
+
+============================================================
+PIPELINE COMPLETED SUCCESSFULLY!
+============================================================
+Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815
+Best model: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/checkpoints/best_model.pt
+Final results: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_pure_reconstruction_20250724_123815/final_results.json
+
+Key Results:
+  Separation ratio: 1.00x
+  Perfect separation: False
+  Classification accuracy: 0.5499
+
+Analysis completed with exit code: 0
+Time: Thu 24 Jul 12:43:09 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Autoencoder pipeline successful!
+
+
+Job finished.

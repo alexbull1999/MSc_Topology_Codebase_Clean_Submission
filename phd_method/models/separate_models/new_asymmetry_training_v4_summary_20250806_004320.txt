@@ -1,0 +1,53 @@
+NEW ASYMMETRY MODEL TRAINING SUMMARY
+==================================================
+
+MODEL ARCHITECTURE:
+------------------
+Input: SBERT tokens directly (not order embeddings)
+Architecture: Linear → LayerNorm → ReLU → Dropout → Linear → LayerNorm → ReLU → Linear
+Output: Asymmetric features in same 768D space
+
+TRAINING TARGETS:
+---------------
+Entailment: HIGH asymmetric energy (target: 3.5)
+Neutral: LOW asymmetric energy (target: 2.5)
+Contradiction: MEDIUM asymmetric energy (target: 2.8)
+Rationale: Entailment = strong directional, Neutral = balanced, Contradiction = conflicted
+
+TRAINING PROGRESS:
+----------------
+Total epochs: 80
+Final train loss: 1.0005
+Final val loss: 1.1754
+
+FINAL ENERGY PATTERNS:
+---------------------
+entailment:
+  Forward energy: 0.433
+  Backward energy: 1.157
+  Asymmetric energy: 0.788
+  Samples: 10072
+
+neutral:
+  Forward energy: 0.774
+  Backward energy: 0.904
+  Asymmetric energy: 0.476
+  Samples: 10037
+
+contradiction:
+  Forward energy: 1.267
+  Backward energy: 0.947
+  Asymmetric energy: 0.857
+  Samples: 9891
+
+SUCCESS ANALYSIS:
+---------------
+✅ CORRECT PATTERN: Entailment & Contradiction > Neutral
+⚠️  PARTIAL: Contradiction ≥ Entailment > Neutral
+
+NEXT STEPS:
+----------
+1. Update point_cloud_clustering_test.py to use new model
+2. Test updated stratification with corrected energy patterns
+3. Compare clustering performance against old asymmetry model
+4. Monitor forward/backward energy patterns for neutral detection

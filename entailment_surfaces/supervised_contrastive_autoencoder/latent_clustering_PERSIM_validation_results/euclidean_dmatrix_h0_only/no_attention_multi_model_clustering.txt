@@ -1,0 +1,61 @@
+
+================================================================================
+MULTI-MODEL PERSISTENCE IMAGE CLUSTERING SUMMARY
+================================================================================
+Models tested: 5
+Successful: 5
+Failed: 0
+Success rate: 100.0%
+
+--------------------------------------------------
+PERFORMANCE OVERVIEW
+--------------------------------------------------
+Best model accuracy: 0.9533
+Worst model accuracy: 0.5367
+Overall mean accuracy: 0.7253 ± 0.1618
+Performance range: 0.4167
+
+--------------------------------------------------
+MODEL RANKINGS
+--------------------------------------------------
+1. moor_topo+contrastive_no_attention
+   Accuracy: 0.9533, Consistency: EXCELLENT (Very consistent across runs)
+   Perfect runs: 4, Ranking score: 0.817
+2. moor_signatureh0only_lifted_no_attention
+   Accuracy: 0.7967, Consistency: GOOD (Reasonably consistent)
+   Perfect runs: 0, Ranking score: 0.598
+3. moor_signatureh0only_lifted_no_attention
+   Accuracy: 0.7967, Consistency: GOOD (Reasonably consistent)
+   Perfect runs: 0, Ranking score: 0.598
+4. contrastive+recon_no_attention
+   Accuracy: 0.5433, Consistency: MODERATE (Some variation)
+   Perfect runs: 0, Ranking score: 0.484
+5. moor_signatureh0h1_lifted_no_attention
+   Accuracy: 0.5367, Consistency: MODERATE (Some variation)
+   Perfect runs: 0, Ranking score: 0.468
+
+--------------------------------------------------
+PERFORMANCE CATEGORIES
+--------------------------------------------------
+Excellent (≥95%): 1 models
+  - moor_topo+contrastive_no_attention: 0.9533
+Good (85-95%): 0 models
+Moderate (75-85%): 2 models
+Poor (<75%): 2 models
+
+🎉 MODELS WITH PERFECT CLUSTERING RUNS:
+  - moor_topo+contrastive_no_attention: 4/10 perfect runs
+Total perfect runs across all models: 4
+
+--------------------------------------------------
+SBERT BASELINE COMPARISON
+--------------------------------------------------
+Original SBERT persistence image clustering: 100.00%
+Models achieving ≥90% (strong retention): 1
+Best model (moor_topo+contrastive_no_attention): 95.33% (95.3% retention)
+
+--------------------------------------------------
+CONSISTENCY ANALYSIS
+--------------------------------------------------
+Most consistent: moor_topo+contrastive_no_attention (EXCELLENT (Very consistent across runs))
+Least consistent: moor_signatureh0h1_lifted_no_attention (MODERATE (Some variation))

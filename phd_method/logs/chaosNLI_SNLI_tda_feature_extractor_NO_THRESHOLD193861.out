@@ -1,0 +1,336 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 193861
+Node: parrot
+Time: Wed 13 Aug 09:49:09 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Aug 13 09:49:14 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:8E:00.0 Off |                    0 |
+|  0%   19C    P8             14W /   62W |       0MiB /  15356MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 15.7 GB
+PyTorch setup verified!
+
+Starting SBERT Token Extraction...
+
+Initializing SeparateModelPointCloudGenerator on cuda...
+Loading separate models...
+Order model: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+Asymmetry model: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+Both models loaded on cuda
+Order model training stats: Best val loss = 0.3095578676823919
+Asymmetry model training stats: Best val loss = 3.3644538818131413
+Generator initialized successfully
+================================================================================
+PRECOMPUTING CHAOSNLI TDA FEATURES
+================================================================================
+Input: /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_snli_sbert_tokens.pkl
+Output: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_tda_features_NO_TOKEN_THRESHOLD.pkl
+Loading ChaosNLI data...
+
+ChaosNLI Dataset Statistics:
+Majority label distribution: {'n': 813, 'e': 421, 'c': 280}
+Human annotation entropy:
+  Mean: 0.798
+  Min: 0.000
+  Max: 1.583
+  Std: 0.333
+Agreement levels:
+  High agreement (entropy < 0.5): 309 (20.4%)
+  Medium agreement (0.5 ≤ entropy < 1.0): 814 (53.8%)
+  Low agreement (entropy ≥ 1.0): 391 (25.8%)
+Token statistics:
+  Premise tokens: 18.7 ± 7.4
+  Hypothesis tokens: 11.2 ± 4.1
+  Total tokens: 29.9 ± 9.1
+  High agreement avg distribution: [0.39588997 0.42197411 0.18213592]
+  Medium agreement avg distribution: [0.24914005 0.54891892 0.20194103]
+  Low agreement avg distribution: [0.32263427 0.46951407 0.20785166]
+
+Processing 1514 samples...
+Processing batch 1: samples 1-32
+Point cloud optimization: 609 -> 500
+Point cloud optimization: 614 -> 500
+Point cloud optimization: 662 -> 500
+Point cloud optimization: 522 -> 500
+Point cloud optimization: 584 -> 500
+Point cloud optimization: 523 -> 500
+Point cloud optimization: 562 -> 500
+Point cloud optimization: 569 -> 500
+Processing batch 2: samples 33-64
+Point cloud optimization: 738 -> 500
+Point cloud optimization: 596 -> 500
+Point cloud optimization: 537 -> 500
+Point cloud optimization: 600 -> 500
+Point cloud optimization: 561 -> 500
+Point cloud optimization: 532 -> 500
+Point cloud optimization: 642 -> 500
+Processing batch 3: samples 65-96
+Point cloud optimization: 618 -> 500
+Point cloud optimization: 559 -> 500
+Point cloud optimization: 872 -> 500
+Point cloud optimization: 511 -> 500
+Point cloud optimization: 515 -> 500
+Processing batch 4: samples 97-128
+Point cloud optimization: 511 -> 500
+Point cloud optimization: 567 -> 500
+Point cloud optimization: 630 -> 500
+Point cloud optimization: 501 -> 500
+Processing batch 5: samples 129-160
+Point cloud optimization: 574 -> 500
+Point cloud optimization: 516 -> 500
+Point cloud optimization: 568 -> 500
+Point cloud optimization: 511 -> 500
+Point cloud optimization: 522 -> 500
+Processing batch 6: samples 161-192
+Point cloud optimization: 570 -> 500
+Point cloud optimization: 513 -> 500
+Point cloud optimization: 634 -> 500
+Processing batch 7: samples 193-224
+Point cloud optimization: 680 -> 500
+Point cloud optimization: 586 -> 500
+Point cloud optimization: 637 -> 500
+Processing batch 8: samples 225-256
+Point cloud optimization: 511 -> 500
+Point cloud optimization: 663 -> 500
+Point cloud optimization: 515 -> 500
+Point cloud optimization: 543 -> 500
+Point cloud optimization: 610 -> 500
+Point cloud optimization: 512 -> 500
+Point cloud optimization: 538 -> 500
+Processing batch 9: samples 257-288
+Point cloud optimization: 613 -> 500
+Point cloud optimization: 631 -> 500
+Point cloud optimization: 587 -> 500
+Point cloud optimization: 518 -> 500
+Point cloud optimization: 587 -> 500
+Point cloud optimization: 706 -> 500
+Point cloud optimization: 696 -> 500
+Processing batch 10: samples 289-320
+Point cloud optimization: 521 -> 500
+Point cloud optimization: 509 -> 500
+Point cloud optimization: 771 -> 500
+Processing batch 11: samples 321-352
+Point cloud optimization: 561 -> 500
+Processing batch 12: samples 353-384
+Point cloud optimization: 562 -> 500
+Point cloud optimization: 650 -> 500
+Point cloud optimization: 520 -> 500
+Point cloud optimization: 587 -> 500
+Point cloud optimization: 515 -> 500
+Processing batch 13: samples 385-416
+Point cloud optimization: 509 -> 500
+Point cloud optimization: 705 -> 500
+Point cloud optimization: 504 -> 500
+Point cloud optimization: 537 -> 500
+Point cloud optimization: 523 -> 500
+Point cloud optimization: 560 -> 500
+Processing batch 14: samples 417-448
+Point cloud optimization: 645 -> 500
+Point cloud optimization: 541 -> 500
+Point cloud optimization: 524 -> 500
+Processing batch 15: samples 449-480
+Point cloud optimization: 645 -> 500
+Point cloud optimization: 601 -> 500
+Point cloud optimization: 515 -> 500
+Processing batch 16: samples 481-512
+Point cloud optimization: 638 -> 500
+Point cloud optimization: 520 -> 500
+Point cloud optimization: 537 -> 500
+Point cloud optimization: 521 -> 500
+Point cloud optimization: 513 -> 500
+Point cloud optimization: 603 -> 500
+Point cloud optimization: 550 -> 500
+Point cloud optimization: 541 -> 500
+Point cloud optimization: 504 -> 500
+Point cloud optimization: 530 -> 500
+Processing batch 17: samples 513-544
+Point cloud optimization: 511 -> 500
+Processing batch 18: samples 545-576
+Point cloud optimization: 528 -> 500
+Point cloud optimization: 719 -> 500
+Point cloud optimization: 990 -> 500
+Processing batch 19: samples 577-608
+Point cloud optimization: 563 -> 500
+Processing batch 20: samples 609-640
+Point cloud optimization: 840 -> 500
+Point cloud optimization: 693 -> 500
+Point cloud optimization: 639 -> 500
+Point cloud optimization: 617 -> 500
+Processing batch 21: samples 641-672
+Point cloud optimization: 630 -> 500
+Point cloud optimization: 688 -> 500
+Point cloud optimization: 650 -> 500
+Processing batch 22: samples 673-704
+Point cloud optimization: 652 -> 500
+Point cloud optimization: 573 -> 500
+Point cloud optimization: 515 -> 500
+Processing batch 23: samples 705-736
+Point cloud optimization: 694 -> 500
+Point cloud optimization: 1754 -> 500
+Point cloud optimization: 547 -> 500
+Point cloud optimization: 513 -> 500
+Point cloud optimization: 552 -> 500
+Processing batch 24: samples 737-768
+Point cloud optimization: 522 -> 500
+Point cloud optimization: 550 -> 500
+Point cloud optimization: 726 -> 500
+Point cloud optimization: 623 -> 500
+Point cloud optimization: 769 -> 500
+Processing batch 25: samples 769-800
+Point cloud optimization: 631 -> 500
+Point cloud optimization: 2944 -> 500
+Point cloud optimization: 1407 -> 500
+Point cloud optimization: 554 -> 500
+  Progress: 800/1514 (52.8%) Rate: 4.7 samples/sec, ETA: 0.0h
+Processing batch 26: samples 801-832
+Processing batch 27: samples 833-864
+Point cloud optimization: 646 -> 500
+Point cloud optimization: 586 -> 500
+Point cloud optimization: 592 -> 500
+Processing batch 28: samples 865-896
+Point cloud optimization: 555 -> 500
+Point cloud optimization: 538 -> 500
+Processing batch 29: samples 897-928
+Point cloud optimization: 624 -> 500
+Processing batch 30: samples 929-960
+Point cloud optimization: 1019 -> 500
+Point cloud optimization: 1146 -> 500
+Point cloud optimization: 890 -> 500
+Point cloud optimization: 584 -> 500
+Point cloud optimization: 507 -> 500
+Point cloud optimization: 1445 -> 500
+Point cloud optimization: 754 -> 500
+Processing batch 31: samples 961-992
+Point cloud optimization: 509 -> 500
+Point cloud optimization: 531 -> 500
+Point cloud optimization: 988 -> 500
+Point cloud optimization: 975 -> 500
+Processing batch 32: samples 993-1024
+Point cloud optimization: 591 -> 500
+Point cloud optimization: 693 -> 500
+Point cloud optimization: 615 -> 500
+Processing batch 33: samples 1025-1056
+Point cloud optimization: 577 -> 500
+Point cloud optimization: 671 -> 500
+Point cloud optimization: 556 -> 500
+Point cloud optimization: 719 -> 500
+Point cloud optimization: 2019 -> 500
+Point cloud optimization: 524 -> 500
+Processing batch 34: samples 1057-1088
+Processing batch 35: samples 1089-1120
+Point cloud optimization: 547 -> 500
+Point cloud optimization: 575 -> 500
+Point cloud optimization: 600 -> 500
+Point cloud optimization: 662 -> 500
+Processing batch 36: samples 1121-1152
+Point cloud optimization: 568 -> 500
+Point cloud optimization: 560 -> 500
+Point cloud optimization: 508 -> 500
+Point cloud optimization: 619 -> 500
+Processing batch 37: samples 1153-1184
+Point cloud optimization: 510 -> 500
+Point cloud optimization: 558 -> 500
+Point cloud optimization: 665 -> 500
+Point cloud optimization: 508 -> 500
+Point cloud optimization: 613 -> 500
+Point cloud optimization: 758 -> 500
+Processing batch 38: samples 1185-1216
+Point cloud optimization: 625 -> 500
+Point cloud optimization: 565 -> 500
+Point cloud optimization: 548 -> 500
+Point cloud optimization: 566 -> 500
+Point cloud optimization: 661 -> 500
+Processing batch 39: samples 1217-1248
+Point cloud optimization: 657 -> 500
+Point cloud optimization: 595 -> 500
+Point cloud optimization: 627 -> 500
+Point cloud optimization: 549 -> 500
+Point cloud optimization: 570 -> 500
+Point cloud optimization: 601 -> 500
+Processing batch 40: samples 1249-1280
+Point cloud optimization: 619 -> 500
+Point cloud optimization: 608 -> 500
+Point cloud optimization: 668 -> 500
+Point cloud optimization: 563 -> 500
+Processing batch 41: samples 1281-1312
+Point cloud optimization: 634 -> 500
+Point cloud optimization: 569 -> 500
+Point cloud optimization: 672 -> 500
+Processing batch 42: samples 1313-1344
+Point cloud optimization: 606 -> 500
+Point cloud optimization: 600 -> 500
+Point cloud optimization: 721 -> 500
+Processing batch 43: samples 1345-1376
+Point cloud optimization: 614 -> 500
+Point cloud optimization: 660 -> 500
+Point cloud optimization: 1343 -> 500
+Processing batch 44: samples 1377-1408
+Point cloud optimization: 529 -> 500
+Point cloud optimization: 547 -> 500
+Point cloud optimization: 581 -> 500
+Point cloud optimization: 609 -> 500
+Point cloud optimization: 548 -> 500
+Processing batch 45: samples 1409-1440
+Point cloud optimization: 591 -> 500
+Point cloud optimization: 506 -> 500
+Point cloud optimization: 789 -> 500
+Point cloud optimization: 628 -> 500
+Processing batch 46: samples 1441-1472
+Point cloud optimization: 618 -> 500
+Point cloud optimization: 514 -> 500
+Point cloud optimization: 776 -> 500
+Point cloud optimization: 555 -> 500
+Point cloud optimization: 886 -> 500
+Point cloud optimization: 517 -> 500
+Processing batch 47: samples 1473-1504
+Point cloud optimization: 527 -> 500
+Point cloud optimization: 507 -> 500
+Processing batch 48: samples 1505-1514
+Point cloud optimization: 670 -> 500
+Point cloud optimization: 618 -> 500
+Point cloud optimization: 564 -> 500
+Point cloud optimization: 795 -> 500
+
+Final ChaosNLI results saved:
+  Features: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_tda_features_NO_TOKEN_THRESHOLD.pkl
+  Metadata: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_tda_features_NO_TOKEN_THRESHOLD_metadata.json
+  Feature shape: (1514, 21)
+  Majority labels: 3 classes
+
+✅ ChaosNLI precomputation completed!
+Total time: 0.1 hours
+Features saved to: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_tda_features_NO_TOKEN_THRESHOLD.pkl
+
+Analysis completed with exit code: 0
+Time: Wed 13 Aug 09:54:58 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Extraction successful!
+
+
+Job finished.

@@ -1,0 +1,5205 @@
+Job ID: 189076
+Node: gpuvm17
+Time: Fri  1 Aug 11:18:51 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Aug  1 11:18:53 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   32C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+Loading validation data: /vol/bitbucket/ahb24/tda_entailment_new/snli_val_sbert_tokens.pkl
+Loaded 9842 validation samples
+Loading separate models...
+Order model: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+Asymmetry model: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+Both models loaded on cuda
+Order model training stats: Best val loss = 0.1832686284383138
+Asymmetry model training stats: Best val loss = 1.4873974243164068
+Separate model clustering validator initialized
+Samples per class: 100
+
+================================================================================
+DEBUGGING FULL PERSISTENCE PIPELINE
+================================================================================
+Generating fixed sample indices...
+  entailment: 3329 total samples available
+Token filtering: 254/3329 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 47 ± 8 (range: 40-90)
+  neutral: 3235 total samples available
+Token filtering: 344/3235 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 45 ± 6 (range: 40-75)
+  contradiction: 3278 total samples available
+Token filtering: 288/3278 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 46 ± 6 (range: 40-70)
+
+--- DEBUGGING ENTAILMENT SAMPLE ---
+1. Token info: P=44, H=10
+2. Point cloud: 162 points
+3. Distance matrix: (162, 162)
+   Distance range: 0.0000 - 20.2236
+4. Testing direct ripser call...
+   Direct ripser success: H0=162, H1=22
+   Finite H1 features: 22
+   H1 lifespans: 0.000634 - 0.474788
+5. Testing fixed ph_dim function...
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 22
+   PH-dim function success: PH-dim=3.79
+   Returned diagrams: H0=162, H1=22
+
+--- DEBUGGING NEUTRAL SAMPLE ---
+1. Token info: P=24, H=18
+2. Point cloud: 126 points
+3. Distance matrix: (126, 126)
+   Distance range: 0.0000 - 19.0199
+4. Testing direct ripser call...
+   Direct ripser success: H0=126, H1=12
+   Finite H1 features: 12
+   H1 lifespans: 0.004608 - 0.971217
+5. Testing fixed ph_dim function...
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 12
+   PH-dim function success: PH-dim=4.54
+   Returned diagrams: H0=126, H1=12
+
+--- DEBUGGING CONTRADICTION SAMPLE ---
+1. Token info: P=30, H=10
+2. Point cloud: 120 points
+3. Distance matrix: (120, 120)
+   Distance range: 0.0000 - 18.3225
+4. Testing direct ripser call...
+   Direct ripser success: H0=120, H1=7
+   Finite H1 features: 7
+   H1 lifespans: 0.000793 - 0.483702
+5. Testing fixed ph_dim function...
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 7
+   PH-dim function success: PH-dim=2.89
+   Returned diagrams: H0=120, H1=7
+
+6. Testing persistence image conversion on 3 diagrams...
+Analyzing persistence diagram ranges...
+  Diagram 0, dim 0: 161 finite features
+  Diagram 0, dim 1: 22 finite features
+  Diagram 1, dim 0: 125 finite features
+  Diagram 1, dim 1: 12 finite features
+  Diagram 2, dim 0: 119 finite features
+  Diagram 2, dim 1: 7 finite features
+Found 6 valid diagrams with 446 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 3.7365
+  Lifespans: 0.0006 - 8.8129
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 4.1102)
+  pers_range: (0.0010, 9.6941)
+PersistenceImager config: pixel_size=0.1939, sigma=0.3231
+
+Persistence image conversion results:
+  Successful: 3/3
+  Success rate: 100.0%
+   ✅ Generated 3 persistence images
+
+================================================================================
+SEPARATE MODEL POINT CLOUD CLUSTERING VALIDATION
+================================================================================
+Generating fixed sample indices...
+  entailment: 3329 total samples available
+Token filtering: 254/3329 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 47 ± 8 (range: 40-90)
+  neutral: 3235 total samples available
+Token filtering: 344/3235 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 45 ± 6 (range: 40-75)
+  contradiction: 3278 total samples available
+Token filtering: 288/3278 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 46 ± 6 (range: 40-70)
+
+============================================================
+DIAGNOSING ENTAILMENT TOPOLOGY
+============================================================
+
+--- Topological Diagnostic: entailment_sample_1 ---
+Points: 162
+Point spread:
+  Mean distance from centroid: 5.6388
+  Std distance from centroid: 2.6174
+  Min/Max: 1.1283 / 15.7818
+Pairwise distances:
+  Mean: 7.2503
+  Std: 5.0207
+  Min/Max: 0.0535 / 20.2236
+Distance distribution:
+  <1.0: 4.4%
+  1.0-5.0: 46.3%
+  >5.0: 49.3%
+Persistence analysis:
+  H1 features (total): 22
+  H1 features (finite): 22
+  H1 lifespans: 0.0501 ± 0.0950
+  Longest lifespan: 0.4748
+
+--- Topological Diagnostic: entailment_sample_2 ---
+Points: 120
+Point spread:
+  Mean distance from centroid: 5.2184
+  Std distance from centroid: 1.7782
+  Min/Max: 3.8514 / 11.8053
+Pairwise distances:
+  Mean: 6.5124
+  Std: 4.3460
+  Min/Max: 0.0411 / 15.8290
+Distance distribution:
+  <1.0: 6.9%
+  1.0-5.0: 47.3%
+  >5.0: 45.8%
+Persistence analysis:
+  H1 features (total): 10
+  H1 features (finite): 10
+  H1 lifespans: 0.0884 ± 0.1128
+  Longest lifespan: 0.4065
+
+============================================================
+DIAGNOSING NEUTRAL TOPOLOGY
+============================================================
+
+--- Topological Diagnostic: neutral_sample_1 ---
+Points: 126
+Point spread:
+  Mean distance from centroid: 6.3397
+  Std distance from centroid: 2.3077
+  Min/Max: 4.4735 / 14.1204
+Pairwise distances:
+  Mean: 7.9109
+  Std: 5.4018
+  Min/Max: 0.0406 / 19.0199
+Distance distribution:
+  <1.0: 4.1%
+  1.0-5.0: 45.9%
+  >5.0: 50.0%
+Persistence analysis:
+  H1 features (total): 12
+  H1 features (finite): 12
+  H1 lifespans: 0.2894 ± 0.3210
+  Longest lifespan: 0.9712
+
+--- Topological Diagnostic: neutral_sample_2 ---
+Points: 129
+Point spread:
+  Mean distance from centroid: 6.3044
+  Std distance from centroid: 2.1104
+  Min/Max: 4.1148 / 15.0219
+Pairwise distances:
+  Mean: 7.8659
+  Std: 5.2170
+  Min/Max: 0.0474 / 20.0041
+Distance distribution:
+  <1.0: 4.1%
+  1.0-5.0: 44.7%
+  >5.0: 51.2%
+Persistence analysis:
+  H1 features (total): 16
+  H1 features (finite): 16
+  H1 lifespans: 0.0859 ± 0.1255
+  Longest lifespan: 0.5187
+
+============================================================
+DIAGNOSING CONTRADICTION TOPOLOGY
+============================================================
+
+--- Topological Diagnostic: contradiction_sample_1 ---
+Points: 120
+Point spread:
+  Mean distance from centroid: 5.7954
+  Std distance from centroid: 2.0230
+  Min/Max: 3.1965 / 13.7965
+Pairwise distances:
+  Mean: 7.2402
+  Std: 4.8549
+  Min/Max: 0.0417 / 18.3225
+Distance distribution:
+  <1.0: 5.9%
+  1.0-5.0: 47.1%
+  >5.0: 47.1%
+Persistence analysis:
+  H1 features (total): 7
+  H1 features (finite): 7
+  H1 lifespans: 0.1230 ± 0.1522
+  Longest lifespan: 0.4837
+
+--- Topological Diagnostic: contradiction_sample_2 ---
+Points: 126
+Point spread:
+  Mean distance from centroid: 6.6782
+  Std distance from centroid: 2.2255
+  Min/Max: 4.8913 / 15.1897
+Pairwise distances:
+  Mean: 8.2433
+  Std: 5.6519
+  Min/Max: 0.0432 / 20.3906
+Distance distribution:
+  <1.0: 5.6%
+  1.0-5.0: 42.1%
+  >5.0: 52.2%
+Persistence analysis:
+  H1 features (total): 12
+  H1 features (finite): 12
+  H1 lifespans: 0.0829 ± 0.1166
+  Longest lifespan: 0.3454
+
+============================================================
+DIAGNOSIS COMPLETE
+============================================================
+
+Processing entailment samples...
+  Sample 1: P=44 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 44 + 44 + 44 = 132
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0327
+      Asymmetric energy: 10.6374
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 22
+    PH-dimension: 3.79
+    ✅ Added diagrams to collection (total: 1)
+  Sample 2: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1837
+      Asymmetric energy: 3.8889
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 10
+    PH-dimension: 3.41
+    ✅ Added diagrams to collection (total: 2)
+  Sample 3: P=28 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2502
+      Asymmetric energy: 1.3302
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 38
+    PH-dimension: 4.30
+    ✅ Added diagrams to collection (total: 3)
+  Sample 4: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1119
+      Asymmetric energy: 5.5205
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 15
+    PH-dimension: 3.96
+    ✅ Added diagrams to collection (total: 4)
+  Sample 5: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1929
+      Asymmetric energy: 4.3187
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 11
+    PH-dimension: 2.46
+    ✅ Added diagrams to collection (total: 5)
+  Sample 6: P=33 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4031
+      Asymmetric energy: 3.8428
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 31
+    PH-dimension: 6.41
+    ✅ Added diagrams to collection (total: 6)
+  Sample 7: P=33 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1694
+      Asymmetric energy: 5.3332
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 14
+    PH-dimension: 5.05
+    ✅ Added diagrams to collection (total: 7)
+  Sample 8: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1353
+      Asymmetric energy: 4.5698
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 12
+    PH-dimension: 2.74
+    ✅ Added diagrams to collection (total: 8)
+  Sample 9: P=31 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3559
+      Asymmetric energy: 1.8369
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 23
+    PH-dimension: 3.48
+    ✅ Added diagrams to collection (total: 9)
+  Sample 10: P=39 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0081
+      Asymmetric energy: 8.8884
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 16
+    PH-dimension: 3.03
+    ✅ Added diagrams to collection (total: 10)
+  Sample 11: P=36 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2909
+      Asymmetric energy: 6.6472
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 13
+    PH-dimension: 3.97
+    ✅ Added diagrams to collection (total: 11)
+  Sample 12: P=32 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4766
+      Asymmetric energy: 2.5134
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 8
+    PH-dimension: 2.03
+    ✅ Added diagrams to collection (total: 12)
+  Sample 13: P=41 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5904
+      Asymmetric energy: 4.5741
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 16
+    PH-dimension: 2.50
+    ✅ Added diagrams to collection (total: 13)
+  Sample 14: P=27 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0630
+      Asymmetric energy: 5.6935
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 20
+    PH-dimension: 3.64
+    ✅ Added diagrams to collection (total: 14)
+  Sample 15: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3336
+      Asymmetric energy: 2.1160
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 18
+    PH-dimension: 2.52
+    ✅ Added diagrams to collection (total: 15)
+  Sample 16: P=26 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1284
+      Asymmetric energy: 2.5849
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 17
+    PH-dimension: 4.00
+    ✅ Added diagrams to collection (total: 16)
+  Sample 17: P=33 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1740
+      Asymmetric energy: 3.9969
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 43
+    PH-dimension: 2.51
+    ✅ Added diagrams to collection (total: 17)
+  Sample 18: P=28 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0651
+      Asymmetric energy: 4.8825
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 14
+    PH-dimension: 3.68
+    ✅ Added diagrams to collection (total: 18)
+  Sample 19: P=28 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8474
+      Asymmetric energy: 2.4265
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 36
+    PH-dimension: 2.40
+    ✅ Added diagrams to collection (total: 19)
+  Sample 20: P=34 tokens, H=34 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 34 + 34 + 34 = 102
+      Combined: 204 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0000
+      Asymmetric energy: 0.0000
+Computing persistence on full 204 point cloud...
+  H0 features: 162
+  H1 features: 3
+    PH-dimension: 2.09
+    ✅ Added diagrams to collection (total: 20)
+  Sample 21: P=32 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3118
+      Asymmetric energy: 3.2455
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 22
+    PH-dimension: 2.31
+    ✅ Added diagrams to collection (total: 21)
+  Sample 22: P=27 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5676
+      Asymmetric energy: 3.4782
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 31
+    PH-dimension: 3.79
+    ✅ Added diagrams to collection (total: 22)
+  Sample 23: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0401
+      Asymmetric energy: 6.0769
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 14
+    PH-dimension: 2.70
+    ✅ Added diagrams to collection (total: 23)
+  Sample 24: P=27 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3690
+      Asymmetric energy: 1.5433
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 36
+    PH-dimension: 4.09
+    ✅ Added diagrams to collection (total: 24)
+  Sample 25: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4141
+      Asymmetric energy: 2.0147
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 14
+    PH-dimension: 5.15
+    ✅ Added diagrams to collection (total: 25)
+  Sample 26: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2243
+      Asymmetric energy: 1.0867
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 32
+    PH-dimension: 2.26
+    ✅ Added diagrams to collection (total: 26)
+  Sample 27: P=43 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 43 + 43 + 43 = 129
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 168 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2092
+      Asymmetric energy: 2.1889
+Computing persistence on full 168 point cloud...
+  H0 features: 168
+  H1 features: 28
+    PH-dimension: 3.28
+    ✅ Added diagrams to collection (total: 27)
+  Sample 28: P=31 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2499
+      Asymmetric energy: 2.5764
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 42
+    PH-dimension: 2.75
+    ✅ Added diagrams to collection (total: 28)
+  Sample 29: P=33 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0670
+      Asymmetric energy: 2.6481
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 29
+    PH-dimension: 4.26
+    ✅ Added diagrams to collection (total: 29)
+  Sample 30: P=36 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1470
+      Asymmetric energy: 1.6275
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 26
+    PH-dimension: 5.66
+    ✅ Added diagrams to collection (total: 30)
+  Sample 31: P=39 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0325
+      Asymmetric energy: 7.8405
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 15
+    PH-dimension: 3.82
+    ✅ Added diagrams to collection (total: 31)
+  Sample 32: P=37 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 168 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1364
+      Asymmetric energy: 2.3448
+Computing persistence on full 168 point cloud...
+  H0 features: 168
+  H1 features: 29
+    PH-dimension: 2.76
+    ✅ Added diagrams to collection (total: 32)
+  Sample 33: P=33 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4798
+      Asymmetric energy: 3.0609
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 18
+    PH-dimension: 2.63
+    ✅ Added diagrams to collection (total: 33)
+  Sample 34: P=32 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0753
+      Asymmetric energy: 7.8643
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 6
+    PH-dimension: 4.23
+    ✅ Added diagrams to collection (total: 34)
+  Sample 35: P=36 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0303
+      Asymmetric energy: 8.3344
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 11
+    PH-dimension: 4.17
+    ✅ Added diagrams to collection (total: 35)
+  Sample 36: P=31 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7532
+      Asymmetric energy: 2.6363
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 21
+    PH-dimension: 3.25
+    ✅ Added diagrams to collection (total: 36)
+  Sample 37: P=63 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 63 + 63 + 63 = 189
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 213 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0023
+      Asymmetric energy: 11.5705
+Computing persistence on full 213 point cloud...
+  H0 features: 213
+  H1 features: 19
+    PH-dimension: 2.90
+    ✅ Added diagrams to collection (total: 37)
+  Sample 38: P=39 tokens, H=27 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 27 + 27 + 27 = 81
+      Combined: 198 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2410
+      Asymmetric energy: 2.2161
+Computing persistence on full 198 point cloud...
+  H0 features: 198
+  H1 features: 35
+    PH-dimension: 3.72
+    ✅ Added diagrams to collection (total: 38)
+  Sample 39: P=30 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2141
+      Asymmetric energy: 3.8062
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 14
+    PH-dimension: 2.80
+    ✅ Added diagrams to collection (total: 39)
+  Sample 40: P=35 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0215
+      Asymmetric energy: 8.9022
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 13
+    PH-dimension: 3.16
+    ✅ Added diagrams to collection (total: 40)
+  Sample 41: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1033
+      Asymmetric energy: 3.0909
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 15
+    PH-dimension: 2.37
+    ✅ Added diagrams to collection (total: 41)
+  Sample 42: P=28 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8426
+      Asymmetric energy: 2.7194
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 20
+    PH-dimension: 3.00
+    ✅ Added diagrams to collection (total: 42)
+  Sample 43: P=31 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8151
+      Asymmetric energy: 2.7539
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 14
+    PH-dimension: 3.19
+    ✅ Added diagrams to collection (total: 43)
+  Sample 44: P=58 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 58 + 58 + 58 = 174
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 195 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0014
+      Asymmetric energy: 12.0307
+Computing persistence on full 195 point cloud...
+  H0 features: 195
+  H1 features: 23
+    PH-dimension: 3.43
+    ✅ Added diagrams to collection (total: 44)
+  Sample 45: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0706
+      Asymmetric energy: 4.9365
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 15
+    PH-dimension: 1.97
+    ✅ Added diagrams to collection (total: 45)
+  Sample 46: P=29 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3933
+      Asymmetric energy: 3.8174
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 22
+    PH-dimension: 2.63
+    ✅ Added diagrams to collection (total: 46)
+  Sample 47: P=43 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 43 + 43 + 43 = 129
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3747
+      Asymmetric energy: 2.3874
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 30
+    PH-dimension: 3.46
+    ✅ Added diagrams to collection (total: 47)
+  Sample 48: P=50 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 50 + 50 + 50 = 150
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 177 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0216
+      Asymmetric energy: 7.5148
+Computing persistence on full 177 point cloud...
+  H0 features: 177
+  H1 features: 13
+    PH-dimension: 2.66
+    ✅ Added diagrams to collection (total: 48)
+  Sample 49: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0453
+      Asymmetric energy: 4.5921
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 12
+    PH-dimension: 2.13
+    ✅ Added diagrams to collection (total: 49)
+  Sample 50: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0504
+      Asymmetric energy: 0.8550
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 26
+    PH-dimension: 3.09
+    ✅ Added diagrams to collection (total: 50)
+  Sample 51: P=43 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 43 + 43 + 43 = 129
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4734
+      Asymmetric energy: 3.0260
+Computing persistence on full 165 point cloud...
+  H0 features: 165
+  H1 features: 19
+    PH-dimension: 3.52
+    ✅ Added diagrams to collection (total: 51)
+  Sample 52: P=33 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6684
+      Asymmetric energy: 2.4806
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 34
+    PH-dimension: 3.24
+    ✅ Added diagrams to collection (total: 52)
+  Sample 53: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5248
+      Asymmetric energy: 2.2565
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 15
+    PH-dimension: 1.81
+    ✅ Added diagrams to collection (total: 53)
+  Sample 54: P=31 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1751
+      Asymmetric energy: 1.8879
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 27
+    PH-dimension: 2.91
+    ✅ Added diagrams to collection (total: 54)
+  Sample 55: P=24 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4345
+      Asymmetric energy: 1.6028
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 42
+    PH-dimension: 2.98
+    ✅ Added diagrams to collection (total: 55)
+  Sample 56: P=36 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1799
+      Asymmetric energy: 5.1443
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 12
+    PH-dimension: 8.57
+    ✅ Added diagrams to collection (total: 56)
+  Sample 57: P=34 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3348
+      Asymmetric energy: 3.9791
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 21
+    PH-dimension: 3.49
+    ✅ Added diagrams to collection (total: 57)
+  Sample 58: P=26 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1387
+      Asymmetric energy: 2.2404
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 42
+    PH-dimension: 2.07
+    ✅ Added diagrams to collection (total: 58)
+  Sample 59: P=35 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7006
+      Asymmetric energy: 2.2176
+Computing persistence on full 159 point cloud...
+  H0 features: 159
+  H1 features: 30
+    PH-dimension: 2.23
+    ✅ Added diagrams to collection (total: 59)
+  Sample 60: P=35 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1189
+      Asymmetric energy: 2.9511
+Computing persistence on full 159 point cloud...
+  H0 features: 159
+  H1 features: 30
+    PH-dimension: 2.85
+    ✅ Added diagrams to collection (total: 60)
+  Sample 61: P=35 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1377
+      Asymmetric energy: 3.6920
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 10
+    PH-dimension: 3.52
+    ✅ Added diagrams to collection (total: 61)
+  Sample 62: P=20 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2416
+      Asymmetric energy: 1.3625
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 31
+    PH-dimension: 2.27
+    ✅ Added diagrams to collection (total: 62)
+  Sample 63: P=25 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1165
+      Asymmetric energy: 2.7063
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 23
+    PH-dimension: 5.28
+    ✅ Added diagrams to collection (total: 63)
+  Sample 64: P=34 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5236
+      Asymmetric energy: 2.0768
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 18
+    PH-dimension: 2.51
+    ✅ Added diagrams to collection (total: 64)
+  Sample 65: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3309
+      Asymmetric energy: 4.2718
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 17
+    PH-dimension: 2.21
+    ✅ Added diagrams to collection (total: 65)
+  Sample 66: P=41 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2036
+      Asymmetric energy: 4.3203
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 18
+    PH-dimension: 4.99
+    ✅ Added diagrams to collection (total: 66)
+  Sample 67: P=30 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1493
+      Asymmetric energy: 4.0285
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 24
+    PH-dimension: 2.79
+    ✅ Added diagrams to collection (total: 67)
+  Sample 68: P=32 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0340
+      Asymmetric energy: 1.4454
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 24
+    PH-dimension: 2.79
+    ✅ Added diagrams to collection (total: 68)
+  Sample 69: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3913
+      Asymmetric energy: 3.1439
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 11
+    PH-dimension: 5.15
+    ✅ Added diagrams to collection (total: 69)
+  Sample 70: P=31 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2255
+      Asymmetric energy: 1.5557
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 14
+    PH-dimension: 2.62
+    ✅ Added diagrams to collection (total: 70)
+  Sample 71: P=53 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 53 + 53 + 53 = 159
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 192 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9251
+      Asymmetric energy: 1.7997
+Computing persistence on full 192 point cloud...
+  H0 features: 192
+  H1 features: 35
+    PH-dimension: 2.96
+    ✅ Added diagrams to collection (total: 71)
+  Sample 72: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5208
+      Asymmetric energy: 1.6376
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 32
+    PH-dimension: 2.86
+    ✅ Added diagrams to collection (total: 72)
+  Sample 73: P=51 tokens, H=39 tokens
+    Point cloud breakdown:
+      Premise: 51 + 51 + 51 = 153
+      Hypothesis: 39 + 39 + 39 = 117
+      Combined: 270 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7652
+      Asymmetric energy: 2.1221
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 56
+    PH-dimension: 4.38
+    ✅ Added diagrams to collection (total: 73)
+  Sample 74: P=35 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3050
+      Asymmetric energy: 3.3771
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 23
+    PH-dimension: 2.62
+    ✅ Added diagrams to collection (total: 74)
+  Sample 75: P=29 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3645
+      Asymmetric energy: 1.5041
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 15
+    PH-dimension: 2.51
+    ✅ Added diagrams to collection (total: 75)
+  Sample 76: P=26 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0170
+      Asymmetric energy: 0.9522
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 15
+    PH-dimension: 3.12
+    ✅ Added diagrams to collection (total: 76)
+  Sample 77: P=32 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0709
+      Asymmetric energy: 10.3126
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 12
+    PH-dimension: 3.11
+    ✅ Added diagrams to collection (total: 77)
+  Sample 78: P=33 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0823
+      Asymmetric energy: 3.0503
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 18
+    PH-dimension: 3.46
+    ✅ Added diagrams to collection (total: 78)
+  Sample 79: P=29 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2778
+      Asymmetric energy: 1.9146
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 28
+    PH-dimension: 2.84
+    ✅ Added diagrams to collection (total: 79)
+  Sample 80: P=28 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1514
+      Asymmetric energy: 3.0896
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 18
+    PH-dimension: 3.71
+    ✅ Added diagrams to collection (total: 80)
+  Sample 81: P=34 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1191
+      Asymmetric energy: 2.8487
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 16
+    PH-dimension: 2.81
+    ✅ Added diagrams to collection (total: 81)
+  Sample 82: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2178
+      Asymmetric energy: 2.2133
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 18
+    PH-dimension: 3.03
+    ✅ Added diagrams to collection (total: 82)
+  Sample 83: P=41 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3128
+      Asymmetric energy: 3.4195
+Computing persistence on full 165 point cloud...
+  H0 features: 165
+  H1 features: 24
+    PH-dimension: 3.08
+    ✅ Added diagrams to collection (total: 83)
+  Sample 84: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1086
+      Asymmetric energy: 1.7559
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 14
+    PH-dimension: 2.12
+    ✅ Added diagrams to collection (total: 84)
+  Sample 85: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1774
+      Asymmetric energy: 3.4711
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 22
+    PH-dimension: 2.56
+    ✅ Added diagrams to collection (total: 85)
+  Sample 86: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4264
+      Asymmetric energy: 2.3762
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 11
+    PH-dimension: 4.57
+    ✅ Added diagrams to collection (total: 86)
+  Sample 87: P=34 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2317
+      Asymmetric energy: 2.6741
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 31
+    PH-dimension: 3.11
+    ✅ Added diagrams to collection (total: 87)
+  Sample 88: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1474
+      Asymmetric energy: 3.5469
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 24
+    PH-dimension: 3.69
+    ✅ Added diagrams to collection (total: 88)
+  Sample 89: P=28 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2272
+      Asymmetric energy: 1.6560
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 19
+    PH-dimension: 2.90
+    ✅ Added diagrams to collection (total: 89)
+  Sample 90: P=22 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1105
+      Asymmetric energy: 2.0347
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 22
+    PH-dimension: 2.05
+    ✅ Added diagrams to collection (total: 90)
+  Sample 91: P=27 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1704
+      Asymmetric energy: 2.8371
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 29
+    PH-dimension: 5.11
+    ✅ Added diagrams to collection (total: 91)
+  Sample 92: P=22 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2567
+      Asymmetric energy: 1.1717
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 12
+    PH-dimension: 1.42
+    ✅ Added diagrams to collection (total: 92)
+  Sample 93: P=36 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0329
+      Asymmetric energy: 5.4290
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 14
+    PH-dimension: 2.42
+    ✅ Added diagrams to collection (total: 93)
+  Sample 94: P=34 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3852
+      Asymmetric energy: 2.8752
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 26
+    PH-dimension: 3.25
+    ✅ Added diagrams to collection (total: 94)
+  Sample 95: P=24 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2876
+      Asymmetric energy: 1.1595
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 9
+    PH-dimension: 1.54
+    ✅ Added diagrams to collection (total: 95)
+  Sample 96: P=33 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0453
+      Asymmetric energy: 7.2618
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 16
+    PH-dimension: 2.33
+    ✅ Added diagrams to collection (total: 96)
+  Sample 97: P=31 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9095
+      Asymmetric energy: 2.2283
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 14
+    PH-dimension: 5.28
+    ✅ Added diagrams to collection (total: 97)
+  Sample 98: P=41 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1881
+      Asymmetric energy: 2.5722
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 20
+    PH-dimension: 3.02
+    ✅ Added diagrams to collection (total: 98)
+  Sample 99: P=21 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1835
+      Asymmetric energy: 0.7599
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 15
+    PH-dimension: 1.56
+    ✅ Added diagrams to collection (total: 99)
+  Sample 100: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6780
+      Asymmetric energy: 2.1027
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 21
+    PH-dimension: 3.05
+    ✅ Added diagrams to collection (total: 100)
+
+Processing neutral samples...
+  Sample 1: P=24 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6863
+      Asymmetric energy: 2.7044
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 12
+    PH-dimension: 2.60
+    ✅ Added diagrams to collection (total: 101)
+  Sample 2: P=25 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9614
+      Asymmetric energy: 2.1871
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 16
+    PH-dimension: 4.64
+    ✅ Added diagrams to collection (total: 102)
+  Sample 3: P=33 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0237
+      Asymmetric energy: 1.6084
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 11
+    PH-dimension: 2.59
+    ✅ Added diagrams to collection (total: 103)
+  Sample 4: P=21 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5529
+      Asymmetric energy: 1.4003
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 24
+    PH-dimension: 1.91
+    ✅ Added diagrams to collection (total: 104)
+  Sample 5: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8244
+      Asymmetric energy: 5.2540
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 16
+    PH-dimension: 2.51
+    ✅ Added diagrams to collection (total: 105)
+  Sample 6: P=28 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8522
+      Asymmetric energy: 1.9791
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 12
+    PH-dimension: 6.51
+    ✅ Added diagrams to collection (total: 106)
+  Sample 7: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3085
+      Asymmetric energy: 4.1902
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 15
+    PH-dimension: 3.21
+    ✅ Added diagrams to collection (total: 107)
+  Sample 8: P=33 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.2923
+      Asymmetric energy: 4.3663
+Computing persistence on full 165 point cloud...
+  H0 features: 165
+  H1 features: 13
+    PH-dimension: 2.93
+    ✅ Added diagrams to collection (total: 108)
+  Sample 9: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2993
+      Asymmetric energy: 1.3487
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 23
+    PH-dimension: 3.56
+    ✅ Added diagrams to collection (total: 109)
+  Sample 10: P=21 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2086
+      Asymmetric energy: 1.8194
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 29
+    PH-dimension: 3.55
+    ✅ Added diagrams to collection (total: 110)
+  Sample 11: P=29 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0572
+      Asymmetric energy: 2.9807
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 14
+    PH-dimension: 4.13
+    ✅ Added diagrams to collection (total: 111)
+  Sample 12: P=38 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2723
+      Asymmetric energy: 3.0046
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 16
+    PH-dimension: 3.18
+    ✅ Added diagrams to collection (total: 112)
+  Sample 13: P=25 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4653
+      Asymmetric energy: 2.2457
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 30
+    PH-dimension: 4.12
+    ✅ Added diagrams to collection (total: 113)
+  Sample 14: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9369
+      Asymmetric energy: 3.4012
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 22
+    PH-dimension: 2.98
+    ✅ Added diagrams to collection (total: 114)
+  Sample 15: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9748
+      Asymmetric energy: 3.5641
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 20
+    PH-dimension: 2.34
+    ✅ Added diagrams to collection (total: 115)
+  Sample 16: P=27 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2150
+      Asymmetric energy: 5.8723
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 11
+    PH-dimension: 1.88
+    ✅ Added diagrams to collection (total: 116)
+  Sample 17: P=38 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8416
+      Asymmetric energy: 2.3234
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 11
+    PH-dimension: 2.93
+    ✅ Added diagrams to collection (total: 117)
+  Sample 18: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.6263
+      Asymmetric energy: 3.1774
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 7
+    PH-dimension: 2.20
+    ✅ Added diagrams to collection (total: 118)
+  Sample 19: P=21 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.8141
+      Asymmetric energy: 4.1095
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 14
+    PH-dimension: 2.51
+    ✅ Added diagrams to collection (total: 119)
+  Sample 20: P=25 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1932
+      Asymmetric energy: 1.4448
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 15
+    PH-dimension: 4.12
+    ✅ Added diagrams to collection (total: 120)
+  Sample 21: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1155
+      Asymmetric energy: 4.3741
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 22
+    PH-dimension: 3.15
+    ✅ Added diagrams to collection (total: 121)
+  Sample 22: P=39 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8991
+      Asymmetric energy: 5.0845
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 16
+    PH-dimension: 4.00
+    ✅ Added diagrams to collection (total: 122)
+  Sample 23: P=24 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8108
+      Asymmetric energy: 1.7768
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 28
+    PH-dimension: 6.19
+    ✅ Added diagrams to collection (total: 123)
+  Sample 24: P=42 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 42 + 42 + 42 = 126
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 171 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2613
+      Asymmetric energy: 2.2706
+Computing persistence on full 171 point cloud...
+  H0 features: 171
+  H1 features: 15
+    PH-dimension: 4.03
+    ✅ Added diagrams to collection (total: 124)
+  Sample 25: P=30 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7882
+      Asymmetric energy: 1.6950
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 28
+    PH-dimension: 2.77
+    ✅ Added diagrams to collection (total: 125)
+  Sample 26: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.0045
+      Asymmetric energy: 2.4899
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 14
+    PH-dimension: 4.01
+    ✅ Added diagrams to collection (total: 126)
+  Sample 27: P=29 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9746
+      Asymmetric energy: 2.3454
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 18
+    PH-dimension: 3.26
+    ✅ Added diagrams to collection (total: 127)
+  Sample 28: P=29 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5869
+      Asymmetric energy: 1.6737
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 19
+    PH-dimension: 2.06
+    ✅ Added diagrams to collection (total: 128)
+  Sample 29: P=28 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6072
+      Asymmetric energy: 3.1153
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 20
+    PH-dimension: 3.27
+    ✅ Added diagrams to collection (total: 129)
+  Sample 30: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7190
+      Asymmetric energy: 2.1146
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 19
+    PH-dimension: 2.26
+    ✅ Added diagrams to collection (total: 130)
+  Sample 31: P=45 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 45 + 45 + 45 = 135
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7574
+      Asymmetric energy: 2.9208
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 17
+    PH-dimension: 4.31
+    ✅ Added diagrams to collection (total: 131)
+  Sample 32: P=30 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4761
+      Asymmetric energy: 2.0251
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 25
+    PH-dimension: 2.34
+    ✅ Added diagrams to collection (total: 132)
+  Sample 33: P=28 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2309
+      Asymmetric energy: 1.5917
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 21
+    PH-dimension: 4.13
+    ✅ Added diagrams to collection (total: 133)
+  Sample 34: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0142
+      Asymmetric energy: 2.2873
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 10
+    PH-dimension: 2.55
+    ✅ Added diagrams to collection (total: 134)
+  Sample 35: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4433
+      Asymmetric energy: 2.1607
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 15
+    PH-dimension: 2.67
+    ✅ Added diagrams to collection (total: 135)
+  Sample 36: P=29 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9453
+      Asymmetric energy: 1.7267
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 9
+    PH-dimension: 4.23
+    ✅ Added diagrams to collection (total: 136)
+  Sample 37: P=36 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5137
+      Asymmetric energy: 2.1372
+Computing persistence on full 159 point cloud...
+  H0 features: 159
+  H1 features: 25
+    PH-dimension: 5.28
+    ✅ Added diagrams to collection (total: 137)
+  Sample 38: P=21 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3393
+      Asymmetric energy: 1.0723
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 29
+    PH-dimension: 2.24
+    ✅ Added diagrams to collection (total: 138)
+  Sample 39: P=39 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3659
+      Asymmetric energy: 2.4831
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 22
+    PH-dimension: 2.77
+    ✅ Added diagrams to collection (total: 139)
+  Sample 40: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8825
+      Asymmetric energy: 3.1563
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 28
+    PH-dimension: 3.12
+    ✅ Added diagrams to collection (total: 140)
+  Sample 41: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3835
+      Asymmetric energy: 1.8144
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 19
+    PH-dimension: 5.19
+    ✅ Added diagrams to collection (total: 141)
+  Sample 42: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5462
+      Asymmetric energy: 1.4041
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 16
+    PH-dimension: 3.54
+    ✅ Added diagrams to collection (total: 142)
+  Sample 43: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4075
+      Asymmetric energy: 2.6645
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 20
+    PH-dimension: 4.60
+    ✅ Added diagrams to collection (total: 143)
+  Sample 44: P=54 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 54 + 54 + 54 = 162
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 216 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5868
+      Asymmetric energy: 3.0316
+Computing persistence on full 216 point cloud...
+  H0 features: 216
+  H1 features: 28
+    PH-dimension: 3.17
+    ✅ Added diagrams to collection (total: 144)
+  Sample 45: P=49 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 49 + 49 + 49 = 147
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 225 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4803
+      Asymmetric energy: 2.8904
+Computing persistence on full 225 point cloud...
+  H0 features: 225
+  H1 features: 24
+    PH-dimension: 3.24
+    ✅ Added diagrams to collection (total: 145)
+  Sample 46: P=24 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2541
+      Asymmetric energy: 2.0017
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 44
+    PH-dimension: 3.21
+    ✅ Added diagrams to collection (total: 146)
+  Sample 47: P=35 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6860
+      Asymmetric energy: 3.5488
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 8
+    PH-dimension: 3.10
+    ✅ Added diagrams to collection (total: 147)
+  Sample 48: P=30 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6816
+      Asymmetric energy: 2.7857
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 16
+    PH-dimension: 3.19
+    ✅ Added diagrams to collection (total: 148)
+  Sample 49: P=31 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3707
+      Asymmetric energy: 2.9090
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 17
+    PH-dimension: 4.04
+    ✅ Added diagrams to collection (total: 149)
+  Sample 50: P=28 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8986
+      Asymmetric energy: 1.8474
+Computing persistence on full 159 point cloud...
+  H0 features: 159
+  H1 features: 19
+    PH-dimension: 2.77
+    ✅ Added diagrams to collection (total: 150)
+  Sample 51: P=25 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6696
+      Asymmetric energy: 2.4766
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 28
+    PH-dimension: 2.85
+    ✅ Added diagrams to collection (total: 151)
+  Sample 52: P=23 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5848
+      Asymmetric energy: 2.1741
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 18
+    PH-dimension: 3.15
+    ✅ Added diagrams to collection (total: 152)
+  Sample 53: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5678
+      Asymmetric energy: 2.9311
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 20
+    PH-dimension: 2.86
+    ✅ Added diagrams to collection (total: 153)
+  Sample 54: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8355
+      Asymmetric energy: 1.7614
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 15
+    PH-dimension: 3.00
+    ✅ Added diagrams to collection (total: 154)
+  Sample 55: P=27 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7143
+      Asymmetric energy: 2.9682
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 18
+    PH-dimension: 2.94
+    ✅ Added diagrams to collection (total: 155)
+  Sample 56: P=27 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8333
+      Asymmetric energy: 3.0927
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 15
+    PH-dimension: 3.06
+    ✅ Added diagrams to collection (total: 156)
+  Sample 57: P=41 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7066
+      Asymmetric energy: 1.2521
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 16
+    PH-dimension: 9.00
+    ✅ Added diagrams to collection (total: 157)
+  Sample 58: P=25 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4955
+      Asymmetric energy: 2.3054
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 20
+    PH-dimension: 4.58
+    ✅ Added diagrams to collection (total: 158)
+  Sample 59: P=32 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2875
+      Asymmetric energy: 2.1151
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 16
+    PH-dimension: 4.22
+    ✅ Added diagrams to collection (total: 159)
+  Sample 60: P=43 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 43 + 43 + 43 = 129
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5103
+      Asymmetric energy: 3.7037
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 21
+    PH-dimension: 2.43
+    ✅ Added diagrams to collection (total: 160)
+  Sample 61: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5987
+      Asymmetric energy: 1.9746
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 7
+    PH-dimension: 2.32
+    ✅ Added diagrams to collection (total: 161)
+  Sample 62: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9580
+      Asymmetric energy: 2.2739
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 20
+    PH-dimension: 3.51
+    ✅ Added diagrams to collection (total: 162)
+  Sample 63: P=31 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1290
+      Asymmetric energy: 2.0359
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 16
+    PH-dimension: 3.01
+    ✅ Added diagrams to collection (total: 163)
+  Sample 64: P=26 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6666
+      Asymmetric energy: 2.6157
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 15
+    PH-dimension: 4.05
+    ✅ Added diagrams to collection (total: 164)
+  Sample 65: P=22 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.1525
+      Asymmetric energy: 4.5023
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 13
+    PH-dimension: 3.02
+    ✅ Added diagrams to collection (total: 165)
+  Sample 66: P=36 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1941
+      Asymmetric energy: 2.9502
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 11
+    PH-dimension: 3.19
+    ✅ Added diagrams to collection (total: 166)
+  Sample 67: P=36 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7756
+      Asymmetric energy: 2.9412
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 12
+    PH-dimension: 2.84
+    ✅ Added diagrams to collection (total: 167)
+  Sample 68: P=37 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8126
+      Asymmetric energy: 1.7998
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 19
+    PH-dimension: 3.48
+    ✅ Added diagrams to collection (total: 168)
+  Sample 69: P=31 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7510
+      Asymmetric energy: 2.7584
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 14
+    PH-dimension: 2.15
+    ✅ Added diagrams to collection (total: 169)
+  Sample 70: P=21 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5986
+      Asymmetric energy: 2.4323
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 24
+    PH-dimension: 4.88
+    ✅ Added diagrams to collection (total: 170)
+  Sample 71: P=39 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 183 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0861
+      Asymmetric energy: 1.7028
+Computing persistence on full 183 point cloud...
+  H0 features: 183
+  H1 features: 20
+    PH-dimension: 3.20
+    ✅ Added diagrams to collection (total: 171)
+  Sample 72: P=22 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8249
+      Asymmetric energy: 2.8740
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 9
+    PH-dimension: 4.59
+    ✅ Added diagrams to collection (total: 172)
+  Sample 73: P=28 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2460
+      Asymmetric energy: 1.5318
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 18
+    PH-dimension: 2.72
+    ✅ Added diagrams to collection (total: 173)
+  Sample 74: P=35 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.9212
+      Asymmetric energy: 2.4350
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 15
+    PH-dimension: 2.34
+    ✅ Added diagrams to collection (total: 174)
+  Sample 75: P=48 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 48 + 48 + 48 = 144
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 186 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5130
+      Asymmetric energy: 2.6281
+Computing persistence on full 186 point cloud...
+  H0 features: 186
+  H1 features: 22
+    PH-dimension: 2.95
+    ✅ Added diagrams to collection (total: 175)
+  Sample 76: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.2598
+      Asymmetric energy: 3.0445
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 12
+    PH-dimension: 2.06
+    ✅ Added diagrams to collection (total: 176)
+  Sample 77: P=18 tokens, H=28 tokens
+    Point cloud breakdown:
+      Premise: 18 + 18 + 18 = 54
+      Hypothesis: 28 + 28 + 28 = 84
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0275
+      Asymmetric energy: 3.4125
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 24
+    PH-dimension: 2.64
+    ✅ Added diagrams to collection (total: 177)
+  Sample 78: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4689
+      Asymmetric energy: 1.6325
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 19
+    PH-dimension: 1.69
+    ✅ Added diagrams to collection (total: 178)
+  Sample 79: P=22 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2432
+      Asymmetric energy: 4.0585
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 21
+    PH-dimension: 3.27
+    ✅ Added diagrams to collection (total: 179)
+  Sample 80: P=29 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8494
+      Asymmetric energy: 2.4402
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 19
+    PH-dimension: 5.03
+    ✅ Added diagrams to collection (total: 180)
+  Sample 81: P=34 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0614
+      Asymmetric energy: 1.5442
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 25
+    PH-dimension: 3.83
+    ✅ Added diagrams to collection (total: 181)
+  Sample 82: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7787
+      Asymmetric energy: 1.6665
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 8
+    PH-dimension: 11.02
+    ✅ Added diagrams to collection (total: 182)
+  Sample 83: P=31 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.7938
+      Asymmetric energy: 5.0317
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 12
+    PH-dimension: 2.36
+    ✅ Added diagrams to collection (total: 183)
+  Sample 84: P=19 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 19 + 19 + 19 = 57
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2435
+      Asymmetric energy: 4.3529
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 31
+    PH-dimension: 2.68
+    ✅ Added diagrams to collection (total: 184)
+  Sample 85: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3367
+      Asymmetric energy: 2.8178
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 13
+    PH-dimension: 4.76
+    ✅ Added diagrams to collection (total: 185)
+  Sample 86: P=30 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6569
+      Asymmetric energy: 2.2686
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 29
+    PH-dimension: 3.71
+    ✅ Added diagrams to collection (total: 186)
+  Sample 87: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2627
+      Asymmetric energy: 3.1826
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 25
+    PH-dimension: 2.77
+    ✅ Added diagrams to collection (total: 187)
+  Sample 88: P=20 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5535
+      Asymmetric energy: 1.3982
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 27
+    PH-dimension: 2.38
+    ✅ Added diagrams to collection (total: 188)
+  Sample 89: P=53 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 53 + 53 + 53 = 159
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 186 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8614
+      Asymmetric energy: 3.4487
+Computing persistence on full 186 point cloud...
+  H0 features: 186
+  H1 features: 29
+    PH-dimension: 3.20
+    ✅ Added diagrams to collection (total: 189)
+  Sample 90: P=22 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6794
+      Asymmetric energy: 2.5520
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 32
+    PH-dimension: 3.14
+    ✅ Added diagrams to collection (total: 190)
+  Sample 91: P=20 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5347
+      Asymmetric energy: 3.0006
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 43
+    PH-dimension: 3.09
+    ✅ Added diagrams to collection (total: 191)
+  Sample 92: P=22 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8156
+      Asymmetric energy: 2.1257
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 20
+    PH-dimension: 5.54
+    ✅ Added diagrams to collection (total: 192)
+  Sample 93: P=23 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5874
+      Asymmetric energy: 1.5361
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 35
+    PH-dimension: 2.53
+    ✅ Added diagrams to collection (total: 193)
+  Sample 94: P=22 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6157
+      Asymmetric energy: 1.5953
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 22
+    PH-dimension: 2.22
+    ✅ Added diagrams to collection (total: 194)
+  Sample 95: P=31 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3013
+      Asymmetric energy: 5.2423
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 13
+    PH-dimension: 2.33
+    ✅ Added diagrams to collection (total: 195)
+  Sample 96: P=33 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4913
+      Asymmetric energy: 1.6496
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 22
+    PH-dimension: 6.30
+    ✅ Added diagrams to collection (total: 196)
+  Sample 97: P=23 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2955
+      Asymmetric energy: 2.3133
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 32
+    PH-dimension: 4.18
+    ✅ Added diagrams to collection (total: 197)
+  Sample 98: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8028
+      Asymmetric energy: 4.1905
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 13
+    PH-dimension: 3.40
+    ✅ Added diagrams to collection (total: 198)
+  Sample 99: P=39 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1438
+      Asymmetric energy: 1.4179
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 15
+    PH-dimension: 2.81
+    ✅ Added diagrams to collection (total: 199)
+  Sample 100: P=32 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2041
+      Asymmetric energy: 3.4909
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 12
+    PH-dimension: 3.05
+    ✅ Added diagrams to collection (total: 200)
+
+Processing contradiction samples...
+  Sample 1: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6697
+      Asymmetric energy: 4.0164
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 7
+    PH-dimension: 5.15
+    ✅ Added diagrams to collection (total: 201)
+  Sample 2: P=32 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.1242
+      Asymmetric energy: 4.1405
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 12
+    PH-dimension: 2.50
+    ✅ Added diagrams to collection (total: 202)
+  Sample 3: P=36 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9789
+      Asymmetric energy: 3.4818
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 14
+    PH-dimension: 1.83
+    ✅ Added diagrams to collection (total: 203)
+  Sample 4: P=39 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3973
+      Asymmetric energy: 2.8383
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 16
+    PH-dimension: 2.74
+    ✅ Added diagrams to collection (total: 204)
+  Sample 5: P=28 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.3634
+      Asymmetric energy: 2.6143
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 14
+    PH-dimension: 3.29
+    ✅ Added diagrams to collection (total: 205)
+  Sample 6: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1841
+      Asymmetric energy: 6.4568
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 15
+    PH-dimension: 2.86
+    ✅ Added diagrams to collection (total: 206)
+  Sample 7: P=41 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4972
+      Asymmetric energy: 3.2301
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 18
+    PH-dimension: 3.04
+    ✅ Added diagrams to collection (total: 207)
+  Sample 8: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.2266
+      Asymmetric energy: 2.2375
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 12
+    PH-dimension: 5.48
+    ✅ Added diagrams to collection (total: 208)
+  Sample 9: P=38 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4270
+      Asymmetric energy: 3.3798
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 12
+    PH-dimension: 2.90
+    ✅ Added diagrams to collection (total: 209)
+  Sample 10: P=37 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7592
+      Asymmetric energy: 3.6333
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 13
+    PH-dimension: 2.62
+    ✅ Added diagrams to collection (total: 210)
+  Sample 11: P=29 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7878
+      Asymmetric energy: 1.5252
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 14
+    PH-dimension: 4.54
+    ✅ Added diagrams to collection (total: 211)
+  Sample 12: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5893
+      Asymmetric energy: 5.5123
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 11
+    PH-dimension: 2.59
+    ✅ Added diagrams to collection (total: 212)
+  Sample 13: P=27 tokens, H=27 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 27 + 27 + 27 = 81
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0805
+      Asymmetric energy: 0.5100
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 43
+    PH-dimension: 3.28
+    ✅ Added diagrams to collection (total: 213)
+  Sample 14: P=33 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1744
+      Asymmetric energy: 4.2035
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 36
+    PH-dimension: 5.38
+    ✅ Added diagrams to collection (total: 214)
+  Sample 15: P=45 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 45 + 45 + 45 = 135
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4373
+      Asymmetric energy: 2.2504
+Computing persistence on full 165 point cloud...
+  H0 features: 165
+  H1 features: 16
+    PH-dimension: 5.72
+    ✅ Added diagrams to collection (total: 215)
+  Sample 16: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4141
+      Asymmetric energy: 0.8544
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 26
+    PH-dimension: 2.97
+    ✅ Added diagrams to collection (total: 216)
+  Sample 17: P=32 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6297
+      Asymmetric energy: 2.1455
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 18
+    PH-dimension: 2.22
+    ✅ Added diagrams to collection (total: 217)
+  Sample 18: P=32 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8236
+      Asymmetric energy: 1.3243
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 26
+    PH-dimension: 3.49
+    ✅ Added diagrams to collection (total: 218)
+  Sample 19: P=38 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9005
+      Asymmetric energy: 2.1103
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 20
+    PH-dimension: 3.72
+    ✅ Added diagrams to collection (total: 219)
+  Sample 20: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7273
+      Asymmetric energy: 1.6970
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 13
+    PH-dimension: 2.58
+    ✅ Added diagrams to collection (total: 220)
+  Sample 21: P=41 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2671
+      Asymmetric energy: 2.9404
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 11
+    PH-dimension: 6.11
+    ✅ Added diagrams to collection (total: 221)
+  Sample 22: P=28 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.6166
+      Asymmetric energy: 7.3274
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 13
+    PH-dimension: 2.68
+    ✅ Added diagrams to collection (total: 222)
+  Sample 23: P=30 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.6482
+      Asymmetric energy: 2.9055
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 5
+    PH-dimension: 2.65
+    ✅ Added diagrams to collection (total: 223)
+  Sample 24: P=28 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5950
+      Asymmetric energy: 2.2706
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 16
+    PH-dimension: 2.21
+    ✅ Added diagrams to collection (total: 224)
+  Sample 25: P=25 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2371
+      Asymmetric energy: 2.6429
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 16
+    PH-dimension: 14.51
+    ✅ Added diagrams to collection (total: 225)
+  Sample 26: P=33 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4910
+      Asymmetric energy: 2.6044
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 5
+    PH-dimension: 2.28
+    ✅ Added diagrams to collection (total: 226)
+  Sample 27: P=25 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.8559
+      Asymmetric energy: 4.7721
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 6
+    PH-dimension: 3.34
+    ✅ Added diagrams to collection (total: 227)
+  Sample 28: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2673
+      Asymmetric energy: 2.4752
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 9
+    PH-dimension: 2.21
+    ✅ Added diagrams to collection (total: 228)
+  Sample 29: P=39 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.1606
+      Asymmetric energy: 2.3055
+Computing persistence on full 147 point cloud...
+  H0 features: 147
+  H1 features: 8
+    PH-dimension: 2.91
+    ✅ Added diagrams to collection (total: 229)
+  Sample 30: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6078
+      Asymmetric energy: 3.6532
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 15
+    PH-dimension: 4.49
+    ✅ Added diagrams to collection (total: 230)
+  Sample 31: P=25 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.8138
+      Asymmetric energy: 1.9204
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 15
+    PH-dimension: 3.50
+    ✅ Added diagrams to collection (total: 231)
+  Sample 32: P=30 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6107
+      Asymmetric energy: 3.1688
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 12
+    PH-dimension: 4.23
+    ✅ Added diagrams to collection (total: 232)
+  Sample 33: P=39 tokens, H=5 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 5 + 5 + 5 = 15
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2480
+      Asymmetric energy: 2.2014
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 13
+    PH-dimension: 3.97
+    ✅ Added diagrams to collection (total: 233)
+  Sample 34: P=31 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3108
+      Asymmetric energy: 3.2471
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 14
+    PH-dimension: 3.23
+    ✅ Added diagrams to collection (total: 234)
+  Sample 35: P=38 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5353
+      Asymmetric energy: 1.5251
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 15
+    PH-dimension: 5.34
+    ✅ Added diagrams to collection (total: 235)
+  Sample 36: P=32 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.9293
+      Asymmetric energy: 2.3683
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 6
+    PH-dimension: 3.59
+    ✅ Added diagrams to collection (total: 236)
+  Sample 37: P=34 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6506
+      Asymmetric energy: 1.7846
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 25
+    PH-dimension: 4.51
+    ✅ Added diagrams to collection (total: 237)
+  Sample 38: P=33 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9746
+      Asymmetric energy: 2.1860
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 11
+    PH-dimension: 2.77
+    ✅ Added diagrams to collection (total: 238)
+  Sample 39: P=55 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 55 + 55 + 55 = 165
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 195 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1535
+      Asymmetric energy: 5.1841
+Computing persistence on full 195 point cloud...
+  H0 features: 195
+  H1 features: 26
+    PH-dimension: 2.85
+    ✅ Added diagrams to collection (total: 239)
+  Sample 40: P=28 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0140
+      Asymmetric energy: 4.9984
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 13
+    PH-dimension: 2.98
+    ✅ Added diagrams to collection (total: 240)
+  Sample 41: P=58 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 58 + 58 + 58 = 174
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 204 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8855
+      Asymmetric energy: 2.4749
+Computing persistence on full 204 point cloud...
+  H0 features: 204
+  H1 features: 26
+    PH-dimension: 2.60
+    ✅ Added diagrams to collection (total: 241)
+  Sample 42: P=30 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5557
+      Asymmetric energy: 1.7176
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 22
+    PH-dimension: 2.66
+    ✅ Added diagrams to collection (total: 242)
+  Sample 43: P=27 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.3696
+      Asymmetric energy: 4.2788
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 24
+    PH-dimension: 2.63
+    ✅ Added diagrams to collection (total: 243)
+  Sample 44: P=27 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4359
+      Asymmetric energy: 3.0979
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 12
+    PH-dimension: 2.58
+    ✅ Added diagrams to collection (total: 244)
+  Sample 45: P=28 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1491
+      Asymmetric energy: 1.9434
+Computing persistence on full 132 point cloud...
+  H0 features: 132
+  H1 features: 28
+    PH-dimension: 3.68
+    ✅ Added diagrams to collection (total: 245)
+  Sample 46: P=21 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8527
+      Asymmetric energy: 1.8660
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 33
+    PH-dimension: 4.62
+    ✅ Added diagrams to collection (total: 246)
+  Sample 47: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.3134
+      Asymmetric energy: 3.6068
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 18
+    PH-dimension: 3.22
+    ✅ Added diagrams to collection (total: 247)
+  Sample 48: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3490
+      Asymmetric energy: 4.5253
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 5
+    PH-dimension: 3.18
+    ✅ Added diagrams to collection (total: 248)
+  Sample 49: P=27 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1412
+      Asymmetric energy: 1.8602
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 30
+    PH-dimension: 3.43
+    ✅ Added diagrams to collection (total: 249)
+  Sample 50: P=32 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4376
+      Asymmetric energy: 3.8834
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 7
+    PH-dimension: 2.99
+    ✅ Added diagrams to collection (total: 250)
+  Sample 51: P=34 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0668
+      Asymmetric energy: 1.9926
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 14
+    PH-dimension: 2.54
+    ✅ Added diagrams to collection (total: 251)
+  Sample 52: P=37 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5614
+      Asymmetric energy: 2.0609
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 13
+    PH-dimension: 2.20
+    ✅ Added diagrams to collection (total: 252)
+  Sample 53: P=33 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.6370
+      Asymmetric energy: 1.7358
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 20
+    PH-dimension: 4.44
+    ✅ Added diagrams to collection (total: 253)
+  Sample 54: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2097
+      Asymmetric energy: 1.3197
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 26
+    PH-dimension: 2.50
+    ✅ Added diagrams to collection (total: 254)
+  Sample 55: P=27 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5958
+      Asymmetric energy: 1.3602
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 10
+    PH-dimension: 2.15
+    ✅ Added diagrams to collection (total: 255)
+  Sample 56: P=31 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3186
+      Asymmetric energy: 2.8553
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 14
+    PH-dimension: 3.44
+    ✅ Added diagrams to collection (total: 256)
+  Sample 57: P=63 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 63 + 63 + 63 = 189
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 210 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5369
+      Asymmetric energy: 4.3372
+Computing persistence on full 210 point cloud...
+  H0 features: 210
+  H1 features: 18
+    PH-dimension: 3.35
+    ✅ Added diagrams to collection (total: 257)
+  Sample 58: P=39 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6986
+      Asymmetric energy: 6.9928
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 8
+    PH-dimension: 2.48
+    ✅ Added diagrams to collection (total: 258)
+  Sample 59: P=23 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8013
+      Asymmetric energy: 1.8866
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 9
+    PH-dimension: 2.55
+    ✅ Added diagrams to collection (total: 259)
+  Sample 60: P=25 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.1909
+      Asymmetric energy: 2.4211
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 18
+    PH-dimension: 3.26
+    ✅ Added diagrams to collection (total: 260)
+  Sample 61: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9524
+      Asymmetric energy: 1.7266
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 9
+    PH-dimension: 2.58
+    ✅ Added diagrams to collection (total: 261)
+  Sample 62: P=24 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.1431
+      Asymmetric energy: 2.3966
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 19
+    PH-dimension: 5.17
+    ✅ Added diagrams to collection (total: 262)
+  Sample 63: P=38 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6129
+      Asymmetric energy: 2.5124
+Computing persistence on full 150 point cloud...
+  H0 features: 150
+  H1 features: 19
+    PH-dimension: 2.74
+    ✅ Added diagrams to collection (total: 263)
+  Sample 64: P=34 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9949
+      Asymmetric energy: 2.6706
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 12
+    PH-dimension: 3.10
+    ✅ Added diagrams to collection (total: 264)
+  Sample 65: P=26 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.7355
+      Asymmetric energy: 6.8771
+Computing persistence on full 153 point cloud...
+  H0 features: 153
+  H1 features: 17
+    PH-dimension: 2.68
+    ✅ Added diagrams to collection (total: 265)
+  Sample 66: P=40 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 40 + 40 + 40 = 120
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9027
+      Asymmetric energy: 2.1185
+Computing persistence on full 159 point cloud...
+  H0 features: 159
+  H1 features: 20
+    PH-dimension: 4.63
+    ✅ Added diagrams to collection (total: 266)
+  Sample 67: P=40 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 40 + 40 + 40 = 120
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1020
+      Asymmetric energy: 6.1990
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 22
+    PH-dimension: 2.43
+    ✅ Added diagrams to collection (total: 267)
+  Sample 68: P=37 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0955
+      Asymmetric energy: 1.1376
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 15
+    PH-dimension: 3.59
+    ✅ Added diagrams to collection (total: 268)
+  Sample 69: P=29 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6373
+      Asymmetric energy: 1.6963
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 13
+    PH-dimension: 2.49
+    ✅ Added diagrams to collection (total: 269)
+  Sample 70: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2384
+      Asymmetric energy: 2.4514
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 9
+    PH-dimension: 2.72
+    ✅ Added diagrams to collection (total: 270)
+  Sample 71: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6191
+      Asymmetric energy: 3.0401
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 17
+    PH-dimension: 2.56
+    ✅ Added diagrams to collection (total: 271)
+  Sample 72: P=20 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7933
+      Asymmetric energy: 1.3016
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 33
+    PH-dimension: 2.56
+    ✅ Added diagrams to collection (total: 272)
+  Sample 73: P=22 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.2117
+      Asymmetric energy: 2.9977
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 13
+    PH-dimension: 2.74
+    ✅ Added diagrams to collection (total: 273)
+  Sample 74: P=30 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9934
+      Asymmetric energy: 1.8064
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 22
+    PH-dimension: 4.23
+    ✅ Added diagrams to collection (total: 274)
+  Sample 75: P=41 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.1819
+      Asymmetric energy: 2.5121
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 15
+    PH-dimension: 2.76
+    ✅ Added diagrams to collection (total: 275)
+  Sample 76: P=31 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8023
+      Asymmetric energy: 1.6570
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 20
+    PH-dimension: 4.08
+    ✅ Added diagrams to collection (total: 276)
+  Sample 77: P=35 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.2662
+      Asymmetric energy: 2.0837
+Computing persistence on full 138 point cloud...
+  H0 features: 138
+  H1 features: 13
+    PH-dimension: 2.28
+    ✅ Added diagrams to collection (total: 277)
+  Sample 78: P=28 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.3399
+      Asymmetric energy: 2.2693
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 11
+    PH-dimension: 2.93
+    ✅ Added diagrams to collection (total: 278)
+  Sample 79: P=48 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 48 + 48 + 48 = 144
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 192 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6148
+      Asymmetric energy: 5.5955
+Computing persistence on full 192 point cloud...
+  H0 features: 192
+  H1 features: 26
+    PH-dimension: 3.26
+    ✅ Added diagrams to collection (total: 279)
+  Sample 80: P=23 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7855
+      Asymmetric energy: 1.9769
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 12
+    PH-dimension: 2.55
+    ✅ Added diagrams to collection (total: 280)
+  Sample 81: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1908
+      Asymmetric energy: 4.9864
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 10
+    PH-dimension: 2.16
+    ✅ Added diagrams to collection (total: 281)
+  Sample 82: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4955
+      Asymmetric energy: 2.8587
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 26
+    PH-dimension: 3.99
+    ✅ Added diagrams to collection (total: 282)
+  Sample 83: P=43 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 43 + 43 + 43 = 129
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2711
+      Asymmetric energy: 4.1646
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 17
+    PH-dimension: 2.66
+    ✅ Added diagrams to collection (total: 283)
+  Sample 84: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.6028
+      Asymmetric energy: 1.3569
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 11
+    PH-dimension: 2.44
+    ✅ Added diagrams to collection (total: 284)
+  Sample 85: P=30 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7302
+      Asymmetric energy: 2.8690
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 26
+    PH-dimension: 4.67
+    ✅ Added diagrams to collection (total: 285)
+  Sample 86: P=26 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0796
+      Asymmetric energy: 2.6558
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 14
+    PH-dimension: 3.00
+    ✅ Added diagrams to collection (total: 286)
+  Sample 87: P=35 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5270
+      Asymmetric energy: 5.0119
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 9
+    PH-dimension: 3.40
+    ✅ Added diagrams to collection (total: 287)
+  Sample 88: P=38 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2344
+      Asymmetric energy: 3.5387
+Computing persistence on full 156 point cloud...
+  H0 features: 156
+  H1 features: 26
+    PH-dimension: 2.88
+    ✅ Added diagrams to collection (total: 288)
+  Sample 89: P=25 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2445
+      Asymmetric energy: 2.0622
+Computing persistence on full 123 point cloud...
+  H0 features: 123
+  H1 features: 16
+    PH-dimension: 3.91
+    ✅ Added diagrams to collection (total: 289)
+  Sample 90: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0843
+      Asymmetric energy: 3.8119
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 20
+    PH-dimension: 2.56
+    ✅ Added diagrams to collection (total: 290)
+  Sample 91: P=30 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3137
+      Asymmetric energy: 5.1482
+Computing persistence on full 135 point cloud...
+  H0 features: 135
+  H1 features: 19
+    PH-dimension: 3.83
+    ✅ Added diagrams to collection (total: 291)
+  Sample 92: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.8698
+      Asymmetric energy: 2.6070
+Computing persistence on full 120 point cloud...
+  H0 features: 120
+  H1 features: 19
+    PH-dimension: 2.44
+    ✅ Added diagrams to collection (total: 292)
+  Sample 93: P=38 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.0933
+      Asymmetric energy: 3.0545
+Computing persistence on full 162 point cloud...
+  H0 features: 162
+  H1 features: 15
+    PH-dimension: 2.81
+    ✅ Added diagrams to collection (total: 293)
+  Sample 94: P=39 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3399
+      Asymmetric energy: 1.7394
+Computing persistence on full 144 point cloud...
+  H0 features: 144
+  H1 features: 11
+    PH-dimension: 3.69
+    ✅ Added diagrams to collection (total: 294)
+  Sample 95: P=30 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4765
+      Asymmetric energy: 2.4494
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 13
+    PH-dimension: 5.07
+    ✅ Added diagrams to collection (total: 295)
+  Sample 96: P=21 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4228
+      Asymmetric energy: 2.4030
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 17
+    PH-dimension: 5.69
+    ✅ Added diagrams to collection (total: 296)
+  Sample 97: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3250
+      Asymmetric energy: 3.8040
+Computing persistence on full 126 point cloud...
+  H0 features: 126
+  H1 features: 13
+    PH-dimension: 3.97
+    ✅ Added diagrams to collection (total: 297)
+  Sample 98: P=25 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8391
+      Asymmetric energy: 1.7006
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 36
+    PH-dimension: 3.34
+    ✅ Added diagrams to collection (total: 298)
+  Sample 99: P=33 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.3625
+      Asymmetric energy: 1.8314
+Computing persistence on full 141 point cloud...
+  H0 features: 141
+  H1 features: 13
+    PH-dimension: 3.35
+    ✅ Added diagrams to collection (total: 299)
+  Sample 100: P=34 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1671
+      Asymmetric energy: 2.0327
+Computing persistence on full 129 point cloud...
+  H0 features: 129
+  H1 features: 11
+    PH-dimension: 2.67
+    ✅ Added diagrams to collection (total: 300)
+
+Collected 300 diagram sets for clustering
+Analyzing persistence diagram ranges...
+  Diagram 0, dim 0: 161 finite features
+  Diagram 0, dim 1: 22 finite features
+  Diagram 1, dim 0: 119 finite features
+  Diagram 1, dim 1: 10 finite features
+  Diagram 2, dim 0: 146 finite features
+  Diagram 2, dim 1: 38 finite features
+  Diagram 3, dim 0: 143 finite features
+  Diagram 3, dim 1: 15 finite features
+  Diagram 4, dim 0: 122 finite features
+  Diagram 4, dim 1: 11 finite features
+  Diagram 5, dim 0: 149 finite features
+  Diagram 5, dim 1: 31 finite features
+  Diagram 6, dim 0: 137 finite features
+  Diagram 6, dim 1: 14 finite features
+  Diagram 7, dim 0: 119 finite features
+  Diagram 7, dim 1: 12 finite features
+  Diagram 8, dim 0: 149 finite features
+  Diagram 8, dim 1: 23 finite features
+  Diagram 9, dim 0: 143 finite features
+  Diagram 9, dim 1: 16 finite features
+  Diagram 10, dim 0: 134 finite features
+  Diagram 10, dim 1: 13 finite features
+  Diagram 11, dim 0: 122 finite features
+  Diagram 11, dim 1: 8 finite features
+  Diagram 12, dim 0: 146 finite features
+  Diagram 12, dim 1: 16 finite features
+  Diagram 13, dim 0: 125 finite features
+  Diagram 13, dim 1: 20 finite features
+  Diagram 14, dim 0: 119 finite features
+  Diagram 14, dim 1: 18 finite features
+  Diagram 15, dim 0: 119 finite features
+  Diagram 15, dim 1: 17 finite features
+  Diagram 16, dim 0: 149 finite features
+  Diagram 16, dim 1: 43 finite features
+  Diagram 17, dim 0: 119 finite features
+  Diagram 17, dim 1: 14 finite features
+  Diagram 18, dim 0: 161 finite features
+  Diagram 18, dim 1: 36 finite features
+  Diagram 19, dim 0: 161 finite features
+  Diagram 19, dim 1: 3 finite features
+  Diagram 20, dim 0: 137 finite features
+  Diagram 20, dim 1: 22 finite features
+  Diagram 21, dim 0: 131 finite features
+  Diagram 21, dim 1: 31 finite features
+  Diagram 22, dim 0: 143 finite features
+  Diagram 22, dim 1: 14 finite features
+  Diagram 23, dim 0: 140 finite features
+  Diagram 23, dim 1: 36 finite features
+  Diagram 24, dim 0: 119 finite features
+  Diagram 24, dim 1: 14 finite features
+  Diagram 25, dim 0: 122 finite features
+  Diagram 25, dim 1: 32 finite features
+  Diagram 26, dim 0: 167 finite features
+  Diagram 26, dim 1: 28 finite features
+  Diagram 27, dim 0: 152 finite features
+  Diagram 27, dim 1: 42 finite features
+  Diagram 28, dim 0: 155 finite features
+  Diagram 28, dim 1: 29 finite features
+  Diagram 29, dim 0: 155 finite features
+  Diagram 29, dim 1: 26 finite features
+  Diagram 30, dim 0: 140 finite features
+  Diagram 30, dim 1: 15 finite features
+  Diagram 31, dim 0: 167 finite features
+  Diagram 31, dim 1: 29 finite features
+  Diagram 32, dim 0: 143 finite features
+  Diagram 32, dim 1: 18 finite features
+  Diagram 33, dim 0: 122 finite features
+  Diagram 33, dim 1: 6 finite features
+  Diagram 34, dim 0: 128 finite features
+  Diagram 34, dim 1: 11 finite features
+  Diagram 35, dim 0: 140 finite features
+  Diagram 35, dim 1: 21 finite features
+  Diagram 36, dim 0: 212 finite features
+  Diagram 36, dim 1: 19 finite features
+  Diagram 37, dim 0: 197 finite features
+  Diagram 37, dim 1: 35 finite features
+  Diagram 38, dim 0: 125 finite features
+  Diagram 38, dim 1: 14 finite features
+  Diagram 39, dim 0: 125 finite features
+  Diagram 39, dim 1: 13 finite features
+  Diagram 40, dim 0: 119 finite features
+  Diagram 40, dim 1: 15 finite features
+  Diagram 41, dim 0: 128 finite features
+  Diagram 41, dim 1: 20 finite features
+  Diagram 42, dim 0: 131 finite features
+  Diagram 42, dim 1: 14 finite features
+  Diagram 43, dim 0: 194 finite features
+  Diagram 43, dim 1: 23 finite features
+  Diagram 44, dim 0: 122 finite features
+  Diagram 44, dim 1: 15 finite features
+  Diagram 45, dim 0: 137 finite features
+  Diagram 45, dim 1: 22 finite features
+  Diagram 46, dim 0: 152 finite features
+  Diagram 46, dim 1: 30 finite features
+  Diagram 47, dim 0: 176 finite features
+  Diagram 47, dim 1: 13 finite features
+  Diagram 48, dim 0: 119 finite features
+  Diagram 48, dim 1: 12 finite features
+  Diagram 49, dim 0: 119 finite features
+  Diagram 49, dim 1: 26 finite features
+  Diagram 50, dim 0: 164 finite features
+  Diagram 50, dim 1: 19 finite features
+  Diagram 51, dim 0: 152 finite features
+  Diagram 51, dim 1: 34 finite features
+  Diagram 52, dim 0: 122 finite features
+  Diagram 52, dim 1: 15 finite features
+  Diagram 53, dim 0: 146 finite features
+  Diagram 53, dim 1: 27 finite features
+  Diagram 54, dim 0: 149 finite features
+  Diagram 54, dim 1: 42 finite features
+  Diagram 55, dim 0: 146 finite features
+  Diagram 55, dim 1: 12 finite features
+  Diagram 56, dim 0: 122 finite features
+  Diagram 56, dim 1: 21 finite features
+  Diagram 57, dim 0: 134 finite features
+  Diagram 57, dim 1: 42 finite features
+  Diagram 58, dim 0: 158 finite features
+  Diagram 58, dim 1: 30 finite features
+  Diagram 59, dim 0: 158 finite features
+  Diagram 59, dim 1: 30 finite features
+  Diagram 60, dim 0: 128 finite features
+  Diagram 60, dim 1: 10 finite features
+  Diagram 61, dim 0: 128 finite features
+  Diagram 61, dim 1: 31 finite features
+  Diagram 62, dim 0: 122 finite features
+  Diagram 62, dim 1: 23 finite features
+  Diagram 63, dim 0: 149 finite features
+  Diagram 63, dim 1: 18 finite features
+  Diagram 64, dim 0: 122 finite features
+  Diagram 64, dim 1: 17 finite features
+  Diagram 65, dim 0: 149 finite features
+  Diagram 65, dim 1: 18 finite features
+  Diagram 66, dim 0: 128 finite features
+  Diagram 66, dim 1: 24 finite features
+  Diagram 67, dim 0: 149 finite features
+  Diagram 67, dim 1: 24 finite features
+  Diagram 68, dim 0: 119 finite features
+  Diagram 68, dim 1: 11 finite features
+  Diagram 69, dim 0: 125 finite features
+  Diagram 69, dim 1: 14 finite features
+  Diagram 70, dim 0: 191 finite features
+  Diagram 70, dim 1: 35 finite features
+  Diagram 71, dim 0: 125 finite features
+  Diagram 71, dim 1: 32 finite features
+  Diagram 72, dim 0: 269 finite features
+  Diagram 72, dim 1: 56 finite features
+  Diagram 73, dim 0: 143 finite features
+  Diagram 73, dim 1: 23 finite features
+  Diagram 74, dim 0: 131 finite features
+  Diagram 74, dim 1: 15 finite features
+  Diagram 75, dim 0: 137 finite features
+  Diagram 75, dim 1: 15 finite features
+  Diagram 76, dim 0: 125 finite features
+  Diagram 76, dim 1: 12 finite features
+  Diagram 77, dim 0: 155 finite features
+  Diagram 77, dim 1: 18 finite features
+  Diagram 78, dim 0: 137 finite features
+  Diagram 78, dim 1: 28 finite features
+  Diagram 79, dim 0: 122 finite features
+  Diagram 79, dim 1: 18 finite features
+  Diagram 80, dim 0: 128 finite features
+  Diagram 80, dim 1: 16 finite features
+  Diagram 81, dim 0: 119 finite features
+  Diagram 81, dim 1: 18 finite features
+  Diagram 82, dim 0: 164 finite features
+  Diagram 82, dim 1: 24 finite features
+  Diagram 83, dim 0: 119 finite features
+  Diagram 83, dim 1: 14 finite features
+  Diagram 84, dim 0: 122 finite features
+  Diagram 84, dim 1: 22 finite features
+  Diagram 85, dim 0: 119 finite features
+  Diagram 85, dim 1: 11 finite features
+  Diagram 86, dim 0: 155 finite features
+  Diagram 86, dim 1: 31 finite features
+  Diagram 87, dim 0: 119 finite features
+  Diagram 87, dim 1: 24 finite features
+  Diagram 88, dim 0: 122 finite features
+  Diagram 88, dim 1: 19 finite features
+  Diagram 89, dim 0: 119 finite features
+  Diagram 89, dim 1: 22 finite features
+  Diagram 90, dim 0: 128 finite features
+  Diagram 90, dim 1: 29 finite features
+  Diagram 91, dim 0: 134 finite features
+  Diagram 91, dim 1: 12 finite features
+  Diagram 92, dim 0: 134 finite features
+  Diagram 92, dim 1: 14 finite features
+  Diagram 93, dim 0: 140 finite features
+  Diagram 93, dim 1: 26 finite features
+  Diagram 94, dim 0: 149 finite features
+  Diagram 94, dim 1: 9 finite features
+  Diagram 95, dim 0: 140 finite features
+  Diagram 95, dim 1: 16 finite features
+  Diagram 96, dim 0: 134 finite features
+  Diagram 96, dim 1: 14 finite features
+  Diagram 97, dim 0: 149 finite features
+  Diagram 97, dim 1: 20 finite features
+  Diagram 98, dim 0: 125 finite features
+  Diagram 98, dim 1: 15 finite features
+  Diagram 99, dim 0: 119 finite features
+  Diagram 99, dim 1: 21 finite features
+  Diagram 100, dim 0: 125 finite features
+  Diagram 100, dim 1: 12 finite features
+  Diagram 101, dim 0: 128 finite features
+  Diagram 101, dim 1: 16 finite features
+  Diagram 102, dim 0: 134 finite features
+  Diagram 102, dim 1: 11 finite features
+  Diagram 103, dim 0: 119 finite features
+  Diagram 103, dim 1: 24 finite features
+  Diagram 104, dim 0: 119 finite features
+  Diagram 104, dim 1: 16 finite features
+  Diagram 105, dim 0: 125 finite features
+  Diagram 105, dim 1: 12 finite features
+  Diagram 106, dim 0: 119 finite features
+  Diagram 106, dim 1: 15 finite features
+  Diagram 107, dim 0: 164 finite features
+  Diagram 107, dim 1: 13 finite features
+  Diagram 108, dim 0: 125 finite features
+  Diagram 108, dim 1: 23 finite features
+  Diagram 109, dim 0: 134 finite features
+  Diagram 109, dim 1: 29 finite features
+  Diagram 110, dim 0: 131 finite features
+  Diagram 110, dim 1: 14 finite features
+  Diagram 111, dim 0: 146 finite features
+  Diagram 111, dim 1: 16 finite features
+  Diagram 112, dim 0: 143 finite features
+  Diagram 112, dim 1: 30 finite features
+  Diagram 113, dim 0: 122 finite features
+  Diagram 113, dim 1: 22 finite features
+  Diagram 114, dim 0: 134 finite features
+  Diagram 114, dim 1: 20 finite features
+  Diagram 115, dim 0: 122 finite features
+  Diagram 115, dim 1: 11 finite features
+  Diagram 116, dim 0: 134 finite features
+  Diagram 116, dim 1: 11 finite features
+  Diagram 117, dim 0: 122 finite features
+  Diagram 117, dim 1: 7 finite features
+  Diagram 118, dim 0: 119 finite features
+  Diagram 118, dim 1: 14 finite features
+  Diagram 119, dim 0: 122 finite features
+  Diagram 119, dim 1: 15 finite features
+  Diagram 120, dim 0: 119 finite features
+  Diagram 120, dim 1: 22 finite features
+  Diagram 121, dim 0: 137 finite features
+  Diagram 121, dim 1: 16 finite features
+  Diagram 122, dim 0: 131 finite features
+  Diagram 122, dim 1: 28 finite features
+  Diagram 123, dim 0: 170 finite features
+  Diagram 123, dim 1: 15 finite features
+  Diagram 124, dim 0: 134 finite features
+  Diagram 124, dim 1: 28 finite features
+  Diagram 125, dim 0: 128 finite features
+  Diagram 125, dim 1: 14 finite features
+  Diagram 126, dim 0: 128 finite features
+  Diagram 126, dim 1: 18 finite features
+  Diagram 127, dim 0: 143 finite features
+  Diagram 127, dim 1: 19 finite features
+  Diagram 128, dim 0: 125 finite features
+  Diagram 128, dim 1: 20 finite features
+  Diagram 129, dim 0: 119 finite features
+  Diagram 129, dim 1: 19 finite features
+  Diagram 130, dim 0: 161 finite features
+  Diagram 130, dim 1: 17 finite features
+  Diagram 131, dim 0: 140 finite features
+  Diagram 131, dim 1: 25 finite features
+  Diagram 132, dim 0: 125 finite features
+  Diagram 132, dim 1: 21 finite features
+  Diagram 133, dim 0: 122 finite features
+  Diagram 133, dim 1: 10 finite features
+  Diagram 134, dim 0: 122 finite features
+  Diagram 134, dim 1: 15 finite features
+  Diagram 135, dim 0: 128 finite features
+  Diagram 135, dim 1: 9 finite features
+  Diagram 136, dim 0: 158 finite features
+  Diagram 136, dim 1: 25 finite features
+  Diagram 137, dim 0: 131 finite features
+  Diagram 137, dim 1: 29 finite features
+  Diagram 138, dim 0: 149 finite features
+  Diagram 138, dim 1: 22 finite features
+  Diagram 139, dim 0: 122 finite features
+  Diagram 139, dim 1: 28 finite features
+  Diagram 140, dim 0: 119 finite features
+  Diagram 140, dim 1: 19 finite features
+  Diagram 141, dim 0: 122 finite features
+  Diagram 141, dim 1: 16 finite features
+  Diagram 142, dim 0: 128 finite features
+  Diagram 142, dim 1: 20 finite features
+  Diagram 143, dim 0: 215 finite features
+  Diagram 143, dim 1: 28 finite features
+  Diagram 144, dim 0: 224 finite features
+  Diagram 144, dim 1: 24 finite features
+  Diagram 145, dim 0: 146 finite features
+  Diagram 145, dim 1: 44 finite features
+  Diagram 146, dim 0: 128 finite features
+  Diagram 146, dim 1: 8 finite features
+  Diagram 147, dim 0: 131 finite features
+  Diagram 147, dim 1: 16 finite features
+  Diagram 148, dim 0: 128 finite features
+  Diagram 148, dim 1: 17 finite features
+  Diagram 149, dim 0: 158 finite features
+  Diagram 149, dim 1: 19 finite features
+  Diagram 150, dim 0: 152 finite features
+  Diagram 150, dim 1: 28 finite features
+  Diagram 151, dim 0: 134 finite features
+  Diagram 151, dim 1: 18 finite features
+  Diagram 152, dim 0: 122 finite features
+  Diagram 152, dim 1: 20 finite features
+  Diagram 153, dim 0: 119 finite features
+  Diagram 153, dim 1: 15 finite features
+  Diagram 154, dim 0: 131 finite features
+  Diagram 154, dim 1: 18 finite features
+  Diagram 155, dim 0: 131 finite features
+  Diagram 155, dim 1: 15 finite features
+  Diagram 156, dim 0: 149 finite features
+  Diagram 156, dim 1: 16 finite features
+  Diagram 157, dim 0: 134 finite features
+  Diagram 157, dim 1: 20 finite features
+  Diagram 158, dim 0: 152 finite features
+  Diagram 158, dim 1: 16 finite features
+  Diagram 159, dim 0: 161 finite features
+  Diagram 159, dim 1: 21 finite features
+  Diagram 160, dim 0: 119 finite features
+  Diagram 160, dim 1: 7 finite features
+  Diagram 161, dim 0: 122 finite features
+  Diagram 161, dim 1: 20 finite features
+  Diagram 162, dim 0: 125 finite features
+  Diagram 162, dim 1: 16 finite features
+  Diagram 163, dim 0: 131 finite features
+  Diagram 163, dim 1: 15 finite features
+  Diagram 164, dim 0: 119 finite features
+  Diagram 164, dim 1: 13 finite features
+  Diagram 165, dim 0: 137 finite features
+  Diagram 165, dim 1: 11 finite features
+  Diagram 166, dim 0: 131 finite features
+  Diagram 166, dim 1: 12 finite features
+  Diagram 167, dim 0: 140 finite features
+  Diagram 167, dim 1: 19 finite features
+  Diagram 168, dim 0: 125 finite features
+  Diagram 168, dim 1: 14 finite features
+  Diagram 169, dim 0: 137 finite features
+  Diagram 169, dim 1: 24 finite features
+  Diagram 170, dim 0: 182 finite features
+  Diagram 170, dim 1: 20 finite features
+  Diagram 171, dim 0: 119 finite features
+  Diagram 171, dim 1: 9 finite features
+  Diagram 172, dim 0: 131 finite features
+  Diagram 172, dim 1: 18 finite features
+  Diagram 173, dim 0: 140 finite features
+  Diagram 173, dim 1: 15 finite features
+  Diagram 174, dim 0: 185 finite features
+  Diagram 174, dim 1: 22 finite features
+  Diagram 175, dim 0: 143 finite features
+  Diagram 175, dim 1: 12 finite features
+  Diagram 176, dim 0: 137 finite features
+  Diagram 176, dim 1: 24 finite features
+  Diagram 177, dim 0: 119 finite features
+  Diagram 177, dim 1: 19 finite features
+  Diagram 178, dim 0: 128 finite features
+  Diagram 178, dim 1: 21 finite features
+  Diagram 179, dim 0: 134 finite features
+  Diagram 179, dim 1: 19 finite features
+  Diagram 180, dim 0: 146 finite features
+  Diagram 180, dim 1: 25 finite features
+  Diagram 181, dim 0: 143 finite features
+  Diagram 181, dim 1: 8 finite features
+  Diagram 182, dim 0: 131 finite features
+  Diagram 182, dim 1: 12 finite features
+  Diagram 183, dim 0: 128 finite features
+  Diagram 183, dim 1: 31 finite features
+  Diagram 184, dim 0: 119 finite features
+  Diagram 184, dim 1: 13 finite features
+  Diagram 185, dim 0: 140 finite features
+  Diagram 185, dim 1: 29 finite features
+  Diagram 186, dim 0: 119 finite features
+  Diagram 186, dim 1: 25 finite features
+  Diagram 187, dim 0: 125 finite features
+  Diagram 187, dim 1: 27 finite features
+  Diagram 188, dim 0: 185 finite features
+  Diagram 188, dim 1: 29 finite features
+  Diagram 189, dim 0: 119 finite features
+  Diagram 189, dim 1: 32 finite features
+  Diagram 190, dim 0: 125 finite features
+  Diagram 190, dim 1: 43 finite features
+  Diagram 191, dim 0: 134 finite features
+  Diagram 191, dim 1: 20 finite features
+  Diagram 192, dim 0: 143 finite features
+  Diagram 192, dim 1: 35 finite features
+  Diagram 193, dim 0: 125 finite features
+  Diagram 193, dim 1: 22 finite features
+  Diagram 194, dim 0: 119 finite features
+  Diagram 194, dim 1: 13 finite features
+  Diagram 195, dim 0: 140 finite features
+  Diagram 195, dim 1: 22 finite features
+  Diagram 196, dim 0: 128 finite features
+  Diagram 196, dim 1: 32 finite features
+  Diagram 197, dim 0: 122 finite features
+  Diagram 197, dim 1: 13 finite features
+  Diagram 198, dim 0: 161 finite features
+  Diagram 198, dim 1: 15 finite features
+  Diagram 199, dim 0: 125 finite features
+  Diagram 199, dim 1: 12 finite features
+  Diagram 200, dim 0: 119 finite features
+  Diagram 200, dim 1: 7 finite features
+  Diagram 201, dim 0: 125 finite features
+  Diagram 201, dim 1: 12 finite features
+  Diagram 202, dim 0: 146 finite features
+  Diagram 202, dim 1: 14 finite features
+  Diagram 203, dim 0: 152 finite features
+  Diagram 203, dim 1: 16 finite features
+  Diagram 204, dim 0: 128 finite features
+  Diagram 204, dim 1: 14 finite features
+  Diagram 205, dim 0: 143 finite features
+  Diagram 205, dim 1: 15 finite features
+  Diagram 206, dim 0: 152 finite features
+  Diagram 206, dim 1: 18 finite features
+  Diagram 207, dim 0: 119 finite features
+  Diagram 207, dim 1: 12 finite features
+  Diagram 208, dim 0: 137 finite features
+  Diagram 208, dim 1: 12 finite features
+  Diagram 209, dim 0: 143 finite features
+  Diagram 209, dim 1: 13 finite features
+  Diagram 210, dim 0: 131 finite features
+  Diagram 210, dim 1: 14 finite features
+  Diagram 211, dim 0: 119 finite features
+  Diagram 211, dim 1: 11 finite features
+  Diagram 212, dim 0: 161 finite features
+  Diagram 212, dim 1: 43 finite features
+  Diagram 213, dim 0: 149 finite features
+  Diagram 213, dim 1: 36 finite features
+  Diagram 214, dim 0: 164 finite features
+  Diagram 214, dim 1: 16 finite features
+  Diagram 215, dim 0: 119 finite features
+  Diagram 215, dim 1: 26 finite features
+  Diagram 216, dim 0: 143 finite features
+  Diagram 216, dim 1: 18 finite features
+  Diagram 217, dim 0: 140 finite features
+  Diagram 217, dim 1: 26 finite features
+  Diagram 218, dim 0: 161 finite features
+  Diagram 218, dim 1: 20 finite features
+  Diagram 219, dim 0: 125 finite features
+  Diagram 219, dim 1: 13 finite features
+  Diagram 220, dim 0: 152 finite features
+  Diagram 220, dim 1: 11 finite features
+  Diagram 221, dim 0: 155 finite features
+  Diagram 221, dim 1: 13 finite features
+  Diagram 222, dim 0: 131 finite features
+  Diagram 222, dim 1: 5 finite features
+  Diagram 223, dim 0: 131 finite features
+  Diagram 223, dim 1: 16 finite features
+  Diagram 224, dim 0: 134 finite features
+  Diagram 224, dim 1: 16 finite features
+  Diagram 225, dim 0: 125 finite features
+  Diagram 225, dim 1: 5 finite features
+  Diagram 226, dim 0: 125 finite features
+  Diagram 226, dim 1: 6 finite features
+  Diagram 227, dim 0: 119 finite features
+  Diagram 227, dim 1: 9 finite features
+  Diagram 228, dim 0: 146 finite features
+  Diagram 228, dim 1: 8 finite features
+  Diagram 229, dim 0: 119 finite features
+  Diagram 229, dim 1: 15 finite features
+  Diagram 230, dim 0: 128 finite features
+  Diagram 230, dim 1: 15 finite features
+  Diagram 231, dim 0: 128 finite features
+  Diagram 231, dim 1: 12 finite features
+  Diagram 232, dim 0: 131 finite features
+  Diagram 232, dim 1: 13 finite features
+  Diagram 233, dim 0: 128 finite features
+  Diagram 233, dim 1: 14 finite features
+  Diagram 234, dim 0: 152 finite features
+  Diagram 234, dim 1: 15 finite features
+  Diagram 235, dim 0: 125 finite features
+  Diagram 235, dim 1: 6 finite features
+  Diagram 236, dim 0: 122 finite features
+  Diagram 236, dim 1: 25 finite features
+  Diagram 237, dim 0: 128 finite features
+  Diagram 237, dim 1: 11 finite features
+  Diagram 238, dim 0: 194 finite features
+  Diagram 238, dim 1: 26 finite features
+  Diagram 239, dim 0: 122 finite features
+  Diagram 239, dim 1: 13 finite features
+  Diagram 240, dim 0: 203 finite features
+  Diagram 240, dim 1: 26 finite features
+  Diagram 241, dim 0: 137 finite features
+  Diagram 241, dim 1: 22 finite features
+  Diagram 242, dim 0: 137 finite features
+  Diagram 242, dim 1: 24 finite features
+  Diagram 243, dim 0: 122 finite features
+  Diagram 243, dim 1: 12 finite features
+  Diagram 244, dim 0: 131 finite features
+  Diagram 244, dim 1: 28 finite features
+  Diagram 245, dim 0: 125 finite features
+  Diagram 245, dim 1: 33 finite features
+  Diagram 246, dim 0: 134 finite features
+  Diagram 246, dim 1: 18 finite features
+  Diagram 247, dim 0: 119 finite features
+  Diagram 247, dim 1: 5 finite features
+  Diagram 248, dim 0: 143 finite features
+  Diagram 248, dim 1: 30 finite features
+  Diagram 249, dim 0: 125 finite features
+  Diagram 249, dim 1: 7 finite features
+  Diagram 250, dim 0: 140 finite features
+  Diagram 250, dim 1: 14 finite features
+  Diagram 251, dim 0: 143 finite features
+  Diagram 251, dim 1: 13 finite features
+  Diagram 252, dim 0: 143 finite features
+  Diagram 252, dim 1: 20 finite features
+  Diagram 253, dim 0: 119 finite features
+  Diagram 253, dim 1: 26 finite features
+  Diagram 254, dim 0: 125 finite features
+  Diagram 254, dim 1: 10 finite features
+  Diagram 255, dim 0: 119 finite features
+  Diagram 255, dim 1: 14 finite features
+  Diagram 256, dim 0: 209 finite features
+  Diagram 256, dim 1: 18 finite features
+  Diagram 257, dim 0: 143 finite features
+  Diagram 257, dim 1: 8 finite features
+  Diagram 258, dim 0: 122 finite features
+  Diagram 258, dim 1: 9 finite features
+  Diagram 259, dim 0: 125 finite features
+  Diagram 259, dim 1: 18 finite features
+  Diagram 260, dim 0: 134 finite features
+  Diagram 260, dim 1: 9 finite features
+  Diagram 261, dim 0: 137 finite features
+  Diagram 261, dim 1: 19 finite features
+  Diagram 262, dim 0: 149 finite features
+  Diagram 262, dim 1: 19 finite features
+  Diagram 263, dim 0: 137 finite features
+  Diagram 263, dim 1: 12 finite features
+  Diagram 264, dim 0: 152 finite features
+  Diagram 264, dim 1: 17 finite features
+  Diagram 265, dim 0: 158 finite features
+  Diagram 265, dim 1: 20 finite features
+  Diagram 266, dim 0: 143 finite features
+  Diagram 266, dim 1: 22 finite features
+  Diagram 267, dim 0: 137 finite features
+  Diagram 267, dim 1: 15 finite features
+  Diagram 268, dim 0: 128 finite features
+  Diagram 268, dim 1: 13 finite features
+  Diagram 269, dim 0: 119 finite features
+  Diagram 269, dim 1: 9 finite features
+  Diagram 270, dim 0: 119 finite features
+  Diagram 270, dim 1: 17 finite features
+  Diagram 271, dim 0: 119 finite features
+  Diagram 271, dim 1: 33 finite features
+  Diagram 272, dim 0: 125 finite features
+  Diagram 272, dim 1: 13 finite features
+  Diagram 273, dim 0: 134 finite features
+  Diagram 273, dim 1: 22 finite features
+  Diagram 274, dim 0: 161 finite features
+  Diagram 274, dim 1: 15 finite features
+  Diagram 275, dim 0: 137 finite features
+  Diagram 275, dim 1: 20 finite features
+  Diagram 276, dim 0: 137 finite features
+  Diagram 276, dim 1: 13 finite features
+  Diagram 277, dim 0: 119 finite features
+  Diagram 277, dim 1: 11 finite features
+  Diagram 278, dim 0: 191 finite features
+  Diagram 278, dim 1: 26 finite features
+  Diagram 279, dim 0: 128 finite features
+  Diagram 279, dim 1: 12 finite features
+  Diagram 280, dim 0: 119 finite features
+  Diagram 280, dim 1: 10 finite features
+  Diagram 281, dim 0: 128 finite features
+  Diagram 281, dim 1: 26 finite features
+  Diagram 282, dim 0: 155 finite features
+  Diagram 282, dim 1: 17 finite features
+  Diagram 283, dim 0: 125 finite features
+  Diagram 283, dim 1: 11 finite features
+  Diagram 284, dim 0: 140 finite features
+  Diagram 284, dim 1: 26 finite features
+  Diagram 285, dim 0: 122 finite features
+  Diagram 285, dim 1: 14 finite features
+  Diagram 286, dim 0: 128 finite features
+  Diagram 286, dim 1: 9 finite features
+  Diagram 287, dim 0: 155 finite features
+  Diagram 287, dim 1: 26 finite features
+  Diagram 288, dim 0: 122 finite features
+  Diagram 288, dim 1: 16 finite features
+  Diagram 289, dim 0: 125 finite features
+  Diagram 289, dim 1: 20 finite features
+  Diagram 290, dim 0: 134 finite features
+  Diagram 290, dim 1: 19 finite features
+  Diagram 291, dim 0: 119 finite features
+  Diagram 291, dim 1: 19 finite features
+  Diagram 292, dim 0: 161 finite features
+  Diagram 292, dim 1: 15 finite features
+  Diagram 293, dim 0: 143 finite features
+  Diagram 293, dim 1: 11 finite features
+  Diagram 294, dim 0: 125 finite features
+  Diagram 294, dim 1: 13 finite features
+  Diagram 295, dim 0: 140 finite features
+  Diagram 295, dim 1: 17 finite features
+  Diagram 296, dim 0: 125 finite features
+  Diagram 296, dim 1: 13 finite features
+  Diagram 297, dim 0: 128 finite features
+  Diagram 297, dim 1: 36 finite features
+  Diagram 298, dim 0: 140 finite features
+  Diagram 298, dim 1: 13 finite features
+  Diagram 299, dim 0: 128 finite features
+  Diagram 299, dim 1: 11 finite features
+Found 600 valid diagrams with 46885 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 3.9994
+  Lifespans: 0.0000 - 11.6025
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 4.3994)
+  pers_range: (0.0010, 12.7628)
+PersistenceImager config: pixel_size=0.2552, sigma=0.4254
+
+Persistence image conversion results:
+  Successful: 300/300
+  Success rate: 100.0%
+Generated 300 persistence images for clustering
+Performing clustering analysis...
+Clustering 300 persistence images...
+Feature matrix shape: (300, 400)
+True labels distribution: [100 100 100]
+Performing k-means with 3 clusters...
+Predicted labels distribution: [ 80 144  76]
+Clustering results:
+  Best accuracy: 0.393
+  Silhouette score: 0.221
+  Adjusted Rand Index: 0.008
+  Best permutation: (1, 2, 0)
+
+Confusion analysis:
+  True entailment: predicted as [34 20 46]
+  True neutral: predicted as [26 30 44]
+  True contradiction: predicted as [16 30 54]
+
+================================================================================
+SEPARATE MODEL CLUSTERING RESULTS
+================================================================================
+Clustering Accuracy: 0.393
+Silhouette Score: 0.221
+Adjusted Rand Index: 0.008
+Success (>70%): ❌ NO
+
+PH-Dimension Statistics:
+  entailment: 3.24 ± 1.09
+  neutral: 3.45 ± 1.36
+  contradiction: 3.40 ± 1.46
+
+Point Cloud Statistics:
+  entailment:
+    Combined: 141 ± 24 points
+    Premise: 98, Hypothesis: 43
+    Sufficient for PHD: 100%
+  neutral:
+    Combined: 136 ± 19 points
+    Premise: 89, Hypothesis: 47
+    Sufficient for PHD: 100%
+  contradiction:
+    Combined: 138 ± 18 points
+    Premise: 96, Hypothesis: 42
+    Sufficient for PHD: 100%
+
+============================================================
+SEPARATE MODEL PERFORMANCE ANALYSIS
+============================================================
+Order Model (Vendrov Max-Margin Loss):
+  entailment: 0.3892 ± 0.4021
+  neutral: 1.4974 ± 0.9896
+  contradiction: 1.8598 ± 1.3628
+  ✅ ORDER MODEL SUCCESS: Correct energy ranking!
+
+Asymmetry Model (Directional Pattern Loss):
+  entailment:
+    Asymmetric energy: 3.5591 ± 2.3941
+    Forward energy: 0.3892
+    Backward energy: 2.1563
+  neutral:
+    Asymmetric energy: 2.6403 ± 1.0070
+    Forward energy: 1.4974
+    Backward energy: 1.3687
+  contradiction:
+    Asymmetric energy: 2.9197 ± 1.3997
+    Forward energy: 1.8598
+    Backward energy: 2.3254
+
+Asymmetry Pattern Analysis:
+  ✅ Forward energy: Entailment < Contradiction
+  ✅ Asymmetric energy: Contradiction > Neutral
+
+Comprehensive results saved to:
+  JSON: MSc_Topology_Codebase/phd_method/clustering_results/separate_model_clustering_results_20250801_111918.json
+  Summary: MSc_Topology_Codebase/phd_method/clustering_results/separate_model_clustering_summary_20250801_111918.txt
+
+================================================================================
+SEPARATE MODEL CLUSTERING VALIDATION COMPLETED!
+❌ Did not achieve 70% clustering threshold
+Analysis points to consider:
+  - Check if models trained to convergence
+  - Verify point cloud generation produces sufficient points
+  - Review energy ranking patterns in training plots
+  - Consider alternative aggregation strategies
+
+Detailed analysis available in: MSc_Topology_Codebase/phd_method/clustering_results/
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Fri  1 Aug 11:19:19 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

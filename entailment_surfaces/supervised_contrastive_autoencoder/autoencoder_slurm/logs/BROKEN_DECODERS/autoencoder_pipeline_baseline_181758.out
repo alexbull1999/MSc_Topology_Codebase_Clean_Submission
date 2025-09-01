@@ -1,0 +1,2678 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 181758
+Node: gpuvm16
+Time: Fri 11 Jul 22:57:59 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Jul 11 22:58:01 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   38C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting AutoEncoder Pipeline...
+
+SUPERVISED CONTRASTIVE AUTOENCODER - FULL PIPELINE
+============================================================
+Start time: 2025-07-11 22:58:34.114615
+
+Using device: cuda
+Experiment setup complete: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834
+Loading SNLI data...
+==================================================
+Starting data loading pipeline...
+==================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+Loaded 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+Loaded 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+Loaded 9824 test samples
+Generating lattice containment embeddings for training...
+Generating lattice containment embeddings on cuda
+Processing 549367 samples in batches of 1000
+Processing batch 1/550
+Processing batch 2/550
+Processing batch 3/550
+Processing batch 4/550
+Processing batch 5/550
+Processing batch 6/550
+Processing batch 7/550
+Processing batch 8/550
+Processing batch 9/550
+Processing batch 10/550
+Processing batch 11/550
+Processing batch 12/550
+Processing batch 13/550
+Processing batch 14/550
+Processing batch 15/550
+Processing batch 16/550
+Processing batch 17/550
+Processing batch 18/550
+Processing batch 19/550
+Processing batch 20/550
+Processing batch 21/550
+Processing batch 22/550
+Processing batch 23/550
+Processing batch 24/550
+Processing batch 25/550
+Processing batch 26/550
+Processing batch 27/550
+Processing batch 28/550
+Processing batch 29/550
+Processing batch 30/550
+Processing batch 31/550
+Processing batch 32/550
+Processing batch 33/550
+Processing batch 34/550
+Processing batch 35/550
+Processing batch 36/550
+Processing batch 37/550
+Processing batch 38/550
+Processing batch 39/550
+Processing batch 40/550
+Processing batch 41/550
+Processing batch 42/550
+Processing batch 43/550
+Processing batch 44/550
+Processing batch 45/550
+Processing batch 46/550
+Processing batch 47/550
+Processing batch 48/550
+Processing batch 49/550
+Processing batch 50/550
+Processing batch 51/550
+Processing batch 52/550
+Processing batch 53/550
+Processing batch 54/550
+Processing batch 55/550
+Processing batch 56/550
+Processing batch 57/550
+Processing batch 58/550
+Processing batch 59/550
+Processing batch 60/550
+Processing batch 61/550
+Processing batch 62/550
+Processing batch 63/550
+Processing batch 64/550
+Processing batch 65/550
+Processing batch 66/550
+Processing batch 67/550
+Processing batch 68/550
+Processing batch 69/550
+Processing batch 70/550
+Processing batch 71/550
+Processing batch 72/550
+Processing batch 73/550
+Processing batch 74/550
+Processing batch 75/550
+Processing batch 76/550
+Processing batch 77/550
+Processing batch 78/550
+Processing batch 79/550
+Processing batch 80/550
+Processing batch 81/550
+Processing batch 82/550
+Processing batch 83/550
+Processing batch 84/550
+Processing batch 85/550
+Processing batch 86/550
+Processing batch 87/550
+Processing batch 88/550
+Processing batch 89/550
+Processing batch 90/550
+Processing batch 91/550
+Processing batch 92/550
+Processing batch 93/550
+Processing batch 94/550
+Processing batch 95/550
+Processing batch 96/550
+Processing batch 97/550
+Processing batch 98/550
+Processing batch 99/550
+Processing batch 100/550
+Processing batch 101/550
+Processing batch 102/550
+Processing batch 103/550
+Processing batch 104/550
+Processing batch 105/550
+Processing batch 106/550
+Processing batch 107/550
+Processing batch 108/550
+Processing batch 109/550
+Processing batch 110/550
+Processing batch 111/550
+Processing batch 112/550
+Processing batch 113/550
+Processing batch 114/550
+Processing batch 115/550
+Processing batch 116/550
+Processing batch 117/550
+Processing batch 118/550
+Processing batch 119/550
+Processing batch 120/550
+Processing batch 121/550
+Processing batch 122/550
+Processing batch 123/550
+Processing batch 124/550
+Processing batch 125/550
+Processing batch 126/550
+Processing batch 127/550
+Processing batch 128/550
+Processing batch 129/550
+Processing batch 130/550
+Processing batch 131/550
+Processing batch 132/550
+Processing batch 133/550
+Processing batch 134/550
+Processing batch 135/550
+Processing batch 136/550
+Processing batch 137/550
+Processing batch 138/550
+Processing batch 139/550
+Processing batch 140/550
+Processing batch 141/550
+Processing batch 142/550
+Processing batch 143/550
+Processing batch 144/550
+Processing batch 145/550
+Processing batch 146/550
+Processing batch 147/550
+Processing batch 148/550
+Processing batch 149/550
+Processing batch 150/550
+Processing batch 151/550
+Processing batch 152/550
+Processing batch 153/550
+Processing batch 154/550
+Processing batch 155/550
+Processing batch 156/550
+Processing batch 157/550
+Processing batch 158/550
+Processing batch 159/550
+Processing batch 160/550
+Processing batch 161/550
+Processing batch 162/550
+Processing batch 163/550
+Processing batch 164/550
+Processing batch 165/550
+Processing batch 166/550
+Processing batch 167/550
+Processing batch 168/550
+Processing batch 169/550
+Processing batch 170/550
+Processing batch 171/550
+Processing batch 172/550
+Processing batch 173/550
+Processing batch 174/550
+Processing batch 175/550
+Processing batch 176/550
+Processing batch 177/550
+Processing batch 178/550
+Processing batch 179/550
+Processing batch 180/550
+Processing batch 181/550
+Processing batch 182/550
+Processing batch 183/550
+Processing batch 184/550
+Processing batch 185/550
+Processing batch 186/550
+Processing batch 187/550
+Processing batch 188/550
+Processing batch 189/550
+Processing batch 190/550
+Processing batch 191/550
+Processing batch 192/550
+Processing batch 193/550
+Processing batch 194/550
+Processing batch 195/550
+Processing batch 196/550
+Processing batch 197/550
+Processing batch 198/550
+Processing batch 199/550
+Processing batch 200/550
+Processing batch 201/550
+Processing batch 202/550
+Processing batch 203/550
+Processing batch 204/550
+Processing batch 205/550
+Processing batch 206/550
+Processing batch 207/550
+Processing batch 208/550
+Processing batch 209/550
+Processing batch 210/550
+Processing batch 211/550
+Processing batch 212/550
+Processing batch 213/550
+Processing batch 214/550
+Processing batch 215/550
+Processing batch 216/550
+Processing batch 217/550
+Processing batch 218/550
+Processing batch 219/550
+Processing batch 220/550
+Processing batch 221/550
+Processing batch 222/550
+Processing batch 223/550
+Processing batch 224/550
+Processing batch 225/550
+Processing batch 226/550
+Processing batch 227/550
+Processing batch 228/550
+Processing batch 229/550
+Processing batch 230/550
+Processing batch 231/550
+Processing batch 232/550
+Processing batch 233/550
+Processing batch 234/550
+Processing batch 235/550
+Processing batch 236/550
+Processing batch 237/550
+Processing batch 238/550
+Processing batch 239/550
+Processing batch 240/550
+Processing batch 241/550
+Processing batch 242/550
+Processing batch 243/550
+Processing batch 244/550
+Processing batch 245/550
+Processing batch 246/550
+Processing batch 247/550
+Processing batch 248/550
+Processing batch 249/550
+Processing batch 250/550
+Processing batch 251/550
+Processing batch 252/550
+Processing batch 253/550
+Processing batch 254/550
+Processing batch 255/550
+Processing batch 256/550
+Processing batch 257/550
+Processing batch 258/550
+Processing batch 259/550
+Processing batch 260/550
+Processing batch 261/550
+Processing batch 262/550
+Processing batch 263/550
+Processing batch 264/550
+Processing batch 265/550
+Processing batch 266/550
+Processing batch 267/550
+Processing batch 268/550
+Processing batch 269/550
+Processing batch 270/550
+Processing batch 271/550
+Processing batch 272/550
+Processing batch 273/550
+Processing batch 274/550
+Processing batch 275/550
+Processing batch 276/550
+Processing batch 277/550
+Processing batch 278/550
+Processing batch 279/550
+Processing batch 280/550
+Processing batch 281/550
+Processing batch 282/550
+Processing batch 283/550
+Processing batch 284/550
+Processing batch 285/550
+Processing batch 286/550
+Processing batch 287/550
+Processing batch 288/550
+Processing batch 289/550
+Processing batch 290/550
+Processing batch 291/550
+Processing batch 292/550
+Processing batch 293/550
+Processing batch 294/550
+Processing batch 295/550
+Processing batch 296/550
+Processing batch 297/550
+Processing batch 298/550
+Processing batch 299/550
+Processing batch 300/550
+Processing batch 301/550
+Processing batch 302/550
+Processing batch 303/550
+Processing batch 304/550
+Processing batch 305/550
+Processing batch 306/550
+Processing batch 307/550
+Processing batch 308/550
+Processing batch 309/550
+Processing batch 310/550
+Processing batch 311/550
+Processing batch 312/550
+Processing batch 313/550
+Processing batch 314/550
+Processing batch 315/550
+Processing batch 316/550
+Processing batch 317/550
+Processing batch 318/550
+Processing batch 319/550
+Processing batch 320/550
+Processing batch 321/550
+Processing batch 322/550
+Processing batch 323/550
+Processing batch 324/550
+Processing batch 325/550
+Processing batch 326/550
+Processing batch 327/550
+Processing batch 328/550
+Processing batch 329/550
+Processing batch 330/550
+Processing batch 331/550
+Processing batch 332/550
+Processing batch 333/550
+Processing batch 334/550
+Processing batch 335/550
+Processing batch 336/550
+Processing batch 337/550
+Processing batch 338/550
+Processing batch 339/550
+Processing batch 340/550
+Processing batch 341/550
+Processing batch 342/550
+Processing batch 343/550
+Processing batch 344/550
+Processing batch 345/550
+Processing batch 346/550
+Processing batch 347/550
+Processing batch 348/550
+Processing batch 349/550
+Processing batch 350/550
+Processing batch 351/550
+Processing batch 352/550
+Processing batch 353/550
+Processing batch 354/550
+Processing batch 355/550
+Processing batch 356/550
+Processing batch 357/550
+Processing batch 358/550
+Processing batch 359/550
+Processing batch 360/550
+Processing batch 361/550
+Processing batch 362/550
+Processing batch 363/550
+Processing batch 364/550
+Processing batch 365/550
+Processing batch 366/550
+Processing batch 367/550
+Processing batch 368/550
+Processing batch 369/550
+Processing batch 370/550
+Processing batch 371/550
+Processing batch 372/550
+Processing batch 373/550
+Processing batch 374/550
+Processing batch 375/550
+Processing batch 376/550
+Processing batch 377/550
+Processing batch 378/550
+Processing batch 379/550
+Processing batch 380/550
+Processing batch 381/550
+Processing batch 382/550
+Processing batch 383/550
+Processing batch 384/550
+Processing batch 385/550
+Processing batch 386/550
+Processing batch 387/550
+Processing batch 388/550
+Processing batch 389/550
+Processing batch 390/550
+Processing batch 391/550
+Processing batch 392/550
+Processing batch 393/550
+Processing batch 394/550
+Processing batch 395/550
+Processing batch 396/550
+Processing batch 397/550
+Processing batch 398/550
+Processing batch 399/550
+Processing batch 400/550
+Processing batch 401/550
+Processing batch 402/550
+Processing batch 403/550
+Processing batch 404/550
+Processing batch 405/550
+Processing batch 406/550
+Processing batch 407/550
+Processing batch 408/550
+Processing batch 409/550
+Processing batch 410/550
+Processing batch 411/550
+Processing batch 412/550
+Processing batch 413/550
+Processing batch 414/550
+Processing batch 415/550
+Processing batch 416/550
+Processing batch 417/550
+Processing batch 418/550
+Processing batch 419/550
+Processing batch 420/550
+Processing batch 421/550
+Processing batch 422/550
+Processing batch 423/550
+Processing batch 424/550
+Processing batch 425/550
+Processing batch 426/550
+Processing batch 427/550
+Processing batch 428/550
+Processing batch 429/550
+Processing batch 430/550
+Processing batch 431/550
+Processing batch 432/550
+Processing batch 433/550
+Processing batch 434/550
+Processing batch 435/550
+Processing batch 436/550
+Processing batch 437/550
+Processing batch 438/550
+Processing batch 439/550
+Processing batch 440/550
+Processing batch 441/550
+Processing batch 442/550
+Processing batch 443/550
+Processing batch 444/550
+Processing batch 445/550
+Processing batch 446/550
+Processing batch 447/550
+Processing batch 448/550
+Processing batch 449/550
+Processing batch 450/550
+Processing batch 451/550
+Processing batch 452/550
+Processing batch 453/550
+Processing batch 454/550
+Processing batch 455/550
+Processing batch 456/550
+Processing batch 457/550
+Processing batch 458/550
+Processing batch 459/550
+Processing batch 460/550
+Processing batch 461/550
+Processing batch 462/550
+Processing batch 463/550
+Processing batch 464/550
+Processing batch 465/550
+Processing batch 466/550
+Processing batch 467/550
+Processing batch 468/550
+Processing batch 469/550
+Processing batch 470/550
+Processing batch 471/550
+Processing batch 472/550
+Processing batch 473/550
+Processing batch 474/550
+Processing batch 475/550
+Processing batch 476/550
+Processing batch 477/550
+Processing batch 478/550
+Processing batch 479/550
+Processing batch 480/550
+Processing batch 481/550
+Processing batch 482/550
+Processing batch 483/550
+Processing batch 484/550
+Processing batch 485/550
+Processing batch 486/550
+Processing batch 487/550
+Processing batch 488/550
+Processing batch 489/550
+Processing batch 490/550
+Processing batch 491/550
+Processing batch 492/550
+Processing batch 493/550
+Processing batch 494/550
+Processing batch 495/550
+Processing batch 496/550
+Processing batch 497/550
+Processing batch 498/550
+Processing batch 499/550
+Processing batch 500/550
+Processing batch 501/550
+Processing batch 502/550
+Processing batch 503/550
+Processing batch 504/550
+Processing batch 505/550
+Processing batch 506/550
+Processing batch 507/550
+Processing batch 508/550
+Processing batch 509/550
+Processing batch 510/550
+Processing batch 511/550
+Processing batch 512/550
+Processing batch 513/550
+Processing batch 514/550
+Processing batch 515/550
+Processing batch 516/550
+Processing batch 517/550
+Processing batch 518/550
+Processing batch 519/550
+Processing batch 520/550
+Processing batch 521/550
+Processing batch 522/550
+Processing batch 523/550
+Processing batch 524/550
+Processing batch 525/550
+Processing batch 526/550
+Processing batch 527/550
+Processing batch 528/550
+Processing batch 529/550
+Processing batch 530/550
+Processing batch 531/550
+Processing batch 532/550
+Processing batch 533/550
+Processing batch 534/550
+Processing batch 535/550
+Processing batch 536/550
+Processing batch 537/550
+Processing batch 538/550
+Processing batch 539/550
+Processing batch 540/550
+Processing batch 541/550
+Processing batch 542/550
+Processing batch 543/550
+Processing batch 544/550
+Processing batch 545/550
+Processing batch 546/550
+Processing batch 547/550
+Processing batch 548/550
+Processing batch 549/550
+Processing batch 550/550
+Generated lattice embeddings shape: torch.Size([549367, 768])
+Generating lattice containment embeddings for validation...
+Generating lattice containment embeddings on cuda
+Processing 9842 samples in batches of 1000
+Processing batch 1/10
+Processing batch 2/10
+Processing batch 3/10
+Processing batch 4/10
+Processing batch 5/10
+Processing batch 6/10
+Processing batch 7/10
+Processing batch 8/10
+Processing batch 9/10
+Processing batch 10/10
+Generated lattice embeddings shape: torch.Size([9842, 768])
+Generating lattice containment embeddings for test...
+Generating lattice containment embeddings on cuda
+Processing 9824 samples in batches of 1000
+Processing batch 1/10
+Processing batch 2/10
+Processing batch 3/10
+Processing batch 4/10
+Processing batch 5/10
+Processing batch 6/10
+Processing batch 7/10
+Processing batch 8/10
+Processing batch 9/10
+Processing batch 10/10
+Generated lattice embeddings shape: torch.Size([9824, 768])
+
+Dataset Statistics:
+------------------------------
+Train: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+Validation: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+Test: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Creating balanced data loaders...
+Batch size: 30
+Samples per class per batch: 10
+Effective batch size: 30
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class: 10
+  Batch size: 30
+  Number of batches: 18276
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class: 10
+  Batch size: 30
+  Number of batches: 323
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+Data loading completed!
+Train: 549367 samples
+Val: 9842 samples
+Test: 9824 samples
+Creating model and trainer...
+==================================================
+Model created with 1,089,355 parameters
+Loss function created (α=1.0)
+Optimizer created (lr=0.001)
+Trainer initialized on device: cuda
+Model parameters: 1,089,355
+Starting model training...
+==================================================
+Starting SIMPLIFIED training (pure contrastive loss)...
+==================================================
+
+Epoch 1/50
+------------------------------
+Batch 0/18276: Loss = 7.9994 (C: 7.9994, R: 0.0000)
+Batch 100/18276: Loss = 4.8089 (C: 4.8089, R: 0.0000)
+Batch 200/18276: Loss = 4.8832 (C: 4.8832, R: 0.0000)
+Batch 300/18276: Loss = 4.8390 (C: 4.8390, R: 0.0000)
+Batch 400/18276: Loss = 4.7360 (C: 4.7360, R: 0.0000)
+Batch 500/18276: Loss = 4.8568 (C: 4.8568, R: 0.0000)
+Batch 600/18276: Loss = 4.5590 (C: 4.5590, R: 0.0000)
+Batch 700/18276: Loss = 4.6108 (C: 4.6108, R: 0.0000)
+Batch 800/18276: Loss = 4.4357 (C: 4.4357, R: 0.0000)
+Batch 900/18276: Loss = 4.5105 (C: 4.5105, R: 0.0000)
+Batch 1000/18276: Loss = 4.5054 (C: 4.5054, R: 0.0000)
+Batch 1100/18276: Loss = 4.4389 (C: 4.4389, R: 0.0000)
+Batch 1200/18276: Loss = 4.7360 (C: 4.7360, R: 0.0000)
+Batch 1300/18276: Loss = 4.6878 (C: 4.6878, R: 0.0000)
+Batch 1400/18276: Loss = 4.7226 (C: 4.7226, R: 0.0000)
+Batch 1500/18276: Loss = 4.7895 (C: 4.7895, R: 0.0000)
+Batch 1600/18276: Loss = 4.7134 (C: 4.7134, R: 0.0000)
+Batch 1700/18276: Loss = 4.7508 (C: 4.7508, R: 0.0000)
+Batch 1800/18276: Loss = 4.8505 (C: 4.8505, R: 0.0000)
+Batch 1900/18276: Loss = 4.6515 (C: 4.6515, R: 0.0000)
+Batch 2000/18276: Loss = 4.7577 (C: 4.7577, R: 0.0000)
+Batch 2100/18276: Loss = 4.6411 (C: 4.6411, R: 0.0000)
+Batch 2200/18276: Loss = 4.8663 (C: 4.8663, R: 0.0000)
+Batch 2300/18276: Loss = 4.7411 (C: 4.7411, R: 0.0000)
+Batch 2400/18276: Loss = 4.9599 (C: 4.9599, R: 0.0000)
+Batch 2500/18276: Loss = 4.5725 (C: 4.5725, R: 0.0000)
+Batch 2600/18276: Loss = 4.6877 (C: 4.6877, R: 0.0000)
+Batch 2700/18276: Loss = 4.5794 (C: 4.5794, R: 0.0000)
+Batch 2800/18276: Loss = 4.6113 (C: 4.6113, R: 0.0000)
+Batch 2900/18276: Loss = 4.7395 (C: 4.7395, R: 0.0000)
+Batch 3000/18276: Loss = 4.9078 (C: 4.9078, R: 0.0000)
+Batch 3100/18276: Loss = 4.8124 (C: 4.8124, R: 0.0000)
+Batch 3200/18276: Loss = 4.9919 (C: 4.9919, R: 0.0000)
+Batch 3300/18276: Loss = 4.6005 (C: 4.6005, R: 0.0000)
+Batch 3400/18276: Loss = 4.5902 (C: 4.5902, R: 0.0000)
+Batch 3500/18276: Loss = 4.6269 (C: 4.6269, R: 0.0000)
+Batch 3600/18276: Loss = 4.8336 (C: 4.8336, R: 0.0000)
+Batch 3700/18276: Loss = 4.8150 (C: 4.8150, R: 0.0000)
+Batch 3800/18276: Loss = 4.5417 (C: 4.5417, R: 0.0000)
+Batch 3900/18276: Loss = 4.6563 (C: 4.6563, R: 0.0000)
+Batch 4000/18276: Loss = 4.7158 (C: 4.7158, R: 0.0000)
+Batch 4100/18276: Loss = 4.7953 (C: 4.7953, R: 0.0000)
+Batch 4200/18276: Loss = 4.5744 (C: 4.5744, R: 0.0000)
+Batch 4300/18276: Loss = 4.6856 (C: 4.6856, R: 0.0000)
+Batch 4400/18276: Loss = 4.5595 (C: 4.5595, R: 0.0000)
+Batch 4500/18276: Loss = 4.7771 (C: 4.7771, R: 0.0000)
+Batch 4600/18276: Loss = 4.7303 (C: 4.7303, R: 0.0000)
+Batch 4700/18276: Loss = 4.5692 (C: 4.5692, R: 0.0000)
+Batch 4800/18276: Loss = 4.6562 (C: 4.6562, R: 0.0000)
+Batch 4900/18276: Loss = 4.5438 (C: 4.5438, R: 0.0000)
+Batch 5000/18276: Loss = 4.4998 (C: 4.4998, R: 0.0000)
+Batch 5100/18276: Loss = 4.5870 (C: 4.5870, R: 0.0000)
+Batch 5200/18276: Loss = 4.5815 (C: 4.5815, R: 0.0000)
+Batch 5300/18276: Loss = 4.7408 (C: 4.7408, R: 0.0000)
+Batch 5400/18276: Loss = 4.7772 (C: 4.7772, R: 0.0000)
+Batch 5500/18276: Loss = 4.6351 (C: 4.6351, R: 0.0000)
+Batch 5600/18276: Loss = 4.6993 (C: 4.6993, R: 0.0000)
+Batch 5700/18276: Loss = 4.9586 (C: 4.9586, R: 0.0000)
+Batch 5800/18276: Loss = 4.6325 (C: 4.6325, R: 0.0000)
+Batch 5900/18276: Loss = 4.4994 (C: 4.4994, R: 0.0000)
+Batch 6000/18276: Loss = 4.5791 (C: 4.5791, R: 0.0000)
+Batch 6100/18276: Loss = 4.3900 (C: 4.3900, R: 0.0000)
+Batch 6200/18276: Loss = 4.8280 (C: 4.8280, R: 0.0000)
+Batch 6300/18276: Loss = 4.7803 (C: 4.7803, R: 0.0000)
+Batch 6400/18276: Loss = 4.7300 (C: 4.7300, R: 0.0000)
+Batch 6500/18276: Loss = 4.6863 (C: 4.6863, R: 0.0000)
+Batch 6600/18276: Loss = 4.8813 (C: 4.8813, R: 0.0000)
+Batch 6700/18276: Loss = 4.5806 (C: 4.5806, R: 0.0000)
+Batch 6800/18276: Loss = 4.8485 (C: 4.8485, R: 0.0000)
+Batch 6900/18276: Loss = 4.4793 (C: 4.4793, R: 0.0000)
+Batch 7000/18276: Loss = 4.6630 (C: 4.6630, R: 0.0000)
+Batch 7100/18276: Loss = 4.4826 (C: 4.4826, R: 0.0000)
+Batch 7200/18276: Loss = 4.8025 (C: 4.8025, R: 0.0000)
+Batch 7300/18276: Loss = 4.9044 (C: 4.9044, R: 0.0000)
+Batch 7400/18276: Loss = 4.6684 (C: 4.6684, R: 0.0000)
+Batch 7500/18276: Loss = 4.7074 (C: 4.7074, R: 0.0000)
+Batch 7600/18276: Loss = 4.7876 (C: 4.7876, R: 0.0000)
+Batch 7700/18276: Loss = 4.8498 (C: 4.8498, R: 0.0000)
+Batch 7800/18276: Loss = 4.8757 (C: 4.8757, R: 0.0000)
+Batch 7900/18276: Loss = 4.7487 (C: 4.7487, R: 0.0000)
+Batch 8000/18276: Loss = 4.4929 (C: 4.4929, R: 0.0000)
+Batch 8100/18276: Loss = 4.6008 (C: 4.6008, R: 0.0000)
+Batch 8200/18276: Loss = 4.7419 (C: 4.7419, R: 0.0000)
+Batch 8300/18276: Loss = 4.5504 (C: 4.5504, R: 0.0000)
+Batch 8400/18276: Loss = 4.7320 (C: 4.7320, R: 0.0000)
+Batch 8500/18276: Loss = 4.5903 (C: 4.5903, R: 0.0000)
+Batch 8600/18276: Loss = 4.6823 (C: 4.6823, R: 0.0000)
+Batch 8700/18276: Loss = 4.6703 (C: 4.6703, R: 0.0000)
+Batch 8800/18276: Loss = 4.4955 (C: 4.4955, R: 0.0000)
+Batch 8900/18276: Loss = 4.6563 (C: 4.6563, R: 0.0000)
+Batch 9000/18276: Loss = 4.6179 (C: 4.6179, R: 0.0000)
+Batch 9100/18276: Loss = 4.6779 (C: 4.6779, R: 0.0000)
+Batch 9200/18276: Loss = 4.7819 (C: 4.7819, R: 0.0000)
+Batch 9300/18276: Loss = 4.7091 (C: 4.7091, R: 0.0000)
+Batch 9400/18276: Loss = 4.6117 (C: 4.6117, R: 0.0000)
+Batch 9500/18276: Loss = 4.7866 (C: 4.7866, R: 0.0000)
+Batch 9600/18276: Loss = 4.8122 (C: 4.8122, R: 0.0000)
+Batch 9700/18276: Loss = 4.8014 (C: 4.8014, R: 0.0000)
+Batch 9800/18276: Loss = 4.7208 (C: 4.7208, R: 0.0000)
+Batch 9900/18276: Loss = 4.5616 (C: 4.5616, R: 0.0000)
+Batch 10000/18276: Loss = 4.5302 (C: 4.5302, R: 0.0000)
+Batch 10100/18276: Loss = 4.6695 (C: 4.6695, R: 0.0000)
+Batch 10200/18276: Loss = 4.7152 (C: 4.7152, R: 0.0000)
+Batch 10300/18276: Loss = 4.7890 (C: 4.7890, R: 0.0000)
+Batch 10400/18276: Loss = 4.3663 (C: 4.3663, R: 0.0000)
+Batch 10500/18276: Loss = 4.7138 (C: 4.7138, R: 0.0000)
+Batch 10600/18276: Loss = 4.5343 (C: 4.5343, R: 0.0000)
+Batch 10700/18276: Loss = 4.6468 (C: 4.6468, R: 0.0000)
+Batch 10800/18276: Loss = 4.8046 (C: 4.8046, R: 0.0000)
+Batch 10900/18276: Loss = 4.5298 (C: 4.5298, R: 0.0000)
+Batch 11000/18276: Loss = 4.7084 (C: 4.7084, R: 0.0000)
+Batch 11100/18276: Loss = 4.8571 (C: 4.8571, R: 0.0000)
+Batch 11200/18276: Loss = 4.5942 (C: 4.5942, R: 0.0000)
+Batch 11300/18276: Loss = 4.8143 (C: 4.8143, R: 0.0000)
+Batch 11400/18276: Loss = 4.4897 (C: 4.4897, R: 0.0000)
+Batch 11500/18276: Loss = 4.7835 (C: 4.7835, R: 0.0000)
+Batch 11600/18276: Loss = 4.9322 (C: 4.9322, R: 0.0000)
+Batch 11700/18276: Loss = 4.9168 (C: 4.9168, R: 0.0000)
+Batch 11800/18276: Loss = 4.9089 (C: 4.9089, R: 0.0000)
+Batch 11900/18276: Loss = 4.8151 (C: 4.8151, R: 0.0000)
+Batch 12000/18276: Loss = 4.7328 (C: 4.7328, R: 0.0000)
+Batch 12100/18276: Loss = 4.5166 (C: 4.5166, R: 0.0000)
+Batch 12200/18276: Loss = 4.7083 (C: 4.7083, R: 0.0000)
+Batch 12300/18276: Loss = 4.7112 (C: 4.7112, R: 0.0000)
+Batch 12400/18276: Loss = 4.7058 (C: 4.7058, R: 0.0000)
+Batch 12500/18276: Loss = 4.7869 (C: 4.7869, R: 0.0000)
+Batch 12600/18276: Loss = 4.6416 (C: 4.6416, R: 0.0000)
+Batch 12700/18276: Loss = 4.8630 (C: 4.8630, R: 0.0000)
+Batch 12800/18276: Loss = 4.6813 (C: 4.6813, R: 0.0000)
+Batch 12900/18276: Loss = 4.6422 (C: 4.6422, R: 0.0000)
+Batch 13000/18276: Loss = 4.6433 (C: 4.6433, R: 0.0000)
+Batch 13100/18276: Loss = 4.5799 (C: 4.5799, R: 0.0000)
+Batch 13200/18276: Loss = 4.6689 (C: 4.6689, R: 0.0000)
+Batch 13300/18276: Loss = 4.5401 (C: 4.5401, R: 0.0000)
+Batch 13400/18276: Loss = 4.6949 (C: 4.6949, R: 0.0000)
+Batch 13500/18276: Loss = 4.6743 (C: 4.6743, R: 0.0000)
+Batch 13600/18276: Loss = 4.7085 (C: 4.7085, R: 0.0000)
+Batch 13700/18276: Loss = 4.5112 (C: 4.5112, R: 0.0000)
+Batch 13800/18276: Loss = 4.7677 (C: 4.7677, R: 0.0000)
+Batch 13900/18276: Loss = 4.6760 (C: 4.6760, R: 0.0000)
+Batch 14000/18276: Loss = 4.5607 (C: 4.5607, R: 0.0000)
+Batch 14100/18276: Loss = 4.4790 (C: 4.4790, R: 0.0000)
+Batch 14200/18276: Loss = 4.6976 (C: 4.6976, R: 0.0000)
+Batch 14300/18276: Loss = 4.5745 (C: 4.5745, R: 0.0000)
+Batch 14400/18276: Loss = 4.8269 (C: 4.8269, R: 0.0000)
+Batch 14500/18276: Loss = 4.4504 (C: 4.4504, R: 0.0000)
+Batch 14600/18276: Loss = 4.6581 (C: 4.6581, R: 0.0000)
+Batch 14700/18276: Loss = 4.5485 (C: 4.5485, R: 0.0000)
+Batch 14800/18276: Loss = 4.5475 (C: 4.5475, R: 0.0000)
+Batch 14900/18276: Loss = 4.6856 (C: 4.6856, R: 0.0000)
+Batch 15000/18276: Loss = 4.7329 (C: 4.7329, R: 0.0000)
+Batch 15100/18276: Loss = 4.5581 (C: 4.5581, R: 0.0000)
+Batch 15200/18276: Loss = 4.6652 (C: 4.6652, R: 0.0000)
+Batch 15300/18276: Loss = 4.7885 (C: 4.7885, R: 0.0000)
+Batch 15400/18276: Loss = 4.4648 (C: 4.4648, R: 0.0000)
+Batch 15500/18276: Loss = 4.7196 (C: 4.7196, R: 0.0000)
+Batch 15600/18276: Loss = 4.7363 (C: 4.7363, R: 0.0000)
+Batch 15700/18276: Loss = 4.7910 (C: 4.7910, R: 0.0000)
+Batch 15800/18276: Loss = 4.7497 (C: 4.7497, R: 0.0000)
+Batch 15900/18276: Loss = 4.7367 (C: 4.7367, R: 0.0000)
+Batch 16000/18276: Loss = 4.6637 (C: 4.6637, R: 0.0000)
+Batch 16100/18276: Loss = 4.5150 (C: 4.5150, R: 0.0000)
+Batch 16200/18276: Loss = 4.6971 (C: 4.6971, R: 0.0000)
+Batch 16300/18276: Loss = 4.5303 (C: 4.5303, R: 0.0000)
+Batch 16400/18276: Loss = 4.8473 (C: 4.8473, R: 0.0000)
+Batch 16500/18276: Loss = 4.8641 (C: 4.8641, R: 0.0000)
+Batch 16600/18276: Loss = 4.7407 (C: 4.7407, R: 0.0000)
+Batch 16700/18276: Loss = 4.8152 (C: 4.8152, R: 0.0000)
+Batch 16800/18276: Loss = 4.5381 (C: 4.5381, R: 0.0000)
+Batch 16900/18276: Loss = 4.7105 (C: 4.7105, R: 0.0000)
+Batch 17000/18276: Loss = 4.7027 (C: 4.7027, R: 0.0000)
+Batch 17100/18276: Loss = 4.5868 (C: 4.5868, R: 0.0000)
+Batch 17200/18276: Loss = 4.5467 (C: 4.5467, R: 0.0000)
+Batch 17300/18276: Loss = 4.7205 (C: 4.7205, R: 0.0000)
+Batch 17400/18276: Loss = 4.6679 (C: 4.6679, R: 0.0000)
+Batch 17500/18276: Loss = 4.6608 (C: 4.6608, R: 0.0000)
+Batch 17600/18276: Loss = 4.6416 (C: 4.6416, R: 0.0000)
+Batch 17700/18276: Loss = 4.6068 (C: 4.6068, R: 0.0000)
+Batch 17800/18276: Loss = 4.6732 (C: 4.6732, R: 0.0000)
+Batch 17900/18276: Loss = 4.7793 (C: 4.7793, R: 0.0000)
+Batch 18000/18276: Loss = 4.7699 (C: 4.7699, R: 0.0000)
+Batch 18100/18276: Loss = 4.9107 (C: 4.9107, R: 0.0000)
+Batch 18200/18276: Loss = 4.5631 (C: 4.5631, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.701440334320068
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.701440334320068
+Epoch 1 completed in 70.51s
+Train Loss: 4.6835 (C: 4.6835)
+Val Loss: 4.6493 (C: 4.6493)
+Checkpoint saved: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834/checkpoints/best_model.pt
+New best model saved (Val Loss: 4.6493)
+
+Epoch 2/50
+------------------------------
+Batch 0/18276: Loss = 4.5109 (C: 4.5109, R: 0.0000)
+Batch 100/18276: Loss = 4.5926 (C: 4.5926, R: 0.0000)
+Batch 200/18276: Loss = 4.7689 (C: 4.7689, R: 0.0000)
+Batch 300/18276: Loss = 4.6191 (C: 4.6191, R: 0.0000)
+Batch 400/18276: Loss = 4.7578 (C: 4.7578, R: 0.0000)
+Batch 500/18276: Loss = 4.5749 (C: 4.5749, R: 0.0000)
+Batch 600/18276: Loss = 4.6494 (C: 4.6494, R: 0.0000)
+Batch 700/18276: Loss = 4.7288 (C: 4.7288, R: 0.0000)
+Batch 800/18276: Loss = 4.8034 (C: 4.8034, R: 0.0000)
+Batch 900/18276: Loss = 4.6530 (C: 4.6530, R: 0.0000)
+Batch 1000/18276: Loss = 4.5950 (C: 4.5950, R: 0.0000)
+Batch 1100/18276: Loss = 4.5274 (C: 4.5274, R: 0.0000)
+Batch 1200/18276: Loss = 4.5813 (C: 4.5813, R: 0.0000)
+Batch 1300/18276: Loss = 4.4838 (C: 4.4838, R: 0.0000)
+Batch 1400/18276: Loss = 4.6491 (C: 4.6491, R: 0.0000)
+Batch 1500/18276: Loss = 4.7040 (C: 4.7040, R: 0.0000)
+Batch 1600/18276: Loss = 4.4014 (C: 4.4014, R: 0.0000)
+Batch 1700/18276: Loss = 4.5222 (C: 4.5222, R: 0.0000)
+Batch 1800/18276: Loss = 4.7414 (C: 4.7414, R: 0.0000)
+Batch 1900/18276: Loss = 4.5289 (C: 4.5289, R: 0.0000)
+Batch 2000/18276: Loss = 4.4407 (C: 4.4407, R: 0.0000)
+Batch 2100/18276: Loss = 4.7254 (C: 4.7254, R: 0.0000)
+Batch 2200/18276: Loss = 4.6309 (C: 4.6309, R: 0.0000)
+Batch 2300/18276: Loss = 4.5672 (C: 4.5672, R: 0.0000)
+Batch 2400/18276: Loss = 4.5972 (C: 4.5972, R: 0.0000)
+Batch 2500/18276: Loss = 4.5185 (C: 4.5185, R: 0.0000)
+Batch 2600/18276: Loss = 4.6476 (C: 4.6476, R: 0.0000)
+Batch 2700/18276: Loss = 4.6232 (C: 4.6232, R: 0.0000)
+Batch 2800/18276: Loss = 4.8234 (C: 4.8234, R: 0.0000)
+Batch 2900/18276: Loss = 4.6846 (C: 4.6846, R: 0.0000)
+Batch 3000/18276: Loss = 4.6451 (C: 4.6451, R: 0.0000)
+Batch 3100/18276: Loss = 4.5392 (C: 4.5392, R: 0.0000)
+Batch 3200/18276: Loss = 4.8561 (C: 4.8561, R: 0.0000)
+Batch 3300/18276: Loss = 4.7065 (C: 4.7065, R: 0.0000)
+Batch 3400/18276: Loss = 4.6039 (C: 4.6039, R: 0.0000)
+Batch 3500/18276: Loss = 4.5017 (C: 4.5017, R: 0.0000)
+Batch 3600/18276: Loss = 4.5117 (C: 4.5117, R: 0.0000)
+Batch 3700/18276: Loss = 4.6746 (C: 4.6746, R: 0.0000)
+Batch 3800/18276: Loss = 4.7674 (C: 4.7674, R: 0.0000)
+Batch 3900/18276: Loss = 4.5945 (C: 4.5945, R: 0.0000)
+Batch 4000/18276: Loss = 4.5536 (C: 4.5536, R: 0.0000)
+Batch 4100/18276: Loss = 4.5939 (C: 4.5939, R: 0.0000)
+Batch 4200/18276: Loss = 4.6148 (C: 4.6148, R: 0.0000)
+Batch 4300/18276: Loss = 4.6076 (C: 4.6076, R: 0.0000)
+Batch 4400/18276: Loss = 4.8583 (C: 4.8583, R: 0.0000)
+Batch 4500/18276: Loss = 4.6036 (C: 4.6036, R: 0.0000)
+Batch 4600/18276: Loss = 4.7056 (C: 4.7056, R: 0.0000)
+Batch 4700/18276: Loss = 4.6453 (C: 4.6453, R: 0.0000)
+Batch 4800/18276: Loss = 4.7205 (C: 4.7205, R: 0.0000)
+Batch 4900/18276: Loss = 4.6699 (C: 4.6699, R: 0.0000)
+Batch 5000/18276: Loss = 4.7473 (C: 4.7473, R: 0.0000)
+Batch 5100/18276: Loss = 4.5895 (C: 4.5895, R: 0.0000)
+Batch 5200/18276: Loss = 4.8115 (C: 4.8115, R: 0.0000)
+Batch 5300/18276: Loss = 4.7618 (C: 4.7618, R: 0.0000)
+Batch 5400/18276: Loss = 4.6816 (C: 4.6816, R: 0.0000)
+Batch 5500/18276: Loss = 4.6811 (C: 4.6811, R: 0.0000)
+Batch 5600/18276: Loss = 4.7237 (C: 4.7237, R: 0.0000)
+Batch 5700/18276: Loss = 4.3693 (C: 4.3693, R: 0.0000)
+Batch 5800/18276: Loss = 4.5061 (C: 4.5061, R: 0.0000)
+Batch 5900/18276: Loss = 4.3352 (C: 4.3352, R: 0.0000)
+Batch 6000/18276: Loss = 4.5815 (C: 4.5815, R: 0.0000)
+Batch 6100/18276: Loss = 4.8949 (C: 4.8949, R: 0.0000)
+Batch 6200/18276: Loss = 4.8233 (C: 4.8233, R: 0.0000)
+Batch 6300/18276: Loss = 4.6206 (C: 4.6206, R: 0.0000)
+Batch 6400/18276: Loss = 4.6392 (C: 4.6392, R: 0.0000)
+Batch 6500/18276: Loss = 4.7516 (C: 4.7516, R: 0.0000)
+Batch 6600/18276: Loss = 4.7246 (C: 4.7246, R: 0.0000)
+Batch 6700/18276: Loss = 4.6601 (C: 4.6601, R: 0.0000)
+Batch 6800/18276: Loss = 4.7456 (C: 4.7456, R: 0.0000)
+Batch 6900/18276: Loss = 4.7066 (C: 4.7066, R: 0.0000)
+Batch 7000/18276: Loss = 4.5824 (C: 4.5824, R: 0.0000)
+Batch 7100/18276: Loss = 4.8602 (C: 4.8602, R: 0.0000)
+Batch 7200/18276: Loss = 4.5757 (C: 4.5757, R: 0.0000)
+Batch 7300/18276: Loss = 4.4808 (C: 4.4808, R: 0.0000)
+Batch 7400/18276: Loss = 4.4874 (C: 4.4874, R: 0.0000)
+Batch 7500/18276: Loss = 4.5463 (C: 4.5463, R: 0.0000)
+Batch 7600/18276: Loss = 4.8067 (C: 4.8067, R: 0.0000)
+Batch 7700/18276: Loss = 4.7063 (C: 4.7063, R: 0.0000)
+Batch 7800/18276: Loss = 4.7213 (C: 4.7213, R: 0.0000)
+Batch 7900/18276: Loss = 4.7441 (C: 4.7441, R: 0.0000)
+Batch 8000/18276: Loss = 4.8940 (C: 4.8940, R: 0.0000)
+Batch 8100/18276: Loss = 4.7624 (C: 4.7624, R: 0.0000)
+Batch 8200/18276: Loss = 4.5066 (C: 4.5066, R: 0.0000)
+Batch 8300/18276: Loss = 4.8471 (C: 4.8471, R: 0.0000)
+Batch 8400/18276: Loss = 4.9473 (C: 4.9473, R: 0.0000)
+Batch 8500/18276: Loss = 4.6660 (C: 4.6660, R: 0.0000)
+Batch 8600/18276: Loss = 4.7209 (C: 4.7209, R: 0.0000)
+Batch 8700/18276: Loss = 4.7328 (C: 4.7328, R: 0.0000)
+Batch 8800/18276: Loss = 4.8695 (C: 4.8695, R: 0.0000)
+Batch 8900/18276: Loss = 5.0732 (C: 5.0732, R: 0.0000)
+Batch 9000/18276: Loss = 5.0681 (C: 5.0681, R: 0.0000)
+Batch 9100/18276: Loss = 4.8245 (C: 4.8245, R: 0.0000)
+Batch 9200/18276: Loss = 4.7456 (C: 4.7456, R: 0.0000)
+Batch 9300/18276: Loss = 4.5299 (C: 4.5299, R: 0.0000)
+Batch 9400/18276: Loss = 4.7472 (C: 4.7472, R: 0.0000)
+Batch 9500/18276: Loss = 4.7312 (C: 4.7312, R: 0.0000)
+Batch 9600/18276: Loss = 4.4323 (C: 4.4323, R: 0.0000)
+Batch 9700/18276: Loss = 4.6990 (C: 4.6990, R: 0.0000)
+Batch 9800/18276: Loss = 4.5422 (C: 4.5422, R: 0.0000)
+Batch 9900/18276: Loss = 4.7143 (C: 4.7143, R: 0.0000)
+Batch 10000/18276: Loss = 4.5896 (C: 4.5896, R: 0.0000)
+Batch 10100/18276: Loss = 4.5803 (C: 4.5803, R: 0.0000)
+Batch 10200/18276: Loss = 4.6915 (C: 4.6915, R: 0.0000)
+Batch 10300/18276: Loss = 4.6022 (C: 4.6022, R: 0.0000)
+Batch 10400/18276: Loss = 4.7501 (C: 4.7501, R: 0.0000)
+Batch 10500/18276: Loss = 4.8016 (C: 4.8016, R: 0.0000)
+Batch 10600/18276: Loss = 4.3808 (C: 4.3808, R: 0.0000)
+Batch 10700/18276: Loss = 4.7589 (C: 4.7589, R: 0.0000)
+Batch 10800/18276: Loss = 4.6295 (C: 4.6295, R: 0.0000)
+Batch 10900/18276: Loss = 4.7591 (C: 4.7591, R: 0.0000)
+Batch 11000/18276: Loss = 4.8129 (C: 4.8129, R: 0.0000)
+Batch 11100/18276: Loss = 4.4848 (C: 4.4848, R: 0.0000)
+Batch 11200/18276: Loss = 4.7574 (C: 4.7574, R: 0.0000)
+Batch 11300/18276: Loss = 4.7101 (C: 4.7101, R: 0.0000)
+Batch 11400/18276: Loss = 4.7356 (C: 4.7356, R: 0.0000)
+Batch 11500/18276: Loss = 4.6626 (C: 4.6626, R: 0.0000)
+Batch 11600/18276: Loss = 4.9349 (C: 4.9349, R: 0.0000)
+Batch 11700/18276: Loss = 4.6571 (C: 4.6571, R: 0.0000)
+Batch 11800/18276: Loss = 4.5347 (C: 4.5347, R: 0.0000)
+Batch 11900/18276: Loss = 4.4205 (C: 4.4205, R: 0.0000)
+Batch 12000/18276: Loss = 4.5271 (C: 4.5271, R: 0.0000)
+Batch 12100/18276: Loss = 4.5081 (C: 4.5081, R: 0.0000)
+Batch 12200/18276: Loss = 4.5120 (C: 4.5120, R: 0.0000)
+Batch 12300/18276: Loss = 4.7672 (C: 4.7672, R: 0.0000)
+Batch 12400/18276: Loss = 4.6415 (C: 4.6415, R: 0.0000)
+Batch 12500/18276: Loss = 4.4731 (C: 4.4731, R: 0.0000)
+Batch 12600/18276: Loss = 4.7038 (C: 4.7038, R: 0.0000)
+Batch 12700/18276: Loss = 4.5569 (C: 4.5569, R: 0.0000)
+Batch 12800/18276: Loss = 4.5942 (C: 4.5942, R: 0.0000)
+Batch 12900/18276: Loss = 4.7908 (C: 4.7908, R: 0.0000)
+Batch 13000/18276: Loss = 4.5798 (C: 4.5798, R: 0.0000)
+Batch 13100/18276: Loss = 4.5543 (C: 4.5543, R: 0.0000)
+Batch 13200/18276: Loss = 4.5536 (C: 4.5536, R: 0.0000)
+Batch 13300/18276: Loss = 4.7274 (C: 4.7274, R: 0.0000)
+Batch 13400/18276: Loss = 4.6957 (C: 4.6957, R: 0.0000)
+Batch 13500/18276: Loss = 4.7512 (C: 4.7512, R: 0.0000)
+Batch 13600/18276: Loss = 4.4986 (C: 4.4986, R: 0.0000)
+Batch 13700/18276: Loss = 4.9082 (C: 4.9082, R: 0.0000)
+Batch 13800/18276: Loss = 4.4929 (C: 4.4929, R: 0.0000)
+Batch 13900/18276: Loss = 4.8314 (C: 4.8314, R: 0.0000)
+Batch 14000/18276: Loss = 4.5072 (C: 4.5072, R: 0.0000)
+Batch 14100/18276: Loss = 4.7908 (C: 4.7908, R: 0.0000)
+Batch 14200/18276: Loss = 4.7618 (C: 4.7618, R: 0.0000)
+Batch 14300/18276: Loss = 4.7505 (C: 4.7505, R: 0.0000)
+Batch 14400/18276: Loss = 4.6534 (C: 4.6534, R: 0.0000)
+Batch 14500/18276: Loss = 4.5353 (C: 4.5353, R: 0.0000)
+Batch 14600/18276: Loss = 4.9258 (C: 4.9258, R: 0.0000)
+Batch 14700/18276: Loss = 4.7492 (C: 4.7492, R: 0.0000)
+Batch 14800/18276: Loss = 4.9572 (C: 4.9572, R: 0.0000)
+Batch 14900/18276: Loss = 4.7018 (C: 4.7018, R: 0.0000)
+Batch 15000/18276: Loss = 4.7771 (C: 4.7771, R: 0.0000)
+Batch 15100/18276: Loss = 4.6188 (C: 4.6188, R: 0.0000)
+Batch 15200/18276: Loss = 4.5183 (C: 4.5183, R: 0.0000)
+Batch 15300/18276: Loss = 4.6183 (C: 4.6183, R: 0.0000)
+Batch 15400/18276: Loss = 4.7556 (C: 4.7556, R: 0.0000)
+Batch 15500/18276: Loss = 4.6700 (C: 4.6700, R: 0.0000)
+Batch 15600/18276: Loss = 4.6717 (C: 4.6717, R: 0.0000)
+Batch 15700/18276: Loss = 4.9164 (C: 4.9164, R: 0.0000)
+Batch 15800/18276: Loss = 4.4170 (C: 4.4170, R: 0.0000)
+Batch 15900/18276: Loss = 4.5670 (C: 4.5670, R: 0.0000)
+Batch 16000/18276: Loss = 4.8701 (C: 4.8701, R: 0.0000)
+Batch 16100/18276: Loss = 4.8856 (C: 4.8856, R: 0.0000)
+Batch 16200/18276: Loss = 4.8222 (C: 4.8222, R: 0.0000)
+Batch 16300/18276: Loss = 4.5201 (C: 4.5201, R: 0.0000)
+Batch 16400/18276: Loss = 4.8500 (C: 4.8500, R: 0.0000)
+Batch 16500/18276: Loss = 4.7506 (C: 4.7506, R: 0.0000)
+Batch 16600/18276: Loss = 4.5214 (C: 4.5214, R: 0.0000)
+Batch 16700/18276: Loss = 4.6429 (C: 4.6429, R: 0.0000)
+Batch 16800/18276: Loss = 4.5968 (C: 4.5968, R: 0.0000)
+Batch 16900/18276: Loss = 4.4822 (C: 4.4822, R: 0.0000)
+Batch 17000/18276: Loss = 4.5621 (C: 4.5621, R: 0.0000)
+Batch 17100/18276: Loss = 4.6312 (C: 4.6312, R: 0.0000)
+Batch 17200/18276: Loss = 4.6414 (C: 4.6414, R: 0.0000)
+Batch 17300/18276: Loss = 4.4720 (C: 4.4720, R: 0.0000)
+Batch 17400/18276: Loss = 4.6997 (C: 4.6997, R: 0.0000)
+Batch 17500/18276: Loss = 4.7186 (C: 4.7186, R: 0.0000)
+Batch 17600/18276: Loss = 4.6671 (C: 4.6671, R: 0.0000)
+Batch 17700/18276: Loss = 4.5813 (C: 4.5813, R: 0.0000)
+Batch 17800/18276: Loss = 4.6989 (C: 4.6989, R: 0.0000)
+Batch 17900/18276: Loss = 4.7350 (C: 4.7350, R: 0.0000)
+Batch 18000/18276: Loss = 4.7635 (C: 4.7635, R: 0.0000)
+Batch 18100/18276: Loss = 4.8110 (C: 4.8110, R: 0.0000)
+Batch 18200/18276: Loss = 4.6535 (C: 4.6535, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.794650077819824
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.794650077819824
+Epoch 2 completed in 70.28s
+Train Loss: 4.6546 (C: 4.6546)
+Val Loss: 4.6438 (C: 4.6438)
+Checkpoint saved: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834/checkpoints/best_model.pt
+New best model saved (Val Loss: 4.6438)
+
+Epoch 3/50
+------------------------------
+Batch 0/18276: Loss = 4.5912 (C: 4.5912, R: 0.0000)
+Batch 100/18276: Loss = 4.5251 (C: 4.5251, R: 0.0000)
+Batch 200/18276: Loss = 4.4458 (C: 4.4458, R: 0.0000)
+Batch 300/18276: Loss = 4.7782 (C: 4.7782, R: 0.0000)
+Batch 400/18276: Loss = 4.3894 (C: 4.3894, R: 0.0000)
+Batch 500/18276: Loss = 4.8262 (C: 4.8262, R: 0.0000)
+Batch 600/18276: Loss = 4.6480 (C: 4.6480, R: 0.0000)
+Batch 700/18276: Loss = 4.5368 (C: 4.5368, R: 0.0000)
+Batch 800/18276: Loss = 4.7934 (C: 4.7934, R: 0.0000)
+Batch 900/18276: Loss = 4.5162 (C: 4.5162, R: 0.0000)
+Batch 1000/18276: Loss = 4.7774 (C: 4.7774, R: 0.0000)
+Batch 1100/18276: Loss = 4.6526 (C: 4.6526, R: 0.0000)
+Batch 1200/18276: Loss = 4.5938 (C: 4.5938, R: 0.0000)
+Batch 1300/18276: Loss = 4.4908 (C: 4.4908, R: 0.0000)
+Batch 1400/18276: Loss = 4.5483 (C: 4.5483, R: 0.0000)
+Batch 1500/18276: Loss = 4.5795 (C: 4.5795, R: 0.0000)
+Batch 1600/18276: Loss = 4.4695 (C: 4.4695, R: 0.0000)
+Batch 1700/18276: Loss = 4.7240 (C: 4.7240, R: 0.0000)
+Batch 1800/18276: Loss = 4.3694 (C: 4.3694, R: 0.0000)
+Batch 1900/18276: Loss = 4.7822 (C: 4.7822, R: 0.0000)
+Batch 2000/18276: Loss = 4.6718 (C: 4.6718, R: 0.0000)
+Batch 2100/18276: Loss = 4.6398 (C: 4.6398, R: 0.0000)
+Batch 2200/18276: Loss = 4.5874 (C: 4.5874, R: 0.0000)
+Batch 2300/18276: Loss = 4.6572 (C: 4.6572, R: 0.0000)
+Batch 2400/18276: Loss = 4.9412 (C: 4.9412, R: 0.0000)
+Batch 2500/18276: Loss = 4.6554 (C: 4.6554, R: 0.0000)
+Batch 2600/18276: Loss = 5.0561 (C: 5.0561, R: 0.0000)
+Batch 2700/18276: Loss = 4.7357 (C: 4.7357, R: 0.0000)
+Batch 2800/18276: Loss = 4.6277 (C: 4.6277, R: 0.0000)
+Batch 2900/18276: Loss = 4.7344 (C: 4.7344, R: 0.0000)
+Batch 3000/18276: Loss = 4.5500 (C: 4.5500, R: 0.0000)
+Batch 3100/18276: Loss = 4.5862 (C: 4.5862, R: 0.0000)
+Batch 3200/18276: Loss = 4.7015 (C: 4.7015, R: 0.0000)
+Batch 3300/18276: Loss = 4.6874 (C: 4.6874, R: 0.0000)
+Batch 3400/18276: Loss = 4.7978 (C: 4.7978, R: 0.0000)
+Batch 3500/18276: Loss = 4.7725 (C: 4.7725, R: 0.0000)
+Batch 3600/18276: Loss = 4.6734 (C: 4.6734, R: 0.0000)
+Batch 3700/18276: Loss = 4.4575 (C: 4.4575, R: 0.0000)
+Batch 3800/18276: Loss = 4.6497 (C: 4.6497, R: 0.0000)
+Batch 3900/18276: Loss = 4.4312 (C: 4.4312, R: 0.0000)
+Batch 4000/18276: Loss = 4.8597 (C: 4.8597, R: 0.0000)
+Batch 4100/18276: Loss = 4.5331 (C: 4.5331, R: 0.0000)
+Batch 4200/18276: Loss = 4.4074 (C: 4.4074, R: 0.0000)
+Batch 4300/18276: Loss = 4.5720 (C: 4.5720, R: 0.0000)
+Batch 4400/18276: Loss = 4.5190 (C: 4.5190, R: 0.0000)
+Batch 4500/18276: Loss = 4.4659 (C: 4.4659, R: 0.0000)
+Batch 4600/18276: Loss = 4.7956 (C: 4.7956, R: 0.0000)
+Batch 4700/18276: Loss = 4.5857 (C: 4.5857, R: 0.0000)
+Batch 4800/18276: Loss = 4.8694 (C: 4.8694, R: 0.0000)
+Batch 4900/18276: Loss = 4.5772 (C: 4.5772, R: 0.0000)
+Batch 5000/18276: Loss = 4.8665 (C: 4.8665, R: 0.0000)
+Batch 5100/18276: Loss = 4.5687 (C: 4.5687, R: 0.0000)
+Batch 5200/18276: Loss = 4.6237 (C: 4.6237, R: 0.0000)
+Batch 5300/18276: Loss = 4.7066 (C: 4.7066, R: 0.0000)
+Batch 5400/18276: Loss = 4.5526 (C: 4.5526, R: 0.0000)
+Batch 5500/18276: Loss = 4.8287 (C: 4.8287, R: 0.0000)
+Batch 5600/18276: Loss = 4.5152 (C: 4.5152, R: 0.0000)
+Batch 5700/18276: Loss = 4.6446 (C: 4.6446, R: 0.0000)
+Batch 5800/18276: Loss = 4.8177 (C: 4.8177, R: 0.0000)
+Batch 5900/18276: Loss = 4.8906 (C: 4.8906, R: 0.0000)
+Batch 6000/18276: Loss = 4.4721 (C: 4.4721, R: 0.0000)
+Batch 6100/18276: Loss = 4.5669 (C: 4.5669, R: 0.0000)
+Batch 6200/18276: Loss = 4.6988 (C: 4.6988, R: 0.0000)
+Batch 6300/18276: Loss = 4.5278 (C: 4.5278, R: 0.0000)
+Batch 6400/18276: Loss = 4.7198 (C: 4.7198, R: 0.0000)
+Batch 6500/18276: Loss = 4.6842 (C: 4.6842, R: 0.0000)
+Batch 6600/18276: Loss = 4.3634 (C: 4.3634, R: 0.0000)
+Batch 6700/18276: Loss = 4.2323 (C: 4.2323, R: 0.0000)
+Batch 6800/18276: Loss = 4.8055 (C: 4.8055, R: 0.0000)
+Batch 6900/18276: Loss = 4.6524 (C: 4.6524, R: 0.0000)
+Batch 7000/18276: Loss = 4.7980 (C: 4.7980, R: 0.0000)
+Batch 7100/18276: Loss = 4.5969 (C: 4.5969, R: 0.0000)
+Batch 7200/18276: Loss = 4.8624 (C: 4.8624, R: 0.0000)
+Batch 7300/18276: Loss = 4.5741 (C: 4.5741, R: 0.0000)
+Batch 7400/18276: Loss = 4.7072 (C: 4.7072, R: 0.0000)
+Batch 7500/18276: Loss = 4.5107 (C: 4.5107, R: 0.0000)
+Batch 7600/18276: Loss = 4.6806 (C: 4.6806, R: 0.0000)
+Batch 7700/18276: Loss = 4.6722 (C: 4.6722, R: 0.0000)
+Batch 7800/18276: Loss = 4.6148 (C: 4.6148, R: 0.0000)
+Batch 7900/18276: Loss = 4.6041 (C: 4.6041, R: 0.0000)
+Batch 8000/18276: Loss = 4.4613 (C: 4.4613, R: 0.0000)
+Batch 8100/18276: Loss = 4.5539 (C: 4.5539, R: 0.0000)
+Batch 8200/18276: Loss = 4.6803 (C: 4.6803, R: 0.0000)
+Batch 8300/18276: Loss = 4.7294 (C: 4.7294, R: 0.0000)
+Batch 8400/18276: Loss = 4.6209 (C: 4.6209, R: 0.0000)
+Batch 8500/18276: Loss = 4.6402 (C: 4.6402, R: 0.0000)
+Batch 8600/18276: Loss = 4.4259 (C: 4.4259, R: 0.0000)
+Batch 8700/18276: Loss = 4.4475 (C: 4.4475, R: 0.0000)
+Batch 8800/18276: Loss = 4.7937 (C: 4.7937, R: 0.0000)
+Batch 8900/18276: Loss = 4.8009 (C: 4.8009, R: 0.0000)
+Batch 9000/18276: Loss = 4.5790 (C: 4.5790, R: 0.0000)
+Batch 9100/18276: Loss = 4.5836 (C: 4.5836, R: 0.0000)
+Batch 9200/18276: Loss = 4.8021 (C: 4.8021, R: 0.0000)
+Batch 9300/18276: Loss = 4.6644 (C: 4.6644, R: 0.0000)
+Batch 9400/18276: Loss = 4.5177 (C: 4.5177, R: 0.0000)
+Batch 9500/18276: Loss = 4.9258 (C: 4.9258, R: 0.0000)
+Batch 9600/18276: Loss = 4.6963 (C: 4.6963, R: 0.0000)
+Batch 9700/18276: Loss = 4.7030 (C: 4.7030, R: 0.0000)
+Batch 9800/18276: Loss = 4.6705 (C: 4.6705, R: 0.0000)
+Batch 9900/18276: Loss = 4.5486 (C: 4.5486, R: 0.0000)
+Batch 10000/18276: Loss = 4.3391 (C: 4.3391, R: 0.0000)
+Batch 10100/18276: Loss = 4.6342 (C: 4.6342, R: 0.0000)
+Batch 10200/18276: Loss = 4.5902 (C: 4.5902, R: 0.0000)
+Batch 10300/18276: Loss = 4.7016 (C: 4.7016, R: 0.0000)
+Batch 10400/18276: Loss = 4.5854 (C: 4.5854, R: 0.0000)
+Batch 10500/18276: Loss = 4.6996 (C: 4.6996, R: 0.0000)
+Batch 10600/18276: Loss = 4.4698 (C: 4.4698, R: 0.0000)
+Batch 10700/18276: Loss = 4.4043 (C: 4.4043, R: 0.0000)
+Batch 10800/18276: Loss = 4.8330 (C: 4.8330, R: 0.0000)
+Batch 10900/18276: Loss = 4.7472 (C: 4.7472, R: 0.0000)
+Batch 11000/18276: Loss = 4.5259 (C: 4.5259, R: 0.0000)
+Batch 11100/18276: Loss = 4.7774 (C: 4.7774, R: 0.0000)
+Batch 11200/18276: Loss = 4.8265 (C: 4.8265, R: 0.0000)
+Batch 11300/18276: Loss = 4.6258 (C: 4.6258, R: 0.0000)
+Batch 11400/18276: Loss = 4.5656 (C: 4.5656, R: 0.0000)
+Batch 11500/18276: Loss = 4.6215 (C: 4.6215, R: 0.0000)
+Batch 11600/18276: Loss = 4.6602 (C: 4.6602, R: 0.0000)
+Batch 11700/18276: Loss = 4.5072 (C: 4.5072, R: 0.0000)
+Batch 11800/18276: Loss = 4.7930 (C: 4.7930, R: 0.0000)
+Batch 11900/18276: Loss = 4.6910 (C: 4.6910, R: 0.0000)
+Batch 12000/18276: Loss = 4.5499 (C: 4.5499, R: 0.0000)
+Batch 12100/18276: Loss = 4.7689 (C: 4.7689, R: 0.0000)
+Batch 12200/18276: Loss = 4.7368 (C: 4.7368, R: 0.0000)
+Batch 12300/18276: Loss = 4.8193 (C: 4.8193, R: 0.0000)
+Batch 12400/18276: Loss = 4.6765 (C: 4.6765, R: 0.0000)
+Batch 12500/18276: Loss = 4.6344 (C: 4.6344, R: 0.0000)
+Batch 12600/18276: Loss = 4.7001 (C: 4.7001, R: 0.0000)
+Batch 12700/18276: Loss = 4.5501 (C: 4.5501, R: 0.0000)
+Batch 12800/18276: Loss = 4.7794 (C: 4.7794, R: 0.0000)
+Batch 12900/18276: Loss = 4.6689 (C: 4.6689, R: 0.0000)
+Batch 13000/18276: Loss = 4.5753 (C: 4.5753, R: 0.0000)
+Batch 13100/18276: Loss = 4.7590 (C: 4.7590, R: 0.0000)
+Batch 13200/18276: Loss = 4.7658 (C: 4.7658, R: 0.0000)
+Batch 13300/18276: Loss = 4.6447 (C: 4.6447, R: 0.0000)
+Batch 13400/18276: Loss = 4.8067 (C: 4.8067, R: 0.0000)
+Batch 13500/18276: Loss = 4.7799 (C: 4.7799, R: 0.0000)
+Batch 13600/18276: Loss = 4.6002 (C: 4.6002, R: 0.0000)
+Batch 13700/18276: Loss = 4.6977 (C: 4.6977, R: 0.0000)
+Batch 13800/18276: Loss = 4.5534 (C: 4.5534, R: 0.0000)
+Batch 13900/18276: Loss = 4.6220 (C: 4.6220, R: 0.0000)
+Batch 14000/18276: Loss = 4.4891 (C: 4.4891, R: 0.0000)
+Batch 14100/18276: Loss = 4.5914 (C: 4.5914, R: 0.0000)
+Batch 14200/18276: Loss = 4.6971 (C: 4.6971, R: 0.0000)
+Batch 14300/18276: Loss = 4.7713 (C: 4.7713, R: 0.0000)
+Batch 14400/18276: Loss = 4.5865 (C: 4.5865, R: 0.0000)
+Batch 14500/18276: Loss = 4.6540 (C: 4.6540, R: 0.0000)
+Batch 14600/18276: Loss = 4.4785 (C: 4.4785, R: 0.0000)
+Batch 14700/18276: Loss = 4.5766 (C: 4.5766, R: 0.0000)
+Batch 14800/18276: Loss = 4.6154 (C: 4.6154, R: 0.0000)
+Batch 14900/18276: Loss = 4.4235 (C: 4.4235, R: 0.0000)
+Batch 15000/18276: Loss = 4.7416 (C: 4.7416, R: 0.0000)
+Batch 15100/18276: Loss = 4.4794 (C: 4.4794, R: 0.0000)
+Batch 15200/18276: Loss = 4.8514 (C: 4.8514, R: 0.0000)
+Batch 15300/18276: Loss = 4.7023 (C: 4.7023, R: 0.0000)
+Batch 15400/18276: Loss = 4.7265 (C: 4.7265, R: 0.0000)
+Batch 15500/18276: Loss = 4.6109 (C: 4.6109, R: 0.0000)
+Batch 15600/18276: Loss = 4.4371 (C: 4.4371, R: 0.0000)
+Batch 15700/18276: Loss = 4.6541 (C: 4.6541, R: 0.0000)
+Batch 15800/18276: Loss = 4.5186 (C: 4.5186, R: 0.0000)
+Batch 15900/18276: Loss = 4.5952 (C: 4.5952, R: 0.0000)
+Batch 16000/18276: Loss = 4.4245 (C: 4.4245, R: 0.0000)
+Batch 16100/18276: Loss = 4.7754 (C: 4.7754, R: 0.0000)
+Batch 16200/18276: Loss = 4.3533 (C: 4.3533, R: 0.0000)
+Batch 16300/18276: Loss = 4.4522 (C: 4.4522, R: 0.0000)
+Batch 16400/18276: Loss = 4.5386 (C: 4.5386, R: 0.0000)
+Batch 16500/18276: Loss = 4.6776 (C: 4.6776, R: 0.0000)
+Batch 16600/18276: Loss = 4.7600 (C: 4.7600, R: 0.0000)
+Batch 16700/18276: Loss = 4.5281 (C: 4.5281, R: 0.0000)
+Batch 16800/18276: Loss = 4.5763 (C: 4.5763, R: 0.0000)
+Batch 16900/18276: Loss = 4.8675 (C: 4.8675, R: 0.0000)
+Batch 17000/18276: Loss = 4.4239 (C: 4.4239, R: 0.0000)
+Batch 17100/18276: Loss = 4.7184 (C: 4.7184, R: 0.0000)
+Batch 17200/18276: Loss = 4.8849 (C: 4.8849, R: 0.0000)
+Batch 17300/18276: Loss = 4.8413 (C: 4.8413, R: 0.0000)
+Batch 17400/18276: Loss = 4.7506 (C: 4.7506, R: 0.0000)
+Batch 17500/18276: Loss = 4.5920 (C: 4.5920, R: 0.0000)
+Batch 17600/18276: Loss = 4.5675 (C: 4.5675, R: 0.0000)
+Batch 17700/18276: Loss = 4.7076 (C: 4.7076, R: 0.0000)
+Batch 17800/18276: Loss = 4.5262 (C: 4.5262, R: 0.0000)
+Batch 17900/18276: Loss = 4.6233 (C: 4.6233, R: 0.0000)
+Batch 18000/18276: Loss = 4.5687 (C: 4.5687, R: 0.0000)
+Batch 18100/18276: Loss = 4.6235 (C: 4.6235, R: 0.0000)
+Batch 18200/18276: Loss = 4.9014 (C: 4.9014, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.6185503005981445
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.6185503005981445
+Epoch 3 completed in 69.29s
+Train Loss: 4.6455 (C: 4.6455)
+Val Loss: 4.6313 (C: 4.6313)
+Checkpoint saved: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834/checkpoints/best_model.pt
+New best model saved (Val Loss: 4.6313)
+
+Epoch 4/50
+------------------------------
+Batch 0/18276: Loss = 4.6302 (C: 4.6302, R: 0.0000)
+Batch 100/18276: Loss = 4.6811 (C: 4.6811, R: 0.0000)
+Batch 200/18276: Loss = 4.7252 (C: 4.7252, R: 0.0000)
+Batch 300/18276: Loss = 4.6097 (C: 4.6097, R: 0.0000)
+Batch 400/18276: Loss = 4.6251 (C: 4.6251, R: 0.0000)
+Batch 500/18276: Loss = 4.5795 (C: 4.5795, R: 0.0000)
+Batch 600/18276: Loss = 4.4947 (C: 4.4947, R: 0.0000)
+Batch 700/18276: Loss = 4.7750 (C: 4.7750, R: 0.0000)
+Batch 800/18276: Loss = 4.8365 (C: 4.8365, R: 0.0000)
+Batch 900/18276: Loss = 4.9503 (C: 4.9503, R: 0.0000)
+Batch 1000/18276: Loss = 4.6922 (C: 4.6922, R: 0.0000)
+Batch 1100/18276: Loss = 4.5372 (C: 4.5372, R: 0.0000)
+Batch 1200/18276: Loss = 4.3833 (C: 4.3833, R: 0.0000)
+Batch 1300/18276: Loss = 4.7862 (C: 4.7862, R: 0.0000)
+Batch 1400/18276: Loss = 4.7573 (C: 4.7573, R: 0.0000)
+Batch 1500/18276: Loss = 4.5418 (C: 4.5418, R: 0.0000)
+Batch 1600/18276: Loss = 4.6500 (C: 4.6500, R: 0.0000)
+Batch 1700/18276: Loss = 4.8519 (C: 4.8519, R: 0.0000)
+Batch 1800/18276: Loss = 4.4058 (C: 4.4058, R: 0.0000)
+Batch 1900/18276: Loss = 4.9497 (C: 4.9497, R: 0.0000)
+Batch 2000/18276: Loss = 4.5267 (C: 4.5267, R: 0.0000)
+Batch 2100/18276: Loss = 4.6663 (C: 4.6663, R: 0.0000)
+Batch 2200/18276: Loss = 4.8802 (C: 4.8802, R: 0.0000)
+Batch 2300/18276: Loss = 4.9459 (C: 4.9459, R: 0.0000)
+Batch 2400/18276: Loss = 4.4637 (C: 4.4637, R: 0.0000)
+Batch 2500/18276: Loss = 4.6589 (C: 4.6589, R: 0.0000)
+Batch 2600/18276: Loss = 4.7226 (C: 4.7226, R: 0.0000)
+Batch 2700/18276: Loss = 4.8191 (C: 4.8191, R: 0.0000)
+Batch 2800/18276: Loss = 4.7280 (C: 4.7280, R: 0.0000)
+Batch 2900/18276: Loss = 4.5728 (C: 4.5728, R: 0.0000)
+Batch 3000/18276: Loss = 4.5748 (C: 4.5748, R: 0.0000)
+Batch 3100/18276: Loss = 4.7066 (C: 4.7066, R: 0.0000)
+Batch 3200/18276: Loss = 4.6817 (C: 4.6817, R: 0.0000)
+Batch 3300/18276: Loss = 4.5932 (C: 4.5932, R: 0.0000)
+Batch 3400/18276: Loss = 4.7709 (C: 4.7709, R: 0.0000)
+Batch 3500/18276: Loss = 4.7150 (C: 4.7150, R: 0.0000)
+Batch 3600/18276: Loss = 4.7380 (C: 4.7380, R: 0.0000)
+Batch 3700/18276: Loss = 4.6410 (C: 4.6410, R: 0.0000)
+Batch 3800/18276: Loss = 4.7820 (C: 4.7820, R: 0.0000)
+Batch 3900/18276: Loss = 4.8669 (C: 4.8669, R: 0.0000)
+Batch 4000/18276: Loss = 4.7662 (C: 4.7662, R: 0.0000)
+Batch 4100/18276: Loss = 4.7787 (C: 4.7787, R: 0.0000)
+Batch 4200/18276: Loss = 4.7809 (C: 4.7809, R: 0.0000)
+Batch 4300/18276: Loss = 4.5935 (C: 4.5935, R: 0.0000)
+Batch 4400/18276: Loss = 4.7949 (C: 4.7949, R: 0.0000)
+Batch 4500/18276: Loss = 4.5712 (C: 4.5712, R: 0.0000)
+Batch 4600/18276: Loss = 4.6389 (C: 4.6389, R: 0.0000)
+Batch 4700/18276: Loss = 4.9136 (C: 4.9136, R: 0.0000)
+Batch 4800/18276: Loss = 4.7174 (C: 4.7174, R: 0.0000)
+Batch 4900/18276: Loss = 4.8155 (C: 4.8155, R: 0.0000)
+Batch 5000/18276: Loss = 4.7725 (C: 4.7725, R: 0.0000)
+Batch 5100/18276: Loss = 4.5545 (C: 4.5545, R: 0.0000)
+Batch 5200/18276: Loss = 4.5892 (C: 4.5892, R: 0.0000)
+Batch 5300/18276: Loss = 4.4129 (C: 4.4129, R: 0.0000)
+Batch 5400/18276: Loss = 4.6659 (C: 4.6659, R: 0.0000)
+Batch 5500/18276: Loss = 4.7863 (C: 4.7863, R: 0.0000)
+Batch 5600/18276: Loss = 4.6633 (C: 4.6633, R: 0.0000)
+Batch 5700/18276: Loss = 4.8424 (C: 4.8424, R: 0.0000)
+Batch 5800/18276: Loss = 4.5637 (C: 4.5637, R: 0.0000)
+Batch 5900/18276: Loss = 4.6261 (C: 4.6261, R: 0.0000)
+Batch 6000/18276: Loss = 4.5064 (C: 4.5064, R: 0.0000)
+Batch 6100/18276: Loss = 4.5929 (C: 4.5929, R: 0.0000)
+Batch 6200/18276: Loss = 4.6469 (C: 4.6469, R: 0.0000)
+Batch 6300/18276: Loss = 4.6809 (C: 4.6809, R: 0.0000)
+Batch 6400/18276: Loss = 4.7819 (C: 4.7819, R: 0.0000)
+Batch 6500/18276: Loss = 4.7054 (C: 4.7054, R: 0.0000)
+Batch 6600/18276: Loss = 4.5385 (C: 4.5385, R: 0.0000)
+Batch 6700/18276: Loss = 4.4973 (C: 4.4973, R: 0.0000)
+Batch 6800/18276: Loss = 4.6867 (C: 4.6867, R: 0.0000)
+Batch 6900/18276: Loss = 4.8195 (C: 4.8195, R: 0.0000)
+Batch 7000/18276: Loss = 4.6721 (C: 4.6721, R: 0.0000)
+Batch 7100/18276: Loss = 4.5905 (C: 4.5905, R: 0.0000)
+Batch 7200/18276: Loss = 4.7949 (C: 4.7949, R: 0.0000)
+Batch 7300/18276: Loss = 4.5832 (C: 4.5832, R: 0.0000)
+Batch 7400/18276: Loss = 4.7543 (C: 4.7543, R: 0.0000)
+Batch 7500/18276: Loss = 4.8320 (C: 4.8320, R: 0.0000)
+Batch 7600/18276: Loss = 4.7809 (C: 4.7809, R: 0.0000)
+Batch 7700/18276: Loss = 4.6203 (C: 4.6203, R: 0.0000)
+Batch 7800/18276: Loss = 4.5290 (C: 4.5290, R: 0.0000)
+Batch 7900/18276: Loss = 4.5376 (C: 4.5376, R: 0.0000)
+Batch 8000/18276: Loss = 4.8606 (C: 4.8606, R: 0.0000)
+Batch 8100/18276: Loss = 4.8231 (C: 4.8231, R: 0.0000)
+Batch 8200/18276: Loss = 4.5564 (C: 4.5564, R: 0.0000)
+Batch 8300/18276: Loss = 4.8115 (C: 4.8115, R: 0.0000)
+Batch 8400/18276: Loss = 4.6736 (C: 4.6736, R: 0.0000)
+Batch 8500/18276: Loss = 4.5401 (C: 4.5401, R: 0.0000)
+Batch 8600/18276: Loss = 4.6177 (C: 4.6177, R: 0.0000)
+Batch 8700/18276: Loss = 4.7455 (C: 4.7455, R: 0.0000)
+Batch 8800/18276: Loss = 4.7413 (C: 4.7413, R: 0.0000)
+Batch 8900/18276: Loss = 4.7230 (C: 4.7230, R: 0.0000)
+Batch 9000/18276: Loss = 4.4430 (C: 4.4430, R: 0.0000)
+Batch 9100/18276: Loss = 4.8006 (C: 4.8006, R: 0.0000)
+Batch 9200/18276: Loss = 4.6994 (C: 4.6994, R: 0.0000)
+Batch 9300/18276: Loss = 4.6672 (C: 4.6672, R: 0.0000)
+Batch 9400/18276: Loss = 4.8241 (C: 4.8241, R: 0.0000)
+Batch 9500/18276: Loss = 4.4204 (C: 4.4204, R: 0.0000)
+Batch 9600/18276: Loss = 4.5851 (C: 4.5851, R: 0.0000)
+Batch 9700/18276: Loss = 4.5958 (C: 4.5958, R: 0.0000)
+Batch 9800/18276: Loss = 4.6821 (C: 4.6821, R: 0.0000)
+Batch 9900/18276: Loss = 4.5763 (C: 4.5763, R: 0.0000)
+Batch 10000/18276: Loss = 4.8636 (C: 4.8636, R: 0.0000)
+Batch 10100/18276: Loss = 4.6785 (C: 4.6785, R: 0.0000)
+Batch 10200/18276: Loss = 4.8353 (C: 4.8353, R: 0.0000)
+Batch 10300/18276: Loss = 4.6381 (C: 4.6381, R: 0.0000)
+Batch 10400/18276: Loss = 4.4754 (C: 4.4754, R: 0.0000)
+Batch 10500/18276: Loss = 4.5321 (C: 4.5321, R: 0.0000)
+Batch 10600/18276: Loss = 4.6589 (C: 4.6589, R: 0.0000)
+Batch 10700/18276: Loss = 4.5206 (C: 4.5206, R: 0.0000)
+Batch 10800/18276: Loss = 4.7354 (C: 4.7354, R: 0.0000)
+Batch 10900/18276: Loss = 4.4392 (C: 4.4392, R: 0.0000)
+Batch 11000/18276: Loss = 4.7303 (C: 4.7303, R: 0.0000)
+Batch 11100/18276: Loss = 4.9603 (C: 4.9603, R: 0.0000)
+Batch 11200/18276: Loss = 4.8503 (C: 4.8503, R: 0.0000)
+Batch 11300/18276: Loss = 4.7946 (C: 4.7946, R: 0.0000)
+Batch 11400/18276: Loss = 4.5919 (C: 4.5919, R: 0.0000)
+Batch 11500/18276: Loss = 4.7221 (C: 4.7221, R: 0.0000)
+Batch 11600/18276: Loss = 4.5007 (C: 4.5007, R: 0.0000)
+Batch 11700/18276: Loss = 4.7447 (C: 4.7447, R: 0.0000)
+Batch 11800/18276: Loss = 4.4581 (C: 4.4581, R: 0.0000)
+Batch 11900/18276: Loss = 4.3598 (C: 4.3598, R: 0.0000)
+Batch 12000/18276: Loss = 4.7489 (C: 4.7489, R: 0.0000)
+Batch 12100/18276: Loss = 4.4472 (C: 4.4472, R: 0.0000)
+Batch 12200/18276: Loss = 4.6736 (C: 4.6736, R: 0.0000)
+Batch 12300/18276: Loss = 4.7200 (C: 4.7200, R: 0.0000)
+Batch 12400/18276: Loss = 4.6347 (C: 4.6347, R: 0.0000)
+Batch 12500/18276: Loss = 4.7178 (C: 4.7178, R: 0.0000)
+Batch 12600/18276: Loss = 4.4730 (C: 4.4730, R: 0.0000)
+Batch 12700/18276: Loss = 4.7930 (C: 4.7930, R: 0.0000)
+Batch 12800/18276: Loss = 4.4908 (C: 4.4908, R: 0.0000)
+Batch 12900/18276: Loss = 4.6114 (C: 4.6114, R: 0.0000)
+Batch 13000/18276: Loss = 4.8482 (C: 4.8482, R: 0.0000)
+Batch 13100/18276: Loss = 4.4207 (C: 4.4207, R: 0.0000)
+Batch 13200/18276: Loss = 4.5867 (C: 4.5867, R: 0.0000)
+Batch 13300/18276: Loss = 4.5941 (C: 4.5941, R: 0.0000)
+Batch 13400/18276: Loss = 4.9086 (C: 4.9086, R: 0.0000)
+Batch 13500/18276: Loss = 4.6482 (C: 4.6482, R: 0.0000)
+Batch 13600/18276: Loss = 4.7119 (C: 4.7119, R: 0.0000)
+Batch 13700/18276: Loss = 4.7713 (C: 4.7713, R: 0.0000)
+Batch 13800/18276: Loss = 4.6168 (C: 4.6168, R: 0.0000)
+Batch 13900/18276: Loss = 4.6803 (C: 4.6803, R: 0.0000)
+Batch 14000/18276: Loss = 4.4370 (C: 4.4370, R: 0.0000)
+Batch 14100/18276: Loss = 4.7893 (C: 4.7893, R: 0.0000)
+Batch 14200/18276: Loss = 4.5892 (C: 4.5892, R: 0.0000)
+Batch 14300/18276: Loss = 4.8362 (C: 4.8362, R: 0.0000)
+Batch 14400/18276: Loss = 4.6624 (C: 4.6624, R: 0.0000)
+Batch 14500/18276: Loss = 4.7415 (C: 4.7415, R: 0.0000)
+Batch 14600/18276: Loss = 4.7052 (C: 4.7052, R: 0.0000)
+Batch 14700/18276: Loss = 4.5732 (C: 4.5732, R: 0.0000)
+Batch 14800/18276: Loss = 4.5419 (C: 4.5419, R: 0.0000)
+Batch 14900/18276: Loss = 4.4595 (C: 4.4595, R: 0.0000)
+Batch 15000/18276: Loss = 4.8221 (C: 4.8221, R: 0.0000)
+Batch 15100/18276: Loss = 4.5856 (C: 4.5856, R: 0.0000)
+Batch 15200/18276: Loss = 4.5144 (C: 4.5144, R: 0.0000)
+Batch 15300/18276: Loss = 4.7365 (C: 4.7365, R: 0.0000)
+Batch 15400/18276: Loss = 4.6169 (C: 4.6169, R: 0.0000)
+Batch 15500/18276: Loss = 4.8349 (C: 4.8349, R: 0.0000)
+Batch 15600/18276: Loss = 4.5393 (C: 4.5393, R: 0.0000)
+Batch 15700/18276: Loss = 4.4109 (C: 4.4109, R: 0.0000)
+Batch 15800/18276: Loss = 4.7489 (C: 4.7489, R: 0.0000)
+Batch 15900/18276: Loss = 4.6525 (C: 4.6525, R: 0.0000)
+Batch 16000/18276: Loss = 4.4217 (C: 4.4217, R: 0.0000)
+Batch 16100/18276: Loss = 4.6130 (C: 4.6130, R: 0.0000)
+Batch 16200/18276: Loss = 4.6893 (C: 4.6893, R: 0.0000)
+Batch 16300/18276: Loss = 4.7007 (C: 4.7007, R: 0.0000)
+Batch 16400/18276: Loss = 4.7307 (C: 4.7307, R: 0.0000)
+Batch 16500/18276: Loss = 4.7746 (C: 4.7746, R: 0.0000)
+Batch 16600/18276: Loss = 4.6324 (C: 4.6324, R: 0.0000)
+Batch 16700/18276: Loss = 4.6761 (C: 4.6761, R: 0.0000)
+Batch 16800/18276: Loss = 4.8379 (C: 4.8379, R: 0.0000)
+Batch 16900/18276: Loss = 4.5283 (C: 4.5283, R: 0.0000)
+Batch 17000/18276: Loss = 4.7671 (C: 4.7671, R: 0.0000)
+Batch 17100/18276: Loss = 4.6662 (C: 4.6662, R: 0.0000)
+Batch 17200/18276: Loss = 4.5688 (C: 4.5688, R: 0.0000)
+Batch 17300/18276: Loss = 4.4331 (C: 4.4331, R: 0.0000)
+Batch 17400/18276: Loss = 4.8103 (C: 4.8103, R: 0.0000)
+Batch 17500/18276: Loss = 4.7873 (C: 4.7873, R: 0.0000)
+Batch 17600/18276: Loss = 4.7113 (C: 4.7113, R: 0.0000)
+Batch 17700/18276: Loss = 4.6704 (C: 4.6704, R: 0.0000)
+Batch 17800/18276: Loss = 4.5698 (C: 4.5698, R: 0.0000)
+Batch 17900/18276: Loss = 4.8522 (C: 4.8522, R: 0.0000)
+Batch 18000/18276: Loss = 4.3384 (C: 4.3384, R: 0.0000)
+Batch 18100/18276: Loss = 4.5457 (C: 4.5457, R: 0.0000)
+Batch 18200/18276: Loss = 4.5198 (C: 4.5198, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.571112155914307
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.571112155914307
+Epoch 4 completed in 69.48s
+Train Loss: 4.6400 (C: 4.6400)
+Val Loss: 4.6323 (C: 4.6323)
+No improvement for 1 epochs
+
+Epoch 5/50
+------------------------------
+Batch 0/18276: Loss = 4.4695 (C: 4.4695, R: 0.0000)
+Batch 100/18276: Loss = 4.6271 (C: 4.6271, R: 0.0000)
+Batch 200/18276: Loss = 4.8485 (C: 4.8485, R: 0.0000)
+Batch 300/18276: Loss = 4.4459 (C: 4.4459, R: 0.0000)
+Batch 400/18276: Loss = 4.5697 (C: 4.5697, R: 0.0000)
+Batch 500/18276: Loss = 4.7380 (C: 4.7380, R: 0.0000)
+Batch 600/18276: Loss = 4.4771 (C: 4.4771, R: 0.0000)
+Batch 700/18276: Loss = 4.6261 (C: 4.6261, R: 0.0000)
+Batch 800/18276: Loss = 4.3838 (C: 4.3838, R: 0.0000)
+Batch 900/18276: Loss = 4.6017 (C: 4.6017, R: 0.0000)
+Batch 1000/18276: Loss = 4.6242 (C: 4.6242, R: 0.0000)
+Batch 1100/18276: Loss = 4.3945 (C: 4.3945, R: 0.0000)
+Batch 1200/18276: Loss = 4.8208 (C: 4.8208, R: 0.0000)
+Batch 1300/18276: Loss = 4.8132 (C: 4.8132, R: 0.0000)
+Batch 1400/18276: Loss = 4.9040 (C: 4.9040, R: 0.0000)
+Batch 1500/18276: Loss = 4.6577 (C: 4.6577, R: 0.0000)
+Batch 1600/18276: Loss = 4.6670 (C: 4.6670, R: 0.0000)
+Batch 1700/18276: Loss = 4.6164 (C: 4.6164, R: 0.0000)
+Batch 1800/18276: Loss = 4.6648 (C: 4.6648, R: 0.0000)
+Batch 1900/18276: Loss = 4.6002 (C: 4.6002, R: 0.0000)
+Batch 2000/18276: Loss = 4.7463 (C: 4.7463, R: 0.0000)
+Batch 2100/18276: Loss = 4.7780 (C: 4.7780, R: 0.0000)
+Batch 2200/18276: Loss = 4.5139 (C: 4.5139, R: 0.0000)
+Batch 2300/18276: Loss = 4.6736 (C: 4.6736, R: 0.0000)
+Batch 2400/18276: Loss = 4.5531 (C: 4.5531, R: 0.0000)
+Batch 2500/18276: Loss = 4.5038 (C: 4.5038, R: 0.0000)
+Batch 2600/18276: Loss = 4.5181 (C: 4.5181, R: 0.0000)
+Batch 2700/18276: Loss = 4.6184 (C: 4.6184, R: 0.0000)
+Batch 2800/18276: Loss = 4.5609 (C: 4.5609, R: 0.0000)
+Batch 2900/18276: Loss = 4.4450 (C: 4.4450, R: 0.0000)
+Batch 3000/18276: Loss = 4.6552 (C: 4.6552, R: 0.0000)
+Batch 3100/18276: Loss = 4.7338 (C: 4.7338, R: 0.0000)
+Batch 3200/18276: Loss = 4.4893 (C: 4.4893, R: 0.0000)
+Batch 3300/18276: Loss = 4.6206 (C: 4.6206, R: 0.0000)
+Batch 3400/18276: Loss = 4.6461 (C: 4.6461, R: 0.0000)
+Batch 3500/18276: Loss = 4.5714 (C: 4.5714, R: 0.0000)
+Batch 3600/18276: Loss = 4.8862 (C: 4.8862, R: 0.0000)
+Batch 3700/18276: Loss = 4.7148 (C: 4.7148, R: 0.0000)
+Batch 3800/18276: Loss = 4.5614 (C: 4.5614, R: 0.0000)
+Batch 3900/18276: Loss = 4.3170 (C: 4.3170, R: 0.0000)
+Batch 4000/18276: Loss = 4.3089 (C: 4.3089, R: 0.0000)
+Batch 4100/18276: Loss = 4.5390 (C: 4.5390, R: 0.0000)
+Batch 4200/18276: Loss = 4.7766 (C: 4.7766, R: 0.0000)
+Batch 4300/18276: Loss = 4.8416 (C: 4.8416, R: 0.0000)
+Batch 4400/18276: Loss = 4.4237 (C: 4.4237, R: 0.0000)
+Batch 4500/18276: Loss = 4.5951 (C: 4.5951, R: 0.0000)
+Batch 4600/18276: Loss = 4.7539 (C: 4.7539, R: 0.0000)
+Batch 4700/18276: Loss = 4.4006 (C: 4.4006, R: 0.0000)
+Batch 4800/18276: Loss = 4.7124 (C: 4.7124, R: 0.0000)
+Batch 4900/18276: Loss = 4.8164 (C: 4.8164, R: 0.0000)
+Batch 5000/18276: Loss = 4.6256 (C: 4.6256, R: 0.0000)
+Batch 5100/18276: Loss = 4.5648 (C: 4.5648, R: 0.0000)
+Batch 5200/18276: Loss = 4.8060 (C: 4.8060, R: 0.0000)
+Batch 5300/18276: Loss = 4.8249 (C: 4.8249, R: 0.0000)
+Batch 5400/18276: Loss = 4.5711 (C: 4.5711, R: 0.0000)
+Batch 5500/18276: Loss = 4.7898 (C: 4.7898, R: 0.0000)
+Batch 5600/18276: Loss = 4.5976 (C: 4.5976, R: 0.0000)
+Batch 5700/18276: Loss = 4.6772 (C: 4.6772, R: 0.0000)
+Batch 5800/18276: Loss = 4.7889 (C: 4.7889, R: 0.0000)
+Batch 5900/18276: Loss = 4.6564 (C: 4.6564, R: 0.0000)
+Batch 6000/18276: Loss = 4.7774 (C: 4.7774, R: 0.0000)
+Batch 6100/18276: Loss = 4.7834 (C: 4.7834, R: 0.0000)
+Batch 6200/18276: Loss = 4.2984 (C: 4.2984, R: 0.0000)
+Batch 6300/18276: Loss = 4.6082 (C: 4.6082, R: 0.0000)
+Batch 6400/18276: Loss = 4.7293 (C: 4.7293, R: 0.0000)
+Batch 6500/18276: Loss = 4.9566 (C: 4.9566, R: 0.0000)
+Batch 6600/18276: Loss = 4.7013 (C: 4.7013, R: 0.0000)
+Batch 6700/18276: Loss = 4.6530 (C: 4.6530, R: 0.0000)
+Batch 6800/18276: Loss = 4.4715 (C: 4.4715, R: 0.0000)
+Batch 6900/18276: Loss = 4.7780 (C: 4.7780, R: 0.0000)
+Batch 7000/18276: Loss = 4.9771 (C: 4.9771, R: 0.0000)
+Batch 7100/18276: Loss = 4.6038 (C: 4.6038, R: 0.0000)
+Batch 7200/18276: Loss = 4.5406 (C: 4.5406, R: 0.0000)
+Batch 7300/18276: Loss = 4.6093 (C: 4.6093, R: 0.0000)
+Batch 7400/18276: Loss = 4.5708 (C: 4.5708, R: 0.0000)
+Batch 7500/18276: Loss = 4.6039 (C: 4.6039, R: 0.0000)
+Batch 7600/18276: Loss = 4.7790 (C: 4.7790, R: 0.0000)
+Batch 7700/18276: Loss = 4.6546 (C: 4.6546, R: 0.0000)
+Batch 7800/18276: Loss = 4.6798 (C: 4.6798, R: 0.0000)
+Batch 7900/18276: Loss = 4.4869 (C: 4.4869, R: 0.0000)
+Batch 8000/18276: Loss = 4.8371 (C: 4.8371, R: 0.0000)
+Batch 8100/18276: Loss = 4.6243 (C: 4.6243, R: 0.0000)
+Batch 8200/18276: Loss = 4.4205 (C: 4.4205, R: 0.0000)
+Batch 8300/18276: Loss = 4.5644 (C: 4.5644, R: 0.0000)
+Batch 8400/18276: Loss = 4.4637 (C: 4.4637, R: 0.0000)
+Batch 8500/18276: Loss = 4.6695 (C: 4.6695, R: 0.0000)
+Batch 8600/18276: Loss = 4.5956 (C: 4.5956, R: 0.0000)
+Batch 8700/18276: Loss = 4.5154 (C: 4.5154, R: 0.0000)
+Batch 8800/18276: Loss = 4.7224 (C: 4.7224, R: 0.0000)
+Batch 8900/18276: Loss = 4.5469 (C: 4.5469, R: 0.0000)
+Batch 9000/18276: Loss = 4.6337 (C: 4.6337, R: 0.0000)
+Batch 9100/18276: Loss = 4.6313 (C: 4.6313, R: 0.0000)
+Batch 9200/18276: Loss = 4.6346 (C: 4.6346, R: 0.0000)
+Batch 9300/18276: Loss = 4.5521 (C: 4.5521, R: 0.0000)
+Batch 9400/18276: Loss = 4.6898 (C: 4.6898, R: 0.0000)
+Batch 9500/18276: Loss = 4.6986 (C: 4.6986, R: 0.0000)
+Batch 9600/18276: Loss = 4.6452 (C: 4.6452, R: 0.0000)
+Batch 9700/18276: Loss = 4.5724 (C: 4.5724, R: 0.0000)
+Batch 9800/18276: Loss = 4.5159 (C: 4.5159, R: 0.0000)
+Batch 9900/18276: Loss = 4.4763 (C: 4.4763, R: 0.0000)
+Batch 10000/18276: Loss = 4.7248 (C: 4.7248, R: 0.0000)
+Batch 10100/18276: Loss = 4.4724 (C: 4.4724, R: 0.0000)
+Batch 10200/18276: Loss = 4.5780 (C: 4.5780, R: 0.0000)
+Batch 10300/18276: Loss = 4.8515 (C: 4.8515, R: 0.0000)
+Batch 10400/18276: Loss = 4.4847 (C: 4.4847, R: 0.0000)
+Batch 10500/18276: Loss = 4.8732 (C: 4.8732, R: 0.0000)
+Batch 10600/18276: Loss = 4.5384 (C: 4.5384, R: 0.0000)
+Batch 10700/18276: Loss = 4.7746 (C: 4.7746, R: 0.0000)
+Batch 10800/18276: Loss = 4.4910 (C: 4.4910, R: 0.0000)
+Batch 10900/18276: Loss = 4.7512 (C: 4.7512, R: 0.0000)
+Batch 11000/18276: Loss = 4.6583 (C: 4.6583, R: 0.0000)
+Batch 11100/18276: Loss = 4.6315 (C: 4.6315, R: 0.0000)
+Batch 11200/18276: Loss = 4.5507 (C: 4.5507, R: 0.0000)
+Batch 11300/18276: Loss = 4.5492 (C: 4.5492, R: 0.0000)
+Batch 11400/18276: Loss = 4.5633 (C: 4.5633, R: 0.0000)
+Batch 11500/18276: Loss = 4.8056 (C: 4.8056, R: 0.0000)
+Batch 11600/18276: Loss = 4.7009 (C: 4.7009, R: 0.0000)
+Batch 11700/18276: Loss = 4.7978 (C: 4.7978, R: 0.0000)
+Batch 11800/18276: Loss = 4.9655 (C: 4.9655, R: 0.0000)
+Batch 11900/18276: Loss = 4.9327 (C: 4.9327, R: 0.0000)
+Batch 12000/18276: Loss = 4.6479 (C: 4.6479, R: 0.0000)
+Batch 12100/18276: Loss = 4.6153 (C: 4.6153, R: 0.0000)
+Batch 12200/18276: Loss = 4.6083 (C: 4.6083, R: 0.0000)
+Batch 12300/18276: Loss = 4.3174 (C: 4.3174, R: 0.0000)
+Batch 12400/18276: Loss = 5.0435 (C: 5.0435, R: 0.0000)
+Batch 12500/18276: Loss = 4.6127 (C: 4.6127, R: 0.0000)
+Batch 12600/18276: Loss = 4.7523 (C: 4.7523, R: 0.0000)
+Batch 12700/18276: Loss = 4.6517 (C: 4.6517, R: 0.0000)
+Batch 12800/18276: Loss = 4.4439 (C: 4.4439, R: 0.0000)
+Batch 12900/18276: Loss = 4.5436 (C: 4.5436, R: 0.0000)
+Batch 13000/18276: Loss = 4.5781 (C: 4.5781, R: 0.0000)
+Batch 13100/18276: Loss = 4.5504 (C: 4.5504, R: 0.0000)
+Batch 13200/18276: Loss = 4.4706 (C: 4.4706, R: 0.0000)
+Batch 13300/18276: Loss = 4.7285 (C: 4.7285, R: 0.0000)
+Batch 13400/18276: Loss = 4.6537 (C: 4.6537, R: 0.0000)
+Batch 13500/18276: Loss = 4.9078 (C: 4.9078, R: 0.0000)
+Batch 13600/18276: Loss = 4.6153 (C: 4.6153, R: 0.0000)
+Batch 13700/18276: Loss = 4.6173 (C: 4.6173, R: 0.0000)
+Batch 13800/18276: Loss = 4.8417 (C: 4.8417, R: 0.0000)
+Batch 13900/18276: Loss = 5.0588 (C: 5.0588, R: 0.0000)
+Batch 14000/18276: Loss = 4.5381 (C: 4.5381, R: 0.0000)
+Batch 14100/18276: Loss = 4.5777 (C: 4.5777, R: 0.0000)
+Batch 14200/18276: Loss = 4.4410 (C: 4.4410, R: 0.0000)
+Batch 14300/18276: Loss = 4.6995 (C: 4.6995, R: 0.0000)
+Batch 14400/18276: Loss = 4.5876 (C: 4.5876, R: 0.0000)
+Batch 14500/18276: Loss = 4.4045 (C: 4.4045, R: 0.0000)
+Batch 14600/18276: Loss = 4.6735 (C: 4.6735, R: 0.0000)
+Batch 14700/18276: Loss = 4.5996 (C: 4.5996, R: 0.0000)
+Batch 14800/18276: Loss = 4.8027 (C: 4.8027, R: 0.0000)
+Batch 14900/18276: Loss = 4.6433 (C: 4.6433, R: 0.0000)
+Batch 15000/18276: Loss = 4.8736 (C: 4.8736, R: 0.0000)
+Batch 15100/18276: Loss = 4.5494 (C: 4.5494, R: 0.0000)
+Batch 15200/18276: Loss = 4.5564 (C: 4.5564, R: 0.0000)
+Batch 15300/18276: Loss = 4.5974 (C: 4.5974, R: 0.0000)
+Batch 15400/18276: Loss = 4.6457 (C: 4.6457, R: 0.0000)
+Batch 15500/18276: Loss = 4.6180 (C: 4.6180, R: 0.0000)
+Batch 15600/18276: Loss = 4.6545 (C: 4.6545, R: 0.0000)
+Batch 15700/18276: Loss = 4.7006 (C: 4.7006, R: 0.0000)
+Batch 15800/18276: Loss = 4.6202 (C: 4.6202, R: 0.0000)
+Batch 15900/18276: Loss = 4.6537 (C: 4.6537, R: 0.0000)
+Batch 16000/18276: Loss = 4.4868 (C: 4.4868, R: 0.0000)
+Batch 16100/18276: Loss = 4.4372 (C: 4.4372, R: 0.0000)
+Batch 16200/18276: Loss = 4.6576 (C: 4.6576, R: 0.0000)
+Batch 16300/18276: Loss = 4.4977 (C: 4.4977, R: 0.0000)
+Batch 16400/18276: Loss = 4.6830 (C: 4.6830, R: 0.0000)
+Batch 16500/18276: Loss = 4.6507 (C: 4.6507, R: 0.0000)
+Batch 16600/18276: Loss = 4.7346 (C: 4.7346, R: 0.0000)
+Batch 16700/18276: Loss = 4.6191 (C: 4.6191, R: 0.0000)
+Batch 16800/18276: Loss = 4.8814 (C: 4.8814, R: 0.0000)
+Batch 16900/18276: Loss = 4.5523 (C: 4.5523, R: 0.0000)
+Batch 17000/18276: Loss = 4.5658 (C: 4.5658, R: 0.0000)
+Batch 17100/18276: Loss = 4.3984 (C: 4.3984, R: 0.0000)
+Batch 17200/18276: Loss = 4.5625 (C: 4.5625, R: 0.0000)
+Batch 17300/18276: Loss = 4.8361 (C: 4.8361, R: 0.0000)
+Batch 17400/18276: Loss = 4.7345 (C: 4.7345, R: 0.0000)
+Batch 17500/18276: Loss = 4.5319 (C: 4.5319, R: 0.0000)
+Batch 17600/18276: Loss = 4.5454 (C: 4.5454, R: 0.0000)
+Batch 17700/18276: Loss = 4.7258 (C: 4.7258, R: 0.0000)
+Batch 17800/18276: Loss = 4.6311 (C: 4.6311, R: 0.0000)
+Batch 17900/18276: Loss = 4.5348 (C: 4.5348, R: 0.0000)
+Batch 18000/18276: Loss = 4.4309 (C: 4.4309, R: 0.0000)
+Batch 18100/18276: Loss = 4.6988 (C: 4.6988, R: 0.0000)
+Batch 18200/18276: Loss = 4.7094 (C: 4.7094, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.487323760986328
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.487323760986328
+Epoch 5 completed in 69.29s
+Train Loss: 4.6370 (C: 4.6370)
+Val Loss: 4.6251 (C: 4.6251)
+Checkpoint saved: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834/checkpoints/best_model.pt
+New best model saved (Val Loss: 4.6251)
+Checkpoint saved: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834/checkpoints/checkpoint_epoch_5.pt
+
+Epoch 6/50
+------------------------------
+Batch 0/18276: Loss = 4.6164 (C: 4.6164, R: 0.0000)
+Batch 100/18276: Loss = 4.4370 (C: 4.4370, R: 0.0000)
+Batch 200/18276: Loss = 4.7176 (C: 4.7176, R: 0.0000)
+Batch 300/18276: Loss = 4.6707 (C: 4.6707, R: 0.0000)
+Batch 400/18276: Loss = 4.2785 (C: 4.2785, R: 0.0000)
+Batch 500/18276: Loss = 4.4878 (C: 4.4878, R: 0.0000)
+Batch 600/18276: Loss = 4.5067 (C: 4.5067, R: 0.0000)
+Batch 700/18276: Loss = 4.5850 (C: 4.5850, R: 0.0000)
+Batch 800/18276: Loss = 4.7290 (C: 4.7290, R: 0.0000)
+Batch 900/18276: Loss = 4.7501 (C: 4.7501, R: 0.0000)
+Batch 1000/18276: Loss = 4.4453 (C: 4.4453, R: 0.0000)
+Batch 1100/18276: Loss = 4.6423 (C: 4.6423, R: 0.0000)
+Batch 1200/18276: Loss = 4.5203 (C: 4.5203, R: 0.0000)
+Batch 1300/18276: Loss = 4.5074 (C: 4.5074, R: 0.0000)
+Batch 1400/18276: Loss = 4.4822 (C: 4.4822, R: 0.0000)
+Batch 1500/18276: Loss = 4.5024 (C: 4.5024, R: 0.0000)
+Batch 1600/18276: Loss = 4.3424 (C: 4.3424, R: 0.0000)
+Batch 1700/18276: Loss = 4.7421 (C: 4.7421, R: 0.0000)
+Batch 1800/18276: Loss = 4.7397 (C: 4.7397, R: 0.0000)
+Batch 1900/18276: Loss = 4.5378 (C: 4.5378, R: 0.0000)
+Batch 2000/18276: Loss = 4.6428 (C: 4.6428, R: 0.0000)
+Batch 2100/18276: Loss = 4.8584 (C: 4.8584, R: 0.0000)
+Batch 2200/18276: Loss = 4.8530 (C: 4.8530, R: 0.0000)
+Batch 2300/18276: Loss = 4.6616 (C: 4.6616, R: 0.0000)
+Batch 2400/18276: Loss = 4.5712 (C: 4.5712, R: 0.0000)
+Batch 2500/18276: Loss = 4.6775 (C: 4.6775, R: 0.0000)
+Batch 2600/18276: Loss = 4.6820 (C: 4.6820, R: 0.0000)
+Batch 2700/18276: Loss = 4.2675 (C: 4.2675, R: 0.0000)
+Batch 2800/18276: Loss = 4.5469 (C: 4.5469, R: 0.0000)
+Batch 2900/18276: Loss = 4.9337 (C: 4.9337, R: 0.0000)
+Batch 3000/18276: Loss = 4.8112 (C: 4.8112, R: 0.0000)
+Batch 3100/18276: Loss = 4.7646 (C: 4.7646, R: 0.0000)
+Batch 3200/18276: Loss = 4.7609 (C: 4.7609, R: 0.0000)
+Batch 3300/18276: Loss = 4.4334 (C: 4.4334, R: 0.0000)
+Batch 3400/18276: Loss = 4.7263 (C: 4.7263, R: 0.0000)
+Batch 3500/18276: Loss = 4.4304 (C: 4.4304, R: 0.0000)
+Batch 3600/18276: Loss = 4.6400 (C: 4.6400, R: 0.0000)
+Batch 3700/18276: Loss = 4.8095 (C: 4.8095, R: 0.0000)
+Batch 3800/18276: Loss = 4.5388 (C: 4.5388, R: 0.0000)
+Batch 3900/18276: Loss = 4.4721 (C: 4.4721, R: 0.0000)
+Batch 4000/18276: Loss = 4.5987 (C: 4.5987, R: 0.0000)
+Batch 4100/18276: Loss = 4.6523 (C: 4.6523, R: 0.0000)
+Batch 4200/18276: Loss = 4.7052 (C: 4.7052, R: 0.0000)
+Batch 4300/18276: Loss = 4.9563 (C: 4.9563, R: 0.0000)
+Batch 4400/18276: Loss = 4.8288 (C: 4.8288, R: 0.0000)
+Batch 4500/18276: Loss = 4.6113 (C: 4.6113, R: 0.0000)
+Batch 4600/18276: Loss = 4.6398 (C: 4.6398, R: 0.0000)
+Batch 4700/18276: Loss = 4.7763 (C: 4.7763, R: 0.0000)
+Batch 4800/18276: Loss = 4.5586 (C: 4.5586, R: 0.0000)
+Batch 4900/18276: Loss = 4.5427 (C: 4.5427, R: 0.0000)
+Batch 5000/18276: Loss = 4.7321 (C: 4.7321, R: 0.0000)
+Batch 5100/18276: Loss = 4.4794 (C: 4.4794, R: 0.0000)
+Batch 5200/18276: Loss = 4.6171 (C: 4.6171, R: 0.0000)
+Batch 5300/18276: Loss = 4.4112 (C: 4.4112, R: 0.0000)
+Batch 5400/18276: Loss = 4.6779 (C: 4.6779, R: 0.0000)
+Batch 5500/18276: Loss = 4.7660 (C: 4.7660, R: 0.0000)
+Batch 5600/18276: Loss = 4.4960 (C: 4.4960, R: 0.0000)
+Batch 5700/18276: Loss = 4.5591 (C: 4.5591, R: 0.0000)
+Batch 5800/18276: Loss = 4.9256 (C: 4.9256, R: 0.0000)
+Batch 5900/18276: Loss = 4.6040 (C: 4.6040, R: 0.0000)
+Batch 6000/18276: Loss = 4.6236 (C: 4.6236, R: 0.0000)
+Batch 6100/18276: Loss = 4.4963 (C: 4.4963, R: 0.0000)
+Batch 6200/18276: Loss = 4.6246 (C: 4.6246, R: 0.0000)
+Batch 6300/18276: Loss = 4.6094 (C: 4.6094, R: 0.0000)
+Batch 6400/18276: Loss = 4.7364 (C: 4.7364, R: 0.0000)
+Batch 6500/18276: Loss = 4.8826 (C: 4.8826, R: 0.0000)
+Batch 6600/18276: Loss = 4.8079 (C: 4.8079, R: 0.0000)
+Batch 6700/18276: Loss = 4.5741 (C: 4.5741, R: 0.0000)
+Batch 6800/18276: Loss = 4.4414 (C: 4.4414, R: 0.0000)
+Batch 6900/18276: Loss = 4.7291 (C: 4.7291, R: 0.0000)
+Batch 7000/18276: Loss = 4.6767 (C: 4.6767, R: 0.0000)
+Batch 7100/18276: Loss = 4.5909 (C: 4.5909, R: 0.0000)
+Batch 7200/18276: Loss = 4.5876 (C: 4.5876, R: 0.0000)
+Batch 7300/18276: Loss = 4.5341 (C: 4.5341, R: 0.0000)
+Batch 7400/18276: Loss = 4.7700 (C: 4.7700, R: 0.0000)
+Batch 7500/18276: Loss = 4.5723 (C: 4.5723, R: 0.0000)
+Batch 7600/18276: Loss = 4.5490 (C: 4.5490, R: 0.0000)
+Batch 7700/18276: Loss = 4.7570 (C: 4.7570, R: 0.0000)
+Batch 7800/18276: Loss = 4.6754 (C: 4.6754, R: 0.0000)
+Batch 7900/18276: Loss = 4.4185 (C: 4.4185, R: 0.0000)
+Batch 8000/18276: Loss = 4.9359 (C: 4.9359, R: 0.0000)
+Batch 8100/18276: Loss = 4.5262 (C: 4.5262, R: 0.0000)
+Batch 8200/18276: Loss = 4.7041 (C: 4.7041, R: 0.0000)
+Batch 8300/18276: Loss = 4.3767 (C: 4.3767, R: 0.0000)
+Batch 8400/18276: Loss = 4.6724 (C: 4.6724, R: 0.0000)
+Batch 8500/18276: Loss = 4.7462 (C: 4.7462, R: 0.0000)
+Batch 8600/18276: Loss = 4.5314 (C: 4.5314, R: 0.0000)
+Batch 8700/18276: Loss = 4.5211 (C: 4.5211, R: 0.0000)
+Batch 8800/18276: Loss = 4.5040 (C: 4.5040, R: 0.0000)
+Batch 8900/18276: Loss = 4.5317 (C: 4.5317, R: 0.0000)
+Batch 9000/18276: Loss = 4.7780 (C: 4.7780, R: 0.0000)
+Batch 9100/18276: Loss = 4.6316 (C: 4.6316, R: 0.0000)
+Batch 9200/18276: Loss = 4.5600 (C: 4.5600, R: 0.0000)
+Batch 9300/18276: Loss = 4.7045 (C: 4.7045, R: 0.0000)
+Batch 9400/18276: Loss = 4.4590 (C: 4.4590, R: 0.0000)
+Batch 9500/18276: Loss = 4.4763 (C: 4.4763, R: 0.0000)
+Batch 9600/18276: Loss = 4.6168 (C: 4.6168, R: 0.0000)
+Batch 9700/18276: Loss = 4.5150 (C: 4.5150, R: 0.0000)
+Batch 9800/18276: Loss = 4.3927 (C: 4.3927, R: 0.0000)
+Batch 9900/18276: Loss = 4.5380 (C: 4.5380, R: 0.0000)
+Batch 10000/18276: Loss = 4.5021 (C: 4.5021, R: 0.0000)
+Batch 10100/18276: Loss = 4.5203 (C: 4.5203, R: 0.0000)
+Batch 10200/18276: Loss = 4.7024 (C: 4.7024, R: 0.0000)
+Batch 10300/18276: Loss = 4.6235 (C: 4.6235, R: 0.0000)
+Batch 10400/18276: Loss = 4.7052 (C: 4.7052, R: 0.0000)
+Batch 10500/18276: Loss = 4.5992 (C: 4.5992, R: 0.0000)
+Batch 10600/18276: Loss = 4.7332 (C: 4.7332, R: 0.0000)
+Batch 10700/18276: Loss = 4.7272 (C: 4.7272, R: 0.0000)
+Batch 10800/18276: Loss = 4.6313 (C: 4.6313, R: 0.0000)
+Batch 10900/18276: Loss = 4.5533 (C: 4.5533, R: 0.0000)
+Batch 11000/18276: Loss = 4.8353 (C: 4.8353, R: 0.0000)
+Batch 11100/18276: Loss = 4.6420 (C: 4.6420, R: 0.0000)
+Batch 11200/18276: Loss = 4.6804 (C: 4.6804, R: 0.0000)
+Batch 11300/18276: Loss = 4.6367 (C: 4.6367, R: 0.0000)
+Batch 11400/18276: Loss = 4.9153 (C: 4.9153, R: 0.0000)
+Batch 11500/18276: Loss = 4.5216 (C: 4.5216, R: 0.0000)
+Batch 11600/18276: Loss = 4.7787 (C: 4.7787, R: 0.0000)
+Batch 11700/18276: Loss = 4.4376 (C: 4.4376, R: 0.0000)
+Batch 11800/18276: Loss = 4.7843 (C: 4.7843, R: 0.0000)
+Batch 11900/18276: Loss = 4.5502 (C: 4.5502, R: 0.0000)
+Batch 12000/18276: Loss = 4.3906 (C: 4.3906, R: 0.0000)
+Batch 12100/18276: Loss = 4.5631 (C: 4.5631, R: 0.0000)
+Batch 12200/18276: Loss = 4.5005 (C: 4.5005, R: 0.0000)
+Batch 12300/18276: Loss = 4.9291 (C: 4.9291, R: 0.0000)
+Batch 12400/18276: Loss = 4.7170 (C: 4.7170, R: 0.0000)
+Batch 12500/18276: Loss = 4.2836 (C: 4.2836, R: 0.0000)
+Batch 12600/18276: Loss = 4.6081 (C: 4.6081, R: 0.0000)
+Batch 12700/18276: Loss = 4.5489 (C: 4.5489, R: 0.0000)
+Batch 12800/18276: Loss = 4.6311 (C: 4.6311, R: 0.0000)
+Batch 12900/18276: Loss = 4.5533 (C: 4.5533, R: 0.0000)
+Batch 13000/18276: Loss = 4.5865 (C: 4.5865, R: 0.0000)
+Batch 13100/18276: Loss = 4.8769 (C: 4.8769, R: 0.0000)
+Batch 13200/18276: Loss = 4.6559 (C: 4.6559, R: 0.0000)
+Batch 13300/18276: Loss = 4.5298 (C: 4.5298, R: 0.0000)
+Batch 13400/18276: Loss = 4.5384 (C: 4.5384, R: 0.0000)
+Batch 13500/18276: Loss = 4.5834 (C: 4.5834, R: 0.0000)
+Batch 13600/18276: Loss = 4.4337 (C: 4.4337, R: 0.0000)
+Batch 13700/18276: Loss = 4.3818 (C: 4.3818, R: 0.0000)
+Batch 13800/18276: Loss = 4.4744 (C: 4.4744, R: 0.0000)
+Batch 13900/18276: Loss = 4.4807 (C: 4.4807, R: 0.0000)
+Batch 14000/18276: Loss = 4.6886 (C: 4.6886, R: 0.0000)
+Batch 14100/18276: Loss = 4.7562 (C: 4.7562, R: 0.0000)
+Batch 14200/18276: Loss = 4.6664 (C: 4.6664, R: 0.0000)
+Batch 14300/18276: Loss = 4.6583 (C: 4.6583, R: 0.0000)
+Batch 14400/18276: Loss = 4.5863 (C: 4.5863, R: 0.0000)
+Batch 14500/18276: Loss = 4.8961 (C: 4.8961, R: 0.0000)
+Batch 14600/18276: Loss = 4.7880 (C: 4.7880, R: 0.0000)
+Batch 14700/18276: Loss = 4.8593 (C: 4.8593, R: 0.0000)
+Batch 14800/18276: Loss = 4.8782 (C: 4.8782, R: 0.0000)
+Batch 14900/18276: Loss = 4.5325 (C: 4.5325, R: 0.0000)
+Batch 15000/18276: Loss = 4.5367 (C: 4.5367, R: 0.0000)
+Batch 15100/18276: Loss = 4.6868 (C: 4.6868, R: 0.0000)
+Batch 15200/18276: Loss = 4.6224 (C: 4.6224, R: 0.0000)
+Batch 15300/18276: Loss = 4.6466 (C: 4.6466, R: 0.0000)
+Batch 15400/18276: Loss = 4.5712 (C: 4.5712, R: 0.0000)
+Batch 15500/18276: Loss = 4.5370 (C: 4.5370, R: 0.0000)
+Batch 15600/18276: Loss = 4.8367 (C: 4.8367, R: 0.0000)
+Batch 15700/18276: Loss = 4.6281 (C: 4.6281, R: 0.0000)
+Batch 15800/18276: Loss = 4.5197 (C: 4.5197, R: 0.0000)
+Batch 15900/18276: Loss = 4.5422 (C: 4.5422, R: 0.0000)
+Batch 16000/18276: Loss = 4.6021 (C: 4.6021, R: 0.0000)
+Batch 16100/18276: Loss = 4.5067 (C: 4.5067, R: 0.0000)
+Batch 16200/18276: Loss = 4.5898 (C: 4.5898, R: 0.0000)
+Batch 16300/18276: Loss = 4.5842 (C: 4.5842, R: 0.0000)
+Batch 16400/18276: Loss = 4.7833 (C: 4.7833, R: 0.0000)
+Batch 16500/18276: Loss = 4.6454 (C: 4.6454, R: 0.0000)
+Batch 16600/18276: Loss = 4.5475 (C: 4.5475, R: 0.0000)
+Batch 16700/18276: Loss = 4.4368 (C: 4.4368, R: 0.0000)
+Batch 16800/18276: Loss = 4.6537 (C: 4.6537, R: 0.0000)
+Batch 16900/18276: Loss = 4.5910 (C: 4.5910, R: 0.0000)
+Batch 17000/18276: Loss = 4.6205 (C: 4.6205, R: 0.0000)
+Batch 17100/18276: Loss = 4.8168 (C: 4.8168, R: 0.0000)
+Batch 17200/18276: Loss = 4.7886 (C: 4.7886, R: 0.0000)
+Batch 17300/18276: Loss = 4.6894 (C: 4.6894, R: 0.0000)
+Batch 17400/18276: Loss = 4.5775 (C: 4.5775, R: 0.0000)
+Batch 17500/18276: Loss = 4.5185 (C: 4.5185, R: 0.0000)
+Batch 17600/18276: Loss = 4.5153 (C: 4.5153, R: 0.0000)
+Batch 17700/18276: Loss = 4.7447 (C: 4.7447, R: 0.0000)
+Batch 17800/18276: Loss = 4.6513 (C: 4.6513, R: 0.0000)
+Batch 17900/18276: Loss = 4.7915 (C: 4.7915, R: 0.0000)
+Batch 18000/18276: Loss = 4.6327 (C: 4.6327, R: 0.0000)
+Batch 18100/18276: Loss = 4.4798 (C: 4.4798, R: 0.0000)
+Batch 18200/18276: Loss = 4.6077 (C: 4.6077, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.866909980773926
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.866909980773926
+Epoch 6 completed in 70.20s
+Train Loss: 4.6361 (C: 4.6361)
+Val Loss: 4.6308 (C: 4.6308)
+No improvement for 1 epochs
+
+Epoch 7/50
+------------------------------
+Batch 0/18276: Loss = 4.9294 (C: 4.9294, R: 0.0000)
+Batch 100/18276: Loss = 4.8145 (C: 4.8145, R: 0.0000)
+Batch 200/18276: Loss = 4.5933 (C: 4.5933, R: 0.0000)
+Batch 300/18276: Loss = 4.6316 (C: 4.6316, R: 0.0000)
+Batch 400/18276: Loss = 4.6967 (C: 4.6967, R: 0.0000)
+Batch 500/18276: Loss = 4.4934 (C: 4.4934, R: 0.0000)
+Batch 600/18276: Loss = 4.7687 (C: 4.7687, R: 0.0000)
+Batch 700/18276: Loss = 4.7437 (C: 4.7437, R: 0.0000)
+Batch 800/18276: Loss = 4.7129 (C: 4.7129, R: 0.0000)
+Batch 900/18276: Loss = 4.7757 (C: 4.7757, R: 0.0000)
+Batch 1000/18276: Loss = 4.8156 (C: 4.8156, R: 0.0000)
+Batch 1100/18276: Loss = 4.4121 (C: 4.4121, R: 0.0000)
+Batch 1200/18276: Loss = 4.4179 (C: 4.4179, R: 0.0000)
+Batch 1300/18276: Loss = 4.7174 (C: 4.7174, R: 0.0000)
+Batch 1400/18276: Loss = 4.7639 (C: 4.7639, R: 0.0000)
+Batch 1500/18276: Loss = 4.7189 (C: 4.7189, R: 0.0000)
+Batch 1600/18276: Loss = 4.6586 (C: 4.6586, R: 0.0000)
+Batch 1700/18276: Loss = 4.6056 (C: 4.6056, R: 0.0000)
+Batch 1800/18276: Loss = 4.6477 (C: 4.6477, R: 0.0000)
+Batch 1900/18276: Loss = 4.7664 (C: 4.7664, R: 0.0000)
+Batch 2000/18276: Loss = 4.4784 (C: 4.4784, R: 0.0000)
+Batch 2100/18276: Loss = 4.3951 (C: 4.3951, R: 0.0000)
+Batch 2200/18276: Loss = 4.7483 (C: 4.7483, R: 0.0000)
+Batch 2300/18276: Loss = 4.8030 (C: 4.8030, R: 0.0000)
+Batch 2400/18276: Loss = 4.4329 (C: 4.4329, R: 0.0000)
+Batch 2500/18276: Loss = 4.5236 (C: 4.5236, R: 0.0000)
+Batch 2600/18276: Loss = 4.3994 (C: 4.3994, R: 0.0000)
+Batch 2700/18276: Loss = 4.7632 (C: 4.7632, R: 0.0000)
+Batch 2800/18276: Loss = 4.7628 (C: 4.7628, R: 0.0000)
+Batch 2900/18276: Loss = 4.7668 (C: 4.7668, R: 0.0000)
+Batch 3000/18276: Loss = 4.8582 (C: 4.8582, R: 0.0000)
+Batch 3100/18276: Loss = 4.6148 (C: 4.6148, R: 0.0000)
+Batch 3200/18276: Loss = 4.6825 (C: 4.6825, R: 0.0000)
+Batch 3300/18276: Loss = 4.4892 (C: 4.4892, R: 0.0000)
+Batch 3400/18276: Loss = 4.4768 (C: 4.4768, R: 0.0000)
+Batch 3500/18276: Loss = 4.8754 (C: 4.8754, R: 0.0000)
+Batch 3600/18276: Loss = 4.7905 (C: 4.7905, R: 0.0000)
+Batch 3700/18276: Loss = 4.4904 (C: 4.4904, R: 0.0000)
+Batch 3800/18276: Loss = 4.5367 (C: 4.5367, R: 0.0000)
+Batch 3900/18276: Loss = 4.7977 (C: 4.7977, R: 0.0000)
+Batch 4000/18276: Loss = 4.8359 (C: 4.8359, R: 0.0000)
+Batch 4100/18276: Loss = 4.6189 (C: 4.6189, R: 0.0000)
+Batch 4200/18276: Loss = 4.5882 (C: 4.5882, R: 0.0000)
+Batch 4300/18276: Loss = 4.7413 (C: 4.7413, R: 0.0000)
+Batch 4400/18276: Loss = 4.6232 (C: 4.6232, R: 0.0000)
+Batch 4500/18276: Loss = 4.6448 (C: 4.6448, R: 0.0000)
+Batch 4600/18276: Loss = 4.6545 (C: 4.6545, R: 0.0000)
+Batch 4700/18276: Loss = 4.4586 (C: 4.4586, R: 0.0000)
+Batch 4800/18276: Loss = 4.7532 (C: 4.7532, R: 0.0000)
+Batch 4900/18276: Loss = 4.7669 (C: 4.7669, R: 0.0000)
+Batch 5000/18276: Loss = 4.7367 (C: 4.7367, R: 0.0000)
+Batch 5100/18276: Loss = 4.5076 (C: 4.5076, R: 0.0000)
+Batch 5200/18276: Loss = 4.8170 (C: 4.8170, R: 0.0000)
+Batch 5300/18276: Loss = 4.7104 (C: 4.7104, R: 0.0000)
+Batch 5400/18276: Loss = 4.6437 (C: 4.6437, R: 0.0000)
+Batch 5500/18276: Loss = 4.4695 (C: 4.4695, R: 0.0000)
+Batch 5600/18276: Loss = 4.7120 (C: 4.7120, R: 0.0000)
+Batch 5700/18276: Loss = 4.6136 (C: 4.6136, R: 0.0000)
+Batch 5800/18276: Loss = 4.3331 (C: 4.3331, R: 0.0000)
+Batch 5900/18276: Loss = 4.9469 (C: 4.9469, R: 0.0000)
+Batch 6000/18276: Loss = 4.6223 (C: 4.6223, R: 0.0000)
+Batch 6100/18276: Loss = 4.6839 (C: 4.6839, R: 0.0000)
+Batch 6200/18276: Loss = 4.5431 (C: 4.5431, R: 0.0000)
+Batch 6300/18276: Loss = 4.8082 (C: 4.8082, R: 0.0000)
+Batch 6400/18276: Loss = 4.4708 (C: 4.4708, R: 0.0000)
+Batch 6500/18276: Loss = 4.6102 (C: 4.6102, R: 0.0000)
+Batch 6600/18276: Loss = 4.4353 (C: 4.4353, R: 0.0000)
+Batch 6700/18276: Loss = 4.5422 (C: 4.5422, R: 0.0000)
+Batch 6800/18276: Loss = 4.5506 (C: 4.5506, R: 0.0000)
+Batch 6900/18276: Loss = 5.0890 (C: 5.0890, R: 0.0000)
+Batch 7000/18276: Loss = 4.6145 (C: 4.6145, R: 0.0000)
+Batch 7100/18276: Loss = 4.8628 (C: 4.8628, R: 0.0000)
+Batch 7200/18276: Loss = 4.8143 (C: 4.8143, R: 0.0000)
+Batch 7300/18276: Loss = 4.6807 (C: 4.6807, R: 0.0000)
+Batch 7400/18276: Loss = 4.6543 (C: 4.6543, R: 0.0000)
+Batch 7500/18276: Loss = 4.6589 (C: 4.6589, R: 0.0000)
+Batch 7600/18276: Loss = 4.5431 (C: 4.5431, R: 0.0000)
+Batch 7700/18276: Loss = 4.7148 (C: 4.7148, R: 0.0000)
+Batch 7800/18276: Loss = 4.9292 (C: 4.9292, R: 0.0000)
+Batch 7900/18276: Loss = 4.7852 (C: 4.7852, R: 0.0000)
+Batch 8000/18276: Loss = 4.8489 (C: 4.8489, R: 0.0000)
+Batch 8100/18276: Loss = 4.6616 (C: 4.6616, R: 0.0000)
+Batch 8200/18276: Loss = 4.5400 (C: 4.5400, R: 0.0000)
+Batch 8300/18276: Loss = 4.5672 (C: 4.5672, R: 0.0000)
+Batch 8400/18276: Loss = 4.5414 (C: 4.5414, R: 0.0000)
+Batch 8500/18276: Loss = 4.6164 (C: 4.6164, R: 0.0000)
+Batch 8600/18276: Loss = 4.4880 (C: 4.4880, R: 0.0000)
+Batch 8700/18276: Loss = 4.6087 (C: 4.6087, R: 0.0000)
+Batch 8800/18276: Loss = 4.7753 (C: 4.7753, R: 0.0000)
+Batch 8900/18276: Loss = 4.4918 (C: 4.4918, R: 0.0000)
+Batch 9000/18276: Loss = 4.7431 (C: 4.7431, R: 0.0000)
+Batch 9100/18276: Loss = 4.9407 (C: 4.9407, R: 0.0000)
+Batch 9200/18276: Loss = 4.6073 (C: 4.6073, R: 0.0000)
+Batch 9300/18276: Loss = 4.4957 (C: 4.4957, R: 0.0000)
+Batch 9400/18276: Loss = 4.7544 (C: 4.7544, R: 0.0000)
+Batch 9500/18276: Loss = 4.5767 (C: 4.5767, R: 0.0000)
+Batch 9600/18276: Loss = 4.5543 (C: 4.5543, R: 0.0000)
+Batch 9700/18276: Loss = 4.6572 (C: 4.6572, R: 0.0000)
+Batch 9800/18276: Loss = 4.5765 (C: 4.5765, R: 0.0000)
+Batch 9900/18276: Loss = 4.8268 (C: 4.8268, R: 0.0000)
+Batch 10000/18276: Loss = 4.8581 (C: 4.8581, R: 0.0000)
+Batch 10100/18276: Loss = 4.7681 (C: 4.7681, R: 0.0000)
+Batch 10200/18276: Loss = 4.4373 (C: 4.4373, R: 0.0000)
+Batch 10300/18276: Loss = 4.6706 (C: 4.6706, R: 0.0000)
+Batch 10400/18276: Loss = 4.4820 (C: 4.4820, R: 0.0000)
+Batch 10500/18276: Loss = 4.6069 (C: 4.6069, R: 0.0000)
+Batch 10600/18276: Loss = 4.8452 (C: 4.8452, R: 0.0000)
+Batch 10700/18276: Loss = 4.6629 (C: 4.6629, R: 0.0000)
+Batch 10800/18276: Loss = 4.6288 (C: 4.6288, R: 0.0000)
+Batch 10900/18276: Loss = 4.6106 (C: 4.6106, R: 0.0000)
+Batch 11000/18276: Loss = 4.7801 (C: 4.7801, R: 0.0000)
+Batch 11100/18276: Loss = 4.2222 (C: 4.2222, R: 0.0000)
+Batch 11200/18276: Loss = 4.7390 (C: 4.7390, R: 0.0000)
+Batch 11300/18276: Loss = 4.8178 (C: 4.8178, R: 0.0000)
+Batch 11400/18276: Loss = 4.5852 (C: 4.5852, R: 0.0000)
+Batch 11500/18276: Loss = 4.7908 (C: 4.7908, R: 0.0000)
+Batch 11600/18276: Loss = 4.3626 (C: 4.3626, R: 0.0000)
+Batch 11700/18276: Loss = 4.5413 (C: 4.5413, R: 0.0000)
+Batch 11800/18276: Loss = 4.8423 (C: 4.8423, R: 0.0000)
+Batch 11900/18276: Loss = 4.5995 (C: 4.5995, R: 0.0000)
+Batch 12000/18276: Loss = 4.6088 (C: 4.6088, R: 0.0000)
+Batch 12100/18276: Loss = 4.5585 (C: 4.5585, R: 0.0000)
+Batch 12200/18276: Loss = 4.4720 (C: 4.4720, R: 0.0000)
+Batch 12300/18276: Loss = 4.5049 (C: 4.5049, R: 0.0000)
+Batch 12400/18276: Loss = 4.4708 (C: 4.4708, R: 0.0000)
+Batch 12500/18276: Loss = 4.6277 (C: 4.6277, R: 0.0000)
+Batch 12600/18276: Loss = 4.6679 (C: 4.6679, R: 0.0000)
+Batch 12700/18276: Loss = 4.7153 (C: 4.7153, R: 0.0000)
+Batch 12800/18276: Loss = 4.4220 (C: 4.4220, R: 0.0000)
+Batch 12900/18276: Loss = 4.7476 (C: 4.7476, R: 0.0000)
+Batch 13000/18276: Loss = 4.7852 (C: 4.7852, R: 0.0000)
+Batch 13100/18276: Loss = 4.5898 (C: 4.5898, R: 0.0000)
+Batch 13200/18276: Loss = 4.5214 (C: 4.5214, R: 0.0000)
+Batch 13300/18276: Loss = 4.5823 (C: 4.5823, R: 0.0000)
+Batch 13400/18276: Loss = 4.4198 (C: 4.4198, R: 0.0000)
+Batch 13500/18276: Loss = 4.4155 (C: 4.4155, R: 0.0000)
+Batch 13600/18276: Loss = 4.7550 (C: 4.7550, R: 0.0000)
+Batch 13700/18276: Loss = 4.5774 (C: 4.5774, R: 0.0000)
+Batch 13800/18276: Loss = 4.5234 (C: 4.5234, R: 0.0000)
+Batch 13900/18276: Loss = 4.7696 (C: 4.7696, R: 0.0000)
+Batch 14000/18276: Loss = 4.8306 (C: 4.8306, R: 0.0000)
+Batch 14100/18276: Loss = 4.5544 (C: 4.5544, R: 0.0000)
+Batch 14200/18276: Loss = 4.4463 (C: 4.4463, R: 0.0000)
+Batch 14300/18276: Loss = 4.7654 (C: 4.7654, R: 0.0000)
+Batch 14400/18276: Loss = 4.5850 (C: 4.5850, R: 0.0000)
+Batch 14500/18276: Loss = 4.7596 (C: 4.7596, R: 0.0000)
+Batch 14600/18276: Loss = 4.7736 (C: 4.7736, R: 0.0000)
+Batch 14700/18276: Loss = 4.3922 (C: 4.3922, R: 0.0000)
+Batch 14800/18276: Loss = 4.6066 (C: 4.6066, R: 0.0000)
+Batch 14900/18276: Loss = 4.6929 (C: 4.6929, R: 0.0000)
+Batch 15000/18276: Loss = 4.6080 (C: 4.6080, R: 0.0000)
+Batch 15100/18276: Loss = 4.5305 (C: 4.5305, R: 0.0000)
+Batch 15200/18276: Loss = 4.5357 (C: 4.5357, R: 0.0000)
+Batch 15300/18276: Loss = 4.4355 (C: 4.4355, R: 0.0000)
+Batch 15400/18276: Loss = 4.5203 (C: 4.5203, R: 0.0000)
+Batch 15500/18276: Loss = 4.5356 (C: 4.5356, R: 0.0000)
+Batch 15600/18276: Loss = 4.6933 (C: 4.6933, R: 0.0000)
+Batch 15700/18276: Loss = 4.7394 (C: 4.7394, R: 0.0000)
+Batch 15800/18276: Loss = 4.6976 (C: 4.6976, R: 0.0000)
+Batch 15900/18276: Loss = 4.5642 (C: 4.5642, R: 0.0000)
+Batch 16000/18276: Loss = 4.6082 (C: 4.6082, R: 0.0000)
+Batch 16100/18276: Loss = 4.4533 (C: 4.4533, R: 0.0000)
+Batch 16200/18276: Loss = 4.4162 (C: 4.4162, R: 0.0000)
+Batch 16300/18276: Loss = 4.7856 (C: 4.7856, R: 0.0000)
+Batch 16400/18276: Loss = 4.4050 (C: 4.4050, R: 0.0000)
+Batch 16500/18276: Loss = 4.5375 (C: 4.5375, R: 0.0000)
+Batch 16600/18276: Loss = 4.6546 (C: 4.6546, R: 0.0000)
+Batch 16700/18276: Loss = 4.3707 (C: 4.3707, R: 0.0000)
+Batch 16800/18276: Loss = 4.6862 (C: 4.6862, R: 0.0000)
+Batch 16900/18276: Loss = 4.7237 (C: 4.7237, R: 0.0000)
+Batch 17000/18276: Loss = 4.2461 (C: 4.2461, R: 0.0000)
+Batch 17100/18276: Loss = 4.5986 (C: 4.5986, R: 0.0000)
+Batch 17200/18276: Loss = 4.3851 (C: 4.3851, R: 0.0000)
+Batch 17300/18276: Loss = 4.5510 (C: 4.5510, R: 0.0000)
+Batch 17400/18276: Loss = 4.7575 (C: 4.7575, R: 0.0000)
+Batch 17500/18276: Loss = 4.4683 (C: 4.4683, R: 0.0000)
+Batch 17600/18276: Loss = 4.7055 (C: 4.7055, R: 0.0000)
+Batch 17700/18276: Loss = 4.6611 (C: 4.6611, R: 0.0000)
+Batch 17800/18276: Loss = 4.6174 (C: 4.6174, R: 0.0000)
+Batch 17900/18276: Loss = 5.0225 (C: 5.0225, R: 0.0000)
+Batch 18000/18276: Loss = 4.5673 (C: 4.5673, R: 0.0000)
+Batch 18100/18276: Loss = 4.5768 (C: 4.5768, R: 0.0000)
+Batch 18200/18276: Loss = 4.3920 (C: 4.3920, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.741530418395996
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.741530418395996
+Epoch 7 completed in 68.71s
+Train Loss: 4.6332 (C: 4.6332)
+Val Loss: 4.6287 (C: 4.6287)
+No improvement for 2 epochs
+
+Epoch 8/50
+------------------------------
+Batch 0/18276: Loss = 4.5976 (C: 4.5976, R: 0.0000)
+Batch 100/18276: Loss = 4.6306 (C: 4.6306, R: 0.0000)
+Batch 200/18276: Loss = 4.7200 (C: 4.7200, R: 0.0000)
+Batch 300/18276: Loss = 4.6354 (C: 4.6354, R: 0.0000)
+Batch 400/18276: Loss = 4.4615 (C: 4.4615, R: 0.0000)
+Batch 500/18276: Loss = 4.7942 (C: 4.7942, R: 0.0000)
+Batch 600/18276: Loss = 4.7224 (C: 4.7224, R: 0.0000)
+Batch 700/18276: Loss = 4.4542 (C: 4.4542, R: 0.0000)
+Batch 800/18276: Loss = 4.5202 (C: 4.5202, R: 0.0000)
+Batch 900/18276: Loss = 4.6134 (C: 4.6134, R: 0.0000)
+Batch 1000/18276: Loss = 4.7253 (C: 4.7253, R: 0.0000)
+Batch 1100/18276: Loss = 4.6928 (C: 4.6928, R: 0.0000)
+Batch 1200/18276: Loss = 4.5527 (C: 4.5527, R: 0.0000)
+Batch 1300/18276: Loss = 4.7726 (C: 4.7726, R: 0.0000)
+Batch 1400/18276: Loss = 4.4273 (C: 4.4273, R: 0.0000)
+Batch 1500/18276: Loss = 4.2817 (C: 4.2817, R: 0.0000)
+Batch 1600/18276: Loss = 4.5954 (C: 4.5954, R: 0.0000)
+Batch 1700/18276: Loss = 4.6057 (C: 4.6057, R: 0.0000)
+Batch 1800/18276: Loss = 4.4414 (C: 4.4414, R: 0.0000)
+Batch 1900/18276: Loss = 4.4263 (C: 4.4263, R: 0.0000)
+Batch 2000/18276: Loss = 4.7353 (C: 4.7353, R: 0.0000)
+Batch 2100/18276: Loss = 4.5340 (C: 4.5340, R: 0.0000)
+Batch 2200/18276: Loss = 4.5562 (C: 4.5562, R: 0.0000)
+Batch 2300/18276: Loss = 4.4971 (C: 4.4971, R: 0.0000)
+Batch 2400/18276: Loss = 4.4696 (C: 4.4696, R: 0.0000)
+Batch 2500/18276: Loss = 4.3815 (C: 4.3815, R: 0.0000)
+Batch 2600/18276: Loss = 4.7609 (C: 4.7609, R: 0.0000)
+Batch 2700/18276: Loss = 4.6978 (C: 4.6978, R: 0.0000)
+Batch 2800/18276: Loss = 4.7632 (C: 4.7632, R: 0.0000)
+Batch 2900/18276: Loss = 4.6391 (C: 4.6391, R: 0.0000)
+Batch 3000/18276: Loss = 4.8843 (C: 4.8843, R: 0.0000)
+Batch 3100/18276: Loss = 4.7288 (C: 4.7288, R: 0.0000)
+Batch 3200/18276: Loss = 4.7406 (C: 4.7406, R: 0.0000)
+Batch 3300/18276: Loss = 4.4567 (C: 4.4567, R: 0.0000)
+Batch 3400/18276: Loss = 4.5329 (C: 4.5329, R: 0.0000)
+Batch 3500/18276: Loss = 4.4402 (C: 4.4402, R: 0.0000)
+Batch 3600/18276: Loss = 4.6933 (C: 4.6933, R: 0.0000)
+Batch 3700/18276: Loss = 4.4927 (C: 4.4927, R: 0.0000)
+Batch 3800/18276: Loss = 4.6383 (C: 4.6383, R: 0.0000)
+Batch 3900/18276: Loss = 4.8205 (C: 4.8205, R: 0.0000)
+Batch 4000/18276: Loss = 4.6240 (C: 4.6240, R: 0.0000)
+Batch 4100/18276: Loss = 4.6325 (C: 4.6325, R: 0.0000)
+Batch 4200/18276: Loss = 4.5136 (C: 4.5136, R: 0.0000)
+Batch 4300/18276: Loss = 4.6402 (C: 4.6402, R: 0.0000)
+Batch 4400/18276: Loss = 4.5213 (C: 4.5213, R: 0.0000)
+Batch 4500/18276: Loss = 4.6580 (C: 4.6580, R: 0.0000)
+Batch 4600/18276: Loss = 4.7252 (C: 4.7252, R: 0.0000)
+Batch 4700/18276: Loss = 4.6762 (C: 4.6762, R: 0.0000)
+Batch 4800/18276: Loss = 4.6082 (C: 4.6082, R: 0.0000)
+Batch 4900/18276: Loss = 4.5235 (C: 4.5235, R: 0.0000)
+Batch 5000/18276: Loss = 4.5730 (C: 4.5730, R: 0.0000)
+Batch 5100/18276: Loss = 4.7746 (C: 4.7746, R: 0.0000)
+Batch 5200/18276: Loss = 4.8948 (C: 4.8948, R: 0.0000)
+Batch 5300/18276: Loss = 4.5313 (C: 4.5313, R: 0.0000)
+Batch 5400/18276: Loss = 4.6480 (C: 4.6480, R: 0.0000)
+Batch 5500/18276: Loss = 4.5403 (C: 4.5403, R: 0.0000)
+Batch 5600/18276: Loss = 4.6658 (C: 4.6658, R: 0.0000)
+Batch 5700/18276: Loss = 4.5458 (C: 4.5458, R: 0.0000)
+Batch 5800/18276: Loss = 4.6388 (C: 4.6388, R: 0.0000)
+Batch 5900/18276: Loss = 4.5427 (C: 4.5427, R: 0.0000)
+Batch 6000/18276: Loss = 4.3348 (C: 4.3348, R: 0.0000)
+Batch 6100/18276: Loss = 4.5746 (C: 4.5746, R: 0.0000)
+Batch 6200/18276: Loss = 4.9238 (C: 4.9238, R: 0.0000)
+Batch 6300/18276: Loss = 4.6746 (C: 4.6746, R: 0.0000)
+Batch 6400/18276: Loss = 4.5433 (C: 4.5433, R: 0.0000)
+Batch 6500/18276: Loss = 4.5125 (C: 4.5125, R: 0.0000)
+Batch 6600/18276: Loss = 4.8379 (C: 4.8379, R: 0.0000)
+Batch 6700/18276: Loss = 4.5553 (C: 4.5553, R: 0.0000)
+Batch 6800/18276: Loss = 4.7122 (C: 4.7122, R: 0.0000)
+Batch 6900/18276: Loss = 4.7493 (C: 4.7493, R: 0.0000)
+Batch 7000/18276: Loss = 4.8298 (C: 4.8298, R: 0.0000)
+Batch 7100/18276: Loss = 4.6351 (C: 4.6351, R: 0.0000)
+Batch 7200/18276: Loss = 4.7938 (C: 4.7938, R: 0.0000)
+Batch 7300/18276: Loss = 4.6421 (C: 4.6421, R: 0.0000)
+Batch 7400/18276: Loss = 4.6738 (C: 4.6738, R: 0.0000)
+Batch 7500/18276: Loss = 4.7382 (C: 4.7382, R: 0.0000)
+Batch 7600/18276: Loss = 4.7531 (C: 4.7531, R: 0.0000)
+Batch 7700/18276: Loss = 4.5133 (C: 4.5133, R: 0.0000)
+Batch 7800/18276: Loss = 4.5789 (C: 4.5789, R: 0.0000)
+Batch 7900/18276: Loss = 4.4029 (C: 4.4029, R: 0.0000)
+Batch 8000/18276: Loss = 4.4429 (C: 4.4429, R: 0.0000)
+Batch 8100/18276: Loss = 4.9568 (C: 4.9568, R: 0.0000)
+Batch 8200/18276: Loss = 4.6643 (C: 4.6643, R: 0.0000)
+Batch 8300/18276: Loss = 4.5299 (C: 4.5299, R: 0.0000)
+Batch 8400/18276: Loss = 4.6038 (C: 4.6038, R: 0.0000)
+Batch 8500/18276: Loss = 4.4635 (C: 4.4635, R: 0.0000)
+Batch 8600/18276: Loss = 4.6867 (C: 4.6867, R: 0.0000)
+Batch 8700/18276: Loss = 4.5040 (C: 4.5040, R: 0.0000)
+Batch 8800/18276: Loss = 4.6261 (C: 4.6261, R: 0.0000)
+Batch 8900/18276: Loss = 4.4652 (C: 4.4652, R: 0.0000)
+Batch 9000/18276: Loss = 4.8054 (C: 4.8054, R: 0.0000)
+Batch 9100/18276: Loss = 4.6574 (C: 4.6574, R: 0.0000)
+Batch 9200/18276: Loss = 4.8385 (C: 4.8385, R: 0.0000)
+Batch 9300/18276: Loss = 4.5287 (C: 4.5287, R: 0.0000)
+Batch 9400/18276: Loss = 4.7350 (C: 4.7350, R: 0.0000)
+Batch 9500/18276: Loss = 4.3758 (C: 4.3758, R: 0.0000)
+Batch 9600/18276: Loss = 4.6203 (C: 4.6203, R: 0.0000)
+Batch 9700/18276: Loss = 4.8695 (C: 4.8695, R: 0.0000)
+Batch 9800/18276: Loss = 4.6806 (C: 4.6806, R: 0.0000)
+Batch 9900/18276: Loss = 4.8280 (C: 4.8280, R: 0.0000)
+Batch 10000/18276: Loss = 4.6120 (C: 4.6120, R: 0.0000)
+Batch 10100/18276: Loss = 4.7301 (C: 4.7301, R: 0.0000)
+Batch 10200/18276: Loss = 4.5232 (C: 4.5232, R: 0.0000)
+Batch 10300/18276: Loss = 4.5371 (C: 4.5371, R: 0.0000)
+Batch 10400/18276: Loss = 4.5477 (C: 4.5477, R: 0.0000)
+Batch 10500/18276: Loss = 4.7427 (C: 4.7427, R: 0.0000)
+Batch 10600/18276: Loss = 4.6201 (C: 4.6201, R: 0.0000)
+Batch 10700/18276: Loss = 4.8237 (C: 4.8237, R: 0.0000)
+Batch 10800/18276: Loss = 4.8181 (C: 4.8181, R: 0.0000)
+Batch 10900/18276: Loss = 4.6494 (C: 4.6494, R: 0.0000)
+Batch 11000/18276: Loss = 4.7595 (C: 4.7595, R: 0.0000)
+Batch 11100/18276: Loss = 4.6092 (C: 4.6092, R: 0.0000)
+Batch 11200/18276: Loss = 4.5208 (C: 4.5208, R: 0.0000)
+Batch 11300/18276: Loss = 4.7029 (C: 4.7029, R: 0.0000)
+Batch 11400/18276: Loss = 4.6776 (C: 4.6776, R: 0.0000)
+Batch 11500/18276: Loss = 4.6433 (C: 4.6433, R: 0.0000)
+Batch 11600/18276: Loss = 4.4928 (C: 4.4928, R: 0.0000)
+Batch 11700/18276: Loss = 4.5498 (C: 4.5498, R: 0.0000)
+Batch 11800/18276: Loss = 4.4905 (C: 4.4905, R: 0.0000)
+Batch 11900/18276: Loss = 4.7152 (C: 4.7152, R: 0.0000)
+Batch 12000/18276: Loss = 4.6147 (C: 4.6147, R: 0.0000)
+Batch 12100/18276: Loss = 4.5816 (C: 4.5816, R: 0.0000)
+Batch 12200/18276: Loss = 4.6629 (C: 4.6629, R: 0.0000)
+Batch 12300/18276: Loss = 4.6306 (C: 4.6306, R: 0.0000)
+Batch 12400/18276: Loss = 4.6118 (C: 4.6118, R: 0.0000)
+Batch 12500/18276: Loss = 4.5904 (C: 4.5904, R: 0.0000)
+Batch 12600/18276: Loss = 4.7678 (C: 4.7678, R: 0.0000)
+Batch 12700/18276: Loss = 4.5717 (C: 4.5717, R: 0.0000)
+Batch 12800/18276: Loss = 4.5435 (C: 4.5435, R: 0.0000)
+Batch 12900/18276: Loss = 4.7122 (C: 4.7122, R: 0.0000)
+Batch 13000/18276: Loss = 4.4527 (C: 4.4527, R: 0.0000)
+Batch 13100/18276: Loss = 4.6335 (C: 4.6335, R: 0.0000)
+Batch 13200/18276: Loss = 4.8100 (C: 4.8100, R: 0.0000)
+Batch 13300/18276: Loss = 4.8279 (C: 4.8279, R: 0.0000)
+Batch 13400/18276: Loss = 4.7159 (C: 4.7159, R: 0.0000)
+Batch 13500/18276: Loss = 4.6561 (C: 4.6561, R: 0.0000)
+Batch 13600/18276: Loss = 4.7236 (C: 4.7236, R: 0.0000)
+Batch 13700/18276: Loss = 4.4958 (C: 4.4958, R: 0.0000)
+Batch 13800/18276: Loss = 4.3800 (C: 4.3800, R: 0.0000)
+Batch 13900/18276: Loss = 4.5699 (C: 4.5699, R: 0.0000)
+Batch 14000/18276: Loss = 4.9334 (C: 4.9334, R: 0.0000)
+Batch 14100/18276: Loss = 4.6168 (C: 4.6168, R: 0.0000)
+Batch 14200/18276: Loss = 4.8829 (C: 4.8829, R: 0.0000)
+Batch 14300/18276: Loss = 4.6827 (C: 4.6827, R: 0.0000)
+Batch 14400/18276: Loss = 4.5695 (C: 4.5695, R: 0.0000)
+Batch 14500/18276: Loss = 4.6045 (C: 4.6045, R: 0.0000)
+Batch 14600/18276: Loss = 4.6024 (C: 4.6024, R: 0.0000)
+Batch 14700/18276: Loss = 4.8636 (C: 4.8636, R: 0.0000)
+Batch 14800/18276: Loss = 4.8571 (C: 4.8571, R: 0.0000)
+Batch 14900/18276: Loss = 4.6184 (C: 4.6184, R: 0.0000)
+Batch 15000/18276: Loss = 4.4903 (C: 4.4903, R: 0.0000)
+Batch 15100/18276: Loss = 4.5311 (C: 4.5311, R: 0.0000)
+Batch 15200/18276: Loss = 4.6228 (C: 4.6228, R: 0.0000)
+Batch 15300/18276: Loss = 4.7933 (C: 4.7933, R: 0.0000)
+Batch 15400/18276: Loss = 4.4252 (C: 4.4252, R: 0.0000)
+Batch 15500/18276: Loss = 4.7211 (C: 4.7211, R: 0.0000)
+Batch 15600/18276: Loss = 4.7417 (C: 4.7417, R: 0.0000)
+Batch 15700/18276: Loss = 4.5144 (C: 4.5144, R: 0.0000)
+Batch 15800/18276: Loss = 4.5778 (C: 4.5778, R: 0.0000)
+Batch 15900/18276: Loss = 4.5803 (C: 4.5803, R: 0.0000)
+Batch 16000/18276: Loss = 4.7305 (C: 4.7305, R: 0.0000)
+Batch 16100/18276: Loss = 4.4354 (C: 4.4354, R: 0.0000)
+Batch 16200/18276: Loss = 4.8208 (C: 4.8208, R: 0.0000)
+Batch 16300/18276: Loss = 4.7798 (C: 4.7798, R: 0.0000)
+Batch 16400/18276: Loss = 4.5996 (C: 4.5996, R: 0.0000)
+Batch 16500/18276: Loss = 5.0179 (C: 5.0179, R: 0.0000)
+Batch 16600/18276: Loss = 4.5710 (C: 4.5710, R: 0.0000)
+Batch 16700/18276: Loss = 4.5727 (C: 4.5727, R: 0.0000)
+Batch 16800/18276: Loss = 4.9038 (C: 4.9038, R: 0.0000)
+Batch 16900/18276: Loss = 4.9582 (C: 4.9582, R: 0.0000)
+Batch 17000/18276: Loss = 4.5320 (C: 4.5320, R: 0.0000)
+Batch 17100/18276: Loss = 4.5622 (C: 4.5622, R: 0.0000)
+Batch 17200/18276: Loss = 4.6332 (C: 4.6332, R: 0.0000)
+Batch 17300/18276: Loss = 4.7057 (C: 4.7057, R: 0.0000)
+Batch 17400/18276: Loss = 4.5196 (C: 4.5196, R: 0.0000)
+Batch 17500/18276: Loss = 4.5502 (C: 4.5502, R: 0.0000)
+Batch 17600/18276: Loss = 4.5880 (C: 4.5880, R: 0.0000)
+Batch 17700/18276: Loss = 4.6687 (C: 4.6687, R: 0.0000)
+Batch 17800/18276: Loss = 4.4498 (C: 4.4498, R: 0.0000)
+Batch 17900/18276: Loss = 4.5113 (C: 4.5113, R: 0.0000)
+Batch 18000/18276: Loss = 4.5433 (C: 4.5433, R: 0.0000)
+Batch 18100/18276: Loss = 4.4914 (C: 4.4914, R: 0.0000)
+Batch 18200/18276: Loss = 4.6788 (C: 4.6788, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.469279766082764
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.469279766082764
+Epoch 8 completed in 68.48s
+Train Loss: 4.6333 (C: 4.6333)
+Val Loss: 4.6316 (C: 4.6316)
+No improvement for 3 epochs
+
+Epoch 9/50
+------------------------------
+Batch 0/18276: Loss = 4.5547 (C: 4.5547, R: 0.0000)
+Batch 100/18276: Loss = 4.7490 (C: 4.7490, R: 0.0000)
+Batch 200/18276: Loss = 4.7036 (C: 4.7036, R: 0.0000)
+Batch 300/18276: Loss = 4.7336 (C: 4.7336, R: 0.0000)
+Batch 400/18276: Loss = 4.8565 (C: 4.8565, R: 0.0000)
+Batch 500/18276: Loss = 4.5727 (C: 4.5727, R: 0.0000)
+Batch 600/18276: Loss = 4.5686 (C: 4.5686, R: 0.0000)
+Batch 700/18276: Loss = 4.6031 (C: 4.6031, R: 0.0000)
+Batch 800/18276: Loss = 4.5229 (C: 4.5229, R: 0.0000)
+Batch 900/18276: Loss = 4.5105 (C: 4.5105, R: 0.0000)
+Batch 1000/18276: Loss = 4.6457 (C: 4.6457, R: 0.0000)
+Batch 1100/18276: Loss = 4.6217 (C: 4.6217, R: 0.0000)
+Batch 1200/18276: Loss = 4.7673 (C: 4.7673, R: 0.0000)
+Batch 1300/18276: Loss = 4.3703 (C: 4.3703, R: 0.0000)
+Batch 1400/18276: Loss = 4.5835 (C: 4.5835, R: 0.0000)
+Batch 1500/18276: Loss = 4.5932 (C: 4.5932, R: 0.0000)
+Batch 1600/18276: Loss = 4.7754 (C: 4.7754, R: 0.0000)
+Batch 1700/18276: Loss = 4.7825 (C: 4.7825, R: 0.0000)
+Batch 1800/18276: Loss = 4.9523 (C: 4.9523, R: 0.0000)
+Batch 1900/18276: Loss = 4.6090 (C: 4.6090, R: 0.0000)
+Batch 2000/18276: Loss = 4.4988 (C: 4.4988, R: 0.0000)
+Batch 2100/18276: Loss = 4.7134 (C: 4.7134, R: 0.0000)
+Batch 2200/18276: Loss = 4.7004 (C: 4.7004, R: 0.0000)
+Batch 2300/18276: Loss = 4.6540 (C: 4.6540, R: 0.0000)
+Batch 2400/18276: Loss = 4.4405 (C: 4.4405, R: 0.0000)
+Batch 2500/18276: Loss = 4.6478 (C: 4.6478, R: 0.0000)
+Batch 2600/18276: Loss = 4.4869 (C: 4.4869, R: 0.0000)
+Batch 2700/18276: Loss = 4.6656 (C: 4.6656, R: 0.0000)
+Batch 2800/18276: Loss = 4.4640 (C: 4.4640, R: 0.0000)
+Batch 2900/18276: Loss = 4.7156 (C: 4.7156, R: 0.0000)
+Batch 3000/18276: Loss = 4.2800 (C: 4.2800, R: 0.0000)
+Batch 3100/18276: Loss = 4.6543 (C: 4.6543, R: 0.0000)
+Batch 3200/18276: Loss = 4.5583 (C: 4.5583, R: 0.0000)
+Batch 3300/18276: Loss = 4.5056 (C: 4.5056, R: 0.0000)
+Batch 3400/18276: Loss = 4.8350 (C: 4.8350, R: 0.0000)
+Batch 3500/18276: Loss = 4.5761 (C: 4.5761, R: 0.0000)
+Batch 3600/18276: Loss = 4.9447 (C: 4.9447, R: 0.0000)
+Batch 3700/18276: Loss = 4.4294 (C: 4.4294, R: 0.0000)
+Batch 3800/18276: Loss = 4.5284 (C: 4.5284, R: 0.0000)
+Batch 3900/18276: Loss = 4.4421 (C: 4.4421, R: 0.0000)
+Batch 4000/18276: Loss = 4.6406 (C: 4.6406, R: 0.0000)
+Batch 4100/18276: Loss = 4.5381 (C: 4.5381, R: 0.0000)
+Batch 4200/18276: Loss = 4.7455 (C: 4.7455, R: 0.0000)
+Batch 4300/18276: Loss = 4.7061 (C: 4.7061, R: 0.0000)
+Batch 4400/18276: Loss = 4.7811 (C: 4.7811, R: 0.0000)
+Batch 4500/18276: Loss = 4.6464 (C: 4.6464, R: 0.0000)
+Batch 4600/18276: Loss = 4.6854 (C: 4.6854, R: 0.0000)
+Batch 4700/18276: Loss = 4.8291 (C: 4.8291, R: 0.0000)
+Batch 4800/18276: Loss = 4.6882 (C: 4.6882, R: 0.0000)
+Batch 4900/18276: Loss = 4.5615 (C: 4.5615, R: 0.0000)
+Batch 5000/18276: Loss = 4.5984 (C: 4.5984, R: 0.0000)
+Batch 5100/18276: Loss = 4.6669 (C: 4.6669, R: 0.0000)
+Batch 5200/18276: Loss = 4.4460 (C: 4.4460, R: 0.0000)
+Batch 5300/18276: Loss = 4.7939 (C: 4.7939, R: 0.0000)
+Batch 5400/18276: Loss = 4.4747 (C: 4.4747, R: 0.0000)
+Batch 5500/18276: Loss = 4.7602 (C: 4.7602, R: 0.0000)
+Batch 5600/18276: Loss = 4.3752 (C: 4.3752, R: 0.0000)
+Batch 5700/18276: Loss = 4.6792 (C: 4.6792, R: 0.0000)
+Batch 5800/18276: Loss = 4.4592 (C: 4.4592, R: 0.0000)
+Batch 5900/18276: Loss = 4.8064 (C: 4.8064, R: 0.0000)
+Batch 6000/18276: Loss = 4.6251 (C: 4.6251, R: 0.0000)
+Batch 6100/18276: Loss = 4.7048 (C: 4.7048, R: 0.0000)
+Batch 6200/18276: Loss = 4.4956 (C: 4.4956, R: 0.0000)
+Batch 6300/18276: Loss = 4.5003 (C: 4.5003, R: 0.0000)
+Batch 6400/18276: Loss = 4.3589 (C: 4.3589, R: 0.0000)
+Batch 6500/18276: Loss = 4.5041 (C: 4.5041, R: 0.0000)
+Batch 6600/18276: Loss = 4.6758 (C: 4.6758, R: 0.0000)
+Batch 6700/18276: Loss = 4.7502 (C: 4.7502, R: 0.0000)
+Batch 6800/18276: Loss = 4.4652 (C: 4.4652, R: 0.0000)
+Batch 6900/18276: Loss = 4.5150 (C: 4.5150, R: 0.0000)
+Batch 7000/18276: Loss = 4.6493 (C: 4.6493, R: 0.0000)
+Batch 7100/18276: Loss = 4.6542 (C: 4.6542, R: 0.0000)
+Batch 7200/18276: Loss = 4.5726 (C: 4.5726, R: 0.0000)
+Batch 7300/18276: Loss = 4.6801 (C: 4.6801, R: 0.0000)
+Batch 7400/18276: Loss = 4.4847 (C: 4.4847, R: 0.0000)
+Batch 7500/18276: Loss = 4.7955 (C: 4.7955, R: 0.0000)
+Batch 7600/18276: Loss = 4.6199 (C: 4.6199, R: 0.0000)
+Batch 7700/18276: Loss = 4.4962 (C: 4.4962, R: 0.0000)
+Batch 7800/18276: Loss = 4.6656 (C: 4.6656, R: 0.0000)
+Batch 7900/18276: Loss = 4.6254 (C: 4.6254, R: 0.0000)
+Batch 8000/18276: Loss = 4.7699 (C: 4.7699, R: 0.0000)
+Batch 8100/18276: Loss = 4.6117 (C: 4.6117, R: 0.0000)
+Batch 8200/18276: Loss = 4.7691 (C: 4.7691, R: 0.0000)
+Batch 8300/18276: Loss = 4.5558 (C: 4.5558, R: 0.0000)
+Batch 8400/18276: Loss = 4.5846 (C: 4.5846, R: 0.0000)
+Batch 8500/18276: Loss = 4.7902 (C: 4.7902, R: 0.0000)
+Batch 8600/18276: Loss = 4.6651 (C: 4.6651, R: 0.0000)
+Batch 8700/18276: Loss = 4.9177 (C: 4.9177, R: 0.0000)
+Batch 8800/18276: Loss = 4.6012 (C: 4.6012, R: 0.0000)
+Batch 8900/18276: Loss = 4.7981 (C: 4.7981, R: 0.0000)
+Batch 9000/18276: Loss = 4.7512 (C: 4.7512, R: 0.0000)
+Batch 9100/18276: Loss = 4.5806 (C: 4.5806, R: 0.0000)
+Batch 9200/18276: Loss = 4.3336 (C: 4.3336, R: 0.0000)
+Batch 9300/18276: Loss = 4.8271 (C: 4.8271, R: 0.0000)
+Batch 9400/18276: Loss = 4.5879 (C: 4.5879, R: 0.0000)
+Batch 9500/18276: Loss = 4.5540 (C: 4.5540, R: 0.0000)
+Batch 9600/18276: Loss = 4.6626 (C: 4.6626, R: 0.0000)
+Batch 9700/18276: Loss = 4.6360 (C: 4.6360, R: 0.0000)
+Batch 9800/18276: Loss = 4.5045 (C: 4.5045, R: 0.0000)
+Batch 9900/18276: Loss = 4.6622 (C: 4.6622, R: 0.0000)
+Batch 10000/18276: Loss = 4.7897 (C: 4.7897, R: 0.0000)
+Batch 10100/18276: Loss = 4.6767 (C: 4.6767, R: 0.0000)
+Batch 10200/18276: Loss = 4.5321 (C: 4.5321, R: 0.0000)
+Batch 10300/18276: Loss = 4.9838 (C: 4.9838, R: 0.0000)
+Batch 10400/18276: Loss = 4.6612 (C: 4.6612, R: 0.0000)
+Batch 10500/18276: Loss = 4.4481 (C: 4.4481, R: 0.0000)
+Batch 10600/18276: Loss = 4.7027 (C: 4.7027, R: 0.0000)
+Batch 10700/18276: Loss = 4.7067 (C: 4.7067, R: 0.0000)
+Batch 10800/18276: Loss = 4.5189 (C: 4.5189, R: 0.0000)
+Batch 10900/18276: Loss = 4.3181 (C: 4.3181, R: 0.0000)
+Batch 11000/18276: Loss = 4.5867 (C: 4.5867, R: 0.0000)
+Batch 11100/18276: Loss = 4.8777 (C: 4.8777, R: 0.0000)
+Batch 11200/18276: Loss = 4.5618 (C: 4.5618, R: 0.0000)
+Batch 11300/18276: Loss = 4.6497 (C: 4.6497, R: 0.0000)
+Batch 11400/18276: Loss = 4.7242 (C: 4.7242, R: 0.0000)
+Batch 11500/18276: Loss = 4.5748 (C: 4.5748, R: 0.0000)
+Batch 11600/18276: Loss = 4.4647 (C: 4.4647, R: 0.0000)
+Batch 11700/18276: Loss = 4.7023 (C: 4.7023, R: 0.0000)
+Batch 11800/18276: Loss = 4.7178 (C: 4.7178, R: 0.0000)
+Batch 11900/18276: Loss = 4.4486 (C: 4.4486, R: 0.0000)
+Batch 12000/18276: Loss = 4.6530 (C: 4.6530, R: 0.0000)
+Batch 12100/18276: Loss = 4.6980 (C: 4.6980, R: 0.0000)
+Batch 12200/18276: Loss = 4.8345 (C: 4.8345, R: 0.0000)
+Batch 12300/18276: Loss = 4.7377 (C: 4.7377, R: 0.0000)
+Batch 12400/18276: Loss = 4.7088 (C: 4.7088, R: 0.0000)
+Batch 12500/18276: Loss = 4.6871 (C: 4.6871, R: 0.0000)
+Batch 12600/18276: Loss = 4.6874 (C: 4.6874, R: 0.0000)
+Batch 12700/18276: Loss = 4.8488 (C: 4.8488, R: 0.0000)
+Batch 12800/18276: Loss = 4.6479 (C: 4.6479, R: 0.0000)
+Batch 12900/18276: Loss = 4.4277 (C: 4.4277, R: 0.0000)
+Batch 13000/18276: Loss = 4.6464 (C: 4.6464, R: 0.0000)
+Batch 13100/18276: Loss = 4.8429 (C: 4.8429, R: 0.0000)
+Batch 13200/18276: Loss = 4.7016 (C: 4.7016, R: 0.0000)
+Batch 13300/18276: Loss = 4.6585 (C: 4.6585, R: 0.0000)
+Batch 13400/18276: Loss = 4.7335 (C: 4.7335, R: 0.0000)
+Batch 13500/18276: Loss = 4.5004 (C: 4.5004, R: 0.0000)
+Batch 13600/18276: Loss = 4.6885 (C: 4.6885, R: 0.0000)
+Batch 13700/18276: Loss = 4.8163 (C: 4.8163, R: 0.0000)
+Batch 13800/18276: Loss = 4.5098 (C: 4.5098, R: 0.0000)
+Batch 13900/18276: Loss = 4.5759 (C: 4.5759, R: 0.0000)
+Batch 14000/18276: Loss = 4.4446 (C: 4.4446, R: 0.0000)
+Batch 14100/18276: Loss = 4.4556 (C: 4.4556, R: 0.0000)
+Batch 14200/18276: Loss = 4.7053 (C: 4.7053, R: 0.0000)
+Batch 14300/18276: Loss = 4.6870 (C: 4.6870, R: 0.0000)
+Batch 14400/18276: Loss = 4.7724 (C: 4.7724, R: 0.0000)
+Batch 14500/18276: Loss = 4.4738 (C: 4.4738, R: 0.0000)
+Batch 14600/18276: Loss = 4.6330 (C: 4.6330, R: 0.0000)
+Batch 14700/18276: Loss = 4.7750 (C: 4.7750, R: 0.0000)
+Batch 14800/18276: Loss = 4.5688 (C: 4.5688, R: 0.0000)
+Batch 14900/18276: Loss = 4.5029 (C: 4.5029, R: 0.0000)
+Batch 15000/18276: Loss = 4.9217 (C: 4.9217, R: 0.0000)
+Batch 15100/18276: Loss = 4.4230 (C: 4.4230, R: 0.0000)
+Batch 15200/18276: Loss = 4.5795 (C: 4.5795, R: 0.0000)
+Batch 15300/18276: Loss = 4.4709 (C: 4.4709, R: 0.0000)
+Batch 15400/18276: Loss = 4.7569 (C: 4.7569, R: 0.0000)
+Batch 15500/18276: Loss = 4.7546 (C: 4.7546, R: 0.0000)
+Batch 15600/18276: Loss = 4.5551 (C: 4.5551, R: 0.0000)
+Batch 15700/18276: Loss = 4.7188 (C: 4.7188, R: 0.0000)
+Batch 15800/18276: Loss = 4.5046 (C: 4.5046, R: 0.0000)
+Batch 15900/18276: Loss = 4.5153 (C: 4.5153, R: 0.0000)
+Batch 16000/18276: Loss = 5.0971 (C: 5.0971, R: 0.0000)
+Batch 16100/18276: Loss = 4.6328 (C: 4.6328, R: 0.0000)
+Batch 16200/18276: Loss = 4.5237 (C: 4.5237, R: 0.0000)
+Batch 16300/18276: Loss = 4.5615 (C: 4.5615, R: 0.0000)
+Batch 16400/18276: Loss = 4.7192 (C: 4.7192, R: 0.0000)
+Batch 16500/18276: Loss = 4.5537 (C: 4.5537, R: 0.0000)
+Batch 16600/18276: Loss = 4.6341 (C: 4.6341, R: 0.0000)
+Batch 16700/18276: Loss = 4.6689 (C: 4.6689, R: 0.0000)
+Batch 16800/18276: Loss = 4.7464 (C: 4.7464, R: 0.0000)
+Batch 16900/18276: Loss = 4.8936 (C: 4.8936, R: 0.0000)
+Batch 17000/18276: Loss = 4.6763 (C: 4.6763, R: 0.0000)
+Batch 17100/18276: Loss = 4.6339 (C: 4.6339, R: 0.0000)
+Batch 17200/18276: Loss = 4.6065 (C: 4.6065, R: 0.0000)
+Batch 17300/18276: Loss = 4.7214 (C: 4.7214, R: 0.0000)
+Batch 17400/18276: Loss = 4.4345 (C: 4.4345, R: 0.0000)
+Batch 17500/18276: Loss = 4.8073 (C: 4.8073, R: 0.0000)
+Batch 17600/18276: Loss = 4.7067 (C: 4.7067, R: 0.0000)
+Batch 17700/18276: Loss = 4.8499 (C: 4.8499, R: 0.0000)
+Batch 17800/18276: Loss = 4.5708 (C: 4.5708, R: 0.0000)
+Batch 17900/18276: Loss = 4.7756 (C: 4.7756, R: 0.0000)
+Batch 18000/18276: Loss = 4.4401 (C: 4.4401, R: 0.0000)
+Batch 18100/18276: Loss = 4.8191 (C: 4.8191, R: 0.0000)
+Batch 18200/18276: Loss = 4.7969 (C: 4.7969, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.582962512969971
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.582962512969971
+Epoch 9 completed in 73.88s
+Train Loss: 4.6324 (C: 4.6324)
+Val Loss: 4.6314 (C: 4.6314)
+No improvement for 4 epochs
+
+Epoch 10/50
+------------------------------
+Batch 0/18276: Loss = 4.4703 (C: 4.4703, R: 0.0000)
+Batch 100/18276: Loss = 4.7332 (C: 4.7332, R: 0.0000)
+Batch 200/18276: Loss = 4.5381 (C: 4.5381, R: 0.0000)
+Batch 300/18276: Loss = 4.4819 (C: 4.4819, R: 0.0000)
+Batch 400/18276: Loss = 4.3906 (C: 4.3906, R: 0.0000)
+Batch 500/18276: Loss = 4.6969 (C: 4.6969, R: 0.0000)
+Batch 600/18276: Loss = 4.7139 (C: 4.7139, R: 0.0000)
+Batch 700/18276: Loss = 4.5396 (C: 4.5396, R: 0.0000)
+Batch 800/18276: Loss = 4.6127 (C: 4.6127, R: 0.0000)
+Batch 900/18276: Loss = 4.6250 (C: 4.6250, R: 0.0000)
+Batch 1000/18276: Loss = 4.4444 (C: 4.4444, R: 0.0000)
+Batch 1100/18276: Loss = 4.3801 (C: 4.3801, R: 0.0000)
+Batch 1200/18276: Loss = 4.6919 (C: 4.6919, R: 0.0000)
+Batch 1300/18276: Loss = 4.7568 (C: 4.7568, R: 0.0000)
+Batch 1400/18276: Loss = 4.5413 (C: 4.5413, R: 0.0000)
+Batch 1500/18276: Loss = 4.8735 (C: 4.8735, R: 0.0000)
+Batch 1600/18276: Loss = 4.3890 (C: 4.3890, R: 0.0000)
+Batch 1700/18276: Loss = 4.6647 (C: 4.6647, R: 0.0000)
+Batch 1800/18276: Loss = 4.6686 (C: 4.6686, R: 0.0000)
+Batch 1900/18276: Loss = 4.7956 (C: 4.7956, R: 0.0000)
+Batch 2000/18276: Loss = 4.7208 (C: 4.7208, R: 0.0000)
+Batch 2100/18276: Loss = 4.5575 (C: 4.5575, R: 0.0000)
+Batch 2200/18276: Loss = 4.4548 (C: 4.4548, R: 0.0000)
+Batch 2300/18276: Loss = 4.7369 (C: 4.7369, R: 0.0000)
+Batch 2400/18276: Loss = 4.4619 (C: 4.4619, R: 0.0000)
+Batch 2500/18276: Loss = 4.8437 (C: 4.8437, R: 0.0000)
+Batch 2600/18276: Loss = 4.7396 (C: 4.7396, R: 0.0000)
+Batch 2700/18276: Loss = 4.8416 (C: 4.8416, R: 0.0000)
+Batch 2800/18276: Loss = 4.6852 (C: 4.6852, R: 0.0000)
+Batch 2900/18276: Loss = 4.7535 (C: 4.7535, R: 0.0000)
+Batch 3000/18276: Loss = 4.5448 (C: 4.5448, R: 0.0000)
+Batch 3100/18276: Loss = 4.7484 (C: 4.7484, R: 0.0000)
+Batch 3200/18276: Loss = 4.7189 (C: 4.7189, R: 0.0000)
+Batch 3300/18276: Loss = 4.8525 (C: 4.8525, R: 0.0000)
+Batch 3400/18276: Loss = 4.6670 (C: 4.6670, R: 0.0000)
+Batch 3500/18276: Loss = 4.5707 (C: 4.5707, R: 0.0000)
+Batch 3600/18276: Loss = 4.6929 (C: 4.6929, R: 0.0000)
+Batch 3700/18276: Loss = 4.6600 (C: 4.6600, R: 0.0000)
+Batch 3800/18276: Loss = 4.5986 (C: 4.5986, R: 0.0000)
+Batch 3900/18276: Loss = 4.7604 (C: 4.7604, R: 0.0000)
+Batch 4000/18276: Loss = 4.4719 (C: 4.4719, R: 0.0000)
+Batch 4100/18276: Loss = 4.4723 (C: 4.4723, R: 0.0000)
+Batch 4200/18276: Loss = 4.9677 (C: 4.9677, R: 0.0000)
+Batch 4300/18276: Loss = 4.6025 (C: 4.6025, R: 0.0000)
+Batch 4400/18276: Loss = 4.6901 (C: 4.6901, R: 0.0000)
+Batch 4500/18276: Loss = 4.6257 (C: 4.6257, R: 0.0000)
+Batch 4600/18276: Loss = 4.5677 (C: 4.5677, R: 0.0000)
+Batch 4700/18276: Loss = 4.7364 (C: 4.7364, R: 0.0000)
+Batch 4800/18276: Loss = 4.6109 (C: 4.6109, R: 0.0000)
+Batch 4900/18276: Loss = 4.5183 (C: 4.5183, R: 0.0000)
+Batch 5000/18276: Loss = 4.5025 (C: 4.5025, R: 0.0000)
+Batch 5100/18276: Loss = 4.7155 (C: 4.7155, R: 0.0000)
+Batch 5200/18276: Loss = 4.6904 (C: 4.6904, R: 0.0000)
+Batch 5300/18276: Loss = 4.7328 (C: 4.7328, R: 0.0000)
+Batch 5400/18276: Loss = 4.6330 (C: 4.6330, R: 0.0000)
+Batch 5500/18276: Loss = 4.6604 (C: 4.6604, R: 0.0000)
+Batch 5600/18276: Loss = 4.7564 (C: 4.7564, R: 0.0000)
+Batch 5700/18276: Loss = 4.5665 (C: 4.5665, R: 0.0000)
+Batch 5800/18276: Loss = 4.6219 (C: 4.6219, R: 0.0000)
+Batch 5900/18276: Loss = 4.8358 (C: 4.8358, R: 0.0000)
+Batch 6000/18276: Loss = 4.8421 (C: 4.8421, R: 0.0000)
+Batch 6100/18276: Loss = 4.5732 (C: 4.5732, R: 0.0000)
+Batch 6200/18276: Loss = 4.8445 (C: 4.8445, R: 0.0000)
+Batch 6300/18276: Loss = 4.5175 (C: 4.5175, R: 0.0000)
+Batch 6400/18276: Loss = 4.4151 (C: 4.4151, R: 0.0000)
+Batch 6500/18276: Loss = 4.6742 (C: 4.6742, R: 0.0000)
+Batch 6600/18276: Loss = 4.7297 (C: 4.7297, R: 0.0000)
+Batch 6700/18276: Loss = 4.6149 (C: 4.6149, R: 0.0000)
+Batch 6800/18276: Loss = 4.8289 (C: 4.8289, R: 0.0000)
+Batch 6900/18276: Loss = 4.6718 (C: 4.6718, R: 0.0000)
+Batch 7000/18276: Loss = 4.4750 (C: 4.4750, R: 0.0000)
+Batch 7100/18276: Loss = 4.7424 (C: 4.7424, R: 0.0000)
+Batch 7200/18276: Loss = 4.7189 (C: 4.7189, R: 0.0000)
+Batch 7300/18276: Loss = 4.6631 (C: 4.6631, R: 0.0000)
+Batch 7400/18276: Loss = 4.5459 (C: 4.5459, R: 0.0000)
+Batch 7500/18276: Loss = 4.5379 (C: 4.5379, R: 0.0000)
+Batch 7600/18276: Loss = 4.7174 (C: 4.7174, R: 0.0000)
+Batch 7700/18276: Loss = 4.7863 (C: 4.7863, R: 0.0000)
+Batch 7800/18276: Loss = 4.5760 (C: 4.5760, R: 0.0000)
+Batch 7900/18276: Loss = 4.7432 (C: 4.7432, R: 0.0000)
+Batch 8000/18276: Loss = 4.4921 (C: 4.4921, R: 0.0000)
+Batch 8100/18276: Loss = 4.5224 (C: 4.5224, R: 0.0000)
+Batch 8200/18276: Loss = 4.7654 (C: 4.7654, R: 0.0000)
+Batch 8300/18276: Loss = 4.6665 (C: 4.6665, R: 0.0000)
+Batch 8400/18276: Loss = 4.7234 (C: 4.7234, R: 0.0000)
+Batch 8500/18276: Loss = 4.4779 (C: 4.4779, R: 0.0000)
+Batch 8600/18276: Loss = 4.4889 (C: 4.4889, R: 0.0000)
+Batch 8700/18276: Loss = 4.5056 (C: 4.5056, R: 0.0000)
+Batch 8800/18276: Loss = 4.6870 (C: 4.6870, R: 0.0000)
+Batch 8900/18276: Loss = 4.4038 (C: 4.4038, R: 0.0000)
+Batch 9000/18276: Loss = 4.4384 (C: 4.4384, R: 0.0000)
+Batch 9100/18276: Loss = 4.6829 (C: 4.6829, R: 0.0000)
+Batch 9200/18276: Loss = 4.5901 (C: 4.5901, R: 0.0000)
+Batch 9300/18276: Loss = 4.5955 (C: 4.5955, R: 0.0000)
+Batch 9400/18276: Loss = 4.5044 (C: 4.5044, R: 0.0000)
+Batch 9500/18276: Loss = 4.4082 (C: 4.4082, R: 0.0000)
+Batch 9600/18276: Loss = 4.5352 (C: 4.5352, R: 0.0000)
+Batch 9700/18276: Loss = 4.8639 (C: 4.8639, R: 0.0000)
+Batch 9800/18276: Loss = 4.7202 (C: 4.7202, R: 0.0000)
+Batch 9900/18276: Loss = 4.5858 (C: 4.5858, R: 0.0000)
+Batch 10000/18276: Loss = 4.5323 (C: 4.5323, R: 0.0000)
+Batch 10100/18276: Loss = 4.6800 (C: 4.6800, R: 0.0000)
+Batch 10200/18276: Loss = 4.6292 (C: 4.6292, R: 0.0000)
+Batch 10300/18276: Loss = 4.7341 (C: 4.7341, R: 0.0000)
+Batch 10400/18276: Loss = 4.5815 (C: 4.5815, R: 0.0000)
+Batch 10500/18276: Loss = 4.5613 (C: 4.5613, R: 0.0000)
+Batch 10600/18276: Loss = 4.6290 (C: 4.6290, R: 0.0000)
+Batch 10700/18276: Loss = 4.7058 (C: 4.7058, R: 0.0000)
+Batch 10800/18276: Loss = 4.7769 (C: 4.7769, R: 0.0000)
+Batch 10900/18276: Loss = 4.8383 (C: 4.8383, R: 0.0000)
+Batch 11000/18276: Loss = 4.5757 (C: 4.5757, R: 0.0000)
+Batch 11100/18276: Loss = 4.7039 (C: 4.7039, R: 0.0000)
+Batch 11200/18276: Loss = 4.9468 (C: 4.9468, R: 0.0000)
+Batch 11300/18276: Loss = 4.5226 (C: 4.5226, R: 0.0000)
+Batch 11400/18276: Loss = 4.7538 (C: 4.7538, R: 0.0000)
+Batch 11500/18276: Loss = 4.7108 (C: 4.7108, R: 0.0000)
+Batch 11600/18276: Loss = 4.5182 (C: 4.5182, R: 0.0000)
+Batch 11700/18276: Loss = 4.4408 (C: 4.4408, R: 0.0000)
+Batch 11800/18276: Loss = 4.8083 (C: 4.8083, R: 0.0000)
+Batch 11900/18276: Loss = 4.6196 (C: 4.6196, R: 0.0000)
+Batch 12000/18276: Loss = 4.6437 (C: 4.6437, R: 0.0000)
+Batch 12100/18276: Loss = 4.6852 (C: 4.6852, R: 0.0000)
+Batch 12200/18276: Loss = 4.7605 (C: 4.7605, R: 0.0000)
+Batch 12300/18276: Loss = 4.6306 (C: 4.6306, R: 0.0000)
+Batch 12400/18276: Loss = 4.4982 (C: 4.4982, R: 0.0000)
+Batch 12500/18276: Loss = 4.6842 (C: 4.6842, R: 0.0000)
+Batch 12600/18276: Loss = 4.3750 (C: 4.3750, R: 0.0000)
+Batch 12700/18276: Loss = 4.6976 (C: 4.6976, R: 0.0000)
+Batch 12800/18276: Loss = 4.8776 (C: 4.8776, R: 0.0000)
+Batch 12900/18276: Loss = 4.5029 (C: 4.5029, R: 0.0000)
+Batch 13000/18276: Loss = 4.5780 (C: 4.5780, R: 0.0000)
+Batch 13100/18276: Loss = 4.3968 (C: 4.3968, R: 0.0000)
+Batch 13200/18276: Loss = 4.7658 (C: 4.7658, R: 0.0000)
+Batch 13300/18276: Loss = 4.5141 (C: 4.5141, R: 0.0000)
+Batch 13400/18276: Loss = 4.5863 (C: 4.5863, R: 0.0000)
+Batch 13500/18276: Loss = 4.7728 (C: 4.7728, R: 0.0000)
+Batch 13600/18276: Loss = 4.6329 (C: 4.6329, R: 0.0000)
+Batch 13700/18276: Loss = 4.5318 (C: 4.5318, R: 0.0000)
+Batch 13800/18276: Loss = 4.2614 (C: 4.2614, R: 0.0000)
+Batch 13900/18276: Loss = 4.7635 (C: 4.7635, R: 0.0000)
+Batch 14000/18276: Loss = 4.6506 (C: 4.6506, R: 0.0000)
+Batch 14100/18276: Loss = 4.4941 (C: 4.4941, R: 0.0000)
+Batch 14200/18276: Loss = 4.7305 (C: 4.7305, R: 0.0000)
+Batch 14300/18276: Loss = 4.5988 (C: 4.5988, R: 0.0000)
+Batch 14400/18276: Loss = 4.8597 (C: 4.8597, R: 0.0000)
+Batch 14500/18276: Loss = 4.4313 (C: 4.4313, R: 0.0000)
+Batch 14600/18276: Loss = 4.5022 (C: 4.5022, R: 0.0000)
+Batch 14700/18276: Loss = 4.6027 (C: 4.6027, R: 0.0000)
+Batch 14800/18276: Loss = 4.8259 (C: 4.8259, R: 0.0000)
+Batch 14900/18276: Loss = 4.5436 (C: 4.5436, R: 0.0000)
+Batch 15000/18276: Loss = 4.4707 (C: 4.4707, R: 0.0000)
+Batch 15100/18276: Loss = 4.5364 (C: 4.5364, R: 0.0000)
+Batch 15200/18276: Loss = 4.5478 (C: 4.5478, R: 0.0000)
+Batch 15300/18276: Loss = 4.7697 (C: 4.7697, R: 0.0000)
+Batch 15400/18276: Loss = 4.6072 (C: 4.6072, R: 0.0000)
+Batch 15500/18276: Loss = 4.4760 (C: 4.4760, R: 0.0000)
+Batch 15600/18276: Loss = 4.7479 (C: 4.7479, R: 0.0000)
+Batch 15700/18276: Loss = 4.4886 (C: 4.4886, R: 0.0000)
+Batch 15800/18276: Loss = 4.5341 (C: 4.5341, R: 0.0000)
+Batch 15900/18276: Loss = 4.3314 (C: 4.3314, R: 0.0000)
+Batch 16000/18276: Loss = 4.6184 (C: 4.6184, R: 0.0000)
+Batch 16100/18276: Loss = 4.5738 (C: 4.5738, R: 0.0000)
+Batch 16200/18276: Loss = 4.7560 (C: 4.7560, R: 0.0000)
+Batch 16300/18276: Loss = 4.5445 (C: 4.5445, R: 0.0000)
+Batch 16400/18276: Loss = 4.6098 (C: 4.6098, R: 0.0000)
+Batch 16500/18276: Loss = 4.6639 (C: 4.6639, R: 0.0000)
+Batch 16600/18276: Loss = 4.5368 (C: 4.5368, R: 0.0000)
+Batch 16700/18276: Loss = 4.5433 (C: 4.5433, R: 0.0000)
+Batch 16800/18276: Loss = 4.4951 (C: 4.4951, R: 0.0000)
+Batch 16900/18276: Loss = 4.5560 (C: 4.5560, R: 0.0000)
+Batch 17000/18276: Loss = 4.6455 (C: 4.6455, R: 0.0000)
+Batch 17100/18276: Loss = 4.7158 (C: 4.7158, R: 0.0000)
+Batch 17200/18276: Loss = 4.6144 (C: 4.6144, R: 0.0000)
+Batch 17300/18276: Loss = 4.4434 (C: 4.4434, R: 0.0000)
+Batch 17400/18276: Loss = 4.6888 (C: 4.6888, R: 0.0000)
+Batch 17500/18276: Loss = 4.6635 (C: 4.6635, R: 0.0000)
+Batch 17600/18276: Loss = 4.5958 (C: 4.5958, R: 0.0000)
+Batch 17700/18276: Loss = 4.2111 (C: 4.2111, R: 0.0000)
+Batch 17800/18276: Loss = 4.7855 (C: 4.7855, R: 0.0000)
+Batch 17900/18276: Loss = 4.4675 (C: 4.4675, R: 0.0000)
+Batch 18000/18276: Loss = 4.8834 (C: 4.8834, R: 0.0000)
+Batch 18100/18276: Loss = 4.6055 (C: 4.6055, R: 0.0000)
+Batch 18200/18276: Loss = 4.5422 (C: 4.5422, R: 0.0000)
+DEBUG: First validation batch:
+  contrastive_loss raw: 4.531712055206299
+  reconstruction_loss raw: 0.0
+  total_loss raw: 4.531712055206299
+Epoch 10 completed in 78.21s
+Train Loss: 4.6310 (C: 4.6310)
+Val Loss: 4.6276 (C: 4.6276)
+No improvement for 5 epochs
+Checkpoint saved: entailment_surfaces/supervised_contrastive_autoencoder/experiments/contrastive_autoencoder_20250711_225834/checkpoints/checkpoint_epoch_10.pt
+
+Epoch 11/50
+------------------------------
+Batch 0/18276: Loss = 4.4627 (C: 4.4627, R: 0.0000)
+Batch 100/18276: Loss = 4.7047 (C: 4.7047, R: 0.0000)
+Batch 200/18276: Loss = 4.4393 (C: 4.4393, R: 0.0000)
+Batch 300/18276: Loss = 4.3654 (C: 4.3654, R: 0.0000)
+Batch 400/18276: Loss = 4.1776 (C: 4.1776, R: 0.0000)
+Batch 500/18276: Loss = 4.6239 (C: 4.6239, R: 0.0000)
+Batch 600/18276: Loss = 4.7580 (C: 4.7580, R: 0.0000)
+Batch 700/18276: Loss = 4.6149 (C: 4.6149, R: 0.0000)
+Batch 800/18276: Loss = 4.6377 (C: 4.6377, R: 0.0000)
+Batch 900/18276: Loss = 4.8830 (C: 4.8830, R: 0.0000)
+Batch 1000/18276: Loss = 4.6582 (C: 4.6582, R: 0.0000)
+Batch 1100/18276: Loss = 4.7411 (C: 4.7411, R: 0.0000)
+Batch 1200/18276: Loss = 4.6658 (C: 4.6658, R: 0.0000)
+Batch 1300/18276: Loss = 4.7644 (C: 4.7644, R: 0.0000)
+Batch 1400/18276: Loss = 4.7145 (C: 4.7145, R: 0.0000)
+Batch 1500/18276: Loss = 4.5503 (C: 4.5503, R: 0.0000)
+Batch 1600/18276: Loss = 4.7322 (C: 4.7322, R: 0.0000)
+Batch 1700/18276: Loss = 4.3379 (C: 4.3379, R: 0.0000)
+Batch 1800/18276: Loss = 4.6954 (C: 4.6954, R: 0.0000)
+Batch 1900/18276: Loss = 4.5397 (C: 4.5397, R: 0.0000)
+Batch 2000/18276: Loss = 4.4733 (C: 4.4733, R: 0.0000)
+Batch 2100/18276: Loss = 4.7011 (C: 4.7011, R: 0.0000)
+Batch 2200/18276: Loss = 4.6878 (C: 4.6878, R: 0.0000)
+Batch 2300/18276: Loss = 4.6906 (C: 4.6906, R: 0.0000)
+Batch 2400/18276: Loss = 4.5150 (C: 4.5150, R: 0.0000)
+Batch 2500/18276: Loss = 4.7206 (C: 4.7206, R: 0.0000)
+Batch 2600/18276: Loss = 4.6358 (C: 4.6358, R: 0.0000)
+Batch 2700/18276: Loss = 4.5819 (C: 4.5819, R: 0.0000)
+Batch 2800/18276: Loss = 4.8682 (C: 4.8682, R: 0.0000)
+Batch 2900/18276: Loss = 4.8080 (C: 4.8080, R: 0.0000)
+Batch 3000/18276: Loss = 4.7683 (C: 4.7683, R: 0.0000)
+Batch 3100/18276: Loss = 4.5891 (C: 4.5891, R: 0.0000)
+Batch 3200/18276: Loss = 4.3983 (C: 4.3983, R: 0.0000)
+Batch 3300/18276: Loss = 4.4759 (C: 4.4759, R: 0.0000)
+Batch 3400/18276: Loss = 4.6207 (C: 4.6207, R: 0.0000)
+Batch 3500/18276: Loss = 4.6723 (C: 4.6723, R: 0.0000)
+Batch 3600/18276: Loss = 4.6550 (C: 4.6550, R: 0.0000)
+Batch 3700/18276: Loss = 4.7194 (C: 4.7194, R: 0.0000)
+Batch 3800/18276: Loss = 4.4689 (C: 4.4689, R: 0.0000)
+Batch 3900/18276: Loss = 4.5878 (C: 4.5878, R: 0.0000)
+Batch 4000/18276: Loss = 4.7019 (C: 4.7019, R: 0.0000)
+Batch 4100/18276: Loss = 4.6265 (C: 4.6265, R: 0.0000)
+Batch 4200/18276: Loss = 4.5005 (C: 4.5005, R: 0.0000)
+Batch 4300/18276: Loss = 4.6953 (C: 4.6953, R: 0.0000)
+Batch 4400/18276: Loss = 4.7820 (C: 4.7820, R: 0.0000)
+Batch 4500/18276: Loss = 4.6334 (C: 4.6334, R: 0.0000)
+Batch 4600/18276: Loss = 4.6165 (C: 4.6165, R: 0.0000)
+Batch 4700/18276: Loss = 4.4800 (C: 4.4800, R: 0.0000)
+Batch 4800/18276: Loss = 4.5176 (C: 4.5176, R: 0.0000)

@@ -1,0 +1,3916 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 187239
+Node: gpuvm16
+Time: Mon 28 Jul 08:58:00 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Mon Jul 28 08:58:02 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   41C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Training...
+
+⚠️ Could not import data loaders. You'll need to adjust the imports.
+Please check the exact names of your data loading functions.
+============================================================
+TOPOLOGICAL AUTOENCODER TRAINING WITH TORCHPH
+============================================================
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/gw_topological_autoencoder_attention_20250728_085817
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/gw_topological_autoencoder_attention_20250728_085817/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 182
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 3
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 3000
+  Balanced sampling: True
+  Train batches: 182
+  Val batches: 3
+  Test batches: 4
+Data loading completed!
+  Train: 549367 samples, 182 batches
+  Val: 9842 samples, 3 batches
+  Test: 9824 samples, 4 batches
+AttentionAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Attention Heads: 5
+  Total parameters: 3,068,401
+FullDatasetContrastiveLoss initialized:
+  Positive Margin: 2.0
+  Negative Margin: 10.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 0.0
+  Base reconstruction weight: 100.0
+GromovWassersteinTopologicalLoss initialized:
+  GW weight: 0.1
+  Distance weight: 20
+  Distance type: stress
+  Max dimension: 1
+  Distance metric: euclidean
+No prototypes being used for topological loss - whole dataset instead.
+TopologicalTrainer initialized on device: cuda
+Model parameters: 3,068,401
+Enhanced with topological loss monitoring
+Starting Phase 1: Pure Topological Training
+  Contrastive weight: 0.0
+  Topological weight: 1.0
+  Reconstruction weight: 100.0
+
+======================================================================
+🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED
+======================================================================
+
+============================================================
+EPOCH 1 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Input PH dim: 16.27, Latent PH dim: 14.41
+  GW Loss Components:
+    Raw GW loss: 249.560944
+    Raw distance loss: 0.241671
+    Weighted GW: 24.956095
+    Weighted distance: 4.833418
+    Total loss: 3.634081
+    GW/Distance ratio: 1032.648
+Input PH dim: 22.40, Latent PH dim: 13.14
+  GW Loss Components:
+    Raw GW loss: 245.556915
+    Raw distance loss: 0.239398
+    Weighted GW: 24.555693
+    Weighted distance: 4.787966
+    Total loss: 2.449957
+    GW/Distance ratio: 1025.725
+Input PH dim: 32.50, Latent PH dim: 12.84
+  GW Loss Components:
+    Raw GW loss: 251.432053
+    Raw distance loss: 0.247005
+    Weighted GW: 25.143206
+    Weighted distance: 4.940100
+    Total loss: 4.186371
+    GW/Distance ratio: 1017.923
+Batch   0/182: Loss=37.9155 (C:8.0225, R:0.3449, T:3.4235(w:1.000)🚀)
+Input PH dim: 16.92, Latent PH dim: 15.81
+  GW Loss Components:
+    Raw GW loss: 201.261993
+    Raw distance loss: 0.168502
+    Weighted GW: 20.126200
+    Weighted distance: 3.370046
+    Total loss: -10.907978
+    GW/Distance ratio: 1194.417
+Input PH dim: 24.64, Latent PH dim: 16.62
+  GW Loss Components:
+    Raw GW loss: 197.464523
+    Raw distance loss: 0.177290
+    Weighted GW: 19.746452
+    Weighted distance: 3.545805
+    Total loss: -11.652681
+    GW/Distance ratio: 1113.792
+Input PH dim: 27.72, Latent PH dim: 14.83
+  GW Loss Components:
+    Raw GW loss: 219.259827
+    Raw distance loss: 0.174539
+    Weighted GW: 21.925983
+    Weighted distance: 3.490777
+    Total loss: -8.526590
+    GW/Distance ratio: 1256.223
+Input PH dim: 18.11, Latent PH dim: 23.78
+  GW Loss Components:
+    Raw GW loss: 157.000961
+    Raw distance loss: 0.059153
+    Weighted GW: 15.700096
+    Weighted distance: 1.183067
+    Total loss: -25.726109
+    GW/Distance ratio: 2654.133
+Input PH dim: 23.10, Latent PH dim: 21.56
+  GW Loss Components:
+    Raw GW loss: 160.639069
+    Raw distance loss: 0.063517
+    Weighted GW: 16.063908
+    Weighted distance: 1.270347
+    Total loss: -24.333347
+    GW/Distance ratio: 2529.059
+Input PH dim: 25.60, Latent PH dim: 22.77
+  GW Loss Components:
+    Raw GW loss: 179.838531
+    Raw distance loss: 0.068618
+    Weighted GW: 17.983854
+    Weighted distance: 1.372351
+    Total loss: -19.386662
+    GW/Distance ratio: 2620.882
+Input PH dim: 17.48, Latent PH dim: 24.20
+  GW Loss Components:
+    Raw GW loss: 152.593048
+    Raw distance loss: 0.027291
+    Weighted GW: 15.259305
+    Weighted distance: 0.545823
+    Total loss: -27.297537
+    GW/Distance ratio: 5591.297
+Input PH dim: 21.10, Latent PH dim: 28.58
+  GW Loss Components:
+    Raw GW loss: 174.060898
+    Raw distance loss: 0.022359
+    Weighted GW: 17.406090
+    Weighted distance: 0.447183
+    Total loss: -25.073778
+    GW/Distance ratio: 7784.775
+Input PH dim: 26.37, Latent PH dim: 22.77
+  GW Loss Components:
+    Raw GW loss: 176.367981
+    Raw distance loss: 0.020056
+    Weighted GW: 17.636799
+    Weighted distance: 0.401116
+    Total loss: -24.156178
+    GW/Distance ratio: 8793.867
+Input PH dim: 16.24, Latent PH dim: 23.61
+  GW Loss Components:
+    Raw GW loss: 144.303635
+    Raw distance loss: 0.096304
+    Weighted GW: 14.430364
+    Weighted distance: 1.926087
+    Total loss: -26.976606
+    GW/Distance ratio: 1498.412
+Input PH dim: 21.65, Latent PH dim: 23.34
+  GW Loss Components:
+    Raw GW loss: 154.520569
+    Raw distance loss: 0.079142
+    Weighted GW: 15.452057
+    Weighted distance: 1.582835
+    Total loss: -27.201139
+    GW/Distance ratio: 1952.453
+Input PH dim: 27.14, Latent PH dim: 24.20
+  GW Loss Components:
+    Raw GW loss: 176.262619
+    Raw distance loss: 0.069890
+    Weighted GW: 17.626263
+    Weighted distance: 1.397793
+    Total loss: -25.148403
+    GW/Distance ratio: 2522.013
+Input PH dim: 17.90, Latent PH dim: 22.58
+  GW Loss Components:
+    Raw GW loss: 133.750870
+    Raw distance loss: 0.111514
+    Weighted GW: 13.375087
+    Weighted distance: 2.230284
+    Total loss: -29.622896
+    GW/Distance ratio: 1199.406
+Input PH dim: 22.16, Latent PH dim: 24.24
+  GW Loss Components:
+    Raw GW loss: 139.534470
+    Raw distance loss: 0.097214
+    Weighted GW: 13.953447
+    Weighted distance: 1.944289
+    Total loss: -28.845768
+    GW/Distance ratio: 1435.326
+Input PH dim: 27.00, Latent PH dim: 23.06
+  GW Loss Components:
+    Raw GW loss: 156.104492
+    Raw distance loss: 0.090548
+    Weighted GW: 15.610450
+    Weighted distance: 1.810961
+    Total loss: -28.294725
+    GW/Distance ratio: 1723.996
+Input PH dim: 16.73, Latent PH dim: 25.05
+  GW Loss Components:
+    Raw GW loss: 136.561035
+    Raw distance loss: 0.087597
+    Weighted GW: 13.656104
+    Weighted distance: 1.751940
+    Total loss: -30.987429
+    GW/Distance ratio: 1558.969
+Input PH dim: 22.56, Latent PH dim: 22.50
+  GW Loss Components:
+    Raw GW loss: 152.497589
+    Raw distance loss: 0.078362
+    Weighted GW: 15.249759
+    Weighted distance: 1.567245
+    Total loss: -28.292555
+    GW/Distance ratio: 1946.059
+Input PH dim: 27.46, Latent PH dim: 23.08
+  GW Loss Components:
+    Raw GW loss: 158.079910
+    Raw distance loss: 0.070986
+    Weighted GW: 15.807991
+    Weighted distance: 1.419726
+    Total loss: -26.625937
+    GW/Distance ratio: 2226.907
+Input PH dim: 17.81, Latent PH dim: 24.42
+  GW Loss Components:
+    Raw GW loss: 143.433060
+    Raw distance loss: 0.055429
+    Weighted GW: 14.343307
+    Weighted distance: 1.108590
+    Total loss: -31.303627
+    GW/Distance ratio: 2587.667
+Input PH dim: 21.30, Latent PH dim: 27.68
+  GW Loss Components:
+    Raw GW loss: 143.991547
+    Raw distance loss: 0.055049
+    Weighted GW: 14.399155
+    Weighted distance: 1.100972
+    Total loss: -30.887890
+    GW/Distance ratio: 2615.715
+Input PH dim: 26.25, Latent PH dim: 25.37
+  GW Loss Components:
+    Raw GW loss: 163.526306
+    Raw distance loss: 0.052638
+    Weighted GW: 16.352631
+    Weighted distance: 1.052766
+    Total loss: -27.886488
+    GW/Distance ratio: 3106.601
+Input PH dim: 16.15, Latent PH dim: 25.33
+  GW Loss Components:
+    Raw GW loss: 153.246643
+    Raw distance loss: 0.036259
+    Weighted GW: 15.324664
+    Weighted distance: 0.725180
+    Total loss: -28.105841
+    GW/Distance ratio: 4226.442
+Input PH dim: 25.44, Latent PH dim: 19.46
+  GW Loss Components:
+    Raw GW loss: 134.812668
+    Raw distance loss: 0.033884
+    Weighted GW: 13.481267
+    Weighted distance: 0.677672
+    Total loss: -32.313652
+    GW/Distance ratio: 3978.697
+Input PH dim: 27.09, Latent PH dim: 30.98
+  GW Loss Components:
+    Raw GW loss: 167.930679
+    Raw distance loss: 0.034712
+    Weighted GW: 16.793068
+    Weighted distance: 0.694237
+    Total loss: -27.257832
+    GW/Distance ratio: 4837.844
+Input PH dim: 18.44, Latent PH dim: 26.35
+  GW Loss Components:
+    Raw GW loss: 156.076965
+    Raw distance loss: 0.024671
+    Weighted GW: 15.607697
+    Weighted distance: 0.493414
+    Total loss: -28.327288
+    GW/Distance ratio: 6326.407
+Input PH dim: 22.03, Latent PH dim: 25.75
+  GW Loss Components:
+    Raw GW loss: 147.840927
+    Raw distance loss: 0.019962
+    Weighted GW: 14.784093
+    Weighted distance: 0.399243
+    Total loss: -28.976728
+    GW/Distance ratio: 7406.050
+Input PH dim: 28.88, Latent PH dim: 26.43
+  GW Loss Components:
+    Raw GW loss: 146.383118
+    Raw distance loss: 0.020134
+    Weighted GW: 14.638312
+    Weighted distance: 0.402684
+    Total loss: -30.443298
+    GW/Distance ratio: 7270.362
+Input PH dim: 16.44, Latent PH dim: 28.30
+  GW Loss Components:
+    Raw GW loss: 148.632294
+    Raw distance loss: 0.018050
+    Weighted GW: 14.863230
+    Weighted distance: 0.360990
+    Total loss: -29.431366
+    GW/Distance ratio: 8234.692
+Input PH dim: 24.01, Latent PH dim: 25.31
+  GW Loss Components:
+    Raw GW loss: 143.529877
+    Raw distance loss: 0.017631
+    Weighted GW: 14.352988
+    Weighted distance: 0.352621
+    Total loss: -29.718605
+    GW/Distance ratio: 8140.738
+Input PH dim: 27.34, Latent PH dim: 23.31
+  GW Loss Components:
+    Raw GW loss: 180.768509
+    Raw distance loss: 0.016032
+    Weighted GW: 18.076851
+    Weighted distance: 0.320637
+    Total loss: -25.638180
+    GW/Distance ratio: 11275.582
+Input PH dim: 16.29, Latent PH dim: 25.23
+  GW Loss Components:
+    Raw GW loss: 137.338394
+    Raw distance loss: 0.018067
+    Weighted GW: 13.733840
+    Weighted distance: 0.361335
+    Total loss: -31.221087
+    GW/Distance ratio: 7601.719
+Input PH dim: 21.84, Latent PH dim: 26.36
+  GW Loss Components:
+    Raw GW loss: 160.132553
+    Raw distance loss: 0.016566
+    Weighted GW: 16.013256
+    Weighted distance: 0.331327
+    Total loss: -28.227224
+    GW/Distance ratio: 9666.119
+Input PH dim: 25.55, Latent PH dim: 21.93
+  GW Loss Components:
+    Raw GW loss: 176.965363
+    Raw distance loss: 0.016952
+    Weighted GW: 17.696537
+    Weighted distance: 0.339043
+    Total loss: -24.339905
+    GW/Distance ratio: 10439.090
+Input PH dim: 16.03, Latent PH dim: 24.58
+  GW Loss Components:
+    Raw GW loss: 170.652939
+    Raw distance loss: 0.018299
+    Weighted GW: 17.065294
+    Weighted distance: 0.365984
+    Total loss: -25.736828
+    GW/Distance ratio: 9325.707
+Input PH dim: 22.58, Latent PH dim: 24.77
+  GW Loss Components:
+    Raw GW loss: 153.844284
+    Raw distance loss: 0.017255
+    Weighted GW: 15.384429
+    Weighted distance: 0.345101
+    Total loss: -29.539337
+    GW/Distance ratio: 8915.899
+Input PH dim: 26.84, Latent PH dim: 21.51
+  GW Loss Components:
+    Raw GW loss: 172.636917
+    Raw distance loss: 0.016711
+    Weighted GW: 17.263693
+    Weighted distance: 0.334219
+    Total loss: -26.531418
+    GW/Distance ratio: 10330.774
+Input PH dim: 17.54, Latent PH dim: 26.38
+  GW Loss Components:
+    Raw GW loss: 143.956299
+    Raw distance loss: 0.018448
+    Weighted GW: 14.395630
+    Weighted distance: 0.368969
+    Total loss: -30.892422
+    GW/Distance ratio: 7803.165
+Input PH dim: 22.89, Latent PH dim: 23.47
+  GW Loss Components:
+    Raw GW loss: 141.799713
+    Raw distance loss: 0.017327
+    Weighted GW: 14.179972
+    Weighted distance: 0.346535
+    Total loss: -30.471052
+    GW/Distance ratio: 8183.852
+Input PH dim: 26.17, Latent PH dim: 21.66
+  GW Loss Components:
+    Raw GW loss: 149.627228
+    Raw distance loss: 0.018684
+    Weighted GW: 14.962723
+    Weighted distance: 0.373686
+    Total loss: -30.173845
+    GW/Distance ratio: 8008.170
+Input PH dim: 18.33, Latent PH dim: 23.34
+  GW Loss Components:
+    Raw GW loss: 149.884125
+    Raw distance loss: 0.017485
+    Weighted GW: 14.988413
+    Weighted distance: 0.349693
+    Total loss: -28.691460
+    GW/Distance ratio: 8572.332
+Input PH dim: 23.86, Latent PH dim: 23.79
+  GW Loss Components:
+    Raw GW loss: 149.664185
+    Raw distance loss: 0.017199
+    Weighted GW: 14.966418
+    Weighted distance: 0.343973
+    Total loss: -31.080635
+    GW/Distance ratio: 8702.086
+Input PH dim: 27.14, Latent PH dim: 24.91
+  GW Loss Components:
+    Raw GW loss: 173.179108
+    Raw distance loss: 0.018019
+    Weighted GW: 17.317911
+    Weighted distance: 0.360375
+    Total loss: -27.381001
+    GW/Distance ratio: 9611.034
+Input PH dim: 15.85, Latent PH dim: 23.22
+  GW Loss Components:
+    Raw GW loss: 150.947174
+    Raw distance loss: 0.017438
+    Weighted GW: 15.094718
+    Weighted distance: 0.348767
+    Total loss: -30.609623
+    GW/Distance ratio: 8656.046
+Input PH dim: 19.85, Latent PH dim: 27.37
+  GW Loss Components:
+    Raw GW loss: 143.225616
+    Raw distance loss: 0.017037
+    Weighted GW: 14.322562
+    Weighted distance: 0.340740
+    Total loss: -31.520260
+    GW/Distance ratio: 8406.728
+Input PH dim: 25.21, Latent PH dim: 23.42
+  GW Loss Components:
+    Raw GW loss: 149.096191
+    Raw distance loss: 0.018200
+    Weighted GW: 14.909619
+    Weighted distance: 0.364004
+    Total loss: -30.721245
+    GW/Distance ratio: 8192.011
+Input PH dim: 16.94, Latent PH dim: 24.73
+  GW Loss Components:
+    Raw GW loss: 149.645111
+    Raw distance loss: 0.017485
+    Weighted GW: 14.964511
+    Weighted distance: 0.349708
+    Total loss: -30.035149
+    GW/Distance ratio: 8558.278
+Input PH dim: 23.05, Latent PH dim: 22.91
+  GW Loss Components:
+    Raw GW loss: 161.765594
+    Raw distance loss: 0.017413
+    Weighted GW: 16.176559
+    Weighted distance: 0.348265
+    Total loss: -27.900984
+    GW/Distance ratio: 9289.799
+Input PH dim: 28.21, Latent PH dim: 23.58
+  GW Loss Components:
+    Raw GW loss: 158.864777
+    Raw distance loss: 0.017771
+    Weighted GW: 15.886477
+    Weighted distance: 0.355422
+    Total loss: -30.665854
+    GW/Distance ratio: 8939.488
+Input PH dim: 17.63, Latent PH dim: 25.52
+  GW Loss Components:
+    Raw GW loss: 156.417450
+    Raw distance loss: 0.018057
+    Weighted GW: 15.641746
+    Weighted distance: 0.361132
+    Total loss: -28.117796
+    GW/Distance ratio: 8662.605
+Input PH dim: 26.49, Latent PH dim: 26.13
+  GW Loss Components:
+    Raw GW loss: 127.566986
+    Raw distance loss: 0.017625
+    Weighted GW: 12.756699
+    Weighted distance: 0.352497
+    Total loss: -32.680286
+    GW/Distance ratio: 7237.895
+Input PH dim: 28.31, Latent PH dim: 23.04
+  GW Loss Components:
+    Raw GW loss: 155.451111
+    Raw distance loss: 0.017810
+    Weighted GW: 15.545112
+    Weighted distance: 0.356196
+    Total loss: -30.014256
+    GW/Distance ratio: 8728.408
+Input PH dim: 16.89, Latent PH dim: 26.47
+  GW Loss Components:
+    Raw GW loss: 147.652130
+    Raw distance loss: 0.016752
+    Weighted GW: 14.765213
+    Weighted distance: 0.335047
+    Total loss: -31.787920
+    GW/Distance ratio: 8813.805
+Input PH dim: 26.07, Latent PH dim: 26.38
+  GW Loss Components:
+    Raw GW loss: 146.501251
+    Raw distance loss: 0.016570
+    Weighted GW: 14.650126
+    Weighted distance: 0.331399
+    Total loss: -31.116570
+    GW/Distance ratio: 8841.385
+Input PH dim: 27.97, Latent PH dim: 26.96
+  GW Loss Components:
+    Raw GW loss: 177.328918
+    Raw distance loss: 0.017461
+    Weighted GW: 17.732893
+    Weighted distance: 0.349214
+    Total loss: -26.815880
+    GW/Distance ratio: 10155.884
+Input PH dim: 18.10, Latent PH dim: 29.07
+  GW Loss Components:
+    Raw GW loss: 153.017242
+    Raw distance loss: 0.016633
+    Weighted GW: 15.301724
+    Weighted distance: 0.332652
+    Total loss: -30.093407
+    GW/Distance ratio: 9199.829
+Input PH dim: 22.86, Latent PH dim: 26.84
+  GW Loss Components:
+    Raw GW loss: 142.397552
+    Raw distance loss: 0.016555
+    Weighted GW: 14.239756
+    Weighted distance: 0.331090
+    Total loss: -31.677483
+    GW/Distance ratio: 8601.735
+Input PH dim: 27.11, Latent PH dim: 26.35
+  GW Loss Components:
+    Raw GW loss: 155.543579
+    Raw distance loss: 0.018046
+    Weighted GW: 15.554358
+    Weighted distance: 0.360914
+    Total loss: -29.765545
+    GW/Distance ratio: 8619.423
+Input PH dim: 19.02, Latent PH dim: 23.00
+  GW Loss Components:
+    Raw GW loss: 155.343201
+    Raw distance loss: 0.017025
+    Weighted GW: 15.534320
+    Weighted distance: 0.340507
+    Total loss: -29.288729
+    GW/Distance ratio: 9124.233
+Input PH dim: 21.29, Latent PH dim: 32.68
+  GW Loss Components:
+    Raw GW loss: 142.264297
+    Raw distance loss: 0.015694
+    Weighted GW: 14.226430
+    Weighted distance: 0.313889
+    Total loss: -32.677219
+    GW/Distance ratio: 9064.625
+Input PH dim: 24.44, Latent PH dim: 26.08
+  GW Loss Components:
+    Raw GW loss: 154.148376
+    Raw distance loss: 0.017207
+    Weighted GW: 15.414838
+    Weighted distance: 0.344133
+    Total loss: -32.646809
+    GW/Distance ratio: 8958.645
+Input PH dim: 17.04, Latent PH dim: 26.25
+  GW Loss Components:
+    Raw GW loss: 122.805946
+    Raw distance loss: 0.016509
+    Weighted GW: 12.280595
+    Weighted distance: 0.330177
+    Total loss: -35.425961
+    GW/Distance ratio: 7438.801
+Input PH dim: 21.55, Latent PH dim: 28.14
+  GW Loss Components:
+    Raw GW loss: 124.903969
+    Raw distance loss: 0.015672
+    Weighted GW: 12.490397
+    Weighted distance: 0.313432
+    Total loss: -34.815823
+    GW/Distance ratio: 7970.090
+Input PH dim: 30.65, Latent PH dim: 22.67
+  GW Loss Components:
+    Raw GW loss: 151.392242
+    Raw distance loss: 0.016816
+    Weighted GW: 15.139224
+    Weighted distance: 0.336318
+    Total loss: -31.171515
+    GW/Distance ratio: 9002.921
+Input PH dim: 17.47, Latent PH dim: 26.68
+  GW Loss Components:
+    Raw GW loss: 126.814102
+    Raw distance loss: 0.016594
+    Weighted GW: 12.681411
+    Weighted distance: 0.331870
+    Total loss: -36.104362
+    GW/Distance ratio: 7642.384
+Input PH dim: 22.96, Latent PH dim: 24.33
+  GW Loss Components:
+    Raw GW loss: 130.465408
+    Raw distance loss: 0.015963
+    Weighted GW: 13.046541
+    Weighted distance: 0.319269
+    Total loss: -34.288273
+    GW/Distance ratio: 8172.752
+Input PH dim: 25.56, Latent PH dim: 28.35
+  GW Loss Components:
+    Raw GW loss: 146.628143
+    Raw distance loss: 0.017023
+    Weighted GW: 14.662814
+    Weighted distance: 0.340467
+    Total loss: -32.999500
+    GW/Distance ratio: 8613.339
+Input PH dim: 18.06, Latent PH dim: 23.42
+  GW Loss Components:
+    Raw GW loss: 136.157608
+    Raw distance loss: 0.016284
+    Weighted GW: 13.615761
+    Weighted distance: 0.325680
+    Total loss: -33.499657
+    GW/Distance ratio: 8361.442
+Input PH dim: 20.63, Latent PH dim: 25.97
+  GW Loss Components:
+    Raw GW loss: 137.834824
+    Raw distance loss: 0.015962
+    Weighted GW: 13.783483
+    Weighted distance: 0.319250
+    Total loss: -32.130711
+    GW/Distance ratio: 8634.917
+Input PH dim: 26.06, Latent PH dim: 26.53
+  GW Loss Components:
+    Raw GW loss: 141.293442
+    Raw distance loss: 0.016551
+    Weighted GW: 14.129344
+    Weighted distance: 0.331017
+    Total loss: -33.784725
+    GW/Distance ratio: 8536.917
+Input PH dim: 16.11, Latent PH dim: 25.55
+  GW Loss Components:
+    Raw GW loss: 128.251770
+    Raw distance loss: 0.015716
+    Weighted GW: 12.825177
+    Weighted distance: 0.314310
+    Total loss: -35.586319
+    GW/Distance ratio: 8160.830
+Input PH dim: 22.08, Latent PH dim: 26.15
+  GW Loss Components:
+    Raw GW loss: 138.486588
+    Raw distance loss: 0.015990
+    Weighted GW: 13.848659
+    Weighted distance: 0.319799
+    Total loss: -32.065334
+    GW/Distance ratio: 8660.843
+Input PH dim: 25.63, Latent PH dim: 29.26
+  GW Loss Components:
+    Raw GW loss: 152.804199
+    Raw distance loss: 0.016596
+    Weighted GW: 15.280420
+    Weighted distance: 0.331929
+    Total loss: -31.126854
+    GW/Distance ratio: 9207.023
+Input PH dim: 14.85, Latent PH dim: 32.17
+  GW Loss Components:
+    Raw GW loss: 137.519577
+    Raw distance loss: 0.016434
+    Weighted GW: 13.751958
+    Weighted distance: 0.328675
+    Total loss: -34.397160
+    GW/Distance ratio: 8368.123
+Input PH dim: 23.32, Latent PH dim: 23.71
+  GW Loss Components:
+    Raw GW loss: 153.244934
+    Raw distance loss: 0.015956
+    Weighted GW: 15.324493
+    Weighted distance: 0.319130
+    Total loss: -30.560558
+    GW/Distance ratio: 9603.918
+Input PH dim: 26.12, Latent PH dim: 23.23
+  GW Loss Components:
+    Raw GW loss: 160.362595
+    Raw distance loss: 0.016588
+    Weighted GW: 16.036261
+    Weighted distance: 0.331760
+    Total loss: -29.864222
+    GW/Distance ratio: 9667.389
+Batch  25/182: Loss=-23.8149 (C:7.9977, R:0.0779, T:-31.6073(w:1.000)🎉)
+Input PH dim: 17.57, Latent PH dim: 29.34
+  GW Loss Components:
+    Raw GW loss: 131.849228
+    Raw distance loss: 0.016716
+    Weighted GW: 13.184923
+    Weighted distance: 0.334317
+    Total loss: -35.035309
+    GW/Distance ratio: 7887.682
+Input PH dim: 22.55, Latent PH dim: 31.85
+  GW Loss Components:
+    Raw GW loss: 124.541840
+    Raw distance loss: 0.016008
+    Weighted GW: 12.454185
+    Weighted distance: 0.320153
+    Total loss: -35.755707
+    GW/Distance ratio: 7780.144
+Input PH dim: 25.40, Latent PH dim: 26.52
+  GW Loss Components:
+    Raw GW loss: 147.353760
+    Raw distance loss: 0.016357
+    Weighted GW: 14.735376
+    Weighted distance: 0.327139
+    Total loss: -33.108696
+    GW/Distance ratio: 9008.637
+Input PH dim: 16.25, Latent PH dim: 25.74
+  GW Loss Components:
+    Raw GW loss: 150.359711
+    Raw distance loss: 0.016649
+    Weighted GW: 15.035972
+    Weighted distance: 0.332984
+    Total loss: -31.330729
+    GW/Distance ratio: 9031.044
+Input PH dim: 22.00, Latent PH dim: 24.67
+  GW Loss Components:
+    Raw GW loss: 153.349762
+    Raw distance loss: 0.016216
+    Weighted GW: 15.334976
+    Weighted distance: 0.324311
+    Total loss: -28.655018
+    GW/Distance ratio: 9456.964
+Input PH dim: 25.75, Latent PH dim: 26.65
+  GW Loss Components:
+    Raw GW loss: 138.214447
+    Raw distance loss: 0.017845
+    Weighted GW: 13.821445
+    Weighted distance: 0.356905
+    Total loss: -33.923008
+    GW/Distance ratio: 7745.163
+Input PH dim: 18.28, Latent PH dim: 26.85
+  GW Loss Components:
+    Raw GW loss: 124.660362
+    Raw distance loss: 0.017454
+    Weighted GW: 12.466037
+    Weighted distance: 0.349074
+    Total loss: -34.608501
+    GW/Distance ratio: 7142.346
+Input PH dim: 22.08, Latent PH dim: 28.93
+  GW Loss Components:
+    Raw GW loss: 137.821091
+    Raw distance loss: 0.018196
+    Weighted GW: 13.782109
+    Weighted distance: 0.363925
+    Total loss: -32.786171
+    GW/Distance ratio: 7574.148
+Input PH dim: 26.96, Latent PH dim: 24.37
+  GW Loss Components:
+    Raw GW loss: 144.619949
+    Raw distance loss: 0.017322
+    Weighted GW: 14.461995
+    Weighted distance: 0.346440
+    Total loss: -33.031471
+    GW/Distance ratio: 8348.918
+Input PH dim: 17.08, Latent PH dim: 28.11
+  GW Loss Components:
+    Raw GW loss: 126.635681
+    Raw distance loss: 0.018403
+    Weighted GW: 12.663568
+    Weighted distance: 0.368062
+    Total loss: -34.516411
+    GW/Distance ratio: 6881.212
+Input PH dim: 21.01, Latent PH dim: 24.94
+  GW Loss Components:
+    Raw GW loss: 146.086838
+    Raw distance loss: 0.018010
+    Weighted GW: 14.608684
+    Weighted distance: 0.360194
+    Total loss: -32.382404
+    GW/Distance ratio: 8111.570
+Input PH dim: 27.48, Latent PH dim: 24.88
+  GW Loss Components:
+    Raw GW loss: 142.230881
+    Raw distance loss: 0.018902
+    Weighted GW: 14.223088
+    Weighted distance: 0.378044
+    Total loss: -33.268917
+    GW/Distance ratio: 7524.557
+Input PH dim: 17.11, Latent PH dim: 27.31
+  GW Loss Components:
+    Raw GW loss: 140.802399
+    Raw distance loss: 0.017901
+    Weighted GW: 14.080240
+    Weighted distance: 0.358010
+    Total loss: -34.347408
+    GW/Distance ratio: 7865.823
+Input PH dim: 22.31, Latent PH dim: 27.67
+  GW Loss Components:
+    Raw GW loss: 125.980286
+    Raw distance loss: 0.019298
+    Weighted GW: 12.598029
+    Weighted distance: 0.385964
+    Total loss: -36.063877
+    GW/Distance ratio: 6528.079
+Input PH dim: 25.45, Latent PH dim: 29.13
+  GW Loss Components:
+    Raw GW loss: 156.525742
+    Raw distance loss: 0.020981
+    Weighted GW: 15.652575
+    Weighted distance: 0.419620
+    Total loss: -31.229891
+    GW/Distance ratio: 7460.351
+Input PH dim: 17.16, Latent PH dim: 27.80
+  GW Loss Components:
+    Raw GW loss: 135.723877
+    Raw distance loss: 0.019150
+    Weighted GW: 13.572388
+    Weighted distance: 0.382992
+    Total loss: -33.638786
+    GW/Distance ratio: 7087.557
+Input PH dim: 20.46, Latent PH dim: 29.82
+  GW Loss Components:
+    Raw GW loss: 148.064331
+    Raw distance loss: 0.021622
+    Weighted GW: 14.806434
+    Weighted distance: 0.432430
+    Total loss: -32.220566
+    GW/Distance ratio: 6848.003
+Input PH dim: 26.50, Latent PH dim: 24.61
+  GW Loss Components:
+    Raw GW loss: 136.836853
+    Raw distance loss: 0.020359
+    Weighted GW: 13.683685
+    Weighted distance: 0.407179
+    Total loss: -33.936157
+    GW/Distance ratio: 6721.205
+Input PH dim: 16.05, Latent PH dim: 33.11
+  GW Loss Components:
+    Raw GW loss: 149.305206
+    Raw distance loss: 0.019868
+    Weighted GW: 14.930521
+    Weighted distance: 0.397354
+    Total loss: -32.634613
+    GW/Distance ratio: 7514.977
+Input PH dim: 21.65, Latent PH dim: 26.45
+  GW Loss Components:
+    Raw GW loss: 120.331062
+    Raw distance loss: 0.021406
+    Weighted GW: 12.033107
+    Weighted distance: 0.428129
+    Total loss: -36.403481
+    GW/Distance ratio: 5621.255
+Input PH dim: 26.27, Latent PH dim: 23.94
+  GW Loss Components:
+    Raw GW loss: 139.534378
+    Raw distance loss: 0.022062
+    Weighted GW: 13.953438
+    Weighted distance: 0.441249
+    Total loss: -34.323467
+    GW/Distance ratio: 6324.515
+Input PH dim: 19.25, Latent PH dim: 28.19
+  GW Loss Components:
+    Raw GW loss: 124.506470
+    Raw distance loss: 0.019610
+    Weighted GW: 12.450647
+    Weighted distance: 0.392204
+    Total loss: -34.862823
+    GW/Distance ratio: 6349.063
+Input PH dim: 20.71, Latent PH dim: 25.39
+  GW Loss Components:
+    Raw GW loss: 124.247643
+    Raw distance loss: 0.021040
+    Weighted GW: 12.424765
+    Weighted distance: 0.420808
+    Total loss: -36.058960
+    GW/Distance ratio: 5905.188
+Input PH dim: 26.82, Latent PH dim: 25.19
+  GW Loss Components:
+    Raw GW loss: 134.736099
+    Raw distance loss: 0.021237
+    Weighted GW: 13.473610
+    Weighted distance: 0.424736
+    Total loss: -34.189693
+    GW/Distance ratio: 6344.462
+Input PH dim: 16.93, Latent PH dim: 26.92
+  GW Loss Components:
+    Raw GW loss: 121.658470
+    Raw distance loss: 0.019170
+    Weighted GW: 12.165847
+    Weighted distance: 0.383408
+    Total loss: -36.817844
+    GW/Distance ratio: 6346.154
+Input PH dim: 22.47, Latent PH dim: 27.35
+  GW Loss Components:
+    Raw GW loss: 140.483154
+    Raw distance loss: 0.019686
+    Weighted GW: 14.048316
+    Weighted distance: 0.393723
+    Total loss: -33.174213
+    GW/Distance ratio: 7136.132
+Input PH dim: 25.70, Latent PH dim: 28.85
+  GW Loss Components:
+    Raw GW loss: 145.892899
+    Raw distance loss: 0.020432
+    Weighted GW: 14.589290
+    Weighted distance: 0.408649
+    Total loss: -32.776459
+    GW/Distance ratio: 7140.260
+Input PH dim: 17.53, Latent PH dim: 28.92
+  GW Loss Components:
+    Raw GW loss: 137.639160
+    Raw distance loss: 0.017904
+    Weighted GW: 13.763916
+    Weighted distance: 0.358071
+    Total loss: -31.837975
+    GW/Distance ratio: 7687.800
+Input PH dim: 21.82, Latent PH dim: 23.05
+  GW Loss Components:
+    Raw GW loss: 128.279877
+    Raw distance loss: 0.018435
+    Weighted GW: 12.827988
+    Weighted distance: 0.368704
+    Total loss: -36.037239
+    GW/Distance ratio: 6958.418
+Input PH dim: 24.73, Latent PH dim: 23.04
+  GW Loss Components:
+    Raw GW loss: 115.684143
+    Raw distance loss: 0.017678
+    Weighted GW: 11.568415
+    Weighted distance: 0.353557
+    Total loss: -36.967983
+    GW/Distance ratio: 6544.013
+Input PH dim: 17.82, Latent PH dim: 28.12
+  GW Loss Components:
+    Raw GW loss: 132.567139
+    Raw distance loss: 0.016069
+    Weighted GW: 13.256714
+    Weighted distance: 0.321387
+    Total loss: -33.160557
+    GW/Distance ratio: 8249.684
+Input PH dim: 20.94, Latent PH dim: 24.87
+  GW Loss Components:
+    Raw GW loss: 136.003433
+    Raw distance loss: 0.016078
+    Weighted GW: 13.600344
+    Weighted distance: 0.321556
+    Total loss: -33.096214
+    GW/Distance ratio: 8459.080
+Input PH dim: 26.93, Latent PH dim: 28.89
+  GW Loss Components:
+    Raw GW loss: 150.652222
+    Raw distance loss: 0.016262
+    Weighted GW: 15.065223
+    Weighted distance: 0.325245
+    Total loss: -33.673046
+    GW/Distance ratio: 9263.915
+Input PH dim: 15.01, Latent PH dim: 30.16
+  GW Loss Components:
+    Raw GW loss: 122.908813
+    Raw distance loss: 0.016100
+    Weighted GW: 12.290881
+    Weighted distance: 0.321992
+    Total loss: -36.877483
+    GW/Distance ratio: 7634.262
+Input PH dim: 21.39, Latent PH dim: 24.89
+  GW Loss Components:
+    Raw GW loss: 132.638550
+    Raw distance loss: 0.015048
+    Weighted GW: 13.263855
+    Weighted distance: 0.300958
+    Total loss: -36.091560
+    GW/Distance ratio: 8814.426
+Input PH dim: 27.78, Latent PH dim: 27.78
+  GW Loss Components:
+    Raw GW loss: 139.240753
+    Raw distance loss: 0.015199
+    Weighted GW: 13.924075
+    Weighted distance: 0.303980
+    Total loss: -35.320461
+    GW/Distance ratio: 9161.178
+Input PH dim: 18.66, Latent PH dim: 23.08
+  GW Loss Components:
+    Raw GW loss: 121.810837
+    Raw distance loss: 0.014592
+    Weighted GW: 12.181084
+    Weighted distance: 0.291831
+    Total loss: -36.545620
+    GW/Distance ratio: 8348.035
+Input PH dim: 21.98, Latent PH dim: 26.78
+  GW Loss Components:
+    Raw GW loss: 135.498413
+    Raw distance loss: 0.014431
+    Weighted GW: 13.549842
+    Weighted distance: 0.288629
+    Total loss: -33.601173
+    GW/Distance ratio: 9389.088
+Input PH dim: 26.61, Latent PH dim: 27.60
+  GW Loss Components:
+    Raw GW loss: 139.982681
+    Raw distance loss: 0.013934
+    Weighted GW: 13.998268
+    Weighted distance: 0.278690
+    Total loss: -34.248226
+    GW/Distance ratio: 10045.764
+Input PH dim: 18.13, Latent PH dim: 25.17
+  GW Loss Components:
+    Raw GW loss: 121.264923
+    Raw distance loss: 0.014852
+    Weighted GW: 12.126493
+    Weighted distance: 0.297048
+    Total loss: -37.219452
+    GW/Distance ratio: 8164.665
+Input PH dim: 22.97, Latent PH dim: 29.52
+  GW Loss Components:
+    Raw GW loss: 116.265198
+    Raw distance loss: 0.013482
+    Weighted GW: 11.626520
+    Weighted distance: 0.269634
+    Total loss: -37.703735
+    GW/Distance ratio: 8623.905
+Input PH dim: 24.74, Latent PH dim: 26.10
+  GW Loss Components:
+    Raw GW loss: 145.913895
+    Raw distance loss: 0.012877
+    Weighted GW: 14.591390
+    Weighted distance: 0.257544
+    Total loss: -33.992374
+    GW/Distance ratio: 11331.175
+Input PH dim: 18.63, Latent PH dim: 26.84
+  GW Loss Components:
+    Raw GW loss: 120.152679
+    Raw distance loss: 0.014796
+    Weighted GW: 12.015268
+    Weighted distance: 0.295922
+    Total loss: -36.152115
+    GW/Distance ratio: 8120.560
+Input PH dim: 22.20, Latent PH dim: 23.49
+  GW Loss Components:
+    Raw GW loss: 117.983162
+    Raw distance loss: 0.013500
+    Weighted GW: 11.798316
+    Weighted distance: 0.269995
+    Total loss: -37.393215
+    GW/Distance ratio: 8739.644
+Input PH dim: 26.29, Latent PH dim: 28.04
+  GW Loss Components:
+    Raw GW loss: 106.502800
+    Raw distance loss: 0.012626
+    Weighted GW: 10.650280
+    Weighted distance: 0.252524
+    Total loss: -39.761147
+    GW/Distance ratio: 8435.068
+Input PH dim: 15.92, Latent PH dim: 24.49
+  GW Loss Components:
+    Raw GW loss: 118.737846
+    Raw distance loss: 0.015499
+    Weighted GW: 11.873785
+    Weighted distance: 0.309980
+    Total loss: -38.343441
+    GW/Distance ratio: 7660.989
+Input PH dim: 21.49, Latent PH dim: 29.39
+  GW Loss Components:
+    Raw GW loss: 125.901711
+    Raw distance loss: 0.013272
+    Weighted GW: 12.590171
+    Weighted distance: 0.265436
+    Total loss: -35.928844
+    GW/Distance ratio: 9486.397
+Input PH dim: 29.63, Latent PH dim: 26.22
+  GW Loss Components:
+    Raw GW loss: 135.110641
+    Raw distance loss: 0.012875
+    Weighted GW: 13.511065
+    Weighted distance: 0.257490
+    Total loss: -35.820465
+    GW/Distance ratio: 10494.426
+Input PH dim: 16.59, Latent PH dim: 30.21
+  GW Loss Components:
+    Raw GW loss: 137.512604
+    Raw distance loss: 0.015798
+    Weighted GW: 13.751261
+    Weighted distance: 0.315958
+    Total loss: -35.195301
+    GW/Distance ratio: 8704.485
+Input PH dim: 20.55, Latent PH dim: 28.02
+  GW Loss Components:
+    Raw GW loss: 122.429039
+    Raw distance loss: 0.013734
+    Weighted GW: 12.242904
+    Weighted distance: 0.274685
+    Total loss: -37.730579
+    GW/Distance ratio: 8914.119
+Input PH dim: 24.79, Latent PH dim: 29.74
+  GW Loss Components:
+    Raw GW loss: 141.930527
+    Raw distance loss: 0.013340
+    Weighted GW: 14.193053
+    Weighted distance: 0.266792
+    Total loss: -34.542591
+    GW/Distance ratio: 10639.766
+Input PH dim: 20.41, Latent PH dim: 31.85
+  GW Loss Components:
+    Raw GW loss: 117.675430
+    Raw distance loss: 0.016469
+    Weighted GW: 11.767543
+    Weighted distance: 0.329387
+    Total loss: -38.455406
+    GW/Distance ratio: 7145.123
+Input PH dim: 21.55, Latent PH dim: 30.04
+  GW Loss Components:
+    Raw GW loss: 118.778717
+    Raw distance loss: 0.015353
+    Weighted GW: 11.877872
+    Weighted distance: 0.307053
+    Total loss: -37.071877
+    GW/Distance ratio: 7736.681
+Input PH dim: 25.95, Latent PH dim: 25.29
+  GW Loss Components:
+    Raw GW loss: 124.806923
+    Raw distance loss: 0.013906
+    Weighted GW: 12.480693
+    Weighted distance: 0.278117
+    Total loss: -38.009239
+    GW/Distance ratio: 8975.131
+Input PH dim: 17.27, Latent PH dim: 27.59
+  GW Loss Components:
+    Raw GW loss: 114.944717
+    Raw distance loss: 0.017223
+    Weighted GW: 11.494472
+    Weighted distance: 0.344455
+    Total loss: -37.869270
+    GW/Distance ratio: 6673.993
+Input PH dim: 21.99, Latent PH dim: 26.51
+  GW Loss Components:
+    Raw GW loss: 115.504364
+    Raw distance loss: 0.014480
+    Weighted GW: 11.550437
+    Weighted distance: 0.289590
+    Total loss: -38.609169
+    GW/Distance ratio: 7977.082
+Input PH dim: 26.71, Latent PH dim: 28.18
+  GW Loss Components:
+    Raw GW loss: 145.704727
+    Raw distance loss: 0.014176
+    Weighted GW: 14.570473
+    Weighted distance: 0.283521
+    Total loss: -35.479252
+    GW/Distance ratio: 10278.232
+Input PH dim: 17.08, Latent PH dim: 26.02
+  GW Loss Components:
+    Raw GW loss: 120.140656
+    Raw distance loss: 0.017208
+    Weighted GW: 12.014066
+    Weighted distance: 0.344157
+    Total loss: -37.434601
+    GW/Distance ratio: 6981.738
+Input PH dim: 23.01, Latent PH dim: 24.06
+  GW Loss Components:
+    Raw GW loss: 92.068634
+    Raw distance loss: 0.015328
+    Weighted GW: 9.206863
+    Weighted distance: 0.306562
+    Total loss: -42.568581
+    GW/Distance ratio: 6006.528
+Input PH dim: 29.49, Latent PH dim: 27.96
+  GW Loss Components:
+    Raw GW loss: 139.025238
+    Raw distance loss: 0.014901
+    Weighted GW: 13.902524
+    Weighted distance: 0.298029
+    Total loss: -36.284290
+    GW/Distance ratio: 9329.627
+Input PH dim: 16.22, Latent PH dim: 25.53
+  GW Loss Components:
+    Raw GW loss: 103.086426
+    Raw distance loss: 0.017911
+    Weighted GW: 10.308642
+    Weighted distance: 0.358220
+    Total loss: -39.747276
+    GW/Distance ratio: 5755.477
+Input PH dim: 21.56, Latent PH dim: 28.62
+  GW Loss Components:
+    Raw GW loss: 109.298172
+    Raw distance loss: 0.015923
+    Weighted GW: 10.929817
+    Weighted distance: 0.318462
+    Total loss: -38.491577
+    GW/Distance ratio: 6864.119
+Input PH dim: 26.67, Latent PH dim: 26.23
+  GW Loss Components:
+    Raw GW loss: 126.600418
+    Raw distance loss: 0.014096
+    Weighted GW: 12.660042
+    Weighted distance: 0.281916
+    Total loss: -37.245537
+    GW/Distance ratio: 8981.414
+Input PH dim: 17.02, Latent PH dim: 26.59
+  GW Loss Components:
+    Raw GW loss: 128.009598
+    Raw distance loss: 0.017698
+    Weighted GW: 12.800960
+    Weighted distance: 0.353953
+    Total loss: -38.297997
+    GW/Distance ratio: 7233.141
+Input PH dim: 22.74, Latent PH dim: 25.47
+  GW Loss Components:
+    Raw GW loss: 116.720741
+    Raw distance loss: 0.015746
+    Weighted GW: 11.672074
+    Weighted distance: 0.314915
+    Total loss: -38.378078
+    GW/Distance ratio: 7412.838
+Input PH dim: 29.13, Latent PH dim: 23.36
+  GW Loss Components:
+    Raw GW loss: 128.227585
+    Raw distance loss: 0.013989
+    Weighted GW: 12.822759
+    Weighted distance: 0.279772
+    Total loss: -35.599667
+    GW/Distance ratio: 9166.583
+Input PH dim: 17.06, Latent PH dim: 28.26
+  GW Loss Components:
+    Raw GW loss: 123.128441
+    Raw distance loss: 0.018047
+    Weighted GW: 12.312844
+    Weighted distance: 0.360931
+    Total loss: -37.477596
+    GW/Distance ratio: 6822.823
+Input PH dim: 25.09, Latent PH dim: 27.91
+  GW Loss Components:
+    Raw GW loss: 129.247009
+    Raw distance loss: 0.015507
+    Weighted GW: 12.924701
+    Weighted distance: 0.310147
+    Total loss: -36.285381
+    GW/Distance ratio: 8334.549
+Input PH dim: 26.22, Latent PH dim: 29.56
+  GW Loss Components:
+    Raw GW loss: 114.386314
+    Raw distance loss: 0.013979
+    Weighted GW: 11.438632
+    Weighted distance: 0.279576
+    Total loss: -38.706871
+    GW/Distance ratio: 8182.843
+Input PH dim: 16.45, Latent PH dim: 26.68
+  GW Loss Components:
+    Raw GW loss: 112.153656
+    Raw distance loss: 0.017130
+    Weighted GW: 11.215365
+    Weighted distance: 0.342600
+    Total loss: -39.482651
+    GW/Distance ratio: 6547.199
+Input PH dim: 19.98, Latent PH dim: 29.07
+  GW Loss Components:
+    Raw GW loss: 113.710869
+    Raw distance loss: 0.015786
+    Weighted GW: 11.371087
+    Weighted distance: 0.315719
+    Total loss: -38.906727
+    GW/Distance ratio: 7203.294
+Input PH dim: 28.03, Latent PH dim: 25.66
+  GW Loss Components:
+    Raw GW loss: 127.842316
+    Raw distance loss: 0.013843
+    Weighted GW: 12.784232
+    Weighted distance: 0.276855
+    Total loss: -37.259888
+    GW/Distance ratio: 9235.315
+Input PH dim: 18.33, Latent PH dim: 26.52
+  GW Loss Components:
+    Raw GW loss: 111.100616
+    Raw distance loss: 0.018178
+    Weighted GW: 11.110062
+    Weighted distance: 0.363550
+    Total loss: -38.650932
+    GW/Distance ratio: 6111.978
+Input PH dim: 23.43, Latent PH dim: 26.96
+  GW Loss Components:
+    Raw GW loss: 116.418289
+    Raw distance loss: 0.014464
+    Weighted GW: 11.641829
+    Weighted distance: 0.289282
+    Total loss: -38.008595
+    GW/Distance ratio: 8048.766
+Input PH dim: 25.77, Latent PH dim: 29.12
+  GW Loss Components:
+    Raw GW loss: 136.436279
+    Raw distance loss: 0.013270
+    Weighted GW: 13.643628
+    Weighted distance: 0.265391
+    Total loss: -36.299030
+    GW/Distance ratio: 10281.899
+Batch  50/182: Loss=-30.3376 (C:7.9997, R:0.0732, T:-37.6529(w:1.000)🎉)
+Input PH dim: 17.02, Latent PH dim: 25.30
+  GW Loss Components:
+    Raw GW loss: 129.988815
+    Raw distance loss: 0.017537
+    Weighted GW: 12.998881
+    Weighted distance: 0.350742
+    Total loss: -37.212181
+    GW/Distance ratio: 7412.213
+Input PH dim: 23.05, Latent PH dim: 25.20
+  GW Loss Components:
+    Raw GW loss: 106.616806
+    Raw distance loss: 0.014481
+    Weighted GW: 10.661681
+    Weighted distance: 0.289629
+    Total loss: -39.821930
+    GW/Distance ratio: 7362.292
+Input PH dim: 23.79, Latent PH dim: 28.35
+  GW Loss Components:
+    Raw GW loss: 121.403069
+    Raw distance loss: 0.013551
+    Weighted GW: 12.140307
+    Weighted distance: 0.271024
+    Total loss: -37.489407
+    GW/Distance ratio: 8958.826
+Input PH dim: 18.07, Latent PH dim: 25.36
+  GW Loss Components:
+    Raw GW loss: 125.267143
+    Raw distance loss: 0.016688
+    Weighted GW: 12.526714
+    Weighted distance: 0.333765
+    Total loss: -37.182930
+    GW/Distance ratio: 7506.312
+Input PH dim: 22.12, Latent PH dim: 28.30
+  GW Loss Components:
+    Raw GW loss: 101.425003
+    Raw distance loss: 0.013518
+    Weighted GW: 10.142501
+    Weighted distance: 0.270353
+    Total loss: -41.175777
+    GW/Distance ratio: 7503.154
+Input PH dim: 27.16, Latent PH dim: 28.97
+  GW Loss Components:
+    Raw GW loss: 125.916550
+    Raw distance loss: 0.012734
+    Weighted GW: 12.591655
+    Weighted distance: 0.254687
+    Total loss: -38.383522
+    GW/Distance ratio: 9887.933
+Input PH dim: 16.07, Latent PH dim: 30.24
+  GW Loss Components:
+    Raw GW loss: 114.046593
+    Raw distance loss: 0.015455
+    Weighted GW: 11.404659
+    Weighted distance: 0.309091
+    Total loss: -38.815979
+    GW/Distance ratio: 7379.476
+Input PH dim: 24.07, Latent PH dim: 24.33
+  GW Loss Components:
+    Raw GW loss: 120.214966
+    Raw distance loss: 0.013686
+    Weighted GW: 12.021497
+    Weighted distance: 0.273727
+    Total loss: -38.355915
+    GW/Distance ratio: 8783.559
+Input PH dim: 28.91, Latent PH dim: 31.84
+  GW Loss Components:
+    Raw GW loss: 131.661926
+    Raw distance loss: 0.012635
+    Weighted GW: 13.166193
+    Weighted distance: 0.252707
+    Total loss: -37.311707
+    GW/Distance ratio: 10420.105
+Input PH dim: 17.21, Latent PH dim: 24.45
+  GW Loss Components:
+    Raw GW loss: 99.399910
+    Raw distance loss: 0.015728
+    Weighted GW: 9.939991
+    Weighted distance: 0.314566
+    Total loss: -42.297371
+    GW/Distance ratio: 6319.812
+Input PH dim: 22.03, Latent PH dim: 26.08
+  GW Loss Components:
+    Raw GW loss: 133.352707
+    Raw distance loss: 0.013844
+    Weighted GW: 13.335271
+    Weighted distance: 0.276879
+    Total loss: -35.951038
+    GW/Distance ratio: 9632.564
+Input PH dim: 26.56, Latent PH dim: 27.99
+  GW Loss Components:
+    Raw GW loss: 130.263809
+    Raw distance loss: 0.012601
+    Weighted GW: 13.026381
+    Weighted distance: 0.252017
+    Total loss: -37.909630
+    GW/Distance ratio: 10337.697
+Input PH dim: 17.52, Latent PH dim: 27.23
+  GW Loss Components:
+    Raw GW loss: 115.401314
+    Raw distance loss: 0.015874
+    Weighted GW: 11.540132
+    Weighted distance: 0.317484
+    Total loss: -39.115685
+    GW/Distance ratio: 7269.729
+Input PH dim: 24.11, Latent PH dim: 25.04
+  GW Loss Components:
+    Raw GW loss: 118.063004
+    Raw distance loss: 0.013959
+    Weighted GW: 11.806300
+    Weighted distance: 0.279183
+    Total loss: -39.335468
+    GW/Distance ratio: 8457.752
+Input PH dim: 25.46, Latent PH dim: 25.81
+  GW Loss Components:
+    Raw GW loss: 120.150810
+    Raw distance loss: 0.012394
+    Weighted GW: 12.015081
+    Weighted distance: 0.247880
+    Total loss: -37.925835
+    GW/Distance ratio: 9694.282
+Input PH dim: 15.81, Latent PH dim: 29.23
+  GW Loss Components:
+    Raw GW loss: 124.359695
+    Raw distance loss: 0.016026
+    Weighted GW: 12.435969
+    Weighted distance: 0.320524
+    Total loss: -36.313236
+    GW/Distance ratio: 7759.782
+Input PH dim: 23.84, Latent PH dim: 28.54
+  GW Loss Components:
+    Raw GW loss: 129.305313
+    Raw distance loss: 0.013475
+    Weighted GW: 12.930532
+    Weighted distance: 0.269498
+    Total loss: -36.856483
+    GW/Distance ratio: 9595.995
+Input PH dim: 26.58, Latent PH dim: 29.55
+  GW Loss Components:
+    Raw GW loss: 113.867897
+    Raw distance loss: 0.012523
+    Weighted GW: 11.386790
+    Weighted distance: 0.250464
+    Total loss: -40.175812
+    GW/Distance ratio: 9092.540
+Input PH dim: 15.56, Latent PH dim: 27.69
+  GW Loss Components:
+    Raw GW loss: 114.241035
+    Raw distance loss: 0.015238
+    Weighted GW: 11.424104
+    Weighted distance: 0.304754
+    Total loss: -38.509186
+    GW/Distance ratio: 7497.267
+Input PH dim: 22.01, Latent PH dim: 26.42
+  GW Loss Components:
+    Raw GW loss: 105.700882
+    Raw distance loss: 0.012540
+    Weighted GW: 10.570088
+    Weighted distance: 0.250790
+    Total loss: -40.707069
+    GW/Distance ratio: 8429.413
+Input PH dim: 29.11, Latent PH dim: 25.80
+  GW Loss Components:
+    Raw GW loss: 140.587082
+    Raw distance loss: 0.012593
+    Weighted GW: 14.058708
+    Weighted distance: 0.251861
+    Total loss: -34.701866
+    GW/Distance ratio: 11163.858
+Input PH dim: 18.41, Latent PH dim: 27.11
+  GW Loss Components:
+    Raw GW loss: 117.170929
+    Raw distance loss: 0.015171
+    Weighted GW: 11.717093
+    Weighted distance: 0.303410
+    Total loss: -39.576248
+    GW/Distance ratio: 7723.591
+Input PH dim: 23.57, Latent PH dim: 25.67
+  GW Loss Components:
+    Raw GW loss: 133.643478
+    Raw distance loss: 0.012914
+    Weighted GW: 13.364348
+    Weighted distance: 0.258283
+    Total loss: -35.751575
+    GW/Distance ratio: 10348.587
+Input PH dim: 25.74, Latent PH dim: 25.38
+  GW Loss Components:
+    Raw GW loss: 115.575562
+    Raw distance loss: 0.011909
+    Weighted GW: 11.557556
+    Weighted distance: 0.238170
+    Total loss: -39.179539
+    GW/Distance ratio: 9705.271
+Input PH dim: 16.48, Latent PH dim: 30.43
+  GW Loss Components:
+    Raw GW loss: 120.144440
+    Raw distance loss: 0.014288
+    Weighted GW: 12.014444
+    Weighted distance: 0.285770
+    Total loss: -38.190685
+    GW/Distance ratio: 8408.471
+Input PH dim: 23.03, Latent PH dim: 26.18
+  GW Loss Components:
+    Raw GW loss: 115.424026
+    Raw distance loss: 0.013323
+    Weighted GW: 11.542403
+    Weighted distance: 0.266467
+    Total loss: -38.488297
+    GW/Distance ratio: 8663.285
+Input PH dim: 25.02, Latent PH dim: 26.24
+  GW Loss Components:
+    Raw GW loss: 114.014702
+    Raw distance loss: 0.012160
+    Weighted GW: 11.401470
+    Weighted distance: 0.243208
+    Total loss: -39.400887
+    GW/Distance ratio: 9375.901
+Input PH dim: 16.51, Latent PH dim: 27.79
+  GW Loss Components:
+    Raw GW loss: 120.406403
+    Raw distance loss: 0.014554
+    Weighted GW: 12.040641
+    Weighted distance: 0.291086
+    Total loss: -38.393139
+    GW/Distance ratio: 8272.903
+Input PH dim: 24.05, Latent PH dim: 25.91
+  GW Loss Components:
+    Raw GW loss: 123.216698
+    Raw distance loss: 0.012422
+    Weighted GW: 12.321670
+    Weighted distance: 0.248438
+    Total loss: -37.014721
+    GW/Distance ratio: 9919.301
+Input PH dim: 24.64, Latent PH dim: 29.99
+  GW Loss Components:
+    Raw GW loss: 138.613831
+    Raw distance loss: 0.011663
+    Weighted GW: 13.861383
+    Weighted distance: 0.233264
+    Total loss: -36.162495
+    GW/Distance ratio: 11884.686
+Input PH dim: 15.85, Latent PH dim: 26.83
+  GW Loss Components:
+    Raw GW loss: 112.310791
+    Raw distance loss: 0.013510
+    Weighted GW: 11.231079
+    Weighted distance: 0.270205
+    Total loss: -39.547081
+    GW/Distance ratio: 8313.005
+Input PH dim: 23.08, Latent PH dim: 30.71
+  GW Loss Components:
+    Raw GW loss: 128.938660
+    Raw distance loss: 0.012311
+    Weighted GW: 12.893867
+    Weighted distance: 0.246211
+    Total loss: -37.657127
+    GW/Distance ratio: 10473.842
+Input PH dim: 24.90, Latent PH dim: 28.27
+  GW Loss Components:
+    Raw GW loss: 125.935921
+    Raw distance loss: 0.011911
+    Weighted GW: 12.593593
+    Weighted distance: 0.238216
+    Total loss: -38.449890
+    GW/Distance ratio: 10573.233
+Input PH dim: 16.78, Latent PH dim: 27.12
+  GW Loss Components:
+    Raw GW loss: 122.432549
+    Raw distance loss: 0.013909
+    Weighted GW: 12.243255
+    Weighted distance: 0.278171
+    Total loss: -37.034950
+    GW/Distance ratio: 8802.690
+Input PH dim: 21.14, Latent PH dim: 26.73
+  GW Loss Components:
+    Raw GW loss: 93.879440
+    Raw distance loss: 0.012250
+    Weighted GW: 9.387944
+    Weighted distance: 0.245010
+    Total loss: -42.078888
+    GW/Distance ratio: 7663.309
+Input PH dim: 26.53, Latent PH dim: 28.49
+  GW Loss Components:
+    Raw GW loss: 127.784378
+    Raw distance loss: 0.011378
+    Weighted GW: 12.778438
+    Weighted distance: 0.227561
+    Total loss: -37.693130
+    GW/Distance ratio: 11230.757
+Input PH dim: 19.31, Latent PH dim: 27.72
+  GW Loss Components:
+    Raw GW loss: 120.110924
+    Raw distance loss: 0.013777
+    Weighted GW: 12.011092
+    Weighted distance: 0.275544
+    Total loss: -37.658974
+    GW/Distance ratio: 8718.101
+Input PH dim: 23.34, Latent PH dim: 26.57
+  GW Loss Components:
+    Raw GW loss: 109.945129
+    Raw distance loss: 0.012418
+    Weighted GW: 10.994514
+    Weighted distance: 0.248357
+    Total loss: -38.379650
+    GW/Distance ratio: 8853.772
+Input PH dim: 28.27, Latent PH dim: 30.31
+  GW Loss Components:
+    Raw GW loss: 118.067596
+    Raw distance loss: 0.011399
+    Weighted GW: 11.806760
+    Weighted distance: 0.227979
+    Total loss: -40.128845
+    GW/Distance ratio: 10357.759
+Input PH dim: 17.77, Latent PH dim: 27.63
+  GW Loss Components:
+    Raw GW loss: 105.008965
+    Raw distance loss: 0.013153
+    Weighted GW: 10.500896
+    Weighted distance: 0.263064
+    Total loss: -39.739769
+    GW/Distance ratio: 7983.525
+Input PH dim: 23.39, Latent PH dim: 27.67
+  GW Loss Components:
+    Raw GW loss: 112.575226
+    Raw distance loss: 0.012386
+    Weighted GW: 11.257523
+    Weighted distance: 0.247724
+    Total loss: -38.663017
+    GW/Distance ratio: 9088.740
+Input PH dim: 27.73, Latent PH dim: 28.15
+  GW Loss Components:
+    Raw GW loss: 113.823204
+    Raw distance loss: 0.011901
+    Weighted GW: 11.382320
+    Weighted distance: 0.238024
+    Total loss: -40.217323
+    GW/Distance ratio: 9564.011
+Input PH dim: 15.46, Latent PH dim: 25.94
+  GW Loss Components:
+    Raw GW loss: 98.328087
+    Raw distance loss: 0.013665
+    Weighted GW: 9.832808
+    Weighted distance: 0.273303
+    Total loss: -41.585892
+    GW/Distance ratio: 7195.543
+Input PH dim: 21.46, Latent PH dim: 24.81
+  GW Loss Components:
+    Raw GW loss: 105.881676
+    Raw distance loss: 0.012368
+    Weighted GW: 10.588168
+    Weighted distance: 0.247357
+    Total loss: -39.058792
+    GW/Distance ratio: 8561.051
+Input PH dim: 24.07, Latent PH dim: 27.34
+  GW Loss Components:
+    Raw GW loss: 110.949463
+    Raw distance loss: 0.011919
+    Weighted GW: 11.094947
+    Weighted distance: 0.238388
+    Total loss: -40.530815
+    GW/Distance ratio: 9308.312
+Input PH dim: 17.11, Latent PH dim: 27.31
+  GW Loss Components:
+    Raw GW loss: 116.659096
+    Raw distance loss: 0.013627
+    Weighted GW: 11.665910
+    Weighted distance: 0.272549
+    Total loss: -38.666618
+    GW/Distance ratio: 8560.574
+Input PH dim: 24.62, Latent PH dim: 29.45
+  GW Loss Components:
+    Raw GW loss: 110.264572
+    Raw distance loss: 0.011992
+    Weighted GW: 11.026458
+    Weighted distance: 0.239842
+    Total loss: -40.713696
+    GW/Distance ratio: 9194.775
+Input PH dim: 26.83, Latent PH dim: 24.23
+  GW Loss Components:
+    Raw GW loss: 121.105736
+    Raw distance loss: 0.011979
+    Weighted GW: 12.110574
+    Weighted distance: 0.239573
+    Total loss: -39.855427
+    GW/Distance ratio: 10110.116
+Input PH dim: 16.81, Latent PH dim: 28.88
+  GW Loss Components:
+    Raw GW loss: 100.095398
+    Raw distance loss: 0.013145
+    Weighted GW: 10.009540
+    Weighted distance: 0.262907
+    Total loss: -40.047424
+    GW/Distance ratio: 7614.491
+Input PH dim: 24.07, Latent PH dim: 29.94
+  GW Loss Components:
+    Raw GW loss: 107.247658
+    Raw distance loss: 0.012411
+    Weighted GW: 10.724766
+    Weighted distance: 0.248222
+    Total loss: -40.230972
+    GW/Distance ratio: 8641.247
+Input PH dim: 24.61, Latent PH dim: 28.50
+  GW Loss Components:
+    Raw GW loss: 119.247108
+    Raw distance loss: 0.012200
+    Weighted GW: 11.924711
+    Weighted distance: 0.243995
+    Total loss: -40.334976
+    GW/Distance ratio: 9774.531
+Input PH dim: 16.38, Latent PH dim: 26.40
+  GW Loss Components:
+    Raw GW loss: 114.007072
+    Raw distance loss: 0.013396
+    Weighted GW: 11.400707
+    Weighted distance: 0.267922
+    Total loss: -39.632126
+    GW/Distance ratio: 8510.458
+Input PH dim: 22.64, Latent PH dim: 24.98
+  GW Loss Components:
+    Raw GW loss: 98.018448
+    Raw distance loss: 0.012575
+    Weighted GW: 9.801845
+    Weighted distance: 0.251505
+    Total loss: -42.256214
+    GW/Distance ratio: 7794.558
+Input PH dim: 25.08, Latent PH dim: 24.45
+  GW Loss Components:
+    Raw GW loss: 102.839767
+    Raw distance loss: 0.012181
+    Weighted GW: 10.283977
+    Weighted distance: 0.243617
+    Total loss: -42.643761
+    GW/Distance ratio: 8442.748
+Input PH dim: 16.62, Latent PH dim: 25.90
+  GW Loss Components:
+    Raw GW loss: 115.799988
+    Raw distance loss: 0.013255
+    Weighted GW: 11.579999
+    Weighted distance: 0.265099
+    Total loss: -40.717461
+    GW/Distance ratio: 8736.350
+Input PH dim: 20.95, Latent PH dim: 32.73
+  GW Loss Components:
+    Raw GW loss: 124.172226
+    Raw distance loss: 0.012905
+    Weighted GW: 12.417223
+    Weighted distance: 0.258095
+    Total loss: -38.192387
+    GW/Distance ratio: 9622.192
+Input PH dim: 26.52, Latent PH dim: 29.32
+  GW Loss Components:
+    Raw GW loss: 125.601395
+    Raw distance loss: 0.012207
+    Weighted GW: 12.560140
+    Weighted distance: 0.244146
+    Total loss: -38.726128
+    GW/Distance ratio: 10289.043
+Input PH dim: 15.88, Latent PH dim: 30.22
+  GW Loss Components:
+    Raw GW loss: 108.938393
+    Raw distance loss: 0.013300
+    Weighted GW: 10.893840
+    Weighted distance: 0.266004
+    Total loss: -41.585312
+    GW/Distance ratio: 8190.719
+Input PH dim: 22.23, Latent PH dim: 31.76
+  GW Loss Components:
+    Raw GW loss: 73.704285
+    Raw distance loss: 0.012619
+    Weighted GW: 7.370429
+    Weighted distance: 0.252379
+    Total loss: -46.172390
+    GW/Distance ratio: 5840.765
+Input PH dim: 26.16, Latent PH dim: 32.97
+  GW Loss Components:
+    Raw GW loss: 106.256477
+    Raw distance loss: 0.012457
+    Weighted GW: 10.625648
+    Weighted distance: 0.249142
+    Total loss: -41.495033
+    GW/Distance ratio: 8529.798
+Input PH dim: 15.79, Latent PH dim: 27.61
+  GW Loss Components:
+    Raw GW loss: 90.282860
+    Raw distance loss: 0.012848
+    Weighted GW: 9.028286
+    Weighted distance: 0.256969
+    Total loss: -43.239220
+    GW/Distance ratio: 7026.747
+Input PH dim: 23.65, Latent PH dim: 26.56
+  GW Loss Components:
+    Raw GW loss: 104.289604
+    Raw distance loss: 0.012657
+    Weighted GW: 10.428961
+    Weighted distance: 0.253136
+    Total loss: -40.789093
+    GW/Distance ratio: 8239.805
+Input PH dim: 28.14, Latent PH dim: 29.04
+  GW Loss Components:
+    Raw GW loss: 98.337639
+    Raw distance loss: 0.011679
+    Weighted GW: 9.833764
+    Weighted distance: 0.233590
+    Total loss: -42.490501
+    GW/Distance ratio: 8419.675
+Input PH dim: 17.36, Latent PH dim: 26.51
+  GW Loss Components:
+    Raw GW loss: 111.250359
+    Raw distance loss: 0.012916
+    Weighted GW: 11.125036
+    Weighted distance: 0.258314
+    Total loss: -40.314869
+    GW/Distance ratio: 8613.554
+Input PH dim: 23.07, Latent PH dim: 27.74
+  GW Loss Components:
+    Raw GW loss: 92.499702
+    Raw distance loss: 0.012226
+    Weighted GW: 9.249970
+    Weighted distance: 0.244525
+    Total loss: -42.476261
+    GW/Distance ratio: 7565.669
+Input PH dim: 25.44, Latent PH dim: 27.51
+  GW Loss Components:
+    Raw GW loss: 96.595886
+    Raw distance loss: 0.011336
+    Weighted GW: 9.659589
+    Weighted distance: 0.226721
+    Total loss: -42.355019
+    GW/Distance ratio: 8521.107
+Input PH dim: 17.03, Latent PH dim: 31.65
+  GW Loss Components:
+    Raw GW loss: 90.746567
+    Raw distance loss: 0.012449
+    Weighted GW: 9.074656
+    Weighted distance: 0.248985
+    Total loss: -43.350506
+    GW/Distance ratio: 7289.310
+Input PH dim: 24.31, Latent PH dim: 27.53
+  GW Loss Components:
+    Raw GW loss: 112.348854
+    Raw distance loss: 0.011712
+    Weighted GW: 11.234885
+    Weighted distance: 0.234242
+    Total loss: -40.584011
+    GW/Distance ratio: 9592.544
+Input PH dim: 27.78, Latent PH dim: 34.64
+  GW Loss Components:
+    Raw GW loss: 117.351212
+    Raw distance loss: 0.011532
+    Weighted GW: 11.735122
+    Weighted distance: 0.230642
+    Total loss: -40.827755
+    GW/Distance ratio: 10176.031
+Input PH dim: 17.16, Latent PH dim: 30.16
+  GW Loss Components:
+    Raw GW loss: 101.715271
+    Raw distance loss: 0.012604
+    Weighted GW: 10.171527
+    Weighted distance: 0.252088
+    Total loss: -43.807838
+    GW/Distance ratio: 8069.821
+Input PH dim: 25.23, Latent PH dim: 26.78
+  GW Loss Components:
+    Raw GW loss: 90.731178
+    Raw distance loss: 0.011649
+    Weighted GW: 9.073118
+    Weighted distance: 0.232972
+    Total loss: -42.672714
+    GW/Distance ratio: 7788.997
+Input PH dim: 26.82, Latent PH dim: 28.58
+  GW Loss Components:
+    Raw GW loss: 111.353668
+    Raw distance loss: 0.011095
+    Weighted GW: 11.135367
+    Weighted distance: 0.221901
+    Total loss: -40.881599
+    GW/Distance ratio: 10036.324
+Input PH dim: 16.64, Latent PH dim: 26.32
+  GW Loss Components:
+    Raw GW loss: 91.848328
+    Raw distance loss: 0.012882
+    Weighted GW: 9.184833
+    Weighted distance: 0.257650
+    Total loss: -43.241013
+    GW/Distance ratio: 7129.701
+Input PH dim: 25.01, Latent PH dim: 30.93
+  GW Loss Components:
+    Raw GW loss: 93.129532
+    Raw distance loss: 0.011424
+    Weighted GW: 9.312953
+    Weighted distance: 0.228483
+    Total loss: -43.806633
+    GW/Distance ratio: 8151.985
+Input PH dim: 27.70, Latent PH dim: 25.95
+  GW Loss Components:
+    Raw GW loss: 106.846962
+    Raw distance loss: 0.011004
+    Weighted GW: 10.684696
+    Weighted distance: 0.220088
+    Total loss: -42.291382
+    GW/Distance ratio: 9709.451
+Batch  75/182: Loss=-37.1012 (C:7.9993, R:0.0601, T:-43.1130(w:1.000)🎉)
+Input PH dim: 19.29, Latent PH dim: 31.21
+  GW Loss Components:
+    Raw GW loss: 99.058121
+    Raw distance loss: 0.013570
+    Weighted GW: 9.905812
+    Weighted distance: 0.271409
+    Total loss: -43.209370
+    GW/Distance ratio: 7299.553
+Input PH dim: 23.15, Latent PH dim: 27.20
+  GW Loss Components:
+    Raw GW loss: 103.964729
+    Raw distance loss: 0.011978
+    Weighted GW: 10.396473
+    Weighted distance: 0.239553
+    Total loss: -41.275101
+    GW/Distance ratio: 8679.903
+Input PH dim: 31.86, Latent PH dim: 28.79
+  GW Loss Components:
+    Raw GW loss: 120.266823
+    Raw distance loss: 0.011094
+    Weighted GW: 12.026683
+    Weighted distance: 0.221878
+    Total loss: -40.754261
+    GW/Distance ratio: 10840.773
+Input PH dim: 16.56, Latent PH dim: 27.06
+  GW Loss Components:
+    Raw GW loss: 90.355713
+    Raw distance loss: 0.014176
+    Weighted GW: 9.035571
+    Weighted distance: 0.283517
+    Total loss: -45.185150
+    GW/Distance ratio: 6373.904
+Input PH dim: 21.77, Latent PH dim: 31.53
+  GW Loss Components:
+    Raw GW loss: 87.767250
+    Raw distance loss: 0.012076
+    Weighted GW: 8.776725
+    Weighted distance: 0.241524
+    Total loss: -45.731651
+    GW/Distance ratio: 7267.779
+Input PH dim: 26.35, Latent PH dim: 31.69
+  GW Loss Components:
+    Raw GW loss: 98.003098
+    Raw distance loss: 0.011600
+    Weighted GW: 9.800310
+    Weighted distance: 0.232003
+    Total loss: -43.583862
+    GW/Distance ratio: 8448.434
+Input PH dim: 16.58, Latent PH dim: 27.81
+  GW Loss Components:
+    Raw GW loss: 103.000366
+    Raw distance loss: 0.014632
+    Weighted GW: 10.300036
+    Weighted distance: 0.292633
+    Total loss: -42.752605
+    GW/Distance ratio: 7039.545
+Input PH dim: 23.20, Latent PH dim: 30.20
+  GW Loss Components:
+    Raw GW loss: 104.057671
+    Raw distance loss: 0.012337
+    Weighted GW: 10.405767
+    Weighted distance: 0.246733
+    Total loss: -42.810707
+    GW/Distance ratio: 8434.821
+Input PH dim: 27.42, Latent PH dim: 30.75
+  GW Loss Components:
+    Raw GW loss: 117.063164
+    Raw distance loss: 0.011901
+    Weighted GW: 11.706317
+    Weighted distance: 0.238012
+    Total loss: -40.808338
+    GW/Distance ratio: 9836.750
+Input PH dim: 17.03, Latent PH dim: 25.36
+  GW Loss Components:
+    Raw GW loss: 104.531555
+    Raw distance loss: 0.014587
+    Weighted GW: 10.453156
+    Weighted distance: 0.291745
+    Total loss: -41.661297
+    GW/Distance ratio: 7165.943
+Input PH dim: 23.63, Latent PH dim: 32.04
+  GW Loss Components:
+    Raw GW loss: 80.426704
+    Raw distance loss: 0.012268
+    Weighted GW: 8.042670
+    Weighted distance: 0.245355
+    Total loss: -44.821262
+    GW/Distance ratio: 6555.947
+Input PH dim: 25.85, Latent PH dim: 30.49
+  GW Loss Components:
+    Raw GW loss: 104.708786
+    Raw distance loss: 0.011681
+    Weighted GW: 10.470879
+    Weighted distance: 0.233620
+    Total loss: -43.368637
+    GW/Distance ratio: 8964.027
+Input PH dim: 15.84, Latent PH dim: 27.04
+  GW Loss Components:
+    Raw GW loss: 83.996582
+    Raw distance loss: 0.014338
+    Weighted GW: 8.399658
+    Weighted distance: 0.286761
+    Total loss: -45.287029
+    GW/Distance ratio: 5858.295
+Input PH dim: 24.65, Latent PH dim: 30.77
+  GW Loss Components:
+    Raw GW loss: 100.544952
+    Raw distance loss: 0.012717
+    Weighted GW: 10.054496
+    Weighted distance: 0.254349
+    Total loss: -43.155624
+    GW/Distance ratio: 7906.046
+Input PH dim: 25.90, Latent PH dim: 26.90
+  GW Loss Components:
+    Raw GW loss: 81.154335
+    Raw distance loss: 0.011295
+    Weighted GW: 8.115434
+    Weighted distance: 0.225893
+    Total loss: -45.959583
+    GW/Distance ratio: 7185.187
+Input PH dim: 16.43, Latent PH dim: 30.25
+  GW Loss Components:
+    Raw GW loss: 81.288162
+    Raw distance loss: 0.013553
+    Weighted GW: 8.128817
+    Weighted distance: 0.271057
+    Total loss: -44.808090
+    GW/Distance ratio: 5997.853
+Input PH dim: 25.45, Latent PH dim: 27.74
+  GW Loss Components:
+    Raw GW loss: 102.344437
+    Raw distance loss: 0.012017
+    Weighted GW: 10.234444
+    Weighted distance: 0.240332
+    Total loss: -41.323151
+    GW/Distance ratio: 8516.922
+Input PH dim: 24.82, Latent PH dim: 24.87
+  GW Loss Components:
+    Raw GW loss: 122.794212
+    Raw distance loss: 0.011361
+    Weighted GW: 12.279422
+    Weighted distance: 0.227217
+    Total loss: -39.629631
+    GW/Distance ratio: 10808.524
+Input PH dim: 16.39, Latent PH dim: 25.75
+  GW Loss Components:
+    Raw GW loss: 89.714676
+    Raw distance loss: 0.013557
+    Weighted GW: 8.971468
+    Weighted distance: 0.271146
+    Total loss: -44.070694
+    GW/Distance ratio: 6617.445
+Input PH dim: 21.49, Latent PH dim: 30.19
+  GW Loss Components:
+    Raw GW loss: 79.528877
+    Raw distance loss: 0.011636
+    Weighted GW: 7.952888
+    Weighted distance: 0.232712
+    Total loss: -46.585594
+    GW/Distance ratio: 6834.946
+Input PH dim: 27.93, Latent PH dim: 30.42
+  GW Loss Components:
+    Raw GW loss: 96.251556
+    Raw distance loss: 0.011202
+    Weighted GW: 9.625155
+    Weighted distance: 0.224046
+    Total loss: -42.942272
+    GW/Distance ratio: 8592.098
+Input PH dim: 18.05, Latent PH dim: 27.10
+  GW Loss Components:
+    Raw GW loss: 79.904663
+    Raw distance loss: 0.013420
+    Weighted GW: 7.990467
+    Weighted distance: 0.268396
+    Total loss: -45.710331
+    GW/Distance ratio: 5954.229
+Input PH dim: 22.90, Latent PH dim: 29.32
+  GW Loss Components:
+    Raw GW loss: 103.121742
+    Raw distance loss: 0.011482
+    Weighted GW: 10.312175
+    Weighted distance: 0.229635
+    Total loss: -41.592548
+    GW/Distance ratio: 8981.352
+Input PH dim: 24.78, Latent PH dim: 27.02
+  GW Loss Components:
+    Raw GW loss: 111.325989
+    Raw distance loss: 0.010717
+    Weighted GW: 11.132599
+    Weighted distance: 0.214344
+    Total loss: -42.249363
+    GW/Distance ratio: 10387.570
+Input PH dim: 15.99, Latent PH dim: 28.19
+  GW Loss Components:
+    Raw GW loss: 90.515320
+    Raw distance loss: 0.013117
+    Weighted GW: 9.051532
+    Weighted distance: 0.262345
+    Total loss: -43.691441
+    GW/Distance ratio: 6900.479
+Input PH dim: 22.64, Latent PH dim: 28.63
+  GW Loss Components:
+    Raw GW loss: 92.066986
+    Raw distance loss: 0.011830
+    Weighted GW: 9.206698
+    Weighted distance: 0.236596
+    Total loss: -42.945602
+    GW/Distance ratio: 7782.620
+Input PH dim: 29.31, Latent PH dim: 26.06
+  GW Loss Components:
+    Raw GW loss: 106.302597
+    Raw distance loss: 0.010776
+    Weighted GW: 10.630260
+    Weighted distance: 0.215521
+    Total loss: -41.046635
+    GW/Distance ratio: 9864.689
+Input PH dim: 16.29, Latent PH dim: 26.88
+  GW Loss Components:
+    Raw GW loss: 87.531036
+    Raw distance loss: 0.012866
+    Weighted GW: 8.753104
+    Weighted distance: 0.257326
+    Total loss: -44.158966
+    GW/Distance ratio: 6803.129
+Input PH dim: 21.45, Latent PH dim: 25.24
+  GW Loss Components:
+    Raw GW loss: 74.613022
+    Raw distance loss: 0.011490
+    Weighted GW: 7.461302
+    Weighted distance: 0.229807
+    Total loss: -46.399361
+    GW/Distance ratio: 6493.541
+Input PH dim: 27.85, Latent PH dim: 31.83
+  GW Loss Components:
+    Raw GW loss: 88.168289
+    Raw distance loss: 0.010789
+    Weighted GW: 8.816829
+    Weighted distance: 0.215786
+    Total loss: -45.440872
+    GW/Distance ratio: 8171.811
+Input PH dim: 18.73, Latent PH dim: 26.94
+  GW Loss Components:
+    Raw GW loss: 85.774780
+    Raw distance loss: 0.012372
+    Weighted GW: 8.577478
+    Weighted distance: 0.247443
+    Total loss: -44.038300
+    GW/Distance ratio: 6932.891
+Input PH dim: 22.85, Latent PH dim: 29.41
+  GW Loss Components:
+    Raw GW loss: 104.853500
+    Raw distance loss: 0.011072
+    Weighted GW: 10.485351
+    Weighted distance: 0.221439
+    Total loss: -42.241394
+    GW/Distance ratio: 9470.194
+Input PH dim: 30.44, Latent PH dim: 27.84
+  GW Loss Components:
+    Raw GW loss: 79.489883
+    Raw distance loss: 0.010598
+    Weighted GW: 7.948988
+    Weighted distance: 0.211953
+    Total loss: -46.038147
+    GW/Distance ratio: 7500.713
+Input PH dim: 17.20, Latent PH dim: 30.49
+  GW Loss Components:
+    Raw GW loss: 103.980957
+    Raw distance loss: 0.012556
+    Weighted GW: 10.398096
+    Weighted distance: 0.251114
+    Total loss: -42.135216
+    GW/Distance ratio: 8281.579
+Input PH dim: 21.44, Latent PH dim: 28.40
+  GW Loss Components:
+    Raw GW loss: 104.806404
+    Raw distance loss: 0.011529
+    Weighted GW: 10.480640
+    Weighted distance: 0.230576
+    Total loss: -41.283619
+    GW/Distance ratio: 9090.840
+Input PH dim: 25.16, Latent PH dim: 30.43
+  GW Loss Components:
+    Raw GW loss: 99.502609
+    Raw distance loss: 0.010850
+    Weighted GW: 9.950261
+    Weighted distance: 0.217002
+    Total loss: -42.653969
+    GW/Distance ratio: 9170.664
+Input PH dim: 17.56, Latent PH dim: 28.43
+  GW Loss Components:
+    Raw GW loss: 77.673645
+    Raw distance loss: 0.012065
+    Weighted GW: 7.767365
+    Weighted distance: 0.241308
+    Total loss: -46.216278
+    GW/Distance ratio: 6437.710
+Input PH dim: 23.97, Latent PH dim: 29.44
+  GW Loss Components:
+    Raw GW loss: 97.611816
+    Raw distance loss: 0.011380
+    Weighted GW: 9.761182
+    Weighted distance: 0.227608
+    Total loss: -43.256409
+    GW/Distance ratio: 8577.188
+Input PH dim: 28.24, Latent PH dim: 27.63
+  GW Loss Components:
+    Raw GW loss: 104.032608
+    Raw distance loss: 0.011118
+    Weighted GW: 10.403261
+    Weighted distance: 0.222362
+    Total loss: -42.198101
+    GW/Distance ratio: 9357.060
+Input PH dim: 16.01, Latent PH dim: 25.90
+  GW Loss Components:
+    Raw GW loss: 75.834457
+    Raw distance loss: 0.012551
+    Weighted GW: 7.583446
+    Weighted distance: 0.251027
+    Total loss: -46.326656
+    GW/Distance ratio: 6041.934
+Input PH dim: 22.94, Latent PH dim: 27.75
+  GW Loss Components:
+    Raw GW loss: 72.804169
+    Raw distance loss: 0.011543
+    Weighted GW: 7.280417
+    Weighted distance: 0.230867
+    Total loss: -46.049644
+    GW/Distance ratio: 6307.009
+Input PH dim: 24.42, Latent PH dim: 29.17
+  GW Loss Components:
+    Raw GW loss: 89.585632
+    Raw distance loss: 0.010846
+    Weighted GW: 8.958564
+    Weighted distance: 0.216923
+    Total loss: -44.423485
+    GW/Distance ratio: 8259.649
+Input PH dim: 16.75, Latent PH dim: 27.26
+  GW Loss Components:
+    Raw GW loss: 82.420975
+    Raw distance loss: 0.012172
+    Weighted GW: 8.242098
+    Weighted distance: 0.243440
+    Total loss: -45.466404
+    GW/Distance ratio: 6771.360
+Input PH dim: 23.62, Latent PH dim: 26.85
+  GW Loss Components:
+    Raw GW loss: 84.473999
+    Raw distance loss: 0.011310
+    Weighted GW: 8.447400
+    Weighted distance: 0.226208
+    Total loss: -44.698349
+    GW/Distance ratio: 7468.692
+Input PH dim: 29.65, Latent PH dim: 25.57
+  GW Loss Components:
+    Raw GW loss: 96.933693
+    Raw distance loss: 0.010827
+    Weighted GW: 9.693370
+    Weighted distance: 0.216530
+    Total loss: -43.090313
+    GW/Distance ratio: 8953.351
+Input PH dim: 18.51, Latent PH dim: 27.07
+  GW Loss Components:
+    Raw GW loss: 112.357918
+    Raw distance loss: 0.012325
+    Weighted GW: 11.235792
+    Weighted distance: 0.246505
+    Total loss: -37.877769
+    GW/Distance ratio: 9116.069
+Input PH dim: 22.61, Latent PH dim: 29.79
+  GW Loss Components:
+    Raw GW loss: 69.361763
+    Raw distance loss: 0.011536
+    Weighted GW: 6.936176
+    Weighted distance: 0.230712
+    Total loss: -45.833557
+    GW/Distance ratio: 6012.833
+Input PH dim: 25.10, Latent PH dim: 27.12
+  GW Loss Components:
+    Raw GW loss: 85.121864
+    Raw distance loss: 0.010990
+    Weighted GW: 8.512187
+    Weighted distance: 0.219808
+    Total loss: -44.639019
+    GW/Distance ratio: 7745.117
+Input PH dim: 17.84, Latent PH dim: 28.87
+  GW Loss Components:
+    Raw GW loss: 69.037430
+    Raw distance loss: 0.012109
+    Weighted GW: 6.903743
+    Weighted distance: 0.242181
+    Total loss: -47.760395
+    GW/Distance ratio: 5701.302
+Input PH dim: 23.65, Latent PH dim: 27.35
+  GW Loss Components:
+    Raw GW loss: 75.213791
+    Raw distance loss: 0.011447
+    Weighted GW: 7.521379
+    Weighted distance: 0.228946
+    Total loss: -46.919586
+    GW/Distance ratio: 6570.424
+Input PH dim: 28.32, Latent PH dim: 26.83
+  GW Loss Components:
+    Raw GW loss: 89.520416
+    Raw distance loss: 0.010699
+    Weighted GW: 8.952042
+    Weighted distance: 0.213978
+    Total loss: -44.441231
+    GW/Distance ratio: 8367.258
+Input PH dim: 17.55, Latent PH dim: 30.49
+  GW Loss Components:
+    Raw GW loss: 81.285522
+    Raw distance loss: 0.012233
+    Weighted GW: 8.128552
+    Weighted distance: 0.244657
+    Total loss: -45.921131
+    GW/Distance ratio: 6644.847
+Input PH dim: 24.02, Latent PH dim: 26.95
+  GW Loss Components:
+    Raw GW loss: 82.519638
+    Raw distance loss: 0.011342
+    Weighted GW: 8.251964
+    Weighted distance: 0.226830
+    Total loss: -45.469498
+    GW/Distance ratio: 7275.886
+Input PH dim: 26.63, Latent PH dim: 27.16
+  GW Loss Components:
+    Raw GW loss: 81.496651
+    Raw distance loss: 0.010546
+    Weighted GW: 8.149665
+    Weighted distance: 0.210920
+    Total loss: -46.520885
+    GW/Distance ratio: 7727.717
+Input PH dim: 16.26, Latent PH dim: 29.31
+  GW Loss Components:
+    Raw GW loss: 101.857803
+    Raw distance loss: 0.012078
+    Weighted GW: 10.185781
+    Weighted distance: 0.241553
+    Total loss: -41.744358
+    GW/Distance ratio: 8433.575
+Input PH dim: 25.71, Latent PH dim: 28.98
+  GW Loss Components:
+    Raw GW loss: 94.857864
+    Raw distance loss: 0.011148
+    Weighted GW: 9.485786
+    Weighted distance: 0.222964
+    Total loss: -41.736706
+    GW/Distance ratio: 8508.797
+Input PH dim: 28.13, Latent PH dim: 24.13
+  GW Loss Components:
+    Raw GW loss: 89.119858
+    Raw distance loss: 0.010504
+    Weighted GW: 8.911986
+    Weighted distance: 0.210083
+    Total loss: -45.234501
+    GW/Distance ratio: 8484.254
+Input PH dim: 16.54, Latent PH dim: 29.80
+  GW Loss Components:
+    Raw GW loss: 80.229462
+    Raw distance loss: 0.012119
+    Weighted GW: 8.022946
+    Weighted distance: 0.242390
+    Total loss: -45.611855
+    GW/Distance ratio: 6619.866
+Input PH dim: 21.70, Latent PH dim: 26.97
+  GW Loss Components:
+    Raw GW loss: 107.523819
+    Raw distance loss: 0.010932
+    Weighted GW: 10.752382
+    Weighted distance: 0.218646
+    Total loss: -40.446915
+    GW/Distance ratio: 9835.410
+Input PH dim: 26.15, Latent PH dim: 28.19
+  GW Loss Components:
+    Raw GW loss: 113.465370
+    Raw distance loss: 0.010710
+    Weighted GW: 11.346538
+    Weighted distance: 0.214209
+    Total loss: -42.045731
+    GW/Distance ratio: 10593.894
+Input PH dim: 17.23, Latent PH dim: 31.71
+  GW Loss Components:
+    Raw GW loss: 97.272766
+    Raw distance loss: 0.012285
+    Weighted GW: 9.727277
+    Weighted distance: 0.245702
+    Total loss: -43.453880
+    GW/Distance ratio: 7917.943
+Input PH dim: 23.06, Latent PH dim: 25.89
+  GW Loss Components:
+    Raw GW loss: 87.451935
+    Raw distance loss: 0.010734
+    Weighted GW: 8.745193
+    Weighted distance: 0.214676
+    Total loss: -44.311859
+    GW/Distance ratio: 8147.347
+Input PH dim: 25.81, Latent PH dim: 26.93
+  GW Loss Components:
+    Raw GW loss: 101.828705
+    Raw distance loss: 0.010160
+    Weighted GW: 10.182871
+    Weighted distance: 0.203207
+    Total loss: -43.177132
+    GW/Distance ratio: 10022.171
+Input PH dim: 16.71, Latent PH dim: 30.55
+  GW Loss Components:
+    Raw GW loss: 70.919098
+    Raw distance loss: 0.012380
+    Weighted GW: 7.091910
+    Weighted distance: 0.247593
+    Total loss: -46.881680
+    GW/Distance ratio: 5728.674
+Input PH dim: 24.35, Latent PH dim: 32.30
+  GW Loss Components:
+    Raw GW loss: 87.435303
+    Raw distance loss: 0.011201
+    Weighted GW: 8.743530
+    Weighted distance: 0.224018
+    Total loss: -44.269455
+    GW/Distance ratio: 7806.075
+Input PH dim: 28.00, Latent PH dim: 26.72
+  GW Loss Components:
+    Raw GW loss: 105.390854
+    Raw distance loss: 0.010424
+    Weighted GW: 10.539085
+    Weighted distance: 0.208481
+    Total loss: -42.259666
+    GW/Distance ratio: 10110.342
+Input PH dim: 16.76, Latent PH dim: 28.01
+  GW Loss Components:
+    Raw GW loss: 93.690445
+    Raw distance loss: 0.012403
+    Weighted GW: 9.369044
+    Weighted distance: 0.248051
+    Total loss: -44.051693
+    GW/Distance ratio: 7554.136
+Input PH dim: 22.77, Latent PH dim: 26.59
+  GW Loss Components:
+    Raw GW loss: 83.418167
+    Raw distance loss: 0.011171
+    Weighted GW: 8.341817
+    Weighted distance: 0.223412
+    Total loss: -45.439484
+    GW/Distance ratio: 7467.653
+Input PH dim: 24.47, Latent PH dim: 27.93
+  GW Loss Components:
+    Raw GW loss: 96.636375
+    Raw distance loss: 0.010307
+    Weighted GW: 9.663638
+    Weighted distance: 0.206132
+    Total loss: -43.796631
+    GW/Distance ratio: 9376.156
+Input PH dim: 16.79, Latent PH dim: 28.55
+  GW Loss Components:
+    Raw GW loss: 84.026108
+    Raw distance loss: 0.013074
+    Weighted GW: 8.402611
+    Weighted distance: 0.261471
+    Total loss: -45.255383
+    GW/Distance ratio: 6427.170
+Input PH dim: 21.90, Latent PH dim: 28.25
+  GW Loss Components:
+    Raw GW loss: 64.445480
+    Raw distance loss: 0.011161
+    Weighted GW: 6.444548
+    Weighted distance: 0.223224
+    Total loss: -48.230324
+    GW/Distance ratio: 5774.057
+Input PH dim: 31.64, Latent PH dim: 27.99
+  GW Loss Components:
+    Raw GW loss: 94.167328
+    Raw distance loss: 0.010499
+    Weighted GW: 9.416733
+    Weighted distance: 0.209988
+    Total loss: -43.783649
+    GW/Distance ratio: 8968.815
+Input PH dim: 16.00, Latent PH dim: 27.83
+  GW Loss Components:
+    Raw GW loss: 83.055679
+    Raw distance loss: 0.013262
+    Weighted GW: 8.305568
+    Weighted distance: 0.265250
+    Total loss: -44.505714
+    GW/Distance ratio: 6262.442
+Input PH dim: 21.11, Latent PH dim: 28.30
+  GW Loss Components:
+    Raw GW loss: 78.874527
+    Raw distance loss: 0.011582
+    Weighted GW: 7.887453
+    Weighted distance: 0.231645
+    Total loss: -46.505325
+    GW/Distance ratio: 6809.942
+Input PH dim: 26.75, Latent PH dim: 32.47
+  GW Loss Components:
+    Raw GW loss: 87.081482
+    Raw distance loss: 0.011043
+    Weighted GW: 8.708148
+    Weighted distance: 0.220863
+    Total loss: -46.316242
+    GW/Distance ratio: 7885.561
+Batch 100/182: Loss=-40.3210 (C:7.9996, R:0.0545, T:-45.7758(w:1.000)🎉)
+Input PH dim: 17.34, Latent PH dim: 27.19
+  GW Loss Components:
+    Raw GW loss: 66.912292
+    Raw distance loss: 0.013974
+    Weighted GW: 6.691229
+    Weighted distance: 0.279478
+    Total loss: -48.643291
+    GW/Distance ratio: 4788.370
+Input PH dim: 22.66, Latent PH dim: 27.60
+  GW Loss Components:
+    Raw GW loss: 67.593628
+    Raw distance loss: 0.011989
+    Weighted GW: 6.759363
+    Weighted distance: 0.239781
+    Total loss: -47.707413
+    GW/Distance ratio: 5637.948
+Input PH dim: 25.48, Latent PH dim: 29.85
+  GW Loss Components:
+    Raw GW loss: 84.515808
+    Raw distance loss: 0.011016
+    Weighted GW: 8.451581
+    Weighted distance: 0.220328
+    Total loss: -46.244282
+    GW/Distance ratio: 7671.815
+Input PH dim: 18.48, Latent PH dim: 31.65
+  GW Loss Components:
+    Raw GW loss: 71.510811
+    Raw distance loss: 0.013971
+    Weighted GW: 7.151081
+    Weighted distance: 0.279418
+    Total loss: -48.212921
+    GW/Distance ratio: 5118.542
+Input PH dim: 22.21, Latent PH dim: 27.55
+  GW Loss Components:
+    Raw GW loss: 71.247284
+    Raw distance loss: 0.012452
+    Weighted GW: 7.124729
+    Weighted distance: 0.249032
+    Total loss: -47.536587
+    GW/Distance ratio: 5721.943
+Input PH dim: 26.29, Latent PH dim: 30.40
+  GW Loss Components:
+    Raw GW loss: 98.800247
+    Raw distance loss: 0.011223
+    Weighted GW: 9.880025
+    Weighted distance: 0.224463
+    Total loss: -44.312054
+    GW/Distance ratio: 8803.233
+Input PH dim: 16.42, Latent PH dim: 29.62
+  GW Loss Components:
+    Raw GW loss: 91.364899
+    Raw distance loss: 0.014552
+    Weighted GW: 9.136490
+    Weighted distance: 0.291044
+    Total loss: -44.175941
+    GW/Distance ratio: 6278.418
+Input PH dim: 23.19, Latent PH dim: 25.82
+  GW Loss Components:
+    Raw GW loss: 74.584808
+    Raw distance loss: 0.012513
+    Weighted GW: 7.458481
+    Weighted distance: 0.250253
+    Total loss: -46.787186
+    GW/Distance ratio: 5960.759
+Input PH dim: 28.51, Latent PH dim: 30.67
+  GW Loss Components:
+    Raw GW loss: 94.144455
+    Raw distance loss: 0.011928
+    Weighted GW: 9.414446
+    Weighted distance: 0.238561
+    Total loss: -44.831493
+    GW/Distance ratio: 7892.693
+Input PH dim: 17.70, Latent PH dim: 26.80
+  GW Loss Components:
+    Raw GW loss: 101.522995
+    Raw distance loss: 0.015070
+    Weighted GW: 10.152300
+    Weighted distance: 0.301405
+    Total loss: -44.405647
+    GW/Distance ratio: 6736.655
+Input PH dim: 22.34, Latent PH dim: 28.77
+  GW Loss Components:
+    Raw GW loss: 61.200497
+    Raw distance loss: 0.012687
+    Weighted GW: 6.120050
+    Weighted distance: 0.253746
+    Total loss: -48.808468
+    GW/Distance ratio: 4823.764
+Input PH dim: 25.59, Latent PH dim: 30.15
+  GW Loss Components:
+    Raw GW loss: 80.583755
+    Raw distance loss: 0.012229
+    Weighted GW: 8.058375
+    Weighted distance: 0.244589
+    Total loss: -46.639519
+    GW/Distance ratio: 6589.324
+Input PH dim: 17.27, Latent PH dim: 29.15
+  GW Loss Components:
+    Raw GW loss: 79.580376
+    Raw distance loss: 0.014368
+    Weighted GW: 7.958038
+    Weighted distance: 0.287366
+    Total loss: -45.244610
+    GW/Distance ratio: 5538.601
+Input PH dim: 21.09, Latent PH dim: 28.90
+  GW Loss Components:
+    Raw GW loss: 66.568497
+    Raw distance loss: 0.012141
+    Weighted GW: 6.656850
+    Weighted distance: 0.242814
+    Total loss: -48.696205
+    GW/Distance ratio: 5483.080
+Input PH dim: 27.87, Latent PH dim: 28.99
+  GW Loss Components:
+    Raw GW loss: 97.321716
+    Raw distance loss: 0.012157
+    Weighted GW: 9.732172
+    Weighted distance: 0.243132
+    Total loss: -44.359871
+    GW/Distance ratio: 8005.655
+Input PH dim: 17.37, Latent PH dim: 28.64
+  GW Loss Components:
+    Raw GW loss: 79.317856
+    Raw distance loss: 0.014519
+    Weighted GW: 7.931786
+    Weighted distance: 0.290380
+    Total loss: -46.416443
+    GW/Distance ratio: 5463.026
+Input PH dim: 24.57, Latent PH dim: 27.80
+  GW Loss Components:
+    Raw GW loss: 68.098831
+    Raw distance loss: 0.012260
+    Weighted GW: 6.809883
+    Weighted distance: 0.245207
+    Total loss: -48.254944
+    GW/Distance ratio: 5554.395
+Input PH dim: 25.02, Latent PH dim: 28.27
+  GW Loss Components:
+    Raw GW loss: 88.053665
+    Raw distance loss: 0.011236
+    Weighted GW: 8.805367
+    Weighted distance: 0.224728
+    Total loss: -46.392315
+    GW/Distance ratio: 7836.466
+Input PH dim: 16.29, Latent PH dim: 30.25
+  GW Loss Components:
+    Raw GW loss: 80.963257
+    Raw distance loss: 0.014351
+    Weighted GW: 8.096326
+    Weighted distance: 0.287020
+    Total loss: -46.669090
+    GW/Distance ratio: 5641.639
+Input PH dim: 22.07, Latent PH dim: 27.64
+  GW Loss Components:
+    Raw GW loss: 75.603409
+    Raw distance loss: 0.012496
+    Weighted GW: 7.560341
+    Weighted distance: 0.249913
+    Total loss: -46.856754
+    GW/Distance ratio: 6050.379
+Input PH dim: 27.20, Latent PH dim: 28.09
+  GW Loss Components:
+    Raw GW loss: 103.218155
+    Raw distance loss: 0.011624
+    Weighted GW: 10.321815
+    Weighted distance: 0.232478
+    Total loss: -42.329304
+    GW/Distance ratio: 8879.824
+Input PH dim: 17.17, Latent PH dim: 27.15
+  GW Loss Components:
+    Raw GW loss: 63.617462
+    Raw distance loss: 0.013719
+    Weighted GW: 6.361746
+    Weighted distance: 0.274386
+    Total loss: -48.944851
+    GW/Distance ratio: 4637.073
+Input PH dim: 24.38, Latent PH dim: 26.21
+  GW Loss Components:
+    Raw GW loss: 71.600372
+    Raw distance loss: 0.012120
+    Weighted GW: 7.160038
+    Weighted distance: 0.242394
+    Total loss: -47.393635
+    GW/Distance ratio: 5907.763
+Input PH dim: 27.09, Latent PH dim: 27.68
+  GW Loss Components:
+    Raw GW loss: 81.446838
+    Raw distance loss: 0.011194
+    Weighted GW: 8.144684
+    Weighted distance: 0.223889
+    Total loss: -47.259270
+    GW/Distance ratio: 7275.624
+Input PH dim: 18.00, Latent PH dim: 28.49
+  GW Loss Components:
+    Raw GW loss: 87.533417
+    Raw distance loss: 0.013997
+    Weighted GW: 8.753342
+    Weighted distance: 0.279933
+    Total loss: -45.112865
+    GW/Distance ratio: 6253.883
+Input PH dim: 23.37, Latent PH dim: 34.02
+  GW Loss Components:
+    Raw GW loss: 73.435005
+    Raw distance loss: 0.012474
+    Weighted GW: 7.343501
+    Weighted distance: 0.249485
+    Total loss: -47.150253
+    GW/Distance ratio: 5886.920
+Input PH dim: 23.67, Latent PH dim: 30.56
+  GW Loss Components:
+    Raw GW loss: 107.865898
+    Raw distance loss: 0.011197
+    Weighted GW: 10.786590
+    Weighted distance: 0.223943
+    Total loss: -42.740185
+    GW/Distance ratio: 9633.306
+Input PH dim: 18.59, Latent PH dim: 29.02
+  GW Loss Components:
+    Raw GW loss: 71.710190
+    Raw distance loss: 0.015977
+    Weighted GW: 7.171019
+    Weighted distance: 0.319548
+    Total loss: -47.140446
+    GW/Distance ratio: 4488.230
+Input PH dim: 22.46, Latent PH dim: 28.67
+  GW Loss Components:
+    Raw GW loss: 93.510071
+    Raw distance loss: 0.012892
+    Weighted GW: 9.351007
+    Weighted distance: 0.257845
+    Total loss: -44.164833
+    GW/Distance ratio: 7253.193
+Input PH dim: 27.76, Latent PH dim: 30.82
+  GW Loss Components:
+    Raw GW loss: 84.090157
+    Raw distance loss: 0.011598
+    Weighted GW: 8.409016
+    Weighted distance: 0.231957
+    Total loss: -46.376568
+    GW/Distance ratio: 7250.490
+Input PH dim: 15.95, Latent PH dim: 31.63
+  GW Loss Components:
+    Raw GW loss: 80.511292
+    Raw distance loss: 0.015424
+    Weighted GW: 8.051129
+    Weighted distance: 0.308488
+    Total loss: -47.215034
+    GW/Distance ratio: 5219.737
+Input PH dim: 21.70, Latent PH dim: 29.20
+  GW Loss Components:
+    Raw GW loss: 68.767189
+    Raw distance loss: 0.013257
+    Weighted GW: 6.876719
+    Weighted distance: 0.265146
+    Total loss: -48.661835
+    GW/Distance ratio: 5187.106
+Input PH dim: 25.02, Latent PH dim: 27.13
+  GW Loss Components:
+    Raw GW loss: 86.360451
+    Raw distance loss: 0.012420
+    Weighted GW: 8.636045
+    Weighted distance: 0.248391
+    Total loss: -46.200470
+    GW/Distance ratio: 6953.591
+Input PH dim: 17.85, Latent PH dim: 28.85
+  GW Loss Components:
+    Raw GW loss: 65.949013
+    Raw distance loss: 0.016180
+    Weighted GW: 6.594902
+    Weighted distance: 0.323608
+    Total loss: -49.051788
+    GW/Distance ratio: 4075.860
+Input PH dim: 20.29, Latent PH dim: 29.53
+  GW Loss Components:
+    Raw GW loss: 61.482735
+    Raw distance loss: 0.014088
+    Weighted GW: 6.148273
+    Weighted distance: 0.281770
+    Total loss: -48.379395
+    GW/Distance ratio: 4364.035
+Input PH dim: 29.03, Latent PH dim: 34.67
+  GW Loss Components:
+    Raw GW loss: 84.727661
+    Raw distance loss: 0.011948
+    Weighted GW: 8.472766
+    Weighted distance: 0.238954
+    Total loss: -46.231915
+    GW/Distance ratio: 7091.539
+Input PH dim: 17.23, Latent PH dim: 28.35
+  GW Loss Components:
+    Raw GW loss: 68.221573
+    Raw distance loss: 0.016169
+    Weighted GW: 6.822157
+    Weighted distance: 0.323374
+    Total loss: -47.962578
+    GW/Distance ratio: 4219.356
+Input PH dim: 23.51, Latent PH dim: 30.13
+  GW Loss Components:
+    Raw GW loss: 73.691833
+    Raw distance loss: 0.014166
+    Weighted GW: 7.369184
+    Weighted distance: 0.283311
+    Total loss: -48.084198
+    GW/Distance ratio: 5202.179
+Input PH dim: 23.55, Latent PH dim: 31.45
+  GW Loss Components:
+    Raw GW loss: 75.149139
+    Raw distance loss: 0.013535
+    Weighted GW: 7.514914
+    Weighted distance: 0.270697
+    Total loss: -47.985485
+    GW/Distance ratio: 5552.271
+Input PH dim: 17.97, Latent PH dim: 32.23
+  GW Loss Components:
+    Raw GW loss: 67.592796
+    Raw distance loss: 0.017763
+    Weighted GW: 6.759280
+    Weighted distance: 0.355258
+    Total loss: -48.645660
+    GW/Distance ratio: 3805.277
+Input PH dim: 24.14, Latent PH dim: 26.76
+  GW Loss Components:
+    Raw GW loss: 65.157150
+    Raw distance loss: 0.014404
+    Weighted GW: 6.515715
+    Weighted distance: 0.288080
+    Total loss: -49.239902
+    GW/Distance ratio: 4523.545
+Input PH dim: 28.18, Latent PH dim: 31.28
+  GW Loss Components:
+    Raw GW loss: 73.308945
+    Raw distance loss: 0.013510
+    Weighted GW: 7.330894
+    Weighted distance: 0.270200
+    Total loss: -48.056107
+    GW/Distance ratio: 5426.276
+Input PH dim: 17.10, Latent PH dim: 29.77
+  GW Loss Components:
+    Raw GW loss: 76.967125
+    Raw distance loss: 0.018621
+    Weighted GW: 7.696712
+    Weighted distance: 0.372423
+    Total loss: -47.199913
+    GW/Distance ratio: 4133.312
+Input PH dim: 21.76, Latent PH dim: 29.99
+  GW Loss Components:
+    Raw GW loss: 79.271835
+    Raw distance loss: 0.015677
+    Weighted GW: 7.927184
+    Weighted distance: 0.313549
+    Total loss: -45.794407
+    GW/Distance ratio: 5056.417
+Input PH dim: 26.85, Latent PH dim: 30.58
+  GW Loss Components:
+    Raw GW loss: 68.916473
+    Raw distance loss: 0.014156
+    Weighted GW: 6.891647
+    Weighted distance: 0.283126
+    Total loss: -48.360291
+    GW/Distance ratio: 4868.243
+Input PH dim: 16.58, Latent PH dim: 33.95
+  GW Loss Components:
+    Raw GW loss: 86.324821
+    Raw distance loss: 0.017527
+    Weighted GW: 8.632483
+    Weighted distance: 0.350537
+    Total loss: -46.438423
+    GW/Distance ratio: 4925.283
+Input PH dim: 23.51, Latent PH dim: 29.32
+  GW Loss Components:
+    Raw GW loss: 68.573898
+    Raw distance loss: 0.014768
+    Weighted GW: 6.857390
+    Weighted distance: 0.295350
+    Total loss: -48.476784
+    GW/Distance ratio: 4643.560
+Input PH dim: 25.28, Latent PH dim: 28.31
+  GW Loss Components:
+    Raw GW loss: 90.128967
+    Raw distance loss: 0.013864
+    Weighted GW: 9.012897
+    Weighted distance: 0.277277
+    Total loss: -46.089985
+    GW/Distance ratio: 6500.992
+Input PH dim: 17.90, Latent PH dim: 31.31
+  GW Loss Components:
+    Raw GW loss: 79.263283
+    Raw distance loss: 0.015659
+    Weighted GW: 7.926328
+    Weighted distance: 0.313184
+    Total loss: -46.453304
+    GW/Distance ratio: 5061.771
+Input PH dim: 23.99, Latent PH dim: 28.89
+  GW Loss Components:
+    Raw GW loss: 77.012756
+    Raw distance loss: 0.014016
+    Weighted GW: 7.701276
+    Weighted distance: 0.280329
+    Total loss: -47.105556
+    GW/Distance ratio: 5494.442
+Input PH dim: 27.37, Latent PH dim: 33.40
+  GW Loss Components:
+    Raw GW loss: 78.331390
+    Raw distance loss: 0.012917
+    Weighted GW: 7.833139
+    Weighted distance: 0.258335
+    Total loss: -47.522884
+    GW/Distance ratio: 6064.321
+Input PH dim: 17.92, Latent PH dim: 28.85
+  GW Loss Components:
+    Raw GW loss: 60.783798
+    Raw distance loss: 0.015696
+    Weighted GW: 6.078380
+    Weighted distance: 0.313911
+    Total loss: -49.574207
+    GW/Distance ratio: 3872.676
+Input PH dim: 23.77, Latent PH dim: 28.28
+  GW Loss Components:
+    Raw GW loss: 74.924179
+    Raw distance loss: 0.013335
+    Weighted GW: 7.492418
+    Weighted distance: 0.266699
+    Total loss: -46.119591
+    GW/Distance ratio: 5618.629
+Input PH dim: 26.14, Latent PH dim: 26.76
+  GW Loss Components:
+    Raw GW loss: 73.927940
+    Raw distance loss: 0.012098
+    Weighted GW: 7.392794
+    Weighted distance: 0.241963
+    Total loss: -48.364784
+    GW/Distance ratio: 6110.678
+Input PH dim: 16.35, Latent PH dim: 28.49
+  GW Loss Components:
+    Raw GW loss: 69.399521
+    Raw distance loss: 0.013869
+    Weighted GW: 6.939952
+    Weighted distance: 0.277390
+    Total loss: -48.266747
+    GW/Distance ratio: 5003.756
+Input PH dim: 21.95, Latent PH dim: 27.77
+  GW Loss Components:
+    Raw GW loss: 71.852379
+    Raw distance loss: 0.012317
+    Weighted GW: 7.185238
+    Weighted distance: 0.246342
+    Total loss: -46.538162
+    GW/Distance ratio: 5833.538
+Input PH dim: 24.96, Latent PH dim: 30.04
+  GW Loss Components:
+    Raw GW loss: 81.844658
+    Raw distance loss: 0.011417
+    Weighted GW: 8.184466
+    Weighted distance: 0.228337
+    Total loss: -46.539696
+    GW/Distance ratio: 7168.739
+Input PH dim: 18.72, Latent PH dim: 27.93
+  GW Loss Components:
+    Raw GW loss: 47.617859
+    Raw distance loss: 0.014014
+    Weighted GW: 4.761786
+    Weighted distance: 0.280285
+    Total loss: -51.569500
+    GW/Distance ratio: 3397.817
+Input PH dim: 23.36, Latent PH dim: 30.23
+  GW Loss Components:
+    Raw GW loss: 74.714752
+    Raw distance loss: 0.011553
+    Weighted GW: 7.471475
+    Weighted distance: 0.231069
+    Total loss: -48.567688
+    GW/Distance ratio: 6466.876
+Input PH dim: 24.97, Latent PH dim: 32.67
+  GW Loss Components:
+    Raw GW loss: 115.522232
+    Raw distance loss: 0.011022
+    Weighted GW: 11.552223
+    Weighted distance: 0.220439
+    Total loss: -40.952824
+    GW/Distance ratio: 10481.085
+Input PH dim: 17.75, Latent PH dim: 26.72
+  GW Loss Components:
+    Raw GW loss: 53.190758
+    Raw distance loss: 0.013432
+    Weighted GW: 5.319076
+    Weighted distance: 0.268639
+    Total loss: -49.323578
+    GW/Distance ratio: 3960.008
+Input PH dim: 23.56, Latent PH dim: 30.66
+  GW Loss Components:
+    Raw GW loss: 56.011536
+    Raw distance loss: 0.011304
+    Weighted GW: 5.601154
+    Weighted distance: 0.226086
+    Total loss: -49.960831
+    GW/Distance ratio: 4954.875
+Input PH dim: 25.91, Latent PH dim: 30.16
+  GW Loss Components:
+    Raw GW loss: 89.830475
+    Raw distance loss: 0.010326
+    Weighted GW: 8.983047
+    Weighted distance: 0.206511
+    Total loss: -46.585358
+    GW/Distance ratio: 8699.819
+Input PH dim: 17.29, Latent PH dim: 26.34
+  GW Loss Components:
+    Raw GW loss: 58.925491
+    Raw distance loss: 0.013609
+    Weighted GW: 5.892549
+    Weighted distance: 0.272181
+    Total loss: -48.963436
+    GW/Distance ratio: 4329.877
+Input PH dim: 24.71, Latent PH dim: 28.50
+  GW Loss Components:
+    Raw GW loss: 65.873047
+    Raw distance loss: 0.011205
+    Weighted GW: 6.587305
+    Weighted distance: 0.224108
+    Total loss: -48.305031
+    GW/Distance ratio: 5878.685
+Input PH dim: 25.11, Latent PH dim: 28.93
+  GW Loss Components:
+    Raw GW loss: 71.682724
+    Raw distance loss: 0.010184
+    Weighted GW: 7.168272
+    Weighted distance: 0.203674
+    Total loss: -48.989922
+    GW/Distance ratio: 7038.962
+Input PH dim: 16.15, Latent PH dim: 29.92
+  GW Loss Components:
+    Raw GW loss: 63.509087
+    Raw distance loss: 0.012623
+    Weighted GW: 6.350909
+    Weighted distance: 0.252456
+    Total loss: -48.822372
+    GW/Distance ratio: 5031.287
+Input PH dim: 23.54, Latent PH dim: 29.85
+  GW Loss Components:
+    Raw GW loss: 61.660454
+    Raw distance loss: 0.011243
+    Weighted GW: 6.166046
+    Weighted distance: 0.224856
+    Total loss: -48.629459
+    GW/Distance ratio: 5484.428
+Input PH dim: 30.37, Latent PH dim: 29.30
+  GW Loss Components:
+    Raw GW loss: 83.151894
+    Raw distance loss: 0.010539
+    Weighted GW: 8.315189
+    Weighted distance: 0.210785
+    Total loss: -46.560490
+    GW/Distance ratio: 7889.710
+Input PH dim: 15.86, Latent PH dim: 28.63
+  GW Loss Components:
+    Raw GW loss: 54.432228
+    Raw distance loss: 0.012980
+    Weighted GW: 5.443223
+    Weighted distance: 0.259601
+    Total loss: -50.316776
+    GW/Distance ratio: 4193.524
+Input PH dim: 20.97, Latent PH dim: 28.52
+  GW Loss Components:
+    Raw GW loss: 58.822388
+    Raw distance loss: 0.011072
+    Weighted GW: 5.882239
+    Weighted distance: 0.221432
+    Total loss: -49.156906
+    GW/Distance ratio: 5312.893
+Input PH dim: 25.30, Latent PH dim: 34.30
+  GW Loss Components:
+    Raw GW loss: 77.232635
+    Raw distance loss: 0.010446
+    Weighted GW: 7.723264
+    Weighted distance: 0.208919
+    Total loss: -48.296803
+    GW/Distance ratio: 7393.535
+Input PH dim: 17.16, Latent PH dim: 24.85
+  GW Loss Components:
+    Raw GW loss: 43.854134
+    Raw distance loss: 0.012635
+    Weighted GW: 4.385414
+    Weighted distance: 0.252691
+    Total loss: -51.303875
+    GW/Distance ratio: 3470.963
+Input PH dim: 22.50, Latent PH dim: 30.79
+  GW Loss Components:
+    Raw GW loss: 63.460983
+    Raw distance loss: 0.010660
+    Weighted GW: 6.346098
+    Weighted distance: 0.213209
+    Total loss: -49.192043
+    GW/Distance ratio: 5952.926
+Input PH dim: 25.95, Latent PH dim: 25.51
+  GW Loss Components:
+    Raw GW loss: 66.185524
+    Raw distance loss: 0.010412
+    Weighted GW: 6.618553
+    Weighted distance: 0.208235
+    Total loss: -49.416241
+    GW/Distance ratio: 6356.816
+Batch 125/182: Loss=-45.0072 (C:7.9994, R:0.0496, T:-49.9707(w:1.000)🎉)
+Input PH dim: 18.69, Latent PH dim: 29.48
+  GW Loss Components:
+    Raw GW loss: 45.344513
+    Raw distance loss: 0.012790
+    Weighted GW: 4.534451
+    Weighted distance: 0.255800
+    Total loss: -51.921192
+    GW/Distance ratio: 3545.308
+Input PH dim: 23.18, Latent PH dim: 28.72
+  GW Loss Components:
+    Raw GW loss: 68.291519
+    Raw distance loss: 0.010539
+    Weighted GW: 6.829152
+    Weighted distance: 0.210789
+    Total loss: -48.081066
+    GW/Distance ratio: 6479.590
+Input PH dim: 27.50, Latent PH dim: 27.22
+  GW Loss Components:
+    Raw GW loss: 93.986084
+    Raw distance loss: 0.010184
+    Weighted GW: 9.398608
+    Weighted distance: 0.203678
+    Total loss: -45.887405
+    GW/Distance ratio: 9228.866
+Input PH dim: 17.71, Latent PH dim: 31.05
+  GW Loss Components:
+    Raw GW loss: 73.776588
+    Raw distance loss: 0.012778
+    Weighted GW: 7.377659
+    Weighted distance: 0.255551
+    Total loss: -48.462639
+    GW/Distance ratio: 5773.921
+Input PH dim: 19.98, Latent PH dim: 30.28
+  GW Loss Components:
+    Raw GW loss: 67.840897
+    Raw distance loss: 0.010513
+    Weighted GW: 6.784090
+    Weighted distance: 0.210266
+    Total loss: -48.719128
+    GW/Distance ratio: 6452.850
+Input PH dim: 28.71, Latent PH dim: 29.62
+  GW Loss Components:
+    Raw GW loss: 84.538559
+    Raw distance loss: 0.010135
+    Weighted GW: 8.453856
+    Weighted distance: 0.202697
+    Total loss: -47.262665
+    GW/Distance ratio: 8341.365
+Input PH dim: 19.50, Latent PH dim: 34.52
+  GW Loss Components:
+    Raw GW loss: 63.837692
+    Raw distance loss: 0.012286
+    Weighted GW: 6.383770
+    Weighted distance: 0.245729
+    Total loss: -49.799831
+    GW/Distance ratio: 5195.767
+Input PH dim: 21.15, Latent PH dim: 30.20
+  GW Loss Components:
+    Raw GW loss: 56.659622
+    Raw distance loss: 0.010824
+    Weighted GW: 5.665962
+    Weighted distance: 0.216481
+    Total loss: -50.390099
+    GW/Distance ratio: 5234.597
+Input PH dim: 26.20, Latent PH dim: 27.97
+  GW Loss Components:
+    Raw GW loss: 83.141769
+    Raw distance loss: 0.010169
+    Weighted GW: 8.314178
+    Weighted distance: 0.203381
+    Total loss: -46.550404
+    GW/Distance ratio: 8175.972
+Input PH dim: 16.00, Latent PH dim: 27.89
+  GW Loss Components:
+    Raw GW loss: 47.543640
+    Raw distance loss: 0.012481
+    Weighted GW: 4.754364
+    Weighted distance: 0.249626
+    Total loss: -49.930641
+    GW/Distance ratio: 3809.188
+Input PH dim: 21.44, Latent PH dim: 27.93
+  GW Loss Components:
+    Raw GW loss: 60.900551
+    Raw distance loss: 0.010932
+    Weighted GW: 6.090055
+    Weighted distance: 0.218636
+    Total loss: -50.996559
+    GW/Distance ratio: 5570.946
+Input PH dim: 26.11, Latent PH dim: 26.75
+  GW Loss Components:
+    Raw GW loss: 76.279121
+    Raw distance loss: 0.010261
+    Weighted GW: 7.627912
+    Weighted distance: 0.205217
+    Total loss: -47.352283
+    GW/Distance ratio: 7433.995
+Input PH dim: 16.79, Latent PH dim: 28.26
+  GW Loss Components:
+    Raw GW loss: 52.748894
+    Raw distance loss: 0.013308
+    Weighted GW: 5.274889
+    Weighted distance: 0.266154
+    Total loss: -50.690151
+    GW/Distance ratio: 3963.790
+Input PH dim: 22.16, Latent PH dim: 29.96
+  GW Loss Components:
+    Raw GW loss: 68.814529
+    Raw distance loss: 0.011352
+    Weighted GW: 6.881453
+    Weighted distance: 0.227032
+    Total loss: -47.373684
+    GW/Distance ratio: 6062.104
+Input PH dim: 24.27, Latent PH dim: 31.88
+  GW Loss Components:
+    Raw GW loss: 79.016075
+    Raw distance loss: 0.010217
+    Weighted GW: 7.901608
+    Weighted distance: 0.204347
+    Total loss: -46.133110
+    GW/Distance ratio: 7733.522
+Input PH dim: 18.45, Latent PH dim: 27.18
+  GW Loss Components:
+    Raw GW loss: 78.341003
+    Raw distance loss: 0.013179
+    Weighted GW: 7.834100
+    Weighted distance: 0.263575
+    Total loss: -47.192463
+    GW/Distance ratio: 5944.479
+Input PH dim: 23.28, Latent PH dim: 28.74
+  GW Loss Components:
+    Raw GW loss: 66.258614
+    Raw distance loss: 0.011130
+    Weighted GW: 6.625862
+    Weighted distance: 0.222590
+    Total loss: -49.669796
+    GW/Distance ratio: 5953.408
+Input PH dim: 25.96, Latent PH dim: 29.27
+  GW Loss Components:
+    Raw GW loss: 83.874390
+    Raw distance loss: 0.010532
+    Weighted GW: 8.387439
+    Weighted distance: 0.210640
+    Total loss: -48.172245
+    GW/Distance ratio: 7963.772
+Input PH dim: 15.78, Latent PH dim: 29.07
+  GW Loss Components:
+    Raw GW loss: 60.522797
+    Raw distance loss: 0.013325
+    Weighted GW: 6.052280
+    Weighted distance: 0.266493
+    Total loss: -49.636562
+    GW/Distance ratio: 4542.172
+Input PH dim: 23.48, Latent PH dim: 28.51
+  GW Loss Components:
+    Raw GW loss: 60.891285
+    Raw distance loss: 0.011110
+    Weighted GW: 6.089128
+    Weighted distance: 0.222199
+    Total loss: -50.234577
+    GW/Distance ratio: 5480.772
+Input PH dim: 26.74, Latent PH dim: 28.67
+  GW Loss Components:
+    Raw GW loss: 74.687531
+    Raw distance loss: 0.010148
+    Weighted GW: 7.468753
+    Weighted distance: 0.202961
+    Total loss: -48.286274
+    GW/Distance ratio: 7359.771
+Input PH dim: 15.36, Latent PH dim: 30.89
+  GW Loss Components:
+    Raw GW loss: 89.151421
+    Raw distance loss: 0.012630
+    Weighted GW: 8.915142
+    Weighted distance: 0.252601
+    Total loss: -44.317554
+    GW/Distance ratio: 7058.664
+Input PH dim: 21.98, Latent PH dim: 28.95
+  GW Loss Components:
+    Raw GW loss: 55.980518
+    Raw distance loss: 0.010805
+    Weighted GW: 5.598052
+    Weighted distance: 0.216098
+    Total loss: -51.116280
+    GW/Distance ratio: 5181.033
+Input PH dim: 26.77, Latent PH dim: 29.06
+  GW Loss Components:
+    Raw GW loss: 92.497330
+    Raw distance loss: 0.010185
+    Weighted GW: 9.249733
+    Weighted distance: 0.203694
+    Total loss: -46.042675
+    GW/Distance ratio: 9082.000
+Input PH dim: 17.93, Latent PH dim: 27.89
+  GW Loss Components:
+    Raw GW loss: 63.604637
+    Raw distance loss: 0.012528
+    Weighted GW: 6.360464
+    Weighted distance: 0.250559
+    Total loss: -48.337265
+    GW/Distance ratio: 5077.023
+Input PH dim: 23.25, Latent PH dim: 29.84
+  GW Loss Components:
+    Raw GW loss: 62.380650
+    Raw distance loss: 0.011010
+    Weighted GW: 6.238065
+    Weighted distance: 0.220202
+    Total loss: -48.801613
+    GW/Distance ratio: 5665.749
+Input PH dim: 26.42, Latent PH dim: 29.52
+  GW Loss Components:
+    Raw GW loss: 79.799454
+    Raw distance loss: 0.010391
+    Weighted GW: 7.979946
+    Weighted distance: 0.207828
+    Total loss: -47.714245
+    GW/Distance ratio: 7679.378
+Input PH dim: 17.27, Latent PH dim: 26.93
+  GW Loss Components:
+    Raw GW loss: 88.335510
+    Raw distance loss: 0.012495
+    Weighted GW: 8.833551
+    Weighted distance: 0.249906
+    Total loss: -44.522247
+    GW/Distance ratio: 7069.505
+Input PH dim: 22.97, Latent PH dim: 31.93
+  GW Loss Components:
+    Raw GW loss: 48.486092
+    Raw distance loss: 0.010958
+    Weighted GW: 4.848609
+    Weighted distance: 0.219152
+    Total loss: -50.988865
+    GW/Distance ratio: 4424.888
+Input PH dim: 27.25, Latent PH dim: 31.10
+  GW Loss Components:
+    Raw GW loss: 75.964645
+    Raw distance loss: 0.010264
+    Weighted GW: 7.596465
+    Weighted distance: 0.205280
+    Total loss: -48.408062
+    GW/Distance ratio: 7401.055
+Input PH dim: 19.59, Latent PH dim: 27.79
+  GW Loss Components:
+    Raw GW loss: 62.526474
+    Raw distance loss: 0.012826
+    Weighted GW: 6.252647
+    Weighted distance: 0.256527
+    Total loss: -47.469193
+    GW/Distance ratio: 4874.845
+Input PH dim: 22.91, Latent PH dim: 26.60
+  GW Loss Components:
+    Raw GW loss: 64.574028
+    Raw distance loss: 0.010862
+    Weighted GW: 6.457403
+    Weighted distance: 0.217237
+    Total loss: -49.903938
+    GW/Distance ratio: 5945.035
+Input PH dim: 25.90, Latent PH dim: 28.97
+  GW Loss Components:
+    Raw GW loss: 67.478752
+    Raw distance loss: 0.010395
+    Weighted GW: 6.747875
+    Weighted distance: 0.207909
+    Total loss: -48.730328
+    GW/Distance ratio: 6491.169
+Input PH dim: 16.74, Latent PH dim: 26.89
+  GW Loss Components:
+    Raw GW loss: 63.658482
+    Raw distance loss: 0.012759
+    Weighted GW: 6.365848
+    Weighted distance: 0.255170
+    Total loss: -48.378109
+    GW/Distance ratio: 4989.488
+Input PH dim: 23.11, Latent PH dim: 28.53
+  GW Loss Components:
+    Raw GW loss: 58.170509
+    Raw distance loss: 0.010508
+    Weighted GW: 5.817051
+    Weighted distance: 0.210164
+    Total loss: -49.664177
+    GW/Distance ratio: 5535.716
+Input PH dim: 27.96, Latent PH dim: 29.28
+  GW Loss Components:
+    Raw GW loss: 84.580795
+    Raw distance loss: 0.009615
+    Weighted GW: 8.458079
+    Weighted distance: 0.192291
+    Total loss: -46.998661
+    GW/Distance ratio: 8797.154
+Input PH dim: 17.43, Latent PH dim: 30.99
+  GW Loss Components:
+    Raw GW loss: 62.362217
+    Raw distance loss: 0.011999
+    Weighted GW: 6.236222
+    Weighted distance: 0.239974
+    Total loss: -49.973232
+    GW/Distance ratio: 5197.417
+Input PH dim: 23.39, Latent PH dim: 36.57
+  GW Loss Components:
+    Raw GW loss: 58.231842
+    Raw distance loss: 0.010342
+    Weighted GW: 5.823184
+    Weighted distance: 0.206833
+    Total loss: -50.062626
+    GW/Distance ratio: 5630.801
+Input PH dim: 31.00, Latent PH dim: 30.44
+  GW Loss Components:
+    Raw GW loss: 73.401039
+    Raw distance loss: 0.009696
+    Weighted GW: 7.340104
+    Weighted distance: 0.193917
+    Total loss: -48.911030
+    GW/Distance ratio: 7570.352
+Input PH dim: 19.87, Latent PH dim: 30.71
+  GW Loss Components:
+    Raw GW loss: 53.960960
+    Raw distance loss: 0.011964
+    Weighted GW: 5.396096
+    Weighted distance: 0.239283
+    Total loss: -50.670452
+    GW/Distance ratio: 4510.210
+Input PH dim: 21.89, Latent PH dim: 27.26
+  GW Loss Components:
+    Raw GW loss: 78.308838
+    Raw distance loss: 0.010118
+    Weighted GW: 7.830884
+    Weighted distance: 0.202352
+    Total loss: -46.662529
+    GW/Distance ratio: 7739.868
+Input PH dim: 27.88, Latent PH dim: 29.23
+  GW Loss Components:
+    Raw GW loss: 75.741997
+    Raw distance loss: 0.009722
+    Weighted GW: 7.574200
+    Weighted distance: 0.194433
+    Total loss: -47.675339
+    GW/Distance ratio: 7791.070
+Input PH dim: 16.22, Latent PH dim: 29.33
+  GW Loss Components:
+    Raw GW loss: 68.077423
+    Raw distance loss: 0.011118
+    Weighted GW: 6.807743
+    Weighted distance: 0.222368
+    Total loss: -49.651253
+    GW/Distance ratio: 6122.941
+Input PH dim: 23.90, Latent PH dim: 32.39
+  GW Loss Components:
+    Raw GW loss: 68.736488
+    Raw distance loss: 0.010159
+    Weighted GW: 6.873649
+    Weighted distance: 0.203189
+    Total loss: -47.435783
+    GW/Distance ratio: 6765.774
+Input PH dim: 24.02, Latent PH dim: 30.47
+  GW Loss Components:
+    Raw GW loss: 105.797638
+    Raw distance loss: 0.009701
+    Weighted GW: 10.579764
+    Weighted distance: 0.194025
+    Total loss: -43.315254
+    GW/Distance ratio: 10905.541
+Input PH dim: 17.02, Latent PH dim: 30.38
+  GW Loss Components:
+    Raw GW loss: 82.013504
+    Raw distance loss: 0.011542
+    Weighted GW: 8.201350
+    Weighted distance: 0.230833
+    Total loss: -45.833416
+    GW/Distance ratio: 7105.875
+Input PH dim: 23.83, Latent PH dim: 28.82
+  GW Loss Components:
+    Raw GW loss: 68.270462
+    Raw distance loss: 0.010225
+    Weighted GW: 6.827046
+    Weighted distance: 0.204502
+    Total loss: -47.969311
+    GW/Distance ratio: 6676.755
+Input PH dim: 25.63, Latent PH dim: 31.37
+  GW Loss Components:
+    Raw GW loss: 85.487289
+    Raw distance loss: 0.009538
+    Weighted GW: 8.548729
+    Weighted distance: 0.190757
+    Total loss: -46.642395
+    GW/Distance ratio: 8962.943
+Input PH dim: 16.75, Latent PH dim: 28.63
+  GW Loss Components:
+    Raw GW loss: 86.299347
+    Raw distance loss: 0.011282
+    Weighted GW: 8.629935
+    Weighted distance: 0.225644
+    Total loss: -45.415779
+    GW/Distance ratio: 7649.157
+Input PH dim: 22.32, Latent PH dim: 33.85
+  GW Loss Components:
+    Raw GW loss: 70.697243
+    Raw distance loss: 0.010052
+    Weighted GW: 7.069725
+    Weighted distance: 0.201039
+    Total loss: -48.725307
+    GW/Distance ratio: 7033.162
+Input PH dim: 26.82, Latent PH dim: 33.12
+  GW Loss Components:
+    Raw GW loss: 70.883179
+    Raw distance loss: 0.009249
+    Weighted GW: 7.088318
+    Weighted distance: 0.184981
+    Total loss: -48.951431
+    GW/Distance ratio: 7663.840
+Input PH dim: 17.16, Latent PH dim: 33.49
+  GW Loss Components:
+    Raw GW loss: 55.352760
+    Raw distance loss: 0.011230
+    Weighted GW: 5.535276
+    Weighted distance: 0.224592
+    Total loss: -50.823685
+    GW/Distance ratio: 4929.188
+Input PH dim: 23.68, Latent PH dim: 29.43
+  GW Loss Components:
+    Raw GW loss: 85.657387
+    Raw distance loss: 0.009927
+    Weighted GW: 8.565739
+    Weighted distance: 0.198546
+    Total loss: -45.606247
+    GW/Distance ratio: 8628.472
+Input PH dim: 28.08, Latent PH dim: 27.11
+  GW Loss Components:
+    Raw GW loss: 75.888702
+    Raw distance loss: 0.009570
+    Weighted GW: 7.588871
+    Weighted distance: 0.191406
+    Total loss: -47.864677
+    GW/Distance ratio: 7929.590
+Input PH dim: 19.09, Latent PH dim: 28.98
+  GW Loss Components:
+    Raw GW loss: 67.737885
+    Raw distance loss: 0.010849
+    Weighted GW: 6.773788
+    Weighted distance: 0.216971
+    Total loss: -47.720642
+    GW/Distance ratio: 6243.952
+Input PH dim: 23.81, Latent PH dim: 28.40
+  GW Loss Components:
+    Raw GW loss: 58.579124
+    Raw distance loss: 0.009945
+    Weighted GW: 5.857913
+    Weighted distance: 0.198902
+    Total loss: -50.094284
+    GW/Distance ratio: 5890.229
+Input PH dim: 28.83, Latent PH dim: 29.78
+  GW Loss Components:
+    Raw GW loss: 85.248695
+    Raw distance loss: 0.009597
+    Weighted GW: 8.524870
+    Weighted distance: 0.191938
+    Total loss: -47.937870
+    GW/Distance ratio: 8882.917
+Input PH dim: 18.92, Latent PH dim: 27.91
+  GW Loss Components:
+    Raw GW loss: 67.964149
+    Raw distance loss: 0.011337
+    Weighted GW: 6.796415
+    Weighted distance: 0.226750
+    Total loss: -48.571831
+    GW/Distance ratio: 5994.633
+Input PH dim: 21.09, Latent PH dim: 28.71
+  GW Loss Components:
+    Raw GW loss: 51.349247
+    Raw distance loss: 0.010331
+    Weighted GW: 5.134925
+    Weighted distance: 0.206611
+    Total loss: -50.882847
+    GW/Distance ratio: 4970.612
+Input PH dim: 25.04, Latent PH dim: 32.09
+  GW Loss Components:
+    Raw GW loss: 86.202576
+    Raw distance loss: 0.009353
+    Weighted GW: 8.620257
+    Weighted distance: 0.187066
+    Total loss: -46.722866
+    GW/Distance ratio: 9216.260
+Input PH dim: 17.87, Latent PH dim: 30.53
+  GW Loss Components:
+    Raw GW loss: 48.448837
+    Raw distance loss: 0.011041
+    Weighted GW: 4.844884
+    Weighted distance: 0.220818
+    Total loss: -50.717247
+    GW/Distance ratio: 4388.124
+Input PH dim: 21.47, Latent PH dim: 29.90
+  GW Loss Components:
+    Raw GW loss: 59.896126
+    Raw distance loss: 0.010122
+    Weighted GW: 5.989613
+    Weighted distance: 0.202450
+    Total loss: -50.593933
+    GW/Distance ratio: 5917.125
+Input PH dim: 29.31, Latent PH dim: 31.09
+  GW Loss Components:
+    Raw GW loss: 81.223709
+    Raw distance loss: 0.009240
+    Weighted GW: 8.122371
+    Weighted distance: 0.184808
+    Total loss: -48.115799
+    GW/Distance ratio: 8790.075
+Input PH dim: 15.81, Latent PH dim: 30.80
+  GW Loss Components:
+    Raw GW loss: 56.528030
+    Raw distance loss: 0.011613
+    Weighted GW: 5.652803
+    Weighted distance: 0.232259
+    Total loss: -50.221527
+    GW/Distance ratio: 4867.660
+Input PH dim: 24.74, Latent PH dim: 27.72
+  GW Loss Components:
+    Raw GW loss: 64.511337
+    Raw distance loss: 0.010134
+    Weighted GW: 6.451134
+    Weighted distance: 0.202682
+    Total loss: -48.202271
+    GW/Distance ratio: 6365.776
+Input PH dim: 26.64, Latent PH dim: 29.07
+  GW Loss Components:
+    Raw GW loss: 79.922462
+    Raw distance loss: 0.009619
+    Weighted GW: 7.992246
+    Weighted distance: 0.192377
+    Total loss: -46.815525
+    GW/Distance ratio: 8308.936
+Input PH dim: 17.21, Latent PH dim: 30.27
+  GW Loss Components:
+    Raw GW loss: 47.555077
+    Raw distance loss: 0.011626
+    Weighted GW: 4.755508
+    Weighted distance: 0.232518
+    Total loss: -52.124302
+    GW/Distance ratio: 4090.442
+Input PH dim: 19.98, Latent PH dim: 29.16
+  GW Loss Components:
+    Raw GW loss: 59.125687
+    Raw distance loss: 0.010348
+    Weighted GW: 5.912569
+    Weighted distance: 0.206958
+    Total loss: -48.916553
+    GW/Distance ratio: 5713.779
+Input PH dim: 25.21, Latent PH dim: 29.80
+  GW Loss Components:
+    Raw GW loss: 76.001862
+    Raw distance loss: 0.009510
+    Weighted GW: 7.600186
+    Weighted distance: 0.190204
+    Total loss: -48.835663
+    GW/Distance ratio: 7991.604
+Input PH dim: 16.99, Latent PH dim: 32.61
+  GW Loss Components:
+    Raw GW loss: 42.557751
+    Raw distance loss: 0.012036
+    Weighted GW: 4.255775
+    Weighted distance: 0.240719
+    Total loss: -52.888000
+    GW/Distance ratio: 3535.884
+Input PH dim: 21.97, Latent PH dim: 34.92
+  GW Loss Components:
+    Raw GW loss: 67.585289
+    Raw distance loss: 0.010204
+    Weighted GW: 6.758529
+    Weighted distance: 0.204080
+    Total loss: -48.927898
+    GW/Distance ratio: 6623.414
+Input PH dim: 26.76, Latent PH dim: 28.25
+  GW Loss Components:
+    Raw GW loss: 87.496689
+    Raw distance loss: 0.009636
+    Weighted GW: 8.749669
+    Weighted distance: 0.192716
+    Total loss: -47.010529
+    GW/Distance ratio: 9080.376
+Input PH dim: 16.86, Latent PH dim: 29.18
+  GW Loss Components:
+    Raw GW loss: 48.647316
+    Raw distance loss: 0.013117
+    Weighted GW: 4.864732
+    Weighted distance: 0.262333
+    Total loss: -51.495537
+    GW/Distance ratio: 3708.815
+Input PH dim: 21.96, Latent PH dim: 31.80
+  GW Loss Components:
+    Raw GW loss: 68.678833
+    Raw distance loss: 0.011145
+    Weighted GW: 6.867883
+    Weighted distance: 0.222894
+    Total loss: -48.264008
+    GW/Distance ratio: 6162.469
+Input PH dim: 25.96, Latent PH dim: 31.58
+  GW Loss Components:
+    Raw GW loss: 79.928513
+    Raw distance loss: 0.009942
+    Weighted GW: 7.992851
+    Weighted distance: 0.198848
+    Total loss: -48.985455
+    GW/Distance ratio: 8039.167
+Batch 150/182: Loss=-44.9921 (C:8.0002, R:0.0459, T:-49.5817(w:1.000)🎉)
+Input PH dim: 17.21, Latent PH dim: 31.55
+  GW Loss Components:
+    Raw GW loss: 49.858517
+    Raw distance loss: 0.014429
+    Weighted GW: 4.985852
+    Weighted distance: 0.288580
+    Total loss: -51.233746
+    GW/Distance ratio: 3455.433
+Input PH dim: 23.47, Latent PH dim: 30.46
+  GW Loss Components:
+    Raw GW loss: 79.673584
+    Raw distance loss: 0.012444
+    Weighted GW: 7.967359
+    Weighted distance: 0.248873
+    Total loss: -48.521980
+    GW/Distance ratio: 6402.757
+Input PH dim: 26.93, Latent PH dim: 30.79

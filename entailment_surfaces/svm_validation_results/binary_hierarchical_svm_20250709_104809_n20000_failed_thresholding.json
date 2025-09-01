@@ -1,0 +1,75 @@
+{
+  "timestamp": "20250709_104809",
+  "experiment_config": {
+    "approach": "hierarchical_classification",
+    "sample_size": 20000,
+    "embedding_space": "lattice_containment",
+    "method": "binary_svm_with_thresholds",
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "thresholds": {
+    "entailment_threshold": 3.88105959496244,
+    "contradiction_threshold": 3.7374591608266696
+  },
+  "performance_metrics": {
+    "test_accuracy": 0.33525,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        6684
+      ],
+      [
+        0,
+        0,
+        6609
+      ],
+      [
+        0,
+        2,
+        6705
+      ]
+    ],
+    "classification_report": {
+      "Entailment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 6684.0
+      },
+      "Neutral": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 6609.0
+      },
+      "Contradiction": {
+        "precision": 0.33528352835283526,
+        "recall": 0.9997018040852841,
+        "f1-score": 0.5021531548399176,
+        "support": 6707.0
+      },
+      "accuracy": 0.33525,
+      "macro avg": {
+        "precision": 0.11176117611761176,
+        "recall": 0.3332339346950947,
+        "f1-score": 0.1673843849466392,
+        "support": 20000.0
+      },
+      "weighted avg": {
+        "precision": 0.11243733123312331,
+        "recall": 0.33525,
+        "f1-score": 0.16839706047556638,
+        "support": 20000.0
+      }
+    }
+  },
+  "entailment_scores_stats": {
+    "mean": 0.020012425729064916,
+    "std": 1.307253317027338,
+    "min": -3.155361677690302,
+    "max": 3.88105959496244,
+    "range": 7.036421272652742
+  }
+}

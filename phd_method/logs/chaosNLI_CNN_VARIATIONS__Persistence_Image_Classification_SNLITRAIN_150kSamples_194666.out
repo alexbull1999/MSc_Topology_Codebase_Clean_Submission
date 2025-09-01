@@ -1,0 +1,170 @@
+Job ID: 194666
+Node: gpuvm18
+Time: Fri 15 Aug 10:30:12 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Aug 15 10:30:14 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   31C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+COMPLETE ARCHITECTURE COMPARISON
+================================================================================
+Loading SNLI persistence images...
+SNLI persistence images: Train (150000, 900), Val (9842, 900)
+Loading ChaosNLI persistence images...
+ChaosNLI persistence images: (1514, 900)
+Human label distributions: (1514, 3)
+Entropy range: 0.000 - 1.583
+
+============================================================
+TRAINING ORIGINAL CNN
+============================================================
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.5427 (Acc 0.813), Val Loss 0.7167 (Acc 0.723), Best Val 0.000
+Epoch   1: Train Loss 0.5115 (Acc 0.818), Val Loss 0.6911 (Acc 0.724), Best Val 0.723
+Epoch   2: Train Loss 0.4989 (Acc 0.819), Val Loss 0.6671 (Acc 0.727), Best Val 0.724
+Epoch   3: Train Loss 0.4902 (Acc 0.820), Val Loss 0.6612 (Acc 0.730), Best Val 0.727
+Epoch   4: Train Loss 0.4826 (Acc 0.821), Val Loss 0.6409 (Acc 0.730), Best Val 0.730
+Epoch   5: Train Loss 0.4765 (Acc 0.822), Val Loss 0.6931 (Acc 0.736), Best Val 0.730
+Epoch   6: Train Loss 0.4710 (Acc 0.824), Val Loss 0.6406 (Acc 0.740), Best Val 0.736
+Epoch   7: Train Loss 0.4670 (Acc 0.825), Val Loss 0.6278 (Acc 0.736), Best Val 0.740
+Epoch   8: Train Loss 0.4642 (Acc 0.826), Val Loss 0.6362 (Acc 0.743), Best Val 0.740
+Epoch   9: Train Loss 0.4617 (Acc 0.827), Val Loss 0.6530 (Acc 0.736), Best Val 0.743
+Epoch  20: Train Loss 0.4414 (Acc 0.834), Val Loss 0.6078 (Acc 0.754), Best Val 0.750
+Epoch  40: Train Loss 0.4307 (Acc 0.838), Val Loss 0.5829 (Acc 0.758), Best Val 0.759
+Epoch  60: Train Loss 0.4134 (Acc 0.843), Val Loss 0.5845 (Acc 0.761), Best Val 0.762
+Epoch  80: Train Loss 0.4000 (Acc 0.849), Val Loss 0.5557 (Acc 0.763), Best Val 0.764
+Epoch 100: Train Loss 0.3958 (Acc 0.850), Val Loss 0.5561 (Acc 0.766), Best Val 0.766
+Epoch 120: Train Loss 0.3952 (Acc 0.850), Val Loss 0.5593 (Acc 0.764), Best Val 0.766
+Early stopping at epoch 121 (patience=25)
+Training completed. Best validation accuracy: 0.766
+Original CNN SNLI validation accuracy: 0.766
+
+Evaluating persistence model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for persistence:
+  Overall JSD: 0.3056
+  Overall KL:  0.6807
+  Traditional Accuracy: 0.5779
+  High agreement (entropy < 0.5): JSD=0.3276 (309 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.2943 (814 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.3119 (391 samples)
+  Beats random: JSD=YES, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+============================================================
+TRAINING ENHANCED CNN
+============================================================
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.5605 (Acc 0.813), Val Loss 0.7487 (Acc 0.720), Best Val 0.000
+Epoch   1: Train Loss 0.5304 (Acc 0.816), Val Loss 0.7277 (Acc 0.724), Best Val 0.720
+Epoch   2: Train Loss 0.5106 (Acc 0.818), Val Loss 0.6872 (Acc 0.723), Best Val 0.724
+Epoch   3: Train Loss 0.4790 (Acc 0.824), Val Loss 0.7639 (Acc 0.743), Best Val 0.724
+Epoch   4: Train Loss 0.4509 (Acc 0.831), Val Loss 1.3392 (Acc 0.511), Best Val 0.743
+Epoch   5: Train Loss 0.4423 (Acc 0.836), Val Loss 1.4223 (Acc 0.421), Best Val 0.743
+Epoch   6: Train Loss 0.4389 (Acc 0.836), Val Loss 0.7161 (Acc 0.726), Best Val 0.743
+Epoch   7: Train Loss 0.4342 (Acc 0.839), Val Loss 0.9888 (Acc 0.629), Best Val 0.743
+Epoch   8: Train Loss 0.4339 (Acc 0.839), Val Loss 0.7095 (Acc 0.753), Best Val 0.743
+Epoch   9: Train Loss 0.4327 (Acc 0.840), Val Loss 1.0493 (Acc 0.610), Best Val 0.753
+Epoch  20: Train Loss 0.4216 (Acc 0.843), Val Loss 0.9338 (Acc 0.684), Best Val 0.753
+Early stopping at epoch 33 (patience=25)
+Training completed. Best validation accuracy: 0.753
+Enhanced CNN SNLI validation accuracy: 0.753
+
+Evaluating persistence model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for persistence:
+  Overall JSD: 0.3232
+  Overall KL:  0.8018
+  Traditional Accuracy: 0.5581
+  High agreement (entropy < 0.5): JSD=0.3158 (309 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.3279 (814 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.3192 (391 samples)
+  Beats random: JSD=NO, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+============================================================
+TRAINING ATTENTION CNN
+============================================================
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.5349 (Acc 0.815), Val Loss 0.7347 (Acc 0.724), Best Val 0.000
+Epoch   1: Train Loss 0.4899 (Acc 0.823), Val Loss 0.7160 (Acc 0.729), Best Val 0.724
+Epoch   2: Train Loss 0.4544 (Acc 0.831), Val Loss 3.7928 (Acc 0.338), Best Val 0.729
+Epoch   3: Train Loss 0.4423 (Acc 0.835), Val Loss 2.4411 (Acc 0.431), Best Val 0.729
+Epoch   4: Train Loss 0.4388 (Acc 0.836), Val Loss 0.5932 (Acc 0.757), Best Val 0.729
+Epoch   5: Train Loss 0.4360 (Acc 0.837), Val Loss 5.0890 (Acc 0.338), Best Val 0.757
+Epoch   6: Train Loss 0.4325 (Acc 0.839), Val Loss 8.7091 (Acc 0.338), Best Val 0.757
+Epoch   7: Train Loss 0.4309 (Acc 0.838), Val Loss 3.0689 (Acc 0.338), Best Val 0.757
+Epoch   8: Train Loss 0.4284 (Acc 0.840), Val Loss 2.4315 (Acc 0.344), Best Val 0.757
+Epoch   9: Train Loss 0.4268 (Acc 0.840), Val Loss 20.0577 (Acc 0.333), Best Val 0.757
+Epoch  20: Train Loss 0.4093 (Acc 0.846), Val Loss 0.6394 (Acc 0.738), Best Val 0.767
+Epoch  40: Train Loss 0.3993 (Acc 0.850), Val Loss 0.6929 (Acc 0.688), Best Val 0.771
+Epoch  60: Train Loss 0.3938 (Acc 0.852), Val Loss 0.5836 (Acc 0.756), Best Val 0.773
+Epoch  80: Train Loss 0.3893 (Acc 0.853), Val Loss 0.5453 (Acc 0.771), Best Val 0.774
+Epoch 100: Train Loss 0.3876 (Acc 0.853), Val Loss 0.5348 (Acc 0.772), Best Val 0.774
+Early stopping at epoch 110 (patience=25)
+Training completed. Best validation accuracy: 0.774
+Attention CNN SNLI validation accuracy: 0.774
+
+Evaluating persistence model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for persistence:
+  Overall JSD: 0.3044
+  Overall KL:  0.6706
+  Traditional Accuracy: 0.5727
+  High agreement (entropy < 0.5): JSD=0.3252 (309 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.2937 (814 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.3103 (391 samples)
+  Beats random: JSD=YES, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+============================================================
+TRAINING MULTI-SCALE CNN
+============================================================
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.5490 (Acc 0.814), Val Loss 1.1157 (Acc 0.588), Best Val 0.000
+Epoch   1: Train Loss 0.5171 (Acc 0.818), Val Loss 0.8210 (Acc 0.606), Best Val 0.588
+Epoch   2: Train Loss 0.5025 (Acc 0.819), Val Loss 0.8499 (Acc 0.577), Best Val 0.606
+Epoch   3: Train Loss 0.4935 (Acc 0.820), Val Loss 0.9514 (Acc 0.605), Best Val 0.606
+Epoch   4: Train Loss 0.4870 (Acc 0.821), Val Loss 0.8766 (Acc 0.608), Best Val 0.606
+Epoch   5: Train Loss 0.4828 (Acc 0.821), Val Loss 1.0480 (Acc 0.610), Best Val 0.608
+Epoch   6: Train Loss 0.4790 (Acc 0.822), Val Loss 0.9102 (Acc 0.606), Best Val 0.610
+Epoch   7: Train Loss 0.4761 (Acc 0.823), Val Loss 0.8411 (Acc 0.605), Best Val 0.610
+Epoch   8: Train Loss 0.4712 (Acc 0.824), Val Loss 0.8957 (Acc 0.600), Best Val 0.610
+Epoch   9: Train Loss 0.4692 (Acc 0.824), Val Loss 0.8686 (Acc 0.594), Best Val 0.610
+Epoch  20: Train Loss 0.4438 (Acc 0.833), Val Loss 3.5364 (Acc 0.338), Best Val 0.610

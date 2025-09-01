@@ -1,0 +1,152 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 183764
+Node: gpuvm16
+Time: Fri 18 Jul 18:28:13 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Jul 18 18:28:15 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   37C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Comparison...
+
+============================================================
+DIAGNOSTIC ANALYSIS: Best Model vs Target Prototypes
+============================================================
+Loading model from: entailment_surfaces/supervised_contrastive_autoencoder/experiments/coarse_lr1e-04_lat75_bs1020_20250714_172135_BEST_CONCAT/checkpoints/best_model.pt
+ContrastiveAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [512, 256]
+  Dropout rate: 0.2
+  Total parameters: 1,876,555
+Model loaded successfully!
+   Best epoch: 89
+   Best validation loss: 0.6610932350158691
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+Total samples: 9842
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1020
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Extracting latent features from best model...
+Label format: <class 'str'>
+Sample labels: ['contradiction', 'contradiction', 'contradiction', 'contradiction', 'contradiction']
+  Processed 0/9842 samples...
+  contradiction: 1000 samples
+  entailment: 1000 samples
+  neutral: 1000 samples
+
+Computing persistence diagrams for each class...
+  Computing for contradiction...
+    contradiction: 54 H1 features
+    PH dimension: 1.0806
+  Computing for entailment...
+    entailment: 27 H1 features
+    PH dimension: 2.6336
+  Computing for neutral...
+    neutral: 153 H1 features
+    PH dimension: -0.6640
+Loaded prototypes from entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_robust.pkl
+
+============================================================
+COMPARISON: Current Model vs Target Prototypes
+============================================================
+
+CONTRADICTION:
+  Current model:
+    H1 features: 54
+    Total persistence: 0.0000
+    Max persistence: 0.0000
+    Mean persistence: 0.0000
+  Target prototype:
+    H1 features: 2682
+    Total persistence: 101.8268
+    Max persistence: 0.1792
+    Mean persistence: 0.0380
+  Gap ratio (current/target): 0.0000
+  ❌ Current model has much LOWER complexity than target
+
+ENTAILMENT:
+  Current model:
+    H1 features: 27
+    Total persistence: 0.0000
+    Max persistence: 0.0000
+    Mean persistence: 0.0000
+  Target prototype:
+    H1 features: 1490
+    Total persistence: 69.3793
+    Max persistence: 0.2118
+    Mean persistence: 0.0466
+  Gap ratio (current/target): 0.0000
+  ❌ Current model has much LOWER complexity than target
+
+NEUTRAL:
+  Current model:
+    H1 features: 153
+    Total persistence: 0.0000
+    Max persistence: 0.0000
+    Mean persistence: 0.0000
+  Target prototype:
+    H1 features: 2043
+    Total persistence: 79.3200
+    Max persistence: 0.1820
+    Mean persistence: 0.0388
+  Gap ratio (current/target): 0.0000
+  ❌ Current model has much LOWER complexity than target
+
+============================================================
+OVERALL ASSESSMENT:
+============================================================
+⚠️  MIXED RESULTS: Some classes close, others far off
+   May need class-specific regularization weights
+Visualization saved as 'persistence_comparison.png'
+
+SUMMARY:
+contradiction: Much simpler than target (0.00x)
+entailment: Much simpler than target (0.00x)
+neutral: Much simpler than target (0.00x)
+
+Analysis completed with exit code: 0
+Time: Fri 18 Jul 18:28:46 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Regularization successful!
+
+
+Job finished.

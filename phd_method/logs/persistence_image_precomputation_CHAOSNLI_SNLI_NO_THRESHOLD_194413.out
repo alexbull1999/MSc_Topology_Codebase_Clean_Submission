@@ -1,0 +1,6160 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 194413
+Node: gpuvm13
+Time: Thu 14 Aug 12:15:58 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Aug 14 12:16:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   35C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting SBERT Token Extraction...
+
+Initializing SeparateModelPointCloudGenerator on cuda...
+Loading separate models...
+Order model: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+Asymmetry model: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+Both models loaded on cuda
+Order model training stats: Best val loss = 0.3095578676823919
+Asymmetry model training stats: Best val loss = 3.3644538818131413
+Generator initialized successfully
+================================================================================
+PRECOMPUTING CHAOSNLI PERSISTENCE IMAGES
+================================================================================
+Input: /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_snli_sbert_tokens.pkl
+Output: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_persistence_images.pkl
+Loading ChaosNLI data...
+
+ChaosNLI Dataset Statistics:
+Majority label distribution: {'n': 813, 'e': 421, 'c': 280}
+Human annotation entropy:
+  Mean: 0.798
+  Min: 0.000
+  Max: 1.583
+  Std: 0.333
+Agreement levels:
+  High agreement (entropy < 0.5): 309 (20.4%)
+  Medium agreement (0.5 ≤ entropy < 1.0): 814 (53.8%)
+  Low agreement (entropy ≥ 1.0): 391 (25.8%)
+Token statistics:
+  Premise tokens: 18.7 ± 7.4
+  Hypothesis tokens: 11.2 ± 4.1
+  Total tokens: 29.9 ± 9.1
+
+Processing 1514 samples...
+Processing batch 1: samples 1-16
+Point cloud optimization: 609 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 116
+Point cloud optimization: 614 -> 500
+Computing persistence on full 529 point cloud...
+  H0 features: 529
+  H1 features: 176
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 105
+Computing persistence on full 391 point cloud...
+  H0 features: 391
+  H1 features: 190
+Point cloud optimization: 662 -> 500
+Computing persistence on full 541 point cloud...
+  H0 features: 541
+  H1 features: 331
+Computing persistence on full 454 point cloud...
+  H0 features: 454
+  H1 features: 127
+Computing persistence on full 198 point cloud...
+  H0 features: 198
+  H1 features: 47
+Computing persistence on full 314 point cloud...
+  H0 features: 314
+  H1 features: 60
+Computing persistence on full 495 point cloud...
+  H0 features: 495
+  H1 features: 133
+Computing persistence on full 374 point cloud...
+  H0 features: 374
+  H1 features: 132
+Point cloud optimization: 522 -> 500
+Computing persistence on full 506 point cloud...
+  H0 features: 506
+  H1 features: 273
+Computing persistence on full 321 point cloud...
+  H0 features: 321
+  H1 features: 78
+Point cloud optimization: 584 -> 500
+Computing persistence on full 524 point cloud...
+  H0 features: 524
+  H1 features: 187
+Point cloud optimization: 523 -> 500
+Computing persistence on full 506 point cloud...
+  H0 features: 506
+  H1 features: 215
+Computing persistence on full 361 point cloud...
+  H0 features: 361
+  H1 features: 84
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 60
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8936 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9983
+  Lifespans: 0.0000 - 0.9888
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0981)
+  pers_range: (0.0010, 1.0877)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0132
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 2: samples 17-32
+Computing persistence on full 212 point cloud...
+  H0 features: 212
+  H1 features: 55
+Computing persistence on full 338 point cloud...
+  H0 features: 338
+  H1 features: 170
+Computing persistence on full 395 point cloud...
+  H0 features: 395
+  H1 features: 242
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 162
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 187
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 159
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 80
+Point cloud optimization: 562 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 161
+Point cloud optimization: 569 -> 500
+Computing persistence on full 515 point cloud...
+  H0 features: 515
+  H1 features: 146
+Computing persistence on full 465 point cloud...
+  H0 features: 465
+  H1 features: 129
+Computing persistence on full 276 point cloud...
+  H0 features: 276
+  H1 features: 63
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 79
+Computing persistence on full 315 point cloud...
+  H0 features: 315
+  H1 features: 64
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 191
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 64
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 182
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8053 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9996
+  Lifespans: 0.0000 - 0.9782
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0995)
+  pers_range: (0.0010, 1.0760)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 3: samples 33-48
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 67
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 141
+Point cloud optimization: 738 -> 500
+Computing persistence on full 576 point cloud...
+  H0 features: 576
+  H1 features: 198
+Computing persistence on full 249 point cloud...
+  H0 features: 249
+  H1 features: 54
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 157
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 95
+Computing persistence on full 438 point cloud...
+  H0 features: 438
+  H1 features: 235
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 201
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 165
+Computing persistence on full 247 point cloud...
+  H0 features: 247
+  H1 features: 54
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 153
+Point cloud optimization: 596 -> 500
+Computing persistence on full 523 point cloud...
+  H0 features: 523
+  H1 features: 151
+Computing persistence on full 267 point cloud...
+  H0 features: 267
+  H1 features: 79
+Computing persistence on full 360 point cloud...
+  H0 features: 360
+  H1 features: 152
+Computing persistence on full 301 point cloud...
+  H0 features: 301
+  H1 features: 89
+Computing persistence on full 400 point cloud...
+  H0 features: 400
+  H1 features: 96
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7823 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9866
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0983)
+  pers_range: (0.0010, 1.0853)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 4: samples 49-64
+Point cloud optimization: 537 -> 500
+Computing persistence on full 507 point cloud...
+  H0 features: 507
+  H1 features: 85
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 178
+Computing persistence on full 261 point cloud...
+  H0 features: 261
+  H1 features: 82
+Point cloud optimization: 600 -> 500
+Computing persistence on full 526 point cloud...
+  H0 features: 526
+  H1 features: 253
+Computing persistence on full 395 point cloud...
+  H0 features: 395
+  H1 features: 112
+Computing persistence on full 410 point cloud...
+  H0 features: 410
+  H1 features: 153
+Computing persistence on full 350 point cloud...
+  H0 features: 350
+  H1 features: 67
+Point cloud optimization: 561 -> 500
+Computing persistence on full 515 point cloud...
+  H0 features: 515
+  H1 features: 229
+Computing persistence on full 355 point cloud...
+  H0 features: 355
+  H1 features: 68
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 79
+Computing persistence on full 220 point cloud...
+  H0 features: 220
+  H1 features: 41
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 168
+Point cloud optimization: 532 -> 500
+Computing persistence on full 508 point cloud...
+  H0 features: 508
+  H1 features: 238
+Point cloud optimization: 642 -> 500
+Computing persistence on full 532 point cloud...
+  H0 features: 532
+  H1 features: 119
+Computing persistence on full 258 point cloud...
+  H0 features: 258
+  H1 features: 54
+Computing persistence on full 380 point cloud...
+  H0 features: 380
+  H1 features: 198
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8294 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9983
+  Lifespans: 0.0000 - 0.9870
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0982)
+  pers_range: (0.0010, 1.0857)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 5: samples 65-80
+Computing persistence on full 191 point cloud...
+  H0 features: 191
+  H1 features: 56
+Point cloud optimization: 618 -> 500
+Computing persistence on full 529 point cloud...
+  H0 features: 529
+  H1 features: 126
+Computing persistence on full 202 point cloud...
+  H0 features: 202
+  H1 features: 41
+Computing persistence on full 208 point cloud...
+  H0 features: 208
+  H1 features: 44
+Computing persistence on full 238 point cloud...
+  H0 features: 238
+  H1 features: 46
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 99
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 62
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 113
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 137
+Computing persistence on full 327 point cloud...
+  H0 features: 327
+  H1 features: 97
+Computing persistence on full 321 point cloud...
+  H0 features: 321
+  H1 features: 107
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 160
+Computing persistence on full 204 point cloud...
+  H0 features: 204
+  H1 features: 49
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 90
+Computing persistence on full 305 point cloud...
+  H0 features: 305
+  H1 features: 83
+Computing persistence on full 320 point cloud...
+  H0 features: 320
+  H1 features: 91
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6217 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9822
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0994)
+  pers_range: (0.0010, 1.0804)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 6: samples 81-96
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 209
+Point cloud optimization: 559 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 134
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 227
+Point cloud optimization: 872 -> 500
+Computing persistence on full 656 point cloud...
+  H0 features: 656
+  H1 features: 116
+Computing persistence on full 280 point cloud...
+  H0 features: 280
+  H1 features: 79
+Computing persistence on full 342 point cloud...
+  H0 features: 342
+  H1 features: 79
+Computing persistence on full 384 point cloud...
+  H0 features: 384
+  H1 features: 126
+Point cloud optimization: 511 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 89
+Computing persistence on full 389 point cloud...
+  H0 features: 389
+  H1 features: 150
+Computing persistence on full 266 point cloud...
+  H0 features: 266
+  H1 features: 77
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 106
+Computing persistence on full 282 point cloud...
+  H0 features: 282
+  H1 features: 122
+Computing persistence on full 282 point cloud...
+  H0 features: 282
+  H1 features: 136
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 69
+Computing persistence on full 403 point cloud...
+  H0 features: 403
+  H1 features: 95
+Point cloud optimization: 515 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 149
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8259 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9993
+  Lifespans: 0.0000 - 0.9729
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0702)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0129
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 7: samples 97-112
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 64
+Computing persistence on full 356 point cloud...
+  H0 features: 356
+  H1 features: 122
+Point cloud optimization: 511 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 128
+Computing persistence on full 384 point cloud...
+  H0 features: 384
+  H1 features: 161
+Computing persistence on full 459 point cloud...
+  H0 features: 459
+  H1 features: 267
+Computing persistence on full 482 point cloud...
+  H0 features: 482
+  H1 features: 139
+Computing persistence on full 314 point cloud...
+  H0 features: 314
+  H1 features: 96
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 66
+Computing persistence on full 411 point cloud...
+  H0 features: 411
+  H1 features: 242
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 84
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 154
+Computing persistence on full 425 point cloud...
+  H0 features: 425
+  H1 features: 199
+Computing persistence on full 310 point cloud...
+  H0 features: 310
+  H1 features: 83
+Point cloud optimization: 567 -> 500
+Computing persistence on full 517 point cloud...
+  H0 features: 517
+  H1 features: 140
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 76
+Computing persistence on full 256 point cloud...
+  H0 features: 256
+  H1 features: 62
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8050 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9767
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0744)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 8: samples 113-128
+Computing persistence on full 333 point cloud...
+  H0 features: 333
+  H1 features: 71
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 104
+Point cloud optimization: 630 -> 500
+Computing persistence on full 534 point cloud...
+  H0 features: 534
+  H1 features: 295
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 198
+Computing persistence on full 250 point cloud...
+  H0 features: 250
+  H1 features: 34
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 187
+Computing persistence on full 244 point cloud...
+  H0 features: 244
+  H1 features: 46
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 69
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 77
+Computing persistence on full 390 point cloud...
+  H0 features: 390
+  H1 features: 102
+Point cloud optimization: 501 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 222
+Computing persistence on full 497 point cloud...
+  H0 features: 497
+  H1 features: 153
+Computing persistence on full 364 point cloud...
+  H0 features: 364
+  H1 features: 122
+Computing persistence on full 318 point cloud...
+  H0 features: 318
+  H1 features: 134
+Computing persistence on full 463 point cloud...
+  H0 features: 463
+  H1 features: 250
+Computing persistence on full 236 point cloud...
+  H0 features: 236
+  H1 features: 43
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7936 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9993
+  Lifespans: 0.0000 - 0.9875
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0862)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 9: samples 129-144
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 141
+Point cloud optimization: 574 -> 500
+Computing persistence on full 519 point cloud...
+  H0 features: 519
+  H1 features: 163
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 130
+Computing persistence on full 465 point cloud...
+  H0 features: 465
+  H1 features: 127
+Point cloud optimization: 516 -> 500
+Computing persistence on full 503 point cloud...
+  H0 features: 503
+  H1 features: 235
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 84
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 46
+Computing persistence on full 305 point cloud...
+  H0 features: 305
+  H1 features: 146
+Computing persistence on full 464 point cloud...
+  H0 features: 464
+  H1 features: 171
+Point cloud optimization: 568 -> 500
+Computing persistence on full 516 point cloud...
+  H0 features: 516
+  H1 features: 213
+Computing persistence on full 458 point cloud...
+  H0 features: 458
+  H1 features: 122
+Computing persistence on full 268 point cloud...
+  H0 features: 268
+  H1 features: 85
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 238
+Point cloud optimization: 511 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 224
+Computing persistence on full 278 point cloud...
+  H0 features: 278
+  H1 features: 104
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 96
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8689 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9993
+  Lifespans: 0.0000 - 0.9798
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0777)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 10: samples 145-160
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 148
+Point cloud optimization: 522 -> 500
+Computing persistence on full 503 point cloud...
+  H0 features: 503
+  H1 features: 114
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 57
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 68
+Computing persistence on full 216 point cloud...
+  H0 features: 216
+  H1 features: 53
+Computing persistence on full 196 point cloud...
+  H0 features: 196
+  H1 features: 53
+Computing persistence on full 299 point cloud...
+  H0 features: 299
+  H1 features: 84
+Computing persistence on full 342 point cloud...
+  H0 features: 342
+  H1 features: 115
+Computing persistence on full 340 point cloud...
+  H0 features: 340
+  H1 features: 167
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 83
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 82
+Computing persistence on full 213 point cloud...
+  H0 features: 213
+  H1 features: 55
+Computing persistence on full 249 point cloud...
+  H0 features: 249
+  H1 features: 78
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 48
+Computing persistence on full 334 point cloud...
+  H0 features: 334
+  H1 features: 139
+Computing persistence on full 240 point cloud...
+  H0 features: 240
+  H1 features: 61
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6255 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9859
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0986)
+  pers_range: (0.0010, 1.0845)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 11: samples 161-176
+Computing persistence on full 275 point cloud...
+  H0 features: 275
+  H1 features: 131
+Computing persistence on full 325 point cloud...
+  H0 features: 325
+  H1 features: 75
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 50
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 202
+Point cloud optimization: 570 -> 500
+Computing persistence on full 515 point cloud...
+  H0 features: 515
+  H1 features: 101
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 124
+Computing persistence on full 285 point cloud...
+  H0 features: 285
+  H1 features: 84
+Computing persistence on full 434 point cloud...
+  H0 features: 434
+  H1 features: 279
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 69
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 191
+Computing persistence on full 352 point cloud...
+  H0 features: 352
+  H1 features: 102
+Point cloud optimization: 513 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 178
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 107
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 180
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 121
+Computing persistence on full 361 point cloud...
+  H0 features: 361
+  H1 features: 128
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8066 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9823
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0990)
+  pers_range: (0.0010, 1.0805)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 12: samples 177-192
+Computing persistence on full 401 point cloud...
+  H0 features: 401
+  H1 features: 123
+Computing persistence on full 337 point cloud...
+  H0 features: 337
+  H1 features: 42
+Point cloud optimization: 634 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 141
+Computing persistence on full 390 point cloud...
+  H0 features: 390
+  H1 features: 163
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 97
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 151
+Computing persistence on full 323 point cloud...
+  H0 features: 323
+  H1 features: 78
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 59
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 160
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 73
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 36
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 59
+Computing persistence on full 392 point cloud...
+  H0 features: 392
+  H1 features: 47
+Computing persistence on full 201 point cloud...
+  H0 features: 201
+  H1 features: 60
+Computing persistence on full 280 point cloud...
+  H0 features: 280
+  H1 features: 57
+Computing persistence on full 314 point cloud...
+  H0 features: 314
+  H1 features: 122
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6914 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9750
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0990)
+  pers_range: (0.0010, 1.0725)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 13: samples 193-208
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 112
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 75
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 129
+Computing persistence on full 224 point cloud...
+  H0 features: 224
+  H1 features: 54
+Computing persistence on full 496 point cloud...
+  H0 features: 496
+  H1 features: 210
+Point cloud optimization: 680 -> 500
+Computing persistence on full 551 point cloud...
+  H0 features: 551
+  H1 features: 232
+Computing persistence on full 322 point cloud...
+  H0 features: 322
+  H1 features: 110
+Point cloud optimization: 586 -> 500
+Computing persistence on full 524 point cloud...
+  H0 features: 524
+  H1 features: 246
+Computing persistence on full 242 point cloud...
+  H0 features: 242
+  H1 features: 67
+Computing persistence on full 210 point cloud...
+  H0 features: 210
+  H1 features: 53
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 39
+Computing persistence on full 406 point cloud...
+  H0 features: 406
+  H1 features: 147
+Computing persistence on full 384 point cloud...
+  H0 features: 384
+  H1 features: 112
+Computing persistence on full 261 point cloud...
+  H0 features: 261
+  H1 features: 84
+Computing persistence on full 290 point cloud...
+  H0 features: 290
+  H1 features: 81
+Computing persistence on full 228 point cloud...
+  H0 features: 228
+  H1 features: 39
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7085 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9981
+  Lifespans: 0.0000 - 0.9796
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0979)
+  pers_range: (0.0010, 1.0776)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 14: samples 209-224
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 80
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 51
+Computing persistence on full 256 point cloud...
+  H0 features: 256
+  H1 features: 65
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 44
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 188
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 173
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 104
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 115
+Computing persistence on full 446 point cloud...
+  H0 features: 446
+  H1 features: 96
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 145
+Computing persistence on full 215 point cloud...
+  H0 features: 215
+  H1 features: 43
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 94
+Computing persistence on full 433 point cloud...
+  H0 features: 433
+  H1 features: 243
+Point cloud optimization: 637 -> 500
+Computing persistence on full 534 point cloud...
+  H0 features: 534
+  H1 features: 146
+Computing persistence on full 393 point cloud...
+  H0 features: 393
+  H1 features: 164
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 68
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7384 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 1.0009
+  Lifespans: 0.0000 - 0.9836
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.1010)
+  pers_range: (0.0010, 1.0820)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 15: samples 225-240
+Computing persistence on full 210 point cloud...
+  H0 features: 210
+  H1 features: 44
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 154
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 101
+Computing persistence on full 241 point cloud...
+  H0 features: 241
+  H1 features: 56
+Computing persistence on full 275 point cloud...
+  H0 features: 275
+  H1 features: 53
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 60
+Computing persistence on full 203 point cloud...
+  H0 features: 203
+  H1 features: 45
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 225
+Computing persistence on full 415 point cloud...
+  H0 features: 415
+  H1 features: 198
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 96
+Computing persistence on full 291 point cloud...
+  H0 features: 291
+  H1 features: 73
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 112
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 143
+Computing persistence on full 315 point cloud...
+  H0 features: 315
+  H1 features: 95
+Point cloud optimization: 511 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 101
+Computing persistence on full 234 point cloud...
+  H0 features: 234
+  H1 features: 59
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6750 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9771
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0984)
+  pers_range: (0.0010, 1.0748)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 16: samples 241-256
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 58
+Computing persistence on full 444 point cloud...
+  H0 features: 444
+  H1 features: 165
+Point cloud optimization: 663 -> 500
+Computing persistence on full 536 point cloud...
+  H0 features: 536
+  H1 features: 127
+Computing persistence on full 282 point cloud...
+  H0 features: 282
+  H1 features: 84
+Point cloud optimization: 515 -> 500
+Computing persistence on full 503 point cloud...
+  H0 features: 503
+  H1 features: 252
+Computing persistence on full 286 point cloud...
+  H0 features: 286
+  H1 features: 64
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 104
+Computing persistence on full 378 point cloud...
+  H0 features: 378
+  H1 features: 125
+Point cloud optimization: 543 -> 500
+Computing persistence on full 509 point cloud...
+  H0 features: 509
+  H1 features: 91
+Point cloud optimization: 610 -> 500
+Computing persistence on full 525 point cloud...
+  H0 features: 525
+  H1 features: 115
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 72
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 97
+Computing persistence on full 498 point cloud...
+  H0 features: 498
+  H1 features: 78
+Point cloud optimization: 512 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 286
+Computing persistence on full 276 point cloud...
+  H0 features: 276
+  H1 features: 47
+Point cloud optimization: 538 -> 500
+Computing persistence on full 511 point cloud...
+  H0 features: 511
+  H1 features: 182
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8483 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9814
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0990)
+  pers_range: (0.0010, 1.0796)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 17: samples 257-272
+Point cloud optimization: 613 -> 500
+Computing persistence on full 531 point cloud...
+  H0 features: 531
+  H1 features: 130
+Point cloud optimization: 631 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 83
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 173
+Computing persistence on full 356 point cloud...
+  H0 features: 356
+  H1 features: 84
+Point cloud optimization: 587 -> 500
+Computing persistence on full 520 point cloud...
+  H0 features: 520
+  H1 features: 103
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 63
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 58
+Computing persistence on full 206 point cloud...
+  H0 features: 206
+  H1 features: 39
+Computing persistence on full 259 point cloud...
+  H0 features: 259
+  H1 features: 75
+Computing persistence on full 334 point cloud...
+  H0 features: 334
+  H1 features: 144
+Computing persistence on full 405 point cloud...
+  H0 features: 405
+  H1 features: 184
+Computing persistence on full 282 point cloud...
+  H0 features: 282
+  H1 features: 76
+Computing persistence on full 300 point cloud...
+  H0 features: 300
+  H1 features: 77
+Computing persistence on full 432 point cloud...
+  H0 features: 432
+  H1 features: 94
+Computing persistence on full 292 point cloud...
+  H0 features: 292
+  H1 features: 113
+Computing persistence on full 310 point cloud...
+  H0 features: 310
+  H1 features: 74
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7185 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9983
+  Lifespans: 0.0000 - 0.9836
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0981)
+  pers_range: (0.0010, 1.0820)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 18: samples 273-288
+Computing persistence on full 483 point cloud...
+  H0 features: 483
+  H1 features: 91
+Computing persistence on full 435 point cloud...
+  H0 features: 435
+  H1 features: 222
+Point cloud optimization: 518 -> 500
+Computing persistence on full 504 point cloud...
+  H0 features: 504
+  H1 features: 149
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 85
+Computing persistence on full 425 point cloud...
+  H0 features: 425
+  H1 features: 121
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 161
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 94
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 94
+Computing persistence on full 225 point cloud...
+  H0 features: 225
+  H1 features: 51
+Computing persistence on full 359 point cloud...
+  H0 features: 359
+  H1 features: 167
+Point cloud optimization: 587 -> 500
+Computing persistence on full 524 point cloud...
+  H0 features: 524
+  H1 features: 230
+Point cloud optimization: 706 -> 500
+Computing persistence on full 557 point cloud...
+  H0 features: 557
+  H1 features: 275
+Computing persistence on full 433 point cloud...
+  H0 features: 433
+  H1 features: 132
+Point cloud optimization: 696 -> 500
+Computing persistence on full 553 point cloud...
+  H0 features: 553
+  H1 features: 205
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 211
+Computing persistence on full 266 point cloud...
+  H0 features: 266
+  H1 features: 44
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8872 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 1.0005
+  Lifespans: 0.0000 - 0.9843
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.1006)
+  pers_range: (0.0010, 1.0827)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 19: samples 289-304
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 60
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 96
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 136
+Computing persistence on full 328 point cloud...
+  H0 features: 328
+  H1 features: 79
+Computing persistence on full 286 point cloud...
+  H0 features: 286
+  H1 features: 57
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 113
+Computing persistence on full 199 point cloud...
+  H0 features: 199
+  H1 features: 46
+Computing persistence on full 336 point cloud...
+  H0 features: 336
+  H1 features: 82
+Computing persistence on full 322 point cloud...
+  H0 features: 322
+  H1 features: 161
+Computing persistence on full 407 point cloud...
+  H0 features: 407
+  H1 features: 206
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 119
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 193
+Computing persistence on full 380 point cloud...
+  H0 features: 380
+  H1 features: 189
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 57
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 54
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 170
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6890 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9910
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0901)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0132
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 20: samples 305-320
+Computing persistence on full 449 point cloud...
+  H0 features: 449
+  H1 features: 129
+Computing persistence on full 425 point cloud...
+  H0 features: 425
+  H1 features: 182
+Computing persistence on full 254 point cloud...
+  H0 features: 254
+  H1 features: 85
+Computing persistence on full 427 point cloud...
+  H0 features: 427
+  H1 features: 166
+Point cloud optimization: 521 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 293
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 85
+Computing persistence on full 371 point cloud...
+  H0 features: 371
+  H1 features: 173
+Computing persistence on full 422 point cloud...
+  H0 features: 422
+  H1 features: 102
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 189
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 77
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 102
+Point cloud optimization: 509 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 244
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 87
+Computing persistence on full 360 point cloud...
+  H0 features: 360
+  H1 features: 172
+Point cloud optimization: 771 -> 500
+Computing persistence on full 595 point cloud...
+  H0 features: 595
+  H1 features: 147
+Computing persistence on full 400 point cloud...
+  H0 features: 400
+  H1 features: 147
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8556 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9995
+  Lifespans: 0.0000 - 0.9902
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0994)
+  pers_range: (0.0010, 1.0892)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0132
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 21: samples 321-336
+Computing persistence on full 348 point cloud...
+  H0 features: 348
+  H1 features: 82
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 160
+Computing persistence on full 282 point cloud...
+  H0 features: 282
+  H1 features: 68
+Computing persistence on full 443 point cloud...
+  H0 features: 443
+  H1 features: 130
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 61
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 141
+Computing persistence on full 256 point cloud...
+  H0 features: 256
+  H1 features: 49
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 56
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 173
+Computing persistence on full 369 point cloud...
+  H0 features: 369
+  H1 features: 136
+Computing persistence on full 336 point cloud...
+  H0 features: 336
+  H1 features: 96
+Computing persistence on full 211 point cloud...
+  H0 features: 211
+  H1 features: 49
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 101
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 48
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 139
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 59
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6616 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9777
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0983)
+  pers_range: (0.0010, 1.0755)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 22: samples 337-352
+Point cloud optimization: 561 -> 500
+Computing persistence on full 516 point cloud...
+  H0 features: 516
+  H1 features: 244
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 125
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 86
+Computing persistence on full 393 point cloud...
+  H0 features: 393
+  H1 features: 110
+Computing persistence on full 281 point cloud...
+  H0 features: 281
+  H1 features: 58
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 149
+Computing persistence on full 370 point cloud...
+  H0 features: 370
+  H1 features: 184
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 88
+Computing persistence on full 370 point cloud...
+  H0 features: 370
+  H1 features: 95
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 53
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 81
+Computing persistence on full 430 point cloud...
+  H0 features: 430
+  H1 features: 136
+Computing persistence on full 496 point cloud...
+  H0 features: 496
+  H1 features: 130
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 140
+Computing persistence on full 285 point cloud...
+  H0 features: 285
+  H1 features: 59
+Computing persistence on full 342 point cloud...
+  H0 features: 342
+  H1 features: 91
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7634 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9813
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0986)
+  pers_range: (0.0010, 1.0794)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 23: samples 353-368
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 48
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 186
+Point cloud optimization: 562 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 118
+Computing persistence on full 396 point cloud...
+  H0 features: 396
+  H1 features: 210
+Computing persistence on full 444 point cloud...
+  H0 features: 444
+  H1 features: 163
+Computing persistence on full 223 point cloud...
+  H0 features: 223
+  H1 features: 52
+Point cloud optimization: 650 -> 500
+Computing persistence on full 535 point cloud...
+  H0 features: 535
+  H1 features: 100
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 109
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 136
+Computing persistence on full 427 point cloud...
+  H0 features: 427
+  H1 features: 196
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 94
+Point cloud optimization: 520 -> 500
+Computing persistence on full 504 point cloud...
+  H0 features: 504
+  H1 features: 157
+Computing persistence on full 289 point cloud...
+  H0 features: 289
+  H1 features: 72
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 92
+Computing persistence on full 396 point cloud...
+  H0 features: 396
+  H1 features: 111
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 52
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7959 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9993
+  Lifespans: 0.0000 - 0.9797
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0992)
+  pers_range: (0.0010, 1.0777)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 24: samples 369-384
+Computing persistence on full 411 point cloud...
+  H0 features: 411
+  H1 features: 56
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 154
+Computing persistence on full 408 point cloud...
+  H0 features: 408
+  H1 features: 190
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 151
+Computing persistence on full 436 point cloud...
+  H0 features: 436
+  H1 features: 126
+Point cloud optimization: 587 -> 500
+Computing persistence on full 521 point cloud...
+  H0 features: 521
+  H1 features: 139
+Point cloud optimization: 515 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 143
+Computing persistence on full 386 point cloud...
+  H0 features: 386
+  H1 features: 103
+Computing persistence on full 378 point cloud...
+  H0 features: 378
+  H1 features: 98
+Computing persistence on full 291 point cloud...
+  H0 features: 291
+  H1 features: 72
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 47
+Computing persistence on full 217 point cloud...
+  H0 features: 217
+  H1 features: 55
+Computing persistence on full 203 point cloud...
+  H0 features: 203
+  H1 features: 61
+Computing persistence on full 200 point cloud...
+  H0 features: 200
+  H1 features: 60
+Computing persistence on full 342 point cloud...
+  H0 features: 342
+  H1 features: 152
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 48
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7361 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9755
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0730)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 25: samples 385-400
+Point cloud optimization: 509 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 315
+Point cloud optimization: 705 -> 500
+Computing persistence on full 560 point cloud...
+  H0 features: 560
+  H1 features: 302
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 40
+Computing persistence on full 221 point cloud...
+  H0 features: 221
+  H1 features: 66
+Computing persistence on full 273 point cloud...
+  H0 features: 273
+  H1 features: 87
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 233
+Computing persistence on full 374 point cloud...
+  H0 features: 374
+  H1 features: 183
+Point cloud optimization: 504 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 264
+Computing persistence on full 424 point cloud...
+  H0 features: 424
+  H1 features: 195
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 47
+Point cloud optimization: 537 -> 500
+Computing persistence on full 510 point cloud...
+  H0 features: 510
+  H1 features: 211
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 177
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 128
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 106
+Computing persistence on full 377 point cloud...
+  H0 features: 377
+  H1 features: 154
+Computing persistence on full 268 point cloud...
+  H0 features: 268
+  H1 features: 49
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8443 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9737
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0986)
+  pers_range: (0.0010, 1.0711)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+  Progress: 400/1514 (26.4%) Rate: 3.4 samples/sec, ETA: 0.1h
+Processing batch 26: samples 401-416
+Computing persistence on full 427 point cloud...
+  H0 features: 427
+  H1 features: 225
+Computing persistence on full 333 point cloud...
+  H0 features: 333
+  H1 features: 84
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 55
+Computing persistence on full 386 point cloud...
+  H0 features: 386
+  H1 features: 119
+Computing persistence on full 249 point cloud...
+  H0 features: 249
+  H1 features: 66
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 168
+Computing persistence on full 349 point cloud...
+  H0 features: 349
+  H1 features: 70
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 83
+Point cloud optimization: 523 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 207
+Point cloud optimization: 560 -> 500
+Computing persistence on full 512 point cloud...
+  H0 features: 512
+  H1 features: 128
+Computing persistence on full 447 point cloud...
+  H0 features: 447
+  H1 features: 145
+Computing persistence on full 472 point cloud...
+  H0 features: 472
+  H1 features: 171
+Computing persistence on full 239 point cloud...
+  H0 features: 239
+  H1 features: 68
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 83
+Computing persistence on full 360 point cloud...
+  H0 features: 360
+  H1 features: 87
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 69
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7691 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9921
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0914)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0132
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 27: samples 417-432
+Computing persistence on full 384 point cloud...
+  H0 features: 384
+  H1 features: 58
+Computing persistence on full 479 point cloud...
+  H0 features: 479
+  H1 features: 101
+Computing persistence on full 359 point cloud...
+  H0 features: 359
+  H1 features: 173
+Computing persistence on full 377 point cloud...
+  H0 features: 377
+  H1 features: 133
+Computing persistence on full 237 point cloud...
+  H0 features: 237
+  H1 features: 56
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 160
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 122
+Point cloud optimization: 645 -> 500
+Computing persistence on full 534 point cloud...
+  H0 features: 534
+  H1 features: 166
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 158
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 166
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 65
+Computing persistence on full 389 point cloud...
+  H0 features: 389
+  H1 features: 123
+Computing persistence on full 350 point cloud...
+  H0 features: 350
+  H1 features: 116
+Computing persistence on full 421 point cloud...
+  H0 features: 421
+  H1 features: 215
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 122
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 57
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7796 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9988
+  Lifespans: 0.0000 - 0.9856
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0987)
+  pers_range: (0.0010, 1.0841)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 28: samples 433-448
+Computing persistence on full 407 point cloud...
+  H0 features: 407
+  H1 features: 86
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 69
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 63
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 154
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 131
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 157
+Computing persistence on full 244 point cloud...
+  H0 features: 244
+  H1 features: 66
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 96
+Point cloud optimization: 541 -> 500
+Computing persistence on full 509 point cloud...
+  H0 features: 509
+  H1 features: 142
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 77
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 95
+Computing persistence on full 308 point cloud...
+  H0 features: 308
+  H1 features: 128
+Computing persistence on full 323 point cloud...
+  H0 features: 323
+  H1 features: 163
+Computing persistence on full 327 point cloud...
+  H0 features: 327
+  H1 features: 86
+Computing persistence on full 289 point cloud...
+  H0 features: 289
+  H1 features: 41
+Point cloud optimization: 524 -> 500
+Computing persistence on full 504 point cloud...
+  H0 features: 504
+  H1 features: 77
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7346 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9990
+  Lifespans: 0.0000 - 0.9807
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0989)
+  pers_range: (0.0010, 1.0787)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 29: samples 449-464
+Computing persistence on full 252 point cloud...
+  H0 features: 252
+  H1 features: 85
+Computing persistence on full 373 point cloud...
+  H0 features: 373
+  H1 features: 150
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 56
+Point cloud optimization: 645 -> 500
+Computing persistence on full 531 point cloud...
+  H0 features: 531
+  H1 features: 104
+Computing persistence on full 328 point cloud...
+  H0 features: 328
+  H1 features: 61
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 67
+Computing persistence on full 199 point cloud...
+  H0 features: 199
+  H1 features: 46
+Computing persistence on full 436 point cloud...
+  H0 features: 436
+  H1 features: 114
+Computing persistence on full 457 point cloud...
+  H0 features: 457
+  H1 features: 199
+Computing persistence on full 440 point cloud...
+  H0 features: 440
+  H1 features: 257
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 59
+Computing persistence on full 363 point cloud...
+  H0 features: 363
+  H1 features: 129
+Computing persistence on full 352 point cloud...
+  H0 features: 352
+  H1 features: 95
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 129
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 100
+Computing persistence on full 428 point cloud...
+  H0 features: 428
+  H1 features: 162
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7690 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9792
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0771)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 30: samples 465-480
+Computing persistence on full 446 point cloud...
+  H0 features: 446
+  H1 features: 125
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 63
+Computing persistence on full 284 point cloud...
+  H0 features: 284
+  H1 features: 52
+Computing persistence on full 369 point cloud...
+  H0 features: 369
+  H1 features: 109
+Point cloud optimization: 601 -> 500
+Computing persistence on full 528 point cloud...
+  H0 features: 528
+  H1 features: 119
+Computing persistence on full 333 point cloud...
+  H0 features: 333
+  H1 features: 72
+Computing persistence on full 243 point cloud...
+  H0 features: 243
+  H1 features: 58
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 132
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 172
+Computing persistence on full 428 point cloud...
+  H0 features: 428
+  H1 features: 93
+Point cloud optimization: 515 -> 500
+Computing persistence on full 503 point cloud...
+  H0 features: 503
+  H1 features: 206
+Computing persistence on full 286 point cloud...
+  H0 features: 286
+  H1 features: 120
+Computing persistence on full 225 point cloud...
+  H0 features: 225
+  H1 features: 45
+Computing persistence on full 370 point cloud...
+  H0 features: 370
+  H1 features: 172
+Computing persistence on full 410 point cloud...
+  H0 features: 410
+  H1 features: 201
+Computing persistence on full 183 point cloud...
+  H0 features: 183
+  H1 features: 35
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7390 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9794
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0773)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 31: samples 481-496
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 76
+Point cloud optimization: 638 -> 500
+Computing persistence on full 539 point cloud...
+  H0 features: 539
+  H1 features: 312
+Point cloud optimization: 520 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 273
+Point cloud optimization: 537 -> 500
+Computing persistence on full 510 point cloud...
+  H0 features: 510
+  H1 features: 166
+Point cloud optimization: 521 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 170
+Point cloud optimization: 513 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 99
+Computing persistence on full 246 point cloud...
+  H0 features: 246
+  H1 features: 40
+Computing persistence on full 450 point cloud...
+  H0 features: 450
+  H1 features: 194
+Computing persistence on full 461 point cloud...
+  H0 features: 461
+  H1 features: 164
+Computing persistence on full 463 point cloud...
+  H0 features: 463
+  H1 features: 202
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 234
+Computing persistence on full 239 point cloud...
+  H0 features: 239
+  H1 features: 49
+Computing persistence on full 406 point cloud...
+  H0 features: 406
+  H1 features: 119
+Point cloud optimization: 603 -> 500
+Computing persistence on full 523 point cloud...
+  H0 features: 523
+  H1 features: 106
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 130
+Point cloud optimization: 550 -> 500
+Computing persistence on full 513 point cloud...
+  H0 features: 513
+  H1 features: 165
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 9339 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9797
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0776)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 32: samples 497-512
+Point cloud optimization: 541 -> 500
+Computing persistence on full 511 point cloud...
+  H0 features: 511
+  H1 features: 108
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 93
+Point cloud optimization: 504 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 157
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 163
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 208
+Point cloud optimization: 530 -> 500
+Computing persistence on full 506 point cloud...
+  H0 features: 506
+  H1 features: 175
+Computing persistence on full 350 point cloud...
+  H0 features: 350
+  H1 features: 153
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 155
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 90
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 74
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 188
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 74
+Computing persistence on full 182 point cloud...
+  H0 features: 182
+  H1 features: 38
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 70
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 57
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 101
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7821 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9817
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0984)
+  pers_range: (0.0010, 1.0799)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 33: samples 513-528
+Computing persistence on full 256 point cloud...
+  H0 features: 256
+  H1 features: 53
+Computing persistence on full 273 point cloud...
+  H0 features: 273
+  H1 features: 58
+Computing persistence on full 338 point cloud...
+  H0 features: 338
+  H1 features: 172
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 65
+Computing persistence on full 442 point cloud...
+  H0 features: 442
+  H1 features: 248
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 77
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 102
+Computing persistence on full 471 point cloud...
+  H0 features: 471
+  H1 features: 256
+Point cloud optimization: 511 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 234
+Computing persistence on full 400 point cloud...
+  H0 features: 400
+  H1 features: 206
+Computing persistence on full 281 point cloud...
+  H0 features: 281
+  H1 features: 74
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 55
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 125
+Computing persistence on full 276 point cloud...
+  H0 features: 276
+  H1 features: 88
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 94
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 64
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7366 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9990
+  Lifespans: 0.0000 - 0.9802
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0989)
+  pers_range: (0.0010, 1.0783)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 34: samples 529-544
+Computing persistence on full 281 point cloud...
+  H0 features: 281
+  H1 features: 75
+Computing persistence on full 363 point cloud...
+  H0 features: 363
+  H1 features: 91
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 111
+Computing persistence on full 490 point cloud...
+  H0 features: 490
+  H1 features: 160
+Computing persistence on full 446 point cloud...
+  H0 features: 446
+  H1 features: 179
+Computing persistence on full 433 point cloud...
+  H0 features: 433
+  H1 features: 83
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 52
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 80
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 74
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 114
+Computing persistence on full 460 point cloud...
+  H0 features: 460
+  H1 features: 120
+Computing persistence on full 432 point cloud...
+  H0 features: 432
+  H1 features: 159
+Computing persistence on full 315 point cloud...
+  H0 features: 315
+  H1 features: 147
+Computing persistence on full 371 point cloud...
+  H0 features: 371
+  H1 features: 158
+Computing persistence on full 242 point cloud...
+  H0 features: 242
+  H1 features: 41
+Computing persistence on full 335 point cloud...
+  H0 features: 335
+  H1 features: 73
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7424 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9810
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0985)
+  pers_range: (0.0010, 1.0791)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 35: samples 545-560
+Computing persistence on full 296 point cloud...
+  H0 features: 296
+  H1 features: 56
+Computing persistence on full 388 point cloud...
+  H0 features: 388
+  H1 features: 152
+Computing persistence on full 403 point cloud...
+  H0 features: 403
+  H1 features: 165
+Computing persistence on full 390 point cloud...
+  H0 features: 390
+  H1 features: 187
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 60
+Computing persistence on full 265 point cloud...
+  H0 features: 265
+  H1 features: 76
+Computing persistence on full 328 point cloud...
+  H0 features: 328
+  H1 features: 152
+Point cloud optimization: 528 -> 500
+Computing persistence on full 506 point cloud...
+  H0 features: 506
+  H1 features: 111
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 126
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 140
+Computing persistence on full 263 point cloud...
+  H0 features: 263
+  H1 features: 77
+Computing persistence on full 296 point cloud...
+  H0 features: 296
+  H1 features: 135
+Computing persistence on full 291 point cloud...
+  H0 features: 291
+  H1 features: 58
+Point cloud optimization: 719 -> 500
+Computing persistence on full 563 point cloud...
+  H0 features: 563
+  H1 features: 150
+Computing persistence on full 421 point cloud...
+  H0 features: 421
+  H1 features: 186
+Computing persistence on full 221 point cloud...
+  H0 features: 221
+  H1 features: 63
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7527 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9993
+  Lifespans: 0.0000 - 0.9849
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0834)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 36: samples 561-576
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 63
+Computing persistence on full 373 point cloud...
+  H0 features: 373
+  H1 features: 106
+Computing persistence on full 479 point cloud...
+  H0 features: 479
+  H1 features: 166
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 73
+Computing persistence on full 390 point cloud...
+  H0 features: 390
+  H1 features: 81
+Computing persistence on full 290 point cloud...
+  H0 features: 290
+  H1 features: 80
+Computing persistence on full 438 point cloud...
+  H0 features: 438
+  H1 features: 217
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 231
+Point cloud optimization: 990 -> 500
+Computing persistence on full 750 point cloud...
+  H0 features: 750
+  H1 features: 212
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 102
+Computing persistence on full 360 point cloud...
+  H0 features: 360
+  H1 features: 163
+Computing persistence on full 373 point cloud...
+  H0 features: 373
+  H1 features: 175
+Computing persistence on full 454 point cloud...
+  H0 features: 454
+  H1 features: 220
+Computing persistence on full 196 point cloud...
+  H0 features: 196
+  H1 features: 43
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 193
+Computing persistence on full 451 point cloud...
+  H0 features: 451
+  H1 features: 130
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8708 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9808
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0789)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 37: samples 577-592
+Computing persistence on full 437 point cloud...
+  H0 features: 437
+  H1 features: 183
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 209
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 53
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 170
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 78
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 79
+Computing persistence on full 266 point cloud...
+  H0 features: 266
+  H1 features: 69
+Computing persistence on full 241 point cloud...
+  H0 features: 241
+  H1 features: 52
+Computing persistence on full 337 point cloud...
+  H0 features: 337
+  H1 features: 98
+Computing persistence on full 424 point cloud...
+  H0 features: 424
+  H1 features: 223
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 160
+Computing persistence on full 308 point cloud...
+  H0 features: 308
+  H1 features: 89
+Computing persistence on full 470 point cloud...
+  H0 features: 470
+  H1 features: 192
+Computing persistence on full 221 point cloud...
+  H0 features: 221
+  H1 features: 54
+Computing persistence on full 402 point cloud...
+  H0 features: 402
+  H1 features: 160
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 181
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7573 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 1.0000
+  Lifespans: 0.0000 - 0.9833
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.1000)
+  pers_range: (0.0010, 1.0816)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 38: samples 593-608
+Computing persistence on full 439 point cloud...
+  H0 features: 439
+  H1 features: 237
+Point cloud optimization: 563 -> 500
+Computing persistence on full 519 point cloud...
+  H0 features: 519
+  H1 features: 146
+Computing persistence on full 262 point cloud...
+  H0 features: 262
+  H1 features: 117
+Computing persistence on full 436 point cloud...
+  H0 features: 436
+  H1 features: 200
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 79
+Computing persistence on full 473 point cloud...
+  H0 features: 473
+  H1 features: 236
+Computing persistence on full 231 point cloud...
+  H0 features: 231
+  H1 features: 66
+Computing persistence on full 222 point cloud...
+  H0 features: 222
+  H1 features: 47
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 125
+Computing persistence on full 273 point cloud...
+  H0 features: 273
+  H1 features: 60
+Computing persistence on full 263 point cloud...
+  H0 features: 263
+  H1 features: 76
+Computing persistence on full 321 point cloud...
+  H0 features: 321
+  H1 features: 97
+Computing persistence on full 299 point cloud...
+  H0 features: 299
+  H1 features: 79
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 89
+Computing persistence on full 229 point cloud...
+  H0 features: 229
+  H1 features: 56
+Computing persistence on full 336 point cloud...
+  H0 features: 336
+  H1 features: 88
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7069 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9849
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0834)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 39: samples 609-624
+Computing persistence on full 373 point cloud...
+  H0 features: 373
+  H1 features: 80
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 83
+Computing persistence on full 247 point cloud...
+  H0 features: 247
+  H1 features: 57
+Computing persistence on full 237 point cloud...
+  H0 features: 237
+  H1 features: 66
+Computing persistence on full 420 point cloud...
+  H0 features: 420
+  H1 features: 143
+Computing persistence on full 337 point cloud...
+  H0 features: 337
+  H1 features: 78
+Computing persistence on full 424 point cloud...
+  H0 features: 424
+  H1 features: 163
+Computing persistence on full 485 point cloud...
+  H0 features: 485
+  H1 features: 291
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 106
+Computing persistence on full 369 point cloud...
+  H0 features: 369
+  H1 features: 136
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 81
+Computing persistence on full 456 point cloud...
+  H0 features: 456
+  H1 features: 245
+Computing persistence on full 378 point cloud...
+  H0 features: 378
+  H1 features: 143
+Computing persistence on full 447 point cloud...
+  H0 features: 447
+  H1 features: 222
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 73
+Computing persistence on full 375 point cloud...
+  H0 features: 375
+  H1 features: 91
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7831 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9997
+  Lifespans: 0.0000 - 0.9868
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0996)
+  pers_range: (0.0010, 1.0855)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 40: samples 625-640
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 101
+Computing persistence on full 248 point cloud...
+  H0 features: 248
+  H1 features: 52
+Point cloud optimization: 840 -> 500
+Computing persistence on full 636 point cloud...
+  H0 features: 636
+  H1 features: 232
+Computing persistence on full 330 point cloud...
+  H0 features: 330
+  H1 features: 66
+Computing persistence on full 308 point cloud...
+  H0 features: 308
+  H1 features: 86
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 82
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 129
+Computing persistence on full 290 point cloud...
+  H0 features: 290
+  H1 features: 81
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 251
+Point cloud optimization: 693 -> 500
+Computing persistence on full 553 point cloud...
+  H0 features: 553
+  H1 features: 229
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 183
+Point cloud optimization: 639 -> 500
+Computing persistence on full 533 point cloud...
+  H0 features: 533
+  H1 features: 198
+Point cloud optimization: 617 -> 500
+Computing persistence on full 535 point cloud...
+  H0 features: 535
+  H1 features: 237
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 94
+Computing persistence on full 258 point cloud...
+  H0 features: 258
+  H1 features: 71
+Computing persistence on full 369 point cloud...
+  H0 features: 369
+  H1 features: 179
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8460 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9796
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0775)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 41: samples 641-656
+Computing persistence on full 238 point cloud...
+  H0 features: 238
+  H1 features: 71
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 67
+Computing persistence on full 294 point cloud...
+  H0 features: 294
+  H1 features: 109
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 97
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 57
+Computing persistence on full 409 point cloud...
+  H0 features: 409
+  H1 features: 83
+Computing persistence on full 421 point cloud...
+  H0 features: 421
+  H1 features: 77
+Computing persistence on full 352 point cloud...
+  H0 features: 352
+  H1 features: 177
+Point cloud optimization: 630 -> 500
+Computing persistence on full 529 point cloud...
+  H0 features: 529
+  H1 features: 123
+Computing persistence on full 437 point cloud...
+  H0 features: 437
+  H1 features: 123
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 100
+Computing persistence on full 498 point cloud...
+  H0 features: 498
+  H1 features: 185
+Computing persistence on full 306 point cloud...
+  H0 features: 306
+  H1 features: 66
+Computing persistence on full 321 point cloud...
+  H0 features: 321
+  H1 features: 85
+Point cloud optimization: 688 -> 500
+Computing persistence on full 557 point cloud...
+  H0 features: 557
+  H1 features: 266
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 86
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7717 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9782
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0983)
+  pers_range: (0.0010, 1.0761)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 42: samples 657-672
+Computing persistence on full 361 point cloud...
+  H0 features: 361
+  H1 features: 89
+Computing persistence on full 454 point cloud...
+  H0 features: 454
+  H1 features: 272
+Computing persistence on full 386 point cloud...
+  H0 features: 386
+  H1 features: 81
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 57
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 78
+Point cloud optimization: 650 -> 500
+Computing persistence on full 539 point cloud...
+  H0 features: 539
+  H1 features: 282
+Computing persistence on full 268 point cloud...
+  H0 features: 268
+  H1 features: 90
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 118
+Computing persistence on full 286 point cloud...
+  H0 features: 286
+  H1 features: 70
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 98
+Computing persistence on full 499 point cloud...
+  H0 features: 499
+  H1 features: 120
+Computing persistence on full 328 point cloud...
+  H0 features: 328
+  H1 features: 144
+Computing persistence on full 289 point cloud...
+  H0 features: 289
+  H1 features: 88
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 72
+Computing persistence on full 374 point cloud...
+  H0 features: 374
+  H1 features: 66
+Computing persistence on full 354 point cloud...
+  H0 features: 354
+  H1 features: 82
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7460 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9988
+  Lifespans: 0.0000 - 0.9807
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0987)
+  pers_range: (0.0010, 1.0788)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 43: samples 673-688
+Computing persistence on full 278 point cloud...
+  H0 features: 278
+  H1 features: 54
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 53
+Computing persistence on full 294 point cloud...
+  H0 features: 294
+  H1 features: 62
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 164
+Point cloud optimization: 652 -> 500
+Computing persistence on full 534 point cloud...
+  H0 features: 534
+  H1 features: 131
+Computing persistence on full 410 point cloud...
+  H0 features: 410
+  H1 features: 160
+Computing persistence on full 465 point cloud...
+  H0 features: 465
+  H1 features: 263
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 59
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 135
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 84
+Computing persistence on full 340 point cloud...
+  H0 features: 340
+  H1 features: 96
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 183
+Computing persistence on full 259 point cloud...
+  H0 features: 259
+  H1 features: 50
+Computing persistence on full 230 point cloud...
+  H0 features: 230
+  H1 features: 55
+Computing persistence on full 371 point cloud...
+  H0 features: 371
+  H1 features: 133
+Computing persistence on full 279 point cloud...
+  H0 features: 279
+  H1 features: 53
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7177 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9782
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0760)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 44: samples 689-704
+Point cloud optimization: 573 -> 500
+Computing persistence on full 520 point cloud...
+  H0 features: 520
+  H1 features: 208
+Computing persistence on full 364 point cloud...
+  H0 features: 364
+  H1 features: 136
+Point cloud optimization: 515 -> 500
+Computing persistence on full 503 point cloud...
+  H0 features: 503
+  H1 features: 283
+Computing persistence on full 454 point cloud...
+  H0 features: 454
+  H1 features: 108
+Computing persistence on full 223 point cloud...
+  H0 features: 223
+  H1 features: 47
+Computing persistence on full 350 point cloud...
+  H0 features: 350
+  H1 features: 100
+Computing persistence on full 255 point cloud...
+  H0 features: 255
+  H1 features: 79
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 156
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 199
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 64
+Computing persistence on full 491 point cloud...
+  H0 features: 491
+  H1 features: 204
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 135
+Computing persistence on full 342 point cloud...
+  H0 features: 342
+  H1 features: 92
+Computing persistence on full 208 point cloud...
+  H0 features: 208
+  H1 features: 52
+Computing persistence on full 289 point cloud...
+  H0 features: 289
+  H1 features: 72
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 106
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7650 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9845
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0984)
+  pers_range: (0.0010, 1.0829)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 45: samples 705-720
+Point cloud optimization: 694 -> 500
+Computing persistence on full 552 point cloud...
+  H0 features: 552
+  H1 features: 162
+Point cloud optimization: 1754 -> 500
+Computing persistence on full 1302 point cloud...
+  H0 features: 1302
+  H1 features: 576
+Point cloud optimization: 547 -> 500
+Computing persistence on full 511 point cloud...
+  H0 features: 511
+  H1 features: 181
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 118
+Computing persistence on full 476 point cloud...
+  H0 features: 476
+  H1 features: 93
+Point cloud optimization: 513 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 202
+Computing persistence on full 322 point cloud...
+  H0 features: 322
+  H1 features: 103
+Computing persistence on full 226 point cloud...
+  H0 features: 226
+  H1 features: 53
+Computing persistence on full 300 point cloud...
+  H0 features: 300
+  H1 features: 126
+Computing persistence on full 210 point cloud...
+  H0 features: 210
+  H1 features: 65
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 80
+Computing persistence on full 251 point cloud...
+  H0 features: 251
+  H1 features: 45
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 136
+Computing persistence on full 477 point cloud...
+  H0 features: 477
+  H1 features: 251
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 97
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 86
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 9159 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9736
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0986)
+  pers_range: (0.0010, 1.0710)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 46: samples 721-736
+Computing persistence on full 452 point cloud...
+  H0 features: 452
+  H1 features: 107
+Computing persistence on full 466 point cloud...
+  H0 features: 466
+  H1 features: 111
+Computing persistence on full 200 point cloud...
+  H0 features: 200
+  H1 features: 36
+Computing persistence on full 219 point cloud...
+  H0 features: 219
+  H1 features: 36
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 125
+Computing persistence on full 349 point cloud...
+  H0 features: 349
+  H1 features: 100
+Point cloud optimization: 552 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 197
+Computing persistence on full 271 point cloud...
+  H0 features: 271
+  H1 features: 93
+Computing persistence on full 290 point cloud...
+  H0 features: 290
+  H1 features: 131
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 80
+Computing persistence on full 377 point cloud...
+  H0 features: 377
+  H1 features: 205
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 71
+Computing persistence on full 246 point cloud...
+  H0 features: 246
+  H1 features: 66
+Computing persistence on full 364 point cloud...
+  H0 features: 364
+  H1 features: 103
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 142
+Computing persistence on full 411 point cloud...
+  H0 features: 411
+  H1 features: 119
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7221 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9766
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0985)
+  pers_range: (0.0010, 1.0743)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 47: samples 737-752
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 156
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 78
+Computing persistence on full 417 point cloud...
+  H0 features: 417
+  H1 features: 74
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 185
+Point cloud optimization: 522 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 232
+Computing persistence on full 443 point cloud...
+  H0 features: 443
+  H1 features: 198
+Computing persistence on full 471 point cloud...
+  H0 features: 471
+  H1 features: 141
+Computing persistence on full 238 point cloud...
+  H0 features: 238
+  H1 features: 49
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 195
+Computing persistence on full 418 point cloud...
+  H0 features: 418
+  H1 features: 120
+Point cloud optimization: 550 -> 500
+Computing persistence on full 511 point cloud...
+  H0 features: 511
+  H1 features: 96
+Computing persistence on full 265 point cloud...
+  H0 features: 265
+  H1 features: 78
+Computing persistence on full 284 point cloud...
+  H0 features: 284
+  H1 features: 69
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 91
+Computing persistence on full 300 point cloud...
+  H0 features: 300
+  H1 features: 141
+Point cloud optimization: 726 -> 500
+Computing persistence on full 569 point cloud...
+  H0 features: 569
+  H1 features: 300
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8301 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9990
+  Lifespans: 0.0000 - 0.9780
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0989)
+  pers_range: (0.0010, 1.0757)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 48: samples 753-768
+Computing persistence on full 361 point cloud...
+  H0 features: 361
+  H1 features: 133
+Computing persistence on full 291 point cloud...
+  H0 features: 291
+  H1 features: 54
+Point cloud optimization: 623 -> 500
+Computing persistence on full 531 point cloud...
+  H0 features: 531
+  H1 features: 269
+Computing persistence on full 267 point cloud...
+  H0 features: 267
+  H1 features: 74
+Computing persistence on full 330 point cloud...
+  H0 features: 330
+  H1 features: 82
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 93
+Computing persistence on full 356 point cloud...
+  H0 features: 356
+  H1 features: 97
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 71
+Computing persistence on full 389 point cloud...
+  H0 features: 389
+  H1 features: 192
+Computing persistence on full 334 point cloud...
+  H0 features: 334
+  H1 features: 112
+Point cloud optimization: 769 -> 500
+Computing persistence on full 592 point cloud...
+  H0 features: 592
+  H1 features: 269
+Computing persistence on full 477 point cloud...
+  H0 features: 477
+  H1 features: 128
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 135
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 153
+Computing persistence on full 484 point cloud...
+  H0 features: 484
+  H1 features: 194
+Computing persistence on full 197 point cloud...
+  H0 features: 197
+  H1 features: 39
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8050 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9995
+  Lifespans: 0.0000 - 0.9871
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0994)
+  pers_range: (0.0010, 1.0858)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 49: samples 769-784
+Point cloud optimization: 631 -> 500
+Computing persistence on full 529 point cloud...
+  H0 features: 529
+  H1 features: 129
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 147
+Computing persistence on full 455 point cloud...
+  H0 features: 455
+  H1 features: 275
+Computing persistence on full 433 point cloud...
+  H0 features: 433
+  H1 features: 210
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 82
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 162
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 60
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 146
+Point cloud optimization: 2944 -> 500
+Computing persistence on full 2162 point cloud...
+  H0 features: 2162
+  H1 features: 1031
+Computing persistence on full 220 point cloud...
+  H0 features: 220
+  H1 features: 42
+Point cloud optimization: 1407 -> 500
+Computing persistence on full 1046 point cloud...
+  H0 features: 1046
+  H1 features: 570
+Computing persistence on full 420 point cloud...
+  H0 features: 420
+  H1 features: 237
+Computing persistence on full 259 point cloud...
+  H0 features: 259
+  H1 features: 56
+Computing persistence on full 256 point cloud...
+  H0 features: 256
+  H1 features: 92
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 69
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 57
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 11446 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9980
+  Lifespans: 0.0000 - 0.9769
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0978)
+  pers_range: (0.0010, 1.0746)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 50: samples 785-800
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 93
+Computing persistence on full 486 point cloud...
+  H0 features: 486
+  H1 features: 289
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 83
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 128
+Computing persistence on full 496 point cloud...
+  H0 features: 496
+  H1 features: 156
+Computing persistence on full 427 point cloud...
+  H0 features: 427
+  H1 features: 82
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 34
+Computing persistence on full 419 point cloud...
+  H0 features: 419
+  H1 features: 98
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 77
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 145
+Computing persistence on full 292 point cloud...
+  H0 features: 292
+  H1 features: 111
+Computing persistence on full 355 point cloud...
+  H0 features: 355
+  H1 features: 64
+Point cloud optimization: 554 -> 500
+Computing persistence on full 512 point cloud...
+  H0 features: 512
+  H1 features: 155
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 173
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 47
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 161
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7861 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9984
+  Lifespans: 0.0000 - 0.9805
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0983)
+  pers_range: (0.0010, 1.0785)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+  Progress: 800/1514 (52.8%) Rate: 3.4 samples/sec, ETA: 0.1h
+Processing batch 51: samples 801-816
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 95
+Computing persistence on full 485 point cloud...
+  H0 features: 485
+  H1 features: 292
+Computing persistence on full 479 point cloud...
+  H0 features: 479
+  H1 features: 266
+Computing persistence on full 490 point cloud...
+  H0 features: 490
+  H1 features: 93
+Computing persistence on full 273 point cloud...
+  H0 features: 273
+  H1 features: 62
+Computing persistence on full 281 point cloud...
+  H0 features: 281
+  H1 features: 47
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 69
+Computing persistence on full 243 point cloud...
+  H0 features: 243
+  H1 features: 57
+Computing persistence on full 187 point cloud...
+  H0 features: 187
+  H1 features: 37
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 72
+Computing persistence on full 487 point cloud...
+  H0 features: 487
+  H1 features: 86
+Computing persistence on full 435 point cloud...
+  H0 features: 435
+  H1 features: 244
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 98
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 60
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 148
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 128
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7422 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9985
+  Lifespans: 0.0000 - 0.9748
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0984)
+  pers_range: (0.0010, 1.0723)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 52: samples 817-832
+Computing persistence on full 204 point cloud...
+  H0 features: 204
+  H1 features: 35
+Computing persistence on full 235 point cloud...
+  H0 features: 235
+  H1 features: 43
+Computing persistence on full 300 point cloud...
+  H0 features: 300
+  H1 features: 135
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 75
+Computing persistence on full 290 point cloud...
+  H0 features: 290
+  H1 features: 67
+Computing persistence on full 349 point cloud...
+  H0 features: 349
+  H1 features: 110
+Computing persistence on full 299 point cloud...
+  H0 features: 299
+  H1 features: 144
+Computing persistence on full 349 point cloud...
+  H0 features: 349
+  H1 features: 64
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 100
+Computing persistence on full 213 point cloud...
+  H0 features: 213
+  H1 features: 77
+Computing persistence on full 374 point cloud...
+  H0 features: 374
+  H1 features: 100
+Computing persistence on full 255 point cloud...
+  H0 features: 255
+  H1 features: 70
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 170
+Computing persistence on full 243 point cloud...
+  H0 features: 243
+  H1 features: 50
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 236
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 41
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6377 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9992
+  Lifespans: 0.0000 - 0.9872
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0992)
+  pers_range: (0.0010, 1.0859)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 53: samples 833-848
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 69
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 60
+Point cloud optimization: 646 -> 500
+Computing persistence on full 538 point cloud...
+  H0 features: 538
+  H1 features: 248
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 107
+Computing persistence on full 377 point cloud...
+  H0 features: 377
+  H1 features: 116
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 62
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 214
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 67
+Computing persistence on full 405 point cloud...
+  H0 features: 405
+  H1 features: 154
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 110
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 59
+Computing persistence on full 213 point cloud...
+  H0 features: 213
+  H1 features: 49
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 131
+Computing persistence on full 408 point cloud...
+  H0 features: 408
+  H1 features: 72
+Point cloud optimization: 586 -> 500
+Computing persistence on full 524 point cloud...
+  H0 features: 524
+  H1 features: 299
+Point cloud optimization: 592 -> 500
+Computing persistence on full 523 point cloud...
+  H0 features: 523
+  H1 features: 147
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7828 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9983
+  Lifespans: 0.0000 - 0.9817
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0981)
+  pers_range: (0.0010, 1.0798)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 54: samples 849-864
+Computing persistence on full 439 point cloud...
+  H0 features: 439
+  H1 features: 164
+Computing persistence on full 465 point cloud...
+  H0 features: 465
+  H1 features: 181
+Computing persistence on full 306 point cloud...
+  H0 features: 306
+  H1 features: 117
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 69
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 70
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 94
+Computing persistence on full 271 point cloud...
+  H0 features: 271
+  H1 features: 61
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 88
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 69
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 104
+Computing persistence on full 398 point cloud...
+  H0 features: 398
+  H1 features: 76
+Computing persistence on full 208 point cloud...
+  H0 features: 208
+  H1 features: 42
+Computing persistence on full 316 point cloud...
+  H0 features: 316
+  H1 features: 148
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 92
+Computing persistence on full 263 point cloud...
+  H0 features: 263
+  H1 features: 67
+Computing persistence on full 240 point cloud...
+  H0 features: 240
+  H1 features: 46
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6747 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9980
+  Lifespans: 0.0000 - 0.9883
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0978)
+  pers_range: (0.0010, 1.0871)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 55: samples 865-880
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 135
+Computing persistence on full 222 point cloud...
+  H0 features: 222
+  H1 features: 85
+Computing persistence on full 273 point cloud...
+  H0 features: 273
+  H1 features: 84
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 117
+Computing persistence on full 229 point cloud...
+  H0 features: 229
+  H1 features: 53
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 87
+Computing persistence on full 432 point cloud...
+  H0 features: 432
+  H1 features: 214
+Computing persistence on full 226 point cloud...
+  H0 features: 226
+  H1 features: 60
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 116
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 79
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 89
+Computing persistence on full 296 point cloud...
+  H0 features: 296
+  H1 features: 57
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 203
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 147
+Computing persistence on full 377 point cloud...
+  H0 features: 377
+  H1 features: 183
+Computing persistence on full 496 point cloud...
+  H0 features: 496
+  H1 features: 85
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7025 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9997
+  Lifespans: 0.0000 - 0.9755
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0997)
+  pers_range: (0.0010, 1.0731)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 56: samples 881-896
+Point cloud optimization: 555 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 270
+Computing persistence on full 499 point cloud...
+  H0 features: 499
+  H1 features: 124
+Computing persistence on full 349 point cloud...
+  H0 features: 349
+  H1 features: 112
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 122
+Computing persistence on full 430 point cloud...
+  H0 features: 430
+  H1 features: 223
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 73
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 54
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 106
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 56
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 184
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 74
+Computing persistence on full 361 point cloud...
+  H0 features: 361
+  H1 features: 70
+Computing persistence on full 458 point cloud...
+  H0 features: 458
+  H1 features: 266
+Computing persistence on full 281 point cloud...
+  H0 features: 281
+  H1 features: 60
+Computing persistence on full 252 point cloud...
+  H0 features: 252
+  H1 features: 55
+Point cloud optimization: 538 -> 500
+Computing persistence on full 509 point cloud...
+  H0 features: 509
+  H1 features: 129
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7593 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9983
+  Lifespans: 0.0000 - 0.9763
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0981)
+  pers_range: (0.0010, 1.0739)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 57: samples 897-912
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 104
+Computing persistence on full 415 point cloud...
+  H0 features: 415
+  H1 features: 119
+Computing persistence on full 400 point cloud...
+  H0 features: 400
+  H1 features: 196
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 77
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 126
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 105
+Computing persistence on full 342 point cloud...
+  H0 features: 342
+  H1 features: 168
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 75
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 156
+Computing persistence on full 430 point cloud...
+  H0 features: 430
+  H1 features: 165
+Computing persistence on full 222 point cloud...
+  H0 features: 222
+  H1 features: 62
+Computing persistence on full 325 point cloud...
+  H0 features: 325
+  H1 features: 151
+Computing persistence on full 321 point cloud...
+  H0 features: 321
+  H1 features: 169
+Computing persistence on full 202 point cloud...
+  H0 features: 202
+  H1 features: 46
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 180
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 85
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7106 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9812
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0990)
+  pers_range: (0.0010, 1.0794)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 58: samples 913-928
+Computing persistence on full 472 point cloud...
+  H0 features: 472
+  H1 features: 271
+Computing persistence on full 261 point cloud...
+  H0 features: 261
+  H1 features: 55
+Computing persistence on full 256 point cloud...
+  H0 features: 256
+  H1 features: 58
+Computing persistence on full 214 point cloud...
+  H0 features: 214
+  H1 features: 42
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 119
+Computing persistence on full 292 point cloud...
+  H0 features: 292
+  H1 features: 80
+Computing persistence on full 267 point cloud...
+  H0 features: 267
+  H1 features: 56
+Computing persistence on full 378 point cloud...
+  H0 features: 378
+  H1 features: 80
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 84
+Computing persistence on full 486 point cloud...
+  H0 features: 486
+  H1 features: 231
+Point cloud optimization: 624 -> 500
+Computing persistence on full 525 point cloud...
+  H0 features: 525
+  H1 features: 97
+Computing persistence on full 498 point cloud...
+  H0 features: 498
+  H1 features: 150
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 149
+Computing persistence on full 389 point cloud...
+  H0 features: 389
+  H1 features: 113
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 148
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 73
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7538 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9982
+  Lifespans: 0.0000 - 0.9871
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0981)
+  pers_range: (0.0010, 1.0858)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 59: samples 929-944
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 57
+Computing persistence on full 382 point cloud...
+  H0 features: 382
+  H1 features: 162
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 74
+Computing persistence on full 244 point cloud...
+  H0 features: 244
+  H1 features: 65
+Computing persistence on full 230 point cloud...
+  H0 features: 230
+  H1 features: 88
+Computing persistence on full 352 point cloud...
+  H0 features: 352
+  H1 features: 109
+Computing persistence on full 395 point cloud...
+  H0 features: 395
+  H1 features: 126
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 131
+Computing persistence on full 240 point cloud...
+  H0 features: 240
+  H1 features: 53
+Computing persistence on full 396 point cloud...
+  H0 features: 396
+  H1 features: 137
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 151
+Point cloud optimization: 1019 -> 500
+Computing persistence on full 768 point cloud...
+  H0 features: 768
+  H1 features: 284
+Point cloud optimization: 1146 -> 500
+Computing persistence on full 860 point cloud...
+  H0 features: 860
+  H1 features: 476
+Computing persistence on full 463 point cloud...
+  H0 features: 463
+  H1 features: 267
+Point cloud optimization: 890 -> 500
+Computing persistence on full 671 point cloud...
+  H0 features: 671
+  H1 features: 203
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 77
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8980 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9825
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0807)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 60: samples 945-960
+Computing persistence on full 208 point cloud...
+  H0 features: 208
+  H1 features: 56
+Computing persistence on full 163 point cloud...
+  H0 features: 163
+  H1 features: 30
+Point cloud optimization: 584 -> 500
+Computing persistence on full 523 point cloud...
+  H0 features: 523
+  H1 features: 286
+Point cloud optimization: 507 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 153
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 92
+Computing persistence on full 392 point cloud...
+  H0 features: 392
+  H1 features: 129
+Point cloud optimization: 1445 -> 500
+Computing persistence on full 1077 point cloud...
+  H0 features: 1077
+  H1 features: 681
+Computing persistence on full 382 point cloud...
+  H0 features: 382
+  H1 features: 200
+Computing persistence on full 353 point cloud...
+  H0 features: 353
+  H1 features: 177
+Computing persistence on full 294 point cloud...
+  H0 features: 294
+  H1 features: 128
+Computing persistence on full 364 point cloud...
+  H0 features: 364
+  H1 features: 169
+Point cloud optimization: 754 -> 500
+Computing persistence on full 595 point cloud...
+  H0 features: 595
+  H1 features: 147
+Computing persistence on full 219 point cloud...
+  H0 features: 219
+  H1 features: 42
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 99
+Computing persistence on full 386 point cloud...
+  H0 features: 386
+  H1 features: 152
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 91
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 9101 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9779
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0985)
+  pers_range: (0.0010, 1.0756)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 61: samples 961-976
+Computing persistence on full 393 point cloud...
+  H0 features: 393
+  H1 features: 177
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 174
+Computing persistence on full 327 point cloud...
+  H0 features: 327
+  H1 features: 127
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 176
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 75
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 102
+Computing persistence on full 410 point cloud...
+  H0 features: 410
+  H1 features: 136
+Point cloud optimization: 509 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 289
+Computing persistence on full 382 point cloud...
+  H0 features: 382
+  H1 features: 178
+Computing persistence on full 418 point cloud...
+  H0 features: 418
+  H1 features: 182
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 128
+Computing persistence on full 327 point cloud...
+  H0 features: 327
+  H1 features: 144
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 64
+Computing persistence on full 284 point cloud...
+  H0 features: 284
+  H1 features: 56
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 110
+Computing persistence on full 375 point cloud...
+  H0 features: 375
+  H1 features: 124
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8183 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9834
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0818)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 62: samples 977-992
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 117
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 117
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 86
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 85
+Computing persistence on full 334 point cloud...
+  H0 features: 334
+  H1 features: 182
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 44
+Computing persistence on full 261 point cloud...
+  H0 features: 261
+  H1 features: 69
+Point cloud optimization: 531 -> 500
+Computing persistence on full 507 point cloud...
+  H0 features: 507
+  H1 features: 180
+Point cloud optimization: 988 -> 500
+Computing persistence on full 753 point cloud...
+  H0 features: 753
+  H1 features: 131
+Point cloud optimization: 975 -> 500
+Computing persistence on full 745 point cloud...
+  H0 features: 745
+  H1 features: 210
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 174
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 174
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 83
+Computing persistence on full 356 point cloud...
+  H0 features: 356
+  H1 features: 184
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 133
+Computing persistence on full 262 point cloud...
+  H0 features: 262
+  H1 features: 67
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8268 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9993
+  Lifespans: 0.0000 - 0.9791
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0992)
+  pers_range: (0.0010, 1.0770)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 63: samples 993-1008
+Computing persistence on full 481 point cloud...
+  H0 features: 481
+  H1 features: 170
+Computing persistence on full 282 point cloud...
+  H0 features: 282
+  H1 features: 56
+Computing persistence on full 469 point cloud...
+  H0 features: 469
+  H1 features: 263
+Computing persistence on full 318 point cloud...
+  H0 features: 318
+  H1 features: 93
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 63
+Point cloud optimization: 591 -> 500
+Computing persistence on full 524 point cloud...
+  H0 features: 524
+  H1 features: 231
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 153
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 46
+Computing persistence on full 425 point cloud...
+  H0 features: 425
+  H1 features: 221
+Computing persistence on full 436 point cloud...
+  H0 features: 436
+  H1 features: 205
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 55
+Computing persistence on full 405 point cloud...
+  H0 features: 405
+  H1 features: 180
+Computing persistence on full 391 point cloud...
+  H0 features: 391
+  H1 features: 190
+Computing persistence on full 301 point cloud...
+  H0 features: 301
+  H1 features: 73
+Point cloud optimization: 693 -> 500
+Computing persistence on full 549 point cloud...
+  H0 features: 549
+  H1 features: 131
+Computing persistence on full 268 point cloud...
+  H0 features: 268
+  H1 features: 76
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8307 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9983
+  Lifespans: 0.0000 - 0.9752
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0982)
+  pers_range: (0.0010, 1.0727)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 64: samples 1009-1024
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 112
+Computing persistence on full 275 point cloud...
+  H0 features: 275
+  H1 features: 95
+Computing persistence on full 417 point cloud...
+  H0 features: 417
+  H1 features: 192
+Computing persistence on full 302 point cloud...
+  H0 features: 302
+  H1 features: 121
+Computing persistence on full 250 point cloud...
+  H0 features: 250
+  H1 features: 71
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 98
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 51
+Computing persistence on full 471 point cloud...
+  H0 features: 471
+  H1 features: 118
+Computing persistence on full 249 point cloud...
+  H0 features: 249
+  H1 features: 88
+Computing persistence on full 434 point cloud...
+  H0 features: 434
+  H1 features: 105
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 211
+Computing persistence on full 241 point cloud...
+  H0 features: 241
+  H1 features: 33
+Computing persistence on full 212 point cloud...
+  H0 features: 212
+  H1 features: 38
+Point cloud optimization: 615 -> 500
+Computing persistence on full 524 point cloud...
+  H0 features: 524
+  H1 features: 144
+Computing persistence on full 315 point cloud...
+  H0 features: 315
+  H1 features: 123
+Computing persistence on full 301 point cloud...
+  H0 features: 301
+  H1 features: 143
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7092 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9982
+  Lifespans: 0.0000 - 0.9800
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0980)
+  pers_range: (0.0010, 1.0780)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 65: samples 1025-1040
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 80
+Computing persistence on full 498 point cloud...
+  H0 features: 498
+  H1 features: 96
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 183
+Computing persistence on full 496 point cloud...
+  H0 features: 496
+  H1 features: 118
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 79
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 191
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 233
+Computing persistence on full 454 point cloud...
+  H0 features: 454
+  H1 features: 214
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 95
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 89
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 59
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 176
+Point cloud optimization: 577 -> 500
+Computing persistence on full 520 point cloud...
+  H0 features: 520
+  H1 features: 197
+Point cloud optimization: 671 -> 500
+Computing persistence on full 547 point cloud...
+  H0 features: 547
+  H1 features: 290
+Computing persistence on full 328 point cloud...
+  H0 features: 328
+  H1 features: 162
+Computing persistence on full 300 point cloud...
+  H0 features: 300
+  H1 features: 90
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8881 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9997
+  Lifespans: 0.0000 - 0.9872
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0997)
+  pers_range: (0.0010, 1.0859)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 66: samples 1041-1056
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 161
+Computing persistence on full 333 point cloud...
+  H0 features: 333
+  H1 features: 115
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 206
+Computing persistence on full 388 point cloud...
+  H0 features: 388
+  H1 features: 104
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 66
+Computing persistence on full 352 point cloud...
+  H0 features: 352
+  H1 features: 129
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 189
+Computing persistence on full 247 point cloud...
+  H0 features: 247
+  H1 features: 42
+Point cloud optimization: 556 -> 500
+Computing persistence on full 515 point cloud...
+  H0 features: 515
+  H1 features: 201
+Computing persistence on full 230 point cloud...
+  H0 features: 230
+  H1 features: 76
+Computing persistence on full 255 point cloud...
+  H0 features: 255
+  H1 features: 35
+Point cloud optimization: 719 -> 500
+Computing persistence on full 566 point cloud...
+  H0 features: 566
+  H1 features: 258
+Computing persistence on full 426 point cloud...
+  H0 features: 426
+  H1 features: 80
+Point cloud optimization: 2019 -> 500
+Computing persistence on full 1493 point cloud...
+  H0 features: 1493
+  H1 features: 927
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 101
+Point cloud optimization: 524 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 232
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 10046 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9831
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0815)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 67: samples 1057-1072
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 68
+Computing persistence on full 239 point cloud...
+  H0 features: 239
+  H1 features: 43
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 87
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 58
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 61
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 95
+Computing persistence on full 398 point cloud...
+  H0 features: 398
+  H1 features: 133
+Computing persistence on full 351 point cloud...
+  H0 features: 351
+  H1 features: 174
+Computing persistence on full 264 point cloud...
+  H0 features: 264
+  H1 features: 114
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 60
+Computing persistence on full 244 point cloud...
+  H0 features: 244
+  H1 features: 56
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 58
+Computing persistence on full 349 point cloud...
+  H0 features: 349
+  H1 features: 188
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 92
+Computing persistence on full 313 point cloud...
+  H0 features: 313
+  H1 features: 62
+Computing persistence on full 266 point cloud...
+  H0 features: 266
+  H1 features: 51
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6064 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9866
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0986)
+  pers_range: (0.0010, 1.0852)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 68: samples 1073-1088
+Computing persistence on full 286 point cloud...
+  H0 features: 286
+  H1 features: 102
+Computing persistence on full 482 point cloud...
+  H0 features: 482
+  H1 features: 237
+Computing persistence on full 363 point cloud...
+  H0 features: 363
+  H1 features: 158
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 144
+Computing persistence on full 370 point cloud...
+  H0 features: 370
+  H1 features: 138
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 57
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 46
+Computing persistence on full 471 point cloud...
+  H0 features: 471
+  H1 features: 250
+Computing persistence on full 296 point cloud...
+  H0 features: 296
+  H1 features: 85
+Computing persistence on full 429 point cloud...
+  H0 features: 429
+  H1 features: 230
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 195
+Computing persistence on full 325 point cloud...
+  H0 features: 325
+  H1 features: 103
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 105
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 247
+Computing persistence on full 457 point cloud...
+  H0 features: 457
+  H1 features: 225
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 94
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8177 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9998
+  Lifespans: 0.0000 - 0.9829
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0998)
+  pers_range: (0.0010, 1.0812)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 69: samples 1089-1104
+Computing persistence on full 306 point cloud...
+  H0 features: 306
+  H1 features: 84
+Computing persistence on full 296 point cloud...
+  H0 features: 296
+  H1 features: 95
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 77
+Computing persistence on full 394 point cloud...
+  H0 features: 394
+  H1 features: 179
+Computing persistence on full 487 point cloud...
+  H0 features: 487
+  H1 features: 213
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 167
+Computing persistence on full 399 point cloud...
+  H0 features: 399
+  H1 features: 99
+Computing persistence on full 325 point cloud...
+  H0 features: 325
+  H1 features: 72
+Point cloud optimization: 547 -> 500
+Computing persistence on full 513 point cloud...
+  H0 features: 513
+  H1 features: 223
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 173
+Point cloud optimization: 575 -> 500
+Computing persistence on full 520 point cloud...
+  H0 features: 520
+  H1 features: 303
+Computing persistence on full 421 point cloud...
+  H0 features: 421
+  H1 features: 178
+Computing persistence on full 259 point cloud...
+  H0 features: 259
+  H1 features: 78
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 173
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 110
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 127
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8370 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9990
+  Lifespans: 0.0000 - 0.9775
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0989)
+  pers_range: (0.0010, 1.0752)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 70: samples 1105-1120
+Computing persistence on full 292 point cloud...
+  H0 features: 292
+  H1 features: 75
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 113
+Computing persistence on full 495 point cloud...
+  H0 features: 495
+  H1 features: 169
+Computing persistence on full 265 point cloud...
+  H0 features: 265
+  H1 features: 65
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 163
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 59
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 168
+Computing persistence on full 316 point cloud...
+  H0 features: 316
+  H1 features: 101
+Computing persistence on full 305 point cloud...
+  H0 features: 305
+  H1 features: 139
+Computing persistence on full 499 point cloud...
+  H0 features: 499
+  H1 features: 135
+Computing persistence on full 326 point cloud...
+  H0 features: 326
+  H1 features: 102
+Computing persistence on full 340 point cloud...
+  H0 features: 340
+  H1 features: 153
+Computing persistence on full 398 point cloud...
+  H0 features: 398
+  H1 features: 195
+Computing persistence on full 482 point cloud...
+  H0 features: 482
+  H1 features: 82
+Point cloud optimization: 600 -> 500
+Computing persistence on full 526 point cloud...
+  H0 features: 526
+  H1 features: 322
+Point cloud optimization: 662 -> 500
+Computing persistence on full 545 point cloud...
+  H0 features: 545
+  H1 features: 251
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8354 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9984
+  Lifespans: 0.0000 - 0.9881
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0983)
+  pers_range: (0.0010, 1.0869)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 71: samples 1121-1136
+Computing persistence on full 237 point cloud...
+  H0 features: 237
+  H1 features: 83
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 58
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 48
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 80
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 64
+Computing persistence on full 469 point cloud...
+  H0 features: 469
+  H1 features: 153
+Computing persistence on full 247 point cloud...
+  H0 features: 247
+  H1 features: 65
+Computing persistence on full 293 point cloud...
+  H0 features: 293
+  H1 features: 65
+Computing persistence on full 322 point cloud...
+  H0 features: 322
+  H1 features: 54
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 92
+Computing persistence on full 391 point cloud...
+  H0 features: 391
+  H1 features: 107
+Computing persistence on full 382 point cloud...
+  H0 features: 382
+  H1 features: 75
+Computing persistence on full 481 point cloud...
+  H0 features: 481
+  H1 features: 136
+Point cloud optimization: 568 -> 500
+Computing persistence on full 516 point cloud...
+  H0 features: 516
+  H1 features: 146
+Computing persistence on full 489 point cloud...
+  H0 features: 489
+  H1 features: 279
+Computing persistence on full 446 point cloud...
+  H0 features: 446
+  H1 features: 118
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7518 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9759
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0735)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 72: samples 1137-1152
+Computing persistence on full 465 point cloud...
+  H0 features: 465
+  H1 features: 133
+Computing persistence on full 375 point cloud...
+  H0 features: 375
+  H1 features: 104
+Computing persistence on full 242 point cloud...
+  H0 features: 242
+  H1 features: 41
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 109
+Computing persistence on full 463 point cloud...
+  H0 features: 463
+  H1 features: 176
+Point cloud optimization: 560 -> 500
+Computing persistence on full 515 point cloud...
+  H0 features: 515
+  H1 features: 92
+Computing persistence on full 291 point cloud...
+  H0 features: 291
+  H1 features: 132
+Point cloud optimization: 508 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 265
+Computing persistence on full 472 point cloud...
+  H0 features: 472
+  H1 features: 190
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 109
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 143
+Computing persistence on full 396 point cloud...
+  H0 features: 396
+  H1 features: 176
+Computing persistence on full 395 point cloud...
+  H0 features: 395
+  H1 features: 131
+Point cloud optimization: 619 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 108
+Computing persistence on full 480 point cloud...
+  H0 features: 480
+  H1 features: 255
+Computing persistence on full 465 point cloud...
+  H0 features: 465
+  H1 features: 117
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8931 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9981
+  Lifespans: 0.0000 - 0.9838
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0979)
+  pers_range: (0.0010, 1.0822)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 73: samples 1153-1168
+Computing persistence on full 262 point cloud...
+  H0 features: 262
+  H1 features: 67
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 54
+Computing persistence on full 283 point cloud...
+  H0 features: 283
+  H1 features: 71
+Point cloud optimization: 510 -> 500
+Computing persistence on full 502 point cloud...
+  H0 features: 502
+  H1 features: 206
+Point cloud optimization: 558 -> 500
+Computing persistence on full 517 point cloud...
+  H0 features: 517
+  H1 features: 234
+Computing persistence on full 365 point cloud...
+  H0 features: 365
+  H1 features: 72
+Point cloud optimization: 665 -> 500
+Computing persistence on full 548 point cloud...
+  H0 features: 548
+  H1 features: 172
+Point cloud optimization: 508 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 94
+Computing persistence on full 210 point cloud...
+  H0 features: 210
+  H1 features: 37
+Computing persistence on full 428 point cloud...
+  H0 features: 428
+  H1 features: 231
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 81
+Computing persistence on full 398 point cloud...
+  H0 features: 398
+  H1 features: 202
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 66
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 111
+Computing persistence on full 255 point cloud...
+  H0 features: 255
+  H1 features: 69
+Computing persistence on full 290 point cloud...
+  H0 features: 290
+  H1 features: 110
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7606 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9757
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0733)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 74: samples 1169-1184
+Computing persistence on full 473 point cloud...
+  H0 features: 473
+  H1 features: 145
+Computing persistence on full 430 point cloud...
+  H0 features: 430
+  H1 features: 171
+Computing persistence on full 371 point cloud...
+  H0 features: 371
+  H1 features: 60
+Computing persistence on full 476 point cloud...
+  H0 features: 476
+  H1 features: 209
+Computing persistence on full 373 point cloud...
+  H0 features: 373
+  H1 features: 100
+Computing persistence on full 280 point cloud...
+  H0 features: 280
+  H1 features: 95
+Point cloud optimization: 613 -> 500
+Computing persistence on full 526 point cloud...
+  H0 features: 526
+  H1 features: 118
+Computing persistence on full 265 point cloud...
+  H0 features: 265
+  H1 features: 80
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 38
+Point cloud optimization: 758 -> 500
+Computing persistence on full 587 point cloud...
+  H0 features: 587
+  H1 features: 127
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 180
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 99
+Computing persistence on full 440 point cloud...
+  H0 features: 440
+  H1 features: 185
+Computing persistence on full 241 point cloud...
+  H0 features: 241
+  H1 features: 69
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 72
+Computing persistence on full 233 point cloud...
+  H0 features: 233
+  H1 features: 82
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7824 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9793
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0773)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 75: samples 1185-1200
+Computing persistence on full 460 point cloud...
+  H0 features: 460
+  H1 features: 207
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 155
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 179
+Point cloud optimization: 625 -> 500
+Computing persistence on full 535 point cloud...
+  H0 features: 535
+  H1 features: 201
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 205
+Computing persistence on full 190 point cloud...
+  H0 features: 190
+  H1 features: 45
+Computing persistence on full 231 point cloud...
+  H0 features: 231
+  H1 features: 62
+Computing persistence on full 207 point cloud...
+  H0 features: 207
+  H1 features: 45
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 200
+Computing persistence on full 426 point cloud...
+  H0 features: 426
+  H1 features: 170
+Computing persistence on full 492 point cloud...
+  H0 features: 492
+  H1 features: 257
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 180
+Computing persistence on full 359 point cloud...
+  H0 features: 359
+  H1 features: 155
+Point cloud optimization: 565 -> 500
+Computing persistence on full 517 point cloud...
+  H0 features: 517
+  H1 features: 247
+Computing persistence on full 294 point cloud...
+  H0 features: 294
+  H1 features: 83
+Computing persistence on full 294 point cloud...
+  H0 features: 294
+  H1 features: 72
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8338 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9984
+  Lifespans: 0.0000 - 0.9754
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0982)
+  pers_range: (0.0010, 1.0730)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+  Progress: 1200/1514 (79.3%) Rate: 3.4 samples/sec, ETA: 0.0h
+Processing batch 76: samples 1201-1216
+Computing persistence on full 284 point cloud...
+  H0 features: 284
+  H1 features: 98
+Computing persistence on full 323 point cloud...
+  H0 features: 323
+  H1 features: 80
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 166
+Point cloud optimization: 548 -> 500
+Computing persistence on full 512 point cloud...
+  H0 features: 512
+  H1 features: 236
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 92
+Computing persistence on full 458 point cloud...
+  H0 features: 458
+  H1 features: 82
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 174
+Computing persistence on full 211 point cloud...
+  H0 features: 211
+  H1 features: 66
+Point cloud optimization: 566 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 86
+Computing persistence on full 287 point cloud...
+  H0 features: 287
+  H1 features: 77
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 190
+Computing persistence on full 447 point cloud...
+  H0 features: 447
+  H1 features: 201
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 101
+Point cloud optimization: 661 -> 500
+Computing persistence on full 541 point cloud...
+  H0 features: 541
+  H1 features: 173
+Computing persistence on full 343 point cloud...
+  H0 features: 343
+  H1 features: 172
+Computing persistence on full 436 point cloud...
+  H0 features: 436
+  H1 features: 210
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8385 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9986
+  Lifespans: 0.0000 - 0.9820
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0985)
+  pers_range: (0.0010, 1.0802)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 77: samples 1217-1232
+Computing persistence on full 421 point cloud...
+  H0 features: 421
+  H1 features: 104
+Point cloud optimization: 657 -> 500
+Computing persistence on full 537 point cloud...
+  H0 features: 537
+  H1 features: 150
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 149
+Computing persistence on full 435 point cloud...
+  H0 features: 435
+  H1 features: 194
+Computing persistence on full 403 point cloud...
+  H0 features: 403
+  H1 features: 125
+Point cloud optimization: 595 -> 500
+Computing persistence on full 522 point cloud...
+  H0 features: 522
+  H1 features: 99
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 76
+Point cloud optimization: 627 -> 500
+Computing persistence on full 532 point cloud...
+  H0 features: 532
+  H1 features: 106
+Computing persistence on full 409 point cloud...
+  H0 features: 409
+  H1 features: 171
+Computing persistence on full 240 point cloud...
+  H0 features: 240
+  H1 features: 65
+Computing persistence on full 163 point cloud...
+  H0 features: 163
+  H1 features: 25
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 227
+Computing persistence on full 380 point cloud...
+  H0 features: 380
+  H1 features: 114
+Computing persistence on full 253 point cloud...
+  H0 features: 253
+  H1 features: 77
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 129
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 161
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8080 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 1.0000
+  Lifespans: 0.0000 - 0.9830
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.1000)
+  pers_range: (0.0010, 1.0814)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 78: samples 1233-1248
+Computing persistence on full 336 point cloud...
+  H0 features: 336
+  H1 features: 152
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 131
+Computing persistence on full 389 point cloud...
+  H0 features: 389
+  H1 features: 120
+Computing persistence on full 259 point cloud...
+  H0 features: 259
+  H1 features: 54
+Computing persistence on full 296 point cloud...
+  H0 features: 296
+  H1 features: 76
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 76
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 52
+Computing persistence on full 401 point cloud...
+  H0 features: 401
+  H1 features: 188
+Point cloud optimization: 549 -> 500
+Computing persistence on full 513 point cloud...
+  H0 features: 513
+  H1 features: 147
+Point cloud optimization: 570 -> 500
+Computing persistence on full 517 point cloud...
+  H0 features: 517
+  H1 features: 214
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 94
+Computing persistence on full 475 point cloud...
+  H0 features: 475
+  H1 features: 96
+Computing persistence on full 330 point cloud...
+  H0 features: 330
+  H1 features: 123
+Computing persistence on full 320 point cloud...
+  H0 features: 320
+  H1 features: 113
+Point cloud optimization: 601 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 194
+Computing persistence on full 335 point cloud...
+  H0 features: 335
+  H1 features: 73
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7744 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9996
+  Lifespans: 0.0000 - 0.9905
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0996)
+  pers_range: (0.0010, 1.0896)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0132
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 79: samples 1249-1264
+Computing persistence on full 471 point cloud...
+  H0 features: 471
+  H1 features: 277
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 88
+Point cloud optimization: 619 -> 500
+Computing persistence on full 532 point cloud...
+  H0 features: 532
+  H1 features: 273
+Point cloud optimization: 608 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 148
+Computing persistence on full 274 point cloud...
+  H0 features: 274
+  H1 features: 44
+Computing persistence on full 319 point cloud...
+  H0 features: 319
+  H1 features: 146
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 174
+Computing persistence on full 279 point cloud...
+  H0 features: 279
+  H1 features: 55
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 146
+Computing persistence on full 178 point cloud...
+  H0 features: 178
+  H1 features: 39
+Computing persistence on full 308 point cloud...
+  H0 features: 308
+  H1 features: 79
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 189
+Computing persistence on full 378 point cloud...
+  H0 features: 378
+  H1 features: 177
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 111
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 197
+Computing persistence on full 355 point cloud...
+  H0 features: 355
+  H1 features: 168
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8138 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9842
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0827)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 80: samples 1265-1280
+Computing persistence on full 298 point cloud...
+  H0 features: 298
+  H1 features: 87
+Computing persistence on full 367 point cloud...
+  H0 features: 367
+  H1 features: 119
+Computing persistence on full 294 point cloud...
+  H0 features: 294
+  H1 features: 100
+Computing persistence on full 314 point cloud...
+  H0 features: 314
+  H1 features: 77
+Computing persistence on full 435 point cloud...
+  H0 features: 435
+  H1 features: 197
+Computing persistence on full 381 point cloud...
+  H0 features: 381
+  H1 features: 214
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 178
+Computing persistence on full 391 point cloud...
+  H0 features: 391
+  H1 features: 93
+Point cloud optimization: 668 -> 500
+Computing persistence on full 546 point cloud...
+  H0 features: 546
+  H1 features: 281
+Computing persistence on full 415 point cloud...
+  H0 features: 415
+  H1 features: 206
+Computing persistence on full 463 point cloud...
+  H0 features: 463
+  H1 features: 106
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 69
+Point cloud optimization: 563 -> 500
+Computing persistence on full 516 point cloud...
+  H0 features: 516
+  H1 features: 272
+Computing persistence on full 348 point cloud...
+  H0 features: 348
+  H1 features: 157
+Computing persistence on full 300 point cloud...
+  H0 features: 300
+  H1 features: 52
+Computing persistence on full 245 point cloud...
+  H0 features: 245
+  H1 features: 81
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8268 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9796
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0988)
+  pers_range: (0.0010, 1.0776)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 81: samples 1281-1296
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 72
+Computing persistence on full 386 point cloud...
+  H0 features: 386
+  H1 features: 207
+Computing persistence on full 263 point cloud...
+  H0 features: 263
+  H1 features: 103
+Computing persistence on full 212 point cloud...
+  H0 features: 212
+  H1 features: 47
+Computing persistence on full 307 point cloud...
+  H0 features: 307
+  H1 features: 91
+Point cloud optimization: 634 -> 500
+Computing persistence on full 535 point cloud...
+  H0 features: 535
+  H1 features: 299
+Point cloud optimization: 569 -> 500
+Computing persistence on full 513 point cloud...
+  H0 features: 513
+  H1 features: 77
+Computing persistence on full 237 point cloud...
+  H0 features: 237
+  H1 features: 65
+Computing persistence on full 338 point cloud...
+  H0 features: 338
+  H1 features: 150
+Computing persistence on full 431 point cloud...
+  H0 features: 431
+  H1 features: 159
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 88
+Computing persistence on full 324 point cloud...
+  H0 features: 324
+  H1 features: 118
+Computing persistence on full 431 point cloud...
+  H0 features: 431
+  H1 features: 262
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 143
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 104
+Computing persistence on full 216 point cloud...
+  H0 features: 216
+  H1 features: 64
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7540 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 1.0053
+  Lifespans: 0.0000 - 0.9865
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.1058)
+  pers_range: (0.0010, 1.0852)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 82: samples 1297-1312
+Computing persistence on full 327 point cloud...
+  H0 features: 327
+  H1 features: 153
+Computing persistence on full 418 point cloud...
+  H0 features: 418
+  H1 features: 191
+Computing persistence on full 417 point cloud...
+  H0 features: 417
+  H1 features: 75
+Computing persistence on full 329 point cloud...
+  H0 features: 329
+  H1 features: 91
+Computing persistence on full 261 point cloud...
+  H0 features: 261
+  H1 features: 71
+Computing persistence on full 279 point cloud...
+  H0 features: 279
+  H1 features: 78
+Computing persistence on full 443 point cloud...
+  H0 features: 443
+  H1 features: 250
+Point cloud optimization: 672 -> 500
+Computing persistence on full 551 point cloud...
+  H0 features: 551
+  H1 features: 188
+Computing persistence on full 267 point cloud...
+  H0 features: 267
+  H1 features: 111
+Computing persistence on full 288 point cloud...
+  H0 features: 288
+  H1 features: 67
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 213
+Computing persistence on full 318 point cloud...
+  H0 features: 318
+  H1 features: 75
+Computing persistence on full 286 point cloud...
+  H0 features: 286
+  H1 features: 60
+Computing persistence on full 416 point cloud...
+  H0 features: 416
+  H1 features: 193
+Computing persistence on full 404 point cloud...
+  H0 features: 404
+  H1 features: 114
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 91
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7825 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9984
+  Lifespans: 0.0000 - 0.9788
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0983)
+  pers_range: (0.0010, 1.0766)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 83: samples 1313-1328
+Computing persistence on full 315 point cloud...
+  H0 features: 315
+  H1 features: 88
+Computing persistence on full 327 point cloud...
+  H0 features: 327
+  H1 features: 114
+Computing persistence on full 402 point cloud...
+  H0 features: 402
+  H1 features: 172
+Computing persistence on full 453 point cloud...
+  H0 features: 453
+  H1 features: 202
+Computing persistence on full 441 point cloud...
+  H0 features: 441
+  H1 features: 134
+Point cloud optimization: 606 -> 500
+Computing persistence on full 527 point cloud...
+  H0 features: 527
+  H1 features: 310
+Computing persistence on full 240 point cloud...
+  H0 features: 240
+  H1 features: 49
+Computing persistence on full 393 point cloud...
+  H0 features: 393
+  H1 features: 94
+Computing persistence on full 271 point cloud...
+  H0 features: 271
+  H1 features: 61
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 79
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 102
+Computing persistence on full 339 point cloud...
+  H0 features: 339
+  H1 features: 69
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 120
+Computing persistence on full 350 point cloud...
+  H0 features: 350
+  H1 features: 141
+Computing persistence on full 432 point cloud...
+  H0 features: 432
+  H1 features: 174
+Computing persistence on full 449 point cloud...
+  H0 features: 449
+  H1 features: 189
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8079 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9781
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0994)
+  pers_range: (0.0010, 1.0759)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 84: samples 1329-1344
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 149
+Point cloud optimization: 600 -> 500
+Computing persistence on full 520 point cloud...
+  H0 features: 520
+  H1 features: 117
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 58
+Computing persistence on full 377 point cloud...
+  H0 features: 377
+  H1 features: 81
+Computing persistence on full 426 point cloud...
+  H0 features: 426
+  H1 features: 227
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 132
+Computing persistence on full 209 point cloud...
+  H0 features: 209
+  H1 features: 47
+Point cloud optimization: 721 -> 500
+Computing persistence on full 566 point cloud...
+  H0 features: 566
+  H1 features: 191
+Computing persistence on full 439 point cloud...
+  H0 features: 439
+  H1 features: 119
+Computing persistence on full 474 point cloud...
+  H0 features: 474
+  H1 features: 128
+Computing persistence on full 213 point cloud...
+  H0 features: 213
+  H1 features: 55
+Computing persistence on full 275 point cloud...
+  H0 features: 275
+  H1 features: 119
+Computing persistence on full 213 point cloud...
+  H0 features: 213
+  H1 features: 58
+Computing persistence on full 347 point cloud...
+  H0 features: 347
+  H1 features: 100
+Computing persistence on full 271 point cloud...
+  H0 features: 271
+  H1 features: 65
+Computing persistence on full 334 point cloud...
+  H0 features: 334
+  H1 features: 129
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7382 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9995
+  Lifespans: 0.0000 - 0.9799
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0995)
+  pers_range: (0.0010, 1.0779)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 85: samples 1345-1360
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 106
+Computing persistence on full 229 point cloud...
+  H0 features: 229
+  H1 features: 45
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 166
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 166
+Computing persistence on full 410 point cloud...
+  H0 features: 410
+  H1 features: 200
+Computing persistence on full 331 point cloud...
+  H0 features: 331
+  H1 features: 168
+Computing persistence on full 315 point cloud...
+  H0 features: 315
+  H1 features: 158
+Computing persistence on full 215 point cloud...
+  H0 features: 215
+  H1 features: 70
+Computing persistence on full 332 point cloud...
+  H0 features: 332
+  H1 features: 192
+Computing persistence on full 284 point cloud...
+  H0 features: 284
+  H1 features: 120
+Point cloud optimization: 614 -> 500
+Computing persistence on full 528 point cloud...
+  H0 features: 528
+  H1 features: 170
+Point cloud optimization: 660 -> 500
+Computing persistence on full 541 point cloud...
+  H0 features: 541
+  H1 features: 263
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 44
+Computing persistence on full 310 point cloud...
+  H0 features: 310
+  H1 features: 70
+Computing persistence on full 429 point cloud...
+  H0 features: 429
+  H1 features: 97
+Computing persistence on full 358 point cloud...
+  H0 features: 358
+  H1 features: 199
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7851 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9997
+  Lifespans: 0.0000 - 0.9779
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0997)
+  pers_range: (0.0010, 1.0757)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 86: samples 1361-1376
+Computing persistence on full 415 point cloud...
+  H0 features: 415
+  H1 features: 135
+Computing persistence on full 292 point cloud...
+  H0 features: 292
+  H1 features: 71
+Computing persistence on full 429 point cloud...
+  H0 features: 429
+  H1 features: 88
+Computing persistence on full 435 point cloud...
+  H0 features: 435
+  H1 features: 210
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 174
+Computing persistence on full 362 point cloud...
+  H0 features: 362
+  H1 features: 186
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 95
+Computing persistence on full 359 point cloud...
+  H0 features: 359
+  H1 features: 131
+Computing persistence on full 271 point cloud...
+  H0 features: 271
+  H1 features: 71
+Computing persistence on full 255 point cloud...
+  H0 features: 255
+  H1 features: 60
+Computing persistence on full 299 point cloud...
+  H0 features: 299
+  H1 features: 138
+Computing persistence on full 344 point cloud...
+  H0 features: 344
+  H1 features: 60
+Point cloud optimization: 1343 -> 500
+Computing persistence on full 1006 point cloud...
+  H0 features: 1006
+  H1 features: 560
+Computing persistence on full 265 point cloud...
+  H0 features: 265
+  H1 features: 65
+Computing persistence on full 196 point cloud...
+  H0 features: 196
+  H1 features: 41
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 192
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8323 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9784
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0990)
+  pers_range: (0.0010, 1.0763)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 87: samples 1377-1392
+Computing persistence on full 384 point cloud...
+  H0 features: 384
+  H1 features: 70
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 191
+Computing persistence on full 234 point cloud...
+  H0 features: 234
+  H1 features: 40
+Computing persistence on full 360 point cloud...
+  H0 features: 360
+  H1 features: 70
+Computing persistence on full 444 point cloud...
+  H0 features: 444
+  H1 features: 70
+Computing persistence on full 261 point cloud...
+  H0 features: 261
+  H1 features: 48
+Computing persistence on full 249 point cloud...
+  H0 features: 249
+  H1 features: 38
+Computing persistence on full 242 point cloud...
+  H0 features: 242
+  H1 features: 53
+Computing persistence on full 270 point cloud...
+  H0 features: 270
+  H1 features: 91
+Computing persistence on full 444 point cloud...
+  H0 features: 444
+  H1 features: 121
+Computing persistence on full 308 point cloud...
+  H0 features: 308
+  H1 features: 56
+Point cloud optimization: 529 -> 500
+Computing persistence on full 505 point cloud...
+  H0 features: 505
+  H1 features: 98
+Computing persistence on full 400 point cloud...
+  H0 features: 400
+  H1 features: 205
+Computing persistence on full 482 point cloud...
+  H0 features: 482
+  H1 features: 164
+Computing persistence on full 455 point cloud...
+  H0 features: 455
+  H1 features: 108
+Point cloud optimization: 547 -> 500
+Computing persistence on full 509 point cloud...
+  H0 features: 509
+  H1 features: 75
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7441 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9988
+  Lifespans: 0.0000 - 0.9793
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0987)
+  pers_range: (0.0010, 1.0773)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 88: samples 1393-1408
+Point cloud optimization: 581 -> 500
+Computing persistence on full 521 point cloud...
+  H0 features: 521
+  H1 features: 270
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 64
+Point cloud optimization: 609 -> 500
+Computing persistence on full 530 point cloud...
+  H0 features: 530
+  H1 features: 242
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 48
+Computing persistence on full 356 point cloud...
+  H0 features: 356
+  H1 features: 74
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 126
+Point cloud optimization: 548 -> 500
+Computing persistence on full 510 point cloud...
+  H0 features: 510
+  H1 features: 115
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 118
+Computing persistence on full 368 point cloud...
+  H0 features: 368
+  H1 features: 91
+Computing persistence on full 443 point cloud...
+  H0 features: 443
+  H1 features: 257
+Computing persistence on full 370 point cloud...
+  H0 features: 370
+  H1 features: 107
+Computing persistence on full 463 point cloud...
+  H0 features: 463
+  H1 features: 229
+Computing persistence on full 497 point cloud...
+  H0 features: 497
+  H1 features: 284
+Computing persistence on full 372 point cloud...
+  H0 features: 372
+  H1 features: 160
+Computing persistence on full 309 point cloud...
+  H0 features: 309
+  H1 features: 81
+Computing persistence on full 457 point cloud...
+  H0 features: 457
+  H1 features: 201
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8984 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9989
+  Lifespans: 0.0000 - 0.9832
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0987)
+  pers_range: (0.0010, 1.0815)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 89: samples 1409-1424
+Computing persistence on full 241 point cloud...
+  H0 features: 241
+  H1 features: 68
+Computing persistence on full 379 point cloud...
+  H0 features: 379
+  H1 features: 185
+Computing persistence on full 493 point cloud...
+  H0 features: 493
+  H1 features: 94
+Computing persistence on full 341 point cloud...
+  H0 features: 341
+  H1 features: 151
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 124
+Computing persistence on full 292 point cloud...
+  H0 features: 292
+  H1 features: 130
+Computing persistence on full 361 point cloud...
+  H0 features: 361
+  H1 features: 85
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 54
+Point cloud optimization: 591 -> 500
+Computing persistence on full 522 point cloud...
+  H0 features: 522
+  H1 features: 129
+Computing persistence on full 425 point cloud...
+  H0 features: 425
+  H1 features: 190
+Computing persistence on full 297 point cloud...
+  H0 features: 297
+  H1 features: 126
+Computing persistence on full 317 point cloud...
+  H0 features: 317
+  H1 features: 130
+Computing persistence on full 438 point cloud...
+  H0 features: 438
+  H1 features: 232
+Computing persistence on full 443 point cloud...
+  H0 features: 443
+  H1 features: 185
+Computing persistence on full 277 point cloud...
+  H0 features: 277
+  H1 features: 116
+Computing persistence on full 218 point cloud...
+  H0 features: 218
+  H1 features: 42
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 7598 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9995
+  Lifespans: 0.0000 - 0.9857
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0995)
+  pers_range: (0.0010, 1.0843)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0131
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 90: samples 1425-1440
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 95
+Point cloud optimization: 506 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 210
+Computing persistence on full 392 point cloud...
+  H0 features: 392
+  H1 features: 197
+Computing persistence on full 322 point cloud...
+  H0 features: 322
+  H1 features: 99
+Computing persistence on full 322 point cloud...
+  H0 features: 322
+  H1 features: 140
+Computing persistence on full 267 point cloud...
+  H0 features: 267
+  H1 features: 70
+Point cloud optimization: 789 -> 500
+Computing persistence on full 606 point cloud...
+  H0 features: 606
+  H1 features: 278
+Computing persistence on full 275 point cloud...
+  H0 features: 275
+  H1 features: 73
+Computing persistence on full 430 point cloud...
+  H0 features: 430
+  H1 features: 262
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 153
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 43
+Computing persistence on full 164 point cloud...
+  H0 features: 164
+  H1 features: 33
+Computing persistence on full 420 point cloud...
+  H0 features: 420
+  H1 features: 202
+Computing persistence on full 420 point cloud...
+  H0 features: 420
+  H1 features: 97
+Point cloud optimization: 628 -> 500
+Computing persistence on full 528 point cloud...
+  H0 features: 528
+  H1 features: 199
+Computing persistence on full 402 point cloud...
+  H0 features: 402
+  H1 features: 187
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8433 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9803
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0991)
+  pers_range: (0.0010, 1.0783)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 91: samples 1441-1456
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 72
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 88
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 72
+Computing persistence on full 345 point cloud...
+  H0 features: 345
+  H1 features: 67
+Point cloud optimization: 618 -> 500
+Computing persistence on full 532 point cloud...
+  H0 features: 532
+  H1 features: 200
+Computing persistence on full 484 point cloud...
+  H0 features: 484
+  H1 features: 92
+Computing persistence on full 383 point cloud...
+  H0 features: 383
+  H1 features: 133
+Computing persistence on full 375 point cloud...
+  H0 features: 375
+  H1 features: 222
+Computing persistence on full 408 point cloud...
+  H0 features: 408
+  H1 features: 90
+Computing persistence on full 449 point cloud...
+  H0 features: 449
+  H1 features: 183
+Computing persistence on full 399 point cloud...
+  H0 features: 399
+  H1 features: 112
+Computing persistence on full 412 point cloud...
+  H0 features: 412
+  H1 features: 204
+Computing persistence on full 303 point cloud...
+  H0 features: 303
+  H1 features: 77
+Computing persistence on full 397 point cloud...
+  H0 features: 397
+  H1 features: 61
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 204
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 173
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8381 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9991
+  Lifespans: 0.0000 - 0.9803
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0990)
+  pers_range: (0.0010, 1.0784)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 92: samples 1457-1472
+Computing persistence on full 414 point cloud...
+  H0 features: 414
+  H1 features: 123
+Computing persistence on full 366 point cloud...
+  H0 features: 366
+  H1 features: 176
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 189
+Computing persistence on full 312 point cloud...
+  H0 features: 312
+  H1 features: 49
+Point cloud optimization: 514 -> 500
+Computing persistence on full 501 point cloud...
+  H0 features: 501
+  H1 features: 118
+Computing persistence on full 291 point cloud...
+  H0 features: 291
+  H1 features: 77
+Computing persistence on full 423 point cloud...
+  H0 features: 423
+  H1 features: 110
+Computing persistence on full 384 point cloud...
+  H0 features: 384
+  H1 features: 109
+Computing persistence on full 301 point cloud...
+  H0 features: 301
+  H1 features: 77
+Computing persistence on full 429 point cloud...
+  H0 features: 429
+  H1 features: 103
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 126
+Point cloud optimization: 776 -> 500
+Computing persistence on full 598 point cloud...
+  H0 features: 598
+  H1 features: 219
+Point cloud optimization: 555 -> 500
+Computing persistence on full 514 point cloud...
+  H0 features: 514
+  H1 features: 155
+Point cloud optimization: 886 -> 500
+Computing persistence on full 670 point cloud...
+  H0 features: 670
+  H1 features: 353
+Computing persistence on full 385 point cloud...
+  H0 features: 385
+  H1 features: 98
+Point cloud optimization: 517 -> 500
+Computing persistence on full 503 point cloud...
+  H0 features: 503
+  H1 features: 234
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 9071 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9987
+  Lifespans: 0.0000 - 0.9773
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0986)
+  pers_range: (0.0010, 1.0750)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 93: samples 1473-1488
+Computing persistence on full 247 point cloud...
+  H0 features: 247
+  H1 features: 79
+Computing persistence on full 225 point cloud...
+  H0 features: 225
+  H1 features: 59
+Computing persistence on full 321 point cloud...
+  H0 features: 321
+  H1 features: 111
+Computing persistence on full 257 point cloud...
+  H0 features: 257
+  H1 features: 114
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 136
+Computing persistence on full 304 point cloud...
+  H0 features: 304
+  H1 features: 149
+Computing persistence on full 350 point cloud...
+  H0 features: 350
+  H1 features: 205
+Computing persistence on full 314 point cloud...
+  H0 features: 314
+  H1 features: 69
+Computing persistence on full 225 point cloud...
+  H0 features: 225
+  H1 features: 69
+Computing persistence on full 272 point cloud...
+  H0 features: 272
+  H1 features: 79
+Computing persistence on full 457 point cloud...
+  H0 features: 457
+  H1 features: 132
+Computing persistence on full 260 point cloud...
+  H0 features: 260
+  H1 features: 88
+Computing persistence on full 311 point cloud...
+  H0 features: 311
+  H1 features: 94
+Computing persistence on full 328 point cloud...
+  H0 features: 328
+  H1 features: 74
+Computing persistence on full 413 point cloud...
+  H0 features: 413
+  H1 features: 215
+Computing persistence on full 430 point cloud...
+  H0 features: 430
+  H1 features: 207
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 6954 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9986
+  Lifespans: 0.0000 - 0.9923
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0985)
+  pers_range: (0.0010, 1.0915)
+PersistenceImager config: pixel_size=0.0079, sigma=0.0132
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 94: samples 1489-1504
+Computing persistence on full 421 point cloud...
+  H0 features: 421
+  H1 features: 104
+Computing persistence on full 473 point cloud...
+  H0 features: 473
+  H1 features: 94
+Computing persistence on full 289 point cloud...
+  H0 features: 289
+  H1 features: 92
+Point cloud optimization: 527 -> 500
+Computing persistence on full 506 point cloud...
+  H0 features: 506
+  H1 features: 233
+Computing persistence on full 318 point cloud...
+  H0 features: 318
+  H1 features: 70
+Computing persistence on full 376 point cloud...
+  H0 features: 376
+  H1 features: 182
+Computing persistence on full 448 point cloud...
+  H0 features: 448
+  H1 features: 129
+Computing persistence on full 336 point cloud...
+  H0 features: 336
+  H1 features: 120
+Computing persistence on full 425 point cloud...
+  H0 features: 425
+  H1 features: 80
+Point cloud optimization: 507 -> 500
+Computing persistence on full 500 point cloud...
+  H0 features: 500
+  H1 features: 88
+Computing persistence on full 333 point cloud...
+  H0 features: 333
+  H1 features: 126
+Computing persistence on full 357 point cloud...
+  H0 features: 357
+  H1 features: 79
+Computing persistence on full 346 point cloud...
+  H0 features: 346
+  H1 features: 55
+Computing persistence on full 390 point cloud...
+  H0 features: 390
+  H1 features: 196
+Computing persistence on full 399 point cloud...
+  H0 features: 399
+  H1 features: 73
+Computing persistence on full 373 point cloud...
+  H0 features: 373
+  H1 features: 177
+Analyzing persistence diagram ranges...
+Found 32 valid diagrams with 8172 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9982
+  Lifespans: 0.0000 - 0.9797
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0980)
+  pers_range: (0.0010, 1.0777)
+PersistenceImager config: pixel_size=0.0078, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 16/16
+  Success rate: 100.0%
+Processing batch 95: samples 1505-1514
+Computing persistence on full 234 point cloud...
+  H0 features: 234
+  H1 features: 78
+Computing persistence on full 295 point cloud...
+  H0 features: 295
+  H1 features: 76
+Computing persistence on full 387 point cloud...
+  H0 features: 387
+  H1 features: 130
+Computing persistence on full 318 point cloud...
+  H0 features: 318
+  H1 features: 103
+Computing persistence on full 193 point cloud...
+  H0 features: 193
+  H1 features: 37
+Point cloud optimization: 670 -> 500
+Computing persistence on full 543 point cloud...
+  H0 features: 543
+  H1 features: 245
+Computing persistence on full 422 point cloud...
+  H0 features: 422
+  H1 features: 204
+Point cloud optimization: 618 -> 500
+Computing persistence on full 531 point cloud...
+  H0 features: 531
+  H1 features: 107
+Point cloud optimization: 564 -> 500
+Computing persistence on full 515 point cloud...
+  H0 features: 515
+  H1 features: 104
+Point cloud optimization: 795 -> 500
+Computing persistence on full 615 point cloud...
+  H0 features: 615
+  H1 features: 195
+Analyzing persistence diagram ranges...
+Found 20 valid diagrams with 5322 total finite features
+Actual persistence ranges:
+  Birth times: 0.0000 - 0.9994
+  Lifespans: 0.0000 - 0.9747
+Adjusted persistence image parameters:
+  birth_range: (0.0000, 1.0993)
+  pers_range: (0.0010, 1.0722)
+PersistenceImager config: pixel_size=0.0077, sigma=0.0130
+
+Persistence image conversion results:
+  Successful: 10/10
+  Success rate: 100.0%
+
+Final ChaosNLI results saved:
+  Persistence images: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_persistence_images.pkl
+  Metadata: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_persistence_images_metadata.json
+  Shape: (1514, 900)
+  Image resolution: 30x30 (900 features per sample)
+  Human label distributions preserved: 1514
+
+✅ ChaosNLI persistence image precomputation completed!
+Total time: 0.1 hours
+Persistence images saved to: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_chaosnli_snli_persistence_images.pkl
+
+Analysis completed with exit code: 0
+Time: Thu 14 Aug 12:23:34 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Extraction successful!
+
+
+Job finished.

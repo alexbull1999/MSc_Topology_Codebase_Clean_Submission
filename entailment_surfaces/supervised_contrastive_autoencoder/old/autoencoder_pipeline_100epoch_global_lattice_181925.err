@@ -1,0 +1,22 @@
+/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/full_pipeline_global.py:301: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(best_model_path, map_location=device)
+Traceback (most recent call last):
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/full_pipeline_global.py", line 310, in main
+    final_results_path = save_final_results(config, train_history, evaluation_results, exp_dir)
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/full_pipeline_global.py", line 249, in save_final_results
+    json.dump(final_results, f, indent=2)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type float32 is not JSON serializable

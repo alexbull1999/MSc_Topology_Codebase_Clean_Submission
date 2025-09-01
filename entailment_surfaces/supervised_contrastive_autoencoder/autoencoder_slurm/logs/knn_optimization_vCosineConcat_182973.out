@@ -1,0 +1,421 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 182973
+Node: gpuvm15
+Time: Wed 16 Jul 15:12:24 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jul 16 15:12:26 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   36C    P8             14W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Hyperparam Optimization...
+
+Loading model from entailment_surfaces/supervised_contrastive_autoencoder/experiments/coarse_embeddingcosine_concat_hiddendims[1024, 768, 512, 256, 128]_dropout0.2_optimAdam_lr0.0001_20250715_204239/checkpoints/best_model.pt
+Creating model with config: {'input_dim': 1537, 'latent_dim': 75, 'hidden_dims': [1024, 768, 512, 256, 128], 'dropout_rate': 0.2}
+ContrastiveAutoencoder initialized:
+  Input dim: 1537
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Dropout rate: 0.2
+  Total parameters: 5,860,940
+Model loaded successfully:
+  Input dim: 1537
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Dropout rate: 0.2
+KNNClassifierOptimizer initialized on cuda
+Model loaded from: entailment_surfaces/supervised_contrastive_autoencoder/experiments/coarse_embeddingcosine_concat_hiddendims[1024, 768, 512, 256, 128]_dropout0.2_optimAdam_lr0.0001_20250715_204239/checkpoints/best_model.pt
+Config loaded from: entailment_surfaces/supervised_contrastive_autoencoder/experiments/coarse_embeddingcosine_concat_hiddendims[1024, 768, 512, 256, 128]_dropout0.2_optimAdam_lr0.0001_20250715_204239/config.json
+======================================================================
+k-NN CLASSIFIER HYPERPARAMETER OPTIMIZATION
+======================================================================
+Loading data...
+FlexibleEmbedder initialized with type: 'cosine_concat'
+Output dimension will be: 1537
+GlobalDataLoader initialized:
+  Embedding type: cosine_concat
+  Output dimension: 1537
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating cosine_concat embeddings on cuda
+Processing 549367 samples in batches of 1020
+  Processing batch 1/539
+  Processing batch 6/539
+  Processing batch 11/539
+  Processing batch 16/539
+  Processing batch 21/539
+  Processing batch 26/539
+  Processing batch 31/539
+  Processing batch 36/539
+  Processing batch 41/539
+  Processing batch 46/539
+  Processing batch 51/539
+  Processing batch 56/539
+  Processing batch 61/539
+  Processing batch 66/539
+  Processing batch 71/539
+  Processing batch 76/539
+  Processing batch 81/539
+  Processing batch 86/539
+  Processing batch 91/539
+  Processing batch 96/539
+  Processing batch 101/539
+  Processing batch 106/539
+  Processing batch 111/539
+  Processing batch 116/539
+  Processing batch 121/539
+  Processing batch 126/539
+  Processing batch 131/539
+  Processing batch 136/539
+  Processing batch 141/539
+  Processing batch 146/539
+  Processing batch 151/539
+  Processing batch 156/539
+  Processing batch 161/539
+  Processing batch 166/539
+  Processing batch 171/539
+  Processing batch 176/539
+  Processing batch 181/539
+  Processing batch 186/539
+  Processing batch 191/539
+  Processing batch 196/539
+  Processing batch 201/539
+  Processing batch 206/539
+  Processing batch 211/539
+  Processing batch 216/539
+  Processing batch 221/539
+  Processing batch 226/539
+  Processing batch 231/539
+  Processing batch 236/539
+  Processing batch 241/539
+  Processing batch 246/539
+  Processing batch 251/539
+  Processing batch 256/539
+  Processing batch 261/539
+  Processing batch 266/539
+  Processing batch 271/539
+  Processing batch 276/539
+  Processing batch 281/539
+  Processing batch 286/539
+  Processing batch 291/539
+  Processing batch 296/539
+  Processing batch 301/539
+  Processing batch 306/539
+  Processing batch 311/539
+  Processing batch 316/539
+  Processing batch 321/539
+  Processing batch 326/539
+  Processing batch 331/539
+  Processing batch 336/539
+  Processing batch 341/539
+  Processing batch 346/539
+  Processing batch 351/539
+  Processing batch 356/539
+  Processing batch 361/539
+  Processing batch 366/539
+  Processing batch 371/539
+  Processing batch 376/539
+  Processing batch 381/539
+  Processing batch 386/539
+  Processing batch 391/539
+  Processing batch 396/539
+  Processing batch 401/539
+  Processing batch 406/539
+  Processing batch 411/539
+  Processing batch 416/539
+  Processing batch 421/539
+  Processing batch 426/539
+  Processing batch 431/539
+  Processing batch 436/539
+  Processing batch 441/539
+  Processing batch 446/539
+  Processing batch 451/539
+  Processing batch 456/539
+  Processing batch 461/539
+  Processing batch 466/539
+  Processing batch 471/539
+  Processing batch 476/539
+  Processing batch 481/539
+  Processing batch 486/539
+  Processing batch 491/539
+  Processing batch 496/539
+  Processing batch 501/539
+  Processing batch 506/539
+  Processing batch 511/539
+  Processing batch 516/539
+  Processing batch 521/539
+  Processing batch 526/539
+  Processing batch 531/539
+  Processing batch 536/539
+Generated cosine_concat embeddings: torch.Size([549367, 1537])
+Generating embeddings for validation...
+Generating cosine_concat embeddings on cuda
+Processing 9842 samples in batches of 1020
+  Processing batch 1/10
+  Processing batch 6/10
+Generated cosine_concat embeddings: torch.Size([9842, 1537])
+Generating embeddings for test...
+Generating cosine_concat embeddings on cuda
+Processing 9824 samples in batches of 1020
+  Processing batch 1/10
+  Processing batch 6/10
+Generated cosine_concat embeddings: torch.Size([9824, 1537])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1537])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1537])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1537])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1537
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 340
+  Effective batch size: 1020
+  Number of batches: 537
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 340
+  Effective batch size: 1020
+  Number of batches: 9
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 1020
+  Balanced sampling: True
+  Train batches: 537
+  Val batches: 9
+  Test batches: 10
+Extracting training representations...
+Extracting latent representations...
+  Processed 1/537 batches
+  Processed 21/537 batches
+  Processed 41/537 batches
+  Processed 61/537 batches
+  Processed 81/537 batches
+  Processed 101/537 batches
+  Processed 121/537 batches
+  Processed 141/537 batches
+  Processed 161/537 batches
+  Processed 181/537 batches
+  Processed 201/537 batches
+  Processed 221/537 batches
+  Processed 241/537 batches
+  Processed 261/537 batches
+  Processed 281/537 batches
+  Processed 301/537 batches
+  Processed 321/537 batches
+  Processed 341/537 batches
+  Processed 361/537 batches
+  Processed 381/537 batches
+  Processed 401/537 batches
+  Processed 421/537 batches
+  Processed 441/537 batches
+  Processed 461/537 batches
+  Processed 481/537 batches
+  Processed 501/537 batches
+  Processed 521/537 batches
+Extracted 547740 latent representations
+Extracting validation representations...
+Extracting latent representations...
+  Processed 1/9 batches
+Extracted 9180 latent representations
+Training samples: 547740
+Validation samples: 9180
+
+Search space:
+  k_values: [3, 5, 7, 10, 15]
+  weights: ['uniform', 'distance']
+  metrics: ['euclidean', 'cosine', 'minkowski']
+  Total combinations: 30
+  Baseline accuracy: 0.8317
+
+[1/30] Testing k=3, weights=uniform, metric=euclidean
+  NEW BEST: 0.8289 (+-0.0028)
+    Per-class F1: E=0.846, N=0.777, C=0.866
+
+[2/30] Testing k=3, weights=uniform, metric=cosine
+  NEW BEST: 0.8308 (+-0.0009)
+    Per-class F1: E=0.853, N=0.777, C=0.864
+
+[3/30] Testing k=3, weights=uniform, metric=minkowski
+  Result: 0.8289 (+-0.0028)
+    Per-class F1: E=0.846, N=0.777, C=0.866
+
+[4/30] Testing k=3, weights=distance, metric=euclidean
+  Result: 0.8249 (+-0.0068)
+    Per-class F1: E=0.844, N=0.773, C=0.861
+
+[5/30] Testing k=3, weights=distance, metric=cosine
+  Result: 0.8304 (+-0.0013)
+    Per-class F1: E=0.853, N=0.776, C=0.863
+
+[6/30] Testing k=3, weights=distance, metric=minkowski
+  Result: 0.8249 (+-0.0068)
+    Per-class F1: E=0.844, N=0.773, C=0.861
+
+[7/30] Testing k=5, weights=uniform, metric=euclidean
+  NEW BEST: 0.8319 (+0.0002)
+    Per-class F1: E=0.852, N=0.780, C=0.866
+
+[8/30] Testing k=5, weights=uniform, metric=cosine
+  NEW BEST: 0.8332 (+0.0015)
+    Per-class F1: E=0.854, N=0.781, C=0.866
+
+[9/30] Testing k=5, weights=uniform, metric=minkowski
+  Result: 0.8319 (+0.0002)
+    Per-class F1: E=0.852, N=0.780, C=0.866
+
+[10/30] Testing k=5, weights=distance, metric=euclidean
+  Result: 0.8283 (+-0.0034)
+    Per-class F1: E=0.849, N=0.776, C=0.862
+
+[11/30] Testing k=5, weights=distance, metric=cosine
+  Result: 0.8324 (+0.0007)
+    Per-class F1: E=0.855, N=0.780, C=0.864
+
+[12/30] Testing k=5, weights=distance, metric=minkowski
+  Result: 0.8283 (+-0.0034)
+    Per-class F1: E=0.849, N=0.776, C=0.862
+
+[13/30] Testing k=7, weights=uniform, metric=euclidean
+  Result: 0.8329 (+0.0012)
+    Per-class F1: E=0.853, N=0.781, C=0.866
+
+[14/30] Testing k=7, weights=uniform, metric=cosine
+  NEW BEST: 0.8346 (+0.0029)
+    Per-class F1: E=0.857, N=0.783, C=0.866
+
+[15/30] Testing k=7, weights=uniform, metric=minkowski
+  Result: 0.8329 (+0.0012)
+    Per-class F1: E=0.853, N=0.781, C=0.866
+
+[16/30] Testing k=7, weights=distance, metric=euclidean
+  Result: 0.8296 (+-0.0021)
+    Per-class F1: E=0.852, N=0.777, C=0.862
+
+[17/30] Testing k=7, weights=distance, metric=cosine
+  Result: 0.8339 (+0.0022)
+    Per-class F1: E=0.858, N=0.782, C=0.864
+
+[18/30] Testing k=7, weights=distance, metric=minkowski
+  Result: 0.8296 (+-0.0021)
+    Per-class F1: E=0.852, N=0.777, C=0.862
+
+[19/30] Testing k=10, weights=uniform, metric=euclidean
+  Result: 0.8340 (+0.0023)
+    Per-class F1: E=0.855, N=0.782, C=0.867
+
+[20/30] Testing k=10, weights=uniform, metric=cosine
+  NEW BEST: 0.8351 (+0.0034)
+    Per-class F1: E=0.857, N=0.783, C=0.867
+
+[21/30] Testing k=10, weights=uniform, metric=minkowski
+  Result: 0.8340 (+0.0023)
+    Per-class F1: E=0.855, N=0.782, C=0.867
+
+[22/30] Testing k=10, weights=distance, metric=euclidean
+  Result: 0.8307 (+-0.0010)
+    Per-class F1: E=0.852, N=0.778, C=0.863
+
+[23/30] Testing k=10, weights=distance, metric=cosine
+  Result: 0.8343 (+0.0026)
+    Per-class F1: E=0.858, N=0.782, C=0.864
+
+[24/30] Testing k=10, weights=distance, metric=minkowski
+  Result: 0.8307 (+-0.0010)
+    Per-class F1: E=0.852, N=0.778, C=0.863
+
+[25/30] Testing k=15, weights=uniform, metric=euclidean
+  Result: 0.8338 (+0.0021)
+    Per-class F1: E=0.855, N=0.781, C=0.867
+
+[26/30] Testing k=15, weights=uniform, metric=cosine
+  Result: 0.8331 (+0.0014)
+    Per-class F1: E=0.855, N=0.780, C=0.866
+
+[27/30] Testing k=15, weights=uniform, metric=minkowski
+  Result: 0.8338 (+0.0021)
+    Per-class F1: E=0.855, N=0.781, C=0.867
+
+[28/30] Testing k=15, weights=distance, metric=euclidean
+  Result: 0.8306 (+-0.0011)
+    Per-class F1: E=0.852, N=0.778, C=0.863
+
+[29/30] Testing k=15, weights=distance, metric=cosine
+  Result: 0.8326 (+0.0009)
+    Per-class F1: E=0.856, N=0.780, C=0.864
+
+[30/30] Testing k=15, weights=distance, metric=minkowski
+  Result: 0.8306 (+-0.0011)
+    Per-class F1: E=0.852, N=0.778, C=0.863
+
+======================================================================
+HYPERPARAMETER SEARCH COMPLETED
+======================================================================
+Best accuracy: 0.8351
+Best improvement: +0.0034
+Best parameters: {'k': 10, 'weights': 'uniform', 'metric': 'cosine'}
+
+Results saved to: knn_optimization_results_20250716_152400.json
+Summary saved to: knn_optimization_results_20250716_152400_summary.txt
+
+Optimization complete!
+Best k-NN parameters: {'k': 10, 'weights': 'uniform', 'metric': 'cosine'}
+Best accuracy: 0.8351
+Improvement over baseline: +0.0034
+
+Analysis completed with exit code: 0
+Time: Wed 16 Jul 15:24:01 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+KNN Optimization successful!
+
+
+Job finished.

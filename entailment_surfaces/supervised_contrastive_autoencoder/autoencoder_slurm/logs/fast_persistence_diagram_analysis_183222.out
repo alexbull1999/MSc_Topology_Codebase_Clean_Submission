@@ -1,0 +1,251 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 183222
+Node: parrot
+Time: Thu 17 Jul 13:27:59 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 17 13:28:04 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:D0:00.0 Off |                  Off |
+|  0%   41C    P8             15W /   62W |       0MiB /  16380MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 16.8 GB
+PyTorch setup verified!
+
+Starting Persistence Diagram Comparison...
+
+Starting ULTRA-FAST persistence diagram analysis...
+This version uses only statistical methods - no expensive distance computations
+Initialized ultra-fast analyzer (statistics-only approach)
+
+============================================================
+STARTING ULTRA-FAST ANALYSIS
+============================================================
+
+==================================================
+ULTRA-FAST ANALYSIS FOR H0
+==================================================
+
+--- Processing ENTAILMENT ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: nan
+    Mean signature distance: 14.440
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+--- Processing NEUTRAL ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: nan
+    Mean signature distance: 13.253
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+--- Processing CONTRADICTION ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: nan
+    Mean signature distance: 15.730
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+==================================================
+ULTRA-FAST ANALYSIS FOR H1
+==================================================
+
+--- Processing ENTAILMENT ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.035
+    Mean signature distance: 55.991
+    Feature count CV: 0.037
+    Persistence entropy CV: 0.006
+
+--- Processing NEUTRAL ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.029
+    Mean signature distance: 64.573
+    Feature count CV: 0.026
+    Persistence entropy CV: 0.004
+
+--- Processing CONTRADICTION ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.027
+    Mean signature distance: 83.679
+    Feature count CV: 0.027
+    Persistence entropy CV: 0.004
+
+Total analysis time: 0.9 seconds
+
+================================================================================
+ULTRA-FAST PERSISTENCE DIAGRAM SIMILARITY ANALYSIS
+================================================================================
+Uses statistical analysis and signature vectors instead of expensive distance computations
+Focus: Coefficient of Variation (CV) for stability assessment
+
+KEY STABILITY METRICS
+--------------------------------------------------------------------------------
+CLASS           H0_TOTAL_CV  H1_TOTAL_CV  H0_FEAT_CV   H1_FEAT_CV   H0_SIG_DIST  H1_SIG_DIST 
+--------------------------------------------------------------------------------
+entailment      nan          0.035        0.000        0.037        14.440       55.991      
+neutral         nan          0.029        0.000        0.026        13.253       64.573      
+contradiction   nan          0.027        0.000        0.027        15.730       83.679      
+
+============================================================
+DETAILED ANALYSIS PER CLASS
+============================================================
+
+ENTAILMENT CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: nan
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.035
+    Feature Count CV: 0.037
+    Persistence Entropy CV: 0.006
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.024
+
+NEUTRAL CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: nan
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.029
+    Feature Count CV: 0.026
+    Persistence Entropy CV: 0.004
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.019
+
+CONTRADICTION CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: nan
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.027
+    Feature Count CV: 0.027
+    Persistence Entropy CV: 0.004
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.018
+
+============================================================
+FINAL RECOMMENDATIONS
+============================================================
+
+Overall H1 Total Persistence CV: 0.030
+Final Recommendation: PROCEED with averaging - diagrams show excellent stability
+
+Ultra-fast analysis complete! Report saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/ultra_fast_report.txt
+
+Analysis completed with exit code: 0
+Time: Thu 17 Jul 13:28:22 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Persistence Diagram Analysis successful!
+
+
+Job finished.

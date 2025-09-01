@@ -1,0 +1,115 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 192673
+Node: parrot
+Time: Sun 10 Aug 14:19:17 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sun Aug 10 14:19:22 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:96:00.0 Off |                    0 |
+|  0%   23C    P8             15W /   62W |       0MiB /  15356MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 15.7 GB
+PyTorch setup verified!
+
+Starting SBERT Token Extraction...
+
+Loading SBERT model: sentence-transformers/all-mpnet-base-v2
+Device: cuda
+Hidden size: 768
+ChaosNLI SBERT token extractor ready
+Processing ChaosNLI-SNLI data...
+Processing ChaosNLI dataset: MSc_Topology_Codebase/data/chaosNLI/chaosNLI_v1.0/chaosNLI_snli.jsonl
+Total samples to process: 1514
+Processed 100/1514 samples
+Processed 200/1514 samples
+Processed 300/1514 samples
+Processed 400/1514 samples
+Processed 500/1514 samples
+Processed 600/1514 samples
+Processed 700/1514 samples
+Processed 800/1514 samples
+Processed 900/1514 samples
+Processed 1000/1514 samples
+Processed 1100/1514 samples
+Processed 1200/1514 samples
+Processed 1300/1514 samples
+Processed 1400/1514 samples
+Processed 1500/1514 samples
+Saving processed data to: /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_snli_sbert_tokens.pkl
+
+Processing Statistics:
+Successfully processed: 1514 samples
+Premise token counts - Mean: 18.7, Min: 4, Max: 58
+Hypothesis token counts - Mean: 11.2, Min: 4, Max: 57
+Majority label distribution: {'n': 813, 'e': 421, 'c': 280}
+Human annotation entropy - Mean: 0.798, Min: 0.000, Max: 1.583
+Agreement levels:
+  High agreement (entropy < 0.5): 309 (20.4%)
+  Medium agreement (0.5 ≤ entropy < 1.0): 814 (53.8%)
+  Low agreement (entropy ≥ 1.0): 391 (25.8%)
+
+Processing ChaosNLI-MNLI data...
+Processing ChaosNLI dataset: MSc_Topology_Codebase/data/chaosNLI/chaosNLI_v1.0/chaosNLI_mnli_m.jsonl
+Total samples to process: 1599
+Processed 100/1599 samples
+Processed 200/1599 samples
+Processed 300/1599 samples
+Processed 400/1599 samples
+Processed 500/1599 samples
+Processed 600/1599 samples
+Processed 700/1599 samples
+Processed 800/1599 samples
+Processed 900/1599 samples
+Processed 1000/1599 samples
+Processed 1100/1599 samples
+Processed 1200/1599 samples
+Processed 1300/1599 samples
+Processed 1400/1599 samples
+Processed 1500/1599 samples
+Saving processed data to: /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_mnli_matched_sbert_tokens.pkl
+
+Processing Statistics:
+Successfully processed: 1599 samples
+Premise token counts - Mean: 27.9, Min: 4, Max: 219
+Hypothesis token counts - Mean: 14.2, Min: 4, Max: 53
+Majority label distribution: {'n': 583, 'e': 741, 'c': 275}
+Human annotation entropy - Mean: 1.072, Min: 0.081, Max: 1.584
+Agreement levels:
+  High agreement (entropy < 0.5): 40 (2.5%)
+  Medium agreement (0.5 ≤ entropy < 1.0): 535 (33.5%)
+  Low agreement (entropy ≥ 1.0): 1024 (64.0%)
+
+ChaosNLI SBERT token extraction completed!
+
+Analysis completed with exit code: 0
+Time: Sun 10 Aug 14:21:07 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Extraction successful!
+
+
+Job finished.

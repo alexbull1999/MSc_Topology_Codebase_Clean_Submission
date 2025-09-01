@@ -1,0 +1,11 @@
+Feature Set,Num Features,Accuracy (%),F1 Score,Accuracy Mean,F1 Mean,Features Used,Improvement vs Geometric (%)
+geometric_only,10,58.09 ± 0.52,0.553 ± 0.006,0.580880880880881,0.553243533928303,"['cone_energy', 'order_energy', 'hyperbolic_distance', 'entailment_score', 'violation_count', 'forward_cone', 'backward_cone', 'cone_asymmetry', 'forward_energy', 'backward_energy']",0.0
+asymmetric_only,5,58.08 ± 0.55,0.548 ± 0.009,0.5807807807807808,0.5482082163097259,"['forward_cone', 'backward_cone', 'cone_asymmetry', 'forward_energy', 'backward_energy']",-0.010010010010019776
+no_asymmetric,9,57.78 ± 1.20,0.549 ± 0.018,0.5777777777777777,0.5488935605156171,"['cone_energy', 'order_energy', 'hyperbolic_distance', 'entailment_score', 'violation_count', 'h0_persistence', 'h1_persistence', 'h1_max_persistence', 'h1_feature_count']",-0.3103103103103244
+no_tda,10,57.72 ± 0.88,0.552 ± 0.007,0.5771771771771771,0.551915684984462,"['cone_energy', 'order_energy', 'hyperbolic_distance', 'entailment_score', 'violation_count', 'forward_cone', 'backward_cone', 'cone_asymmetry', 'forward_energy', 'backward_energy']",-0.37037037037038756
+minimal_set,4,57.55 ± 0.77,0.547 ± 0.009,0.5754754754754755,0.5469242996946418,"['cone_energy', 'order_energy', 'h0_persistence', 'h1_persistence']",-0.5405405405405461
+core_geometric,5,57.39 ± 1.11,0.538 ± 0.017,0.5738738738738739,0.5380241713917225,"['cone_energy', 'order_energy', 'hyperbolic_distance', 'entailment_score', 'violation_count']",-0.7007007007007071
+all_features,14,57.32 ± 0.63,0.550 ± 0.007,0.5731731731731731,0.5497226585648959,"['cone_energy', 'order_energy', 'hyperbolic_distance', 'entailment_score', 'violation_count', 'forward_cone', 'backward_cone', 'cone_asymmetry', 'forward_energy', 'backward_energy', 'h0_persistence', 'h1_persistence', 'h1_max_persistence', 'h1_feature_count']",-0.77077077077079
+topological_only,4,52.25 ± 0.95,0.505 ± 0.012,0.5225225225225225,0.5049326091931614,"['h0_persistence', 'h1_persistence', 'h1_max_persistence', 'h1_feature_count']",-5.835835835835845
+persistence_only,2,51.11 ± 0.89,0.494 ± 0.014,0.5111111111111111,0.4937782197492102,"['h0_persistence', 'h1_persistence']",-6.97697697697699
+tda_structure,2,50.88 ± 0.97,0.496 ± 0.010,0.5088088088088087,0.4963517544698262,"['h1_max_persistence', 'h1_feature_count']",-7.207207207207222

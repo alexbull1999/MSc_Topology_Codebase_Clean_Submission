@@ -1,0 +1,43 @@
+Baseline composed off:
+baseline_features = torch.cat([
+                        premise_mean,
+                        hypothesis_mean
+                    ])          
+
+
+SBERT Training set: 3000 samples, 1536 features
+SBERT Validation set: 886 samples, 1536 features
+
+============================================================
+SBERT BASELINE RESULTS
+============================================================
+
+Training Random Forest on SBERT features...
+Random Forest SBERT Validation Accuracy: 0.569
+
+Training SVM on SBERT features...
+SVM SBERT Validation Accuracy: 0.603
+
+Training Logistic Regression on SBERT features...
+Logistic Regression SBERT Validation Accuracy: 0.499
+
+Training PyTorch Neural Network on SBERT features...
+Epoch 0: Train Loss 1.0516, Val Loss 0.9676, Val Acc 0.5451
+Epoch 20: Train Loss 0.1372, Val Loss 1.3425, Val Acc 0.5576
+Epoch 40: Train Loss 0.0971, Val Loss 1.4068, Val Acc 0.5666
+Epoch 60: Train Loss 0.1002, Val Loss 1.4165, Val Acc 0.5609
+Epoch 80: Train Loss 0.0994, Val Loss 1.4142, Val Acc 0.5609
+PyTorch NN SBERT Validation Accuracy: 0.603
+
+============================================================
+SBERT BASELINE SUMMARY
+============================================================
+Best SBERT Classifier: SVM
+Best SBERT Accuracy: 0.603
+
+================================================================================
+FINAL COMPARISON RESULTS
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+SBERT Baseline            SVM             0.603      1536      

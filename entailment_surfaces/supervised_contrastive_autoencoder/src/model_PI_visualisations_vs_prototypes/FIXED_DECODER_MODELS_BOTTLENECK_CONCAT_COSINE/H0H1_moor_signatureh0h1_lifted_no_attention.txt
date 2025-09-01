@@ -1,0 +1,135 @@
+Computing persistence diagrams for each class...
+  Computing for contradiction...
+    contradiction: 949 H0 features, 892 H1 features
+    PH dimension: 6.7454
+  Computing for entailment...
+    entailment: 949 H0 features, 647 H1 features
+    PH dimension: 3.1048
+  Computing for neutral...
+    neutral: 949 H0 features, 736 H1 features
+    PH dimension: 3.8877
+Loaded prototypes from entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_bottleneck_COSINE.pkl
+
+============================================================
+COMPARISON: Current Model vs Target Prototypes
+============================================================
+
+H0 DIMENSION COMPARISON:
+----------------------------------------
+
+CONTRADICTION - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 128.0950
+    Max persistence: 0.3323
+    Mean persistence: 0.1350
+  Target prototype:
+    H0 features: 949
+    Total persistence: 551.3904
+    Max persistence: 0.7531
+    Mean persistence: 0.5810
+  Gap ratio (current/target): 0.2323
+  ❌ Current model has much LOWER complexity than target
+
+ENTAILMENT - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 104.1702
+    Max persistence: 0.3936
+    Mean persistence: 0.1098
+  Target prototype:
+    H0 features: 949
+    Total persistence: 434.5062
+    Max persistence: 0.7267
+    Mean persistence: 0.4579
+  Gap ratio (current/target): 0.2397
+  ❌ Current model has much LOWER complexity than target
+
+NEUTRAL - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 112.9642
+    Max persistence: 0.3228
+    Mean persistence: 0.1190
+  Target prototype:
+    H0 features: 949
+    Total persistence: 511.9681
+    Max persistence: 0.7357
+    Mean persistence: 0.5395
+  Gap ratio (current/target): 0.2206
+  ❌ Current model has much LOWER complexity than target
+
+H1 DIMENSION COMPARISON:
+----------------------------------------
+
+CONTRADICTION - H1:
+  Current model:
+    H1 features: 892
+    Total persistence: 39.5648
+    Max persistence: 0.2392
+    Mean persistence: 0.0444
+  Target prototype:
+    H1 features: 2793
+    Total persistence: 102.2732
+    Max persistence: 0.1744
+    Mean persistence: 0.0366
+  Gap ratio (current/target): 0.3869
+  ❌ Current model has much LOWER complexity than target
+
+ENTAILMENT - H1:
+  Current model:
+    H1 features: 647
+    Total persistence: 29.9677
+    Max persistence: 0.2409
+    Mean persistence: 0.0463
+  Target prototype:
+    H1 features: 1529
+    Total persistence: 65.1319
+    Max persistence: 0.2296
+    Mean persistence: 0.0426
+  Gap ratio (current/target): 0.4601
+  ❌ Current model has much LOWER complexity than target
+
+NEUTRAL - H1:
+  Current model:
+    H1 features: 736
+    Total persistence: 33.5734
+    Max persistence: 0.2479
+    Mean persistence: 0.0456
+  Target prototype:
+    H1 features: 2038
+    Total persistence: 76.3136
+    Max persistence: 0.1898
+    Mean persistence: 0.0374
+  Gap ratio (current/target): 0.4399
+  ❌ Current model has much LOWER complexity than target
+
+============================================================
+OVERALL ASSESSMENT:
+============================================================
+
+H0 DIMENSION:
+⚠️  MIXED RESULTS: Some classes close, others far off for H0
+   May need class-specific regularization weights
+
+H1 DIMENSION:
+⚠️  MIXED RESULTS: Some classes close, others far off for H1
+   May need class-specific regularization weights
+H0 visualization saved as 'H0_persistence_comparison.png'
+H1 visualization saved as 'H1_persistence_comparison.png'
+
+SUMMARY:
+========================================
+
+H0 DIMENSION:
+  contradiction: Much simpler than target (0.23x)
+  entailment: Much simpler than target (0.24x)
+  neutral: Much simpler than target (0.22x)
+
+H1 DIMENSION:
+  contradiction: Much simpler than target (0.39x)
+  entailment: Much simpler than target (0.46x)
+  neutral: Much simpler than target (0.44x)
+
+OVERALL ASSESSMENT:
+⚠️  MIXED: Some dimensions/classes close to target, others need work

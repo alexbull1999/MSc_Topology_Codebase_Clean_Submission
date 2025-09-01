@@ -1,0 +1,305 @@
+================================================================================
+ULTRA-FAST PERSISTENCE DIAGRAM SIMILARITY ANALYSIS
+================================================================================
+Uses statistical analysis and signature vectors instead of expensive distance computations
+Focus: Coefficient of Variation (CV) for stability assessment
+
+KEY STABILITY METRICS
+--------------------------------------------------------------------------------
+CLASS           H0_TOTAL_CV  H1_TOTAL_CV  H0_FEAT_CV   H1_FEAT_CV   H0_SIG_DIST  H1_SIG_DIST 
+--------------------------------------------------------------------------------
+entailment      0.005        0.039        0.000        0.038        24.548       66.369      
+neutral         0.003        0.037        0.000        0.032        22.186       64.360      
+contradiction   0.004        0.038        0.000        0.034        21.795       101.440     
+
+============================================================
+DETAILED ANALYSIS PER CLASS
+============================================================
+
+ENTAILMENT CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: 0.005
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.039
+    Feature Count CV: 0.038
+    Persistence Entropy CV: 0.006
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.021
+
+NEUTRAL CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: 0.003
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.037
+    Feature Count CV: 0.032
+    Persistence Entropy CV: 0.005
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.018
+
+CONTRADICTION CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: 0.004
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.038
+    Feature Count CV: 0.034
+    Persistence Entropy CV: 0.005
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.019
+
+============================================================
+FINAL RECOMMENDATIONS
+============================================================
+
+Overall H1 Total Persistence CV: 0.038
+Final Recommendation: PROCEED with averaging - diagrams show excellent stability
+
+
+Additional print statements:
+
+Starting ULTRA-FAST persistence diagram analysis...
+This version uses only statistical methods - no expensive distance computations
+Initialized ultra-fast analyzer (statistics-only approach)
+
+============================================================
+STARTING ULTRA-FAST ANALYSIS
+============================================================
+
+==================================================
+ULTRA-FAST ANALYSIS FOR H0
+==================================================
+
+--- Processing ENTAILMENT ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/numpy/core/_methods.py:173: RuntimeWarning: invalid value encountered in subtract
+  x = asanyarray(arr - arrmean)
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+DEBUG - entailment H0 total persistence values:
+  Raw values (first 10): [3661.6208, 3651.7297, 3698.1877, 3671.677, 3632.5793, 3645.1567, 3648.541, 3646.13, 3679.467, 3634.622]
+  All values count: 100
+  Min: 3611.49267578125
+  Max: 3698.187744140625
+  Mean: 3654.765625
+  Std: 17.544694900512695
+  Final mean_val: 3654.765625
+  Final std_val: 17.544694900512695
+  Final CV: 0.004800498019903898
+
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.005
+    Mean signature distance: 24.548
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+--- Processing NEUTRAL ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+DEBUG - neutral H0 total persistence values:
+  Raw values (first 10): [3951.4636, 3956.1675, 3959.229, 3944.2307, 3958.1245, 3938.4656, 3957.843, 3944.2979, 3978.0977, 3935.9927]
+  All values count: 100
+  Min: 3920.44140625
+  Max: 3991.685791015625
+  Mean: 3950.63623046875
+  Std: 12.532806396484375
+  Final mean_val: 3950.63623046875
+  Final std_val: 12.532806396484375
+  Final CV: 0.003172351513057947
+
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.003
+    Mean signature distance: 22.186
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+--- Processing CONTRADICTION ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+DEBUG - contradiction H0 total persistence values:
+  Raw values (first 10): [4109.871, 4091.1035, 4080.9492, 4100.3433, 4079.7761, 4081.0984, 4103.133, 4109.916, 4074.4805, 4136.223]
+  All values count: 100
+  Min: 4055.114013671875
+  Max: 4136.22314453125
+  Mean: 4098.724609375
+  Std: 14.813228607177734
+  Final mean_val: 4098.724609375
+  Final std_val: 14.813228607177734
+  Final CV: 0.0036141069140285254
+
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.004
+    Mean signature distance: 21.795
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+==================================================
+ULTRA-FAST ANALYSIS FOR H1
+==================================================
+
+--- Processing ENTAILMENT ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.039
+    Mean signature distance: 66.369
+    Feature count CV: 0.038
+    Persistence entropy CV: 0.006
+
+--- Processing NEUTRAL ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.037
+    Mean signature distance: 64.360
+    Feature count CV: 0.032
+    Persistence entropy CV: 0.005
+
+--- Processing CONTRADICTION ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.038
+    Mean signature distance: 101.440
+    Feature count CV: 0.034
+    Persistence entropy CV: 0.005
+
+Total analysis time: 0.7 seconds
+
+================================================================================
+ULTRA-FAST PERSISTENCE DIAGRAM SIMILARITY ANALYSIS
+================================================================================
+Uses statistical analysis and signature vectors instead of expensive distance computations
+Focus: Coefficient of Variation (CV) for stability assessment
+
+KEY STABILITY METRICS
+--------------------------------------------------------------------------------
+CLASS           H0_TOTAL_CV  H1_TOTAL_CV  H0_FEAT_CV   H1_FEAT_CV   H0_SIG_DIST  H1_SIG_DIST 
+--------------------------------------------------------------------------------
+entailment      0.005        0.039        0.000        0.038        24.548       66.369      
+neutral         0.003        0.037        0.000        0.032        22.186       64.360      
+contradiction   0.004        0.038        0.000        0.034        21.795       101.440     
+
+============================================================
+DETAILED ANALYSIS PER CLASS
+============================================================
+
+ENTAILMENT CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: 0.005
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.039
+    Feature Count CV: 0.038
+    Persistence Entropy CV: 0.006
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.021
+
+NEUTRAL CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: 0.003
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.037
+    Feature Count CV: 0.032
+    Persistence Entropy CV: 0.005
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.018
+
+CONTRADICTION CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: 0.004
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.038
+    Feature Count CV: 0.034
+    Persistence Entropy CV: 0.005
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.019
+
+============================================================
+FINAL RECOMMENDATIONS
+============================================================
+
+Overall H1 Total Persistence CV: 0.038
+Final Recommendation: PROCEED with averaging - diagrams show excellent stability
+
+Ultra-fast analysis complete! Report saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/ultra_fast_report.txt

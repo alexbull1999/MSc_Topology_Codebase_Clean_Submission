@@ -1,0 +1,888 @@
+Job ID: 195327
+Node: parrot
+Time: Sun 17 Aug 07:47:16 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sun Aug 17 07:47:23 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:97:00.0 Off |                    0 |
+|  0%   32C    P8             15W /   62W |       0MiB /  15356MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 15.7 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+TRAIN ON SNLI, EVALUATE ON CHAOSNLI
+================================================================================
+Loading SNLI + MNLI persistence images...
+Combined SNLI+MNLI persistence images:
+  Train: (198000, 900) (SNLI: (150000, 900), MNLI: (48000, 900))
+  Val: (19657, 900) (SNLI: (9842, 900), MNLI: (9815, 900))
+Computing SBERT baseline features from SNLI + MNLI...
+Combined data: SNLI 150000 + MNLI 150000 = 300000 total samples
+Processing entailment: 100167 samples
+  Processed 1000/100167 entailment samples
+  Processed 2000/100167 entailment samples
+  Processed 3000/100167 entailment samples
+  Processed 4000/100167 entailment samples
+  Processed 5000/100167 entailment samples
+  Processed 6000/100167 entailment samples
+  Processed 7000/100167 entailment samples
+  Processed 8000/100167 entailment samples
+  Processed 9000/100167 entailment samples
+  Processed 10000/100167 entailment samples
+  Processed 11000/100167 entailment samples
+  Processed 12000/100167 entailment samples
+  Processed 13000/100167 entailment samples
+  Processed 14000/100167 entailment samples
+  Processed 15000/100167 entailment samples
+  Processed 16000/100167 entailment samples
+  Processed 17000/100167 entailment samples
+  Processed 18000/100167 entailment samples
+  Processed 19000/100167 entailment samples
+  Processed 20000/100167 entailment samples
+  Processed 21000/100167 entailment samples
+  Processed 22000/100167 entailment samples
+  Processed 23000/100167 entailment samples
+  Processed 24000/100167 entailment samples
+  Processed 25000/100167 entailment samples
+  Processed 26000/100167 entailment samples
+  Processed 27000/100167 entailment samples
+  Processed 28000/100167 entailment samples
+  Processed 29000/100167 entailment samples
+  Processed 30000/100167 entailment samples
+  Processed 31000/100167 entailment samples
+  Processed 32000/100167 entailment samples
+  Processed 33000/100167 entailment samples
+  Processed 34000/100167 entailment samples
+  Processed 35000/100167 entailment samples
+  Processed 36000/100167 entailment samples
+  Processed 37000/100167 entailment samples
+  Processed 38000/100167 entailment samples
+  Processed 39000/100167 entailment samples
+  Processed 40000/100167 entailment samples
+  Processed 41000/100167 entailment samples
+  Processed 42000/100167 entailment samples
+  Processed 43000/100167 entailment samples
+  Processed 44000/100167 entailment samples
+  Processed 45000/100167 entailment samples
+  Processed 46000/100167 entailment samples
+  Processed 47000/100167 entailment samples
+  Processed 48000/100167 entailment samples
+  Processed 49000/100167 entailment samples
+  Processed 50000/100167 entailment samples
+  Processed 51000/100167 entailment samples
+  Processed 52000/100167 entailment samples
+  Processed 53000/100167 entailment samples
+  Processed 54000/100167 entailment samples
+  Processed 55000/100167 entailment samples
+  Processed 56000/100167 entailment samples
+  Processed 57000/100167 entailment samples
+  Processed 58000/100167 entailment samples
+  Processed 59000/100167 entailment samples
+  Processed 60000/100167 entailment samples
+  Processed 61000/100167 entailment samples
+  Processed 62000/100167 entailment samples
+  Processed 63000/100167 entailment samples
+  Processed 64000/100167 entailment samples
+  Processed 65000/100167 entailment samples
+  Processed 66000/100167 entailment samples
+  Processed 67000/100167 entailment samples
+  Processed 68000/100167 entailment samples
+  Processed 69000/100167 entailment samples
+  Processed 70000/100167 entailment samples
+  Processed 71000/100167 entailment samples
+  Processed 72000/100167 entailment samples
+  Processed 73000/100167 entailment samples
+  Processed 74000/100167 entailment samples
+  Processed 75000/100167 entailment samples
+  Processed 76000/100167 entailment samples
+  Processed 77000/100167 entailment samples
+  Processed 78000/100167 entailment samples
+  Processed 79000/100167 entailment samples
+  Processed 80000/100167 entailment samples
+  Processed 81000/100167 entailment samples
+  Processed 82000/100167 entailment samples
+  Processed 83000/100167 entailment samples
+  Processed 84000/100167 entailment samples
+  Processed 85000/100167 entailment samples
+  Processed 86000/100167 entailment samples
+  Processed 87000/100167 entailment samples
+  Processed 88000/100167 entailment samples
+  Processed 89000/100167 entailment samples
+  Processed 90000/100167 entailment samples
+  Processed 91000/100167 entailment samples
+  Processed 92000/100167 entailment samples
+  Processed 93000/100167 entailment samples
+  Processed 94000/100167 entailment samples
+  Processed 95000/100167 entailment samples
+  Processed 96000/100167 entailment samples
+  Processed 97000/100167 entailment samples
+  Processed 98000/100167 entailment samples
+  Processed 99000/100167 entailment samples
+  Processed 100000/100167 entailment samples
+Processing neutral: 100359 samples
+  Processed 1000/100359 neutral samples
+  Processed 2000/100359 neutral samples
+  Processed 3000/100359 neutral samples
+  Processed 4000/100359 neutral samples
+  Processed 5000/100359 neutral samples
+  Processed 6000/100359 neutral samples
+  Processed 7000/100359 neutral samples
+  Processed 8000/100359 neutral samples
+  Processed 9000/100359 neutral samples
+  Processed 10000/100359 neutral samples
+  Processed 11000/100359 neutral samples
+  Processed 12000/100359 neutral samples
+  Processed 13000/100359 neutral samples
+  Processed 14000/100359 neutral samples
+  Processed 15000/100359 neutral samples
+  Processed 16000/100359 neutral samples
+  Processed 17000/100359 neutral samples
+  Processed 18000/100359 neutral samples
+  Processed 19000/100359 neutral samples
+  Processed 20000/100359 neutral samples
+  Processed 21000/100359 neutral samples
+  Processed 22000/100359 neutral samples
+  Processed 23000/100359 neutral samples
+  Processed 24000/100359 neutral samples
+  Processed 25000/100359 neutral samples
+  Processed 26000/100359 neutral samples
+  Processed 27000/100359 neutral samples
+  Processed 28000/100359 neutral samples
+  Processed 29000/100359 neutral samples
+  Processed 30000/100359 neutral samples
+  Processed 31000/100359 neutral samples
+  Processed 32000/100359 neutral samples
+  Processed 33000/100359 neutral samples
+  Processed 34000/100359 neutral samples
+  Processed 35000/100359 neutral samples
+  Processed 36000/100359 neutral samples
+  Processed 37000/100359 neutral samples
+  Processed 38000/100359 neutral samples
+  Processed 39000/100359 neutral samples
+  Processed 40000/100359 neutral samples
+  Processed 41000/100359 neutral samples
+  Processed 42000/100359 neutral samples
+  Processed 43000/100359 neutral samples
+  Processed 44000/100359 neutral samples
+  Processed 45000/100359 neutral samples
+  Processed 46000/100359 neutral samples
+  Processed 47000/100359 neutral samples
+  Processed 48000/100359 neutral samples
+  Processed 49000/100359 neutral samples
+  Processed 50000/100359 neutral samples
+  Processed 51000/100359 neutral samples
+  Processed 52000/100359 neutral samples
+  Processed 53000/100359 neutral samples
+  Processed 54000/100359 neutral samples
+  Processed 55000/100359 neutral samples
+  Processed 56000/100359 neutral samples
+  Processed 57000/100359 neutral samples
+  Processed 58000/100359 neutral samples
+  Processed 59000/100359 neutral samples
+  Processed 60000/100359 neutral samples
+  Processed 61000/100359 neutral samples
+  Processed 62000/100359 neutral samples
+  Processed 63000/100359 neutral samples
+  Processed 64000/100359 neutral samples
+  Processed 65000/100359 neutral samples
+  Processed 66000/100359 neutral samples
+  Processed 67000/100359 neutral samples
+  Processed 68000/100359 neutral samples
+  Processed 69000/100359 neutral samples
+  Processed 70000/100359 neutral samples
+  Processed 71000/100359 neutral samples
+  Processed 72000/100359 neutral samples
+  Processed 73000/100359 neutral samples
+  Processed 74000/100359 neutral samples
+  Processed 75000/100359 neutral samples
+  Processed 76000/100359 neutral samples
+  Processed 77000/100359 neutral samples
+  Processed 78000/100359 neutral samples
+  Processed 79000/100359 neutral samples
+  Processed 80000/100359 neutral samples
+  Processed 81000/100359 neutral samples
+  Processed 82000/100359 neutral samples
+  Processed 83000/100359 neutral samples
+  Processed 84000/100359 neutral samples
+  Processed 85000/100359 neutral samples
+  Processed 86000/100359 neutral samples
+  Processed 87000/100359 neutral samples
+  Processed 88000/100359 neutral samples
+  Processed 89000/100359 neutral samples
+  Processed 90000/100359 neutral samples
+  Processed 91000/100359 neutral samples
+  Processed 92000/100359 neutral samples
+  Processed 93000/100359 neutral samples
+  Processed 94000/100359 neutral samples
+  Processed 95000/100359 neutral samples
+  Processed 96000/100359 neutral samples
+  Processed 97000/100359 neutral samples
+  Processed 98000/100359 neutral samples
+  Processed 99000/100359 neutral samples
+  Processed 100000/100359 neutral samples
+Processing contradiction: 99474 samples
+  Processed 1000/99474 contradiction samples
+  Processed 2000/99474 contradiction samples
+  Processed 3000/99474 contradiction samples
+  Processed 4000/99474 contradiction samples
+  Processed 5000/99474 contradiction samples
+  Processed 6000/99474 contradiction samples
+  Processed 7000/99474 contradiction samples
+  Processed 8000/99474 contradiction samples
+  Processed 9000/99474 contradiction samples
+  Processed 10000/99474 contradiction samples
+  Processed 11000/99474 contradiction samples
+  Processed 12000/99474 contradiction samples
+  Processed 13000/99474 contradiction samples
+  Processed 14000/99474 contradiction samples
+  Processed 15000/99474 contradiction samples
+  Processed 16000/99474 contradiction samples
+  Processed 17000/99474 contradiction samples
+  Processed 18000/99474 contradiction samples
+  Processed 19000/99474 contradiction samples
+  Processed 20000/99474 contradiction samples
+  Processed 21000/99474 contradiction samples
+  Processed 22000/99474 contradiction samples
+  Processed 23000/99474 contradiction samples
+  Processed 24000/99474 contradiction samples
+  Processed 25000/99474 contradiction samples
+  Processed 26000/99474 contradiction samples
+  Processed 27000/99474 contradiction samples
+  Processed 28000/99474 contradiction samples
+  Processed 29000/99474 contradiction samples
+  Processed 30000/99474 contradiction samples
+  Processed 31000/99474 contradiction samples
+  Processed 32000/99474 contradiction samples
+  Processed 33000/99474 contradiction samples
+  Processed 34000/99474 contradiction samples
+  Processed 35000/99474 contradiction samples
+  Processed 36000/99474 contradiction samples
+  Processed 37000/99474 contradiction samples
+  Processed 38000/99474 contradiction samples
+  Processed 39000/99474 contradiction samples
+  Processed 40000/99474 contradiction samples
+  Processed 41000/99474 contradiction samples
+  Processed 42000/99474 contradiction samples
+  Processed 43000/99474 contradiction samples
+  Processed 44000/99474 contradiction samples
+  Processed 45000/99474 contradiction samples
+  Processed 46000/99474 contradiction samples
+  Processed 47000/99474 contradiction samples
+  Processed 48000/99474 contradiction samples
+  Processed 49000/99474 contradiction samples
+  Processed 50000/99474 contradiction samples
+  Processed 51000/99474 contradiction samples
+  Processed 52000/99474 contradiction samples
+  Processed 53000/99474 contradiction samples
+  Processed 54000/99474 contradiction samples
+  Processed 55000/99474 contradiction samples
+  Processed 56000/99474 contradiction samples
+  Processed 57000/99474 contradiction samples
+  Processed 58000/99474 contradiction samples
+  Processed 59000/99474 contradiction samples
+  Processed 60000/99474 contradiction samples
+  Processed 61000/99474 contradiction samples
+  Processed 62000/99474 contradiction samples
+  Processed 63000/99474 contradiction samples
+  Processed 64000/99474 contradiction samples
+  Processed 65000/99474 contradiction samples
+  Processed 66000/99474 contradiction samples
+  Processed 67000/99474 contradiction samples
+  Processed 68000/99474 contradiction samples
+  Processed 69000/99474 contradiction samples
+  Processed 70000/99474 contradiction samples
+  Processed 71000/99474 contradiction samples
+  Processed 72000/99474 contradiction samples
+  Processed 73000/99474 contradiction samples
+  Processed 74000/99474 contradiction samples
+  Processed 75000/99474 contradiction samples
+  Processed 76000/99474 contradiction samples
+  Processed 77000/99474 contradiction samples
+  Processed 78000/99474 contradiction samples
+  Processed 79000/99474 contradiction samples
+  Processed 80000/99474 contradiction samples
+  Processed 81000/99474 contradiction samples
+  Processed 82000/99474 contradiction samples
+  Processed 83000/99474 contradiction samples
+  Processed 84000/99474 contradiction samples
+  Processed 85000/99474 contradiction samples
+  Processed 86000/99474 contradiction samples
+  Processed 87000/99474 contradiction samples
+  Processed 88000/99474 contradiction samples
+  Processed 89000/99474 contradiction samples
+  Processed 90000/99474 contradiction samples
+  Processed 91000/99474 contradiction samples
+  Processed 92000/99474 contradiction samples
+  Processed 93000/99474 contradiction samples
+  Processed 94000/99474 contradiction samples
+  Processed 95000/99474 contradiction samples
+  Processed 96000/99474 contradiction samples
+  Processed 97000/99474 contradiction samples
+  Processed 98000/99474 contradiction samples
+  Processed 99000/99474 contradiction samples
+Combined SBERT features: (300000, 3072), class distribution: {0: 100167, 1: 100359, 2: 99474}
+Computing SBERT baseline features from SNLI + MNLI...
+Combined data: SNLI 9842 + MNLI 9815 = 19657 total samples
+Processing entailment: 6808 samples
+  Processed 1000/6808 entailment samples
+  Processed 2000/6808 entailment samples
+  Processed 3000/6808 entailment samples
+  Processed 4000/6808 entailment samples
+  Processed 5000/6808 entailment samples
+  Processed 6000/6808 entailment samples
+Processing neutral: 6358 samples
+  Processed 1000/6358 neutral samples
+  Processed 2000/6358 neutral samples
+  Processed 3000/6358 neutral samples
+  Processed 4000/6358 neutral samples
+  Processed 5000/6358 neutral samples
+  Processed 6000/6358 neutral samples
+Processing contradiction: 6491 samples
+  Processed 1000/6491 contradiction samples
+  Processed 2000/6491 contradiction samples
+  Processed 3000/6491 contradiction samples
+  Processed 4000/6491 contradiction samples
+  Processed 5000/6491 contradiction samples
+  Processed 6000/6491 contradiction samples
+Combined SBERT features: (19657, 3072), class distribution: {0: 6808, 1: 6358, 2: 6491}
+Aligning persistence and SBERT datasets...
+Class 0: persistence=98214, sbert=100167, using=98214
+Class 1: persistence=50069, sbert=100359, using=50069
+Class 2: persistence=49717, sbert=99474, using=49717
+Aligned datasets: (198000, 900) persistence, (198000, 3072) SBERT
+Loading ChaosNLI persistence images...
+ChaosNLI persistence images: (1514, 900)
+Human label distributions: (1514, 3)
+Entropy range: 0.000 - 1.583
+Loading ChaosNLI persistence images...
+ChaosNLI persistence images: (1599, 900)
+Human label distributions: (1599, 3)
+Entropy range: 0.081 - 1.584
+Computing ChaosNLI SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_snli_sbert_tokens.pkl
+Processing 1514 ChaosNLI samples...
+  Processed 1000/1514 samples
+ChaosNLI SBERT features: (1514, 3072)
+Computing ChaosNLI SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_mnli_matched_sbert_tokens.pkl
+Processing 1599 ChaosNLI samples...
+  Processed 1000/1599 samples
+ChaosNLI SBERT features: (1599, 3072)
+
+============================================================
+TRAINING PERSISTENCE IMAGE CNN ON SNLI
+============================================================
+Training model on cuda...
+Training samples: 198000
+Validation samples: 19657
+Epoch   0: Train Loss 0.5349 (Acc 0.817), Val Loss 1.1695 (Acc 0.597), Best Val 0.000
+Epoch   1: Train Loss 0.4920 (Acc 0.833), Val Loss 1.2337 (Acc 0.594), Best Val 0.597
+Epoch   2: Train Loss 0.4770 (Acc 0.835), Val Loss 1.1558 (Acc 0.604), Best Val 0.597
+Epoch   3: Train Loss 0.4678 (Acc 0.837), Val Loss 1.2876 (Acc 0.590), Best Val 0.604
+Epoch   4: Train Loss 0.4633 (Acc 0.838), Val Loss 1.3271 (Acc 0.588), Best Val 0.604
+Epoch   5: Train Loss 0.4569 (Acc 0.839), Val Loss 1.3617 (Acc 0.584), Best Val 0.604
+Epoch   6: Train Loss 0.4524 (Acc 0.839), Val Loss 1.2912 (Acc 0.592), Best Val 0.604
+Epoch   7: Train Loss 0.4485 (Acc 0.840), Val Loss 1.3404 (Acc 0.590), Best Val 0.604
+Epoch   8: Train Loss 0.4452 (Acc 0.841), Val Loss 1.3272 (Acc 0.588), Best Val 0.604
+Epoch   9: Train Loss 0.4405 (Acc 0.842), Val Loss 1.4142 (Acc 0.595), Best Val 0.604
+Epoch  20: Train Loss 0.4123 (Acc 0.849), Val Loss 1.3395 (Acc 0.601), Best Val 0.604
+Epoch  40: Train Loss 0.3965 (Acc 0.854), Val Loss 1.3384 (Acc 0.608), Best Val 0.608
+Epoch  60: Train Loss 0.3904 (Acc 0.855), Val Loss 1.3438 (Acc 0.608), Best Val 0.611
+Early stopping at epoch 71 (patience=25)
+Training completed. Best validation accuracy: 0.611
+Persistence CNN SNLI validation accuracy: 0.611
+
+============================================================
+TRAINING SBERT CLASSIFIER ON SNLI
+============================================================
+Standardizing (198000, 3072) in-place...
+Training model on cuda...
+Training samples: 198000
+Validation samples: 19657
+Epoch   0: Train Loss 0.6740 (Acc 0.720), Val Loss 1.4510 (Acc 0.390), Best Val 0.000
+Epoch   1: Train Loss 0.6111 (Acc 0.751), Val Loss 1.7406 (Acc 0.388), Best Val 0.390
+Epoch   2: Train Loss 0.5813 (Acc 0.764), Val Loss 1.7988 (Acc 0.389), Best Val 0.390
+Epoch   3: Train Loss 0.5533 (Acc 0.775), Val Loss 1.9219 (Acc 0.379), Best Val 0.390
+Epoch   4: Train Loss 0.5273 (Acc 0.787), Val Loss 1.9538 (Acc 0.378), Best Val 0.390
+Epoch   5: Train Loss 0.5052 (Acc 0.796), Val Loss 2.1590 (Acc 0.374), Best Val 0.390
+Epoch   6: Train Loss 0.4815 (Acc 0.806), Val Loss 2.1419 (Acc 0.372), Best Val 0.390
+Epoch   7: Train Loss 0.4643 (Acc 0.813), Val Loss 2.3745 (Acc 0.370), Best Val 0.390
+Epoch   8: Train Loss 0.4450 (Acc 0.821), Val Loss 2.5326 (Acc 0.380), Best Val 0.390
+Epoch   9: Train Loss 0.4274 (Acc 0.828), Val Loss 2.7927 (Acc 0.378), Best Val 0.390
+Epoch  20: Train Loss 0.2458 (Acc 0.903), Val Loss 4.3490 (Acc 0.371), Best Val 0.390
+Early stopping at epoch 25 (patience=25)
+Training completed. Best validation accuracy: 0.390
+SBERT SNLI validation accuracy: 0.390
+
+================================================================================
+EVALUATING ON CHAOSNLI SNLI DATASET UNCERTAINTY QUANTIFICATION
+================================================================================
+
+Evaluating persistence model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for persistence:
+  Overall JSD: 0.3109
+  Overall KL:  0.6787
+  Traditional Accuracy: 0.5647
+  High agreement (entropy < 0.5): JSD=0.3204 (309 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.3077 (814 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.3101 (391 samples)
+  Beats random: JSD=YES, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+Evaluating sbert model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for sbert:
+  Overall JSD: 0.6299
+  Overall KL:  16.4790
+  Traditional Accuracy: 0.2417
+  High agreement (entropy < 0.5): JSD=0.5703 (309 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.6547 (814 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.6254 (391 samples)
+  Beats random: JSD=NO, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+================================================================================
+EVALUATING ON CHAOSNLI MNLI DATASET UNCERTAINTY QUANTIFICATION
+================================================================================
+
+Evaluating persistence model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for persistence:
+  Overall JSD: 0.4046
+  Overall KL:  1.5763
+  Traditional Accuracy: 0.4947
+  High agreement (entropy < 0.5): JSD=0.3299 (40 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.3399 (535 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.4413 (1024 samples)
+  Beats random: JSD=NO, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+Evaluating sbert model on ChaosNLI uncertainty quantification...
+ChaosNLI Results for sbert:
+  Overall JSD: 0.5907
+  Overall KL:  15.0117
+  Traditional Accuracy: 0.3365
+  High agreement (entropy < 0.5): JSD=0.3810 (40 samples)
+  Medium agreement (0.5 ≤ entropy < 1.0): JSD=0.5762 (535 samples)
+  Low agreement (entropy ≥ 1.0): JSD=0.6064 (1024 samples)
+  Beats random: JSD=NO, KL=NO
+  vs RoBERTa JSD: 0.2200, vs BART KL: 0.4700
+
+================================================================================
+HYBRID MODEL: TRAIN ON SNLI, EVALUATE ON CHAOSNLI
+================================================================================
+Loading SNLI + MNLI persistence images...
+Combined SNLI+MNLI persistence images:
+  Train: (198000, 900) (SNLI: (150000, 900), MNLI: (48000, 900))
+  Val: (19657, 900) (SNLI: (9842, 900), MNLI: (9815, 900))
+Computing SBERT baseline features from SNLI + MNLI...
+Combined data: SNLI 150000 + MNLI 150000 = 300000 total samples
+Processing entailment: 100167 samples
+  Processed 1000/100167 entailment samples
+  Processed 2000/100167 entailment samples
+  Processed 3000/100167 entailment samples
+  Processed 4000/100167 entailment samples
+  Processed 5000/100167 entailment samples
+  Processed 6000/100167 entailment samples
+  Processed 7000/100167 entailment samples
+  Processed 8000/100167 entailment samples
+  Processed 9000/100167 entailment samples
+  Processed 10000/100167 entailment samples
+  Processed 11000/100167 entailment samples
+  Processed 12000/100167 entailment samples
+  Processed 13000/100167 entailment samples
+  Processed 14000/100167 entailment samples
+  Processed 15000/100167 entailment samples
+  Processed 16000/100167 entailment samples
+  Processed 17000/100167 entailment samples
+  Processed 18000/100167 entailment samples
+  Processed 19000/100167 entailment samples
+  Processed 20000/100167 entailment samples
+  Processed 21000/100167 entailment samples
+  Processed 22000/100167 entailment samples
+  Processed 23000/100167 entailment samples
+  Processed 24000/100167 entailment samples
+  Processed 25000/100167 entailment samples
+  Processed 26000/100167 entailment samples
+  Processed 27000/100167 entailment samples
+  Processed 28000/100167 entailment samples
+  Processed 29000/100167 entailment samples
+  Processed 30000/100167 entailment samples
+  Processed 31000/100167 entailment samples
+  Processed 32000/100167 entailment samples
+  Processed 33000/100167 entailment samples
+  Processed 34000/100167 entailment samples
+  Processed 35000/100167 entailment samples
+  Processed 36000/100167 entailment samples
+  Processed 37000/100167 entailment samples
+  Processed 38000/100167 entailment samples
+  Processed 39000/100167 entailment samples
+  Processed 40000/100167 entailment samples
+  Processed 41000/100167 entailment samples
+  Processed 42000/100167 entailment samples
+  Processed 43000/100167 entailment samples
+  Processed 44000/100167 entailment samples
+  Processed 45000/100167 entailment samples
+  Processed 46000/100167 entailment samples
+  Processed 47000/100167 entailment samples
+  Processed 48000/100167 entailment samples
+  Processed 49000/100167 entailment samples
+  Processed 50000/100167 entailment samples
+  Processed 51000/100167 entailment samples
+  Processed 52000/100167 entailment samples
+  Processed 53000/100167 entailment samples
+  Processed 54000/100167 entailment samples
+  Processed 55000/100167 entailment samples
+  Processed 56000/100167 entailment samples
+  Processed 57000/100167 entailment samples
+  Processed 58000/100167 entailment samples
+  Processed 59000/100167 entailment samples
+  Processed 60000/100167 entailment samples
+  Processed 61000/100167 entailment samples
+  Processed 62000/100167 entailment samples
+  Processed 63000/100167 entailment samples
+  Processed 64000/100167 entailment samples
+  Processed 65000/100167 entailment samples
+  Processed 66000/100167 entailment samples
+  Processed 67000/100167 entailment samples
+  Processed 68000/100167 entailment samples
+  Processed 69000/100167 entailment samples
+  Processed 70000/100167 entailment samples
+  Processed 71000/100167 entailment samples
+  Processed 72000/100167 entailment samples
+  Processed 73000/100167 entailment samples
+  Processed 74000/100167 entailment samples
+  Processed 75000/100167 entailment samples
+  Processed 76000/100167 entailment samples
+  Processed 77000/100167 entailment samples
+  Processed 78000/100167 entailment samples
+  Processed 79000/100167 entailment samples
+  Processed 80000/100167 entailment samples
+  Processed 81000/100167 entailment samples
+  Processed 82000/100167 entailment samples
+  Processed 83000/100167 entailment samples
+  Processed 84000/100167 entailment samples
+  Processed 85000/100167 entailment samples
+  Processed 86000/100167 entailment samples
+  Processed 87000/100167 entailment samples
+  Processed 88000/100167 entailment samples
+  Processed 89000/100167 entailment samples
+  Processed 90000/100167 entailment samples
+  Processed 91000/100167 entailment samples
+  Processed 92000/100167 entailment samples
+  Processed 93000/100167 entailment samples
+  Processed 94000/100167 entailment samples
+  Processed 95000/100167 entailment samples
+  Processed 96000/100167 entailment samples
+  Processed 97000/100167 entailment samples
+  Processed 98000/100167 entailment samples
+  Processed 99000/100167 entailment samples
+  Processed 100000/100167 entailment samples
+Processing neutral: 100359 samples
+  Processed 1000/100359 neutral samples
+  Processed 2000/100359 neutral samples
+  Processed 3000/100359 neutral samples
+  Processed 4000/100359 neutral samples
+  Processed 5000/100359 neutral samples
+  Processed 6000/100359 neutral samples
+  Processed 7000/100359 neutral samples
+  Processed 8000/100359 neutral samples
+  Processed 9000/100359 neutral samples
+  Processed 10000/100359 neutral samples
+  Processed 11000/100359 neutral samples
+  Processed 12000/100359 neutral samples
+  Processed 13000/100359 neutral samples
+  Processed 14000/100359 neutral samples
+  Processed 15000/100359 neutral samples
+  Processed 16000/100359 neutral samples
+  Processed 17000/100359 neutral samples
+  Processed 18000/100359 neutral samples
+  Processed 19000/100359 neutral samples
+  Processed 20000/100359 neutral samples
+  Processed 21000/100359 neutral samples
+  Processed 22000/100359 neutral samples
+  Processed 23000/100359 neutral samples
+  Processed 24000/100359 neutral samples
+  Processed 25000/100359 neutral samples
+  Processed 26000/100359 neutral samples
+  Processed 27000/100359 neutral samples
+  Processed 28000/100359 neutral samples
+  Processed 29000/100359 neutral samples
+  Processed 30000/100359 neutral samples
+  Processed 31000/100359 neutral samples
+  Processed 32000/100359 neutral samples
+  Processed 33000/100359 neutral samples
+  Processed 34000/100359 neutral samples
+  Processed 35000/100359 neutral samples
+  Processed 36000/100359 neutral samples
+  Processed 37000/100359 neutral samples
+  Processed 38000/100359 neutral samples
+  Processed 39000/100359 neutral samples
+  Processed 40000/100359 neutral samples
+  Processed 41000/100359 neutral samples
+  Processed 42000/100359 neutral samples
+  Processed 43000/100359 neutral samples
+  Processed 44000/100359 neutral samples
+  Processed 45000/100359 neutral samples
+  Processed 46000/100359 neutral samples
+  Processed 47000/100359 neutral samples
+  Processed 48000/100359 neutral samples
+  Processed 49000/100359 neutral samples
+  Processed 50000/100359 neutral samples
+  Processed 51000/100359 neutral samples
+  Processed 52000/100359 neutral samples
+  Processed 53000/100359 neutral samples
+  Processed 54000/100359 neutral samples
+  Processed 55000/100359 neutral samples
+  Processed 56000/100359 neutral samples
+  Processed 57000/100359 neutral samples
+  Processed 58000/100359 neutral samples
+  Processed 59000/100359 neutral samples
+  Processed 60000/100359 neutral samples
+  Processed 61000/100359 neutral samples
+  Processed 62000/100359 neutral samples
+  Processed 63000/100359 neutral samples
+  Processed 64000/100359 neutral samples
+  Processed 65000/100359 neutral samples
+  Processed 66000/100359 neutral samples
+  Processed 67000/100359 neutral samples
+  Processed 68000/100359 neutral samples
+  Processed 69000/100359 neutral samples
+  Processed 70000/100359 neutral samples
+  Processed 71000/100359 neutral samples
+  Processed 72000/100359 neutral samples
+  Processed 73000/100359 neutral samples
+  Processed 74000/100359 neutral samples
+  Processed 75000/100359 neutral samples
+  Processed 76000/100359 neutral samples
+  Processed 77000/100359 neutral samples
+  Processed 78000/100359 neutral samples
+  Processed 79000/100359 neutral samples
+  Processed 80000/100359 neutral samples
+  Processed 81000/100359 neutral samples
+  Processed 82000/100359 neutral samples
+  Processed 83000/100359 neutral samples
+  Processed 84000/100359 neutral samples
+  Processed 85000/100359 neutral samples
+  Processed 86000/100359 neutral samples
+  Processed 87000/100359 neutral samples
+  Processed 88000/100359 neutral samples
+  Processed 89000/100359 neutral samples
+  Processed 90000/100359 neutral samples
+  Processed 91000/100359 neutral samples
+  Processed 92000/100359 neutral samples
+  Processed 93000/100359 neutral samples
+  Processed 94000/100359 neutral samples
+  Processed 95000/100359 neutral samples
+  Processed 96000/100359 neutral samples
+  Processed 97000/100359 neutral samples
+  Processed 98000/100359 neutral samples
+  Processed 99000/100359 neutral samples
+  Processed 100000/100359 neutral samples
+Processing contradiction: 99474 samples
+  Processed 1000/99474 contradiction samples
+  Processed 2000/99474 contradiction samples
+  Processed 3000/99474 contradiction samples
+  Processed 4000/99474 contradiction samples
+  Processed 5000/99474 contradiction samples
+  Processed 6000/99474 contradiction samples
+  Processed 7000/99474 contradiction samples
+  Processed 8000/99474 contradiction samples
+  Processed 9000/99474 contradiction samples
+  Processed 10000/99474 contradiction samples
+  Processed 11000/99474 contradiction samples
+  Processed 12000/99474 contradiction samples
+  Processed 13000/99474 contradiction samples
+  Processed 14000/99474 contradiction samples
+  Processed 15000/99474 contradiction samples
+  Processed 16000/99474 contradiction samples
+  Processed 17000/99474 contradiction samples
+  Processed 18000/99474 contradiction samples
+  Processed 19000/99474 contradiction samples
+  Processed 20000/99474 contradiction samples
+  Processed 21000/99474 contradiction samples
+  Processed 22000/99474 contradiction samples
+  Processed 23000/99474 contradiction samples
+  Processed 24000/99474 contradiction samples
+  Processed 25000/99474 contradiction samples
+  Processed 26000/99474 contradiction samples
+  Processed 27000/99474 contradiction samples
+  Processed 28000/99474 contradiction samples
+  Processed 29000/99474 contradiction samples
+  Processed 30000/99474 contradiction samples
+  Processed 31000/99474 contradiction samples
+  Processed 32000/99474 contradiction samples
+  Processed 33000/99474 contradiction samples
+  Processed 34000/99474 contradiction samples
+  Processed 35000/99474 contradiction samples
+  Processed 36000/99474 contradiction samples
+  Processed 37000/99474 contradiction samples
+  Processed 38000/99474 contradiction samples
+  Processed 39000/99474 contradiction samples
+  Processed 40000/99474 contradiction samples
+  Processed 41000/99474 contradiction samples
+  Processed 42000/99474 contradiction samples
+  Processed 43000/99474 contradiction samples
+  Processed 44000/99474 contradiction samples
+  Processed 45000/99474 contradiction samples
+  Processed 46000/99474 contradiction samples
+  Processed 47000/99474 contradiction samples
+  Processed 48000/99474 contradiction samples
+  Processed 49000/99474 contradiction samples
+  Processed 50000/99474 contradiction samples
+  Processed 51000/99474 contradiction samples
+  Processed 52000/99474 contradiction samples
+  Processed 53000/99474 contradiction samples
+  Processed 54000/99474 contradiction samples
+  Processed 55000/99474 contradiction samples
+  Processed 56000/99474 contradiction samples
+  Processed 57000/99474 contradiction samples
+  Processed 58000/99474 contradiction samples
+  Processed 59000/99474 contradiction samples
+  Processed 60000/99474 contradiction samples
+  Processed 61000/99474 contradiction samples
+  Processed 62000/99474 contradiction samples
+  Processed 63000/99474 contradiction samples
+  Processed 64000/99474 contradiction samples
+  Processed 65000/99474 contradiction samples
+  Processed 66000/99474 contradiction samples
+  Processed 67000/99474 contradiction samples
+  Processed 68000/99474 contradiction samples
+  Processed 69000/99474 contradiction samples
+  Processed 70000/99474 contradiction samples
+  Processed 71000/99474 contradiction samples
+  Processed 72000/99474 contradiction samples
+  Processed 73000/99474 contradiction samples
+  Processed 74000/99474 contradiction samples
+  Processed 75000/99474 contradiction samples
+  Processed 76000/99474 contradiction samples
+  Processed 77000/99474 contradiction samples
+  Processed 78000/99474 contradiction samples
+  Processed 79000/99474 contradiction samples
+  Processed 80000/99474 contradiction samples
+  Processed 81000/99474 contradiction samples
+  Processed 82000/99474 contradiction samples
+  Processed 83000/99474 contradiction samples
+  Processed 84000/99474 contradiction samples
+  Processed 85000/99474 contradiction samples
+  Processed 86000/99474 contradiction samples
+  Processed 87000/99474 contradiction samples
+  Processed 88000/99474 contradiction samples
+  Processed 89000/99474 contradiction samples
+  Processed 90000/99474 contradiction samples
+  Processed 91000/99474 contradiction samples
+  Processed 92000/99474 contradiction samples
+  Processed 93000/99474 contradiction samples
+  Processed 94000/99474 contradiction samples
+  Processed 95000/99474 contradiction samples
+  Processed 96000/99474 contradiction samples
+  Processed 97000/99474 contradiction samples
+  Processed 98000/99474 contradiction samples
+  Processed 99000/99474 contradiction samples
+Combined SBERT features: (300000, 3072), class distribution: {0: 100167, 1: 100359, 2: 99474}
+Computing SBERT baseline features from SNLI + MNLI...
+Combined data: SNLI 9842 + MNLI 9815 = 19657 total samples
+Processing entailment: 6808 samples
+  Processed 1000/6808 entailment samples
+  Processed 2000/6808 entailment samples
+  Processed 3000/6808 entailment samples
+  Processed 4000/6808 entailment samples
+  Processed 5000/6808 entailment samples
+  Processed 6000/6808 entailment samples
+Processing neutral: 6358 samples
+  Processed 1000/6358 neutral samples
+  Processed 2000/6358 neutral samples
+  Processed 3000/6358 neutral samples
+  Processed 4000/6358 neutral samples
+  Processed 5000/6358 neutral samples
+  Processed 6000/6358 neutral samples
+Processing contradiction: 6491 samples
+  Processed 1000/6491 contradiction samples
+  Processed 2000/6491 contradiction samples
+  Processed 3000/6491 contradiction samples
+  Processed 4000/6491 contradiction samples
+  Processed 5000/6491 contradiction samples
+  Processed 6000/6491 contradiction samples
+Combined SBERT features: (19657, 3072), class distribution: {0: 6808, 1: 6358, 2: 6491}
+Aligning persistence and SBERT datasets...
+Class 0: persistence=98214, sbert=100167, using=98214
+Class 1: persistence=50069, sbert=100359, using=50069
+Class 2: persistence=49717, sbert=99474, using=49717
+Aligned datasets: (198000, 900) persistence, (198000, 3072) SBERT
+Standardizing (198000, 3072) in-place...
+Training Hybrid CNN + SBERT model on SNLI...
+Training model on cuda...
+Training samples: 198000
+Validation samples: 19657
+Epoch   0: Train Loss 0.4052 (Acc 0.848), Val Loss 1.3316 (Acc 0.543), Best Val 0.000
+Epoch   1: Train Loss 0.3473 (Acc 0.873), Val Loss 1.3772 (Acc 0.559), Best Val 0.543
+Epoch   2: Train Loss 0.3222 (Acc 0.881), Val Loss 1.4566 (Acc 0.562), Best Val 0.559
+Epoch   3: Train Loss 0.3020 (Acc 0.889), Val Loss 1.5488 (Acc 0.556), Best Val 0.562
+Epoch   4: Train Loss 0.2830 (Acc 0.896), Val Loss 1.5266 (Acc 0.551), Best Val 0.562
+Epoch   5: Train Loss 0.2661 (Acc 0.903), Val Loss 1.5353 (Acc 0.564), Best Val 0.562
+Epoch   6: Train Loss 0.2522 (Acc 0.908), Val Loss 1.6491 (Acc 0.552), Best Val 0.564
+Epoch   7: Train Loss 0.2371 (Acc 0.914), Val Loss 1.8070 (Acc 0.546), Best Val 0.564
+Epoch   8: Train Loss 0.2254 (Acc 0.919), Val Loss 2.0346 (Acc 0.546), Best Val 0.564
+Epoch   9: Train Loss 0.2139 (Acc 0.924), Val Loss 1.9785 (Acc 0.553), Best Val 0.564
+Epoch  20: Train Loss 0.1098 (Acc 0.962), Val Loss 3.0210 (Acc 0.534), Best Val 0.564
+Early stopping at epoch 30 (patience=25)
+Training completed. Best validation accuracy: 0.564
+Hybrid SNLI validation accuracy: 0.564
+Loading ChaosNLI persistence images...
+ChaosNLI persistence images: (1514, 900)
+Human label distributions: (1514, 3)
+Entropy range: 0.000 - 1.583
+Loading ChaosNLI persistence images...
+ChaosNLI persistence images: (1599, 900)
+Human label distributions: (1599, 3)
+Entropy range: 0.081 - 1.584
+Computing ChaosNLI SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_snli_sbert_tokens.pkl
+Processing 1514 ChaosNLI samples...
+  Processed 1000/1514 samples
+ChaosNLI SBERT features: (1514, 3072)
+Computing ChaosNLI SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/chaosnli_mnli_matched_sbert_tokens.pkl
+Processing 1599 ChaosNLI samples...
+  Processed 1000/1599 samples
+ChaosNLI SBERT features: (1599, 3072)
+
+Evaluating Hybrid model on ChaosNLI...
+Evaluating on SNLI CHAOSNLI
+Hybrid ChaosNLI Results:
+  JSD: 0.3647
+  KL:  2.2568
+  Accuracy: 0.6110
+
+
+Evaluating on MNLI CHAOSNLI
+
+Analysis completed with exit code: 1
+Time: Sun 17 Aug 08:37:13 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

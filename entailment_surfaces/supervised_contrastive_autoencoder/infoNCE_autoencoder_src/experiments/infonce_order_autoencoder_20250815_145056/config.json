@@ -1,0 +1,42 @@
+{
+  "data": {
+    "train_path": "data/processed/snli_full_standard_SBERT.pt",
+    "val_path": "data/processed/snli_full_standard_SBERT_validation.pt",
+    "test_path": "data/processed/snli_full_standard_SBERT_test.pt",
+    "embedding_type": "concat",
+    "batch_size": 1020
+  },
+  "model": {
+    "input_dim": 1536,
+    "latent_dim": 75,
+    "hidden_dims": [
+      1024,
+      768,
+      512,
+      256
+    ],
+    "dropout_rate": 0.2
+  },
+  "loss": {
+    "infonce_weight": 1.0,
+    "order_weight": 0.5,
+    "topological_weight": 1.0,
+    "reconstruction_weight": 10.0,
+    "temperature": 0.1,
+    "max_global_samples": 5000,
+    "entailment_margin": 0.3,
+    "neutral_margin": 1.0,
+    "neutral_upper_bound": 1.5,
+    "contradiction_margin": 2.0,
+    "topo_frequency": 100
+  },
+  "optimizer": {
+    "lr": 0.0001,
+    "weight_decay": 1e-05
+  },
+  "training": {
+    "num_epochs": 100,
+    "patience": 15,
+    "save_every": 10
+  }
+}

@@ -1,0 +1,28 @@
+ORDER EMBEDDING MODEL WITH SEPARATE MARGINS ANALYSIS
+============================================================
+
+TRAINING CONFIGURATION:
+-------------------------
+Neutral margin (lower bound): 1.0
+Neutral upper bound: 1.5
+Contradiction margin: 2.0
+Target zones:
+  Entailment: < 1.0
+  Neutral: [1.0, 1.5]
+  Contradiction: > 2.0
+
+FINAL PERFORMANCE:
+--------------------
+entailment: 0.3468 ± 0.3372 (n=10072)
+neutral: 1.0542 ± 0.6132 (n=10037)
+contradiction: 2.4382 ± 1.2595 (n=9891)
+
+ZONE ANALYSIS:
+---------------
+Entailment in target zone (< 1.0): ✅
+Neutral in target zone ([1.0, 1.5]): ✅
+Contradiction in target zone (> 2.0): ✅
+🎯 PERFECT SEPARATION ACHIEVED!
+
+Best validation loss: 0.309558
+Training completed at epoch: 39

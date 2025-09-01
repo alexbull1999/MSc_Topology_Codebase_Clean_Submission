@@ -1,0 +1,351 @@
+Job ID: 188736
+Node: gpuvm15
+Time: Thu 31 Jul 14:38:16 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 31 14:38:19 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   46C    P0             28W /   70W |    1699MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          123175      C   python3                                 870MiB |
+|    0   N/A  N/A          125699      C   python3                                 826MiB |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+STEP 1: TRAINING ORDER EMBEDDING MODEL
+================================================================================
+Loading processed dataset: /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Loaded 150000 samples
+Label distribution: {'contradiction': 49717, 'entailment': 50214, 'neutral': 50069}
+OrderEmbeddingTrainer initialized on cuda
+Training OrderEmbeddingModel - Pure Vendrov et al. max-margin loss
+
+Epoch 1/20
+Train Loss: 0.2696, Val Loss: 0.2482
+Energy Rankings:
+  entailment: 0.4261 ± 0.2236
+  neutral: 0.9212 ± 0.4132
+  contradiction: 1.1547 ± 0.4600
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 2/20
+Train Loss: 0.2351, Val Loss: 0.2274
+Energy Rankings:
+  entailment: 0.3686 ± 0.2531
+  neutral: 1.0125 ± 0.5556
+  contradiction: 1.2994 ± 0.6100
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 3/20
+Train Loss: 0.2170, Val Loss: 0.2172
+Energy Rankings:
+  entailment: 0.3361 ± 0.2653
+  neutral: 1.0639 ± 0.6398
+  contradiction: 1.4051 ± 0.7232
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 4/20
+Train Loss: 0.2046, Val Loss: 0.2100
+Energy Rankings:
+  entailment: 0.3161 ± 0.2745
+  neutral: 1.1052 ± 0.7043
+  contradiction: 1.5021 ± 0.8132
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 5/20
+Train Loss: 0.1954, Val Loss: 0.2039
+Energy Rankings:
+  entailment: 0.3115 ± 0.2865
+  neutral: 1.1623 ± 0.7613
+  contradiction: 1.6075 ± 0.8923
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 6/20
+Train Loss: 0.1879, Val Loss: 0.2003
+Energy Rankings:
+  entailment: 0.3027 ± 0.2875
+  neutral: 1.1823 ± 0.7878
+  contradiction: 1.6429 ± 0.9263
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 7/20
+Train Loss: 0.1813, Val Loss: 0.1974
+Energy Rankings:
+  entailment: 0.2971 ± 0.2933
+  neutral: 1.2141 ± 0.8296
+  contradiction: 1.7277 ± 0.9969
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 8/20
+Train Loss: 0.1756, Val Loss: 0.1949
+Energy Rankings:
+  entailment: 0.2932 ± 0.2952
+  neutral: 1.2245 ± 0.8366
+  contradiction: 1.7114 ± 0.9831
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 9/20
+Train Loss: 0.1704, Val Loss: 0.1930
+Energy Rankings:
+  entailment: 0.2865 ± 0.3017
+  neutral: 1.2583 ± 0.8859
+  contradiction: 1.7826 ± 1.0571
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 10/20
+Train Loss: 0.1660, Val Loss: 0.1904
+Energy Rankings:
+  entailment: 0.2893 ± 0.3090
+  neutral: 1.2981 ± 0.9210
+  contradiction: 1.8420 ± 1.0978
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 11/20
+Train Loss: 0.1616, Val Loss: 0.1895
+Energy Rankings:
+  entailment: 0.2844 ± 0.3102
+  neutral: 1.3051 ± 0.9353
+  contradiction: 1.8747 ± 1.1334
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 12/20
+Train Loss: 0.1577, Val Loss: 0.1879
+Energy Rankings:
+  entailment: 0.2864 ± 0.3179
+  neutral: 1.3384 ± 0.9640
+  contradiction: 1.9421 ± 1.1893
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 13/20
+Train Loss: 0.1542, Val Loss: 0.1865
+Energy Rankings:
+  entailment: 0.2857 ± 0.3231
+  neutral: 1.3688 ± 0.9991
+  contradiction: 1.9943 ± 1.2372
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 14/20
+Train Loss: 0.1508, Val Loss: 0.1865
+Energy Rankings:
+  entailment: 0.2773 ± 0.3204
+  neutral: 1.3480 ± 0.9941
+  contradiction: 1.9846 ± 1.2388
+
+Epoch 15/20
+Train Loss: 0.1474, Val Loss: 0.1854
+Energy Rankings:
+  entailment: 0.2800 ± 0.3244
+  neutral: 1.3744 ± 1.0142
+  contradiction: 2.0025 ± 1.2533
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 16/20
+Train Loss: 0.1441, Val Loss: 0.1851
+Energy Rankings:
+  entailment: 0.2751 ± 0.3225
+  neutral: 1.3636 ± 1.0154
+  contradiction: 2.0221 ± 1.2662
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 17/20
+Train Loss: 0.1413, Val Loss: 0.1853
+Energy Rankings:
+  entailment: 0.2693 ± 0.3216
+  neutral: 1.3700 ± 1.0363
+  contradiction: 1.9810 ± 1.2579
+
+Epoch 18/20
+Train Loss: 0.1385, Val Loss: 0.1834
+Energy Rankings:
+  entailment: 0.2829 ± 0.3412
+  neutral: 1.4453 ± 1.0925
+  contradiction: 2.0929 ± 1.3274
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+
+Epoch 19/20
+Train Loss: 0.1358, Val Loss: 0.1837
+Energy Rankings:
+  entailment: 0.2716 ± 0.3302
+  neutral: 1.4106 ± 1.0760
+  contradiction: 2.0848 ± 1.3479
+
+Epoch 20/20
+Train Loss: 0.1332, Val Loss: 0.1833
+Energy Rankings:
+  entailment: 0.2736 ± 0.3385
+  neutral: 1.4375 ± 1.1035
+  contradiction: 2.0982 ± 1.3546
+✅ Order model saved: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+================================================================================
+STEP 2: TRAINING ASYMMETRY TRANSFORM MODEL
+================================================================================
+Loading processed dataset: /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Loaded 150000 samples
+Label distribution: {'contradiction': 49717, 'entailment': 50214, 'neutral': 50069}
+AsymmetryTrainer initialized on cuda
+Order model is frozen - only training asymmetry model
+Training AsymmetryTransformModel - Asymmetric directional loss
+OrderEmbeddingModel is frozen
+
+Epoch 1/15
+Train Loss: 1.3734, Val Loss: 1.5002
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=0.887
+  neutral: fwd=1.437, bwd=1.438, asym=0.933
+  contradiction: fwd=2.098, bwd=2.211, asym=1.145
+✅ Asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+
+Epoch 2/15
+Train Loss: 1.3734, Val Loss: 1.5165
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=1.194
+  neutral: fwd=1.437, bwd=1.438, asym=0.979
+  contradiction: fwd=2.098, bwd=2.211, asym=1.082
+
+Epoch 3/15
+Train Loss: 1.3734, Val Loss: 1.5158
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=1.549
+  neutral: fwd=1.437, bwd=1.438, asym=1.158
+  contradiction: fwd=2.098, bwd=2.211, asym=1.208
+
+Epoch 4/15
+Train Loss: 1.3734, Val Loss: 1.4975
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=2.265
+  neutral: fwd=1.437, bwd=1.438, asym=1.634
+  contradiction: fwd=2.098, bwd=2.211, asym=1.654
+✅ Asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+
+Epoch 5/15
+Train Loss: 1.3735, Val Loss: 1.4900
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=3.022
+  neutral: fwd=1.437, bwd=1.438, asym=2.157
+  contradiction: fwd=2.098, bwd=2.211, asym=2.160
+✅ Asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+
+Epoch 6/15
+Train Loss: 1.3735, Val Loss: 1.4881
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=3.553
+  neutral: fwd=1.437, bwd=1.438, asym=2.529
+  contradiction: fwd=2.098, bwd=2.211, asym=2.528
+✅ Asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+
+Epoch 7/15
+Train Loss: 1.3735, Val Loss: 1.4874
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=3.999
+  neutral: fwd=1.437, bwd=1.438, asym=2.836
+  contradiction: fwd=2.098, bwd=2.211, asym=2.836
+✅ Asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+
+Epoch 8/15
+Train Loss: 1.3735, Val Loss: 1.4875
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=4.017
+  neutral: fwd=1.437, bwd=1.438, asym=2.831
+  contradiction: fwd=2.098, bwd=2.211, asym=2.822
+
+Epoch 9/15
+Train Loss: 1.3735, Val Loss: 1.4878
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=3.843
+  neutral: fwd=1.437, bwd=1.438, asym=2.687
+  contradiction: fwd=2.098, bwd=2.211, asym=2.688
+
+Epoch 10/15
+Train Loss: 1.3735, Val Loss: 1.4898
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=3.183
+  neutral: fwd=1.437, bwd=1.438, asym=2.209
+  contradiction: fwd=2.098, bwd=2.211, asym=2.214
+
+Epoch 11/15
+Train Loss: 1.3735, Val Loss: 1.4934
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=2.758
+  neutral: fwd=1.437, bwd=1.438, asym=1.895
+  contradiction: fwd=2.098, bwd=2.211, asym=1.903
+
+Epoch 12/15
+Train Loss: 1.3734, Val Loss: 1.5027
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=2.288
+  neutral: fwd=1.437, bwd=1.438, asym=1.557
+  contradiction: fwd=2.098, bwd=2.211, asym=1.567
+
+Epoch 13/15
+Train Loss: 1.3734, Val Loss: 1.5173
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=1.949
+  neutral: fwd=1.437, bwd=1.438, asym=1.308
+  contradiction: fwd=2.098, bwd=2.211, asym=1.314
+
+Epoch 14/15
+Train Loss: 1.3734, Val Loss: 1.5377
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=1.661
+  neutral: fwd=1.437, bwd=1.438, asym=1.099
+  contradiction: fwd=2.098, bwd=2.211, asym=1.107
+
+Epoch 15/15
+Train Loss: 1.3734, Val Loss: 1.5551
+Asymmetry Stats:
+  entailment: fwd=0.274, bwd=2.304, asym=1.497
+  neutral: fwd=1.437, bwd=1.438, asym=0.974
+  contradiction: fwd=2.098, bwd=2.211, asym=0.978
+Early stopping at epoch 15
+Comprehensive training plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/comprehensive_training_progress_20250731_173411.png
+Detailed order model plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/order_model_detailed_20250731_173411.png
+Detailed asymmetry model plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_model_detailed_20250731_173411.png
+Token-level analysis summary saved to: MSc_Topology_Codebase/phd_method/models/separate_models/token_level_analysis_20250731_173411.txt
+
+================================================================================
+SEPARATE MODEL TRAINING COMPLETE!
+✅ OrderEmbeddingModel: Pure hierarchy (Vendrov et al.)
+✅ AsymmetryTransformModel: Directional patterns
+
+Point cloud structure per sample:
+  - SBERT tokens: ~30-50 points
+  - Order embeddings: ~30-50 points
+  - Asymmetric features: ~30-50 points
+  - Total: ~90-150 points per text
+Next: Update point_cloud_clustering_test.py to use both models
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Thu 31 Jul 17:34:50 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Training successful!
+
+
+Job finished.

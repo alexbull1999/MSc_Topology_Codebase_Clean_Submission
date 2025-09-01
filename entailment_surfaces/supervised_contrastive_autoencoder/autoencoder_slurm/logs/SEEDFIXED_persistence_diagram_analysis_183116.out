@@ -1,0 +1,383 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 183116
+Node: gpuvm15
+Time: Thu 17 Jul 08:31:13 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 17 08:31:15 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   36C    P8             14W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Persistence Diagram Comparison...
+
+Running diagram collection...
+Collecting persistence diagrams for sbert_concat + cosine
+Running 10 tests with 10 samples each
+Following exact seeding procedure from phdim_clustering_validation_best_metrics.py
+
+Test 1/10 (seed=42)
+Loaded BERT data: torch.Size([549367, 768])
+Labels distribution: tensor([183187, 183416, 182764])
+Label mapping used for bincount: {'contradiction': 0, 'entailment': 1, 'neutral': 2}
+  Sample 1, entailment: H0=950, H1=1471, PHD=7.49
+  Sample 1, neutral: H0=950, H1=2038, PHD=10.21
+  Sample 1, contradiction: H0=950, H1=2758, PHD=13.24
+  Sample 2, entailment: H0=950, H1=1476, PHD=8.68
+  Sample 2, neutral: H0=950, H1=2061, PHD=10.48
+  Sample 2, contradiction: H0=950, H1=2616, PHD=12.68
+  Sample 3, entailment: H0=950, H1=1582, PHD=8.79
+  Sample 3, neutral: H0=950, H1=2090, PHD=10.95
+  Sample 3, contradiction: H0=950, H1=2668, PHD=13.64
+  Sample 4, entailment: H0=950, H1=1552, PHD=8.54
+  Sample 4, neutral: H0=950, H1=2005, PHD=11.47
+  Sample 4, contradiction: H0=950, H1=2630, PHD=12.95
+  Sample 5, entailment: H0=950, H1=1445, PHD=8.31
+  Sample 5, neutral: H0=950, H1=2058, PHD=10.47
+  Sample 5, contradiction: H0=950, H1=2654, PHD=12.49
+  Sample 6, entailment: H0=950, H1=1429, PHD=8.17
+  Sample 6, neutral: H0=950, H1=2021, PHD=10.70
+  Sample 6, contradiction: H0=950, H1=2593, PHD=12.60
+  Sample 7, entailment: H0=950, H1=1490, PHD=8.16
+  Sample 7, neutral: H0=950, H1=2084, PHD=10.61
+  Sample 7, contradiction: H0=950, H1=2729, PHD=13.00
+  Sample 8, entailment: H0=950, H1=1397, PHD=8.10
+  Sample 8, neutral: H0=950, H1=2049, PHD=10.55
+  Sample 8, contradiction: H0=950, H1=2713, PHD=12.70
+  Sample 9, entailment: H0=950, H1=1490, PHD=8.36
+  Sample 9, neutral: H0=950, H1=2174, PHD=10.92
+  Sample 9, contradiction: H0=950, H1=2635, PHD=11.68
+  Sample 10, entailment: H0=950, H1=1503, PHD=7.83
+  Sample 10, neutral: H0=950, H1=1995, PHD=10.41
+  Sample 10, contradiction: H0=950, H1=2838, PHD=14.00
+
+Test 2/10 (seed=43)
+  Sample 1, entailment: H0=950, H1=1477, PHD=8.28
+  Sample 1, neutral: H0=950, H1=1961, PHD=11.73
+  Sample 1, contradiction: H0=950, H1=2801, PHD=13.70
+  Sample 2, entailment: H0=950, H1=1520, PHD=8.91
+  Sample 2, neutral: H0=950, H1=2077, PHD=11.15
+  Sample 2, contradiction: H0=950, H1=2635, PHD=12.62
+  Sample 3, entailment: H0=950, H1=1589, PHD=8.69
+  Sample 3, neutral: H0=950, H1=2109, PHD=11.85
+  Sample 3, contradiction: H0=950, H1=2649, PHD=12.92
+  Sample 4, entailment: H0=950, H1=1414, PHD=8.51
+  Sample 4, neutral: H0=950, H1=2028, PHD=10.66
+  Sample 4, contradiction: H0=950, H1=2731, PHD=12.56
+  Sample 5, entailment: H0=950, H1=1548, PHD=8.85
+  Sample 5, neutral: H0=950, H1=2139, PHD=12.29
+  Sample 5, contradiction: H0=950, H1=2707, PHD=12.89
+  Sample 6, entailment: H0=950, H1=1477, PHD=8.06
+  Sample 6, neutral: H0=950, H1=1960, PHD=9.96
+  Sample 6, contradiction: H0=950, H1=2751, PHD=13.49
+  Sample 7, entailment: H0=950, H1=1453, PHD=7.59
+  Sample 7, neutral: H0=950, H1=1956, PHD=10.52
+  Sample 7, contradiction: H0=950, H1=2730, PHD=13.78
+  Sample 8, entailment: H0=950, H1=1478, PHD=8.91
+  Sample 8, neutral: H0=950, H1=2030, PHD=11.30
+  Sample 8, contradiction: H0=950, H1=2807, PHD=12.54
+  Sample 9, entailment: H0=950, H1=1451, PHD=9.06
+  Sample 9, neutral: H0=950, H1=2021, PHD=11.22
+  Sample 9, contradiction: H0=950, H1=2671, PHD=13.26
+  Sample 10, entailment: H0=950, H1=1484, PHD=9.30
+  Sample 10, neutral: H0=950, H1=2020, PHD=11.03
+  Sample 10, contradiction: H0=950, H1=2806, PHD=12.63
+
+Test 3/10 (seed=44)
+  Sample 1, entailment: H0=950, H1=1588, PHD=8.46
+  Sample 1, neutral: H0=950, H1=2005, PHD=10.87
+  Sample 1, contradiction: H0=950, H1=2721, PHD=14.25
+  Sample 2, entailment: H0=950, H1=1482, PHD=9.53
+  Sample 2, neutral: H0=950, H1=1958, PHD=11.38
+  Sample 2, contradiction: H0=950, H1=2759, PHD=13.97
+  Sample 3, entailment: H0=950, H1=1510, PHD=8.28
+  Sample 3, neutral: H0=950, H1=2056, PHD=10.40
+  Sample 3, contradiction: H0=950, H1=2691, PHD=13.24
+  Sample 4, entailment: H0=950, H1=1570, PHD=8.11
+  Sample 4, neutral: H0=950, H1=2117, PHD=12.44
+  Sample 4, contradiction: H0=950, H1=2613, PHD=11.66
+  Sample 5, entailment: H0=950, H1=1522, PHD=8.35
+  Sample 5, neutral: H0=950, H1=2010, PHD=10.93
+  Sample 5, contradiction: H0=950, H1=2733, PHD=14.31
+  Sample 6, entailment: H0=950, H1=1488, PHD=8.40
+  Sample 6, neutral: H0=950, H1=2096, PHD=10.64
+  Sample 6, contradiction: H0=950, H1=2697, PHD=13.07
+  Sample 7, entailment: H0=950, H1=1554, PHD=9.00
+  Sample 7, neutral: H0=950, H1=2064, PHD=10.16
+  Sample 7, contradiction: H0=950, H1=2680, PHD=12.91
+  Sample 8, entailment: H0=950, H1=1428, PHD=8.05
+  Sample 8, neutral: H0=950, H1=2156, PHD=11.17
+  Sample 8, contradiction: H0=950, H1=2573, PHD=12.81
+  Sample 9, entailment: H0=950, H1=1549, PHD=8.28
+  Sample 9, neutral: H0=950, H1=2046, PHD=10.14
+  Sample 9, contradiction: H0=950, H1=2747, PHD=12.64
+  Sample 10, entailment: H0=950, H1=1541, PHD=9.07
+  Sample 10, neutral: H0=950, H1=2130, PHD=11.20
+  Sample 10, contradiction: H0=950, H1=2728, PHD=13.40
+
+Test 4/10 (seed=45)
+  Sample 1, entailment: H0=950, H1=1477, PHD=8.69
+  Sample 1, neutral: H0=950, H1=2103, PHD=11.25
+  Sample 1, contradiction: H0=950, H1=2674, PHD=12.37
+  Sample 2, entailment: H0=950, H1=1485, PHD=7.79
+  Sample 2, neutral: H0=950, H1=1895, PHD=10.71
+  Sample 2, contradiction: H0=950, H1=2550, PHD=12.63
+  Sample 3, entailment: H0=950, H1=1394, PHD=7.89
+  Sample 3, neutral: H0=950, H1=2036, PHD=11.03
+  Sample 3, contradiction: H0=950, H1=2557, PHD=13.38
+  Sample 4, entailment: H0=950, H1=1502, PHD=8.04
+  Sample 4, neutral: H0=950, H1=2051, PHD=11.83
+  Sample 4, contradiction: H0=950, H1=2685, PHD=13.16
+  Sample 5, entailment: H0=950, H1=1492, PHD=8.08
+  Sample 5, neutral: H0=950, H1=2000, PHD=11.44
+  Sample 5, contradiction: H0=950, H1=2662, PHD=12.55
+  Sample 6, entailment: H0=950, H1=1361, PHD=9.23
+  Sample 6, neutral: H0=950, H1=2043, PHD=10.12
+  Sample 6, contradiction: H0=950, H1=2753, PHD=12.75
+  Sample 7, entailment: H0=950, H1=1530, PHD=8.73
+  Sample 7, neutral: H0=950, H1=2062, PHD=11.43
+  Sample 7, contradiction: H0=950, H1=2610, PHD=12.73
+  Sample 8, entailment: H0=950, H1=1537, PHD=8.20
+  Sample 8, neutral: H0=950, H1=1974, PHD=10.95
+  Sample 8, contradiction: H0=950, H1=2556, PHD=11.34
+  Sample 9, entailment: H0=950, H1=1429, PHD=8.18
+  Sample 9, neutral: H0=950, H1=2096, PHD=11.22
+  Sample 9, contradiction: H0=950, H1=2624, PHD=12.46
+  Sample 10, entailment: H0=950, H1=1451, PHD=8.26
+  Sample 10, neutral: H0=950, H1=2036, PHD=10.03
+  Sample 10, contradiction: H0=950, H1=2615, PHD=13.21
+
+Test 5/10 (seed=46)
+  Sample 1, entailment: H0=950, H1=1463, PHD=8.34
+  Sample 1, neutral: H0=950, H1=2028, PHD=10.69
+  Sample 1, contradiction: H0=950, H1=2799, PHD=13.57
+  Sample 2, entailment: H0=950, H1=1577, PHD=9.09
+  Sample 2, neutral: H0=950, H1=2041, PHD=10.30
+  Sample 2, contradiction: H0=950, H1=2725, PHD=12.10
+  Sample 3, entailment: H0=950, H1=1479, PHD=8.30
+  Sample 3, neutral: H0=950, H1=2093, PHD=10.87
+  Sample 3, contradiction: H0=950, H1=2685, PHD=15.03
+  Sample 4, entailment: H0=950, H1=1502, PHD=8.62
+  Sample 4, neutral: H0=950, H1=2063, PHD=12.54
+  Sample 4, contradiction: H0=950, H1=2785, PHD=12.26
+  Sample 5, entailment: H0=950, H1=1439, PHD=8.32
+  Sample 5, neutral: H0=950, H1=2046, PHD=11.52
+  Sample 5, contradiction: H0=950, H1=2749, PHD=11.88
+  Sample 6, entailment: H0=950, H1=1495, PHD=8.29
+  Sample 6, neutral: H0=950, H1=2038, PHD=11.91
+  Sample 6, contradiction: H0=950, H1=2732, PHD=12.87
+  Sample 7, entailment: H0=950, H1=1513, PHD=8.23
+  Sample 7, neutral: H0=950, H1=1992, PHD=10.98
+  Sample 7, contradiction: H0=950, H1=2641, PHD=13.53
+  Sample 8, entailment: H0=950, H1=1545, PHD=8.26
+  Sample 8, neutral: H0=950, H1=2092, PHD=9.96
+  Sample 8, contradiction: H0=950, H1=2601, PHD=13.65
+  Sample 9, entailment: H0=950, H1=1432, PHD=8.08
+  Sample 9, neutral: H0=950, H1=1979, PHD=11.08
+  Sample 9, contradiction: H0=950, H1=2524, PHD=13.39
+  Sample 10, entailment: H0=950, H1=1507, PHD=8.38
+  Sample 10, neutral: H0=950, H1=2162, PHD=11.12
+  Sample 10, contradiction: H0=950, H1=2662, PHD=13.11
+
+Test 6/10 (seed=47)
+  Sample 1, entailment: H0=950, H1=1524, PHD=8.64
+  Sample 1, neutral: H0=950, H1=1998, PHD=10.26
+  Sample 1, contradiction: H0=950, H1=2759, PHD=13.67
+  Sample 2, entailment: H0=950, H1=1522, PHD=8.56
+  Sample 2, neutral: H0=950, H1=1992, PHD=10.70
+  Sample 2, contradiction: H0=950, H1=2695, PHD=13.93
+  Sample 3, entailment: H0=950, H1=1477, PHD=8.52
+  Sample 3, neutral: H0=950, H1=1988, PHD=9.93
+  Sample 3, contradiction: H0=950, H1=2636, PHD=12.44
+  Sample 4, entailment: H0=950, H1=1473, PHD=8.90
+  Sample 4, neutral: H0=950, H1=1980, PHD=10.82
+  Sample 4, contradiction: H0=950, H1=2562, PHD=13.67
+  Sample 5, entailment: H0=950, H1=1551, PHD=8.51
+  Sample 5, neutral: H0=950, H1=2019, PHD=11.75
+  Sample 5, contradiction: H0=950, H1=2710, PHD=12.47
+  Sample 6, entailment: H0=950, H1=1521, PHD=8.81
+  Sample 6, neutral: H0=950, H1=2079, PHD=11.32
+  Sample 6, contradiction: H0=950, H1=2655, PHD=12.83
+  Sample 7, entailment: H0=950, H1=1432, PHD=8.21
+  Sample 7, neutral: H0=950, H1=2094, PHD=11.74
+  Sample 7, contradiction: H0=950, H1=2701, PHD=13.22
+  Sample 8, entailment: H0=950, H1=1544, PHD=8.27
+  Sample 8, neutral: H0=950, H1=2028, PHD=10.87
+  Sample 8, contradiction: H0=950, H1=2613, PHD=13.25
+  Sample 9, entailment: H0=950, H1=1521, PHD=9.16
+  Sample 9, neutral: H0=950, H1=1985, PHD=11.43
+  Sample 9, contradiction: H0=950, H1=2608, PHD=12.59
+  Sample 10, entailment: H0=950, H1=1547, PHD=9.25
+  Sample 10, neutral: H0=950, H1=2104, PHD=10.57
+  Sample 10, contradiction: H0=950, H1=2815, PHD=13.62
+
+Test 7/10 (seed=48)
+  Sample 1, entailment: H0=950, H1=1521, PHD=8.06
+  Sample 1, neutral: H0=950, H1=2083, PHD=11.32
+  Sample 1, contradiction: H0=950, H1=2646, PHD=13.50
+  Sample 2, entailment: H0=950, H1=1501, PHD=8.90
+  Sample 2, neutral: H0=949, H1=2122, PHD=10.87
+  Sample 2, contradiction: H0=950, H1=2628, PHD=12.35
+  Sample 3, entailment: H0=950, H1=1504, PHD=8.26
+  Sample 3, neutral: H0=950, H1=2074, PHD=10.88
+  Sample 3, contradiction: H0=950, H1=2555, PHD=13.00
+  Sample 4, entailment: H0=950, H1=1390, PHD=8.57
+  Sample 4, neutral: H0=950, H1=2049, PHD=11.13
+  Sample 4, contradiction: H0=950, H1=2500, PHD=13.15
+  Sample 5, entailment: H0=950, H1=1409, PHD=8.80
+  Sample 5, neutral: H0=950, H1=2076, PHD=11.49
+  Sample 5, contradiction: H0=950, H1=2749, PHD=13.50
+  Sample 6, entailment: H0=950, H1=1471, PHD=9.17
+  Sample 6, neutral: H0=950, H1=2034, PHD=10.52
+  Sample 6, contradiction: H0=950, H1=2696, PHD=12.78
+  Sample 7, entailment: H0=950, H1=1653, PHD=7.89
+  Sample 7, neutral: H0=950, H1=2047, PHD=11.29
+  Sample 7, contradiction: H0=950, H1=2689, PHD=12.31
+  Sample 8, entailment: H0=950, H1=1375, PHD=9.23
+  Sample 8, neutral: H0=950, H1=2063, PHD=10.99
+  Sample 8, contradiction: H0=950, H1=2726, PHD=11.75
+  Sample 9, entailment: H0=950, H1=1472, PHD=8.49
+  Sample 9, neutral: H0=950, H1=2060, PHD=10.08
+  Sample 9, contradiction: H0=950, H1=2682, PHD=12.51
+  Sample 10, entailment: H0=950, H1=1497, PHD=8.49
+  Sample 10, neutral: H0=950, H1=2029, PHD=10.44
+  Sample 10, contradiction: H0=950, H1=2718, PHD=12.99
+
+Test 8/10 (seed=49)
+  Sample 1, entailment: H0=950, H1=1587, PHD=7.98
+  Sample 1, neutral: H0=950, H1=2138, PHD=12.02
+  Sample 1, contradiction: H0=950, H1=2664, PHD=11.52
+  Sample 2, entailment: H0=950, H1=1484, PHD=7.76
+  Sample 2, neutral: H0=950, H1=2089, PHD=10.43
+  Sample 2, contradiction: H0=950, H1=2666, PHD=12.76
+  Sample 3, entailment: H0=950, H1=1557, PHD=8.49
+  Sample 3, neutral: H0=950, H1=2016, PHD=11.11
+  Sample 3, contradiction: H0=950, H1=2783, PHD=13.53
+  Sample 4, entailment: H0=950, H1=1522, PHD=8.51
+  Sample 4, neutral: H0=950, H1=2119, PHD=10.88
+  Sample 4, contradiction: H0=950, H1=2653, PHD=13.65
+  Sample 5, entailment: H0=950, H1=1543, PHD=8.17
+  Sample 5, neutral: H0=950, H1=2111, PHD=11.89
+  Sample 5, contradiction: H0=950, H1=2687, PHD=12.77
+  Sample 6, entailment: H0=950, H1=1524, PHD=8.12
+  Sample 6, neutral: H0=950, H1=2041, PHD=10.90
+  Sample 6, contradiction: H0=950, H1=2677, PHD=13.73
+  Sample 7, entailment: H0=950, H1=1478, PHD=8.48
+  Sample 7, neutral: H0=950, H1=2135, PHD=11.75
+  Sample 7, contradiction: H0=950, H1=2660, PHD=12.59
+  Sample 8, entailment: H0=950, H1=1500, PHD=7.92
+  Sample 8, neutral: H0=950, H1=2001, PHD=12.40
+  Sample 8, contradiction: H0=950, H1=2609, PHD=12.67
+  Sample 9, entailment: H0=950, H1=1389, PHD=7.86
+  Sample 9, neutral: H0=950, H1=2023, PHD=11.36
+  Sample 9, contradiction: H0=950, H1=2699, PHD=13.37
+  Sample 10, entailment: H0=950, H1=1459, PHD=9.00
+  Sample 10, neutral: H0=950, H1=2128, PHD=10.23
+  Sample 10, contradiction: H0=950, H1=2803, PHD=13.99
+
+Test 9/10 (seed=50)
+  Sample 1, entailment: H0=950, H1=1529, PHD=8.55
+  Sample 1, neutral: H0=950, H1=2078, PHD=11.47
+  Sample 1, contradiction: H0=950, H1=2793, PHD=13.12
+  Sample 2, entailment: H0=950, H1=1477, PHD=8.76
+  Sample 2, neutral: H0=950, H1=2117, PHD=10.57
+  Sample 2, contradiction: H0=950, H1=2677, PHD=13.46
+  Sample 3, entailment: H0=950, H1=1413, PHD=8.19
+  Sample 3, neutral: H0=950, H1=2097, PHD=10.25
+  Sample 3, contradiction: H0=950, H1=2758, PHD=12.63
+  Sample 4, entailment: H0=950, H1=1502, PHD=8.59
+  Sample 4, neutral: H0=950, H1=2042, PHD=11.03
+  Sample 4, contradiction: H0=950, H1=2661, PHD=13.72
+  Sample 5, entailment: H0=950, H1=1491, PHD=8.83
+  Sample 5, neutral: H0=950, H1=2028, PHD=11.81
+  Sample 5, contradiction: H0=950, H1=2742, PHD=13.28
+  Sample 6, entailment: H0=950, H1=1484, PHD=8.75
+  Sample 6, neutral: H0=950, H1=2036, PHD=11.19
+  Sample 6, contradiction: H0=949, H1=2666, PHD=13.13
+  Sample 7, entailment: H0=950, H1=1492, PHD=8.25
+  Sample 7, neutral: H0=950, H1=2011, PHD=10.91
+  Sample 7, contradiction: H0=950, H1=2699, PHD=13.14
+  Sample 8, entailment: H0=950, H1=1446, PHD=8.27
+  Sample 8, neutral: H0=950, H1=1961, PHD=10.57
+  Sample 8, contradiction: H0=950, H1=2648, PHD=12.65
+  Sample 9, entailment: H0=950, H1=1529, PHD=8.54
+  Sample 9, neutral: H0=950, H1=2065, PHD=11.20
+  Sample 9, contradiction: H0=950, H1=2682, PHD=12.68
+  Sample 10, entailment: H0=950, H1=1432, PHD=8.44
+  Sample 10, neutral: H0=950, H1=2013, PHD=11.33
+  Sample 10, contradiction: H0=950, H1=2763, PHD=14.07
+
+Test 10/10 (seed=51)
+  Sample 1, entailment: H0=950, H1=1492, PHD=8.22
+  Sample 1, neutral: H0=950, H1=1993, PHD=9.63
+  Sample 1, contradiction: H0=950, H1=2588, PHD=12.30
+  Sample 2, entailment: H0=950, H1=1471, PHD=8.13
+  Sample 2, neutral: H0=950, H1=1899, PHD=11.53
+  Sample 2, contradiction: H0=950, H1=2812, PHD=13.88
+  Sample 3, entailment: H0=950, H1=1325, PHD=8.48
+  Sample 3, neutral: H0=950, H1=2086, PHD=10.71
+  Sample 3, contradiction: H0=950, H1=2614, PHD=13.04
+  Sample 4, entailment: H0=950, H1=1396, PHD=7.65
+  Sample 4, neutral: H0=950, H1=2117, PHD=12.20
+  Sample 4, contradiction: H0=950, H1=2698, PHD=13.19
+  Sample 5, entailment: H0=950, H1=1414, PHD=8.99
+  Sample 5, neutral: H0=950, H1=2029, PHD=10.83
+  Sample 5, contradiction: H0=950, H1=2584, PHD=13.37
+  Sample 6, entailment: H0=950, H1=1419, PHD=8.05
+  Sample 6, neutral: H0=950, H1=2012, PHD=11.04
+  Sample 6, contradiction: H0=950, H1=2531, PHD=12.26
+  Sample 7, entailment: H0=950, H1=1450, PHD=8.54
+  Sample 7, neutral: H0=950, H1=1976, PHD=10.70
+  Sample 7, contradiction: H0=950, H1=2676, PHD=13.47
+  Sample 8, entailment: H0=950, H1=1495, PHD=8.51
+  Sample 8, neutral: H0=950, H1=2059, PHD=13.07
+  Sample 8, contradiction: H0=950, H1=2716, PHD=12.36
+  Sample 9, entailment: H0=950, H1=1498, PHD=8.52
+  Sample 9, neutral: H0=950, H1=2014, PHD=10.96
+  Sample 9, contradiction: H0=950, H1=2574, PHD=11.92
+  Sample 10, entailment: H0=950, H1=1495, PHD=7.97
+  Sample 10, neutral: H0=950, H1=2034, PHD=10.84
+  Sample 10, contradiction: H0=950, H1=2716, PHD=12.37
+Diagrams collected and saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/collected_diagrams.pkl
+Initialized Analyzer with robust `persim` methods for images and distances.
+
+==============================
+Analyzing Similarity for H0
+==============================
+
+--- Processing Class: ENTAILMENT ---
+
+Analysis completed with exit code: 1
+Time: Thu 17 Jul 09:00:08 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

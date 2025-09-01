@@ -1,0 +1,204 @@
+Job ID: 195365
+Node: parrot
+Time: Sun 17 Aug 10:42:22 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sun Aug 17 10:42:27 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:90:00.0 Off |                    0 |
+|  0%   31C    P8             15W /   62W |       0MiB /  15356MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 15.7 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+🚀 Starting comprehensive hybrid model evaluation...
+   Device: cuda
+   Weight range: α ∈ [0.0, 1.0] (11 steps)
+Loading published model predictions...
+Available models: ['bert-base', 'xlnet-base', 'roberta-base', 'bert-large', 'xlnet-large', 'roberta-large', 'bart-large', 'albert-xxlarge', 'distilbert']
+Loading persistence images and ground truth...
+Combined persistence data: 3113 samples
+  SNLI: 1514 samples
+  MNLI: 1599 samples
+================================================================================
+COMPREHENSIVE HYBRID MODEL EVALUATION
+================================================================================
+Step 1: Training persistence CNN on SNLI+MNLI train/val...
+Training persistence CNN following ChaosNLI evaluation protocol...
+Loading SNLI+MNLI training and validation data...
+  MNLI train: 48000 samples
+  MNLI val: 9815 samples
+  Combined train: 198000 samples
+  Combined val: 19657 samples
+Training persistence CNN...
+Epoch  0: Train Acc 0.825, Val Acc 0.596
+Epoch 10: Train Acc 0.844, Val Acc 0.595
+Early stopping at epoch 12
+Persistence CNN training completed. Best val accuracy: 0.602
+
+============================================================
+EVALUATING MODEL: BERT-BASE
+============================================================
+Matching bert-base predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 bert-base Results Summary:
+   Baseline (α=0.0): JSD = 0.2710
+   Best (α=0.4): JSD = 0.2378
+   ✅ Improvement: +0.0332
+
+============================================================
+EVALUATING MODEL: XLNET-BASE
+============================================================
+Matching xlnet-base predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 xlnet-base Results Summary:
+   Baseline (α=0.0): JSD = 0.2710
+   Best (α=0.4): JSD = 0.2355
+   ✅ Improvement: +0.0355
+
+============================================================
+EVALUATING MODEL: ROBERTA-BASE
+============================================================
+Matching roberta-base predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 roberta-base Results Summary:
+   Baseline (α=0.0): JSD = 0.2694
+   Best (α=0.4): JSD = 0.2289
+   ✅ Improvement: +0.0405
+
+============================================================
+EVALUATING MODEL: BERT-LARGE
+============================================================
+Matching bert-large predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 bert-large Results Summary:
+   Baseline (α=0.0): JSD = 0.2738
+   Best (α=0.4): JSD = 0.2337
+   ✅ Improvement: +0.0401
+
+============================================================
+EVALUATING MODEL: XLNET-LARGE
+============================================================
+Matching xlnet-large predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 xlnet-large Results Summary:
+   Baseline (α=0.0): JSD = 0.2699
+   Best (α=0.4): JSD = 0.2236
+   ✅ Improvement: +0.0463
+
+============================================================
+EVALUATING MODEL: ROBERTA-LARGE
+============================================================
+Matching roberta-large predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 roberta-large Results Summary:
+   Baseline (α=0.0): JSD = 0.2673
+   Best (α=0.4): JSD = 0.2176
+   ✅ Improvement: +0.0497
+
+============================================================
+EVALUATING MODEL: BART-LARGE
+============================================================
+Matching bart-large predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 bart-large Results Summary:
+   Baseline (α=0.0): JSD = 0.2697
+   Best (α=0.4): JSD = 0.2206
+   ✅ Improvement: +0.0491
+
+============================================================
+EVALUATING MODEL: ALBERT-XXLARGE
+============================================================
+Matching albert-xxlarge predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 albert-xxlarge Results Summary:
+   Baseline (α=0.0): JSD = 0.2766
+   Best (α=0.4): JSD = 0.2231
+   ✅ Improvement: +0.0535
+
+============================================================
+EVALUATING MODEL: DISTILBERT
+============================================================
+Matching distilbert predictions with persistence images...
+  Matched: 3113/29462 (10.6%)
+Evaluating weighted fusion on ChaosNLI test data...
+
+📊 distilbert Results Summary:
+   Baseline (α=0.0): JSD = 0.2795
+   Best (α=0.30000000000000004): JSD = 0.2513
+   ✅ Improvement: +0.0282
+
+================================================================================
+FINAL COMPREHENSIVE RESULTS
+================================================================================
+
+📊 Model Performance Summary:
+Model           Baseline JSD Best JSD   Best α   Improvement  vs Published
+---------------------------------------------------------------------------
+bert-base       0.2710       0.2378     0.4      ✅ +0.0332 +0.0033
+xlnet-base      0.2710       0.2355     0.4      ✅ +0.0355 N/A
+roberta-base    0.2694       0.2289     0.4      ✅ +0.0405 -0.0005
+bert-large      0.2738       0.2337     0.4      ✅ +0.0401 +0.0037
+xlnet-large     0.2699       0.2236     0.4      ✅ +0.0463 N/A
+roberta-large   0.2673       0.2176     0.4      ✅ +0.0497 -0.0034
+bart-large      0.2697       0.2206     0.4      ✅ +0.0491 +0.0003
+albert-xxlarge  0.2766       0.2231     0.4      ✅ +0.0535 -0.0119
+distilbert      0.2795       0.2513     0.3      ✅ +0.0282 +0.0074
+
+🏆 BEST OVERALL RESULT:
+   Model: roberta-large
+   Optimal α: 0.4
+   JSD: 0.2176
+   🎉 BEATS STATE-OF-THE-ART by 0.0027!
+
+🎉 Comprehensive evaluation completed!
+
+Analysis completed with exit code: 0
+Time: Sun 17 Aug 10:49:05 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

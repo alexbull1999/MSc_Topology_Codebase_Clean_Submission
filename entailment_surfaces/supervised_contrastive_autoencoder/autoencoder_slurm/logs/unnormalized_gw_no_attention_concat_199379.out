@@ -1,0 +1,1829 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 199379
+Node: gpuvm17
+Time: Fri 29 Aug 10:04:46 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Aug 29 10:04:48 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   33C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Training...
+
+⚠️ Could not import data loaders. You'll need to adjust the imports.
+Please check the exact names of your data loading functions.
+============================================================
+TOPOLOGICAL AUTOENCODER TRAINING WITH TORCHPH
+============================================================
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/signature_moor_lifted_autoencoder_attention_20250829_100455
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/signature_moor_lifted_autoencoder_attention_20250829_100455/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 182
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 3
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 3000
+  Balanced sampling: True
+  Train batches: 182
+  Val batches: 3
+  Test batches: 4
+Data loading completed!
+  Train: 549367 samples, 182 batches
+  Val: 9842 samples, 3 batches
+  Test: 9824 samples, 4 batches
+ContrastiveAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Dropout rate: 0.2
+  Total parameters: 3,045,451
+FullDatasetContrastiveLoss initialized:
+  Positive Margin: 2.0
+  Negative Margin: 10.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 0.0
+  Base reconstruction weight: 100.0
+GromovWassersteinTopologicalLoss initialized:
+  GW weight: 0.1
+  Distance weight: 20
+  Distance type: stress
+  Max dimension: 1
+  Distance metric: euclidean
+No prototypes being used for topological loss - whole dataset instead.
+TopologicalTrainer initialized on device: cuda
+Model parameters: 3,045,451
+Enhanced with topological loss monitoring
+Starting Phase 1: Pure Topological Training
+  Contrastive weight: 0.0
+  Topological weight: 1.0
+  Reconstruction weight: 100.0
+
+======================================================================
+🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED
+======================================================================
+
+============================================================
+EPOCH 1 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+  Loss: 207.902969
+  Loss: 223.638794
+  Loss: 232.085251
+Batch   0/182: Loss=222.7668 (C:9.9041, R:0.0156, T:221.2090(w:1.000)⚠️)
+  Loss: 205.279968
+  Loss: 221.204208
+  Loss: 229.287933
+  Loss: 199.354446
+  Loss: 213.825241
+  Loss: 225.643463
+  Loss: 489.813934
+  Loss: 596.569641
+  Loss: 707.242493
+  Loss: 420.739075
+  Loss: 573.941162
+  Loss: 709.555359
+  Loss: 291.210266
+  Loss: 383.026642
+  Loss: 508.153778
+  Loss: 397.191284
+  Loss: 406.821381
+  Loss: 454.873566
+  Loss: 272.082733
+  Loss: 296.471680
+  Loss: 432.541290
+  Loss: 235.542801
+  Loss: 361.332672
+  Loss: 472.991516
+  Loss: 307.982513
+  Loss: 377.745941
+  Loss: 492.958557
+  Loss: 313.240662
+  Loss: 453.207245
+  Loss: 559.427734
+  Loss: 272.750153
+  Loss: 444.851166
+  Loss: 531.154297
+  Loss: 245.023148
+  Loss: 366.781952
+  Loss: 460.439209
+  Loss: 275.124237
+  Loss: 337.656403
+  Loss: 453.619293
+  Loss: 288.230042
+  Loss: 312.004730
+  Loss: 476.467834
+  Loss: 275.836792
+  Loss: 326.130127
+  Loss: 465.296417
+  Loss: 242.632706
+  Loss: 329.358185
+  Loss: 430.657776
+  Loss: 271.801544
+  Loss: 370.583405
+  Loss: 465.282196
+  Loss: 250.251801
+  Loss: 335.990082
+  Loss: 485.364624
+  Loss: 246.498505
+  Loss: 372.324249
+  Loss: 423.306702
+  Loss: 230.213257
+  Loss: 336.999695
+  Loss: 391.926910
+  Loss: 215.019592
+  Loss: 292.253571
+  Loss: 421.148376
+  Loss: 238.332932
+  Loss: 302.140442
+  Loss: 416.412628
+  Loss: 236.271881
+  Loss: 257.532196
+  Loss: 422.140961
+  Loss: 254.411743
+  Loss: 343.859436
+  Loss: 468.245483
+  Loss: 263.392731
+  Loss: 241.907532
+  Loss: 426.929840
+Batch  25/182: Loss=317.7644 (C:8.0005, R:0.0702, T:310.7434(w:1.000)⚠️)
+  Loss: 228.382492
+  Loss: 338.946075
+  Loss: 474.988159
+  Loss: 131.646027
+  Loss: 256.504089
+  Loss: 384.811615
+  Loss: 229.564209
+  Loss: 268.589935
+  Loss: 343.932007
+  Loss: 197.028961
+  Loss: 272.183167
+  Loss: 328.151367
+  Loss: 150.346893
+  Loss: 239.523468
+  Loss: 399.880463
+  Loss: 209.936234
+  Loss: 274.507721
+  Loss: 347.919006
+  Loss: 204.624573
+  Loss: 325.288940
+  Loss: 411.945923
+  Loss: 175.893829
+  Loss: 235.356842
+  Loss: 279.656250
+  Loss: 103.723328
+  Loss: 213.307861
+  Loss: 321.828613
+  Loss: 126.013321
+  Loss: 192.035904
+  Loss: 267.922455
+  Loss: 135.470963
+  Loss: 202.380722
+  Loss: 369.980164
+  Loss: 106.667770
+  Loss: 209.183304
+  Loss: 343.177887
+  Loss: 109.089417
+  Loss: 275.287262
+  Loss: 358.302765
+  Loss: 140.185577
+  Loss: 213.455719
+  Loss: 288.237854
+  Loss: 115.631775
+  Loss: 218.235260
+  Loss: 325.105896
+  Loss: 139.520309
+  Loss: 137.024582
+  Loss: 281.793945
+  Loss: 94.956543
+  Loss: 167.593536
+  Loss: 288.666779
+  Loss: 83.259270
+  Loss: 182.098709
+  Loss: 372.122894
+  Loss: 111.007530
+  Loss: 112.580605
+  Loss: 267.335663
+  Loss: 91.190811
+  Loss: 207.085968
+  Loss: 302.227173
+  Loss: 70.078293
+  Loss: 174.483612
+  Loss: 311.982574
+  Loss: 89.097839
+  Loss: 80.973343
+  Loss: 266.417786
+  Loss: 84.550163
+  Loss: 186.404602
+  Loss: 291.785706
+  Loss: 90.084923
+  Loss: 133.535507
+  Loss: 230.819168
+  Loss: 71.096062
+  Loss: 195.942352
+  Loss: 277.533356
+Batch  50/182: Loss=188.0503 (C:8.0004, R:0.0653, T:181.5239(w:1.000)⚠️)
+  Loss: 93.706749
+  Loss: 174.823105
+  Loss: 281.950745
+  Loss: 64.056137
+  Loss: 149.724762
+  Loss: 257.799683
+  Loss: 77.226463
+  Loss: 147.859787
+  Loss: 225.207703
+  Loss: 57.228802
+  Loss: 140.119385
+  Loss: 288.510925
+  Loss: 66.152924
+  Loss: 151.956497
+  Loss: 230.335068
+  Loss: 105.028992
+  Loss: 110.337219
+  Loss: 173.527374
+  Loss: 80.586998
+  Loss: 134.758423
+  Loss: 225.736526
+  Loss: 53.148350
+  Loss: 81.908913
+  Loss: 239.184891
+  Loss: 106.588531
+  Loss: 113.313423
+  Loss: 271.120056
+  Loss: 102.315453
+  Loss: 155.973907
+  Loss: 224.826355
+  Loss: 78.030403
+  Loss: 152.326309
+  Loss: 229.035187
+  Loss: 84.932144
+  Loss: 119.979385
+  Loss: 216.775833
+  Loss: 121.843353
+  Loss: 98.230133
+  Loss: 253.471817
+  Loss: 124.427338
+  Loss: 219.615540
+  Loss: 258.655884
+  Loss: 78.818764
+  Loss: 130.366562
+  Loss: 198.787842
+  Loss: 43.589252
+  Loss: 171.896088
+  Loss: 213.088333
+  Loss: 89.649094
+  Loss: 167.258499
+  Loss: 172.472534
+  Loss: 43.917244
+  Loss: 70.133209
+  Loss: 249.041031
+  Loss: 97.398804
+  Loss: 195.739182
+  Loss: 268.176819
+  Loss: 105.212318
+  Loss: 67.240265
+  Loss: 234.370667
+  Loss: 120.801720
+  Loss: 159.651672
+  Loss: 206.099442
+  Loss: 77.694237
+  Loss: 99.230057
+  Loss: 158.834198
+  Loss: 67.561592
+  Loss: 103.952873
+  Loss: 136.841171
+  Loss: 62.453411
+  Loss: 132.875214
+  Loss: 200.922440
+  Loss: 83.282158
+  Loss: 75.784462
+  Loss: 251.418198
+Batch  75/182: Loss=141.5262 (C:7.9985, R:0.0470, T:136.8283(w:1.000)⚠️)
+  Loss: 62.402218
+  Loss: 122.584412
+  Loss: 199.952789
+  Loss: 117.783142
+  Loss: 100.503868
+  Loss: 224.985901
+  Loss: 129.661087
+  Loss: 117.154182
+  Loss: 152.429993
+  Loss: 131.114670
+  Loss: 154.441132
+  Loss: 179.928009
+  Loss: 75.479561
+  Loss: 44.731365
+  Loss: 126.362732
+  Loss: 94.096466
+  Loss: 58.388191
+  Loss: 181.719162
+  Loss: 51.350925
+  Loss: 103.134911
+  Loss: 144.410095
+  Loss: 145.593185
+  Loss: 113.992302
+  Loss: 188.725327
+  Loss: 48.308025
+  Loss: 68.813683
+  Loss: 148.445190
+  Loss: 99.920219
+  Loss: 115.406647
+  Loss: 173.456757
+  Loss: 70.549202
+  Loss: 99.408226
+  Loss: 241.185516
+  Loss: 108.157196
+  Loss: 98.273239
+  Loss: 228.535339
+  Loss: 74.915237
+  Loss: 101.539673
+  Loss: 239.890396
+  Loss: 119.788712
+  Loss: 42.243893
+  Loss: 159.968613
+  Loss: 87.024223
+  Loss: 83.027206
+  Loss: 180.280167
+  Loss: 82.760109
+  Loss: 69.007622
+  Loss: 142.402008
+  Loss: 62.828682
+  Loss: 60.593834
+  Loss: 187.960297
+  Loss: 62.408440
+  Loss: 100.011459
+  Loss: 146.404770
+  Loss: 75.519882
+  Loss: 104.850525
+  Loss: 125.204468
+  Loss: 108.162483
+  Loss: 50.613338
+  Loss: 169.698318
+  Loss: 181.470047
+  Loss: 86.940651
+  Loss: 115.432480
+  Loss: 130.368683
+  Loss: 52.581039
+  Loss: 191.131180
+  Loss: 60.757481
+  Loss: 92.964569
+  Loss: 69.900848
+  Loss: 113.925125
+  Loss: 64.346237
+  Loss: 156.437454
+  Loss: 140.595474
+  Loss: 135.272049
+  Loss: 189.233521
+Batch 100/182: Loss=158.4765 (C:7.9990, R:0.0344, T:155.0337(w:1.000)⚠️)
+  Loss: 105.268188
+  Loss: 96.304001
+  Loss: 215.629868
+  Loss: 203.125839
+  Loss: 69.241348
+  Loss: 113.595840
+  Loss: 111.373993
+  Loss: 70.332413
+  Loss: 198.539551
+  Loss: 124.137878
+  Loss: 63.493793
+  Loss: 272.222382
+  Loss: 142.619263
+  Loss: 92.187988
+  Loss: 192.053345
+  Loss: 47.557182
+  Loss: 100.371750
+  Loss: 148.478485
+  Loss: 80.161118
+  Loss: 69.162933
+  Loss: 88.082382
+  Loss: 80.514053
+  Loss: 49.649586
+  Loss: 118.442406
+  Loss: 120.966721
+  Loss: 57.390388
+  Loss: 122.475151
+  Loss: 142.276016
+  Loss: 68.076424
+  Loss: 111.007530
+  Loss: 92.549660
+  Loss: 51.110939
+  Loss: 140.281143
+  Loss: 192.633163
+  Loss: 86.630424
+  Loss: 186.973373
+  Loss: 92.484764
+  Loss: 51.154327
+  Loss: 186.883224
+  Loss: 131.826675
+  Loss: 44.115444
+  Loss: 144.057846
+  Loss: 73.146576
+  Loss: 68.590813
+  Loss: 130.190475
+  Loss: 111.354012
+  Loss: 53.147190
+  Loss: 111.956131
+  Loss: 89.102516
+  Loss: 87.404533
+  Loss: 184.473404
+  Loss: 93.178696
+  Loss: 87.911140
+  Loss: 146.655762
+  Loss: 209.523529
+  Loss: 120.291367
+  Loss: 167.233185
+  Loss: 132.151169
+  Loss: 50.175610
+  Loss: 158.251236
+  Loss: 110.834732
+  Loss: 71.259743
+  Loss: 159.422104
+  Loss: 114.000908
+  Loss: 73.551018
+  Loss: 81.086197
+  Loss: 144.915344
+  Loss: 147.165207
+  Loss: 101.967903
+  Loss: 118.496872
+  Loss: 79.844475
+  Loss: 169.011856
+  Loss: 78.616425
+  Loss: 62.974007
+  Loss: 155.830414
+Batch 125/182: Loss=102.0344 (C:7.9984, R:0.0289, T:99.1403(w:1.000)⚠️)
+  Loss: 118.381081
+  Loss: 72.361488
+  Loss: 175.490280
+  Loss: 168.570129
+  Loss: 64.355316
+  Loss: 83.281975
+  Loss: 109.221428
+  Loss: 148.328659
+  Loss: 154.859879
+  Loss: 158.640701
+  Loss: 56.712376
+  Loss: 159.904053
+  Loss: 117.107010
+  Loss: 85.882416
+  Loss: 127.220238
+  Loss: 173.411392
+  Loss: 44.084743
+  Loss: 82.692780
+  Loss: 84.945824
+  Loss: 91.418159
+  Loss: 132.967804
+  Loss: 73.577187
+  Loss: 88.787399
+  Loss: 191.693604
+  Loss: 125.304527
+  Loss: 48.770557
+  Loss: 130.463104
+  Loss: 232.695236
+  Loss: 117.445526
+  Loss: 138.694061
+  Loss: 106.288399
+  Loss: 83.378967
+  Loss: 153.755234
+  Loss: 83.563461
+  Loss: 85.828651
+  Loss: 170.375824
+  Loss: 135.802994
+  Loss: 92.871063
+  Loss: 110.296562
+  Loss: 154.390381
+  Loss: 63.339584
+  Loss: 70.598930
+  Loss: 103.098175
+  Loss: 68.209572
+  Loss: 152.340500
+  Loss: 53.144775
+  Loss: 85.610207
+  Loss: 177.063034
+  Loss: 120.003967
+  Loss: 117.251434
+  Loss: 150.664749
+  Loss: 147.653763
+  Loss: 97.919411
+  Loss: 72.147934
+  Loss: 157.500320
+  Loss: 58.783176
+  Loss: 117.874718
+  Loss: 73.383705
+  Loss: 64.042923
+  Loss: 155.623947
+  Loss: 100.680290
+  Loss: 100.965370
+  Loss: 109.112549
+  Loss: 72.026619
+  Loss: 49.853115
+  Loss: 85.788101
+  Loss: 153.503616
+  Loss: 100.763405
+  Loss: 104.171303
+  Loss: 115.652504
+  Loss: 65.174164
+  Loss: 123.228004
+  Loss: 135.690018
+  Loss: 136.909653
+  Loss: 83.848892
+Batch 150/182: Loss=121.6393 (C:7.9975, R:0.0282, T:118.8162(w:1.000)⚠️)
+  Loss: 169.070267
+  Loss: 68.736015
+  Loss: 100.644402
+  Loss: 148.588089
+  Loss: 85.577278
+  Loss: 96.850433
+  Loss: 118.935524
+  Loss: 61.938061
+  Loss: 152.550339
+  Loss: 169.717743
+  Loss: 53.239155
+  Loss: 120.076477
+  Loss: 150.986313
+  Loss: 43.642002
+  Loss: 81.315056
+  Loss: 126.491859
+  Loss: 73.803612
+  Loss: 79.859406
+  Loss: 95.694801
+  Loss: 76.613770
+  Loss: 111.341400
+  Loss: 233.747543
+  Loss: 69.369713
+  Loss: 143.560852
+  Loss: 81.171501
+  Loss: 84.380920
+  Loss: 136.873795
+  Loss: 136.177597
+  Loss: 94.852402
+  Loss: 144.169525
+  Loss: 112.839172
+  Loss: 92.899200
+  Loss: 126.856049
+  Loss: 135.961334
+  Loss: 48.626080
+  Loss: 121.561806
+  Loss: 124.706940
+  Loss: 51.461460
+  Loss: 122.150467
+  Loss: 107.238785
+  Loss: 41.994335
+  Loss: 151.503433
+  Loss: 152.140671
+  Loss: 48.483582
+  Loss: 88.596146
+  Loss: 136.305130
+  Loss: 63.991085
+  Loss: 92.641975
+  Loss: 103.065384
+  Loss: 134.905518
+  Loss: 106.258484
+  Loss: 142.834045
+  Loss: 92.478973
+  Loss: 146.654938
+  Loss: 196.034271
+  Loss: 79.034691
+  Loss: 149.581238
+  Loss: 132.591339
+  Loss: 79.373489
+  Loss: 106.124916
+  Loss: 176.662582
+  Loss: 122.432404
+  Loss: 96.251579
+  Loss: 132.379440
+  Loss: 101.412766
+  Loss: 92.523949
+  Loss: 178.530136
+  Loss: 73.455719
+  Loss: 60.602333
+  Loss: 109.084343
+  Loss: 72.338615
+  Loss: 63.471596
+  Loss: 101.866943
+  Loss: 121.041260
+  Loss: 42.583588
+Batch 175/182: Loss=90.8587 (C:7.9939, R:0.0236, T:88.4973(w:1.000)⚠️)
+  Loss: 157.581894
+  Loss: 72.120003
+  Loss: 78.685944
+  Loss: 114.371613
+  Loss: 50.244633
+  Loss: 63.928482
+  Loss: 141.701630
+  Loss: 105.542152
+  Loss: 117.560356
+  Loss: 214.357605
+  Loss: 39.348164
+  Loss: 57.344280
+  Loss: 173.672272
+  Loss: 119.828468
+  Loss: 118.225441
+  Loss: 163.766617
+  Loss: 145.164093
+  Loss: 67.288147
+🎉 MILESTONE: First topological learning detected at epoch 1!
+   Initial topological loss: 168.2841
+📈 New best topological loss: 168.2841
+
+📊 EPOCH 1 TRAINING SUMMARY:
+  Total Loss: 173.6397
+  Contrastive: 8.0406
+  Reconstruction: 0.0536
+  Topological: 168.2841 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+  Loss: 208.183502
+  Loss: 224.193893
+  Loss: 233.097824
+  Loss: 208.685318
+  Loss: 223.937256
+  Loss: 233.472992
+  Loss: 209.430542
+  Loss: 223.641006
+  Loss: 233.303284
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.9868
+  Contrastive: 9.7875
+  Reconstruction: 0.0099
+  Topological: 221.9940 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 1/100 COMPLETE (1046.3s)
+Train Loss: 173.6397 (C:8.0406, R:0.0536, T:168.2841)
+Val Loss:   222.9868 (C:9.7875, R:0.0099, T:221.9940)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 2 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=115.9981 (C:7.9975, R:0.0227, T:113.7244(w:1.000)⚠️)
+Batch  25/182: Loss=107.2428 (C:7.9959, R:0.0201, T:105.2375(w:1.000)⚠️)
+Batch  50/182: Loss=104.2742 (C:7.9948, R:0.0195, T:102.3202(w:1.000)⚠️)
+Batch  75/182: Loss=106.3150 (C:7.9948, R:0.0172, T:104.5996(w:1.000)⚠️)
+Batch 100/182: Loss=96.0410 (C:7.9945, R:0.0162, T:94.4254(w:1.000)⚠️)
+Batch 125/182: Loss=102.8802 (C:7.9941, R:0.0159, T:101.2880(w:1.000)⚠️)
+Batch 150/182: Loss=116.7043 (C:7.9953, R:0.0151, T:115.1963(w:1.000)⚠️)
+Batch 175/182: Loss=108.6974 (C:7.9919, R:0.0148, T:107.2221(w:1.000)⚠️)
+📈 New best topological loss: 117.8795
+
+📊 EPOCH 2 TRAINING SUMMARY:
+  Total Loss: 119.6486
+  Contrastive: 7.9942
+  Reconstruction: 0.0177
+  Topological: 117.8795 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.6232
+  Contrastive: 9.7072
+  Reconstruction: 0.0099
+  Topological: 221.6330 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 2/100 COMPLETE (1121.5s)
+Train Loss: 119.6486 (C:7.9942, R:0.0177, T:117.8795)
+Val Loss:   222.6232 (C:9.7072, R:0.0099, T:221.6330)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 3 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=103.4085 (C:7.9923, R:0.0146, T:101.9458(w:1.000)⚠️)
+Batch  25/182: Loss=106.1122 (C:7.9928, R:0.0139, T:104.7249(w:1.000)⚠️)
+Batch  50/182: Loss=115.2289 (C:7.9924, R:0.0134, T:113.8896(w:1.000)⚠️)
+Batch  75/182: Loss=133.8021 (C:7.9939, R:0.0132, T:132.4813(w:1.000)⚠️)
+Batch 100/182: Loss=122.1080 (C:7.9919, R:0.0133, T:120.7822(w:1.000)⚠️)
+Batch 125/182: Loss=136.8961 (C:7.9943, R:0.0123, T:135.6614(w:1.000)⚠️)
+Batch 150/182: Loss=162.8131 (C:7.9924, R:0.0123, T:161.5857(w:1.000)⚠️)
+Batch 175/182: Loss=123.8783 (C:7.9924, R:0.0118, T:122.6977(w:1.000)⚠️)
+
+📊 EPOCH 3 TRAINING SUMMARY:
+  Total Loss: 132.8538
+  Contrastive: 7.9923
+  Reconstruction: 0.0131
+  Topological: 131.5473 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.4455
+  Contrastive: 9.6622
+  Reconstruction: 0.0099
+  Topological: 221.4553 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 3/100 COMPLETE (1162.3s)
+Train Loss: 132.8538 (C:7.9923, R:0.0131, T:131.5473)
+Val Loss:   222.4455 (C:9.6622, R:0.0099, T:221.4553)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 4 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=157.8093 (C:7.9914, R:0.0123, T:156.5780(w:1.000)⚠️)
+Batch  25/182: Loss=168.6172 (C:7.9911, R:0.0120, T:167.4184(w:1.000)⚠️)
+Batch  50/182: Loss=176.8527 (C:7.9910, R:0.0117, T:175.6823(w:1.000)⚠️)
+Batch  75/182: Loss=138.6189 (C:7.9905, R:0.0117, T:137.4511(w:1.000)⚠️)
+Batch 100/182: Loss=167.8035 (C:7.9937, R:0.0116, T:166.6481(w:1.000)⚠️)
+Batch 125/182: Loss=151.6966 (C:7.9916, R:0.0112, T:150.5719(w:1.000)⚠️)
+Batch 150/182: Loss=180.1943 (C:7.9924, R:0.0114, T:179.0543(w:1.000)⚠️)
+Batch 175/182: Loss=144.5675 (C:7.9884, R:0.0111, T:143.4595(w:1.000)⚠️)
+
+📊 EPOCH 4 TRAINING SUMMARY:
+  Total Loss: 148.5476
+  Contrastive: 7.9916
+  Reconstruction: 0.0115
+  Topological: 147.3936 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.5993
+  Contrastive: 9.6907
+  Reconstruction: 0.0099
+  Topological: 221.6108 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 4/100 COMPLETE (1203.3s)
+Train Loss: 148.5476 (C:7.9916, R:0.0115, T:147.3936)
+Val Loss:   222.5993 (C:9.6907, R:0.0099, T:221.6108)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 5 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=143.7483 (C:7.9909, R:0.0110, T:142.6442(w:1.000)⚠️)
+Batch  25/182: Loss=159.1933 (C:7.9889, R:0.0110, T:158.0938(w:1.000)⚠️)
+Batch  50/182: Loss=137.4733 (C:7.9896, R:0.0109, T:136.3849(w:1.000)⚠️)
+Batch  75/182: Loss=161.8394 (C:7.9896, R:0.0109, T:160.7466(w:1.000)⚠️)
+Batch 100/182: Loss=175.7891 (C:7.9926, R:0.0108, T:174.7121(w:1.000)⚠️)
+Batch 125/182: Loss=153.1539 (C:7.9913, R:0.0108, T:152.0742(w:1.000)⚠️)
+Batch 150/182: Loss=174.6776 (C:7.9933, R:0.0107, T:173.6111(w:1.000)⚠️)
+Batch 175/182: Loss=161.7828 (C:7.9907, R:0.0107, T:160.7135(w:1.000)⚠️)
+
+📊 EPOCH 5 TRAINING SUMMARY:
+  Total Loss: 156.1134
+  Contrastive: 7.9911
+  Reconstruction: 0.0108
+  Topological: 155.0286 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.5736
+  Contrastive: 9.6916
+  Reconstruction: 0.0099
+  Topological: 221.5853 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 5/100 COMPLETE (1192.2s)
+Train Loss: 156.1134 (C:7.9911, R:0.0108, T:155.0286)
+Val Loss:   222.5736 (C:9.6916, R:0.0099, T:221.5853)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 6 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=173.8419 (C:7.9923, R:0.0107, T:172.7737(w:1.000)⚠️)
+Batch  25/182: Loss=256.5098 (C:7.9916, R:0.0108, T:255.4297(w:1.000)⚠️)
+Batch  50/182: Loss=142.9552 (C:7.9868, R:0.0105, T:141.9010(w:1.000)⚠️)
+Batch  75/182: Loss=210.0557 (C:7.9902, R:0.0105, T:209.0022(w:1.000)⚠️)
+Batch 100/182: Loss=154.0083 (C:7.9930, R:0.0105, T:152.9588(w:1.000)⚠️)
+Batch 125/182: Loss=158.4165 (C:7.9940, R:0.0105, T:157.3669(w:1.000)⚠️)
+Batch 150/182: Loss=181.9143 (C:7.9905, R:0.0104, T:180.8724(w:1.000)⚠️)
+Batch 175/182: Loss=202.7761 (C:7.9908, R:0.0104, T:201.7409(w:1.000)⚠️)
+
+📊 EPOCH 6 TRAINING SUMMARY:
+  Total Loss: 165.2472
+  Contrastive: 7.9910
+  Reconstruction: 0.0105
+  Topological: 164.1971 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 201.6956
+  Contrastive: 9.7119
+  Reconstruction: 0.0099
+  Topological: 200.7075 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 6/100 COMPLETE (1225.7s)
+Train Loss: 165.2472 (C:7.9910, R:0.0105, T:164.1971)
+Val Loss:   201.6956 (C:9.7119, R:0.0099, T:200.7075)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 7 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=190.7981 (C:7.9916, R:0.0104, T:189.7614(w:1.000)⚠️)
+Batch  25/182: Loss=148.7720 (C:7.9925, R:0.0104, T:147.7355(w:1.000)⚠️)
+Batch  50/182: Loss=160.7677 (C:7.9913, R:0.0103, T:159.7369(w:1.000)⚠️)
+Batch  75/182: Loss=179.2993 (C:7.9874, R:0.0103, T:178.2692(w:1.000)⚠️)
+Batch 100/182: Loss=117.1732 (C:7.9926, R:0.0102, T:116.1492(w:1.000)⚠️)
+Batch 125/182: Loss=157.5818 (C:7.9939, R:0.0103, T:156.5532(w:1.000)⚠️)
+Batch 150/182: Loss=174.8634 (C:7.9912, R:0.0102, T:173.8395(w:1.000)⚠️)
+Batch 175/182: Loss=178.1317 (C:7.9916, R:0.0102, T:177.1100(w:1.000)⚠️)
+
+📊 EPOCH 7 TRAINING SUMMARY:
+  Total Loss: 171.6504
+  Contrastive: 7.9913
+  Reconstruction: 0.0103
+  Topological: 170.6194 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 198.8817
+  Contrastive: 9.7037
+  Reconstruction: 0.0099
+  Topological: 197.8942 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 7/100 COMPLETE (1271.8s)
+Train Loss: 171.6504 (C:7.9913, R:0.0103, T:170.6194)
+Val Loss:   198.8817 (C:9.7037, R:0.0099, T:197.8942)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 8 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=172.5340 (C:7.9885, R:0.0103, T:171.5089(w:1.000)⚠️)
+Batch  25/182: Loss=164.7352 (C:7.9920, R:0.0102, T:163.7108(w:1.000)⚠️)
+Batch  50/182: Loss=182.1031 (C:7.9887, R:0.0102, T:181.0815(w:1.000)⚠️)
+Batch  75/182: Loss=232.9108 (C:7.9919, R:0.0103, T:231.8853(w:1.000)⚠️)
+Batch 100/182: Loss=167.6154 (C:7.9918, R:0.0102, T:166.5997(w:1.000)⚠️)
+Batch 125/182: Loss=186.7688 (C:7.9938, R:0.0102, T:185.7487(w:1.000)⚠️)
+Batch 150/182: Loss=153.4478 (C:7.9885, R:0.0102, T:152.4325(w:1.000)⚠️)
+Batch 175/182: Loss=166.7912 (C:7.9879, R:0.0101, T:165.7779(w:1.000)⚠️)
+
+📊 EPOCH 8 TRAINING SUMMARY:
+  Total Loss: 178.1534
+  Contrastive: 7.9917
+  Reconstruction: 0.0102
+  Topological: 177.1339 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.7302
+  Contrastive: 9.7121
+  Reconstruction: 0.0099
+  Topological: 221.7425 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 8/100 COMPLETE (1232.7s)
+Train Loss: 178.1534 (C:7.9917, R:0.0102, T:177.1339)
+Val Loss:   222.7302 (C:9.7121, R:0.0099, T:221.7425)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 9 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=196.4296 (C:7.9927, R:0.0102, T:195.4125(w:1.000)⚠️)
+Batch  25/182: Loss=194.2950 (C:7.9943, R:0.0102, T:193.2783(w:1.000)⚠️)
+Batch  50/182: Loss=159.8177 (C:7.9888, R:0.0101, T:158.8040(w:1.000)⚠️)
+Batch  75/182: Loss=190.8213 (C:7.9929, R:0.0101, T:189.8105(w:1.000)⚠️)
+Batch 100/182: Loss=113.0152 (C:7.9918, R:0.0101, T:112.0040(w:1.000)⚠️)
+Batch 125/182: Loss=134.3399 (C:7.9924, R:0.0101, T:133.3281(w:1.000)⚠️)
+Batch 150/182: Loss=149.7237 (C:7.9920, R:0.0101, T:148.7144(w:1.000)⚠️)
+Batch 175/182: Loss=192.7008 (C:7.9903, R:0.0101, T:191.6935(w:1.000)⚠️)
+
+📊 EPOCH 9 TRAINING SUMMARY:
+  Total Loss: 180.2899
+  Contrastive: 7.9919
+  Reconstruction: 0.0101
+  Topological: 179.2779 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.8085
+  Contrastive: 9.7237
+  Reconstruction: 0.0099
+  Topological: 221.8210 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 9/100 COMPLETE (1301.6s)
+Train Loss: 180.2899 (C:7.9919, R:0.0101, T:179.2779)
+Val Loss:   222.8085 (C:9.7237, R:0.0099, T:221.8210)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 10 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=215.6864 (C:7.9942, R:0.0101, T:214.6761(w:1.000)⚠️)
+Batch  25/182: Loss=203.5849 (C:7.9911, R:0.0101, T:202.5737(w:1.000)⚠️)
+Batch  50/182: Loss=190.3876 (C:7.9925, R:0.0101, T:189.3810(w:1.000)⚠️)
+Batch  75/182: Loss=196.1636 (C:7.9932, R:0.0101, T:195.1569(w:1.000)⚠️)
+Batch 100/182: Loss=164.1383 (C:7.9907, R:0.0101, T:163.1318(w:1.000)⚠️)
+Batch 125/182: Loss=182.1277 (C:7.9922, R:0.0101, T:181.1210(w:1.000)⚠️)
+Batch 150/182: Loss=194.2038 (C:7.9889, R:0.0100, T:193.1988(w:1.000)⚠️)
+Batch 175/182: Loss=214.5424 (C:7.9918, R:0.0100, T:213.5387(w:1.000)⚠️)
+
+📊 EPOCH 10 TRAINING SUMMARY:
+  Total Loss: 180.4189
+  Contrastive: 7.9918
+  Reconstruction: 0.0101
+  Topological: 179.4120 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.6927
+  Contrastive: 9.7080
+  Reconstruction: 0.0099
+  Topological: 221.7053 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 10/100 COMPLETE (1401.5s)
+Train Loss: 180.4189 (C:7.9918, R:0.0101, T:179.4120)
+Val Loss:   222.6927 (C:9.7080, R:0.0099, T:221.7053)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 11 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+  Loss: 234.715668
+  Loss: 206.037125
+  Loss: 169.682770
+Batch   0/182: Loss=204.4850 (C:7.9940, R:0.0101, T:203.4785(w:1.000)⚠️)
+  Loss: 257.173096
+  Loss: 258.336212
+  Loss: 208.546875
+  Loss: 82.289207
+  Loss: 250.868973
+  Loss: 165.725769
+  Loss: 127.223747
+  Loss: 161.073639
+  Loss: 91.714142
+  Loss: 136.421143
+  Loss: 254.134460
+  Loss: 164.360413
+  Loss: 229.186172
+  Loss: 212.237549
+  Loss: 146.498215
+  Loss: 227.357346
+  Loss: 227.878265
+  Loss: 171.249252
+  Loss: 181.097427
+  Loss: 202.693481
+  Loss: 211.706268
+  Loss: 157.515793
+  Loss: 214.751083
+  Loss: 173.924164
+  Loss: 221.763062
+  Loss: 197.693588
+  Loss: 108.912346
+  Loss: 163.966019
+  Loss: 278.791687
+  Loss: 160.468002
+  Loss: 201.519348
+  Loss: 206.836472
+  Loss: 167.278458
+  Loss: 221.357178
+  Loss: 247.006119
+  Loss: 125.607712
+  Loss: 194.577026
+  Loss: 226.282257
+  Loss: 105.450600
+  Loss: 221.614471
+  Loss: 217.211349
+  Loss: 187.592957
+  Loss: 225.436859
+  Loss: 121.725220
+  Loss: 127.432648
+  Loss: 226.684631
+  Loss: 221.063721
+  Loss: 113.957314
+  Loss: 239.526794
+  Loss: 184.643555
+  Loss: 139.897202
+  Loss: 260.755859
+  Loss: 185.611969
+  Loss: 116.382866
+  Loss: 181.811050
+  Loss: 215.233292
+  Loss: 127.568039
+  Loss: 174.574615
+  Loss: 223.297241
+  Loss: 150.445679
+  Loss: 213.287888
+  Loss: 167.597839
+  Loss: 191.211777
+  Loss: 167.736862
+  Loss: 250.767380
+  Loss: 157.220184
+  Loss: 235.940979
+  Loss: 142.438202
+  Loss: 133.077393
+  Loss: 179.144073
+  Loss: 159.457260
+  Loss: 97.132767
+  Loss: 202.540588
+  Loss: 212.075073
+  Loss: 156.905289
+Batch  25/182: Loss=191.5127 (C:7.9921, R:0.0101, T:190.5070(w:1.000)⚠️)
+  Loss: 234.331085
+  Loss: 277.790741
+  Loss: 137.915527
+  Loss: 186.979706
+  Loss: 197.827148
+  Loss: 104.376640
+  Loss: 242.223846
+  Loss: 176.955811
+  Loss: 165.621658
+  Loss: 222.334366
+  Loss: 179.974747
+  Loss: 165.579086
+  Loss: 142.813263
+  Loss: 183.859299
+  Loss: 144.652374
+  Loss: 92.055389
+  Loss: 248.776901
+  Loss: 132.540649
+  Loss: 189.965515
+  Loss: 255.021317
+  Loss: 155.010269
+  Loss: 169.366776
+  Loss: 169.733047
+  Loss: 146.399948
+  Loss: 179.139343
+  Loss: 269.597107
+  Loss: 154.003265
+  Loss: 166.473969
+  Loss: 246.929123
+  Loss: 90.917343
+  Loss: 280.784668
+  Loss: 209.144394
+  Loss: 124.808868
+  Loss: 153.114700
+  Loss: 270.887238
+  Loss: 82.605560
+  Loss: 224.360855
+  Loss: 236.100204
+  Loss: 143.251343
+  Loss: 163.633194
+  Loss: 229.120987
+  Loss: 152.462479
+  Loss: 173.618713
+  Loss: 167.282822
+  Loss: 157.984070
+  Loss: 239.702393
+  Loss: 241.671722
+  Loss: 155.996353
+  Loss: 198.733032
+  Loss: 185.031982
+  Loss: 142.305542
+  Loss: 183.119507
+  Loss: 291.536896
+  Loss: 140.721313
+  Loss: 189.863739
+  Loss: 232.318939
+  Loss: 159.375092
+  Loss: 239.270554
+  Loss: 146.963196
+  Loss: 123.767761
+  Loss: 144.121414
+  Loss: 196.072159
+  Loss: 192.708145
+  Loss: 147.318268
+  Loss: 200.629654
+  Loss: 119.799149
+  Loss: 229.649796
+  Loss: 195.444656
+  Loss: 226.139221
+  Loss: 238.471115
+  Loss: 214.572525
+  Loss: 171.884644
+  Loss: 164.580338
+  Loss: 289.518158
+  Loss: 100.705719
+Batch  50/182: Loss=185.9383 (C:7.9924, R:0.0100, T:184.9347(w:1.000)⚠️)
+  Loss: 249.462494
+  Loss: 244.872498
+  Loss: 158.854019
+  Loss: 219.977783
+  Loss: 245.140579
+  Loss: 158.530991
+  Loss: 250.835327
+  Loss: 226.785675
+  Loss: 155.529205
+  Loss: 182.887863
+  Loss: 238.991745
+  Loss: 156.180374
+  Loss: 198.961609
+  Loss: 297.017792
+  Loss: 208.301697
+  Loss: 226.387924
+  Loss: 213.787064
+  Loss: 140.959732
+  Loss: 198.462189
+  Loss: 263.034363
+  Loss: 151.472061
+  Loss: 187.595047
+  Loss: 236.512634
+  Loss: 189.910233
+  Loss: 84.218338
+  Loss: 208.541855
+  Loss: 117.772804
+  Loss: 201.558502
+  Loss: 286.843506
+  Loss: 170.397446
+  Loss: 205.269119
+  Loss: 177.527817
+  Loss: 174.472046
+  Loss: 223.284088
+  Loss: 255.697205
+  Loss: 191.408798
+  Loss: 238.808655
+  Loss: 207.079178
+  Loss: 136.880600
+  Loss: 159.982590
+  Loss: 196.809921
+  Loss: 119.288948
+  Loss: 242.646820
+  Loss: 250.176758
+  Loss: 173.810318
+  Loss: 121.248306
+  Loss: 206.130753
+  Loss: 106.156265
+  Loss: 198.844513
+  Loss: 179.032806
+  Loss: 182.411362
+  Loss: 158.779785
+  Loss: 211.034012
+  Loss: 196.661255
+  Loss: 228.131744
+  Loss: 228.103607
+  Loss: 214.910904
+  Loss: 201.085403
+  Loss: 238.539902
+  Loss: 181.544540
+  Loss: 226.049637
+  Loss: 240.362991
+  Loss: 133.425537
+  Loss: 201.521088
+  Loss: 240.363831
+  Loss: 176.010071
+  Loss: 189.565170
+  Loss: 221.240311
+  Loss: 136.727859
+  Loss: 244.427292
+  Loss: 188.646744
+  Loss: 110.894768
+  Loss: 141.727798
+  Loss: 244.515930
+  Loss: 170.568344
+Batch  75/182: Loss=186.6071 (C:7.9921, R:0.0100, T:185.6040(w:1.000)⚠️)
+  Loss: 224.432037
+  Loss: 207.796066
+  Loss: 193.659683
+  Loss: 239.115738
+  Loss: 180.739822
+  Loss: 225.629364
+  Loss: 241.376541
+  Loss: 231.664352
+  Loss: 112.407028
+  Loss: 149.941589
+  Loss: 226.916794
+  Loss: 174.548889
+  Loss: 190.607391
+  Loss: 280.597076
+  Loss: 160.344681
+  Loss: 121.787308
+  Loss: 222.249924
+  Loss: 170.044357
+  Loss: 76.046303
+  Loss: 241.862747
+  Loss: 169.077225
+  Loss: 212.448212
+  Loss: 220.735535
+  Loss: 144.212173
+  Loss: 222.871536
+  Loss: 192.018005
+  Loss: 117.784866
+  Loss: 198.726303
+  Loss: 269.249207
+  Loss: 244.336227
+  Loss: 245.602722
+  Loss: 200.866760
+  Loss: 227.982849
+  Loss: 217.825516
+  Loss: 158.942429
+  Loss: 144.198654
+  Loss: 162.024338
+  Loss: 173.906464
+  Loss: 147.107346
+  Loss: 265.266174
+  Loss: 157.041397
+  Loss: 202.622787
+  Loss: 249.151276
+  Loss: 266.159302
+  Loss: 226.241196
+  Loss: 198.638779
+  Loss: 225.637680
+  Loss: 159.286209
+  Loss: 198.630402
+  Loss: 247.353668
+  Loss: 202.057098
+  Loss: 209.191116
+  Loss: 193.180435
+  Loss: 159.510452
+  Loss: 272.438782
+  Loss: 174.768555
+  Loss: 141.960052
+  Loss: 112.221893
+  Loss: 233.315521
+  Loss: 180.796860
+  Loss: 89.158173
+  Loss: 191.319229
+  Loss: 159.538605
+  Loss: 199.097977
+  Loss: 178.980392
+  Loss: 199.767548
+  Loss: 179.160095
+  Loss: 163.281845
+  Loss: 189.240875
+  Loss: 170.385605
+  Loss: 202.846268
+  Loss: 155.581818
+  Loss: 175.351700
+  Loss: 224.059189
+  Loss: 183.861938
+Batch 100/182: Loss=195.4267 (C:7.9921, R:0.0100, T:194.4243(w:1.000)⚠️)
+  Loss: 145.186935
+  Loss: 202.273865
+  Loss: 168.250977
+  Loss: 229.038422
+  Loss: 188.447098
+  Loss: 158.597702
+  Loss: 240.546631
+  Loss: 196.525650
+  Loss: 207.867355
+  Loss: 187.914688
+  Loss: 216.326797
+  Loss: 157.427353
+  Loss: 185.755371
+  Loss: 100.058762
+  Loss: 185.449905
+  Loss: 170.773346
+  Loss: 253.245605
+  Loss: 130.105927
+  Loss: 136.814102
+  Loss: 229.492172
+  Loss: 171.478195
+  Loss: 175.405731
+  Loss: 210.376617
+  Loss: 160.331894
+  Loss: 221.348877
+  Loss: 180.959213
+  Loss: 166.943100
+  Loss: 232.049850
+  Loss: 203.668335
+  Loss: 204.454727
+  Loss: 212.056137
+  Loss: 223.308533
+  Loss: 159.071381
+  Loss: 260.244659
+  Loss: 238.657318
+  Loss: 67.105194
+  Loss: 187.453384
+  Loss: 236.234940
+  Loss: 200.605927
+  Loss: 211.992844
+  Loss: 237.624496
+  Loss: 108.151108
+  Loss: 156.538040
+  Loss: 211.919525
+  Loss: 181.293030
+  Loss: 157.542969
+  Loss: 193.262039
+  Loss: 141.625153
+  Loss: 101.029694
+  Loss: 286.489563
+  Loss: 93.353531
+  Loss: 212.486023
+  Loss: 199.937851
+  Loss: 141.520126
+  Loss: 239.201141
+  Loss: 231.829773
+  Loss: 45.740219
+  Loss: 214.495270
+  Loss: 189.141861
+  Loss: 140.736679
+  Loss: 198.497086
+  Loss: 211.852844
+  Loss: 121.701126
+  Loss: 167.275574
+  Loss: 256.787109
+  Loss: 114.334167
+  Loss: 171.084503
+  Loss: 169.647415
+  Loss: 238.894806
+  Loss: 177.957047
+  Loss: 237.546524
+  Loss: 141.478455
+  Loss: 218.565079
+  Loss: 206.929977
+  Loss: 216.501312
+Batch 125/182: Loss=215.0023 (C:7.9917, R:0.0100, T:213.9988(w:1.000)⚠️)
+  Loss: 227.246078
+  Loss: 190.699738
+  Loss: 164.372314
+  Loss: 228.989349
+  Loss: 285.438385
+  Loss: 172.910309
+  Loss: 246.295776
+  Loss: 261.265106
+  Loss: 166.767029
+  Loss: 204.099457
+  Loss: 192.372498
+  Loss: 153.384933
+  Loss: 246.373505
+  Loss: 223.158630
+  Loss: 147.004990
+  Loss: 164.455322
+  Loss: 157.303253
+  Loss: 191.994385
+  Loss: 194.343613
+  Loss: 266.242859
+  Loss: 119.211792
+  Loss: 171.230286
+  Loss: 163.346756
+  Loss: 108.361694
+  Loss: 110.503235
+  Loss: 189.712219
+  Loss: 197.375061
+  Loss: 133.837341
+  Loss: 155.003677
+  Loss: 176.254761
+  Loss: 168.934128
+  Loss: 198.917557
+  Loss: 152.133942
+  Loss: 177.230957
+  Loss: 260.215393
+  Loss: 243.770309
+  Loss: 174.330795
+  Loss: 308.274506
+  Loss: 150.960098
+  Loss: 164.527924
+  Loss: 257.296356
+  Loss: 179.237747
+  Loss: 164.086044
+  Loss: 255.256302
+  Loss: 255.615585
+  Loss: 129.862442
+  Loss: 201.630142
+  Loss: 165.704041
+  Loss: 168.192657
+  Loss: 229.443176
+  Loss: 163.654984
+  Loss: 228.033630
+  Loss: 187.263779
+  Loss: 195.703583
+  Loss: 255.152145
+  Loss: 222.765610
+  Loss: 162.611008
+  Loss: 196.124420
+  Loss: 287.130951
+  Loss: 183.580292
+  Loss: 295.138214
+  Loss: 236.528305
+  Loss: 146.607254
+  Loss: 169.474609
+  Loss: 217.580231
+  Loss: 90.524300
+  Loss: 186.278214
+  Loss: 262.110596
+  Loss: 137.752609
+  Loss: 187.850952
+  Loss: 198.151215
+  Loss: 155.248260
+  Loss: 239.123825
+  Loss: 192.200485
+  Loss: 207.823593
+Batch 150/182: Loss=214.0516 (C:7.9911, R:0.0100, T:213.0493(w:1.000)⚠️)
+  Loss: 232.745483
+  Loss: 287.899567
+  Loss: 141.613266
+  Loss: 128.510864
+  Loss: 169.613937
+  Loss: 176.113358
+  Loss: 200.478348
+  Loss: 201.555267
+  Loss: 178.261749
+  Loss: 112.694984
+  Loss: 230.404984
+  Loss: 132.821564
+  Loss: 174.291382
+  Loss: 232.767731
+  Loss: 153.496246
+  Loss: 195.788620
+  Loss: 259.472961
+  Loss: 148.846924
+  Loss: 210.001923
+  Loss: 237.787613
+  Loss: 95.803207
+  Loss: 164.720062
+  Loss: 161.302979
+  Loss: 99.805397
+  Loss: 184.891144
+  Loss: 224.729218
+  Loss: 245.278320
+  Loss: 211.204117
+  Loss: 203.180603
+  Loss: 202.755386
+  Loss: 180.231659
+  Loss: 197.491837
+  Loss: 194.820969
+  Loss: 168.238388
+  Loss: 218.905350
+  Loss: 194.853104
+  Loss: 185.192245
+  Loss: 283.570404
+  Loss: 202.744293
+  Loss: 223.240097
+  Loss: 284.717255
+  Loss: 181.870346
+  Loss: 208.031693
+  Loss: 262.303986
+  Loss: 139.934082
+  Loss: 166.474884
+  Loss: 230.422882
+  Loss: 110.448807
+  Loss: 241.555145
+  Loss: 264.482422
+  Loss: 158.761124
+  Loss: 192.738922
+  Loss: 184.369308
+  Loss: 181.385010
+  Loss: 174.841446
+  Loss: 158.982285
+  Loss: 250.940094
+  Loss: 222.532806
+  Loss: 186.210419
+  Loss: 192.381302
+  Loss: 175.737885
+  Loss: 210.349075
+  Loss: 113.844719
+  Loss: 161.979584
+  Loss: 202.093399
+  Loss: 135.779999
+  Loss: 171.276367
+  Loss: 214.269821
+  Loss: 196.008133
+  Loss: 218.649612
+  Loss: 245.600449
+  Loss: 167.684799
+  Loss: 159.980087
+  Loss: 248.456467
+  Loss: 156.461700
+Batch 175/182: Loss=189.2999 (C:7.9907, R:0.0100, T:188.2994(w:1.000)⚠️)
+  Loss: 217.946426
+  Loss: 268.723846
+  Loss: 180.801010
+  Loss: 250.183121
+  Loss: 241.795898
+  Loss: 68.100586
+  Loss: 123.788040
+  Loss: 165.059525
+  Loss: 113.944366
+  Loss: 119.350166
+  Loss: 185.346863
+  Loss: 174.063660
+  Loss: 162.115601
+  Loss: 199.859192
+  Loss: 138.983780
+  Loss: 176.914719
+  Loss: 210.288300
+  Loss: 155.416779
+
+📊 EPOCH 11 TRAINING SUMMARY:
+  Total Loss: 191.0041
+  Contrastive: 7.9919
+  Reconstruction: 0.0100
+  Topological: 190.0007 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+  Loss: 207.800644
+  Loss: 224.041748
+  Loss: 233.071335
+  Loss: 208.280319
+  Loss: 223.767670
+  Loss: 233.393066
+  Loss: 209.048080
+  Loss: 223.474915
+  Loss: 233.234787
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.7776
+  Contrastive: 9.7200
+  Reconstruction: 0.0099
+  Topological: 221.7903 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 11/100 COMPLETE (1388.3s)
+Train Loss: 191.0041 (C:7.9919, R:0.0100, T:190.0007)
+Val Loss:   222.7776 (C:9.7200, R:0.0099, T:221.7903)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 12 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=192.0074 (C:7.9931, R:0.0100, T:191.0038(w:1.000)⚠️)
+Batch  25/182: Loss=242.8424 (C:7.9937, R:0.0100, T:241.8394(w:1.000)⚠️)
+Batch  50/182: Loss=212.5002 (C:7.9916, R:0.0100, T:211.4990(w:1.000)⚠️)
+Batch  75/182: Loss=186.4114 (C:7.9884, R:0.0100, T:185.4102(w:1.000)⚠️)
+Batch 100/182: Loss=187.0691 (C:7.9921, R:0.0100, T:186.0692(w:1.000)⚠️)
+Batch 125/182: Loss=241.9379 (C:7.9945, R:0.0100, T:240.9358(w:1.000)⚠️)
+Batch 150/182: Loss=177.8424 (C:7.9922, R:0.0100, T:176.8425(w:1.000)⚠️)
+Batch 175/182: Loss=224.5610 (C:7.9906, R:0.0100, T:223.5626(w:1.000)⚠️)
+
+📊 EPOCH 12 TRAINING SUMMARY:
+  Total Loss: 199.5036
+  Contrastive: 7.9920
+  Reconstruction: 0.0100
+  Topological: 198.5024 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.7754
+  Contrastive: 9.7130
+  Reconstruction: 0.0099
+  Topological: 221.7881 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 12/100 COMPLETE (1282.1s)
+Train Loss: 199.5036 (C:7.9920, R:0.0100, T:198.5024)
+Val Loss:   222.7754 (C:9.7130, R:0.0099, T:221.7881)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 13 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=228.1946 (C:7.9927, R:0.0100, T:227.1935(w:1.000)⚠️)
+Batch  25/182: Loss=253.0840 (C:7.9933, R:0.0100, T:252.0827(w:1.000)⚠️)
+Batch  50/182: Loss=240.6387 (C:7.9932, R:0.0100, T:239.6390(w:1.000)⚠️)
+Batch  75/182: Loss=265.6737 (C:7.9940, R:0.0100, T:264.6742(w:1.000)⚠️)
+Batch 100/182: Loss=203.2789 (C:7.9911, R:0.0100, T:202.2803(w:1.000)⚠️)
+Batch 125/182: Loss=208.4673 (C:7.9941, R:0.0100, T:207.4666(w:1.000)⚠️)
+Batch 150/182: Loss=228.2436 (C:7.9907, R:0.0100, T:227.2452(w:1.000)⚠️)
+Batch 175/182: Loss=206.9904 (C:7.9833, R:0.0100, T:205.9938(w:1.000)⚠️)
+
+📊 EPOCH 13 TRAINING SUMMARY:
+  Total Loss: 198.3267
+  Contrastive: 7.9918
+  Reconstruction: 0.0100
+  Topological: 197.3272 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 222.4465
+  Contrastive: 9.6595
+  Reconstruction: 0.0099
+  Topological: 221.4589 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 13/100 COMPLETE (1240.4s)
+Train Loss: 198.3267 (C:7.9918, R:0.0100, T:197.3272)
+Val Loss:   222.4465 (C:9.6595, R:0.0099, T:221.4589)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 14 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=179.9306 (C:7.9903, R:0.0100, T:178.9302(w:1.000)⚠️)
+Batch  25/182: Loss=194.1328 (C:7.9930, R:0.0100, T:193.1331(w:1.000)⚠️)
+Batch  50/182: Loss=205.4315 (C:7.9927, R:0.0100, T:204.4332(w:1.000)⚠️)
+Batch  75/182: Loss=236.7802 (C:7.9910, R:0.0100, T:235.7816(w:1.000)⚠️)

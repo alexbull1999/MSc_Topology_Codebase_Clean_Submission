@@ -1,0 +1,139 @@
+
+Training set: 3000 samples, 21 features
+Validation set: 886 samples, 21 features
+
+============================================================
+CLASSIFICATION RESULTS (21 Interpretable Features)
+============================================================
+
+Training Random Forest...
+Random Forest Validation Accuracy: 0.676
+
+Training SVM...
+SVM Validation Accuracy: 0.679
+
+Training Logistic Regression...
+Logistic Regression Validation Accuracy: 0.686
+
+Training PyTorch Neural Network...
+Epoch 0: Train Loss 0.7777, Val Loss 0.7887, Val Acc 0.6546
+Epoch 20: Train Loss 0.5385, Val Loss 0.7657, Val Acc 0.6953
+Epoch 40: Train Loss 0.5281, Val Loss 0.7656, Val Acc 0.7032
+Epoch 60: Train Loss 0.5317, Val Loss 0.7707, Val Acc 0.6964
+Epoch 80: Train Loss 0.5426, Val Loss 0.7748, Val Acc 0.6975
+PyTorch NN Validation Accuracy: 0.704
+
+============================================================
+BEST CLASSIFIER: PyTorch NN
+============================================================
+
+PyTorch NN Classification Report:
+               precision    recall  f1-score   support
+
+   entailment       0.68      0.78      0.73       254
+      neutral       0.64      0.65      0.64       344
+contradiction       0.79      0.68      0.73       288
+
+     accuracy                           0.70       886
+    macro avg       0.70      0.70      0.70       886
+ weighted avg       0.70      0.70      0.70       886
+
+
+PyTorch NN Confusion Matrix:
+[[199  50   5]
+ [ 75 222  47]
+ [ 17  76 195]]
+
+============================================================
+FEATURE IMPORTANCE ANALYSIS
+============================================================
+Top 15 Most Important Features:
+---------------------------------------------
+ 1. forward_energy            0.2009
+ 2. h0_lifespan_std           0.1244
+ 3. h0_total_persistence      0.0668
+ 4. h1_mean_birth             0.0557
+ 5. h1_h0_ratio               0.0553
+ 6. h0_mean_lifespan          0.0546
+ 7. gap_energy                0.0485
+ 8. h1_count                  0.0392
+ 9. h1_mean_death             0.0387
+10. h1_total_persistence      0.0339
+11. hypothesis_size           0.0326
+12. backward_energy           0.0293
+13. premise_size              0.0287
+14. asymmetric_energy         0.0266
+15. h1_max_lifespan           0.0255
+
+Statistical Analysis of Top 5 Features:
+----------------------------------------
+
+forward_energy:
+  Importance: 0.2009
+  F-statistic: 2030.12, p-value: 0.0000
+  Entailment:       0.264 ± 0.236 (n=1000)
+  Neutral:          0.779 ± 0.402 (n=1000)
+  Contradiction:    2.115 ± 1.063 (n=1000)
+
+h0_lifespan_std:
+  Importance: 0.1244
+  F-statistic: 2070.63, p-value: 0.0000
+  Entailment:       0.119 ± 0.010 (n=1000)
+  Neutral:          0.135 ± 0.019 (n=1000)
+  Contradiction:    0.190 ± 0.040 (n=1000)
+
+h0_total_persistence:
+  Importance: 0.0668
+  F-statistic: 1107.11, p-value: 0.0000
+  Entailment:      48.061 ± 7.747 (n=1000)
+  Neutral:         55.223 ± 8.136 (n=1000)
+  Contradiction:   65.000 ± 8.338 (n=1000)
+
+h1_mean_birth:
+  Importance: 0.0557
+  F-statistic: 1199.30, p-value: 0.0000
+  Entailment:       0.149 ± 0.035 (n=1000)
+  Neutral:          0.208 ± 0.052 (n=1000)
+  Contradiction:    0.256 ± 0.058 (n=1000)
+
+h1_h0_ratio:
+  Importance: 0.0553
+  F-statistic: 1423.30, p-value: 0.0000
+  Entailment:       0.425 ± 0.089 (n=1000)
+  Neutral:          0.303 ± 0.084 (n=1000)
+  Contradiction:    0.232 ± 0.071 (n=1000)
+
+============================================================
+COMPARISON WITH CLUSTERING BASELINE
+============================================================
+Clustering Baseline: 66.9%
+Best Classification: 0.704 (PyTorch NN)
+Improvement: +0.035 (+5.3%)
+✅ SUCCESS: Classification improves over clustering baseline
+
+
+
+
+Further feature analysis from Claude:
+🔥 Top Discriminator: forward_energy (20.1% importance)
+
+Perfect Hierarchical Pattern: Entailment (0.264) < Neutral (0.779) < Contradiction (2.115)
+Massive F-statistic (2030.12): Extremely significant separation
+This validates your order embedding approach - the energy hierarchy is the strongest signal!
+
+🏗️ Structural Complexity: h0_lifespan_std (12.4% importance)
+
+Complexity Increases with Contradiction: Entailment (0.119) < Neutral (0.135) < Contradiction (0.190)
+Interpretation: Contradictions have more variable topological structure (less coherent point clouds)
+
+📊 Persistence Patterns: h0_total_persistence (6.7% importance)
+
+Clear Progression: Entailment (48.1) < Neutral (55.2) < Contradiction (65.0)
+Interpretation: Contradictory relationships create more persistent topological features
+
+🕳️ Topological Holes: h1_mean_birth (5.6% importance)
+
+Holes Emerge Earlier in Contradictions: Entailment (0.149) < Neutral (0.208) < Contradiction (0.256)
+Novel Finding: Contradictions have earlier-forming topological holes!
+
+⚖️ Feature Balance: h1_h0_ratio (5.5% importance)

@@ -1,0 +1,289 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 181991
+Node: gpuvm14
+Time: Sat 12 Jul 22:05:08 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sat Jul 12 22:05:10 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   37C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting AutoEncoder Pipeline...
+
+TESTING SAVED CONTRASTIVE AUTOENCODER ON SNLI TEST SET
+============================================================
+Using device: cuda
+Model path: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_test_20250712_180422_BEST_NOLEAKAGE/checkpoints/best_model.pt
+Loading model from: entailment_surfaces/supervised_contrastive_autoencoder/experiments/global_concat_test_20250712_180422_BEST_NOLEAKAGE/checkpoints/best_model.pt
+ContrastiveAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [512, 256]
+  Dropout rate: 0.2
+  Total parameters: 1,876,555
+Model loaded successfully!
+   Best epoch: 64
+   Best validation loss: 0.6848613818486532
+
+Loading SNLI data...
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1020
+  Processing batch 1/539
+  Processing batch 6/539
+  Processing batch 11/539
+  Processing batch 16/539
+  Processing batch 21/539
+  Processing batch 26/539
+  Processing batch 31/539
+  Processing batch 36/539
+  Processing batch 41/539
+  Processing batch 46/539
+  Processing batch 51/539
+  Processing batch 56/539
+  Processing batch 61/539
+  Processing batch 66/539
+  Processing batch 71/539
+  Processing batch 76/539
+  Processing batch 81/539
+  Processing batch 86/539
+  Processing batch 91/539
+  Processing batch 96/539
+  Processing batch 101/539
+  Processing batch 106/539
+  Processing batch 111/539
+  Processing batch 116/539
+  Processing batch 121/539
+  Processing batch 126/539
+  Processing batch 131/539
+  Processing batch 136/539
+  Processing batch 141/539
+  Processing batch 146/539
+  Processing batch 151/539
+  Processing batch 156/539
+  Processing batch 161/539
+  Processing batch 166/539
+  Processing batch 171/539
+  Processing batch 176/539
+  Processing batch 181/539
+  Processing batch 186/539
+  Processing batch 191/539
+  Processing batch 196/539
+  Processing batch 201/539
+  Processing batch 206/539
+  Processing batch 211/539
+  Processing batch 216/539
+  Processing batch 221/539
+  Processing batch 226/539
+  Processing batch 231/539
+  Processing batch 236/539
+  Processing batch 241/539
+  Processing batch 246/539
+  Processing batch 251/539
+  Processing batch 256/539
+  Processing batch 261/539
+  Processing batch 266/539
+  Processing batch 271/539
+  Processing batch 276/539
+  Processing batch 281/539
+  Processing batch 286/539
+  Processing batch 291/539
+  Processing batch 296/539
+  Processing batch 301/539
+  Processing batch 306/539
+  Processing batch 311/539
+  Processing batch 316/539
+  Processing batch 321/539
+  Processing batch 326/539
+  Processing batch 331/539
+  Processing batch 336/539
+  Processing batch 341/539
+  Processing batch 346/539
+  Processing batch 351/539
+  Processing batch 356/539
+  Processing batch 361/539
+  Processing batch 366/539
+  Processing batch 371/539
+  Processing batch 376/539
+  Processing batch 381/539
+  Processing batch 386/539
+  Processing batch 391/539
+  Processing batch 396/539
+  Processing batch 401/539
+  Processing batch 406/539
+  Processing batch 411/539
+  Processing batch 416/539
+  Processing batch 421/539
+  Processing batch 426/539
+  Processing batch 431/539
+  Processing batch 436/539
+  Processing batch 441/539
+  Processing batch 446/539
+  Processing batch 451/539
+  Processing batch 456/539
+  Processing batch 461/539
+  Processing batch 466/539
+  Processing batch 471/539
+  Processing batch 476/539
+  Processing batch 481/539
+  Processing batch 486/539
+  Processing batch 491/539
+  Processing batch 496/539
+  Processing batch 501/539
+  Processing batch 506/539
+  Processing batch 511/539
+  Processing batch 516/539
+  Processing batch 521/539
+  Processing batch 526/539
+  Processing batch 531/539
+  Processing batch 536/539
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1020
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1020
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+DataLoaders created:
+  Batch size: 1020
+  Balanced sampling: False
+  Train batches: 539
+  Val batches: 10
+  Test batches: 10
+Data loaded successfully!
+   Train samples: 549367
+   Val samples: 9842
+   Test samples: 9824
+Evaluating on SNLI Test Set...
+==================================================
+GlobalContrastiveEvaluator initialized on cuda
+Extracting training representations for k-NN classifier...
+Extracting latent representations...
+  Processed 1/539 batches
+  Processed 51/539 batches
+  Processed 101/539 batches
+  Processed 151/539 batches
+  Processed 201/539 batches
+  Processed 251/539 batches
+  Processed 301/539 batches
+  Processed 351/539 batches
+  Processed 401/539 batches
+  Processed 451/539 batches
+  Processed 501/539 batches
+Extracted representations: torch.Size([549367, 75])
+Extracting test representations...
+Extracting latent representations...
+  Processed 1/10 batches
+Extracted representations: torch.Size([9824, 75])
+⚡ Subsampling training data for efficiency...
+Training k-NN classifier on 50000 training samples...
+Testing on 9824 test samples...
+
+TEST SET RESULTS
+==================================================
+Test Accuracy: 0.8132 (81.32%)
+Per-class F1 Scores:
+   Entailment:    0.8357
+   Neutral:       0.7492
+   Contradiction: 0.8589
+   Average F1:    0.8146
+
+Confusion Matrix:
+    Predicted:
+      E    N    C
+T E: [2706  600   62]
+T N: [ 338 2553  328]
+T C: [  64  443 2730]
+
+Detailed Classification Report:
+               precision    recall  f1-score   support
+
+   entailment       0.87      0.80      0.84      3368
+      neutral       0.71      0.79      0.75      3219
+contradiction       0.88      0.84      0.86      3237
+
+     accuracy                           0.81      9824
+    macro avg       0.82      0.81      0.81      9824
+ weighted avg       0.82      0.81      0.82      9824
+
+
+Results saved to: test_set_evaluation_20250712_220541.json
+
+🎯 FINAL SUMMARY
+==============================
+Validation Accuracy (previous): ~81.67%
+Test Accuracy (unseen data):    81.32%
+GOOD: >80% accuracy on unseen test data!
+
+🎉 Test evaluation completed successfully!
+
+Analysis completed with exit code: 0
+Time: Sat 12 Jul 22:05:42 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Autoencoder pipeline successful!
+
+
+Job finished.

@@ -1,0 +1,2528 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 184510
+Node: gpuvm17
+Time: Mon 21 Jul 15:14:09 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Mon Jul 21 15:14:11 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   38C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Training...
+
+============================================================
+TOPOLOGICAL AUTOENCODER TRAINING WITH TORCHPH
+============================================================
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 128
+  Effective batch size: 384
+  Number of batches: 1427
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 128
+  Effective batch size: 384
+  Number of batches: 1427
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+DataLoaders created:
+  Batch size: 384
+  Balanced sampling: True
+  Train batches: 1427
+  Val batches: 1427
+  Test batches: 1431
+Data loading completed!
+  Train: 549367 samples, 1427 batches
+  Val: 549367 samples, 1427 batches
+  Test: 549367 samples, 1431 batches
+ContrastiveAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Dropout rate: 0.2
+  Total parameters: 5,858,891
+FullDatasetContrastiveLoss initialized:
+  Margin: 2.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 1.0
+  Base reconstruction weight: 0.1
+  Scheduled reconstruction: warmup=10 epochs, max_weight=0.3
+MoorTopologicalLoss Initialized: Using 0-dimensional persistence pairings (MST edges).
+No prototypes being used for topological loss - whole dataset instead.
+TopologicalTrainer initialized on device: cuda
+Model parameters: 5,858,891
+Enhanced with topological loss monitoring
+Starting Phase 1: Pure Topological Training
+  Contrastive weight: 1.0
+  Topological weight: 0.01
+  Reconstruction weight: 0.1
+
+======================================================================
+🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED
+======================================================================
+
+============================================================
+EPOCH 1 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=2.0011 (C:2.0000, R:0.0110, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.8617 (C:1.8607, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.7406 (C:1.7396, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.6026 (C:1.6016, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.7051 (C:1.7041, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.7347 (C:1.7337, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.4950 (C:1.4941, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.6529 (C:1.6519, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.6862 (C:1.6852, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.5576 (C:1.5566, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.5478 (C:1.5468, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.5455 (C:1.5445, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.6003 (C:1.5993, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.6008 (C:1.5998, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.5953 (C:1.5943, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.5479 (C:1.5469, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.6120 (C:1.6110, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.4645 (C:1.4635, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.5945 (C:1.5935, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.5377 (C:1.5367, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.4516 (C:1.4506, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.5662 (C:1.5652, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.5314 (C:1.5304, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.4878 (C:1.4868, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.4190 (C:1.4180, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.5346 (C:1.5336, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.5076 (C:1.5066, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.5901 (C:1.5891, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.5248 (C:1.5238, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.5089 (C:1.5079, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.5279 (C:1.5269, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.4273 (C:1.4263, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.3169 (C:1.3159, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.5810 (C:1.5800, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.5324 (C:1.5314, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.2880 (C:1.2870, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.5624 (C:1.5614, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.5440 (C:1.5430, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.4700 (C:1.4690, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.4264 (C:1.4254, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.4927 (C:1.4917, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.6612 (C:1.6602, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.4219 (C:1.4209, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.4584 (C:1.4574, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.4642 (C:1.4632, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.4659 (C:1.4649, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.4050 (C:1.4040, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.4332 (C:1.4323, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.4978 (C:1.4968, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.3992 (C:1.3982, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.4664 (C:1.4654, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.3529 (C:1.3519, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.4164 (C:1.4154, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.4690 (C:1.4680, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.4360 (C:1.4350, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.3558 (C:1.3548, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.3410 (C:1.3400, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.5370 (C:1.5360, R:0.0100, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 1 TRAINING SUMMARY:
+  Total Loss: 1.5344
+  Contrastive: 1.5335
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.3926
+  Contrastive: 1.3916
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+✅ New best model saved!
+
+🎯 EPOCH 1/50 COMPLETE (32.7s)
+Train Loss: 1.5344 (C:1.5335, R:0.0100, T:0.0000)
+Val Loss:   1.3926 (C:1.3916, R:0.0100, T:0.0000)
+❌ No topological learning yet
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 2 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.3957 (C:1.3948, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3718 (C:1.3708, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.4405 (C:1.4395, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.5214 (C:1.5204, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.4295 (C:1.4286, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.4426 (C:1.4416, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.4101 (C:1.4091, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.5886 (C:1.5876, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.5742 (C:1.5732, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.3445 (C:1.3435, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.4767 (C:1.4757, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.3471 (C:1.3461, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.4850 (C:1.4840, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.4101 (C:1.4091, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.4003 (C:1.3993, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.4008 (C:1.3998, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.3821 (C:1.3811, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.5311 (C:1.5301, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.4662 (C:1.4652, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.4420 (C:1.4410, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.3520 (C:1.3510, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.3891 (C:1.3881, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.4830 (C:1.4820, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.4493 (C:1.4483, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.4707 (C:1.4697, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.3367 (C:1.3357, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.5412 (C:1.5402, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.3544 (C:1.3534, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.4517 (C:1.4507, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.4002 (C:1.3992, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.3808 (C:1.3798, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.3186 (C:1.3176, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.4138 (C:1.4128, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.4238 (C:1.4228, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.4614 (C:1.4604, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.4297 (C:1.4287, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.3580 (C:1.3570, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.4691 (C:1.4681, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.4647 (C:1.4637, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3539 (C:1.3529, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.4795 (C:1.4786, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.3784 (C:1.3774, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.5119 (C:1.5110, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.4582 (C:1.4572, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.3559 (C:1.3549, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.4131 (C:1.4121, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.4880 (C:1.4870, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.4667 (C:1.4656, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.4238 (C:1.4228, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.3368 (C:1.3358, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.5427 (C:1.5417, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.4342 (C:1.4332, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.2981 (C:1.2971, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.4382 (C:1.4372, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.3432 (C:1.3422, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.5013 (C:1.5003, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.2911 (C:1.2901, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.5077 (C:1.5067, R:0.0099, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 2 TRAINING SUMMARY:
+  Total Loss: 1.4217
+  Contrastive: 1.4207
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.3453
+  Contrastive: 1.3443
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+✅ New best model saved!
+
+🎯 EPOCH 2/50 COMPLETE (34.3s)
+Train Loss: 1.4217 (C:1.4207, R:0.0100, T:0.0000)
+Val Loss:   1.3453 (C:1.3443, R:0.0100, T:0.0000)
+❌ No topological learning yet
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 3 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.3767 (C:1.3757, R:0.0098, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3562 (C:1.3552, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.4951 (C:1.4941, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.5060 (C:1.5050, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.3616 (C:1.3607, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.4310 (C:1.4300, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.3858 (C:1.3848, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.3815 (C:1.3805, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.4860 (C:1.4850, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.4349 (C:1.4339, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.4187 (C:1.4177, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.3371 (C:1.3361, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.5074 (C:1.5064, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.3967 (C:1.3957, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.3938 (C:1.3928, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.3983 (C:1.3973, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.4285 (C:1.4275, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.4379 (C:1.4369, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.3902 (C:1.3892, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.2853 (C:1.2843, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.3302 (C:1.3292, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.3799 (C:1.3789, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.3460 (C:1.3450, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.3747 (C:1.3737, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.4606 (C:1.4596, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.4506 (C:1.4496, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.4005 (C:1.3995, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.3788 (C:1.3778, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.3699 (C:1.3689, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.4411 (C:1.4401, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.2808 (C:1.2798, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.3427 (C:1.3417, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.3972 (C:1.3963, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.3649 (C:1.3639, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.3844 (C:1.3834, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.5258 (C:1.5248, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.3325 (C:1.3316, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.3758 (C:1.3748, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.2170 (C:1.2160, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3279 (C:1.3269, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.4065 (C:1.4056, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.3507 (C:1.3497, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.4233 (C:1.4223, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.3766 (C:1.3756, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.4447 (C:1.4437, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.3056 (C:1.3046, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.4340 (C:1.4330, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.4354 (C:1.4344, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.2817 (C:1.2807, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.4327 (C:1.4317, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.3032 (C:1.3022, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.3305 (C:1.3295, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.3977 (C:1.3967, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.2951 (C:1.2941, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.3424 (C:1.3414, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.4410 (C:1.4400, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.4987 (C:1.4977, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.4230 (C:1.4220, R:0.0100, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 3 TRAINING SUMMARY:
+  Total Loss: 1.3863
+  Contrastive: 1.3853
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.3026
+  Contrastive: 1.3016
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+✅ New best model saved!
+
+🎯 EPOCH 3/50 COMPLETE (34.6s)
+Train Loss: 1.3863 (C:1.3853, R:0.0100, T:0.0000)
+Val Loss:   1.3026 (C:1.3016, R:0.0100, T:0.0000)
+❌ No topological learning yet
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 4 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.3775 (C:1.3765, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3117 (C:1.3107, R:0.0101, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.4082 (C:1.4072, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.4304 (C:1.4294, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.3786 (C:1.3776, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.3849 (C:1.3839, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.3809 (C:1.3799, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.2723 (C:1.2713, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.4983 (C:1.4973, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.3174 (C:1.3164, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.3496 (C:1.3486, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.3961 (C:1.3951, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.3913 (C:1.3903, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.4144 (C:1.4134, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.3323 (C:1.3313, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.4193 (C:1.4183, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.3325 (C:1.3315, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.4921 (C:1.4911, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.4354 (C:1.4344, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.4065 (C:1.4055, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.3779 (C:1.3769, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.4230 (C:1.4220, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.3276 (C:1.3266, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.3836 (C:1.3826, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.4039 (C:1.4029, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.3482 (C:1.3472, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.3738 (C:1.3728, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.4691 (C:1.4681, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.5279 (C:1.5269, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.4408 (C:1.4398, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.4093 (C:1.4083, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.4386 (C:1.4376, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.4099 (C:1.4089, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.3522 (C:1.3512, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.3093 (C:1.3083, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.2847 (C:1.2837, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.4256 (C:1.4246, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.3973 (C:1.3963, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.3012 (C:1.3002, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3833 (C:1.3823, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.4512 (C:1.4502, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.3439 (C:1.3430, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.2975 (C:1.2965, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.4356 (C:1.4346, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.4292 (C:1.4282, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.3798 (C:1.3788, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.3244 (C:1.3234, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.4949 (C:1.4939, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.4255 (C:1.4245, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.2230 (C:1.2220, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.3633 (C:1.3623, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.2992 (C:1.2983, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.2701 (C:1.2691, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.3776 (C:1.3766, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.4109 (C:1.4099, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.3817 (C:1.3807, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.3380 (C:1.3370, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.3384 (C:1.3374, R:0.0099, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 4 TRAINING SUMMARY:
+  Total Loss: 1.3699
+  Contrastive: 1.3689
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.2954
+  Contrastive: 1.2944
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+✅ New best model saved!
+
+🎯 EPOCH 4/50 COMPLETE (34.5s)
+Train Loss: 1.3699 (C:1.3689, R:0.0100, T:0.0000)
+Val Loss:   1.2954 (C:1.2944, R:0.0100, T:0.0000)
+❌ No topological learning yet
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 5 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.3923 (C:1.3913, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3587 (C:1.3577, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.3921 (C:1.3911, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.4243 (C:1.4233, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.2477 (C:1.2467, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.4582 (C:1.4572, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.3457 (C:1.3447, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.4479 (C:1.4469, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.2688 (C:1.2678, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.2865 (C:1.2855, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.4098 (C:1.4088, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.4136 (C:1.4126, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.3291 (C:1.3281, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.3797 (C:1.3787, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.2747 (C:1.2737, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.2739 (C:1.2729, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.3548 (C:1.3538, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.2869 (C:1.2860, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.3062 (C:1.3052, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.3880 (C:1.3870, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.3638 (C:1.3628, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.4165 (C:1.4155, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.3361 (C:1.3351, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.3816 (C:1.3806, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.3759 (C:1.3749, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.4570 (C:1.4561, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.3308 (C:1.3298, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.4489 (C:1.4479, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.3029 (C:1.3019, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.3361 (C:1.3351, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.2834 (C:1.2824, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.4789 (C:1.4779, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.3460 (C:1.3450, R:0.0098, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.2870 (C:1.2860, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.3923 (C:1.3913, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.3981 (C:1.3971, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.3423 (C:1.3413, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.3044 (C:1.3034, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.3276 (C:1.3266, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3470 (C:1.3460, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.3364 (C:1.3354, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.4501 (C:1.4491, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.3638 (C:1.3628, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.3846 (C:1.3836, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.2989 (C:1.2980, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.3849 (C:1.3839, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.4455 (C:1.4445, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.3797 (C:1.3787, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.3572 (C:1.3562, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.3706 (C:1.3696, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.2723 (C:1.2713, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.4519 (C:1.4509, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.2414 (C:1.2404, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.5431 (C:1.5421, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.3486 (C:1.3476, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.3915 (C:1.3905, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.3885 (C:1.3875, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.3739 (C:1.3729, R:0.0100, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 5 TRAINING SUMMARY:
+  Total Loss: 1.3563
+  Contrastive: 1.3553
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.2963
+  Contrastive: 1.2953
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+🎯 EPOCH 5/50 COMPLETE (34.4s)
+Train Loss: 1.3563 (C:1.3553, R:0.0100, T:0.0000)
+Val Loss:   1.2963 (C:1.2953, R:0.0100, T:0.0000)
+❌ No topological learning yet
+------------------------------------------------------------
+
+============================================================
+EPOCH 6 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.2708 (C:1.2698, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3761 (C:1.3751, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.2921 (C:1.2911, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.3682 (C:1.3672, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.3507 (C:1.3497, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.2324 (C:1.2314, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.3441 (C:1.3431, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.4396 (C:1.4386, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.5046 (C:1.5037, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.3779 (C:1.3769, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.3712 (C:1.3702, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.3349 (C:1.3339, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.3394 (C:1.3384, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.3653 (C:1.3643, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.2917 (C:1.2907, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.3919 (C:1.3909, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.4499 (C:1.4489, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.3702 (C:1.3692, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.4224 (C:1.4214, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.3739 (C:1.3729, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.2848 (C:1.2838, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.1740 (C:1.1730, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.3518 (C:1.3508, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.4501 (C:1.4491, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.3434 (C:1.3424, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.2793 (C:1.2783, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.3616 (C:1.3606, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.2912 (C:1.2902, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.2361 (C:1.2351, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.3513 (C:1.3503, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.2238 (C:1.2228, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.3137 (C:1.3127, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.3738 (C:1.3728, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.3023 (C:1.3013, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.4119 (C:1.4109, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.3947 (C:1.3937, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.3617 (C:1.3607, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.3832 (C:1.3822, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.3546 (C:1.3536, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3966 (C:1.3955, R:0.0101, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.3383 (C:1.3373, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.3209 (C:1.3199, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.2744 (C:1.2734, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.4140 (C:1.4130, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.3996 (C:1.3986, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.3486 (C:1.3476, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.4366 (C:1.4356, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.2720 (C:1.2710, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.1832 (C:1.1822, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.3528 (C:1.3518, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.4304 (C:1.4294, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.4142 (C:1.4132, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.4250 (C:1.4240, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.3660 (C:1.3650, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.3077 (C:1.3067, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.2928 (C:1.2918, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.3226 (C:1.3216, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.3450 (C:1.3440, R:0.0100, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 6 TRAINING SUMMARY:
+  Total Loss: 1.3434
+  Contrastive: 1.3424
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.2645
+  Contrastive: 1.2635
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+✅ New best model saved!
+
+🎯 EPOCH 6/50 COMPLETE (34.5s)
+Train Loss: 1.3434 (C:1.3424, R:0.0100, T:0.0000)
+Val Loss:   1.2645 (C:1.2635, R:0.0100, T:0.0000)
+❌ No topological learning yet
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 7 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.3834 (C:1.3824, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3753 (C:1.3744, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.3643 (C:1.3633, R:0.0100, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.2670 (C:1.2660, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.4300 (C:1.4290, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.3203 (C:1.3193, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.2065 (C:1.2055, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.2809 (C:1.2799, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.2334 (C:1.2324, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.2987 (C:1.2977, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.3208 (C:1.3198, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.4158 (C:1.4148, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.2408 (C:1.2398, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.3410 (C:1.3400, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.2699 (C:1.2689, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.2670 (C:1.2660, R:0.0098, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.3383 (C:1.3373, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.3458 (C:1.3449, R:0.0098, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.2601 (C:1.2591, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.3590 (C:1.3580, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.3047 (C:1.3037, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.2730 (C:1.2720, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.2145 (C:1.2135, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.3162 (C:1.3152, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.3715 (C:1.3705, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.3228 (C:1.3218, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.2506 (C:1.2496, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.3812 (C:1.3802, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.3285 (C:1.3275, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.3111 (C:1.3101, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.4206 (C:1.4196, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.3470 (C:1.3460, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.3396 (C:1.3386, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.2769 (C:1.2759, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.3697 (C:1.3687, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.3195 (C:1.3185, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.3829 (C:1.3819, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.2049 (C:1.2039, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.3209 (C:1.3199, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3979 (C:1.3969, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.1968 (C:1.1958, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.3123 (C:1.3113, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.2863 (C:1.2853, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.2987 (C:1.2977, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.2293 (C:1.2283, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.3170 (C:1.3160, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.2594 (C:1.2584, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.3257 (C:1.3247, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.3353 (C:1.3343, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.3100 (C:1.3090, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.3586 (C:1.3576, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.3638 (C:1.3628, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.2956 (C:1.2946, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.2479 (C:1.2469, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.3214 (C:1.3204, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.3107 (C:1.3097, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.3911 (C:1.3901, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.1964 (C:1.1954, R:0.0100, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 7 TRAINING SUMMARY:
+  Total Loss: 1.3303
+  Contrastive: 1.3293
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.2480
+  Contrastive: 1.2470
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+✅ New best model saved!
+
+🎯 EPOCH 7/50 COMPLETE (29.9s)
+Train Loss: 1.3303 (C:1.3293, R:0.0100, T:0.0000)
+Val Loss:   1.2480 (C:1.2470, R:0.0100, T:0.0000)
+❌ No topological learning yet
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 8 | Batches: 1427 | Topological Weight: 0.0000
+🔄 Topological warmup phase
+============================================================
+Batch   0/1427: Loss=1.3501 (C:1.3491, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  25/1427: Loss=1.3433 (C:1.3423, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  50/1427: Loss=1.3350 (C:1.3340, R:0.0099, T:0.0000(w:0.000)❌)
+Batch  75/1427: Loss=1.3227 (C:1.3217, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 100/1427: Loss=1.3638 (C:1.3628, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 125/1427: Loss=1.3534 (C:1.3524, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 150/1427: Loss=1.3270 (C:1.3260, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 175/1427: Loss=1.3440 (C:1.3430, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 200/1427: Loss=1.3894 (C:1.3884, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 225/1427: Loss=1.4139 (C:1.4129, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 250/1427: Loss=1.3351 (C:1.3341, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 275/1427: Loss=1.2933 (C:1.2923, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 300/1427: Loss=1.2560 (C:1.2550, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 325/1427: Loss=1.3535 (C:1.3525, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 350/1427: Loss=1.2242 (C:1.2232, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 375/1427: Loss=1.3602 (C:1.3592, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 400/1427: Loss=1.3672 (C:1.3662, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 425/1427: Loss=1.2728 (C:1.2718, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 450/1427: Loss=1.3049 (C:1.3039, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 475/1427: Loss=1.4020 (C:1.4010, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 500/1427: Loss=1.1687 (C:1.1677, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 525/1427: Loss=1.3146 (C:1.3136, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 550/1427: Loss=1.4663 (C:1.4653, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 575/1427: Loss=1.3175 (C:1.3165, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 600/1427: Loss=1.1741 (C:1.1731, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 625/1427: Loss=1.2375 (C:1.2365, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 650/1427: Loss=1.2064 (C:1.2054, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 675/1427: Loss=1.2742 (C:1.2732, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 700/1427: Loss=1.2663 (C:1.2653, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 725/1427: Loss=1.3117 (C:1.3107, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 750/1427: Loss=1.4812 (C:1.4802, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 775/1427: Loss=1.4186 (C:1.4176, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 800/1427: Loss=1.3719 (C:1.3709, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 825/1427: Loss=1.3506 (C:1.3496, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 850/1427: Loss=1.2833 (C:1.2823, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 875/1427: Loss=1.3041 (C:1.3031, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 900/1427: Loss=1.2916 (C:1.2906, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 925/1427: Loss=1.4181 (C:1.4171, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 950/1427: Loss=1.3312 (C:1.3302, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 975/1427: Loss=1.3394 (C:1.3384, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1000/1427: Loss=1.3108 (C:1.3098, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1025/1427: Loss=1.2817 (C:1.2807, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1050/1427: Loss=1.3873 (C:1.3863, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1075/1427: Loss=1.4333 (C:1.4323, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1100/1427: Loss=1.2780 (C:1.2770, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1125/1427: Loss=1.3413 (C:1.3403, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1150/1427: Loss=1.3257 (C:1.3247, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1175/1427: Loss=1.3048 (C:1.3038, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1200/1427: Loss=1.3161 (C:1.3151, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1225/1427: Loss=1.3024 (C:1.3014, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1250/1427: Loss=1.2194 (C:1.2184, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1275/1427: Loss=1.3407 (C:1.3397, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1300/1427: Loss=1.4721 (C:1.4711, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1325/1427: Loss=1.3070 (C:1.3060, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1350/1427: Loss=1.2470 (C:1.2460, R:0.0099, T:0.0000(w:0.000)❌)
+Batch 1375/1427: Loss=1.3846 (C:1.3836, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1400/1427: Loss=1.1903 (C:1.1893, R:0.0100, T:0.0000(w:0.000)❌)
+Batch 1425/1427: Loss=1.3239 (C:1.3229, R:0.0100, T:0.0000(w:0.000)❌)
+
+📊 EPOCH 8 TRAINING SUMMARY:
+  Total Loss: 1.3248
+  Contrastive: 1.3238
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.2634
+  Contrastive: 1.2624
+  Reconstruction: 0.0100
+  Topological: 0.0000 (weight: 0.000)
+  Batches with topology: 0/1427 (0.0%)
+
+🎯 EPOCH 8/50 COMPLETE (25.4s)
+Train Loss: 1.3248 (C:1.3238, R:0.0100, T:0.0000)
+Val Loss:   1.2634 (C:1.2624, R:0.0100, T:0.0000)
+❌ No topological learning yet
+------------------------------------------------------------
+
+============================================================
+EPOCH 9 | Batches: 1427 | Topological Weight: 0.0100
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=1.8322 (C:1.3637, R:0.0100, T:46.7511(w:0.010)⚠️)
+Batch  25/1427: Loss=1.7601 (C:1.2918, R:0.0100, T:46.7379(w:0.010)⚠️)
+Batch  50/1427: Loss=1.8245 (C:1.3546, R:0.0099, T:46.8841(w:0.010)⚠️)
+Batch  75/1427: Loss=1.7562 (C:1.2874, R:0.0099, T:46.7889(w:0.010)⚠️)
+Batch 100/1427: Loss=1.7799 (C:1.3158, R:0.0099, T:46.3134(w:0.010)⚠️)
+Batch 125/1427: Loss=1.7486 (C:1.2786, R:0.0099, T:46.8934(w:0.010)⚠️)
+Batch 150/1427: Loss=1.7608 (C:1.2947, R:0.0099, T:46.5092(w:0.010)⚠️)
+Batch 175/1427: Loss=1.8515 (C:1.3839, R:0.0099, T:46.6583(w:0.010)⚠️)
+Batch 200/1427: Loss=1.8309 (C:1.3629, R:0.0100, T:46.7017(w:0.010)⚠️)
+Batch 225/1427: Loss=1.7220 (C:1.2543, R:0.0101, T:46.6711(w:0.010)⚠️)
+Batch 250/1427: Loss=1.7302 (C:1.2629, R:0.0099, T:46.6265(w:0.010)⚠️)
+Batch 275/1427: Loss=1.8164 (C:1.3488, R:0.0100, T:46.6605(w:0.010)⚠️)
+Batch 300/1427: Loss=1.7587 (C:1.2866, R:0.0099, T:47.1117(w:0.010)⚠️)
+Batch 325/1427: Loss=1.6474 (C:1.1809, R:0.0100, T:46.5489(w:0.010)⚠️)
+Batch 350/1427: Loss=1.7312 (C:1.2574, R:0.0100, T:47.2740(w:0.010)⚠️)
+Batch 375/1427: Loss=1.7525 (C:1.2945, R:0.0099, T:45.7036(w:0.010)⚠️)
+Batch 400/1427: Loss=1.7949 (C:1.3264, R:0.0100, T:46.7481(w:0.010)⚠️)
+Batch 425/1427: Loss=1.8783 (C:1.4114, R:0.0099, T:46.5841(w:0.010)⚠️)
+Batch 450/1427: Loss=1.7696 (C:1.3078, R:0.0100, T:46.0881(w:0.010)⚠️)
+Batch 475/1427: Loss=1.7615 (C:1.2997, R:0.0100, T:46.0792(w:0.010)⚠️)
+Batch 500/1427: Loss=1.8051 (C:1.3391, R:0.0100, T:46.4994(w:0.010)⚠️)
+Batch 525/1427: Loss=1.8278 (C:1.3622, R:0.0099, T:46.4626(w:0.010)⚠️)
+Batch 550/1427: Loss=1.8315 (C:1.3644, R:0.0100, T:46.6118(w:0.010)⚠️)
+Batch 575/1427: Loss=1.8728 (C:1.4035, R:0.0099, T:46.8267(w:0.010)⚠️)
+Batch 600/1427: Loss=1.6477 (C:1.1792, R:0.0099, T:46.7438(w:0.010)⚠️)
+Batch 625/1427: Loss=1.7634 (C:1.2971, R:0.0099, T:46.5285(w:0.010)⚠️)
+Batch 650/1427: Loss=1.7116 (C:1.2398, R:0.0099, T:47.0808(w:0.010)⚠️)
+Batch 675/1427: Loss=1.8199 (C:1.3661, R:0.0099, T:45.2833(w:0.010)⚠️)
+Batch 700/1427: Loss=1.7069 (C:1.2447, R:0.0099, T:46.1227(w:0.010)⚠️)
+Batch 725/1427: Loss=1.7837 (C:1.3125, R:0.0099, T:47.0241(w:0.010)⚠️)
+Batch 750/1427: Loss=1.7634 (C:1.2971, R:0.0099, T:46.5337(w:0.010)⚠️)
+Batch 775/1427: Loss=1.7712 (C:1.3039, R:0.0099, T:46.6259(w:0.010)⚠️)
+Batch 800/1427: Loss=1.7926 (C:1.3251, R:0.0099, T:46.6505(w:0.010)⚠️)
+Batch 825/1427: Loss=1.7044 (C:1.2387, R:0.0099, T:46.4674(w:0.010)⚠️)
+Batch 850/1427: Loss=1.8185 (C:1.3437, R:0.0100, T:47.3876(w:0.010)⚠️)
+Batch 875/1427: Loss=1.7233 (C:1.2563, R:0.0099, T:46.6016(w:0.010)⚠️)
+Batch 900/1427: Loss=1.6966 (C:1.2253, R:0.0100, T:47.0300(w:0.010)⚠️)
+Batch 925/1427: Loss=1.7227 (C:1.2519, R:0.0100, T:46.9797(w:0.010)⚠️)
+Batch 950/1427: Loss=1.8502 (C:1.3881, R:0.0100, T:46.1161(w:0.010)⚠️)
+Batch 975/1427: Loss=1.6725 (C:1.1970, R:0.0100, T:47.4447(w:0.010)⚠️)
+Batch 1000/1427: Loss=1.7877 (C:1.3257, R:0.0099, T:46.0964(w:0.010)⚠️)
+Batch 1025/1427: Loss=1.8381 (C:1.3707, R:0.0100, T:46.6382(w:0.010)⚠️)
+Batch 1050/1427: Loss=1.7731 (C:1.3147, R:0.0100, T:45.7357(w:0.010)⚠️)
+Batch 1075/1427: Loss=1.9043 (C:1.4454, R:0.0099, T:45.7927(w:0.010)⚠️)
+Batch 1100/1427: Loss=1.6628 (C:1.1923, R:0.0100, T:46.9550(w:0.010)⚠️)
+Batch 1125/1427: Loss=1.7010 (C:1.2356, R:0.0099, T:46.4422(w:0.010)⚠️)
+Batch 1150/1427: Loss=1.7134 (C:1.2532, R:0.0099, T:45.9151(w:0.010)⚠️)
+Batch 1175/1427: Loss=1.7379 (C:1.2662, R:0.0100, T:47.0682(w:0.010)⚠️)
+Batch 1200/1427: Loss=1.8154 (C:1.3453, R:0.0100, T:46.9133(w:0.010)⚠️)
+Batch 1225/1427: Loss=1.7367 (C:1.2767, R:0.0099, T:45.8956(w:0.010)⚠️)
+Batch 1250/1427: Loss=1.7833 (C:1.3228, R:0.0100, T:45.9553(w:0.010)⚠️)
+Batch 1275/1427: Loss=1.7122 (C:1.2399, R:0.0100, T:47.1308(w:0.010)⚠️)
+Batch 1300/1427: Loss=1.7515 (C:1.2854, R:0.0099, T:46.5074(w:0.010)⚠️)
+Batch 1325/1427: Loss=1.7665 (C:1.3000, R:0.0099, T:46.5540(w:0.010)⚠️)
+Batch 1350/1427: Loss=1.6674 (C:1.1967, R:0.0100, T:46.9642(w:0.010)⚠️)
+Batch 1375/1427: Loss=1.8230 (C:1.3579, R:0.0100, T:46.4142(w:0.010)⚠️)
+Batch 1400/1427: Loss=1.7451 (C:1.2780, R:0.0100, T:46.6060(w:0.010)⚠️)
+Batch 1425/1427: Loss=1.6990 (C:1.2339, R:0.0099, T:46.4115(w:0.010)⚠️)
+🎉 MILESTONE: First topological learning detected at epoch 9!
+   Initial topological loss: 46.5437
+📈 New best topological loss: 46.5437
+
+📊 EPOCH 9 TRAINING SUMMARY:
+  Total Loss: 1.7690
+  Contrastive: 1.3026
+  Reconstruction: 0.0100
+  Topological: 46.5437 (weight: 0.010)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.5652
+  Contrastive: 1.2113
+  Reconstruction: 0.0100
+  Topological: 35.2963 (weight: 0.010)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 9/50 COMPLETE (68.8s)
+Train Loss: 1.7690 (C:1.3026, R:0.0100, T:46.5437)
+Val Loss:   1.5652 (C:1.2113, R:0.0100, T:35.2963)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 10 | Batches: 1427 | Topological Weight: 0.0112
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=1.8573 (C:1.3378, R:0.0099, T:46.0883(w:0.011)⚠️)
+Batch  25/1427: Loss=1.7318 (C:1.2130, R:0.0099, T:46.0312(w:0.011)⚠️)
+Batch  50/1427: Loss=1.7849 (C:1.2687, R:0.0099, T:45.7938(w:0.011)⚠️)
+Batch  75/1427: Loss=1.8337 (C:1.3074, R:0.0100, T:46.6935(w:0.011)⚠️)
+Batch 100/1427: Loss=1.7784 (C:1.2555, R:0.0099, T:46.3872(w:0.011)⚠️)
+Batch 125/1427: Loss=1.7977 (C:1.2785, R:0.0099, T:46.0602(w:0.011)⚠️)
+Batch 150/1427: Loss=1.7388 (C:1.2134, R:0.0099, T:46.6081(w:0.011)⚠️)
+Batch 175/1427: Loss=1.7213 (C:1.1939, R:0.0100, T:46.7906(w:0.011)⚠️)
+Batch 200/1427: Loss=1.7863 (C:1.2650, R:0.0100, T:46.2489(w:0.011)⚠️)
+Batch 225/1427: Loss=1.8055 (C:1.2838, R:0.0099, T:46.2866(w:0.011)⚠️)
+Batch 250/1427: Loss=1.7873 (C:1.2619, R:0.0099, T:46.6100(w:0.011)⚠️)
+Batch 275/1427: Loss=1.7698 (C:1.2455, R:0.0099, T:46.5157(w:0.011)⚠️)
+Batch 300/1427: Loss=1.7733 (C:1.2469, R:0.0099, T:46.7001(w:0.011)⚠️)
+Batch 325/1427: Loss=1.7726 (C:1.2508, R:0.0100, T:46.2983(w:0.011)⚠️)
+Batch 350/1427: Loss=1.8537 (C:1.3468, R:0.0099, T:44.9721(w:0.011)⚠️)
+Batch 375/1427: Loss=1.8100 (C:1.2876, R:0.0100, T:46.3435(w:0.011)⚠️)
+Batch 400/1427: Loss=1.7178 (C:1.1963, R:0.0100, T:46.2666(w:0.011)⚠️)
+Batch 425/1427: Loss=1.8286 (C:1.3126, R:0.0100, T:45.7829(w:0.011)⚠️)
+Batch 450/1427: Loss=1.8284 (C:1.2991, R:0.0100, T:46.9579(w:0.011)⚠️)
+Batch 475/1427: Loss=1.7454 (C:1.2287, R:0.0099, T:45.8436(w:0.011)⚠️)
+Batch 500/1427: Loss=1.8712 (C:1.3449, R:0.0100, T:46.6917(w:0.011)⚠️)
+Batch 525/1427: Loss=1.7972 (C:1.2757, R:0.0099, T:46.2616(w:0.011)⚠️)
+Batch 550/1427: Loss=1.8394 (C:1.3170, R:0.0099, T:46.3464(w:0.011)⚠️)
+Batch 575/1427: Loss=1.8135 (C:1.2934, R:0.0100, T:46.1423(w:0.011)⚠️)
+Batch 600/1427: Loss=1.7822 (C:1.2554, R:0.0100, T:46.7388(w:0.011)⚠️)
+Batch 625/1427: Loss=1.7789 (C:1.2527, R:0.0100, T:46.6825(w:0.011)⚠️)
+Batch 650/1427: Loss=1.7474 (C:1.2247, R:0.0100, T:46.3707(w:0.011)⚠️)
+Batch 675/1427: Loss=1.8887 (C:1.3635, R:0.0100, T:46.5917(w:0.011)⚠️)
+Batch 700/1427: Loss=1.9073 (C:1.3936, R:0.0099, T:45.5679(w:0.011)⚠️)
+Batch 725/1427: Loss=1.7851 (C:1.2564, R:0.0100, T:46.9033(w:0.011)⚠️)
+Batch 750/1427: Loss=1.8496 (C:1.3267, R:0.0100, T:46.3944(w:0.011)⚠️)
+Batch 775/1427: Loss=1.7749 (C:1.2559, R:0.0099, T:46.0437(w:0.011)⚠️)
+Batch 800/1427: Loss=1.7986 (C:1.2729, R:0.0100, T:46.6376(w:0.011)⚠️)
+Batch 825/1427: Loss=1.8487 (C:1.3318, R:0.0100, T:45.8621(w:0.011)⚠️)
+Batch 850/1427: Loss=1.8659 (C:1.3465, R:0.0099, T:46.0874(w:0.011)⚠️)
+Batch 875/1427: Loss=1.8097 (C:1.2816, R:0.0100, T:46.8493(w:0.011)⚠️)
+Batch 900/1427: Loss=1.7913 (C:1.2665, R:0.0099, T:46.5605(w:0.011)⚠️)
+Batch 925/1427: Loss=1.8182 (C:1.2954, R:0.0099, T:46.3828(w:0.011)⚠️)
+Batch 950/1427: Loss=1.7449 (C:1.2263, R:0.0099, T:46.0114(w:0.011)⚠️)
+Batch 975/1427: Loss=1.7171 (C:1.1887, R:0.0099, T:46.8778(w:0.011)⚠️)
+Batch 1000/1427: Loss=1.7631 (C:1.2432, R:0.0099, T:46.1315(w:0.011)⚠️)
+Batch 1025/1427: Loss=1.7261 (C:1.1947, R:0.0100, T:47.1422(w:0.011)⚠️)
+Batch 1050/1427: Loss=1.8349 (C:1.3125, R:0.0099, T:46.3453(w:0.011)⚠️)
+Batch 1075/1427: Loss=1.7644 (C:1.2441, R:0.0100, T:46.1552(w:0.011)⚠️)
+Batch 1100/1427: Loss=1.8149 (C:1.2974, R:0.0100, T:45.9094(w:0.011)⚠️)
+Batch 1125/1427: Loss=1.8723 (C:1.3574, R:0.0100, T:45.6766(w:0.011)⚠️)
+Batch 1150/1427: Loss=1.7679 (C:1.2412, R:0.0100, T:46.7281(w:0.011)⚠️)
+Batch 1175/1427: Loss=1.8486 (C:1.3299, R:0.0099, T:46.0151(w:0.011)⚠️)
+Batch 1200/1427: Loss=1.7466 (C:1.2215, R:0.0100, T:46.5893(w:0.011)⚠️)
+Batch 1225/1427: Loss=1.7942 (C:1.2717, R:0.0100, T:46.3581(w:0.011)⚠️)
+Batch 1250/1427: Loss=1.7037 (C:1.1767, R:0.0099, T:46.7599(w:0.011)⚠️)
+Batch 1275/1427: Loss=1.8543 (C:1.3287, R:0.0100, T:46.6286(w:0.011)⚠️)
+Batch 1300/1427: Loss=1.7508 (C:1.2254, R:0.0100, T:46.6108(w:0.011)⚠️)
+Batch 1325/1427: Loss=1.8035 (C:1.2858, R:0.0100, T:45.9348(w:0.011)⚠️)
+Batch 1350/1427: Loss=1.8417 (C:1.3213, R:0.0099, T:46.1634(w:0.011)⚠️)
+Batch 1375/1427: Loss=1.6940 (C:1.1665, R:0.0099, T:46.8030(w:0.011)⚠️)
+Batch 1400/1427: Loss=1.7821 (C:1.2536, R:0.0100, T:46.8879(w:0.011)⚠️)
+Batch 1425/1427: Loss=1.7931 (C:1.2749, R:0.0100, T:45.9712(w:0.011)⚠️)
+📈 New best topological loss: 46.2663
+
+📊 EPOCH 10 TRAINING SUMMARY:
+  Total Loss: 1.8054
+  Contrastive: 1.2839
+  Reconstruction: 0.0100
+  Topological: 46.2663 (weight: 0.011)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.6129
+  Contrastive: 1.1957
+  Reconstruction: 0.0100
+  Topological: 36.9995 (weight: 0.011)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 10/50 COMPLETE (70.5s)
+Train Loss: 1.8054 (C:1.2839, R:0.0100, T:46.2663)
+Val Loss:   1.6129 (C:1.1957, R:0.0100, T:36.9995)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 11 | Batches: 1427 | Topological Weight: 0.0125
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=1.8253 (C:1.2418, R:0.0100, T:46.5952(w:0.013)⚠️)
+Batch  25/1427: Loss=1.8583 (C:1.2776, R:0.0100, T:46.3699(w:0.013)⚠️)
+Batch  50/1427: Loss=1.8335 (C:1.2517, R:0.0100, T:46.4648(w:0.013)⚠️)
+Batch  75/1427: Loss=1.8328 (C:1.2657, R:0.0099, T:45.2901(w:0.013)⚠️)
+Batch 100/1427: Loss=1.7831 (C:1.1947, R:0.0100, T:46.9894(w:0.013)⚠️)
+Batch 125/1427: Loss=1.9452 (C:1.3706, R:0.0099, T:45.8844(w:0.013)⚠️)
+Batch 150/1427: Loss=1.8829 (C:1.3113, R:0.0099, T:45.6460(w:0.013)⚠️)
+Batch 175/1427: Loss=1.7124 (C:1.1290, R:0.0100, T:46.5883(w:0.013)⚠️)
+Batch 200/1427: Loss=1.6781 (C:1.0902, R:0.0100, T:46.9468(w:0.013)⚠️)
+Batch 225/1427: Loss=1.7374 (C:1.1551, R:0.0099, T:46.5020(w:0.013)⚠️)
+Batch 250/1427: Loss=1.8600 (C:1.2832, R:0.0100, T:46.0579(w:0.013)⚠️)
+Batch 275/1427: Loss=1.7375 (C:1.1508, R:0.0099, T:46.8613(w:0.013)⚠️)
+Batch 300/1427: Loss=1.8785 (C:1.2995, R:0.0100, T:46.2440(w:0.013)⚠️)
+Batch 325/1427: Loss=1.7323 (C:1.1483, R:0.0099, T:46.6411(w:0.013)⚠️)
+Batch 350/1427: Loss=1.8036 (C:1.2212, R:0.0099, T:46.5095(w:0.013)⚠️)
+Batch 375/1427: Loss=1.8790 (C:1.2954, R:0.0099, T:46.6102(w:0.013)⚠️)
+Batch 400/1427: Loss=1.8781 (C:1.2984, R:0.0100, T:46.2988(w:0.013)⚠️)
+Batch 425/1427: Loss=1.8016 (C:1.2235, R:0.0100, T:46.1658(w:0.013)⚠️)
+Batch 450/1427: Loss=1.8280 (C:1.2505, R:0.0100, T:46.1197(w:0.013)⚠️)
+Batch 475/1427: Loss=1.7392 (C:1.1589, R:0.0100, T:46.3464(w:0.013)⚠️)
+Batch 500/1427: Loss=1.8583 (C:1.2925, R:0.0100, T:45.1841(w:0.013)⚠️)
+Batch 525/1427: Loss=1.8614 (C:1.2777, R:0.0100, T:46.6161(w:0.013)⚠️)
+Batch 550/1427: Loss=1.7407 (C:1.1502, R:0.0099, T:47.1599(w:0.013)⚠️)
+Batch 575/1427: Loss=1.9257 (C:1.3519, R:0.0099, T:45.8244(w:0.013)⚠️)
+Batch 600/1427: Loss=1.8397 (C:1.2585, R:0.0100, T:46.4172(w:0.013)⚠️)
+Batch 625/1427: Loss=1.7581 (C:1.1708, R:0.0099, T:46.9068(w:0.013)⚠️)
+Batch 650/1427: Loss=1.7870 (C:1.2032, R:0.0100, T:46.6214(w:0.013)⚠️)
+Batch 675/1427: Loss=1.9412 (C:1.3608, R:0.0100, T:46.3576(w:0.013)⚠️)
+Batch 700/1427: Loss=1.8319 (C:1.2506, R:0.0099, T:46.4251(w:0.013)⚠️)
+Batch 725/1427: Loss=1.8835 (C:1.3060, R:0.0100, T:46.1131(w:0.013)⚠️)
+Batch 750/1427: Loss=1.9077 (C:1.3300, R:0.0100, T:46.1367(w:0.013)⚠️)
+Batch 775/1427: Loss=1.8749 (C:1.2988, R:0.0100, T:46.0067(w:0.013)⚠️)
+Batch 800/1427: Loss=1.8172 (C:1.2357, R:0.0100, T:46.4371(w:0.013)⚠️)
+Batch 825/1427: Loss=1.8091 (C:1.2211, R:0.0100, T:46.9579(w:0.013)⚠️)
+Batch 850/1427: Loss=1.8958 (C:1.3226, R:0.0100, T:45.7794(w:0.013)⚠️)
+Batch 875/1427: Loss=1.8042 (C:1.2185, R:0.0100, T:46.7794(w:0.013)⚠️)
+Batch 900/1427: Loss=1.8056 (C:1.2293, R:0.0099, T:46.0242(w:0.013)⚠️)
+Batch 925/1427: Loss=1.8172 (C:1.2347, R:0.0099, T:46.5208(w:0.013)⚠️)
+Batch 950/1427: Loss=1.8295 (C:1.2472, R:0.0100, T:46.5044(w:0.013)⚠️)
+Batch 975/1427: Loss=1.8109 (C:1.2321, R:0.0100, T:46.2253(w:0.013)⚠️)
+Batch 1000/1427: Loss=1.9672 (C:1.3896, R:0.0100, T:46.1289(w:0.013)⚠️)
+Batch 1025/1427: Loss=1.9358 (C:1.3524, R:0.0099, T:46.5865(w:0.013)⚠️)
+Batch 1050/1427: Loss=1.7918 (C:1.2045, R:0.0100, T:46.9035(w:0.013)⚠️)
+Batch 1075/1427: Loss=1.7964 (C:1.2137, R:0.0100, T:46.5325(w:0.013)⚠️)
+Batch 1100/1427: Loss=1.8394 (C:1.2515, R:0.0101, T:46.9505(w:0.013)⚠️)
+Batch 1125/1427: Loss=1.8944 (C:1.3179, R:0.0099, T:46.0395(w:0.013)⚠️)
+Batch 1150/1427: Loss=1.7337 (C:1.1477, R:0.0100, T:46.7971(w:0.013)⚠️)
+Batch 1175/1427: Loss=1.8363 (C:1.2577, R:0.0100, T:46.2095(w:0.013)⚠️)
+Batch 1200/1427: Loss=1.8725 (C:1.2999, R:0.0099, T:45.7284(w:0.013)⚠️)
+Batch 1225/1427: Loss=1.8611 (C:1.2822, R:0.0099, T:46.2314(w:0.013)⚠️)
+Batch 1250/1427: Loss=1.8507 (C:1.2787, R:0.0099, T:45.6845(w:0.013)⚠️)
+Batch 1275/1427: Loss=1.9383 (C:1.3576, R:0.0101, T:46.3773(w:0.013)⚠️)
+Batch 1300/1427: Loss=1.8657 (C:1.2895, R:0.0099, T:46.0150(w:0.013)⚠️)
+Batch 1325/1427: Loss=1.9556 (C:1.3888, R:0.0099, T:45.2614(w:0.013)⚠️)
+Batch 1350/1427: Loss=1.9258 (C:1.3455, R:0.0100, T:46.3408(w:0.013)⚠️)
+Batch 1375/1427: Loss=1.8014 (C:1.2220, R:0.0100, T:46.2755(w:0.013)⚠️)
+Batch 1400/1427: Loss=1.8690 (C:1.3015, R:0.0099, T:45.3187(w:0.013)⚠️)
+Batch 1425/1427: Loss=1.7804 (C:1.2081, R:0.0099, T:45.7079(w:0.013)⚠️)
+📈 New best topological loss: 46.2386
+
+📊 EPOCH 11 TRAINING SUMMARY:
+  Total Loss: 1.8435
+  Contrastive: 1.2645
+  Reconstruction: 0.0100
+  Topological: 46.2386 (weight: 0.013)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.6613
+  Contrastive: 1.1876
+  Reconstruction: 0.0100
+  Topological: 37.8130 (weight: 0.013)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 11/50 COMPLETE (69.0s)
+Train Loss: 1.8435 (C:1.2645, R:0.0100, T:46.2386)
+Val Loss:   1.6613 (C:1.1876, R:0.0100, T:37.8130)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 12 | Batches: 1427 | Topological Weight: 0.0138
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=1.9037 (C:1.2746, R:0.0099, T:45.6763(w:0.014)⚠️)
+Batch  25/1427: Loss=1.7766 (C:1.1373, R:0.0099, T:46.4201(w:0.014)⚠️)
+Batch  50/1427: Loss=1.8452 (C:1.2031, R:0.0100, T:46.6270(w:0.014)⚠️)
+Batch  75/1427: Loss=1.9358 (C:1.2952, R:0.0100, T:46.5134(w:0.014)⚠️)
+Batch 100/1427: Loss=1.8910 (C:1.2627, R:0.0100, T:45.6218(w:0.014)⚠️)
+Batch 125/1427: Loss=1.8377 (C:1.1993, R:0.0099, T:46.3588(w:0.014)⚠️)
+Batch 150/1427: Loss=1.9350 (C:1.2970, R:0.0101, T:46.3282(w:0.014)⚠️)
+Batch 175/1427: Loss=1.8276 (C:1.1781, R:0.0100, T:47.1635(w:0.014)⚠️)
+Batch 200/1427: Loss=1.8512 (C:1.2073, R:0.0100, T:46.7557(w:0.014)⚠️)
+Batch 225/1427: Loss=1.8765 (C:1.2393, R:0.0100, T:46.2689(w:0.014)⚠️)
+Batch 250/1427: Loss=1.9818 (C:1.3449, R:0.0100, T:46.2443(w:0.014)⚠️)
+Batch 275/1427: Loss=1.8089 (C:1.1721, R:0.0099, T:46.2384(w:0.014)⚠️)
+Batch 300/1427: Loss=1.8920 (C:1.2620, R:0.0099, T:45.7467(w:0.014)⚠️)
+Batch 325/1427: Loss=1.9293 (C:1.3051, R:0.0099, T:45.3232(w:0.014)⚠️)
+Batch 350/1427: Loss=1.8211 (C:1.1802, R:0.0100, T:46.5348(w:0.014)⚠️)
+Batch 375/1427: Loss=1.8244 (C:1.1884, R:0.0099, T:46.1778(w:0.014)⚠️)
+Batch 400/1427: Loss=1.9813 (C:1.3502, R:0.0099, T:45.8244(w:0.014)⚠️)
+Batch 425/1427: Loss=1.8874 (C:1.2649, R:0.0099, T:45.2014(w:0.014)⚠️)
+Batch 450/1427: Loss=1.8684 (C:1.2313, R:0.0100, T:46.2571(w:0.014)⚠️)
+Batch 475/1427: Loss=1.8423 (C:1.2059, R:0.0100, T:46.2153(w:0.014)⚠️)
+Batch 500/1427: Loss=1.9463 (C:1.3144, R:0.0100, T:45.8856(w:0.014)⚠️)
+Batch 525/1427: Loss=1.8559 (C:1.2107, R:0.0100, T:46.8472(w:0.014)⚠️)
+Batch 550/1427: Loss=1.9307 (C:1.3018, R:0.0099, T:45.6685(w:0.014)⚠️)
+Batch 575/1427: Loss=1.8909 (C:1.2585, R:0.0099, T:45.9180(w:0.014)⚠️)
+Batch 600/1427: Loss=1.8308 (C:1.1940, R:0.0099, T:46.2403(w:0.014)⚠️)
+Batch 625/1427: Loss=1.7751 (C:1.1247, R:0.0100, T:47.2276(w:0.014)⚠️)
+Batch 650/1427: Loss=1.9508 (C:1.3142, R:0.0099, T:46.2242(w:0.014)⚠️)
+Batch 675/1427: Loss=1.9946 (C:1.3744, R:0.0099, T:45.0327(w:0.014)⚠️)
+Batch 700/1427: Loss=1.8551 (C:1.2273, R:0.0099, T:45.5910(w:0.014)⚠️)
+Batch 725/1427: Loss=1.8187 (C:1.1806, R:0.0100, T:46.3386(w:0.014)⚠️)
+Batch 750/1427: Loss=1.8321 (C:1.1973, R:0.0099, T:46.0961(w:0.014)⚠️)
+Batch 775/1427: Loss=1.8480 (C:1.1982, R:0.0100, T:47.1849(w:0.014)⚠️)
+Batch 800/1427: Loss=1.9867 (C:1.3529, R:0.0099, T:46.0266(w:0.014)⚠️)
+Batch 825/1427: Loss=1.9410 (C:1.3061, R:0.0100, T:46.1020(w:0.014)⚠️)
+Batch 850/1427: Loss=1.8494 (C:1.2184, R:0.0099, T:45.8172(w:0.014)⚠️)
+Batch 875/1427: Loss=1.9328 (C:1.3009, R:0.0100, T:45.8869(w:0.014)⚠️)
+Batch 900/1427: Loss=1.9235 (C:1.2897, R:0.0100, T:46.0204(w:0.014)⚠️)
+Batch 925/1427: Loss=1.8850 (C:1.2513, R:0.0099, T:46.0128(w:0.014)⚠️)
+Batch 950/1427: Loss=1.8103 (C:1.1666, R:0.0100, T:46.7411(w:0.014)⚠️)
+Batch 975/1427: Loss=1.9341 (C:1.3081, R:0.0099, T:45.4536(w:0.014)⚠️)
+Batch 1000/1427: Loss=1.9286 (C:1.2941, R:0.0099, T:46.0704(w:0.014)⚠️)
+Batch 1025/1427: Loss=1.8867 (C:1.2534, R:0.0100, T:45.9885(w:0.014)⚠️)
+Batch 1050/1427: Loss=1.8773 (C:1.2471, R:0.0100, T:45.7560(w:0.014)⚠️)
+Batch 1075/1427: Loss=1.8251 (C:1.1836, R:0.0100, T:46.5873(w:0.014)⚠️)
+Batch 1100/1427: Loss=1.9398 (C:1.3052, R:0.0099, T:46.0831(w:0.014)⚠️)
+Batch 1125/1427: Loss=1.8557 (C:1.2148, R:0.0100, T:46.5330(w:0.014)⚠️)
+Batch 1150/1427: Loss=1.7814 (C:1.1357, R:0.0099, T:46.8845(w:0.014)⚠️)
+Batch 1175/1427: Loss=1.8472 (C:1.2134, R:0.0100, T:46.0263(w:0.014)⚠️)
+Batch 1200/1427: Loss=1.9297 (C:1.2842, R:0.0100, T:46.8760(w:0.014)⚠️)
+Batch 1225/1427: Loss=1.8977 (C:1.2722, R:0.0099, T:45.4162(w:0.014)⚠️)
+Batch 1250/1427: Loss=1.9269 (C:1.2969, R:0.0100, T:45.7494(w:0.014)⚠️)
+Batch 1275/1427: Loss=1.8672 (C:1.2282, R:0.0100, T:46.3997(w:0.014)⚠️)
+Batch 1300/1427: Loss=1.8267 (C:1.1924, R:0.0100, T:46.0572(w:0.014)⚠️)
+Batch 1325/1427: Loss=1.8311 (C:1.1964, R:0.0100, T:46.0917(w:0.014)⚠️)
+Batch 1350/1427: Loss=1.7779 (C:1.1345, R:0.0100, T:46.7173(w:0.014)⚠️)
+Batch 1375/1427: Loss=1.9948 (C:1.3570, R:0.0100, T:46.3094(w:0.014)⚠️)
+Batch 1400/1427: Loss=1.7939 (C:1.1637, R:0.0099, T:45.7607(w:0.014)⚠️)
+Batch 1425/1427: Loss=1.9129 (C:1.2802, R:0.0100, T:45.9415(w:0.014)⚠️)
+📈 New best topological loss: 46.0829
+
+📊 EPOCH 12 TRAINING SUMMARY:
+  Total Loss: 1.8876
+  Contrastive: 1.2529
+  Reconstruction: 0.0100
+  Topological: 46.0829 (weight: 0.014)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.6295
+  Contrastive: 1.1574
+  Reconstruction: 0.0100
+  Topological: 34.2634 (weight: 0.014)
+  Batches with topology: 1427/1427 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 12/50 COMPLETE (76.3s)
+Train Loss: 1.8876 (C:1.2529, R:0.0100, T:46.0829)
+Val Loss:   1.6295 (C:1.1574, R:0.0100, T:34.2634)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 13 | Batches: 1427 | Topological Weight: 0.0150
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=1.9874 (C:1.3027, R:0.0099, T:45.5845(w:0.015)⚠️)
+Batch  25/1427: Loss=1.8718 (C:1.1764, R:0.0100, T:46.2949(w:0.015)⚠️)
+Batch  50/1427: Loss=1.8544 (C:1.1528, R:0.0100, T:46.7066(w:0.015)⚠️)
+Batch  75/1427: Loss=1.9084 (C:1.2204, R:0.0100, T:45.7971(w:0.015)⚠️)
+Batch 100/1427: Loss=1.8517 (C:1.1491, R:0.0100, T:46.7792(w:0.015)⚠️)
+Batch 125/1427: Loss=1.8617 (C:1.1701, R:0.0099, T:46.0409(w:0.015)⚠️)
+Batch 150/1427: Loss=2.0505 (C:1.3622, R:0.0099, T:45.8221(w:0.015)⚠️)
+Batch 175/1427: Loss=1.9452 (C:1.2605, R:0.0099, T:45.5825(w:0.015)⚠️)
+Batch 200/1427: Loss=1.9370 (C:1.2454, R:0.0100, T:46.0388(w:0.015)⚠️)
+Batch 225/1427: Loss=1.9156 (C:1.2226, R:0.0100, T:46.1326(w:0.015)⚠️)
+Batch 250/1427: Loss=2.0734 (C:1.3882, R:0.0100, T:45.6130(w:0.015)⚠️)
+Batch 275/1427: Loss=2.0291 (C:1.3390, R:0.0100, T:45.9417(w:0.015)⚠️)
+Batch 300/1427: Loss=1.8289 (C:1.1267, R:0.0100, T:46.7468(w:0.015)⚠️)
+Batch 325/1427: Loss=1.9051 (C:1.2216, R:0.0099, T:45.4959(w:0.015)⚠️)
+Batch 350/1427: Loss=1.9009 (C:1.1981, R:0.0100, T:46.7871(w:0.015)⚠️)
+Batch 375/1427: Loss=1.8816 (C:1.1864, R:0.0100, T:46.2813(w:0.015)⚠️)
+Batch 400/1427: Loss=1.8492 (C:1.1529, R:0.0099, T:46.3540(w:0.015)⚠️)
+Batch 425/1427: Loss=1.8488 (C:1.1570, R:0.0100, T:46.0561(w:0.015)⚠️)
+Batch 450/1427: Loss=1.9352 (C:1.2422, R:0.0100, T:46.1302(w:0.015)⚠️)
+Batch 475/1427: Loss=1.8982 (C:1.2108, R:0.0099, T:45.7587(w:0.015)⚠️)
+Batch 500/1427: Loss=1.9115 (C:1.2218, R:0.0100, T:45.9122(w:0.015)⚠️)
+Batch 525/1427: Loss=1.9621 (C:1.2608, R:0.0100, T:46.6805(w:0.015)⚠️)
+Batch 550/1427: Loss=1.8096 (C:1.0962, R:0.0100, T:47.4973(w:0.015)⚠️)
+Batch 575/1427: Loss=1.8453 (C:1.1475, R:0.0099, T:46.4562(w:0.015)⚠️)
+Batch 600/1427: Loss=1.9414 (C:1.2525, R:0.0100, T:45.8571(w:0.015)⚠️)
+Batch 625/1427: Loss=1.8615 (C:1.1634, R:0.0100, T:46.4763(w:0.015)⚠️)
+Batch 650/1427: Loss=1.8704 (C:1.1741, R:0.0100, T:46.3538(w:0.015)⚠️)
+Batch 675/1427: Loss=1.9557 (C:1.2684, R:0.0100, T:45.7566(w:0.015)⚠️)
+Batch 700/1427: Loss=1.9197 (C:1.2332, R:0.0100, T:45.7004(w:0.015)⚠️)
+Batch 725/1427: Loss=1.9082 (C:1.2245, R:0.0100, T:45.5124(w:0.015)⚠️)
+Batch 750/1427: Loss=1.7951 (C:1.0972, R:0.0099, T:46.4586(w:0.015)⚠️)
+Batch 775/1427: Loss=1.9228 (C:1.2275, R:0.0100, T:46.2872(w:0.015)⚠️)
+Batch 800/1427: Loss=1.9197 (C:1.2289, R:0.0100, T:45.9887(w:0.015)⚠️)
+Batch 825/1427: Loss=1.9103 (C:1.2301, R:0.0099, T:45.2832(w:0.015)⚠️)
+Batch 850/1427: Loss=1.9108 (C:1.2188, R:0.0099, T:46.0635(w:0.015)⚠️)
+Batch 875/1427: Loss=2.0045 (C:1.3149, R:0.0100, T:45.9084(w:0.015)⚠️)
+Batch 900/1427: Loss=1.9718 (C:1.2814, R:0.0100, T:45.9618(w:0.015)⚠️)
+Batch 925/1427: Loss=2.0147 (C:1.3234, R:0.0100, T:46.0261(w:0.015)⚠️)
+Batch 950/1427: Loss=1.9867 (C:1.3074, R:0.0099, T:45.2159(w:0.015)⚠️)
+Batch 975/1427: Loss=1.9118 (C:1.2172, R:0.0099, T:46.2382(w:0.015)⚠️)
+Batch 1000/1427: Loss=1.9773 (C:1.2884, R:0.0100, T:45.8597(w:0.015)⚠️)
+Batch 1025/1427: Loss=1.8626 (C:1.1570, R:0.0100, T:46.9727(w:0.015)⚠️)
+Batch 1050/1427: Loss=1.9636 (C:1.2830, R:0.0100, T:45.3111(w:0.015)⚠️)
+Batch 1075/1427: Loss=1.9667 (C:1.2919, R:0.0100, T:44.9151(w:0.015)⚠️)
+Batch 1100/1427: Loss=1.9079 (C:1.2168, R:0.0100, T:46.0123(w:0.015)⚠️)
+Batch 1125/1427: Loss=1.8908 (C:1.2096, R:0.0100, T:45.3480(w:0.015)⚠️)
+Batch 1150/1427: Loss=1.9429 (C:1.2430, R:0.0100, T:46.5924(w:0.015)⚠️)
+Batch 1175/1427: Loss=1.9229 (C:1.2287, R:0.0099, T:46.2110(w:0.015)⚠️)
+Batch 1200/1427: Loss=1.8778 (C:1.1931, R:0.0099, T:45.5816(w:0.015)⚠️)
+Batch 1225/1427: Loss=1.9866 (C:1.3041, R:0.0099, T:45.4319(w:0.015)⚠️)
+Batch 1250/1427: Loss=1.9499 (C:1.2687, R:0.0100, T:45.3471(w:0.015)⚠️)
+Batch 1275/1427: Loss=2.0216 (C:1.3450, R:0.0100, T:45.0427(w:0.015)⚠️)
+Batch 1300/1427: Loss=1.8894 (C:1.2015, R:0.0099, T:45.7924(w:0.015)⚠️)
+Batch 1325/1427: Loss=1.9862 (C:1.2991, R:0.0100, T:45.7416(w:0.015)⚠️)
+Batch 1350/1427: Loss=1.8305 (C:1.1459, R:0.0099, T:45.5738(w:0.015)⚠️)
+Batch 1375/1427: Loss=1.9677 (C:1.2720, R:0.0100, T:46.3145(w:0.015)⚠️)
+Batch 1400/1427: Loss=1.8853 (C:1.1862, R:0.0100, T:46.5386(w:0.015)⚠️)
+Batch 1425/1427: Loss=1.9623 (C:1.2717, R:0.0100, T:45.9746(w:0.015)⚠️)
+📈 New best topological loss: 45.9674
+
+📊 EPOCH 13 TRAINING SUMMARY:
+  Total Loss: 1.9242
+  Contrastive: 1.2337
+  Reconstruction: 0.0100
+  Topological: 45.9674 (weight: 0.015)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.7225
+  Contrastive: 1.1413
+  Reconstruction: 0.0100
+  Topological: 38.6809 (weight: 0.015)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 13/50 COMPLETE (74.1s)
+Train Loss: 1.9242 (C:1.2337, R:0.0100, T:45.9674)
+Val Loss:   1.7225 (C:1.1413, R:0.0100, T:38.6809)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 14 | Batches: 1427 | Topological Weight: 0.0163
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=1.9583 (C:1.1997, R:0.0100, T:46.6264(w:0.016)⚠️)
+Batch  25/1427: Loss=2.0695 (C:1.3405, R:0.0099, T:44.8013(w:0.016)⚠️)
+Batch  50/1427: Loss=1.9016 (C:1.1557, R:0.0099, T:45.8364(w:0.016)⚠️)
+Batch  75/1427: Loss=1.9244 (C:1.1727, R:0.0100, T:46.1978(w:0.016)⚠️)
+Batch 100/1427: Loss=2.0006 (C:1.2470, R:0.0099, T:46.3156(w:0.016)⚠️)
+Batch 125/1427: Loss=2.0123 (C:1.2727, R:0.0099, T:45.4515(w:0.016)⚠️)
+Batch 150/1427: Loss=1.9540 (C:1.2073, R:0.0099, T:45.8885(w:0.016)⚠️)
+Batch 175/1427: Loss=2.0580 (C:1.3105, R:0.0100, T:45.9420(w:0.016)⚠️)
+Batch 200/1427: Loss=2.0066 (C:1.2573, R:0.0100, T:46.0529(w:0.016)⚠️)
+Batch 225/1427: Loss=1.9683 (C:1.2162, R:0.0100, T:46.2188(w:0.016)⚠️)
+Batch 250/1427: Loss=1.9982 (C:1.2687, R:0.0100, T:44.8312(w:0.016)⚠️)
+Batch 275/1427: Loss=1.9504 (C:1.2092, R:0.0100, T:45.5511(w:0.016)⚠️)
+Batch 300/1427: Loss=1.9392 (C:1.1901, R:0.0100, T:46.0336(w:0.016)⚠️)
+Batch 325/1427: Loss=1.9811 (C:1.2377, R:0.0100, T:45.6899(w:0.016)⚠️)
+Batch 350/1427: Loss=1.8944 (C:1.1464, R:0.0100, T:45.9704(w:0.016)⚠️)
+Batch 375/1427: Loss=1.9759 (C:1.2318, R:0.0099, T:45.7323(w:0.016)⚠️)
+Batch 400/1427: Loss=2.0222 (C:1.2696, R:0.0099, T:46.2515(w:0.016)⚠️)
+Batch 425/1427: Loss=2.0086 (C:1.2727, R:0.0099, T:45.2219(w:0.016)⚠️)
+Batch 450/1427: Loss=1.9777 (C:1.2300, R:0.0099, T:45.9492(w:0.016)⚠️)
+Batch 475/1427: Loss=1.9659 (C:1.2298, R:0.0099, T:45.2361(w:0.016)⚠️)
+Batch 500/1427: Loss=1.9377 (C:1.1942, R:0.0100, T:45.6956(w:0.016)⚠️)
+Batch 525/1427: Loss=1.8714 (C:1.1094, R:0.0100, T:46.8356(w:0.016)⚠️)
+Batch 550/1427: Loss=2.0738 (C:1.3422, R:0.0100, T:44.9631(w:0.016)⚠️)
+Batch 575/1427: Loss=1.9955 (C:1.2619, R:0.0100, T:45.0848(w:0.016)⚠️)
+Batch 600/1427: Loss=2.0648 (C:1.3364, R:0.0100, T:44.7632(w:0.016)⚠️)
+Batch 625/1427: Loss=1.9807 (C:1.2364, R:0.0100, T:45.7366(w:0.016)⚠️)
+Batch 650/1427: Loss=1.9264 (C:1.1746, R:0.0100, T:46.2002(w:0.016)⚠️)
+Batch 675/1427: Loss=1.9441 (C:1.1935, R:0.0099, T:46.1263(w:0.016)⚠️)
+Batch 700/1427: Loss=1.9375 (C:1.1950, R:0.0099, T:45.6308(w:0.016)⚠️)
+Batch 725/1427: Loss=1.8786 (C:1.1311, R:0.0099, T:45.9397(w:0.016)⚠️)
+Batch 750/1427: Loss=1.9427 (C:1.1936, R:0.0100, T:46.0429(w:0.016)⚠️)
+Batch 775/1427: Loss=1.9878 (C:1.2534, R:0.0100, T:45.1295(w:0.016)⚠️)
+Batch 800/1427: Loss=1.9211 (C:1.1744, R:0.0099, T:45.8898(w:0.016)⚠️)
+Batch 825/1427: Loss=1.9393 (C:1.1987, R:0.0099, T:45.5099(w:0.016)⚠️)
+Batch 850/1427: Loss=1.9062 (C:1.1514, R:0.0100, T:46.3886(w:0.016)⚠️)
+Batch 875/1427: Loss=1.9555 (C:1.2151, R:0.0100, T:45.5014(w:0.016)⚠️)
+Batch 900/1427: Loss=1.9991 (C:1.2681, R:0.0099, T:44.9249(w:0.016)⚠️)
+Batch 925/1427: Loss=1.8753 (C:1.1131, R:0.0100, T:46.8442(w:0.016)⚠️)
+Batch 950/1427: Loss=2.0227 (C:1.2915, R:0.0099, T:44.9357(w:0.016)⚠️)
+Batch 975/1427: Loss=2.0440 (C:1.3040, R:0.0100, T:45.4756(w:0.016)⚠️)
+Batch 1000/1427: Loss=1.9560 (C:1.2123, R:0.0099, T:45.7065(w:0.016)⚠️)
+Batch 1025/1427: Loss=1.9495 (C:1.2068, R:0.0100, T:45.6481(w:0.016)⚠️)
+Batch 1050/1427: Loss=1.9806 (C:1.2290, R:0.0100, T:46.1914(w:0.016)⚠️)
+Batch 1075/1427: Loss=1.9944 (C:1.2481, R:0.0099, T:45.8640(w:0.016)⚠️)
+Batch 1100/1427: Loss=2.0156 (C:1.2677, R:0.0100, T:45.9627(w:0.016)⚠️)
+Batch 1125/1427: Loss=2.0646 (C:1.3339, R:0.0100, T:44.9036(w:0.016)⚠️)
+Batch 1150/1427: Loss=1.9971 (C:1.2580, R:0.0099, T:45.4208(w:0.016)⚠️)
+Batch 1175/1427: Loss=2.0009 (C:1.2607, R:0.0100, T:45.4842(w:0.016)⚠️)
+Batch 1200/1427: Loss=1.9349 (C:1.1890, R:0.0100, T:45.8448(w:0.016)⚠️)
+Batch 1225/1427: Loss=2.0259 (C:1.2901, R:0.0099, T:45.2175(w:0.016)⚠️)
+Batch 1250/1427: Loss=1.8527 (C:1.0940, R:0.0100, T:46.6305(w:0.016)⚠️)
+Batch 1275/1427: Loss=1.9308 (C:1.1902, R:0.0100, T:45.5130(w:0.016)⚠️)
+Batch 1300/1427: Loss=2.0211 (C:1.2789, R:0.0100, T:45.6086(w:0.016)⚠️)
+Batch 1325/1427: Loss=1.9013 (C:1.1572, R:0.0099, T:45.7303(w:0.016)⚠️)
+Batch 1350/1427: Loss=1.9709 (C:1.2384, R:0.0099, T:45.0173(w:0.016)⚠️)
+Batch 1375/1427: Loss=1.8421 (C:1.0993, R:0.0099, T:45.6473(w:0.016)⚠️)
+Batch 1400/1427: Loss=1.9373 (C:1.1903, R:0.0099, T:45.9028(w:0.016)⚠️)
+Batch 1425/1427: Loss=1.9791 (C:1.2335, R:0.0100, T:45.8172(w:0.016)⚠️)
+📈 New best topological loss: 45.6988
+
+📊 EPOCH 14 TRAINING SUMMARY:
+  Total Loss: 1.9701
+  Contrastive: 1.2265
+  Reconstruction: 0.0100
+  Topological: 45.6988 (weight: 0.016)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.7415
+  Contrastive: 1.1194
+  Reconstruction: 0.0100
+  Topological: 38.2204 (weight: 0.016)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 14/50 COMPLETE (66.7s)
+Train Loss: 1.9701 (C:1.2265, R:0.0100, T:45.6988)
+Val Loss:   1.7415 (C:1.1194, R:0.0100, T:38.2204)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 15 | Batches: 1427 | Topological Weight: 0.0175
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.0347 (C:1.2234, R:0.0100, T:46.3007(w:0.018)⚠️)
+Batch  25/1427: Loss=2.1330 (C:1.3321, R:0.0100, T:45.7075(w:0.018)⚠️)
+Batch  50/1427: Loss=1.9605 (C:1.1470, R:0.0099, T:46.4280(w:0.018)⚠️)
+Batch  75/1427: Loss=2.0548 (C:1.2554, R:0.0099, T:45.6224(w:0.018)⚠️)
+Batch 100/1427: Loss=1.9387 (C:1.1600, R:0.0098, T:44.4389(w:0.018)⚠️)
+Batch 125/1427: Loss=1.9477 (C:1.1540, R:0.0099, T:45.3018(w:0.018)⚠️)
+Batch 150/1427: Loss=2.0004 (C:1.1952, R:0.0100, T:45.9531(w:0.018)⚠️)
+Batch 175/1427: Loss=1.9876 (C:1.1937, R:0.0099, T:45.3089(w:0.018)⚠️)
+Batch 200/1427: Loss=1.9731 (C:1.1788, R:0.0100, T:45.3318(w:0.018)⚠️)
+Batch 225/1427: Loss=2.1083 (C:1.3091, R:0.0099, T:45.6081(w:0.018)⚠️)
+Batch 250/1427: Loss=2.0026 (C:1.2107, R:0.0099, T:45.1988(w:0.018)⚠️)
+Batch 275/1427: Loss=1.9994 (C:1.2132, R:0.0099, T:44.8682(w:0.018)⚠️)
+Batch 300/1427: Loss=2.0547 (C:1.2480, R:0.0100, T:46.0435(w:0.018)⚠️)
+Batch 325/1427: Loss=1.9616 (C:1.1592, R:0.0099, T:45.7934(w:0.018)⚠️)
+Batch 350/1427: Loss=1.9581 (C:1.1529, R:0.0100, T:45.9537(w:0.018)⚠️)
+Batch 375/1427: Loss=1.9344 (C:1.1198, R:0.0100, T:46.4944(w:0.018)⚠️)
+Batch 400/1427: Loss=1.9492 (C:1.1441, R:0.0100, T:45.9471(w:0.018)⚠️)
+Batch 425/1427: Loss=2.0897 (C:1.2908, R:0.0099, T:45.5928(w:0.018)⚠️)
+Batch 450/1427: Loss=2.1237 (C:1.3299, R:0.0099, T:45.3055(w:0.018)⚠️)
+Batch 475/1427: Loss=2.1123 (C:1.3184, R:0.0100, T:45.3079(w:0.018)⚠️)
+Batch 500/1427: Loss=1.9735 (C:1.1656, R:0.0100, T:46.1084(w:0.018)⚠️)
+Batch 525/1427: Loss=2.0548 (C:1.2613, R:0.0100, T:45.2822(w:0.018)⚠️)
+Batch 550/1427: Loss=2.0274 (C:1.2277, R:0.0099, T:45.6405(w:0.018)⚠️)
+Batch 575/1427: Loss=1.9601 (C:1.1691, R:0.0099, T:45.1405(w:0.018)⚠️)
+Batch 600/1427: Loss=2.0435 (C:1.2507, R:0.0100, T:45.2449(w:0.018)⚠️)
+Batch 625/1427: Loss=2.0113 (C:1.2076, R:0.0100, T:45.8719(w:0.018)⚠️)
+Batch 650/1427: Loss=1.9816 (C:1.2013, R:0.0099, T:44.5307(w:0.018)⚠️)
+Batch 675/1427: Loss=2.0636 (C:1.2573, R:0.0099, T:46.0204(w:0.018)⚠️)
+Batch 700/1427: Loss=2.0080 (C:1.2042, R:0.0100, T:45.8741(w:0.018)⚠️)
+Batch 725/1427: Loss=1.9907 (C:1.1992, R:0.0099, T:45.1695(w:0.018)⚠️)
+Batch 750/1427: Loss=2.0356 (C:1.2556, R:0.0099, T:44.5149(w:0.018)⚠️)
+Batch 775/1427: Loss=1.9570 (C:1.1485, R:0.0099, T:46.1445(w:0.018)⚠️)
+Batch 800/1427: Loss=1.9466 (C:1.1629, R:0.0099, T:44.7253(w:0.018)⚠️)
+Batch 825/1427: Loss=2.0327 (C:1.2468, R:0.0100, T:44.8537(w:0.018)⚠️)
+Batch 850/1427: Loss=1.9114 (C:1.1129, R:0.0100, T:45.5702(w:0.018)⚠️)
+Batch 875/1427: Loss=2.0642 (C:1.2742, R:0.0100, T:45.0835(w:0.018)⚠️)
+Batch 900/1427: Loss=1.9884 (C:1.1734, R:0.0100, T:46.5153(w:0.018)⚠️)
+Batch 925/1427: Loss=2.0802 (C:1.2991, R:0.0099, T:44.5786(w:0.018)⚠️)
+Batch 950/1427: Loss=2.0404 (C:1.2455, R:0.0100, T:45.3654(w:0.018)⚠️)
+Batch 975/1427: Loss=2.0433 (C:1.2596, R:0.0099, T:44.7233(w:0.018)⚠️)
+Batch 1000/1427: Loss=1.9782 (C:1.1715, R:0.0099, T:46.0382(w:0.018)⚠️)
+Batch 1025/1427: Loss=2.0542 (C:1.2584, R:0.0099, T:45.4194(w:0.018)⚠️)
+Batch 1050/1427: Loss=2.0244 (C:1.2247, R:0.0100, T:45.6418(w:0.018)⚠️)
+Batch 1075/1427: Loss=2.1301 (C:1.3485, R:0.0099, T:44.6057(w:0.018)⚠️)
+Batch 1100/1427: Loss=1.8960 (C:1.0900, R:0.0099, T:46.0002(w:0.018)⚠️)
+Batch 1125/1427: Loss=2.0849 (C:1.2983, R:0.0099, T:44.8964(w:0.018)⚠️)
+Batch 1150/1427: Loss=2.0753 (C:1.2886, R:0.0100, T:44.8929(w:0.018)⚠️)
+Batch 1175/1427: Loss=1.9947 (C:1.1981, R:0.0100, T:45.4626(w:0.018)⚠️)
+Batch 1200/1427: Loss=2.0117 (C:1.2260, R:0.0100, T:44.8416(w:0.018)⚠️)
+Batch 1225/1427: Loss=2.0248 (C:1.2280, R:0.0100, T:45.4771(w:0.018)⚠️)
+Batch 1250/1427: Loss=2.0958 (C:1.3072, R:0.0100, T:45.0063(w:0.018)⚠️)
+Batch 1275/1427: Loss=1.9095 (C:1.1008, R:0.0100, T:46.1539(w:0.018)⚠️)
+Batch 1300/1427: Loss=2.0194 (C:1.2237, R:0.0100, T:45.4150(w:0.018)⚠️)
+Batch 1325/1427: Loss=2.0095 (C:1.2082, R:0.0100, T:45.7283(w:0.018)⚠️)
+Batch 1350/1427: Loss=2.0988 (C:1.3219, R:0.0099, T:44.3363(w:0.018)⚠️)
+Batch 1375/1427: Loss=2.0203 (C:1.2362, R:0.0099, T:44.7492(w:0.018)⚠️)
+Batch 1400/1427: Loss=2.0146 (C:1.2069, R:0.0100, T:46.0995(w:0.018)⚠️)
+Batch 1425/1427: Loss=2.0921 (C:1.3137, R:0.0099, T:44.4240(w:0.018)⚠️)
+📈 New best topological loss: 45.4955
+
+📊 EPOCH 15 TRAINING SUMMARY:
+  Total Loss: 2.0117
+  Contrastive: 1.2145
+  Reconstruction: 0.0100
+  Topological: 45.4955 (weight: 0.018)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.8252
+  Contrastive: 1.1233
+  Reconstruction: 0.0100
+  Topological: 40.0527 (weight: 0.018)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 15/50 COMPLETE (66.6s)
+Train Loss: 2.0117 (C:1.2145, R:0.0100, T:45.4955)
+Val Loss:   1.8252 (C:1.1233, R:0.0100, T:40.0527)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 16 | Batches: 1427 | Topological Weight: 0.0187
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.0827 (C:1.2256, R:0.0100, T:45.6605(w:0.019)⚠️)
+Batch  25/1427: Loss=2.1654 (C:1.3224, R:0.0099, T:44.9063(w:0.019)⚠️)
+Batch  50/1427: Loss=1.9742 (C:1.1135, R:0.0100, T:45.8527(w:0.019)⚠️)
+Batch  75/1427: Loss=2.0709 (C:1.2078, R:0.0100, T:45.9792(w:0.019)⚠️)
+Batch 100/1427: Loss=2.1654 (C:1.3234, R:0.0099, T:44.8550(w:0.019)⚠️)
+Batch 125/1427: Loss=2.0715 (C:1.2172, R:0.0100, T:45.5062(w:0.019)⚠️)
+Batch 150/1427: Loss=1.9896 (C:1.1378, R:0.0099, T:45.3738(w:0.019)⚠️)
+Batch 175/1427: Loss=2.0300 (C:1.1919, R:0.0099, T:44.6454(w:0.019)⚠️)
+Batch 200/1427: Loss=2.0700 (C:1.2192, R:0.0100, T:45.3181(w:0.019)⚠️)
+Batch 225/1427: Loss=2.1058 (C:1.2645, R:0.0100, T:44.8156(w:0.019)⚠️)
+Batch 250/1427: Loss=1.9701 (C:1.1134, R:0.0100, T:45.6402(w:0.019)⚠️)
+Batch 275/1427: Loss=2.0210 (C:1.1539, R:0.0100, T:46.1904(w:0.019)⚠️)
+Batch 300/1427: Loss=2.0469 (C:1.1905, R:0.0100, T:45.6218(w:0.019)⚠️)
+Batch 325/1427: Loss=2.0747 (C:1.2280, R:0.0099, T:45.1022(w:0.019)⚠️)
+Batch 350/1427: Loss=1.9899 (C:1.1301, R:0.0100, T:45.8039(w:0.019)⚠️)
+Batch 375/1427: Loss=2.0385 (C:1.1814, R:0.0099, T:45.6577(w:0.019)⚠️)
+Batch 400/1427: Loss=2.1781 (C:1.3306, R:0.0100, T:45.1437(w:0.019)⚠️)
+Batch 425/1427: Loss=2.0696 (C:1.2314, R:0.0100, T:44.6521(w:0.019)⚠️)
+Batch 450/1427: Loss=2.0539 (C:1.2023, R:0.0100, T:45.3613(w:0.019)⚠️)
+Batch 475/1427: Loss=2.1085 (C:1.2652, R:0.0100, T:44.9243(w:0.019)⚠️)
+Batch 500/1427: Loss=1.9235 (C:1.0513, R:0.0100, T:46.4599(w:0.019)⚠️)
+Batch 525/1427: Loss=2.0388 (C:1.1847, R:0.0099, T:45.5009(w:0.019)⚠️)
+Batch 550/1427: Loss=1.9809 (C:1.1204, R:0.0100, T:45.8405(w:0.019)⚠️)
+Batch 575/1427: Loss=2.0384 (C:1.1969, R:0.0099, T:44.8266(w:0.019)⚠️)
+Batch 600/1427: Loss=2.0831 (C:1.2574, R:0.0099, T:43.9884(w:0.019)⚠️)
+Batch 625/1427: Loss=2.0529 (C:1.2107, R:0.0099, T:44.8633(w:0.019)⚠️)
+Batch 650/1427: Loss=2.0936 (C:1.2653, R:0.0099, T:44.1230(w:0.019)⚠️)
+Batch 675/1427: Loss=2.0351 (C:1.1780, R:0.0100, T:45.6565(w:0.019)⚠️)
+Batch 700/1427: Loss=2.1594 (C:1.3247, R:0.0099, T:44.4618(w:0.019)⚠️)
+Batch 725/1427: Loss=2.0172 (C:1.1749, R:0.0099, T:44.8726(w:0.019)⚠️)
+Batch 750/1427: Loss=2.0328 (C:1.1717, R:0.0100, T:45.8756(w:0.019)⚠️)
+Batch 775/1427: Loss=2.1198 (C:1.2807, R:0.0100, T:44.6970(w:0.019)⚠️)
+Batch 800/1427: Loss=2.0588 (C:1.2163, R:0.0100, T:44.8785(w:0.019)⚠️)
+Batch 825/1427: Loss=2.0575 (C:1.1996, R:0.0100, T:45.7022(w:0.019)⚠️)
+Batch 850/1427: Loss=2.0934 (C:1.2490, R:0.0100, T:44.9776(w:0.019)⚠️)
+Batch 875/1427: Loss=2.0777 (C:1.2337, R:0.0099, T:44.9609(w:0.019)⚠️)
+Batch 900/1427: Loss=2.1147 (C:1.2748, R:0.0099, T:44.7406(w:0.019)⚠️)
+Batch 925/1427: Loss=2.0390 (C:1.1820, R:0.0100, T:45.6543(w:0.019)⚠️)
+Batch 950/1427: Loss=2.0846 (C:1.2258, R:0.0100, T:45.7488(w:0.019)⚠️)
+Batch 975/1427: Loss=2.0804 (C:1.2366, R:0.0099, T:44.9527(w:0.019)⚠️)
+Batch 1000/1427: Loss=2.0538 (C:1.2163, R:0.0099, T:44.6135(w:0.019)⚠️)
+Batch 1025/1427: Loss=2.0766 (C:1.2322, R:0.0100, T:44.9807(w:0.019)⚠️)
+Batch 1050/1427: Loss=2.0389 (C:1.2004, R:0.0099, T:44.6670(w:0.019)⚠️)
+Batch 1075/1427: Loss=1.9994 (C:1.1543, R:0.0099, T:45.0164(w:0.019)⚠️)
+Batch 1100/1427: Loss=2.0741 (C:1.2159, R:0.0100, T:45.7139(w:0.019)⚠️)
+Batch 1125/1427: Loss=2.1270 (C:1.2816, R:0.0099, T:45.0335(w:0.019)⚠️)
+Batch 1150/1427: Loss=2.1551 (C:1.3269, R:0.0099, T:44.1149(w:0.019)⚠️)
+Batch 1175/1427: Loss=2.0085 (C:1.1629, R:0.0099, T:45.0411(w:0.019)⚠️)
+Batch 1200/1427: Loss=2.0808 (C:1.2281, R:0.0100, T:45.4260(w:0.019)⚠️)
+Batch 1225/1427: Loss=1.9621 (C:1.1019, R:0.0100, T:45.8249(w:0.019)⚠️)
+Batch 1250/1427: Loss=2.1016 (C:1.2666, R:0.0100, T:44.4780(w:0.019)⚠️)
+Batch 1275/1427: Loss=2.0635 (C:1.2136, R:0.0100, T:45.2740(w:0.019)⚠️)
+Batch 1300/1427: Loss=1.9680 (C:1.1186, R:0.0100, T:45.2486(w:0.019)⚠️)
+Batch 1325/1427: Loss=2.0923 (C:1.2415, R:0.0100, T:45.3263(w:0.019)⚠️)
+Batch 1350/1427: Loss=2.0464 (C:1.2114, R:0.0099, T:44.4803(w:0.019)⚠️)
+Batch 1375/1427: Loss=2.0289 (C:1.1765, R:0.0099, T:45.4096(w:0.019)⚠️)
+Batch 1400/1427: Loss=2.0785 (C:1.2428, R:0.0099, T:44.5187(w:0.019)⚠️)
+Batch 1425/1427: Loss=2.0117 (C:1.1735, R:0.0099, T:44.6458(w:0.019)⚠️)
+📈 New best topological loss: 45.1200
+
+📊 EPOCH 16 TRAINING SUMMARY:
+  Total Loss: 2.0582
+  Contrastive: 1.2113
+  Reconstruction: 0.0100
+  Topological: 45.1200 (weight: 0.019)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.8748
+  Contrastive: 1.0991
+  Reconstruction: 0.0100
+  Topological: 41.3188 (weight: 0.019)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 16/50 COMPLETE (65.1s)
+Train Loss: 2.0582 (C:1.2113, R:0.0100, T:45.1200)
+Val Loss:   1.8748 (C:1.0991, R:0.0100, T:41.3188)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 17 | Batches: 1427 | Topological Weight: 0.0200
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.0615 (C:1.1569, R:0.0100, T:45.1842(w:0.020)⚠️)
+Batch  25/1427: Loss=2.0972 (C:1.1905, R:0.0100, T:45.2868(w:0.020)⚠️)
+Batch  50/1427: Loss=2.0688 (C:1.1743, R:0.0100, T:44.6733(w:0.020)⚠️)
+Batch  75/1427: Loss=2.0758 (C:1.1757, R:0.0099, T:44.9565(w:0.020)⚠️)
+Batch 100/1427: Loss=2.0411 (C:1.1373, R:0.0099, T:45.1401(w:0.020)⚠️)
+Batch 125/1427: Loss=2.0877 (C:1.1762, R:0.0099, T:45.5291(w:0.020)⚠️)
+Batch 150/1427: Loss=2.1265 (C:1.2285, R:0.0100, T:44.8470(w:0.020)⚠️)
+Batch 175/1427: Loss=2.1551 (C:1.2548, R:0.0100, T:44.9643(w:0.020)⚠️)
+Batch 200/1427: Loss=2.0363 (C:1.1485, R:0.0099, T:44.3418(w:0.020)⚠️)
+Batch 225/1427: Loss=2.0550 (C:1.1432, R:0.0099, T:45.5401(w:0.020)⚠️)
+Batch 250/1427: Loss=2.1170 (C:1.2246, R:0.0099, T:44.5696(w:0.020)⚠️)
+Batch 275/1427: Loss=2.1130 (C:1.2208, R:0.0100, T:44.5627(w:0.020)⚠️)
+Batch 300/1427: Loss=2.0408 (C:1.1426, R:0.0100, T:44.8612(w:0.020)⚠️)
+Batch 325/1427: Loss=2.0745 (C:1.1771, R:0.0099, T:44.8188(w:0.020)⚠️)
+Batch 350/1427: Loss=2.0746 (C:1.1937, R:0.0099, T:43.9927(w:0.020)⚠️)
+Batch 375/1427: Loss=2.0243 (C:1.1336, R:0.0099, T:44.4856(w:0.020)⚠️)
+Batch 400/1427: Loss=2.1098 (C:1.2275, R:0.0099, T:44.0673(w:0.020)⚠️)
+Batch 425/1427: Loss=2.0789 (C:1.1915, R:0.0100, T:44.3187(w:0.020)⚠️)
+Batch 450/1427: Loss=2.0594 (C:1.1598, R:0.0099, T:44.9313(w:0.020)⚠️)
+Batch 475/1427: Loss=2.0545 (C:1.1763, R:0.0099, T:43.8596(w:0.020)⚠️)
+Batch 500/1427: Loss=2.0012 (C:1.0933, R:0.0100, T:45.3447(w:0.020)⚠️)
+Batch 525/1427: Loss=2.1360 (C:1.2607, R:0.0099, T:43.7123(w:0.020)⚠️)
+Batch 550/1427: Loss=2.0436 (C:1.1434, R:0.0099, T:44.9577(w:0.020)⚠️)
+Batch 575/1427: Loss=2.0716 (C:1.1733, R:0.0100, T:44.8612(w:0.020)⚠️)
+Batch 600/1427: Loss=2.1569 (C:1.2820, R:0.0100, T:43.6942(w:0.020)⚠️)
+Batch 625/1427: Loss=2.0719 (C:1.1674, R:0.0100, T:45.1747(w:0.020)⚠️)
+Batch 650/1427: Loss=2.0556 (C:1.1634, R:0.0099, T:44.5589(w:0.020)⚠️)
+Batch 675/1427: Loss=2.1226 (C:1.2556, R:0.0100, T:43.2993(w:0.020)⚠️)
+Batch 700/1427: Loss=2.1425 (C:1.2751, R:0.0099, T:43.3172(w:0.020)⚠️)
+Batch 725/1427: Loss=2.1536 (C:1.2752, R:0.0099, T:43.8703(w:0.020)⚠️)
+Batch 750/1427: Loss=2.0100 (C:1.1122, R:0.0099, T:44.8369(w:0.020)⚠️)
+Batch 775/1427: Loss=2.1309 (C:1.2543, R:0.0100, T:43.7845(w:0.020)⚠️)
+Batch 800/1427: Loss=2.1431 (C:1.2417, R:0.0100, T:45.0233(w:0.020)⚠️)
+Batch 825/1427: Loss=2.1162 (C:1.2232, R:0.0100, T:44.5998(w:0.020)⚠️)
+Batch 850/1427: Loss=2.0818 (C:1.1842, R:0.0100, T:44.8341(w:0.020)⚠️)
+Batch 875/1427: Loss=2.0907 (C:1.1945, R:0.0100, T:44.7600(w:0.020)⚠️)
+Batch 900/1427: Loss=2.0872 (C:1.1965, R:0.0099, T:44.4855(w:0.020)⚠️)
+Batch 925/1427: Loss=2.1058 (C:1.2226, R:0.0100, T:44.1122(w:0.020)⚠️)
+Batch 950/1427: Loss=2.1115 (C:1.2128, R:0.0100, T:44.8847(w:0.020)⚠️)
+Batch 975/1427: Loss=2.0801 (C:1.2005, R:0.0100, T:43.9306(w:0.020)⚠️)
+Batch 1000/1427: Loss=2.1368 (C:1.2667, R:0.0099, T:43.4597(w:0.020)⚠️)
+Batch 1025/1427: Loss=2.1144 (C:1.2403, R:0.0099, T:43.6546(w:0.020)⚠️)
+Batch 1050/1427: Loss=2.1086 (C:1.2251, R:0.0100, T:44.1240(w:0.020)⚠️)
+Batch 1075/1427: Loss=2.1032 (C:1.1986, R:0.0099, T:45.1840(w:0.020)⚠️)
+Batch 1100/1427: Loss=2.0658 (C:1.1782, R:0.0100, T:44.3292(w:0.020)⚠️)
+Batch 1125/1427: Loss=2.1113 (C:1.2341, R:0.0100, T:43.8123(w:0.020)⚠️)
+Batch 1150/1427: Loss=2.1674 (C:1.2957, R:0.0099, T:43.5331(w:0.020)⚠️)
+Batch 1175/1427: Loss=2.1449 (C:1.2708, R:0.0099, T:43.6584(w:0.020)⚠️)
+Batch 1200/1427: Loss=2.0380 (C:1.1568, R:0.0100, T:44.0076(w:0.020)⚠️)
+Batch 1225/1427: Loss=2.1047 (C:1.2128, R:0.0100, T:44.5424(w:0.020)⚠️)
+Batch 1250/1427: Loss=2.1353 (C:1.2394, R:0.0100, T:44.7442(w:0.020)⚠️)
+Batch 1275/1427: Loss=2.0411 (C:1.1502, R:0.0100, T:44.4939(w:0.020)⚠️)
+Batch 1300/1427: Loss=2.1114 (C:1.2258, R:0.0100, T:44.2278(w:0.020)⚠️)
+Batch 1325/1427: Loss=2.1887 (C:1.2929, R:0.0100, T:44.7413(w:0.020)⚠️)
+Batch 1350/1427: Loss=2.1228 (C:1.2343, R:0.0099, T:44.3734(w:0.020)⚠️)
+Batch 1375/1427: Loss=2.1284 (C:1.2401, R:0.0100, T:44.3656(w:0.020)⚠️)
+Batch 1400/1427: Loss=2.1160 (C:1.2335, R:0.0100, T:44.0763(w:0.020)⚠️)
+Batch 1425/1427: Loss=2.1730 (C:1.2917, R:0.0099, T:44.0139(w:0.020)⚠️)
+📈 New best topological loss: 44.4525
+
+📊 EPOCH 17 TRAINING SUMMARY:
+  Total Loss: 2.0985
+  Contrastive: 1.2084
+  Reconstruction: 0.0100
+  Topological: 44.4525 (weight: 0.020)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.9162
+  Contrastive: 1.0894
+  Reconstruction: 0.0100
+  Topological: 41.2893 (weight: 0.020)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 17/50 COMPLETE (67.1s)
+Train Loss: 2.0985 (C:1.2084, R:0.0100, T:44.4525)
+Val Loss:   1.9162 (C:1.0894, R:0.0100, T:41.2893)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 18 | Batches: 1427 | Topological Weight: 0.0213
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.2312 (C:1.2825, R:0.0100, T:44.6006(w:0.021)⚠️)
+Batch  25/1427: Loss=2.2291 (C:1.3103, R:0.0099, T:43.1906(w:0.021)⚠️)
+Batch  50/1427: Loss=2.1301 (C:1.1815, R:0.0100, T:44.5920(w:0.021)⚠️)
+Batch  75/1427: Loss=2.2819 (C:1.3508, R:0.0100, T:43.7730(w:0.021)⚠️)
+Batch 100/1427: Loss=2.1710 (C:1.2449, R:0.0100, T:43.5341(w:0.021)⚠️)
+Batch 125/1427: Loss=2.1914 (C:1.2698, R:0.0100, T:43.3228(w:0.021)⚠️)
+Batch 150/1427: Loss=2.2347 (C:1.3208, R:0.0099, T:42.9609(w:0.021)⚠️)
+Batch 175/1427: Loss=2.1906 (C:1.2726, R:0.0100, T:43.1540(w:0.021)⚠️)
+Batch 200/1427: Loss=2.1888 (C:1.2530, R:0.0099, T:43.9926(w:0.021)⚠️)
+Batch 225/1427: Loss=2.1221 (C:1.1794, R:0.0100, T:44.3162(w:0.021)⚠️)
+Batch 250/1427: Loss=2.1151 (C:1.1639, R:0.0099, T:44.7152(w:0.021)⚠️)
+Batch 275/1427: Loss=2.1353 (C:1.2118, R:0.0100, T:43.4110(w:0.021)⚠️)
+Batch 300/1427: Loss=2.1065 (C:1.1752, R:0.0100, T:43.7779(w:0.021)⚠️)
+Batch 325/1427: Loss=2.2023 (C:1.2949, R:0.0099, T:42.6542(w:0.021)⚠️)
+Batch 350/1427: Loss=2.1022 (C:1.1615, R:0.0100, T:44.2191(w:0.021)⚠️)
+Batch 375/1427: Loss=2.1456 (C:1.2162, R:0.0099, T:43.6929(w:0.021)⚠️)
+Batch 400/1427: Loss=2.2226 (C:1.3063, R:0.0100, T:43.0698(w:0.021)⚠️)
+Batch 425/1427: Loss=2.1606 (C:1.2392, R:0.0100, T:43.3126(w:0.021)⚠️)
+Batch 450/1427: Loss=2.1455 (C:1.2203, R:0.0100, T:43.4930(w:0.021)⚠️)
+Batch 475/1427: Loss=2.0906 (C:1.1537, R:0.0101, T:44.0405(w:0.021)⚠️)
+Batch 500/1427: Loss=2.1385 (C:1.2269, R:0.0099, T:42.8501(w:0.021)⚠️)
+Batch 525/1427: Loss=2.1824 (C:1.2674, R:0.0099, T:43.0095(w:0.021)⚠️)
+Batch 550/1427: Loss=2.0816 (C:1.1555, R:0.0100, T:43.5329(w:0.021)⚠️)
+Batch 575/1427: Loss=2.1671 (C:1.2419, R:0.0100, T:43.4916(w:0.021)⚠️)
+Batch 600/1427: Loss=2.1558 (C:1.2289, R:0.0100, T:43.5705(w:0.021)⚠️)
+Batch 625/1427: Loss=2.0582 (C:1.1226, R:0.0100, T:43.9810(w:0.021)⚠️)
+Batch 650/1427: Loss=2.1417 (C:1.2266, R:0.0100, T:43.0188(w:0.021)⚠️)
+Batch 675/1427: Loss=2.0934 (C:1.1858, R:0.0099, T:42.6665(w:0.021)⚠️)
+Batch 700/1427: Loss=2.2656 (C:1.3711, R:0.0099, T:42.0479(w:0.021)⚠️)
+Batch 725/1427: Loss=2.1528 (C:1.2259, R:0.0099, T:43.5696(w:0.021)⚠️)
+Batch 750/1427: Loss=2.1156 (C:1.1857, R:0.0100, T:43.7129(w:0.021)⚠️)
+Batch 775/1427: Loss=2.0216 (C:1.1052, R:0.0100, T:43.0804(w:0.021)⚠️)
+Batch 800/1427: Loss=2.2012 (C:1.3001, R:0.0099, T:42.3611(w:0.021)⚠️)
+Batch 825/1427: Loss=2.1402 (C:1.2252, R:0.0100, T:43.0096(w:0.021)⚠️)
+Batch 850/1427: Loss=2.0765 (C:1.1634, R:0.0100, T:42.9267(w:0.021)⚠️)
+Batch 875/1427: Loss=2.2368 (C:1.3386, R:0.0099, T:42.2207(w:0.021)⚠️)
+Batch 900/1427: Loss=2.1483 (C:1.2323, R:0.0100, T:43.0586(w:0.021)⚠️)
+Batch 925/1427: Loss=2.2326 (C:1.3441, R:0.0099, T:41.7645(w:0.021)⚠️)
+Batch 950/1427: Loss=2.1380 (C:1.2310, R:0.0099, T:42.6360(w:0.021)⚠️)
+Batch 975/1427: Loss=2.2566 (C:1.3712, R:0.0100, T:41.6163(w:0.021)⚠️)
+Batch 1000/1427: Loss=2.0664 (C:1.1595, R:0.0100, T:42.6325(w:0.021)⚠️)
+Batch 1025/1427: Loss=2.1167 (C:1.2212, R:0.0099, T:42.0935(w:0.021)⚠️)
+Batch 1050/1427: Loss=2.1083 (C:1.2053, R:0.0100, T:42.4473(w:0.021)⚠️)
+Batch 1075/1427: Loss=2.1178 (C:1.2106, R:0.0099, T:42.6466(w:0.021)⚠️)
+Batch 1100/1427: Loss=2.1254 (C:1.2199, R:0.0100, T:42.5666(w:0.021)⚠️)
+Batch 1125/1427: Loss=2.2032 (C:1.3272, R:0.0100, T:41.1744(w:0.021)⚠️)
+Batch 1150/1427: Loss=2.1299 (C:1.2242, R:0.0100, T:42.5785(w:0.021)⚠️)
+Batch 1175/1427: Loss=2.0504 (C:1.1552, R:0.0100, T:42.0780(w:0.021)⚠️)
+Batch 1200/1427: Loss=2.1415 (C:1.2497, R:0.0099, T:41.9207(w:0.021)⚠️)
+Batch 1225/1427: Loss=2.1412 (C:1.2613, R:0.0099, T:41.3612(w:0.021)⚠️)
+Batch 1250/1427: Loss=2.1671 (C:1.2945, R:0.0099, T:41.0152(w:0.021)⚠️)
+Batch 1275/1427: Loss=2.1414 (C:1.2355, R:0.0100, T:42.5819(w:0.021)⚠️)
+Batch 1300/1427: Loss=2.0649 (C:1.1504, R:0.0101, T:42.9879(w:0.021)⚠️)
+Batch 1325/1427: Loss=2.0724 (C:1.1762, R:0.0099, T:42.1268(w:0.021)⚠️)
+Batch 1350/1427: Loss=2.2014 (C:1.3108, R:0.0100, T:41.8606(w:0.021)⚠️)
+Batch 1375/1427: Loss=2.0725 (C:1.1684, R:0.0100, T:42.5020(w:0.021)⚠️)
+Batch 1400/1427: Loss=2.1191 (C:1.2356, R:0.0099, T:41.5290(w:0.021)⚠️)
+Batch 1425/1427: Loss=2.1349 (C:1.2368, R:0.0100, T:42.2187(w:0.021)⚠️)
+📈 New best topological loss: 42.9850
+
+📊 EPOCH 18 TRAINING SUMMARY:
+  Total Loss: 2.1340
+  Contrastive: 1.2196
+  Reconstruction: 0.0100
+  Topological: 42.9850 (weight: 0.021)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.8923
+  Contrastive: 1.0545
+  Reconstruction: 0.0100
+  Topological: 39.3825 (weight: 0.021)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 18/50 COMPLETE (85.2s)
+Train Loss: 2.1340 (C:1.2196, R:0.0100, T:42.9850)
+Val Loss:   1.8923 (C:1.0545, R:0.0100, T:39.3825)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 19 | Batches: 1427 | Topological Weight: 0.0225
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.1383 (C:1.1762, R:0.0099, T:42.7126(w:0.022)⚠️)
+Batch  25/1427: Loss=2.0929 (C:1.1251, R:0.0099, T:42.9679(w:0.022)⚠️)
+Batch  50/1427: Loss=2.1046 (C:1.1468, R:0.0100, T:42.5217(w:0.022)⚠️)
+Batch  75/1427: Loss=2.2074 (C:1.2683, R:0.0099, T:41.6948(w:0.022)⚠️)
+Batch 100/1427: Loss=2.1822 (C:1.2428, R:0.0099, T:41.7054(w:0.022)⚠️)
+Batch 125/1427: Loss=2.1189 (C:1.1838, R:0.0099, T:41.5145(w:0.022)⚠️)
+Batch 150/1427: Loss=2.1435 (C:1.1964, R:0.0099, T:42.0513(w:0.022)⚠️)
+Batch 175/1427: Loss=2.0859 (C:1.1145, R:0.0099, T:43.1306(w:0.022)⚠️)
+Batch 200/1427: Loss=2.1915 (C:1.2451, R:0.0099, T:42.0185(w:0.022)⚠️)
+Batch 225/1427: Loss=2.1498 (C:1.1957, R:0.0099, T:42.3617(w:0.022)⚠️)
+Batch 250/1427: Loss=2.1456 (C:1.1772, R:0.0100, T:42.9932(w:0.022)⚠️)
+Batch 275/1427: Loss=2.1332 (C:1.1710, R:0.0100, T:42.7197(w:0.022)⚠️)
+Batch 300/1427: Loss=2.1412 (C:1.1779, R:0.0100, T:42.7646(w:0.022)⚠️)
+Batch 325/1427: Loss=2.1043 (C:1.1560, R:0.0099, T:42.1002(w:0.022)⚠️)
+Batch 350/1427: Loss=2.0944 (C:1.1346, R:0.0099, T:42.6110(w:0.022)⚠️)
+Batch 375/1427: Loss=2.1807 (C:1.2372, R:0.0098, T:41.8907(w:0.022)⚠️)
+Batch 400/1427: Loss=2.1511 (C:1.1798, R:0.0100, T:43.1239(w:0.022)⚠️)
+Batch 425/1427: Loss=2.1108 (C:1.1194, R:0.0100, T:44.0158(w:0.022)⚠️)
+Batch 450/1427: Loss=2.0489 (C:1.0792, R:0.0100, T:43.0522(w:0.022)⚠️)
+Batch 475/1427: Loss=2.0897 (C:1.1117, R:0.0099, T:43.4259(w:0.022)⚠️)
+Batch 500/1427: Loss=2.1918 (C:1.2312, R:0.0100, T:42.6516(w:0.022)⚠️)
+Batch 525/1427: Loss=1.9996 (C:1.0265, R:0.0099, T:43.2049(w:0.022)⚠️)
+Batch 550/1427: Loss=2.1418 (C:1.1890, R:0.0099, T:42.2997(w:0.022)⚠️)
+Batch 575/1427: Loss=2.1903 (C:1.2285, R:0.0099, T:42.7029(w:0.022)⚠️)
+Batch 600/1427: Loss=1.9957 (C:1.0157, R:0.0100, T:43.5101(w:0.022)⚠️)
+Batch 625/1427: Loss=2.1499 (C:1.1922, R:0.0099, T:42.5180(w:0.022)⚠️)
+Batch 650/1427: Loss=2.0626 (C:1.0961, R:0.0099, T:42.9123(w:0.022)⚠️)
+Batch 675/1427: Loss=2.1487 (C:1.1937, R:0.0099, T:42.4016(w:0.022)⚠️)
+Batch 700/1427: Loss=2.1184 (C:1.1564, R:0.0100, T:42.7106(w:0.022)⚠️)
+Batch 725/1427: Loss=2.1865 (C:1.2201, R:0.0100, T:42.9043(w:0.022)⚠️)
+Batch 750/1427: Loss=2.1195 (C:1.1428, R:0.0100, T:43.3618(w:0.022)⚠️)
+Batch 775/1427: Loss=2.2237 (C:1.2632, R:0.0100, T:42.6435(w:0.022)⚠️)
+Batch 800/1427: Loss=2.0400 (C:1.0574, R:0.0099, T:43.6261(w:0.022)⚠️)
+Batch 825/1427: Loss=2.2697 (C:1.2971, R:0.0100, T:43.1811(w:0.022)⚠️)
+Batch 850/1427: Loss=2.2374 (C:1.2812, R:0.0099, T:42.4534(w:0.022)⚠️)
+Batch 875/1427: Loss=2.1679 (C:1.1953, R:0.0100, T:43.1819(w:0.022)⚠️)
+Batch 900/1427: Loss=2.0900 (C:1.1367, R:0.0099, T:42.3252(w:0.022)⚠️)
+Batch 925/1427: Loss=2.1722 (C:1.2093, R:0.0100, T:42.7531(w:0.022)⚠️)
+Batch 950/1427: Loss=2.1674 (C:1.1850, R:0.0100, T:43.6156(w:0.022)⚠️)
+Batch 975/1427: Loss=2.0783 (C:1.1037, R:0.0099, T:43.2692(w:0.022)⚠️)
+Batch 1000/1427: Loss=2.0878 (C:1.1421, R:0.0099, T:41.9880(w:0.022)⚠️)
+Batch 1025/1427: Loss=2.1567 (C:1.1888, R:0.0100, T:42.9711(w:0.022)⚠️)
+Batch 1050/1427: Loss=2.1559 (C:1.2075, R:0.0099, T:42.1090(w:0.022)⚠️)
+Batch 1075/1427: Loss=2.1408 (C:1.1983, R:0.0099, T:41.8466(w:0.022)⚠️)
+Batch 1100/1427: Loss=2.1284 (C:1.1653, R:0.0100, T:42.7606(w:0.022)⚠️)
+Batch 1125/1427: Loss=2.0213 (C:1.0616, R:0.0099, T:42.6078(w:0.022)⚠️)
+Batch 1150/1427: Loss=2.0465 (C:1.0742, R:0.0100, T:43.1663(w:0.022)⚠️)
+Batch 1175/1427: Loss=2.1444 (C:1.1688, R:0.0100, T:43.3183(w:0.022)⚠️)
+Batch 1200/1427: Loss=2.2708 (C:1.3092, R:0.0100, T:42.6917(w:0.022)⚠️)
+Batch 1225/1427: Loss=2.0949 (C:1.1436, R:0.0100, T:42.2350(w:0.022)⚠️)
+Batch 1250/1427: Loss=2.0414 (C:1.0768, R:0.0099, T:42.8254(w:0.022)⚠️)
+Batch 1275/1427: Loss=2.2334 (C:1.2703, R:0.0099, T:42.7571(w:0.022)⚠️)
+Batch 1300/1427: Loss=2.0298 (C:1.0732, R:0.0099, T:42.4706(w:0.022)⚠️)
+Batch 1325/1427: Loss=2.0110 (C:1.0277, R:0.0100, T:43.6588(w:0.022)⚠️)
+Batch 1350/1427: Loss=2.1523 (C:1.1862, R:0.0099, T:42.8901(w:0.022)⚠️)
+Batch 1375/1427: Loss=2.0894 (C:1.1269, R:0.0100, T:42.7357(w:0.022)⚠️)
+Batch 1400/1427: Loss=2.0916 (C:1.1511, R:0.0099, T:41.7562(w:0.022)⚠️)
+Batch 1425/1427: Loss=2.2366 (C:1.2876, R:0.0100, T:42.1304(w:0.022)⚠️)
+📈 New best topological loss: 42.7250
+
+📊 EPOCH 19 TRAINING SUMMARY:
+  Total Loss: 2.1399
+  Contrastive: 1.1776
+  Reconstruction: 0.0100
+  Topological: 42.7250 (weight: 0.022)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.8805
+  Contrastive: 1.0009
+  Reconstruction: 0.0100
+  Topological: 39.0481 (weight: 0.022)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 19/50 COMPLETE (81.0s)
+Train Loss: 2.1399 (C:1.1776, R:0.0100, T:42.7250)
+Val Loss:   1.8805 (C:1.0009, R:0.0100, T:39.0481)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 20 | Batches: 1427 | Topological Weight: 0.0238
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.1313 (C:1.0994, R:0.0100, T:43.4045(w:0.024)⚠️)
+Batch  25/1427: Loss=2.1712 (C:1.1496, R:0.0100, T:42.9733(w:0.024)⚠️)
+Batch  50/1427: Loss=2.1880 (C:1.1808, R:0.0100, T:42.3657(w:0.024)⚠️)
+Batch  75/1427: Loss=2.2203 (C:1.2311, R:0.0099, T:41.6084(w:0.024)⚠️)
+Batch 100/1427: Loss=2.2384 (C:1.2389, R:0.0100, T:42.0406(w:0.024)⚠️)
+Batch 125/1427: Loss=2.0249 (C:0.9859, R:0.0100, T:43.7046(w:0.024)⚠️)
+Batch 150/1427: Loss=2.1995 (C:1.1888, R:0.0099, T:42.5116(w:0.024)⚠️)
+Batch 175/1427: Loss=2.1030 (C:1.0904, R:0.0100, T:42.5923(w:0.024)⚠️)
+Batch 200/1427: Loss=2.1212 (C:1.0859, R:0.0100, T:43.5487(w:0.024)⚠️)
+Batch 225/1427: Loss=2.1320 (C:1.1070, R:0.0100, T:43.1148(w:0.024)⚠️)
+Batch 250/1427: Loss=2.2286 (C:1.2110, R:0.0099, T:42.8028(w:0.024)⚠️)
+Batch 275/1427: Loss=2.1910 (C:1.1671, R:0.0099, T:43.0692(w:0.024)⚠️)
+Batch 300/1427: Loss=2.1679 (C:1.1428, R:0.0100, T:43.1227(w:0.024)⚠️)
+Batch 325/1427: Loss=2.0893 (C:1.0796, R:0.0099, T:42.4711(w:0.024)⚠️)
+Batch 350/1427: Loss=2.2067 (C:1.1809, R:0.0100, T:43.1477(w:0.024)⚠️)
+Batch 375/1427: Loss=2.2446 (C:1.2255, R:0.0100, T:42.8673(w:0.024)⚠️)
+Batch 400/1427: Loss=2.1341 (C:1.1071, R:0.0100, T:43.2040(w:0.024)⚠️)
+Batch 425/1427: Loss=2.1168 (C:1.1111, R:0.0099, T:42.3032(w:0.024)⚠️)
+Batch 450/1427: Loss=2.1729 (C:1.1720, R:0.0099, T:42.0999(w:0.024)⚠️)
+Batch 475/1427: Loss=2.2008 (C:1.1910, R:0.0100, T:42.4753(w:0.024)⚠️)
+Batch 500/1427: Loss=2.2304 (C:1.2067, R:0.0100, T:43.0628(w:0.024)⚠️)
+Batch 525/1427: Loss=2.0973 (C:1.0693, R:0.0100, T:43.2430(w:0.024)⚠️)
+Batch 550/1427: Loss=2.2201 (C:1.1949, R:0.0100, T:43.1273(w:0.024)⚠️)
+Batch 575/1427: Loss=2.1368 (C:1.1341, R:0.0100, T:42.1778(w:0.024)⚠️)
+Batch 600/1427: Loss=2.2112 (C:1.2080, R:0.0100, T:42.1973(w:0.024)⚠️)
+Batch 625/1427: Loss=2.1955 (C:1.1851, R:0.0099, T:42.4999(w:0.024)⚠️)
+Batch 650/1427: Loss=2.1878 (C:1.1854, R:0.0099, T:42.1675(w:0.024)⚠️)
+Batch 675/1427: Loss=2.1292 (C:1.1084, R:0.0100, T:42.9376(w:0.024)⚠️)
+Batch 700/1427: Loss=2.0900 (C:1.0617, R:0.0100, T:43.2547(w:0.024)⚠️)
+Batch 725/1427: Loss=2.1704 (C:1.1642, R:0.0099, T:42.3219(w:0.024)⚠️)
+Batch 750/1427: Loss=2.1856 (C:1.1671, R:0.0099, T:42.8431(w:0.024)⚠️)
+Batch 775/1427: Loss=2.1925 (C:1.1850, R:0.0100, T:42.3828(w:0.024)⚠️)
+Batch 800/1427: Loss=2.2043 (C:1.2040, R:0.0099, T:42.0791(w:0.024)⚠️)
+Batch 825/1427: Loss=2.1237 (C:1.1255, R:0.0099, T:41.9871(w:0.024)⚠️)
+Batch 850/1427: Loss=2.2943 (C:1.3005, R:0.0100, T:41.8013(w:0.024)⚠️)
+Batch 875/1427: Loss=2.2504 (C:1.2351, R:0.0099, T:42.7074(w:0.024)⚠️)
+Batch 900/1427: Loss=2.1737 (C:1.1624, R:0.0100, T:42.5409(w:0.024)⚠️)
+Batch 925/1427: Loss=2.2158 (C:1.2021, R:0.0099, T:42.6418(w:0.024)⚠️)
+Batch 950/1427: Loss=2.1941 (C:1.1725, R:0.0099, T:42.9739(w:0.024)⚠️)
+Batch 975/1427: Loss=2.1478 (C:1.1315, R:0.0100, T:42.7509(w:0.024)⚠️)
+Batch 1000/1427: Loss=2.1823 (C:1.1556, R:0.0100, T:43.1864(w:0.024)⚠️)
+Batch 1025/1427: Loss=2.2533 (C:1.2605, R:0.0099, T:41.7602(w:0.024)⚠️)
+Batch 1050/1427: Loss=2.1735 (C:1.1424, R:0.0099, T:43.3733(w:0.024)⚠️)
+Batch 1075/1427: Loss=2.2341 (C:1.2249, R:0.0100, T:42.4495(w:0.024)⚠️)
+Batch 1100/1427: Loss=2.0845 (C:1.0582, R:0.0100, T:43.1673(w:0.024)⚠️)
+Batch 1125/1427: Loss=2.1819 (C:1.1427, R:0.0100, T:43.7175(w:0.024)⚠️)
+Batch 1150/1427: Loss=2.1567 (C:1.1390, R:0.0099, T:42.8100(w:0.024)⚠️)
+Batch 1175/1427: Loss=2.1871 (C:1.1848, R:0.0100, T:42.1594(w:0.024)⚠️)
+Batch 1200/1427: Loss=2.1570 (C:1.1515, R:0.0100, T:42.2956(w:0.024)⚠️)
+Batch 1225/1427: Loss=2.1565 (C:1.1455, R:0.0099, T:42.5275(w:0.024)⚠️)
+Batch 1250/1427: Loss=2.2364 (C:1.2224, R:0.0100, T:42.6525(w:0.024)⚠️)
+Batch 1275/1427: Loss=2.1501 (C:1.1318, R:0.0099, T:42.8346(w:0.024)⚠️)
+Batch 1300/1427: Loss=2.1417 (C:1.1292, R:0.0099, T:42.5922(w:0.024)⚠️)
+Batch 1325/1427: Loss=2.2223 (C:1.2210, R:0.0100, T:42.1153(w:0.024)⚠️)
+Batch 1350/1427: Loss=2.2308 (C:1.1949, R:0.0100, T:43.5744(w:0.024)⚠️)
+Batch 1375/1427: Loss=2.0735 (C:1.0442, R:0.0099, T:43.2954(w:0.024)⚠️)
+Batch 1400/1427: Loss=2.1050 (C:1.0846, R:0.0099, T:42.9187(w:0.024)⚠️)
+Batch 1425/1427: Loss=2.1631 (C:1.1327, R:0.0100, T:43.3439(w:0.024)⚠️)
+
+📊 EPOCH 20 TRAINING SUMMARY:
+  Total Loss: 2.1663
+  Contrastive: 1.1485
+  Reconstruction: 0.0100
+  Topological: 42.8138 (weight: 0.024)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.9388
+  Contrastive: 0.9795
+  Reconstruction: 0.0100
+  Topological: 40.3491 (weight: 0.024)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 20/50 COMPLETE (85.9s)
+Train Loss: 2.1663 (C:1.1485, R:0.0100, T:42.8138)
+Val Loss:   1.9388 (C:0.9795, R:0.0100, T:40.3491)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 21 | Batches: 1427 | Topological Weight: 0.0250
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.1786 (C:1.1108, R:0.0099, T:42.6729(w:0.025)⚠️)
+Batch  25/1427: Loss=2.2028 (C:1.1343, R:0.0099, T:42.6978(w:0.025)⚠️)
+Batch  50/1427: Loss=2.1702 (C:1.0993, R:0.0099, T:42.7991(w:0.025)⚠️)
+Batch  75/1427: Loss=2.1895 (C:1.1236, R:0.0099, T:42.5966(w:0.025)⚠️)
+Batch 100/1427: Loss=2.1482 (C:1.0637, R:0.0099, T:43.3403(w:0.025)⚠️)
+Batch 125/1427: Loss=2.2136 (C:1.1530, R:0.0099, T:42.3815(w:0.025)⚠️)
+Batch 150/1427: Loss=2.1608 (C:1.0773, R:0.0100, T:43.3026(w:0.025)⚠️)
+Batch 175/1427: Loss=2.0940 (C:1.0280, R:0.0100, T:42.5982(w:0.025)⚠️)
+Batch 200/1427: Loss=2.0805 (C:0.9875, R:0.0099, T:43.6794(w:0.025)⚠️)
+Batch 225/1427: Loss=2.2826 (C:1.2211, R:0.0100, T:42.4213(w:0.025)⚠️)
+Batch 250/1427: Loss=2.1549 (C:1.1033, R:0.0098, T:42.0252(w:0.025)⚠️)
+Batch 275/1427: Loss=2.2352 (C:1.1618, R:0.0099, T:42.8968(w:0.025)⚠️)
+Batch 300/1427: Loss=2.0357 (C:0.9365, R:0.0100, T:43.9283(w:0.025)⚠️)
+Batch 325/1427: Loss=2.1551 (C:1.0703, R:0.0100, T:43.3516(w:0.025)⚠️)
+Batch 350/1427: Loss=2.2494 (C:1.1791, R:0.0100, T:42.7731(w:0.025)⚠️)
+Batch 375/1427: Loss=2.2951 (C:1.2407, R:0.0099, T:42.1361(w:0.025)⚠️)
+Batch 400/1427: Loss=2.2215 (C:1.1725, R:0.0099, T:41.9198(w:0.025)⚠️)
+Batch 425/1427: Loss=2.3089 (C:1.2355, R:0.0100, T:42.8968(w:0.025)⚠️)
+Batch 450/1427: Loss=2.1619 (C:1.0919, R:0.0099, T:42.7621(w:0.025)⚠️)
+Batch 475/1427: Loss=2.1859 (C:1.1148, R:0.0099, T:42.8052(w:0.025)⚠️)
+Batch 500/1427: Loss=2.2274 (C:1.1578, R:0.0100, T:42.7444(w:0.025)⚠️)
+Batch 525/1427: Loss=2.3616 (C:1.3020, R:0.0100, T:42.3431(w:0.025)⚠️)
+Batch 550/1427: Loss=2.1377 (C:1.0587, R:0.0100, T:43.1194(w:0.025)⚠️)
+Batch 575/1427: Loss=2.2382 (C:1.1874, R:0.0099, T:41.9915(w:0.025)⚠️)
+Batch 600/1427: Loss=2.1517 (C:1.0560, R:0.0100, T:43.7881(w:0.025)⚠️)
+Batch 625/1427: Loss=2.2710 (C:1.2197, R:0.0099, T:42.0147(w:0.025)⚠️)
+Batch 650/1427: Loss=2.2670 (C:1.2099, R:0.0100, T:42.2413(w:0.025)⚠️)
+Batch 675/1427: Loss=2.2835 (C:1.2221, R:0.0100, T:42.4140(w:0.025)⚠️)
+Batch 700/1427: Loss=2.2749 (C:1.2156, R:0.0099, T:42.3347(w:0.025)⚠️)
+Batch 725/1427: Loss=2.2479 (C:1.1773, R:0.0101, T:42.7824(w:0.025)⚠️)
+Batch 750/1427: Loss=2.2716 (C:1.2149, R:0.0099, T:42.2308(w:0.025)⚠️)
+Batch 775/1427: Loss=2.2911 (C:1.2244, R:0.0100, T:42.6304(w:0.025)⚠️)
+Batch 800/1427: Loss=2.1585 (C:1.0659, R:0.0100, T:43.6633(w:0.025)⚠️)
+Batch 825/1427: Loss=2.2978 (C:1.2390, R:0.0099, T:42.3118(w:0.025)⚠️)
+Batch 850/1427: Loss=2.1658 (C:1.1075, R:0.0099, T:42.2944(w:0.025)⚠️)
+Batch 875/1427: Loss=2.2103 (C:1.1311, R:0.0100, T:43.1282(w:0.025)⚠️)
+Batch 900/1427: Loss=2.2273 (C:1.1608, R:0.0100, T:42.6191(w:0.025)⚠️)
+Batch 925/1427: Loss=2.1137 (C:1.0418, R:0.0100, T:42.8354(w:0.025)⚠️)
+Batch 950/1427: Loss=2.2587 (C:1.2027, R:0.0100, T:42.2002(w:0.025)⚠️)
+Batch 975/1427: Loss=2.1841 (C:1.1077, R:0.0100, T:43.0150(w:0.025)⚠️)
+Batch 1000/1427: Loss=2.1506 (C:1.0705, R:0.0100, T:43.1626(w:0.025)⚠️)
+Batch 1025/1427: Loss=2.3114 (C:1.2469, R:0.0100, T:42.5382(w:0.025)⚠️)
+Batch 1050/1427: Loss=2.2598 (C:1.1863, R:0.0100, T:42.8969(w:0.025)⚠️)
+Batch 1075/1427: Loss=2.2522 (C:1.1948, R:0.0100, T:42.2585(w:0.025)⚠️)
+Batch 1100/1427: Loss=2.2515 (C:1.2007, R:0.0099, T:41.9931(w:0.025)⚠️)
+Batch 1125/1427: Loss=2.1834 (C:1.1100, R:0.0099, T:42.8980(w:0.025)⚠️)
+Batch 1150/1427: Loss=2.2024 (C:1.1387, R:0.0099, T:42.5086(w:0.025)⚠️)
+Batch 1175/1427: Loss=2.2149 (C:1.1359, R:0.0100, T:43.1179(w:0.025)⚠️)
+Batch 1200/1427: Loss=2.2307 (C:1.1580, R:0.0100, T:42.8643(w:0.025)⚠️)
+Batch 1225/1427: Loss=2.2304 (C:1.1586, R:0.0100, T:42.8320(w:0.025)⚠️)
+Batch 1250/1427: Loss=2.2671 (C:1.2023, R:0.0100, T:42.5500(w:0.025)⚠️)
+Batch 1275/1427: Loss=2.2070 (C:1.1438, R:0.0100, T:42.4891(w:0.025)⚠️)
+Batch 1300/1427: Loss=2.1076 (C:1.0241, R:0.0100, T:43.2980(w:0.025)⚠️)
+Batch 1325/1427: Loss=2.1179 (C:1.0352, R:0.0099, T:43.2697(w:0.025)⚠️)
+Batch 1350/1427: Loss=2.2571 (C:1.1843, R:0.0100, T:42.8716(w:0.025)⚠️)
+Batch 1375/1427: Loss=2.2449 (C:1.1733, R:0.0100, T:42.8228(w:0.025)⚠️)
+Batch 1400/1427: Loss=2.1950 (C:1.1187, R:0.0100, T:43.0114(w:0.025)⚠️)
+Batch 1425/1427: Loss=2.2669 (C:1.2043, R:0.0100, T:42.4650(w:0.025)⚠️)
+
+📊 EPOCH 21 TRAINING SUMMARY:
+  Total Loss: 2.1987
+  Contrastive: 1.1287
+  Reconstruction: 0.0100
+  Topological: 42.7568 (weight: 0.025)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 1.9665
+  Contrastive: 0.9518
+  Reconstruction: 0.0100
+  Topological: 40.5464 (weight: 0.025)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 21/50 COMPLETE (66.0s)
+Train Loss: 2.1987 (C:1.1287, R:0.0100, T:42.7568)
+Val Loss:   1.9665 (C:0.9518, R:0.0100, T:40.5464)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+============================================================
+EPOCH 22 | Batches: 1427 | Topological Weight: 0.0262
+🌱 Early topological learning
+============================================================
+Batch   0/1427: Loss=2.1762 (C:1.0450, R:0.0100, T:43.0552(w:0.026)⚠️)
+Batch  25/1427: Loss=2.3569 (C:1.2410, R:0.0099, T:42.4739(w:0.026)⚠️)
+Batch  50/1427: Loss=2.2255 (C:1.0971, R:0.0100, T:42.9481(w:0.026)⚠️)
+Batch  75/1427: Loss=2.2338 (C:1.1221, R:0.0099, T:42.3145(w:0.026)⚠️)
+Batch 100/1427: Loss=2.2611 (C:1.1164, R:0.0100, T:43.5683(w:0.026)⚠️)
+Batch 125/1427: Loss=2.3072 (C:1.2072, R:0.0099, T:41.8682(w:0.026)⚠️)
+Batch 150/1427: Loss=2.2601 (C:1.1475, R:0.0099, T:42.3490(w:0.026)⚠️)
+Batch 175/1427: Loss=2.2755 (C:1.1570, R:0.0100, T:42.5713(w:0.026)⚠️)
+Batch 200/1427: Loss=2.2450 (C:1.1503, R:0.0099, T:41.6639(w:0.026)⚠️)
+Batch 225/1427: Loss=2.2540 (C:1.1277, R:0.0100, T:42.8697(w:0.026)⚠️)
+Batch 250/1427: Loss=2.3370 (C:1.2187, R:0.0100, T:42.5633(w:0.026)⚠️)
+Batch 275/1427: Loss=2.3973 (C:1.3007, R:0.0100, T:41.7403(w:0.026)⚠️)
+Batch 300/1427: Loss=2.2516 (C:1.1404, R:0.0100, T:42.2962(w:0.026)⚠️)
+Batch 325/1427: Loss=2.0798 (C:0.9449, R:0.0100, T:43.1969(w:0.026)⚠️)
+Batch 350/1427: Loss=2.2469 (C:1.1540, R:0.0099, T:41.5970(w:0.026)⚠️)
+Batch 375/1427: Loss=2.2795 (C:1.1814, R:0.0099, T:41.7937(w:0.026)⚠️)
+Batch 400/1427: Loss=2.2385 (C:1.1470, R:0.0100, T:41.5448(w:0.026)⚠️)
+Batch 425/1427: Loss=2.2919 (C:1.1726, R:0.0099, T:42.5998(w:0.026)⚠️)
+Batch 450/1427: Loss=2.2221 (C:1.1037, R:0.0100, T:42.5687(w:0.026)⚠️)
+Batch 475/1427: Loss=2.2878 (C:1.1922, R:0.0099, T:41.6993(w:0.026)⚠️)
+Batch 500/1427: Loss=2.2226 (C:1.0997, R:0.0100, T:42.7393(w:0.026)⚠️)
+Batch 525/1427: Loss=2.2127 (C:1.1127, R:0.0099, T:41.8657(w:0.026)⚠️)
+Batch 550/1427: Loss=2.2719 (C:1.1418, R:0.0100, T:43.0108(w:0.026)⚠️)
+Batch 575/1427: Loss=2.2410 (C:1.1424, R:0.0100, T:41.8130(w:0.026)⚠️)
+Batch 600/1427: Loss=2.2542 (C:1.1397, R:0.0099, T:42.4181(w:0.026)⚠️)
+Batch 625/1427: Loss=2.2193 (C:1.1152, R:0.0099, T:42.0232(w:0.026)⚠️)
+Batch 650/1427: Loss=2.2463 (C:1.1503, R:0.0099, T:41.7135(w:0.026)⚠️)
+Batch 675/1427: Loss=2.1238 (C:1.0096, R:0.0099, T:42.4067(w:0.026)⚠️)
+Batch 700/1427: Loss=2.2919 (C:1.1647, R:0.0100, T:42.9044(w:0.026)⚠️)
+Batch 725/1427: Loss=2.3055 (C:1.1868, R:0.0099, T:42.5793(w:0.026)⚠️)
+Batch 750/1427: Loss=2.2185 (C:1.0816, R:0.0100, T:43.2725(w:0.026)⚠️)
+Batch 775/1427: Loss=2.3061 (C:1.1980, R:0.0100, T:42.1755(w:0.026)⚠️)
+Batch 800/1427: Loss=2.2775 (C:1.1700, R:0.0099, T:42.1519(w:0.026)⚠️)
+Batch 825/1427: Loss=2.3091 (C:1.1882, R:0.0100, T:42.6638(w:0.026)⚠️)
+Batch 850/1427: Loss=2.2446 (C:1.1224, R:0.0100, T:42.7105(w:0.026)⚠️)
+Batch 875/1427: Loss=2.2181 (C:1.1003, R:0.0099, T:42.5456(w:0.026)⚠️)
+Batch 900/1427: Loss=2.2275 (C:1.0954, R:0.0099, T:43.0919(w:0.026)⚠️)
+Batch 925/1427: Loss=2.3131 (C:1.1897, R:0.0100, T:42.7601(w:0.026)⚠️)
+Batch 950/1427: Loss=2.2729 (C:1.1565, R:0.0100, T:42.4899(w:0.026)⚠️)
+Batch 975/1427: Loss=2.1645 (C:1.0409, R:0.0099, T:42.7657(w:0.026)⚠️)
+Batch 1000/1427: Loss=2.2138 (C:1.1128, R:0.0099, T:41.9056(w:0.026)⚠️)
+Batch 1025/1427: Loss=2.2209 (C:1.0891, R:0.0100, T:43.0809(w:0.026)⚠️)
+Batch 1050/1427: Loss=2.2218 (C:1.0990, R:0.0100, T:42.7366(w:0.026)⚠️)
+Batch 1075/1427: Loss=2.1438 (C:1.0379, R:0.0099, T:42.0899(w:0.026)⚠️)
+Batch 1100/1427: Loss=2.2718 (C:1.1337, R:0.0100, T:43.3179(w:0.026)⚠️)
+Batch 1125/1427: Loss=2.2060 (C:1.0895, R:0.0099, T:42.4922(w:0.026)⚠️)
+Batch 1150/1427: Loss=2.3023 (C:1.1734, R:0.0100, T:42.9650(w:0.026)⚠️)
+Batch 1175/1427: Loss=2.2664 (C:1.1539, R:0.0099, T:42.3415(w:0.026)⚠️)
+Batch 1200/1427: Loss=2.2691 (C:1.1450, R:0.0100, T:42.7860(w:0.026)⚠️)
+Batch 1225/1427: Loss=2.3465 (C:1.2425, R:0.0099, T:42.0179(w:0.026)⚠️)
+Batch 1250/1427: Loss=2.2752 (C:1.1983, R:0.0099, T:40.9877(w:0.026)⚠️)
+Batch 1275/1427: Loss=2.2398 (C:1.1228, R:0.0100, T:42.5118(w:0.026)⚠️)
+Batch 1300/1427: Loss=2.2742 (C:1.1744, R:0.0100, T:41.8562(w:0.026)⚠️)
+Batch 1325/1427: Loss=2.1784 (C:1.0688, R:0.0099, T:42.2327(w:0.026)⚠️)
+Batch 1350/1427: Loss=2.2274 (C:1.0970, R:0.0100, T:43.0271(w:0.026)⚠️)
+Batch 1375/1427: Loss=2.2526 (C:1.1653, R:0.0099, T:41.3823(w:0.026)⚠️)
+Batch 1400/1427: Loss=2.2054 (C:1.0949, R:0.0099, T:42.2667(w:0.026)⚠️)
+Batch 1425/1427: Loss=2.3440 (C:1.2494, R:0.0100, T:41.6592(w:0.026)⚠️)
+📈 New best topological loss: 42.4963
+
+📊 EPOCH 22 TRAINING SUMMARY:
+  Total Loss: 2.2393
+  Contrastive: 1.1228
+  Reconstruction: 0.0100
+  Topological: 42.4963 (weight: 0.026)
+  Batches with topology: 1427/1427 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 2.0506
+  Contrastive: 0.9374
+  Reconstruction: 0.0100
+  Topological: 42.3709 (weight: 0.026)
+  Batches with topology: 1427/1427 (100.0%)
+
+🎯 EPOCH 22/50 COMPLETE (65.1s)
+Train Loss: 2.2393 (C:1.1228, R:0.0100, T:42.4963)
+Val Loss:   2.0506 (C:0.9374, R:0.0100, T:42.3709)
+⚠️  High topological loss - may need adjustment
+------------------------------------------------------------
+
+🛑 Early stopping triggered after 22 epochs
+Best model was at epoch 12 with Val Loss: 1.6295
+
+======================================================================
+📈 FINAL TOPOLOGICAL LEARNING ANALYSIS
+======================================================================
+First topological learning: Epoch 9
+Epochs with topology: 14/22
+Max consecutive topology epochs: 14
+Best topological loss: 42.4963
+Final topological loss: 42.4963
+✅ SUCCESS: Topological learning achieved!
+👍 GOOD: Fairly consistent topological learning (>50%)
+📈 Topological learning appears stable
+
+======================================================================
+🎯 TOPOLOGICAL AUTOENCODER TRAINING COMPLETED
+======================================================================
+✅ Topological training completed successfully!
+Saving results...
+Loading best model from entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420/checkpoints/best_model.pt
+Starting model evaluation...
+========================================
+GlobalContrastiveEvaluator initialized on cuda
+Starting comprehensive evaluation...
+============================================================
+Extracting latent representations...
+  Processed 1/1431 batches
+  Processed 51/1431 batches
+  Processed 101/1431 batches
+  Processed 151/1431 batches
+  Processed 201/1431 batches
+  Processed 251/1431 batches
+  Processed 301/1431 batches
+  Processed 351/1431 batches
+  Processed 401/1431 batches
+  Processed 451/1431 batches
+  Processed 501/1431 batches
+  Processed 551/1431 batches
+  Processed 601/1431 batches
+  Processed 651/1431 batches
+  Processed 701/1431 batches
+  Processed 751/1431 batches
+  Processed 801/1431 batches
+  Processed 851/1431 batches
+  Processed 901/1431 batches
+  Processed 951/1431 batches
+  Processed 1001/1431 batches
+  Processed 1051/1431 batches
+  Processed 1101/1431 batches
+  Processed 1151/1431 batches
+  Processed 1201/1431 batches
+  Processed 1251/1431 batches
+  Processed 1301/1431 batches
+  Processed 1351/1431 batches
+  Processed 1401/1431 batches
+Extracted representations: torch.Size([549367, 75])
+Evaluating clustering performance...
+Subsampled to 50000 points for clustering evaluation
+Clustering Results:
+  Silhouette Score: 0.2291
+  Adjusted Rand Score: 0.3814
+  Clustering Accuracy: 0.6384
+Evaluating classification performance...
+  Extracting training representations...
+Extracting latent representations...
+  Processed 1/1427 batches
+  Processed 51/1427 batches
+  Processed 101/1427 batches
+  Processed 151/1427 batches
+  Processed 201/1427 batches
+  Processed 251/1427 batches
+  Processed 301/1427 batches
+  Processed 351/1427 batches
+  Processed 401/1427 batches
+  Processed 451/1427 batches
+  Processed 501/1427 batches
+  Processed 551/1427 batches
+  Processed 601/1427 batches
+  Processed 651/1427 batches
+  Processed 701/1427 batches
+  Processed 751/1427 batches
+  Processed 801/1427 batches
+  Processed 851/1427 batches
+  Processed 901/1427 batches
+  Processed 951/1427 batches
+  Processed 1001/1427 batches
+  Processed 1051/1427 batches
+  Processed 1101/1427 batches
+  Processed 1151/1427 batches
+  Processed 1201/1427 batches
+  Processed 1251/1427 batches
+  Processed 1301/1427 batches
+  Processed 1351/1427 batches
+  Processed 1401/1427 batches
+Extracted representations: torch.Size([547968, 75])
+  Extracting validation representations...
+Extracting latent representations...
+  Processed 1/1427 batches
+  Processed 51/1427 batches
+  Processed 101/1427 batches
+  Processed 151/1427 batches
+  Processed 201/1427 batches
+  Processed 251/1427 batches
+  Processed 301/1427 batches
+  Processed 351/1427 batches
+  Processed 401/1427 batches
+  Processed 451/1427 batches
+  Processed 501/1427 batches
+  Processed 551/1427 batches
+  Processed 601/1427 batches
+  Processed 651/1427 batches
+  Processed 701/1427 batches
+  Processed 751/1427 batches
+  Processed 801/1427 batches
+  Processed 851/1427 batches
+  Processed 901/1427 batches
+  Processed 951/1427 batches
+  Processed 1001/1427 batches
+  Processed 1051/1427 batches
+  Processed 1101/1427 batches
+  Processed 1151/1427 batches
+  Processed 1201/1427 batches
+  Processed 1251/1427 batches
+  Processed 1301/1427 batches
+  Processed 1351/1427 batches
+  Processed 1401/1427 batches
+Extracted representations: torch.Size([547968, 75])
+Subsampled training to 50000 samples
+Subsampled validation to 10000 samples
+  Training on 50000 samples, evaluating on 10000 samples
+Classification Results:
+  Accuracy: 0.6548
+  Per-class F1: [0.629951690821256, 0.4841837545700207, 0.8487004950495048]
+Evaluating reconstruction quality...
+Reconstruction Results:
+  Average MSE: 0.009955
+Evaluating separation quality...
+Subsampled to 20000 points for separation evaluation
+Separation Results:
+  Positive distances: 0.407 ± 0.738
+  Negative distances: 1.288 ± 0.926
+  Separation ratio: 3.16x
+  Gap: -2.091
+  Perfect separation: No
+
+Comprehensive evaluation completed!
+
+============================================================
+EVALUATION SUMMARY
+============================================================
+Clustering Performance:
+  Silhouette Score: 0.2291
+  Clustering Accuracy: 0.6384
+  Adjusted Rand Score: 0.3814
+
+Classification Performance:
+  Accuracy: 0.6548
+
+Separation Quality:
+  Separation Ratio: 3.16x
+  Gap: -2.091
+  Perfect Separation: False
+
+Reconstruction Quality:
+  Average MSE: 0.009955
+============================================================
+Evaluation results saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420/results/evaluation_results_20250721_153702.json
+Evaluation results saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420/results/evaluation_results_20250721_153702.json
+
+Key Results:
+  Separation ratio: 3.16x
+  Perfect separation: False
+  Classification accuracy: 0.6548
+
+============================================================
+TOPOLOGICAL TRAINING ANALYSIS
+============================================================
+
+📈 TOPOLOGICAL LEARNING DIAGNOSIS:
+  Total epochs: 22
+  Epochs with topological learning: 14
+  Current topological loss: 42.4963
+  Current topological weight: 0.0262
+  ✅ Topological loss is decreasing (good progress)
+✅ GOOD: Reasonable topological learning
+Final topological loss: 42.4963
+Epochs with topology: 14/22
+⚠️  Poor clustering accuracy: 0.638
+
+Final analysis saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420/results/final_analysis.json
+Experiment saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/topological_autoencoder_torchph_phase1_20250721_151420
+
+Analysis completed with exit code: 0
+Time: Mon 21 Jul 15:37:04 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Regularization successful!
+
+
+Job finished.

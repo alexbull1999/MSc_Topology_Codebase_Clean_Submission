@@ -1,0 +1,333 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 183328
+Node: gpuvm15
+Time: Thu 17 Jul 15:18:17 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 17 15:18:19 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   34C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Persistence Diagram Prototype Creation...
+
+Creating persistence diagram prototypes...
+Initialized prototype creator
+Based on analysis results, all classes show excellent stability for averaging
+
+Creating prototypes using medoid method...
+==================================================
+
+--- Creating prototypes for ENTAILMENT ---
+  Processing H0...
+    Using medoid-based selection...
+      Selected medoid: diagram 62 with avg distance 0.000
+    H0 prototype: 949 features
+    Total persistence: 443.5224
+    Max persistence: 0.7393
+  Processing H1...
+    Using medoid-based selection...
+      Selected medoid: diagram 65 with avg distance 0.000
+    H1 prototype: 1471 features
+    Total persistence: 64.2965
+    Max persistence: 0.2398
+
+--- Creating prototypes for NEUTRAL ---
+  Processing H0...
+    Using medoid-based selection...
+      Selected medoid: diagram 88 with avg distance 0.000
+    H0 prototype: 949 features
+    Total persistence: 514.4366
+    Max persistence: 0.7338
+  Processing H1...
+    Using medoid-based selection...
+      Selected medoid: diagram 89 with avg distance 0.000
+    H1 prototype: 2013 features
+    Total persistence: 74.9372
+    Max persistence: 0.1999
+
+--- Creating prototypes for CONTRADICTION ---
+  Processing H0...
+    Using medoid-based selection...
+      Selected medoid: diagram 14 with avg distance 0.000
+    H0 prototype: 949 features
+    Total persistence: 557.3305
+    Max persistence: 0.7362
+  Processing H1...
+    Using medoid-based selection...
+      Selected medoid: diagram 7 with avg distance 0.000
+    H1 prototype: 2713 features
+    Total persistence: 97.8258
+    Max persistence: 0.1668
+
+Prototypes saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_medoid_vCosine.pkl
+
+============================================================
+PERSISTENCE DIAGRAM PROTOTYPES SUMMARY
+============================================================
+
+ENTAILMENT CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 443.5224
+    Max persistence: 0.7393
+    Mean persistence: 0.4674
+  H1:
+    Features: 1471
+    Total persistence: 64.2965
+    Max persistence: 0.2398
+    Mean persistence: 0.0437
+
+NEUTRAL CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 514.4366
+    Max persistence: 0.7338
+    Mean persistence: 0.5421
+  H1:
+    Features: 2013
+    Total persistence: 74.9372
+    Max persistence: 0.1999
+    Mean persistence: 0.0372
+
+CONTRADICTION CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 557.3305
+    Max persistence: 0.7362
+    Mean persistence: 0.5873
+  H1:
+    Features: 2713
+    Total persistence: 97.8258
+    Max persistence: 0.1668
+    Mean persistence: 0.0361
+Prototype visualization saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__medoid_visualizations_vCosine.png
+
+Prototype creation complete!
+Files created:
+  - Prototypes: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_medoid_vCosine.pkl
+  - Summary: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__medoid_summary_vCosine.txt
+  - Visualizations: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__medoid_visualizations_vCosine.png
+
+Creating prototypes using robust method...
+==================================================
+
+--- Creating prototypes for ENTAILMENT ---
+  Processing H0...
+    Using robust averaging with outlier removal...
+      Kept 100/100 diagrams after outlier removal
+    H0 prototype: 949 features
+    Total persistence: 443.4589
+    Max persistence: 0.7394
+  Processing H1...
+    Using robust averaging with outlier removal...
+      Kept 94/100 diagrams after outlier removal
+    H1 prototype: 1490 features
+    Total persistence: 69.3793
+    Max persistence: 0.2118
+
+--- Creating prototypes for NEUTRAL ---
+  Processing H0...
+    Using robust averaging with outlier removal...
+      Kept 90/100 diagrams after outlier removal
+    H0 prototype: 949 features
+    Total persistence: 514.1127
+    Max persistence: 0.7506
+  Processing H1...
+    Using robust averaging with outlier removal...
+      Kept 95/100 diagrams after outlier removal
+    H1 prototype: 2043 features
+    Total persistence: 79.3200
+    Max persistence: 0.1820
+
+--- Creating prototypes for CONTRADICTION ---
+  Processing H0...
+    Using robust averaging with outlier removal...
+      Kept 93/100 diagrams after outlier removal
+    H0 prototype: 949 features
+    Total persistence: 557.3594
+    Max persistence: 0.7731
+  Processing H1...
+    Using robust averaging with outlier removal...
+      Kept 97/100 diagrams after outlier removal
+    H1 prototype: 2682 features
+    Total persistence: 101.8268
+    Max persistence: 0.1792
+
+Prototypes saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_robust_vCosine.pkl
+
+============================================================
+PERSISTENCE DIAGRAM PROTOTYPES SUMMARY
+============================================================
+
+ENTAILMENT CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 443.4589
+    Max persistence: 0.7394
+    Mean persistence: 0.4673
+  H1:
+    Features: 1490
+    Total persistence: 69.3793
+    Max persistence: 0.2118
+    Mean persistence: 0.0466
+
+NEUTRAL CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 514.1127
+    Max persistence: 0.7506
+    Mean persistence: 0.5417
+  H1:
+    Features: 2043
+    Total persistence: 79.3200
+    Max persistence: 0.1820
+    Mean persistence: 0.0388
+
+CONTRADICTION CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 557.3594
+    Max persistence: 0.7731
+    Mean persistence: 0.5873
+  H1:
+    Features: 2682
+    Total persistence: 101.8268
+    Max persistence: 0.1792
+    Mean persistence: 0.0380
+Prototype visualization saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__robust_visualizations_vCosine.png
+
+Prototype creation complete!
+Files created:
+  - Prototypes: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_robust_vCosine.pkl
+  - Summary: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__robust_summary_vCosine.txt
+  - Visualizations: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__robust_visualizations_vCosine.png
+
+Creating prototypes using centroid method...
+==================================================
+
+--- Creating prototypes for ENTAILMENT ---
+  Processing H0...
+    Using centroid-based averaging...
+      Target features: 949 (median of 949-949)
+    H0 prototype: 949 features
+    Total persistence: 443.4589
+    Max persistence: 0.7394
+  Processing H1...
+    Using centroid-based averaging...
+      Target features: 1490 (median of 1325-1653)
+    H1 prototype: 1490 features
+    Total persistence: 65.0204
+    Max persistence: 0.1103
+
+--- Creating prototypes for NEUTRAL ---
+  Processing H0...
+    Using centroid-based averaging...
+      Target features: 949 (median of 948-949)
+    H0 prototype: 949 features
+    Total persistence: 514.3984
+    Max persistence: 0.7484
+  Processing H1...
+    Using centroid-based averaging...
+      Target features: 2042 (median of 1895-2174)
+    H1 prototype: 2042 features
+    Total persistence: 76.1858
+    Max persistence: 0.0961
+
+--- Creating prototypes for CONTRADICTION ---
+  Processing H0...
+    Using centroid-based averaging...
+      Target features: 949 (median of 948-949)
+    H0 prototype: 949 features
+    Total persistence: 557.3435
+    Max persistence: 0.7699
+  Processing H1...
+    Using centroid-based averaging...
+      Target features: 2682 (median of 2500-2838)
+    H1 prototype: 2682 features
+    Total persistence: 96.7003
+    Max persistence: 0.0909
+
+Prototypes saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_centroid_vCosine.pkl
+
+============================================================
+PERSISTENCE DIAGRAM PROTOTYPES SUMMARY
+============================================================
+
+ENTAILMENT CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 443.4589
+    Max persistence: 0.7394
+    Mean persistence: 0.4673
+  H1:
+    Features: 1490
+    Total persistence: 65.0204
+    Max persistence: 0.1103
+    Mean persistence: 0.0436
+
+NEUTRAL CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 514.3984
+    Max persistence: 0.7484
+    Mean persistence: 0.5420
+  H1:
+    Features: 2042
+    Total persistence: 76.1858
+    Max persistence: 0.0961
+    Mean persistence: 0.0373
+
+CONTRADICTION CLASS PROTOTYPES:
+  H0:
+    Features: 949
+    Total persistence: 557.3435
+    Max persistence: 0.7699
+    Mean persistence: 0.5873
+  H1:
+    Features: 2682
+    Total persistence: 96.7003
+    Max persistence: 0.0909
+    Mean persistence: 0.0361
+Prototype visualization saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__centroid_visualizations_vCosine.png
+
+Prototype creation complete!
+Files created:
+  - Prototypes: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_centroid_vCosine.pkl
+  - Summary: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__centroid_summary_vCosine.txt
+  - Visualizations: entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototype__centroid_visualizations_vCosine.png
+
+Analysis completed with exit code: 0
+Time: Thu 17 Jul 15:18:56 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Persistence Diagram Prototypes successful!
+
+
+Job finished.

@@ -1,0 +1,93 @@
+Job ID: 199055
+Node: gpuvm17
+Time: Thu 28 Aug 08:58:43 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Aug 28 08:58:49 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   29C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+Using device: cuda
+Loading SNLI training chunks...
+  Chunk 1: 109873 samples
+  Chunk 2: 109873 samples
+  Chunk 3: 109873 samples
+  Chunk 4: 109872 samples
+  Chunk 5: 109869 samples
+Total training samples: 549360
+Loading SNLI validation data...
+Validation samples: 9842
+Loading test data from: /vol/bitbucket/ahb24/tda_entailment_new/precomputed_snli_test_persistence_images.pkl
+Test samples: 9824
+Training CNN...
+Epoch  0: Train Acc 0.747, Val Acc 0.731
+Epoch 10: Train Acc 0.772, Val Acc 0.755
+Epoch 20: Train Acc 0.781, Val Acc 0.766
+Epoch 30: Train Acc 0.787, Val Acc 0.772
+Epoch 40: Train Acc 0.790, Val Acc 0.773
+Early stopping at epoch 41
+Training completed. Best validation accuracy: 0.775
+Making predictions on test set...
+
+Predictions completed!
+Test set size: 9824
+Prediction distribution:
+  entailment: 3375 (34.4%)
+  neutral: 3452 (35.1%)
+  contradiction: 2997 (30.5%)
+
+Test Set Evaluation:
+Accuracy: 0.781
+
+Classification Report:
+               precision    recall  f1-score   support
+
+   entailment      0.814     0.816     0.815      3368
+      neutral      0.665     0.713     0.688      3219
+contradiction      0.878     0.813     0.844      3237
+
+     accuracy                          0.781      9824
+    macro avg      0.786     0.780     0.782      9824
+ weighted avg      0.786     0.781     0.783      9824
+
+
+Results saved to: snli_cnn_predictions.pkl
+Done!
+
+Analysis completed with exit code: 0
+Time: Thu 28 Aug 09:51:17 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

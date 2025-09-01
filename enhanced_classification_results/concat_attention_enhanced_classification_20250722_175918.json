@@ -1,0 +1,68 @@
+{
+  "random_forest": {
+    "accuracy": 0.5617647058823529,
+    "balanced_accuracy": 0.5617647058823529,
+    "f1_macro": 0.5587887725589294,
+    "f1_per_class": [
+      0.5986560781918143,
+      0.4439422909786198,
+      0.6337679485063541
+    ],
+    "cv_mean": 0.5256005804539662,
+    "cv_std": 0.004106256609740666,
+    "feature_importances_stats": {
+      "mean": 0.01,
+      "std": 0.010411711691813434,
+      "max": 0.045430621950259466,
+      "top_5_features": [
+        24,
+        59,
+        99,
+        63,
+        6
+      ]
+    }
+  },
+  "svm_rbf": {
+    "accuracy": 0.6552287581699346,
+    "balanced_accuracy": 0.6552287581699345,
+    "f1_macro": 0.6573491686441101,
+    "f1_per_class": [
+      0.6665627435697584,
+      0.5839299920445505,
+      0.7215547703180213
+    ],
+    "cv_mean": 0.5771992016238215,
+    "cv_std": 0.006203752840522369,
+    "num_support_vectors": [
+      24449,
+      30626,
+      21495
+    ],
+    "total_support_vectors": 76570
+  },
+  "neural_network": {
+    "accuracy": 0.5347494553376906,
+    "balanced_accuracy": 0.5347494553376907,
+    "f1_macro": 0.5222319394468885,
+    "f1_per_class": [
+      0.6040816326530611,
+      0.3599150415138057,
+      0.6026991441737986
+    ],
+    "train_accuracy": 0.5364515781402588,
+    "final_loss": 0.957202672958374,
+    "model_parameters": 8643
+  },
+  "dataset_info": {
+    "train_samples": 547740,
+    "val_samples": 9180,
+    "latent_dim": 100,
+    "num_classes": 3,
+    "class_names": [
+      "entailment",
+      "neutral",
+      "contradiction"
+    ]
+  }
+}

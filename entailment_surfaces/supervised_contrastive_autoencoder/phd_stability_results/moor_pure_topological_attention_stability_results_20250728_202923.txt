@@ -1,0 +1,117 @@
+{
+  "timestamp": "20250728_202923",
+  "test_config": {
+    "n_runs": 10,
+    "min_points": 200,
+    "max_points": 1000,
+    "point_jump": 50,
+    "seed_base": 42,
+    "note": "Each run uses different random sample of latent embeddings"
+  },
+  "results": {
+    "model_name": "moor_pure_topological_attention",
+    "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/pure_moor_topological_autoencoder_attention_20250724_222029/checkpoints/best_model.pt",
+    "n_runs": 10,
+    "class_results": {
+      "entailment": {
+        "mean": 7.830542434969338,
+        "std": 0.4102645516373262,
+        "min": 7.2473098980974395,
+        "max": 8.554565505330487,
+        "range": 1.3072556072330475,
+        "cv": 0.05239286486785161,
+        "valid_runs": 10,
+        "all_values": [
+          7.579496165652869,
+          8.486854835371371,
+          7.436655636177133,
+          7.2473098980974395,
+          7.944705355749474,
+          7.806776364985203,
+          8.051530645880337,
+          7.5967593574224965,
+          8.554565505330487,
+          7.600770585026571
+        ],
+        "stability": "EXCELLENT"
+      },
+      "neutral": {
+        "mean": 9.552781351612861,
+        "std": 0.49275419720419467,
+        "min": 9.004740419749742,
+        "max": 10.460754608355506,
+        "range": 1.4560141886057636,
+        "cv": 0.051582275262795546,
+        "valid_runs": 10,
+        "all_values": [
+          9.284471390495142,
+          9.323813167532174,
+          10.460754608355506,
+          9.307059314315229,
+          9.004740419749742,
+          9.187537735872615,
+          9.247417649780154,
+          9.336796169239364,
+          10.047632056056157,
+          10.327591004732543
+        ],
+        "stability": "EXCELLENT"
+      },
+      "contradiction": {
+        "mean": 11.915603536931485,
+        "std": 0.5764264646099795,
+        "min": 11.08551993884266,
+        "max": 13.030144654757667,
+        "range": 1.9446247159150065,
+        "cv": 0.04837576735608822,
+        "valid_runs": 10,
+        "all_values": [
+          11.77030901470794,
+          11.465687525182041,
+          12.787303676317228,
+          11.770863359307976,
+          11.31443068741956,
+          11.08551993884266,
+          12.012018215149503,
+          13.030144654757667,
+          12.038818984337063,
+          11.880939313293227
+        ],
+        "stability": "EXCELLENT"
+      }
+    }
+  }
+}
+
+  ENTAILMENT STABILITY ANALYSIS:
+    Mean: 7.8305 ± 0.4103
+    Range: [7.2473, 8.5546]
+    Coefficient of Variation: 0.0524
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  NEUTRAL STABILITY ANALYSIS:
+    Mean: 9.5528 ± 0.4928
+    Range: [9.0047, 10.4608]
+    Coefficient of Variation: 0.0516
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  CONTRADICTION STABILITY ANALYSIS:
+    Mean: 11.9156 ± 0.5764
+    Range: [11.0855, 13.0301]
+    Coefficient of Variation: 0.0484
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+Results saved to: entailment_surfaces/supervised_contrastive_autoencoder/phd_stability_results/moor_pure_topological_attention_stability_results_20250728_202923.json
+
+================================================================================
+PH DIMENSION STABILITY SUMMARY
+================================================================================
+
+Model: moor_pure_topological_attention
+--------------------------------------------------
+  entailment: 7.831 ± 0.410 (CV: 0.052, EXCELLENT)
+  neutral: 9.553 ± 0.493 (CV: 0.052, EXCELLENT)
+  contradiction: 11.916 ± 0.576 (CV: 0.048, EXCELLENT)

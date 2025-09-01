@@ -1,0 +1,338 @@
+Job ID: 194198
+Node: parrot
+Time: Wed 13 Aug 21:15:53 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Aug 13 21:16:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:D0:00.0 Off |                  Off |
+|  0%   42C    P8             15W /   62W |       0MiB /  16380MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 16.8 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+SNLI CLASSIFICATION EXPERIMENT
+================================================================================
+Loading precomputed topological features...
+Topological features: Train (150000, 21), Val (9842, 21)
+Computing SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Processing entailment: 50214 samples
+  Processed 1000/50214 entailment samples
+  Processed 2000/50214 entailment samples
+  Processed 3000/50214 entailment samples
+  Processed 4000/50214 entailment samples
+  Processed 5000/50214 entailment samples
+  Processed 6000/50214 entailment samples
+  Processed 7000/50214 entailment samples
+  Processed 8000/50214 entailment samples
+  Processed 9000/50214 entailment samples
+  Processed 10000/50214 entailment samples
+  Processed 11000/50214 entailment samples
+  Processed 12000/50214 entailment samples
+  Processed 13000/50214 entailment samples
+  Processed 14000/50214 entailment samples
+  Processed 15000/50214 entailment samples
+  Processed 16000/50214 entailment samples
+  Processed 17000/50214 entailment samples
+  Processed 18000/50214 entailment samples
+  Processed 19000/50214 entailment samples
+  Processed 20000/50214 entailment samples
+  Processed 21000/50214 entailment samples
+  Processed 22000/50214 entailment samples
+  Processed 23000/50214 entailment samples
+  Processed 24000/50214 entailment samples
+  Processed 25000/50214 entailment samples
+  Processed 26000/50214 entailment samples
+  Processed 27000/50214 entailment samples
+  Processed 28000/50214 entailment samples
+  Processed 29000/50214 entailment samples
+  Processed 30000/50214 entailment samples
+  Processed 31000/50214 entailment samples
+  Processed 32000/50214 entailment samples
+  Processed 33000/50214 entailment samples
+  Processed 34000/50214 entailment samples
+  Processed 35000/50214 entailment samples
+  Processed 36000/50214 entailment samples
+  Processed 37000/50214 entailment samples
+  Processed 38000/50214 entailment samples
+  Processed 39000/50214 entailment samples
+  Processed 40000/50214 entailment samples
+  Processed 41000/50214 entailment samples
+  Processed 42000/50214 entailment samples
+  Processed 43000/50214 entailment samples
+  Processed 44000/50214 entailment samples
+  Processed 45000/50214 entailment samples
+  Processed 46000/50214 entailment samples
+  Processed 47000/50214 entailment samples
+  Processed 48000/50214 entailment samples
+  Processed 49000/50214 entailment samples
+  Processed 50000/50214 entailment samples
+Processing neutral: 50069 samples
+  Processed 1000/50069 neutral samples
+  Processed 2000/50069 neutral samples
+  Processed 3000/50069 neutral samples
+  Processed 4000/50069 neutral samples
+  Processed 5000/50069 neutral samples
+  Processed 6000/50069 neutral samples
+  Processed 7000/50069 neutral samples
+  Processed 8000/50069 neutral samples
+  Processed 9000/50069 neutral samples
+  Processed 10000/50069 neutral samples
+  Processed 11000/50069 neutral samples
+  Processed 12000/50069 neutral samples
+  Processed 13000/50069 neutral samples
+  Processed 14000/50069 neutral samples
+  Processed 15000/50069 neutral samples
+  Processed 16000/50069 neutral samples
+  Processed 17000/50069 neutral samples
+  Processed 18000/50069 neutral samples
+  Processed 19000/50069 neutral samples
+  Processed 20000/50069 neutral samples
+  Processed 21000/50069 neutral samples
+  Processed 22000/50069 neutral samples
+  Processed 23000/50069 neutral samples
+  Processed 24000/50069 neutral samples
+  Processed 25000/50069 neutral samples
+  Processed 26000/50069 neutral samples
+  Processed 27000/50069 neutral samples
+  Processed 28000/50069 neutral samples
+  Processed 29000/50069 neutral samples
+  Processed 30000/50069 neutral samples
+  Processed 31000/50069 neutral samples
+  Processed 32000/50069 neutral samples
+  Processed 33000/50069 neutral samples
+  Processed 34000/50069 neutral samples
+  Processed 35000/50069 neutral samples
+  Processed 36000/50069 neutral samples
+  Processed 37000/50069 neutral samples
+  Processed 38000/50069 neutral samples
+  Processed 39000/50069 neutral samples
+  Processed 40000/50069 neutral samples
+  Processed 41000/50069 neutral samples
+  Processed 42000/50069 neutral samples
+  Processed 43000/50069 neutral samples
+  Processed 44000/50069 neutral samples
+  Processed 45000/50069 neutral samples
+  Processed 46000/50069 neutral samples
+  Processed 47000/50069 neutral samples
+  Processed 48000/50069 neutral samples
+  Processed 49000/50069 neutral samples
+  Processed 50000/50069 neutral samples
+Processing contradiction: 49717 samples
+  Processed 1000/49717 contradiction samples
+  Processed 2000/49717 contradiction samples
+  Processed 3000/49717 contradiction samples
+  Processed 4000/49717 contradiction samples
+  Processed 5000/49717 contradiction samples
+  Processed 6000/49717 contradiction samples
+  Processed 7000/49717 contradiction samples
+  Processed 8000/49717 contradiction samples
+  Processed 9000/49717 contradiction samples
+  Processed 10000/49717 contradiction samples
+  Processed 11000/49717 contradiction samples
+  Processed 12000/49717 contradiction samples
+  Processed 13000/49717 contradiction samples
+  Processed 14000/49717 contradiction samples
+  Processed 15000/49717 contradiction samples
+  Processed 16000/49717 contradiction samples
+  Processed 17000/49717 contradiction samples
+  Processed 18000/49717 contradiction samples
+  Processed 19000/49717 contradiction samples
+  Processed 20000/49717 contradiction samples
+  Processed 21000/49717 contradiction samples
+  Processed 22000/49717 contradiction samples
+  Processed 23000/49717 contradiction samples
+  Processed 24000/49717 contradiction samples
+  Processed 25000/49717 contradiction samples
+  Processed 26000/49717 contradiction samples
+  Processed 27000/49717 contradiction samples
+  Processed 28000/49717 contradiction samples
+  Processed 29000/49717 contradiction samples
+  Processed 30000/49717 contradiction samples
+  Processed 31000/49717 contradiction samples
+  Processed 32000/49717 contradiction samples
+  Processed 33000/49717 contradiction samples
+  Processed 34000/49717 contradiction samples
+  Processed 35000/49717 contradiction samples
+  Processed 36000/49717 contradiction samples
+  Processed 37000/49717 contradiction samples
+  Processed 38000/49717 contradiction samples
+  Processed 39000/49717 contradiction samples
+  Processed 40000/49717 contradiction samples
+  Processed 41000/49717 contradiction samples
+  Processed 42000/49717 contradiction samples
+  Processed 43000/49717 contradiction samples
+  Processed 44000/49717 contradiction samples
+  Processed 45000/49717 contradiction samples
+  Processed 46000/49717 contradiction samples
+  Processed 47000/49717 contradiction samples
+  Processed 48000/49717 contradiction samples
+  Processed 49000/49717 contradiction samples
+SBERT features: (150000, 3072), class distribution: {0: 50214, 1: 50069, 2: 49717}
+Computing SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/snli_val_sbert_tokens.pkl
+Processing entailment: 3329 samples
+  Processed 1000/3329 entailment samples
+  Processed 2000/3329 entailment samples
+  Processed 3000/3329 entailment samples
+Processing neutral: 3235 samples
+  Processed 1000/3235 neutral samples
+  Processed 2000/3235 neutral samples
+  Processed 3000/3235 neutral samples
+Processing contradiction: 3278 samples
+  Processed 1000/3278 contradiction samples
+  Processed 2000/3278 contradiction samples
+  Processed 3000/3278 contradiction samples
+SBERT features: (9842, 3072), class distribution: {0: 3329, 1: 3235, 2: 3278}
+Aligning topological and SBERT datasets...
+Class 0: topo=50214, sbert=50214, using=50214
+Class 1: topo=50069, sbert=50069, using=50069
+Class 2: topo=49717, sbert=49717, using=49717
+Final aligned datasets:
+  Train: topo=(150000, 21), sbert=(150000, 3072)
+  Val: topo=(9842, 21), sbert=(9842, 3072)
+Creating hybrid features: (150000, 21) + (150000, 3072)
+Hybrid features: (150000, 3093)
+Creating hybrid features: (9842, 21) + (9842, 3072)
+Hybrid features: (9842, 3093)
+
+Running Topological classification...
+Training set class distribution: {0: 50214, 1: 50069, 2: 49717}
+Standardizing (150000, 21) in-place...
+Training Random Forest...
+Random Forest: 0.661
+Training Logistic Regression...
+Logistic Regression: 0.648
+Training on 150000 samples with 21 features
+Using batch size: 32
+Epoch   0: Train Loss 0.8171 (Acc 0.625), Val Loss 0.7671 (Acc 0.656), Best Val 0.656
+Epoch   1: Train Loss 0.8023 (Acc 0.634), Val Loss 0.7582 (Acc 0.664), Best Val 0.664
+Epoch   2: Train Loss 0.7993 (Acc 0.635), Val Loss 0.7557 (Acc 0.660), Best Val 0.660
+Epoch   3: Train Loss 0.7982 (Acc 0.636), Val Loss 0.7635 (Acc 0.657), Best Val 0.660
+Epoch   4: Train Loss 0.7965 (Acc 0.637), Val Loss 0.7611 (Acc 0.662), Best Val 0.660
+Epoch   5: Train Loss 0.7968 (Acc 0.637), Val Loss 0.7585 (Acc 0.666), Best Val 0.660
+Epoch   6: Train Loss 0.7940 (Acc 0.638), Val Loss 0.7590 (Acc 0.664), Best Val 0.660
+Epoch   7: Train Loss 0.7946 (Acc 0.638), Val Loss 0.7582 (Acc 0.664), Best Val 0.660
+Epoch   8: Train Loss 0.7943 (Acc 0.637), Val Loss 0.7531 (Acc 0.665), Best Val 0.665
+Epoch   9: Train Loss 0.7938 (Acc 0.639), Val Loss 0.7557 (Acc 0.664), Best Val 0.665
+Epoch  20: Train Loss 0.7916 (Acc 0.639), Val Loss 0.7524 (Acc 0.662), Best Val 0.662
+Epoch  40: Train Loss 0.7897 (Acc 0.641), Val Loss 0.7534 (Acc 0.666), Best Val 0.663
+Epoch  60: Train Loss 0.7879 (Acc 0.643), Val Loss 0.7515 (Acc 0.666), Best Val 0.668
+Epoch  80: Train Loss 0.7855 (Acc 0.643), Val Loss 0.7492 (Acc 0.668), Best Val 0.668
+Early stopping at epoch 83 (patience=25)
+
+Final Results:
+  Best validation accuracy: 0.6675
+  Final validation accuracy: 0.6656
+  Total epochs: 84
+PyTorch NN: 0.668
+
+Running SBERT Baseline classification...
+Training set class distribution: {0: 50214, 1: 50069, 2: 49717}
+Standardizing (150000, 3072) in-place...
+Training Random Forest...
+Random Forest: 0.719
+Training Logistic Regression...
+Logistic Regression: 0.786
+Training on 150000 samples with 3072 features
+Using batch size: 32
+Epoch   0: Train Loss 0.6771 (Acc 0.710), Val Loss 0.5633 (Acc 0.772), Best Val 0.772
+Epoch   1: Train Loss 0.5982 (Acc 0.752), Val Loss 0.5326 (Acc 0.783), Best Val 0.783
+Epoch   2: Train Loss 0.5754 (Acc 0.764), Val Loss 0.5213 (Acc 0.788), Best Val 0.788
+Epoch   3: Train Loss 0.5645 (Acc 0.770), Val Loss 0.5256 (Acc 0.787), Best Val 0.788
+Epoch   4: Train Loss 0.5538 (Acc 0.773), Val Loss 0.5136 (Acc 0.792), Best Val 0.792
+Epoch   5: Train Loss 0.5441 (Acc 0.779), Val Loss 0.5112 (Acc 0.794), Best Val 0.794
+Epoch   6: Train Loss 0.5384 (Acc 0.782), Val Loss 0.5051 (Acc 0.800), Best Val 0.800
+Epoch   7: Train Loss 0.5318 (Acc 0.786), Val Loss 0.5054 (Acc 0.795), Best Val 0.800
+Epoch   8: Train Loss 0.5304 (Acc 0.787), Val Loss 0.5031 (Acc 0.799), Best Val 0.799
+Epoch   9: Train Loss 0.5263 (Acc 0.789), Val Loss 0.5010 (Acc 0.802), Best Val 0.802
+Epoch  20: Train Loss 0.5108 (Acc 0.797), Val Loss 0.5022 (Acc 0.802), Best Val 0.799
+Epoch  40: Train Loss 0.4587 (Acc 0.822), Val Loss 0.5045 (Acc 0.796), Best Val 0.809
+Early stopping at epoch 52 (patience=25)
+
+Final Results:
+  Best validation accuracy: 0.8086
+  Final validation accuracy: 0.8024
+  Total epochs: 53
+PyTorch NN: 0.809
+
+Running Hybrid classification...
+Training set class distribution: {0: 50214, 1: 50069, 2: 49717}
+Standardizing (150000, 3093) in-place...
+Training Random Forest...
+Random Forest: 0.684
+Training Logistic Regression...
+Logistic Regression: 0.777
+Training on 150000 samples with 3093 features
+Using batch size: 32
+Epoch   0: Train Loss 0.5950 (Acc 0.752), Val Loss 0.5673 (Acc 0.769), Best Val 0.769
+Epoch   1: Train Loss 0.5045 (Acc 0.793), Val Loss 0.5494 (Acc 0.775), Best Val 0.775
+Epoch   2: Train Loss 0.4843 (Acc 0.804), Val Loss 0.5396 (Acc 0.786), Best Val 0.786
+Epoch   3: Train Loss 0.4712 (Acc 0.810), Val Loss 0.5429 (Acc 0.778), Best Val 0.786
+Epoch   4: Train Loss 0.4617 (Acc 0.814), Val Loss 0.5310 (Acc 0.788), Best Val 0.788
+Epoch   5: Train Loss 0.4548 (Acc 0.817), Val Loss 0.5352 (Acc 0.788), Best Val 0.788
+Epoch   6: Train Loss 0.4499 (Acc 0.820), Val Loss 0.5309 (Acc 0.787), Best Val 0.787
+Epoch   7: Train Loss 0.4444 (Acc 0.824), Val Loss 0.5268 (Acc 0.786), Best Val 0.786
+Epoch   8: Train Loss 0.4395 (Acc 0.826), Val Loss 0.5289 (Acc 0.793), Best Val 0.786
+Epoch   9: Train Loss 0.4380 (Acc 0.826), Val Loss 0.5285 (Acc 0.790), Best Val 0.786
+Epoch  20: Train Loss 0.4245 (Acc 0.833), Val Loss 0.5277 (Acc 0.788), Best Val 0.789
+Epoch  40: Train Loss 0.4180 (Acc 0.837), Val Loss 0.5270 (Acc 0.790), Best Val 0.793
+Epoch  60: Train Loss 0.3713 (Acc 0.859), Val Loss 0.5275 (Acc 0.792), Best Val 0.799
+Early stopping at epoch 76 (patience=25)
+
+Final Results:
+  Best validation accuracy: 0.7992
+  Final validation accuracy: 0.7976
+  Total epochs: 77
+PyTorch NN: 0.799
+
+============================================================
+SNLI CLASSIFICATION RESULTS
+============================================================
+Topological (21 features):     0.668 (PyTorch NN)
+SBERT Baseline (3072 features): 0.809 (PyTorch NN)
+Hybrid (3093 features):        0.799 (PyTorch NN)
+
+Hybrid improvements:
+  vs SBERT: -0.009
+  vs Topological: +0.132
+
+================================================================================
+CHAOSNLI UNCERTAINTY QUANTIFICATION
+================================================================================
+
+Evaluating Topological PyTorch NN on ChaosNLI...
+
+Analysis completed with exit code: 1
+Time: Thu 14 Aug 01:50:40 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

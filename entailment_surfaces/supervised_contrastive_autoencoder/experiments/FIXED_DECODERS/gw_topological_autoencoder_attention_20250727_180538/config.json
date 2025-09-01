@@ -1,0 +1,55 @@
+{
+  "data": {
+    "train_path": "data/processed/snli_full_standard_SBERT.pt",
+    "val_path": "data/processed/snli_full_standard_SBERT_validation.pt",
+    "test_path": "data/processed/snli_full_standard_SBERT_test.pt",
+    "embedding_type": "concat",
+    "batch_size": 1020,
+    "sample_size": null,
+    "balanced_sampling": true,
+    "random_state": 42
+  },
+  "model": {
+    "input_dim": 1536,
+    "latent_dim": 75,
+    "hidden_dims": [
+      1024,
+      768,
+      512,
+      256,
+      128
+    ],
+    "dropout_rate": 0.2
+  },
+  "loss": {
+    "contrastive_weight": 0.0,
+    "reconstruction_weight": 100.0,
+    "topological_weight": 1.0,
+    "max_topological_weight": 1.0,
+    "topological_warmup_epochs": 0,
+    "prototypes_path": null,
+    "schedule_reconstruction": false,
+    "warmup_epochs": 0,
+    "max_reconstruction_weight": 100.0,
+    "schedule_type": "linear",
+    "positive_margin": 2.0,
+    "negative_margin": 10.0,
+    "update_frequency": 3,
+    "max_global_samples": 5000
+  },
+  "optimizer": {
+    "lr": 0.001,
+    "weight_decay": 1e-05
+  },
+  "training": {
+    "num_epochs": 100,
+    "patience": 10,
+    "save_every": 10,
+    "debug_frequency": 25
+  },
+  "output": {
+    "save_results": true,
+    "save_plots": true,
+    "experiment_name": "gw_topological_autoencoder_attention"
+  }
+}

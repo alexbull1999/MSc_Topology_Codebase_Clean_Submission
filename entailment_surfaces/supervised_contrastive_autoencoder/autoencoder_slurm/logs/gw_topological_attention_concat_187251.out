@@ -1,0 +1,4259 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 187251
+Node: gpuvm16
+Time: Mon 28 Jul 09:22:43 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Mon Jul 28 09:22:45 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   38C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Topological Training...
+
+⚠️ Could not import data loaders. You'll need to adjust the imports.
+Please check the exact names of your data loading functions.
+============================================================
+TOPOLOGICAL AUTOENCODER TRAINING WITH TORCHPH
+============================================================
+Experiment setup completed:
+  Experiment directory: entailment_surfaces/supervised_contrastive_autoencoder/experiments/gw_topological_autoencoder_attention_20250728_092300
+  Config saved to: entailment_surfaces/supervised_contrastive_autoencoder/experiments/gw_topological_autoencoder_attention_20250728_092300/config.json
+Loading data...
+========================================
+FlexibleEmbedder initialized with type: 'concat'
+Output dimension will be: 1536
+GlobalDataLoader initialized:
+  Embedding type: concat
+  Output dimension: 1536
+  Sample size: All
+Starting data loading pipeline...
+============================================================
+Loading training data from data/processed/snli_full_standard_SBERT.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 549367 training samples
+Loading validation data from data/processed/snli_full_standard_SBERT_validation.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9842 validation samples
+Loading test data from data/processed/snli_full_standard_SBERT_test.pt
+  Loaded keys: ['premise_embeddings', 'hypothesis_embeddings', 'labels', 'texts', 'metadata']
+  Final dataset: 9824 test samples
+Generating embeddings for training...
+Generating concat embeddings on cuda
+Processing 549367 samples in batches of 1000
+  Processing batch 1/550
+  Processing batch 6/550
+  Processing batch 11/550
+  Processing batch 16/550
+  Processing batch 21/550
+  Processing batch 26/550
+  Processing batch 31/550
+  Processing batch 36/550
+  Processing batch 41/550
+  Processing batch 46/550
+  Processing batch 51/550
+  Processing batch 56/550
+  Processing batch 61/550
+  Processing batch 66/550
+  Processing batch 71/550
+  Processing batch 76/550
+  Processing batch 81/550
+  Processing batch 86/550
+  Processing batch 91/550
+  Processing batch 96/550
+  Processing batch 101/550
+  Processing batch 106/550
+  Processing batch 111/550
+  Processing batch 116/550
+  Processing batch 121/550
+  Processing batch 126/550
+  Processing batch 131/550
+  Processing batch 136/550
+  Processing batch 141/550
+  Processing batch 146/550
+  Processing batch 151/550
+  Processing batch 156/550
+  Processing batch 161/550
+  Processing batch 166/550
+  Processing batch 171/550
+  Processing batch 176/550
+  Processing batch 181/550
+  Processing batch 186/550
+  Processing batch 191/550
+  Processing batch 196/550
+  Processing batch 201/550
+  Processing batch 206/550
+  Processing batch 211/550
+  Processing batch 216/550
+  Processing batch 221/550
+  Processing batch 226/550
+  Processing batch 231/550
+  Processing batch 236/550
+  Processing batch 241/550
+  Processing batch 246/550
+  Processing batch 251/550
+  Processing batch 256/550
+  Processing batch 261/550
+  Processing batch 266/550
+  Processing batch 271/550
+  Processing batch 276/550
+  Processing batch 281/550
+  Processing batch 286/550
+  Processing batch 291/550
+  Processing batch 296/550
+  Processing batch 301/550
+  Processing batch 306/550
+  Processing batch 311/550
+  Processing batch 316/550
+  Processing batch 321/550
+  Processing batch 326/550
+  Processing batch 331/550
+  Processing batch 336/550
+  Processing batch 341/550
+  Processing batch 346/550
+  Processing batch 351/550
+  Processing batch 356/550
+  Processing batch 361/550
+  Processing batch 366/550
+  Processing batch 371/550
+  Processing batch 376/550
+  Processing batch 381/550
+  Processing batch 386/550
+  Processing batch 391/550
+  Processing batch 396/550
+  Processing batch 401/550
+  Processing batch 406/550
+  Processing batch 411/550
+  Processing batch 416/550
+  Processing batch 421/550
+  Processing batch 426/550
+  Processing batch 431/550
+  Processing batch 436/550
+  Processing batch 441/550
+  Processing batch 446/550
+  Processing batch 451/550
+  Processing batch 456/550
+  Processing batch 461/550
+  Processing batch 466/550
+  Processing batch 471/550
+  Processing batch 476/550
+  Processing batch 481/550
+  Processing batch 486/550
+  Processing batch 491/550
+  Processing batch 496/550
+  Processing batch 501/550
+  Processing batch 506/550
+  Processing batch 511/550
+  Processing batch 516/550
+  Processing batch 521/550
+  Processing batch 526/550
+  Processing batch 531/550
+  Processing batch 536/550
+  Processing batch 541/550
+  Processing batch 546/550
+Generated concat embeddings: torch.Size([549367, 1536])
+Generating embeddings for validation...
+Generating concat embeddings on cuda
+Processing 9842 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9842, 1536])
+Generating embeddings for test...
+Generating concat embeddings on cuda
+Processing 9824 samples in batches of 1000
+  Processing batch 1/10
+  Processing batch 6/10
+Generated concat embeddings: torch.Size([9824, 1536])
+EntailmentDataset created: 549367 samples
+  Embedding shape: torch.Size([549367, 1536])
+  Class distribution: {'entailment': 183416, 'neutral': 182764, 'contradiction': 183187}
+EntailmentDataset created: 9842 samples
+  Embedding shape: torch.Size([9842, 1536])
+  Class distribution: {'entailment': 3329, 'neutral': 3235, 'contradiction': 3278}
+EntailmentDataset created: 9824 samples
+  Embedding shape: torch.Size([9824, 1536])
+  Class distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+Data loading pipeline completed!
+Output embedding dimension: 1536
+Updated model input_dim to: 1536
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 182
+  Class 2: 183187 samples
+  Class 0: 183416 samples
+  Class 1: 182764 samples
+BalancedBatchSampler initialized:
+  Classes: [2, 0, 1]
+  Samples per class per batch: 1000
+  Effective batch size: 3000
+  Number of batches: 3
+  Class 2: 3278 samples
+  Class 0: 3329 samples
+  Class 1: 3235 samples
+DataLoaders created:
+  Batch size: 3000
+  Balanced sampling: True
+  Train batches: 182
+  Val batches: 3
+  Test batches: 4
+Data loading completed!
+  Train: 549367 samples, 182 batches
+  Val: 9842 samples, 3 batches
+  Test: 9824 samples, 4 batches
+AttentionAutoencoder initialized:
+  Input dim: 1536
+  Latent dim: 75
+  Hidden dims: [1024, 768, 512, 256, 128]
+  Attention Heads: 5
+  Total parameters: 3,068,401
+FullDatasetContrastiveLoss initialized:
+  Positive Margin: 2.0
+  Negative Margin: 10.0
+  Update frequency: 3 epochs
+  Max global samples: 5000
+FullDatasetCombinedLoss initialized:
+  Contrastive weight: 0.0
+  Base reconstruction weight: 100.0
+GromovWassersteinTopologicalLoss initialized:
+  GW weight: 0.1
+  Distance weight: 20
+  Distance type: stress
+  Max dimension: 1
+  Distance metric: euclidean
+No prototypes being used for topological loss - whole dataset instead.
+TopologicalTrainer initialized on device: cuda
+Model parameters: 3,068,401
+Enhanced with topological loss monitoring
+Starting Phase 1: Pure Topological Training
+  Contrastive weight: 0.0
+  Topological weight: 1.0
+  Reconstruction weight: 100.0
+
+======================================================================
+🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED
+======================================================================
+
+============================================================
+EPOCH 1 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+  GW Loss Components:
+    Raw GW loss: 248.509918
+    Raw distance loss: 0.255246
+    Weighted GW: 24.850992
+    Weighted distance: 5.104919
+    Total loss: 29.931980
+    GW/Distance ratio: 973.610
+  GW Loss Components:
+    Raw GW loss: 250.164093
+    Raw distance loss: 0.255837
+    Weighted GW: 25.016409
+    Weighted distance: 5.116745
+    Total loss: 30.109278
+    GW/Distance ratio: 977.825
+  GW Loss Components:
+    Raw GW loss: 259.561249
+    Raw distance loss: 0.260312
+    Weighted GW: 25.956125
+    Weighted distance: 5.206248
+    Total loss: 31.138893
+    GW/Distance ratio: 997.114
+Batch   0/182: Loss=66.9935 (C:8.0541, R:0.3660, T:30.3934(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 210.646851
+    Raw distance loss: 0.183873
+    Weighted GW: 21.064686
+    Weighted distance: 3.677451
+    Total loss: 24.711199
+    GW/Distance ratio: 1145.613
+  GW Loss Components:
+    Raw GW loss: 217.905380
+    Raw distance loss: 0.188221
+    Weighted GW: 21.790539
+    Weighted distance: 3.764426
+    Total loss: 25.524136
+    GW/Distance ratio: 1157.708
+  GW Loss Components:
+    Raw GW loss: 226.969894
+    Raw distance loss: 0.184381
+    Weighted GW: 22.696989
+    Weighted distance: 3.687614
+    Total loss: 26.354490
+    GW/Distance ratio: 1230.985
+  GW Loss Components:
+    Raw GW loss: 150.263000
+    Raw distance loss: 0.075985
+    Weighted GW: 15.026300
+    Weighted distance: 1.519694
+    Total loss: 16.504999
+    GW/Distance ratio: 1977.542
+  GW Loss Components:
+    Raw GW loss: 180.150635
+    Raw distance loss: 0.083996
+    Weighted GW: 18.015064
+    Weighted distance: 1.679922
+    Total loss: 19.657473
+    GW/Distance ratio: 2144.749
+  GW Loss Components:
+    Raw GW loss: 182.567657
+    Raw distance loss: 0.084698
+    Weighted GW: 18.256765
+    Weighted distance: 1.693960
+    Total loss: 19.911055
+    GW/Distance ratio: 2155.513
+  GW Loss Components:
+    Raw GW loss: 152.906876
+    Raw distance loss: 0.020895
+    Weighted GW: 15.290688
+    Weighted distance: 0.417899
+    Total loss: 15.665565
+    GW/Distance ratio: 7317.875
+  GW Loss Components:
+    Raw GW loss: 160.390579
+    Raw distance loss: 0.021114
+    Weighted GW: 16.039059
+    Weighted distance: 0.422280
+    Total loss: 16.419167
+    GW/Distance ratio: 7596.407
+  GW Loss Components:
+    Raw GW loss: 177.267349
+    Raw distance loss: 0.020076
+    Weighted GW: 17.726736
+    Weighted distance: 0.401513
+    Total loss: 18.086473
+    GW/Distance ratio: 8829.973
+  GW Loss Components:
+    Raw GW loss: 170.700287
+    Raw distance loss: 0.027568
+    Weighted GW: 17.070028
+    Weighted distance: 0.551361
+    Total loss: 17.580519
+    GW/Distance ratio: 6191.963
+  GW Loss Components:
+    Raw GW loss: 164.206573
+    Raw distance loss: 0.023593
+    Weighted GW: 16.420658
+    Weighted distance: 0.471854
+    Total loss: 16.848928
+    GW/Distance ratio: 6960.059
+  GW Loss Components:
+    Raw GW loss: 169.119522
+    Raw distance loss: 0.021633
+    Weighted GW: 16.911953
+    Weighted distance: 0.432659
+    Total loss: 17.302067
+    GW/Distance ratio: 7817.676
+  GW Loss Components:
+    Raw GW loss: 163.600510
+    Raw distance loss: 0.020543
+    Weighted GW: 16.360052
+    Weighted distance: 0.410868
+    Total loss: 16.727924
+    GW/Distance ratio: 7963.646
+  GW Loss Components:
+    Raw GW loss: 149.176514
+    Raw distance loss: 0.018671
+    Weighted GW: 14.917651
+    Weighted distance: 0.373425
+    Total loss: 15.247392
+    GW/Distance ratio: 7989.623
+  GW Loss Components:
+    Raw GW loss: 167.257721
+    Raw distance loss: 0.016981
+    Weighted GW: 16.725773
+    Weighted distance: 0.339610
+    Total loss: 17.023077
+    GW/Distance ratio: 9849.975
+  GW Loss Components:
+    Raw GW loss: 157.722641
+    Raw distance loss: 0.022553
+    Weighted GW: 15.772264
+    Weighted distance: 0.451057
+    Total loss: 16.178928
+    GW/Distance ratio: 6993.464
+  GW Loss Components:
+    Raw GW loss: 165.967743
+    Raw distance loss: 0.021917
+    Weighted GW: 16.596775
+    Weighted distance: 0.438330
+    Total loss: 16.991877
+    GW/Distance ratio: 7572.726
+  GW Loss Components:
+    Raw GW loss: 166.858459
+    Raw distance loss: 0.022196
+    Weighted GW: 16.685846
+    Weighted distance: 0.443912
+    Total loss: 17.086121
+    GW/Distance ratio: 7517.636
+  GW Loss Components:
+    Raw GW loss: 173.280121
+    Raw distance loss: 0.034044
+    Weighted GW: 17.328012
+    Weighted distance: 0.680882
+    Total loss: 17.966084
+    GW/Distance ratio: 5089.869
+  GW Loss Components:
+    Raw GW loss: 166.861420
+    Raw distance loss: 0.034102
+    Weighted GW: 16.686142
+    Weighted distance: 0.682036
+    Total loss: 17.324936
+    GW/Distance ratio: 4893.039
+  GW Loss Components:
+    Raw GW loss: 179.616211
+    Raw distance loss: 0.035922
+    Weighted GW: 17.961622
+    Weighted distance: 0.718439
+    Total loss: 18.637390
+    GW/Distance ratio: 5000.177
+  GW Loss Components:
+    Raw GW loss: 162.667618
+    Raw distance loss: 0.043481
+    Weighted GW: 16.266762
+    Weighted distance: 0.869611
+    Total loss: 17.093565
+    GW/Distance ratio: 3741.156
+  GW Loss Components:
+    Raw GW loss: 157.072998
+    Raw distance loss: 0.046303
+    Weighted GW: 15.707300
+    Weighted distance: 0.926068
+    Total loss: 16.592314
+    GW/Distance ratio: 3392.257
+  GW Loss Components:
+    Raw GW loss: 179.298584
+    Raw distance loss: 0.048112
+    Weighted GW: 17.929859
+    Weighted distance: 0.962245
+    Total loss: 18.850786
+    GW/Distance ratio: 3726.669
+  GW Loss Components:
+    Raw GW loss: 174.935669
+    Raw distance loss: 0.050423
+    Weighted GW: 17.493567
+    Weighted distance: 1.008460
+    Total loss: 18.461916
+    GW/Distance ratio: 3469.361
+  GW Loss Components:
+    Raw GW loss: 162.487244
+    Raw distance loss: 0.050592
+    Weighted GW: 16.248724
+    Weighted distance: 1.011837
+    Total loss: 17.219448
+    GW/Distance ratio: 3211.728
+  GW Loss Components:
+    Raw GW loss: 179.792068
+    Raw distance loss: 0.050260
+    Weighted GW: 17.979208
+    Weighted distance: 1.005201
+    Total loss: 18.942640
+    GW/Distance ratio: 3577.234
+  GW Loss Components:
+    Raw GW loss: 161.518570
+    Raw distance loss: 0.052986
+    Weighted GW: 16.151857
+    Weighted distance: 1.059727
+    Total loss: 17.169889
+    GW/Distance ratio: 3048.305
+  GW Loss Components:
+    Raw GW loss: 149.157288
+    Raw distance loss: 0.054038
+    Weighted GW: 14.915729
+    Weighted distance: 1.080763
+    Total loss: 15.954823
+    GW/Distance ratio: 2760.220
+  GW Loss Components:
+    Raw GW loss: 182.308350
+    Raw distance loss: 0.054523
+    Weighted GW: 18.230835
+    Weighted distance: 1.090456
+    Total loss: 19.279087
+    GW/Distance ratio: 3343.708
+  GW Loss Components:
+    Raw GW loss: 173.060074
+    Raw distance loss: 0.052876
+    Weighted GW: 17.306007
+    Weighted distance: 1.057519
+    Total loss: 18.322460
+    GW/Distance ratio: 3272.944
+  GW Loss Components:
+    Raw GW loss: 160.668976
+    Raw distance loss: 0.054774
+    Weighted GW: 16.066898
+    Weighted distance: 1.095486
+    Total loss: 17.120264
+    GW/Distance ratio: 2933.290
+  GW Loss Components:
+    Raw GW loss: 179.543243
+    Raw distance loss: 0.058861
+    Weighted GW: 17.954325
+    Weighted distance: 1.177220
+    Total loss: 19.088408
+    GW/Distance ratio: 3050.292
+  GW Loss Components:
+    Raw GW loss: 161.628326
+    Raw distance loss: 0.052459
+    Weighted GW: 16.162832
+    Weighted distance: 1.049181
+    Total loss: 17.170246
+    GW/Distance ratio: 3081.039
+  GW Loss Components:
+    Raw GW loss: 156.182556
+    Raw distance loss: 0.053772
+    Weighted GW: 15.618256
+    Weighted distance: 1.075435
+    Total loss: 16.650965
+    GW/Distance ratio: 2904.547
+  GW Loss Components:
+    Raw GW loss: 182.146118
+    Raw distance loss: 0.055339
+    Weighted GW: 18.214613
+    Weighted distance: 1.106772
+    Total loss: 19.280336
+    GW/Distance ratio: 3291.483
+  GW Loss Components:
+    Raw GW loss: 167.017334
+    Raw distance loss: 0.047749
+    Weighted GW: 16.701735
+    Weighted distance: 0.954971
+    Total loss: 17.613705
+    GW/Distance ratio: 3497.850
+  GW Loss Components:
+    Raw GW loss: 146.024246
+    Raw distance loss: 0.050016
+    Weighted GW: 14.602425
+    Weighted distance: 1.000312
+    Total loss: 15.558425
+    GW/Distance ratio: 2919.574
+  GW Loss Components:
+    Raw GW loss: 167.059967
+    Raw distance loss: 0.053859
+    Weighted GW: 16.705997
+    Weighted distance: 1.077186
+    Total loss: 17.738756
+    GW/Distance ratio: 3101.785
+  GW Loss Components:
+    Raw GW loss: 146.937042
+    Raw distance loss: 0.043668
+    Weighted GW: 14.693705
+    Weighted distance: 0.873357
+    Total loss: 15.522614
+    GW/Distance ratio: 3364.879
+  GW Loss Components:
+    Raw GW loss: 146.147919
+    Raw distance loss: 0.047312
+    Weighted GW: 14.614792
+    Weighted distance: 0.946240
+    Total loss: 15.516924
+    GW/Distance ratio: 3089.022
+  GW Loss Components:
+    Raw GW loss: 170.497040
+    Raw distance loss: 0.044846
+    Weighted GW: 17.049704
+    Weighted distance: 0.896923
+    Total loss: 17.902479
+    GW/Distance ratio: 3801.821
+  GW Loss Components:
+    Raw GW loss: 154.758530
+    Raw distance loss: 0.039380
+    Weighted GW: 15.475853
+    Weighted distance: 0.787610
+    Total loss: 16.219522
+    GW/Distance ratio: 3929.827
+  GW Loss Components:
+    Raw GW loss: 144.538681
+    Raw distance loss: 0.043453
+    Weighted GW: 14.453868
+    Weighted distance: 0.869064
+    Total loss: 15.277989
+    GW/Distance ratio: 3326.307
+  GW Loss Components:
+    Raw GW loss: 174.142090
+    Raw distance loss: 0.043469
+    Weighted GW: 17.414209
+    Weighted distance: 0.869381
+    Total loss: 18.240395
+    GW/Distance ratio: 4006.116
+  GW Loss Components:
+    Raw GW loss: 155.785583
+    Raw distance loss: 0.038720
+    Weighted GW: 15.578559
+    Weighted distance: 0.774395
+    Total loss: 16.308844
+    GW/Distance ratio: 4023.412
+  GW Loss Components:
+    Raw GW loss: 156.873505
+    Raw distance loss: 0.039790
+    Weighted GW: 15.687350
+    Weighted distance: 0.795807
+    Total loss: 16.439632
+    GW/Distance ratio: 3942.498
+  GW Loss Components:
+    Raw GW loss: 173.875381
+    Raw distance loss: 0.041522
+    Weighted GW: 17.387539
+    Weighted distance: 0.830446
+    Total loss: 18.173187
+    GW/Distance ratio: 4187.515
+  GW Loss Components:
+    Raw GW loss: 151.657806
+    Raw distance loss: 0.037715
+    Weighted GW: 15.165781
+    Weighted distance: 0.754309
+    Total loss: 15.874334
+    GW/Distance ratio: 4021.102
+  GW Loss Components:
+    Raw GW loss: 148.160492
+    Raw distance loss: 0.038659
+    Weighted GW: 14.816050
+    Weighted distance: 0.773180
+    Total loss: 15.544130
+    GW/Distance ratio: 3832.494
+  GW Loss Components:
+    Raw GW loss: 170.641388
+    Raw distance loss: 0.038410
+    Weighted GW: 17.064138
+    Weighted distance: 0.768204
+    Total loss: 17.787916
+    GW/Distance ratio: 4442.607
+  GW Loss Components:
+    Raw GW loss: 138.684082
+    Raw distance loss: 0.035796
+    Weighted GW: 13.868408
+    Weighted distance: 0.715911
+    Total loss: 14.539468
+    GW/Distance ratio: 3874.335
+  GW Loss Components:
+    Raw GW loss: 142.240891
+    Raw distance loss: 0.038231
+    Weighted GW: 14.224090
+    Weighted distance: 0.764621
+    Total loss: 14.943804
+    GW/Distance ratio: 3720.558
+  GW Loss Components:
+    Raw GW loss: 169.509460
+    Raw distance loss: 0.039591
+    Weighted GW: 16.950947
+    Weighted distance: 0.791819
+    Total loss: 17.697096
+    GW/Distance ratio: 4281.521
+  GW Loss Components:
+    Raw GW loss: 145.451874
+    Raw distance loss: 0.038343
+    Weighted GW: 14.545188
+    Weighted distance: 0.766853
+    Total loss: 15.267509
+    GW/Distance ratio: 3793.473
+  GW Loss Components:
+    Raw GW loss: 149.901001
+    Raw distance loss: 0.039597
+    Weighted GW: 14.990100
+    Weighted distance: 0.791933
+    Total loss: 15.736932
+    GW/Distance ratio: 3785.700
+  GW Loss Components:
+    Raw GW loss: 160.069580
+    Raw distance loss: 0.039903
+    Weighted GW: 16.006958
+    Weighted distance: 0.798065
+    Total loss: 16.759615
+    GW/Distance ratio: 4011.440
+  GW Loss Components:
+    Raw GW loss: 136.369446
+    Raw distance loss: 0.040027
+    Weighted GW: 13.636945
+    Weighted distance: 0.800549
+    Total loss: 14.392298
+    GW/Distance ratio: 3406.898
+  GW Loss Components:
+    Raw GW loss: 144.742050
+    Raw distance loss: 0.042118
+    Weighted GW: 14.474205
+    Weighted distance: 0.842360
+    Total loss: 15.272202
+    GW/Distance ratio: 3436.583
+  GW Loss Components:
+    Raw GW loss: 164.352814
+    Raw distance loss: 0.043445
+    Weighted GW: 16.435282
+    Weighted distance: 0.868907
+    Total loss: 17.259001
+    GW/Distance ratio: 3782.979
+  GW Loss Components:
+    Raw GW loss: 147.291977
+    Raw distance loss: 0.041417
+    Weighted GW: 14.729198
+    Weighted distance: 0.828348
+    Total loss: 15.512048
+    GW/Distance ratio: 3556.281
+  GW Loss Components:
+    Raw GW loss: 155.448898
+    Raw distance loss: 0.041940
+    Weighted GW: 15.544890
+    Weighted distance: 0.838805
+    Total loss: 16.338827
+    GW/Distance ratio: 3706.436
+  GW Loss Components:
+    Raw GW loss: 172.299637
+    Raw distance loss: 0.047623
+    Weighted GW: 17.229963
+    Weighted distance: 0.952456
+    Total loss: 18.138130
+    GW/Distance ratio: 3618.008
+  GW Loss Components:
+    Raw GW loss: 164.397247
+    Raw distance loss: 0.040561
+    Weighted GW: 16.439726
+    Weighted distance: 0.811219
+    Total loss: 17.207607
+    GW/Distance ratio: 4053.093
+  GW Loss Components:
+    Raw GW loss: 152.156708
+    Raw distance loss: 0.045452
+    Weighted GW: 15.215671
+    Weighted distance: 0.909042
+    Total loss: 16.079596
+    GW/Distance ratio: 3347.627
+  GW Loss Components:
+    Raw GW loss: 181.980011
+    Raw distance loss: 0.045146
+    Weighted GW: 18.198002
+    Weighted distance: 0.902927
+    Total loss: 19.056406
+    GW/Distance ratio: 4030.888
+  GW Loss Components:
+    Raw GW loss: 142.080200
+    Raw distance loss: 0.042168
+    Weighted GW: 14.208020
+    Weighted distance: 0.843358
+    Total loss: 15.004624
+    GW/Distance ratio: 3369.391
+  GW Loss Components:
+    Raw GW loss: 155.476624
+    Raw distance loss: 0.045933
+    Weighted GW: 15.547663
+    Weighted distance: 0.918655
+    Total loss: 16.420856
+    GW/Distance ratio: 3384.876
+  GW Loss Components:
+    Raw GW loss: 155.433777
+    Raw distance loss: 0.045972
+    Weighted GW: 15.543378
+    Weighted distance: 0.919430
+    Total loss: 16.416842
+    GW/Distance ratio: 3381.088
+  GW Loss Components:
+    Raw GW loss: 139.655426
+    Raw distance loss: 0.041076
+    Weighted GW: 13.965543
+    Weighted distance: 0.821524
+    Total loss: 14.740425
+    GW/Distance ratio: 3399.909
+  GW Loss Components:
+    Raw GW loss: 153.661072
+    Raw distance loss: 0.044185
+    Weighted GW: 15.366107
+    Weighted distance: 0.883692
+    Total loss: 16.204512
+    GW/Distance ratio: 3477.706
+  GW Loss Components:
+    Raw GW loss: 155.256683
+    Raw distance loss: 0.045174
+    Weighted GW: 15.525668
+    Weighted distance: 0.903485
+    Total loss: 16.383629
+    GW/Distance ratio: 3436.839
+  GW Loss Components:
+    Raw GW loss: 146.100555
+    Raw distance loss: 0.046286
+    Weighted GW: 14.610056
+    Weighted distance: 0.925719
+    Total loss: 15.490269
+    GW/Distance ratio: 3156.477
+  GW Loss Components:
+    Raw GW loss: 141.775192
+    Raw distance loss: 0.046561
+    Weighted GW: 14.177520
+    Weighted distance: 0.931216
+    Total loss: 15.063209
+    GW/Distance ratio: 3044.946
+  GW Loss Components:
+    Raw GW loss: 165.642639
+    Raw distance loss: 0.047425
+    Weighted GW: 16.564264
+    Weighted distance: 0.948506
+    Total loss: 17.466330
+    GW/Distance ratio: 3492.707
+Batch  25/182: Loss=21.9817 (C:8.0004, R:0.0598, T:16.0066(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 125.553261
+    Raw distance loss: 0.045446
+    Weighted GW: 12.555326
+    Weighted distance: 0.908925
+    Total loss: 13.417513
+    GW/Distance ratio: 2762.677
+  GW Loss Components:
+    Raw GW loss: 134.284210
+    Raw distance loss: 0.047846
+    Weighted GW: 13.428421
+    Weighted distance: 0.956918
+    Total loss: 14.337694
+    GW/Distance ratio: 2806.598
+  GW Loss Components:
+    Raw GW loss: 165.470612
+    Raw distance loss: 0.050469
+    Weighted GW: 16.547062
+    Weighted distance: 1.009370
+    Total loss: 17.511292
+    GW/Distance ratio: 3278.690
+  GW Loss Components:
+    Raw GW loss: 150.076141
+    Raw distance loss: 0.043955
+    Weighted GW: 15.007614
+    Weighted distance: 0.879104
+    Total loss: 15.841752
+    GW/Distance ratio: 3414.297
+  GW Loss Components:
+    Raw GW loss: 141.284760
+    Raw distance loss: 0.047166
+    Weighted GW: 14.128476
+    Weighted distance: 0.943327
+    Total loss: 15.026451
+    GW/Distance ratio: 2995.456
+  GW Loss Components:
+    Raw GW loss: 149.236328
+    Raw distance loss: 0.049324
+    Weighted GW: 14.923633
+    Weighted distance: 0.986486
+    Total loss: 15.863861
+    GW/Distance ratio: 3025.613
+  GW Loss Components:
+    Raw GW loss: 151.478424
+    Raw distance loss: 0.049205
+    Weighted GW: 15.147842
+    Weighted distance: 0.984102
+    Total loss: 16.088890
+    GW/Distance ratio: 3078.511
+  GW Loss Components:
+    Raw GW loss: 142.658997
+    Raw distance loss: 0.049455
+    Weighted GW: 14.265900
+    Weighted distance: 0.989095
+    Total loss: 15.208938
+    GW/Distance ratio: 2884.636
+  GW Loss Components:
+    Raw GW loss: 160.855408
+    Raw distance loss: 0.051341
+    Weighted GW: 16.085541
+    Weighted distance: 1.026814
+    Total loss: 17.066170
+    GW/Distance ratio: 3133.095
+  GW Loss Components:
+    Raw GW loss: 142.591202
+    Raw distance loss: 0.047651
+    Weighted GW: 14.259120
+    Weighted distance: 0.953013
+    Total loss: 15.165937
+    GW/Distance ratio: 2992.428
+  GW Loss Components:
+    Raw GW loss: 149.209625
+    Raw distance loss: 0.051191
+    Weighted GW: 14.920962
+    Weighted distance: 1.023824
+    Total loss: 15.898264
+    GW/Distance ratio: 2914.749
+  GW Loss Components:
+    Raw GW loss: 162.147415
+    Raw distance loss: 0.051996
+    Weighted GW: 16.214743
+    Weighted distance: 1.039925
+    Total loss: 17.208162
+    GW/Distance ratio: 3118.444
+  GW Loss Components:
+    Raw GW loss: 143.607895
+    Raw distance loss: 0.048699
+    Weighted GW: 14.360789
+    Weighted distance: 0.973975
+    Total loss: 15.289298
+    GW/Distance ratio: 2948.903
+  GW Loss Components:
+    Raw GW loss: 142.322891
+    Raw distance loss: 0.051222
+    Weighted GW: 14.232289
+    Weighted distance: 1.024442
+    Total loss: 15.210114
+    GW/Distance ratio: 2778.543
+  GW Loss Components:
+    Raw GW loss: 152.730743
+    Raw distance loss: 0.052149
+    Weighted GW: 15.273074
+    Weighted distance: 1.042975
+    Total loss: 16.268730
+    GW/Distance ratio: 2928.751
+  GW Loss Components:
+    Raw GW loss: 134.006287
+    Raw distance loss: 0.048997
+    Weighted GW: 13.400629
+    Weighted distance: 0.979943
+    Total loss: 14.332553
+    GW/Distance ratio: 2734.981
+  GW Loss Components:
+    Raw GW loss: 151.511658
+    Raw distance loss: 0.049995
+    Weighted GW: 15.151166
+    Weighted distance: 0.999906
+    Total loss: 16.105379
+    GW/Distance ratio: 3030.517
+  GW Loss Components:
+    Raw GW loss: 152.450623
+    Raw distance loss: 0.052930
+    Weighted GW: 15.245063
+    Weighted distance: 1.058605
+    Total loss: 16.256485
+    GW/Distance ratio: 2880.217
+  GW Loss Components:
+    Raw GW loss: 133.924988
+    Raw distance loss: 0.047114
+    Weighted GW: 13.392499
+    Weighted distance: 0.942278
+    Total loss: 14.287103
+    GW/Distance ratio: 2842.579
+  GW Loss Components:
+    Raw GW loss: 148.175079
+    Raw distance loss: 0.052767
+    Weighted GW: 14.817508
+    Weighted distance: 1.055346
+    Total loss: 15.826704
+    GW/Distance ratio: 2808.085
+  GW Loss Components:
+    Raw GW loss: 160.206787
+    Raw distance loss: 0.049170
+    Weighted GW: 16.020679
+    Weighted distance: 0.983398
+    Total loss: 16.957369
+    GW/Distance ratio: 3258.228
+  GW Loss Components:
+    Raw GW loss: 143.190048
+    Raw distance loss: 0.044376
+    Weighted GW: 14.319005
+    Weighted distance: 0.887523
+    Total loss: 15.160561
+    GW/Distance ratio: 3226.732
+  GW Loss Components:
+    Raw GW loss: 150.084579
+    Raw distance loss: 0.048366
+    Weighted GW: 15.008458
+    Weighted distance: 0.967310
+    Total loss: 15.930029
+    GW/Distance ratio: 3103.132
+  GW Loss Components:
+    Raw GW loss: 160.400421
+    Raw distance loss: 0.049612
+    Weighted GW: 16.040043
+    Weighted distance: 0.992232
+    Total loss: 16.984232
+    GW/Distance ratio: 3233.123
+  GW Loss Components:
+    Raw GW loss: 154.120193
+    Raw distance loss: 0.044614
+    Weighted GW: 15.412020
+    Weighted distance: 0.892271
+    Total loss: 16.258781
+    GW/Distance ratio: 3454.559
+  GW Loss Components:
+    Raw GW loss: 148.185654
+    Raw distance loss: 0.045141
+    Weighted GW: 14.818565
+    Weighted distance: 0.902818
+    Total loss: 15.675838
+    GW/Distance ratio: 3282.736
+  GW Loss Components:
+    Raw GW loss: 157.199539
+    Raw distance loss: 0.047089
+    Weighted GW: 15.719954
+    Weighted distance: 0.941772
+    Total loss: 16.615192
+    GW/Distance ratio: 3338.379
+  GW Loss Components:
+    Raw GW loss: 136.454483
+    Raw distance loss: 0.040053
+    Weighted GW: 13.645449
+    Weighted distance: 0.801059
+    Total loss: 14.399468
+    GW/Distance ratio: 3406.850
+  GW Loss Components:
+    Raw GW loss: 158.804153
+    Raw distance loss: 0.045534
+    Weighted GW: 15.880416
+    Weighted distance: 0.910672
+    Total loss: 16.747717
+    GW/Distance ratio: 3487.623
+  GW Loss Components:
+    Raw GW loss: 131.623871
+    Raw distance loss: 0.046371
+    Weighted GW: 13.162387
+    Weighted distance: 0.927418
+    Total loss: 14.041569
+    GW/Distance ratio: 2838.501
+  GW Loss Components:
+    Raw GW loss: 150.916367
+    Raw distance loss: 0.039340
+    Weighted GW: 15.091637
+    Weighted distance: 0.786802
+    Total loss: 15.831213
+    GW/Distance ratio: 3836.194
+  GW Loss Components:
+    Raw GW loss: 136.561432
+    Raw distance loss: 0.044135
+    Weighted GW: 13.656143
+    Weighted distance: 0.882706
+    Total loss: 14.491449
+    GW/Distance ratio: 3094.152
+  GW Loss Components:
+    Raw GW loss: 154.960480
+    Raw distance loss: 0.044922
+    Weighted GW: 15.496048
+    Weighted distance: 0.898434
+    Total loss: 16.347116
+    GW/Distance ratio: 3449.566
+  GW Loss Components:
+    Raw GW loss: 142.551147
+    Raw distance loss: 0.038724
+    Weighted GW: 14.255115
+    Weighted distance: 0.774481
+    Total loss: 14.982756
+    GW/Distance ratio: 3681.204
+  GW Loss Components:
+    Raw GW loss: 129.381561
+    Raw distance loss: 0.043432
+    Weighted GW: 12.938156
+    Weighted distance: 0.868632
+    Total loss: 13.760170
+    GW/Distance ratio: 2978.972
+  GW Loss Components:
+    Raw GW loss: 149.255234
+    Raw distance loss: 0.044573
+    Weighted GW: 14.925524
+    Weighted distance: 0.891457
+    Total loss: 15.768763
+    GW/Distance ratio: 3348.567
+  GW Loss Components:
+    Raw GW loss: 160.762939
+    Raw distance loss: 0.040301
+    Weighted GW: 16.076294
+    Weighted distance: 0.806015
+    Total loss: 16.838909
+    GW/Distance ratio: 3989.080
+  GW Loss Components:
+    Raw GW loss: 161.919586
+    Raw distance loss: 0.042538
+    Weighted GW: 16.191959
+    Weighted distance: 0.850766
+    Total loss: 16.998173
+    GW/Distance ratio: 3806.441
+  GW Loss Components:
+    Raw GW loss: 177.834778
+    Raw distance loss: 0.043878
+    Weighted GW: 17.783478
+    Weighted distance: 0.877566
+    Total loss: 18.616051
+    GW/Distance ratio: 4052.910
+  GW Loss Components:
+    Raw GW loss: 153.518265
+    Raw distance loss: 0.039141
+    Weighted GW: 15.351827
+    Weighted distance: 0.782821
+    Total loss: 16.088268
+    GW/Distance ratio: 3922.177
+  GW Loss Components:
+    Raw GW loss: 134.702011
+    Raw distance loss: 0.043574
+    Weighted GW: 13.470201
+    Weighted distance: 0.871476
+    Total loss: 14.294663
+    GW/Distance ratio: 3091.353
+  GW Loss Components:
+    Raw GW loss: 161.365402
+    Raw distance loss: 0.043602
+    Weighted GW: 16.136541
+    Weighted distance: 0.872033
+    Total loss: 16.961803
+    GW/Distance ratio: 3700.901
+  GW Loss Components:
+    Raw GW loss: 122.025406
+    Raw distance loss: 0.041692
+    Weighted GW: 12.202540
+    Weighted distance: 0.833831
+    Total loss: 12.989255
+    GW/Distance ratio: 2926.860
+  GW Loss Components:
+    Raw GW loss: 140.893829
+    Raw distance loss: 0.045925
+    Weighted GW: 14.089383
+    Weighted distance: 0.918506
+    Total loss: 14.959057
+    GW/Distance ratio: 3067.892
+  GW Loss Components:
+    Raw GW loss: 152.605911
+    Raw distance loss: 0.046006
+    Weighted GW: 15.260592
+    Weighted distance: 0.920110
+    Total loss: 16.133829
+    GW/Distance ratio: 3317.122
+  GW Loss Components:
+    Raw GW loss: 146.132568
+    Raw distance loss: 0.042844
+    Weighted GW: 14.613257
+    Weighted distance: 0.856880
+    Total loss: 15.422777
+    GW/Distance ratio: 3410.804
+  GW Loss Components:
+    Raw GW loss: 136.006683
+    Raw distance loss: 0.045517
+    Weighted GW: 13.600669
+    Weighted distance: 0.910338
+    Total loss: 14.463494
+    GW/Distance ratio: 2988.049
+  GW Loss Components:
+    Raw GW loss: 168.988281
+    Raw distance loss: 0.046705
+    Weighted GW: 16.898829
+    Weighted distance: 0.934091
+    Total loss: 17.787085
+    GW/Distance ratio: 3618.239
+  GW Loss Components:
+    Raw GW loss: 138.117828
+    Raw distance loss: 0.044709
+    Weighted GW: 13.811783
+    Weighted distance: 0.894179
+    Total loss: 14.659427
+    GW/Distance ratio: 3089.265
+  GW Loss Components:
+    Raw GW loss: 114.598320
+    Raw distance loss: 0.046138
+    Weighted GW: 11.459832
+    Weighted distance: 0.922765
+    Total loss: 12.334460
+    GW/Distance ratio: 2483.803
+  GW Loss Components:
+    Raw GW loss: 139.258102
+    Raw distance loss: 0.044968
+    Weighted GW: 13.925811
+    Weighted distance: 0.899351
+    Total loss: 14.775803
+    GW/Distance ratio: 3096.857
+  GW Loss Components:
+    Raw GW loss: 117.258423
+    Raw distance loss: 0.043155
+    Weighted GW: 11.725842
+    Weighted distance: 0.863094
+    Total loss: 12.540067
+    GW/Distance ratio: 2717.162
+  GW Loss Components:
+    Raw GW loss: 144.316483
+    Raw distance loss: 0.047689
+    Weighted GW: 14.431648
+    Weighted distance: 0.953786
+    Total loss: 15.338883
+    GW/Distance ratio: 3026.180
+  GW Loss Components:
+    Raw GW loss: 146.380463
+    Raw distance loss: 0.047290
+    Weighted GW: 14.638046
+    Weighted distance: 0.945799
+    Total loss: 15.538073
+    GW/Distance ratio: 3095.380
+  GW Loss Components:
+    Raw GW loss: 150.211273
+    Raw distance loss: 0.045262
+    Weighted GW: 15.021128
+    Weighted distance: 0.905246
+    Total loss: 15.880924
+    GW/Distance ratio: 3318.685
+  GW Loss Components:
+    Raw GW loss: 155.807861
+    Raw distance loss: 0.044996
+    Weighted GW: 15.580787
+    Weighted distance: 0.899923
+    Total loss: 16.435486
+    GW/Distance ratio: 3462.691
+  GW Loss Components:
+    Raw GW loss: 151.026291
+    Raw distance loss: 0.046836
+    Weighted GW: 15.102630
+    Weighted distance: 0.936728
+    Total loss: 15.992145
+    GW/Distance ratio: 3224.547
+  GW Loss Components:
+    Raw GW loss: 137.388977
+    Raw distance loss: 0.044304
+    Weighted GW: 13.738898
+    Weighted distance: 0.886081
+    Total loss: 14.576370
+    GW/Distance ratio: 3101.048
+  GW Loss Components:
+    Raw GW loss: 127.228653
+    Raw distance loss: 0.045239
+    Weighted GW: 12.722865
+    Weighted distance: 0.904786
+    Total loss: 13.579707
+    GW/Distance ratio: 2812.348
+  GW Loss Components:
+    Raw GW loss: 148.382248
+    Raw distance loss: 0.048632
+    Weighted GW: 14.838225
+    Weighted distance: 0.972645
+    Total loss: 15.764182
+    GW/Distance ratio: 3051.106
+  GW Loss Components:
+    Raw GW loss: 128.051849
+    Raw distance loss: 0.042731
+    Weighted GW: 12.805185
+    Weighted distance: 0.854614
+    Total loss: 13.613046
+    GW/Distance ratio: 2996.719
+  GW Loss Components:
+    Raw GW loss: 128.179062
+    Raw distance loss: 0.043347
+    Weighted GW: 12.817906
+    Weighted distance: 0.866933
+    Total loss: 13.636456
+    GW/Distance ratio: 2957.069
+  GW Loss Components:
+    Raw GW loss: 165.454803
+    Raw distance loss: 0.046866
+    Weighted GW: 16.545481
+    Weighted distance: 0.937317
+    Total loss: 17.436548
+    GW/Distance ratio: 3530.392
+  GW Loss Components:
+    Raw GW loss: 138.971970
+    Raw distance loss: 0.042224
+    Weighted GW: 13.897197
+    Weighted distance: 0.844478
+    Total loss: 14.693148
+    GW/Distance ratio: 3291.309
+  GW Loss Components:
+    Raw GW loss: 113.266975
+    Raw distance loss: 0.045113
+    Weighted GW: 11.326697
+    Weighted distance: 0.902262
+    Total loss: 12.179087
+    GW/Distance ratio: 2510.732
+  GW Loss Components:
+    Raw GW loss: 136.496246
+    Raw distance loss: 0.046197
+    Weighted GW: 13.649625
+    Weighted distance: 0.923936
+    Total loss: 14.525039
+    GW/Distance ratio: 2954.668
+  GW Loss Components:
+    Raw GW loss: 148.149704
+    Raw distance loss: 0.042812
+    Weighted GW: 14.814971
+    Weighted distance: 0.856241
+    Total loss: 15.623201
+    GW/Distance ratio: 3460.467
+  GW Loss Components:
+    Raw GW loss: 146.090820
+    Raw distance loss: 0.042887
+    Weighted GW: 14.609082
+    Weighted distance: 0.857738
+    Total loss: 15.419368
+    GW/Distance ratio: 3406.420
+  GW Loss Components:
+    Raw GW loss: 142.524551
+    Raw distance loss: 0.044597
+    Weighted GW: 14.252456
+    Weighted distance: 0.891947
+    Total loss: 15.096856
+    GW/Distance ratio: 3195.807
+  GW Loss Components:
+    Raw GW loss: 118.438293
+    Raw distance loss: 0.037876
+    Weighted GW: 11.843829
+    Weighted distance: 0.757526
+    Total loss: 12.552480
+    GW/Distance ratio: 3126.975
+  GW Loss Components:
+    Raw GW loss: 132.516937
+    Raw distance loss: 0.042774
+    Weighted GW: 13.251694
+    Weighted distance: 0.855480
+    Total loss: 14.058474
+    GW/Distance ratio: 3098.072
+  GW Loss Components:
+    Raw GW loss: 143.320633
+    Raw distance loss: 0.040750
+    Weighted GW: 14.332064
+    Weighted distance: 0.815003
+    Total loss: 15.097459
+    GW/Distance ratio: 3517.056
+  GW Loss Components:
+    Raw GW loss: 153.217239
+    Raw distance loss: 0.037877
+    Weighted GW: 15.321724
+    Weighted distance: 0.757532
+    Total loss: 16.034353
+    GW/Distance ratio: 4045.167
+  GW Loss Components:
+    Raw GW loss: 116.871719
+    Raw distance loss: 0.038361
+    Weighted GW: 11.687172
+    Weighted distance: 0.767225
+    Total loss: 12.405239
+    GW/Distance ratio: 3046.607
+  GW Loss Components:
+    Raw GW loss: 145.649963
+    Raw distance loss: 0.040252
+    Weighted GW: 14.564997
+    Weighted distance: 0.805031
+    Total loss: 15.322457
+    GW/Distance ratio: 3618.494
+Batch  50/182: Loss=19.7403 (C:7.9999, R:0.0515, T:14.5874(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 132.671875
+    Raw distance loss: 0.037868
+    Weighted GW: 13.267188
+    Weighted distance: 0.757367
+    Total loss: 13.976850
+    GW/Distance ratio: 3503.501
+  GW Loss Components:
+    Raw GW loss: 134.362671
+    Raw distance loss: 0.039142
+    Weighted GW: 13.436267
+    Weighted distance: 0.782830
+    Total loss: 14.170225
+    GW/Distance ratio: 3432.740
+  GW Loss Components:
+    Raw GW loss: 152.715759
+    Raw distance loss: 0.040449
+    Weighted GW: 15.271576
+    Weighted distance: 0.808974
+    Total loss: 16.032454
+    GW/Distance ratio: 3775.539
+  GW Loss Components:
+    Raw GW loss: 133.276855
+    Raw distance loss: 0.037183
+    Weighted GW: 13.327685
+    Weighted distance: 0.743666
+    Total loss: 14.022578
+    GW/Distance ratio: 3584.317
+  GW Loss Components:
+    Raw GW loss: 141.922745
+    Raw distance loss: 0.037116
+    Weighted GW: 14.192275
+    Weighted distance: 0.742316
+    Total loss: 14.887036
+    GW/Distance ratio: 3823.783
+  GW Loss Components:
+    Raw GW loss: 140.146484
+    Raw distance loss: 0.039411
+    Weighted GW: 14.014648
+    Weighted distance: 0.788210
+    Total loss: 14.753796
+    GW/Distance ratio: 3556.068
+  GW Loss Components:
+    Raw GW loss: 128.868500
+    Raw distance loss: 0.037462
+    Weighted GW: 12.886850
+    Weighted distance: 0.749240
+    Total loss: 13.586702
+    GW/Distance ratio: 3439.979
+  GW Loss Components:
+    Raw GW loss: 125.702583
+    Raw distance loss: 0.039312
+    Weighted GW: 12.570258
+    Weighted distance: 0.786246
+    Total loss: 13.308445
+    GW/Distance ratio: 3197.538
+  GW Loss Components:
+    Raw GW loss: 136.626770
+    Raw distance loss: 0.041548
+    Weighted GW: 13.662677
+    Weighted distance: 0.830968
+    Total loss: 14.445182
+    GW/Distance ratio: 3288.376
+  GW Loss Components:
+    Raw GW loss: 111.564392
+    Raw distance loss: 0.037203
+    Weighted GW: 11.156440
+    Weighted distance: 0.744053
+    Total loss: 11.850818
+    GW/Distance ratio: 2998.828
+  GW Loss Components:
+    Raw GW loss: 127.940086
+    Raw distance loss: 0.039992
+    Weighted GW: 12.794009
+    Weighted distance: 0.799847
+    Total loss: 13.544686
+    GW/Distance ratio: 3199.112
+  GW Loss Components:
+    Raw GW loss: 142.584961
+    Raw distance loss: 0.042041
+    Weighted GW: 14.258496
+    Weighted distance: 0.840822
+    Total loss: 15.050659
+    GW/Distance ratio: 3391.561
+  GW Loss Components:
+    Raw GW loss: 125.193169
+    Raw distance loss: 0.037180
+    Weighted GW: 12.519317
+    Weighted distance: 0.743590
+    Total loss: 13.214322
+    GW/Distance ratio: 3367.261
+  GW Loss Components:
+    Raw GW loss: 127.585236
+    Raw distance loss: 0.039447
+    Weighted GW: 12.758524
+    Weighted distance: 0.788939
+    Total loss: 13.498416
+    GW/Distance ratio: 3234.350
+  GW Loss Components:
+    Raw GW loss: 156.214111
+    Raw distance loss: 0.039758
+    Weighted GW: 15.621411
+    Weighted distance: 0.795153
+    Total loss: 16.368826
+    GW/Distance ratio: 3929.157
+  GW Loss Components:
+    Raw GW loss: 127.440269
+    Raw distance loss: 0.036999
+    Weighted GW: 12.744027
+    Weighted distance: 0.739971
+    Total loss: 13.436420
+    GW/Distance ratio: 3444.468
+  GW Loss Components:
+    Raw GW loss: 136.185455
+    Raw distance loss: 0.038590
+    Weighted GW: 13.618546
+    Weighted distance: 0.771797
+    Total loss: 14.342404
+    GW/Distance ratio: 3529.049
+  GW Loss Components:
+    Raw GW loss: 144.886734
+    Raw distance loss: 0.042166
+    Weighted GW: 14.488673
+    Weighted distance: 0.843323
+    Total loss: 15.284128
+    GW/Distance ratio: 3436.090
+  GW Loss Components:
+    Raw GW loss: 129.371185
+    Raw distance loss: 0.036694
+    Weighted GW: 12.937119
+    Weighted distance: 0.733878
+    Total loss: 13.621457
+    GW/Distance ratio: 3525.684
+  GW Loss Components:
+    Raw GW loss: 125.206596
+    Raw distance loss: 0.037492
+    Weighted GW: 12.520659
+    Weighted distance: 0.749841
+    Total loss: 13.221361
+    GW/Distance ratio: 3339.551
+  GW Loss Components:
+    Raw GW loss: 138.413376
+    Raw distance loss: 0.040828
+    Weighted GW: 13.841338
+    Weighted distance: 0.816561
+    Total loss: 14.609090
+    GW/Distance ratio: 3390.153
+  GW Loss Components:
+    Raw GW loss: 129.941895
+    Raw distance loss: 0.035885
+    Weighted GW: 12.994189
+    Weighted distance: 0.717708
+    Total loss: 13.662376
+    GW/Distance ratio: 3621.024
+  GW Loss Components:
+    Raw GW loss: 133.121780
+    Raw distance loss: 0.038880
+    Weighted GW: 13.312179
+    Weighted distance: 0.777592
+    Total loss: 14.041816
+    GW/Distance ratio: 3423.949
+  GW Loss Components:
+    Raw GW loss: 160.545731
+    Raw distance loss: 0.039628
+    Weighted GW: 16.054573
+    Weighted distance: 0.792559
+    Total loss: 16.798357
+    GW/Distance ratio: 4051.324
+  GW Loss Components:
+    Raw GW loss: 138.758865
+    Raw distance loss: 0.036392
+    Weighted GW: 13.875887
+    Weighted distance: 0.727848
+    Total loss: 14.556656
+    GW/Distance ratio: 3812.851
+  GW Loss Components:
+    Raw GW loss: 118.681274
+    Raw distance loss: 0.037616
+    Weighted GW: 11.868128
+    Weighted distance: 0.752324
+    Total loss: 12.569855
+    GW/Distance ratio: 3155.056
+  GW Loss Components:
+    Raw GW loss: 138.777649
+    Raw distance loss: 0.041192
+    Weighted GW: 13.877765
+    Weighted distance: 0.823848
+    Total loss: 14.652386
+    GW/Distance ratio: 3369.009
+  GW Loss Components:
+    Raw GW loss: 123.455925
+    Raw distance loss: 0.035760
+    Weighted GW: 12.345592
+    Weighted distance: 0.715201
+    Total loss: 13.011481
+    GW/Distance ratio: 3452.339
+  GW Loss Components:
+    Raw GW loss: 133.724442
+    Raw distance loss: 0.036354
+    Weighted GW: 13.372444
+    Weighted distance: 0.727070
+    Total loss: 14.050643
+    GW/Distance ratio: 3678.446
+  GW Loss Components:
+    Raw GW loss: 154.290405
+    Raw distance loss: 0.039097
+    Weighted GW: 15.429041
+    Weighted distance: 0.781945
+    Total loss: 16.162663
+    GW/Distance ratio: 3946.321
+  GW Loss Components:
+    Raw GW loss: 141.752472
+    Raw distance loss: 0.035139
+    Weighted GW: 14.175247
+    Weighted distance: 0.702787
+    Total loss: 14.829525
+    GW/Distance ratio: 4034.007
+  GW Loss Components:
+    Raw GW loss: 119.575668
+    Raw distance loss: 0.036318
+    Weighted GW: 11.957567
+    Weighted distance: 0.726360
+    Total loss: 12.634213
+    GW/Distance ratio: 3292.461
+  GW Loss Components:
+    Raw GW loss: 134.058517
+    Raw distance loss: 0.038760
+    Weighted GW: 13.405852
+    Weighted distance: 0.775208
+    Total loss: 14.132036
+    GW/Distance ratio: 3458.645
+  GW Loss Components:
+    Raw GW loss: 121.683022
+    Raw distance loss: 0.032602
+    Weighted GW: 12.168303
+    Weighted distance: 0.652035
+    Total loss: 12.771077
+    GW/Distance ratio: 3732.407
+  GW Loss Components:
+    Raw GW loss: 129.653503
+    Raw distance loss: 0.036390
+    Weighted GW: 12.965350
+    Weighted distance: 0.727798
+    Total loss: 13.645645
+    GW/Distance ratio: 3562.899
+  GW Loss Components:
+    Raw GW loss: 149.482239
+    Raw distance loss: 0.038528
+    Weighted GW: 14.948224
+    Weighted distance: 0.770553
+    Total loss: 15.669900
+    GW/Distance ratio: 3879.869
+  GW Loss Components:
+    Raw GW loss: 138.415619
+    Raw distance loss: 0.032720
+    Weighted GW: 13.841562
+    Weighted distance: 0.654402
+    Total loss: 14.448554
+    GW/Distance ratio: 4230.290
+  GW Loss Components:
+    Raw GW loss: 120.526817
+    Raw distance loss: 0.034767
+    Weighted GW: 12.052682
+    Weighted distance: 0.695336
+    Total loss: 12.697852
+    GW/Distance ratio: 3466.719
+  GW Loss Components:
+    Raw GW loss: 133.952164
+    Raw distance loss: 0.037104
+    Weighted GW: 13.395217
+    Weighted distance: 0.742073
+    Total loss: 14.087992
+    GW/Distance ratio: 3610.212
+  GW Loss Components:
+    Raw GW loss: 119.063354
+    Raw distance loss: 0.032239
+    Weighted GW: 11.906336
+    Weighted distance: 0.644781
+    Total loss: 12.501636
+    GW/Distance ratio: 3693.142
+  GW Loss Components:
+    Raw GW loss: 119.096588
+    Raw distance loss: 0.034984
+    Weighted GW: 11.909659
+    Weighted distance: 0.699682
+    Total loss: 12.559766
+    GW/Distance ratio: 3404.303
+  GW Loss Components:
+    Raw GW loss: 160.870789
+    Raw distance loss: 0.039221
+    Weighted GW: 16.087080
+    Weighted distance: 0.784415
+    Total loss: 16.824469
+    GW/Distance ratio: 4101.673
+  GW Loss Components:
+    Raw GW loss: 113.110550
+    Raw distance loss: 0.032700
+    Weighted GW: 11.311055
+    Weighted distance: 0.654001
+    Total loss: 11.914991
+    GW/Distance ratio: 3459.034
+  GW Loss Components:
+    Raw GW loss: 119.263382
+    Raw distance loss: 0.034921
+    Weighted GW: 11.926338
+    Weighted distance: 0.698426
+    Total loss: 12.574262
+    GW/Distance ratio: 3415.202
+  GW Loss Components:
+    Raw GW loss: 158.163132
+    Raw distance loss: 0.041516
+    Weighted GW: 15.816314
+    Weighted distance: 0.830323
+    Total loss: 16.599770
+    GW/Distance ratio: 3809.676
+  GW Loss Components:
+    Raw GW loss: 141.027863
+    Raw distance loss: 0.034385
+    Weighted GW: 14.102786
+    Weighted distance: 0.687703
+    Total loss: 14.741556
+    GW/Distance ratio: 4101.414
+  GW Loss Components:
+    Raw GW loss: 133.447327
+    Raw distance loss: 0.035601
+    Weighted GW: 13.344733
+    Weighted distance: 0.712019
+    Total loss: 14.008343
+    GW/Distance ratio: 3748.417
+  GW Loss Components:
+    Raw GW loss: 139.576935
+    Raw distance loss: 0.039241
+    Weighted GW: 13.957694
+    Weighted distance: 0.784816
+    Total loss: 14.692312
+    GW/Distance ratio: 3556.935
+  GW Loss Components:
+    Raw GW loss: 120.604973
+    Raw distance loss: 0.035110
+    Weighted GW: 12.060497
+    Weighted distance: 0.702206
+    Total loss: 12.712494
+    GW/Distance ratio: 3435.032
+  GW Loss Components:
+    Raw GW loss: 132.763016
+    Raw distance loss: 0.037261
+    Weighted GW: 13.276301
+    Weighted distance: 0.745229
+    Total loss: 13.972818
+    GW/Distance ratio: 3563.010
+  GW Loss Components:
+    Raw GW loss: 137.561478
+    Raw distance loss: 0.042208
+    Weighted GW: 13.756148
+    Weighted distance: 0.844153
+    Total loss: 14.549689
+    GW/Distance ratio: 3259.159
+  GW Loss Components:
+    Raw GW loss: 138.540222
+    Raw distance loss: 0.037182
+    Weighted GW: 13.854022
+    Weighted distance: 0.743633
+    Total loss: 14.549677
+    GW/Distance ratio: 3726.035
+  GW Loss Components:
+    Raw GW loss: 128.246796
+    Raw distance loss: 0.040120
+    Weighted GW: 12.824679
+    Weighted distance: 0.802391
+    Total loss: 13.577318
+    GW/Distance ratio: 3196.614
+  GW Loss Components:
+    Raw GW loss: 144.300079
+    Raw distance loss: 0.044019
+    Weighted GW: 14.430008
+    Weighted distance: 0.880390
+    Total loss: 15.261494
+    GW/Distance ratio: 3278.095
+  GW Loss Components:
+    Raw GW loss: 117.723541
+    Raw distance loss: 0.037470
+    Weighted GW: 11.772354
+    Weighted distance: 0.749403
+    Total loss: 12.471470
+    GW/Distance ratio: 3141.796
+  GW Loss Components:
+    Raw GW loss: 134.035919
+    Raw distance loss: 0.041203
+    Weighted GW: 13.403592
+    Weighted distance: 0.824052
+    Total loss: 14.179598
+    GW/Distance ratio: 3253.094
+  GW Loss Components:
+    Raw GW loss: 125.550835
+    Raw distance loss: 0.047092
+    Weighted GW: 12.555083
+    Weighted distance: 0.941835
+    Total loss: 13.445988
+    GW/Distance ratio: 2666.090
+  GW Loss Components:
+    Raw GW loss: 131.389999
+    Raw distance loss: 0.040728
+    Weighted GW: 13.139000
+    Weighted distance: 0.814553
+    Total loss: 13.904336
+    GW/Distance ratio: 3226.061
+  GW Loss Components:
+    Raw GW loss: 138.723511
+    Raw distance loss: 0.042805
+    Weighted GW: 13.872352
+    Weighted distance: 0.856098
+    Total loss: 14.679049
+    GW/Distance ratio: 3240.831
+  GW Loss Components:
+    Raw GW loss: 120.514854
+    Raw distance loss: 0.046717
+    Weighted GW: 12.051486
+    Weighted distance: 0.934348
+    Total loss: 12.936712
+    GW/Distance ratio: 2579.657
+  GW Loss Components:
+    Raw GW loss: 117.521904
+    Raw distance loss: 0.039230
+    Weighted GW: 11.752191
+    Weighted distance: 0.784606
+    Total loss: 12.486217
+    GW/Distance ratio: 2995.691
+  GW Loss Components:
+    Raw GW loss: 111.932922
+    Raw distance loss: 0.043067
+    Weighted GW: 11.193293
+    Weighted distance: 0.861338
+    Total loss: 12.004921
+    GW/Distance ratio: 2599.045
+  GW Loss Components:
+    Raw GW loss: 149.114105
+    Raw distance loss: 0.047388
+    Weighted GW: 14.911410
+    Weighted distance: 0.947766
+    Total loss: 15.810511
+    GW/Distance ratio: 3146.644
+  GW Loss Components:
+    Raw GW loss: 131.434021
+    Raw distance loss: 0.040085
+    Weighted GW: 13.143402
+    Weighted distance: 0.801705
+    Total loss: 13.897726
+    GW/Distance ratio: 3278.863
+  GW Loss Components:
+    Raw GW loss: 124.461281
+    Raw distance loss: 0.041076
+    Weighted GW: 12.446128
+    Weighted distance: 0.821512
+    Total loss: 13.217804
+    GW/Distance ratio: 3030.054
+  GW Loss Components:
+    Raw GW loss: 152.408218
+    Raw distance loss: 0.046214
+    Weighted GW: 15.240822
+    Weighted distance: 0.924280
+    Total loss: 16.116837
+    GW/Distance ratio: 3297.879
+  GW Loss Components:
+    Raw GW loss: 118.610275
+    Raw distance loss: 0.039372
+    Weighted GW: 11.861028
+    Weighted distance: 0.787443
+    Total loss: 12.598316
+    GW/Distance ratio: 3012.542
+  GW Loss Components:
+    Raw GW loss: 112.309410
+    Raw distance loss: 0.042770
+    Weighted GW: 11.230941
+    Weighted distance: 0.855400
+    Total loss: 12.036663
+    GW/Distance ratio: 2625.890
+  GW Loss Components:
+    Raw GW loss: 138.255798
+    Raw distance loss: 0.047149
+    Weighted GW: 13.825580
+    Weighted distance: 0.942976
+    Total loss: 14.719407
+    GW/Distance ratio: 2932.328
+  GW Loss Components:
+    Raw GW loss: 132.381790
+    Raw distance loss: 0.038683
+    Weighted GW: 13.238179
+    Weighted distance: 0.773656
+    Total loss: 13.961652
+    GW/Distance ratio: 3422.239
+  GW Loss Components:
+    Raw GW loss: 128.765182
+    Raw distance loss: 0.042089
+    Weighted GW: 12.876518
+    Weighted distance: 0.841777
+    Total loss: 13.668225
+    GW/Distance ratio: 3059.364
+  GW Loss Components:
+    Raw GW loss: 147.119659
+    Raw distance loss: 0.047028
+    Weighted GW: 14.711967
+    Weighted distance: 0.940557
+    Total loss: 15.602638
+    GW/Distance ratio: 3128.350
+  GW Loss Components:
+    Raw GW loss: 129.189743
+    Raw distance loss: 0.039061
+    Weighted GW: 12.918975
+    Weighted distance: 0.781222
+    Total loss: 13.650307
+    GW/Distance ratio: 3307.376
+  GW Loss Components:
+    Raw GW loss: 114.585297
+    Raw distance loss: 0.041143
+    Weighted GW: 11.458529
+    Weighted distance: 0.822852
+    Total loss: 12.231125
+    GW/Distance ratio: 2785.075
+  GW Loss Components:
+    Raw GW loss: 142.114868
+    Raw distance loss: 0.043469
+    Weighted GW: 14.211487
+    Weighted distance: 0.869373
+    Total loss: 15.030398
+    GW/Distance ratio: 3269.365
+Batch  75/182: Loss=18.2332 (C:7.9985, R:0.0460, T:13.6373(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 130.751175
+    Raw distance loss: 0.036529
+    Weighted GW: 13.075118
+    Weighted distance: 0.730572
+    Total loss: 13.755590
+    GW/Distance ratio: 3579.418
+  GW Loss Components:
+    Raw GW loss: 140.236404
+    Raw distance loss: 0.039477
+    Weighted GW: 14.023641
+    Weighted distance: 0.789534
+    Total loss: 14.766002
+    GW/Distance ratio: 3552.383
+  GW Loss Components:
+    Raw GW loss: 153.591370
+    Raw distance loss: 0.043003
+    Weighted GW: 15.359138
+    Weighted distance: 0.860054
+    Total loss: 16.169630
+    GW/Distance ratio: 3571.669
+  GW Loss Components:
+    Raw GW loss: 125.514938
+    Raw distance loss: 0.034208
+    Weighted GW: 12.551494
+    Weighted distance: 0.684159
+    Total loss: 13.185191
+    GW/Distance ratio: 3669.171
+  GW Loss Components:
+    Raw GW loss: 130.698563
+    Raw distance loss: 0.037061
+    Weighted GW: 13.069857
+    Weighted distance: 0.741224
+    Total loss: 13.762188
+    GW/Distance ratio: 3526.560
+  GW Loss Components:
+    Raw GW loss: 122.219444
+    Raw distance loss: 0.038801
+    Weighted GW: 12.221945
+    Weighted distance: 0.776011
+    Total loss: 12.947371
+    GW/Distance ratio: 3149.942
+  GW Loss Components:
+    Raw GW loss: 123.089859
+    Raw distance loss: 0.032343
+    Weighted GW: 12.308986
+    Weighted distance: 0.646859
+    Total loss: 12.905788
+    GW/Distance ratio: 3805.770
+  GW Loss Components:
+    Raw GW loss: 128.538696
+    Raw distance loss: 0.034853
+    Weighted GW: 12.853869
+    Weighted distance: 0.697061
+    Total loss: 13.501848
+    GW/Distance ratio: 3688.018
+  GW Loss Components:
+    Raw GW loss: 148.940994
+    Raw distance loss: 0.035823
+    Weighted GW: 14.894099
+    Weighted distance: 0.716460
+    Total loss: 15.562401
+    GW/Distance ratio: 4157.693
+  GW Loss Components:
+    Raw GW loss: 117.285606
+    Raw distance loss: 0.029298
+    Weighted GW: 11.728560
+    Weighted distance: 0.585951
+    Total loss: 12.264384
+    GW/Distance ratio: 4003.258
+  GW Loss Components:
+    Raw GW loss: 133.636765
+    Raw distance loss: 0.033484
+    Weighted GW: 13.363677
+    Weighted distance: 0.669670
+    Total loss: 13.984493
+    GW/Distance ratio: 3991.121
+  GW Loss Components:
+    Raw GW loss: 146.260681
+    Raw distance loss: 0.033752
+    Weighted GW: 14.626068
+    Weighted distance: 0.675048
+    Total loss: 15.251978
+    GW/Distance ratio: 4333.339
+  GW Loss Components:
+    Raw GW loss: 118.807602
+    Raw distance loss: 0.027565
+    Weighted GW: 11.880760
+    Weighted distance: 0.551297
+    Total loss: 12.381837
+    GW/Distance ratio: 4310.114
+  GW Loss Components:
+    Raw GW loss: 121.075249
+    Raw distance loss: 0.029722
+    Weighted GW: 12.107525
+    Weighted distance: 0.594431
+    Total loss: 12.652212
+    GW/Distance ratio: 4073.652
+  GW Loss Components:
+    Raw GW loss: 135.119720
+    Raw distance loss: 0.032342
+    Weighted GW: 13.511972
+    Weighted distance: 0.646831
+    Total loss: 14.109321
+    GW/Distance ratio: 4177.899
+  GW Loss Components:
+    Raw GW loss: 116.344139
+    Raw distance loss: 0.025657
+    Weighted GW: 11.634414
+    Weighted distance: 0.513143
+    Total loss: 12.096233
+    GW/Distance ratio: 4534.567
+  GW Loss Components:
+    Raw GW loss: 113.157700
+    Raw distance loss: 0.028802
+    Weighted GW: 11.315770
+    Weighted distance: 0.576047
+    Total loss: 11.841969
+    GW/Distance ratio: 3928.762
+  GW Loss Components:
+    Raw GW loss: 129.647705
+    Raw distance loss: 0.030260
+    Weighted GW: 12.964770
+    Weighted distance: 0.605190
+    Total loss: 13.519936
+    GW/Distance ratio: 4284.526
+  GW Loss Components:
+    Raw GW loss: 120.384491
+    Raw distance loss: 0.024847
+    Weighted GW: 12.038449
+    Weighted distance: 0.496939
+    Total loss: 12.486914
+    GW/Distance ratio: 4845.034
+  GW Loss Components:
+    Raw GW loss: 118.976357
+    Raw distance loss: 0.027248
+    Weighted GW: 11.897635
+    Weighted distance: 0.544955
+    Total loss: 12.392461
+    GW/Distance ratio: 4366.460
+  GW Loss Components:
+    Raw GW loss: 146.447937
+    Raw distance loss: 0.028955
+    Weighted GW: 14.644794
+    Weighted distance: 0.579105
+    Total loss: 15.174515
+    GW/Distance ratio: 5057.731
+  GW Loss Components:
+    Raw GW loss: 118.667519
+    Raw distance loss: 0.024094
+    Weighted GW: 11.866752
+    Weighted distance: 0.481882
+    Total loss: 12.297907
+    GW/Distance ratio: 4925.165
+  GW Loss Components:
+    Raw GW loss: 122.407440
+    Raw distance loss: 0.026137
+    Weighted GW: 12.240745
+    Weighted distance: 0.522750
+    Total loss: 12.714643
+    GW/Distance ratio: 4683.211
+  GW Loss Components:
+    Raw GW loss: 143.417175
+    Raw distance loss: 0.026392
+    Weighted GW: 14.341718
+    Weighted distance: 0.527834
+    Total loss: 14.820732
+    GW/Distance ratio: 5434.173
+  GW Loss Components:
+    Raw GW loss: 132.550156
+    Raw distance loss: 0.025231
+    Weighted GW: 13.255015
+    Weighted distance: 0.504616
+    Total loss: 13.710463
+    GW/Distance ratio: 5253.508
+  GW Loss Components:
+    Raw GW loss: 118.856476
+    Raw distance loss: 0.023700
+    Weighted GW: 11.885648
+    Weighted distance: 0.474003
+    Total loss: 12.309660
+    GW/Distance ratio: 5015.003
+  GW Loss Components:
+    Raw GW loss: 132.595306
+    Raw distance loss: 0.027751
+    Weighted GW: 13.259531
+    Weighted distance: 0.555026
+    Total loss: 13.765247
+    GW/Distance ratio: 4777.988
+  GW Loss Components:
+    Raw GW loss: 138.481232
+    Raw distance loss: 0.025172
+    Weighted GW: 13.848124
+    Weighted distance: 0.503435
+    Total loss: 14.304232
+    GW/Distance ratio: 5501.450
+  GW Loss Components:
+    Raw GW loss: 127.182816
+    Raw distance loss: 0.026507
+    Weighted GW: 12.718282
+    Weighted distance: 0.530143
+    Total loss: 13.199790
+    GW/Distance ratio: 4798.059
+  GW Loss Components:
+    Raw GW loss: 138.542694
+    Raw distance loss: 0.028176
+    Weighted GW: 13.854270
+    Weighted distance: 0.563521
+    Total loss: 14.367865
+    GW/Distance ratio: 4917.037
+  GW Loss Components:
+    Raw GW loss: 113.228439
+    Raw distance loss: 0.026597
+    Weighted GW: 11.322845
+    Weighted distance: 0.531934
+    Total loss: 11.804998
+    GW/Distance ratio: 4257.238
+  GW Loss Components:
+    Raw GW loss: 122.020180
+    Raw distance loss: 0.027856
+    Weighted GW: 12.202018
+    Weighted distance: 0.557130
+    Total loss: 12.709273
+    GW/Distance ratio: 4380.312
+  GW Loss Components:
+    Raw GW loss: 148.012527
+    Raw distance loss: 0.030385
+    Weighted GW: 14.801253
+    Weighted distance: 0.607697
+    Total loss: 15.358555
+    GW/Distance ratio: 4871.255
+  GW Loss Components:
+    Raw GW loss: 124.305878
+    Raw distance loss: 0.030138
+    Weighted GW: 12.430588
+    Weighted distance: 0.602759
+    Total loss: 12.982462
+    GW/Distance ratio: 4124.563
+  GW Loss Components:
+    Raw GW loss: 118.898842
+    Raw distance loss: 0.029849
+    Weighted GW: 11.889884
+    Weighted distance: 0.596987
+    Total loss: 12.436354
+    GW/Distance ratio: 3983.299
+  GW Loss Components:
+    Raw GW loss: 139.380936
+    Raw distance loss: 0.031338
+    Weighted GW: 13.938094
+    Weighted distance: 0.626766
+    Total loss: 14.515632
+    GW/Distance ratio: 4447.618
+  GW Loss Components:
+    Raw GW loss: 121.642731
+    Raw distance loss: 0.027062
+    Weighted GW: 12.164273
+    Weighted distance: 0.541246
+    Total loss: 12.654340
+    GW/Distance ratio: 4494.916
+  GW Loss Components:
+    Raw GW loss: 131.145752
+    Raw distance loss: 0.030336
+    Weighted GW: 13.114575
+    Weighted distance: 0.606723
+    Total loss: 13.672359
+    GW/Distance ratio: 4323.083
+  GW Loss Components:
+    Raw GW loss: 141.901611
+    Raw distance loss: 0.031718
+    Weighted GW: 14.190162
+    Weighted distance: 0.634363
+    Total loss: 14.774959
+    GW/Distance ratio: 4473.826
+  GW Loss Components:
+    Raw GW loss: 129.850967
+    Raw distance loss: 0.028657
+    Weighted GW: 12.985097
+    Weighted distance: 0.573136
+    Total loss: 13.508188
+    GW/Distance ratio: 4531.245
+  GW Loss Components:
+    Raw GW loss: 120.206627
+    Raw distance loss: 0.029515
+    Weighted GW: 12.020663
+    Weighted distance: 0.590302
+    Total loss: 12.561648
+    GW/Distance ratio: 4072.712
+  GW Loss Components:
+    Raw GW loss: 133.846558
+    Raw distance loss: 0.030804
+    Weighted GW: 13.384656
+    Weighted distance: 0.616078
+    Total loss: 13.949654
+    GW/Distance ratio: 4345.114
+  GW Loss Components:
+    Raw GW loss: 138.332977
+    Raw distance loss: 0.029223
+    Weighted GW: 13.833298
+    Weighted distance: 0.584458
+    Total loss: 14.368446
+    GW/Distance ratio: 4733.719
+  GW Loss Components:
+    Raw GW loss: 114.943665
+    Raw distance loss: 0.029745
+    Weighted GW: 11.494367
+    Weighted distance: 0.594899
+    Total loss: 12.039307
+    GW/Distance ratio: 3864.305
+  GW Loss Components:
+    Raw GW loss: 133.620453
+    Raw distance loss: 0.030147
+    Weighted GW: 13.362045
+    Weighted distance: 0.602941
+    Total loss: 13.914054
+    GW/Distance ratio: 4432.289
+  GW Loss Components:
+    Raw GW loss: 111.236816
+    Raw distance loss: 0.028236
+    Weighted GW: 11.123682
+    Weighted distance: 0.564718
+    Total loss: 11.636343
+    GW/Distance ratio: 3939.551
+  GW Loss Components:
+    Raw GW loss: 115.236916
+    Raw distance loss: 0.028625
+    Weighted GW: 11.523692
+    Weighted distance: 0.572500
+    Total loss: 12.045753
+    GW/Distance ratio: 4025.745
+  GW Loss Components:
+    Raw GW loss: 146.310608
+    Raw distance loss: 0.029854
+    Weighted GW: 14.631061
+    Weighted distance: 0.597078
+    Total loss: 15.177839
+    GW/Distance ratio: 4900.882
+  GW Loss Components:
+    Raw GW loss: 113.520126
+    Raw distance loss: 0.028251
+    Weighted GW: 11.352013
+    Weighted distance: 0.565017
+    Total loss: 11.865358
+    GW/Distance ratio: 4018.290
+  GW Loss Components:
+    Raw GW loss: 109.301331
+    Raw distance loss: 0.028193
+    Weighted GW: 10.930133
+    Weighted distance: 0.563869
+    Total loss: 11.442524
+    GW/Distance ratio: 3876.830
+  GW Loss Components:
+    Raw GW loss: 136.614395
+    Raw distance loss: 0.029283
+    Weighted GW: 13.661440
+    Weighted distance: 0.585661
+    Total loss: 14.195279
+    GW/Distance ratio: 4665.304
+  GW Loss Components:
+    Raw GW loss: 128.896820
+    Raw distance loss: 0.026528
+    Weighted GW: 12.889682
+    Weighted distance: 0.530567
+    Total loss: 13.370921
+    GW/Distance ratio: 4858.833
+  GW Loss Components:
+    Raw GW loss: 125.073883
+    Raw distance loss: 0.027513
+    Weighted GW: 12.507388
+    Weighted distance: 0.550266
+    Total loss: 13.006894
+    GW/Distance ratio: 4545.943
+  GW Loss Components:
+    Raw GW loss: 131.418610
+    Raw distance loss: 0.028432
+    Weighted GW: 13.141861
+    Weighted distance: 0.568649
+    Total loss: 13.660935
+    GW/Distance ratio: 4622.132
+  GW Loss Components:
+    Raw GW loss: 111.206314
+    Raw distance loss: 0.026463
+    Weighted GW: 11.120631
+    Weighted distance: 0.529251
+    Total loss: 11.598298
+    GW/Distance ratio: 4202.404
+  GW Loss Components:
+    Raw GW loss: 111.158653
+    Raw distance loss: 0.028655
+    Weighted GW: 11.115866
+    Weighted distance: 0.573094
+    Total loss: 11.638539
+    GW/Distance ratio: 3879.248
+  GW Loss Components:
+    Raw GW loss: 137.627289
+    Raw distance loss: 0.027246
+    Weighted GW: 13.762729
+    Weighted distance: 0.544922
+    Total loss: 14.256545
+    GW/Distance ratio: 5051.268
+  GW Loss Components:
+    Raw GW loss: 126.813866
+    Raw distance loss: 0.025828
+    Weighted GW: 12.681387
+    Weighted distance: 0.516567
+    Total loss: 13.148471
+    GW/Distance ratio: 4909.869
+  GW Loss Components:
+    Raw GW loss: 118.781273
+    Raw distance loss: 0.026577
+    Weighted GW: 11.878127
+    Weighted distance: 0.531533
+    Total loss: 12.357949
+    GW/Distance ratio: 4469.382
+  GW Loss Components:
+    Raw GW loss: 118.412140
+    Raw distance loss: 0.026623
+    Weighted GW: 11.841214
+    Weighted distance: 0.532462
+    Total loss: 12.322346
+    GW/Distance ratio: 4447.719
+  GW Loss Components:
+    Raw GW loss: 135.971283
+    Raw distance loss: 0.026170
+    Weighted GW: 13.597129
+    Weighted distance: 0.523396
+    Total loss: 14.072353
+    GW/Distance ratio: 5195.735
+  GW Loss Components:
+    Raw GW loss: 117.437675
+    Raw distance loss: 0.026976
+    Weighted GW: 11.743768
+    Weighted distance: 0.539529
+    Total loss: 12.232886
+    GW/Distance ratio: 4353.336
+  GW Loss Components:
+    Raw GW loss: 130.083664
+    Raw distance loss: 0.027036
+    Weighted GW: 13.008367
+    Weighted distance: 0.540716
+    Total loss: 13.498872
+    GW/Distance ratio: 4811.533
+  GW Loss Components:
+    Raw GW loss: 119.878998
+    Raw distance loss: 0.026027
+    Weighted GW: 11.987900
+    Weighted distance: 0.520547
+    Total loss: 12.458296
+    GW/Distance ratio: 4605.882
+  GW Loss Components:
+    Raw GW loss: 106.289719
+    Raw distance loss: 0.028335
+    Weighted GW: 10.628972
+    Weighted distance: 0.566692
+    Total loss: 11.143770
+    GW/Distance ratio: 3751.232
+  GW Loss Components:
+    Raw GW loss: 126.270119
+    Raw distance loss: 0.026694
+    Weighted GW: 12.627012
+    Weighted distance: 0.533887
+    Total loss: 13.109358
+    GW/Distance ratio: 4730.219
+  GW Loss Components:
+    Raw GW loss: 118.667603
+    Raw distance loss: 0.028546
+    Weighted GW: 11.866760
+    Weighted distance: 0.570921
+    Total loss: 12.386015
+    GW/Distance ratio: 4157.059
+  GW Loss Components:
+    Raw GW loss: 141.716431
+    Raw distance loss: 0.028304
+    Weighted GW: 14.171643
+    Weighted distance: 0.566078
+    Total loss: 14.688444
+    GW/Distance ratio: 5006.959
+  GW Loss Components:
+    Raw GW loss: 144.789368
+    Raw distance loss: 0.030217
+    Weighted GW: 14.478937
+    Weighted distance: 0.604332
+    Total loss: 15.034305
+    GW/Distance ratio: 4791.715
+  GW Loss Components:
+    Raw GW loss: 112.989326
+    Raw distance loss: 0.028778
+    Weighted GW: 11.298933
+    Weighted distance: 0.575570
+    Total loss: 11.823922
+    GW/Distance ratio: 3926.172
+  GW Loss Components:
+    Raw GW loss: 108.044601
+    Raw distance loss: 0.029251
+    Weighted GW: 10.804461
+    Weighted distance: 0.585016
+    Total loss: 11.338225
+    GW/Distance ratio: 3693.731
+  GW Loss Components:
+    Raw GW loss: 138.281250
+    Raw distance loss: 0.029104
+    Weighted GW: 13.828125
+    Weighted distance: 0.582079
+    Total loss: 14.359312
+    GW/Distance ratio: 4751.283
+  GW Loss Components:
+    Raw GW loss: 117.575401
+    Raw distance loss: 0.028109
+    Weighted GW: 11.757541
+    Weighted distance: 0.562179
+    Total loss: 12.268966
+    GW/Distance ratio: 4182.848
+  GW Loss Components:
+    Raw GW loss: 116.488312
+    Raw distance loss: 0.029774
+    Weighted GW: 11.648831
+    Weighted distance: 0.595474
+    Total loss: 12.193238
+    GW/Distance ratio: 3912.452
+  GW Loss Components:
+    Raw GW loss: 140.422928
+    Raw distance loss: 0.030006
+    Weighted GW: 14.042293
+    Weighted distance: 0.600120
+    Total loss: 14.591298
+    GW/Distance ratio: 4679.829
+Batch 100/182: Loss=17.3853 (C:7.9996, R:0.0437, T:13.0178(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 129.231201
+    Raw distance loss: 0.027463
+    Weighted GW: 12.923120
+    Weighted distance: 0.549253
+    Total loss: 13.422909
+    GW/Distance ratio: 4705.702
+  GW Loss Components:
+    Raw GW loss: 97.706413
+    Raw distance loss: 0.028288
+    Weighted GW: 9.770641
+    Weighted distance: 0.565767
+    Total loss: 10.284273
+    GW/Distance ratio: 3453.944
+  GW Loss Components:
+    Raw GW loss: 124.798584
+    Raw distance loss: 0.026922
+    Weighted GW: 12.479858
+    Weighted distance: 0.538433
+    Total loss: 12.967399
+    GW/Distance ratio: 4635.617
+  GW Loss Components:
+    Raw GW loss: 120.263153
+    Raw distance loss: 0.025803
+    Weighted GW: 12.026316
+    Weighted distance: 0.516055
+    Total loss: 12.492642
+    GW/Distance ratio: 4660.866
+  GW Loss Components:
+    Raw GW loss: 118.140533
+    Raw distance loss: 0.027328
+    Weighted GW: 11.814054
+    Weighted distance: 0.546563
+    Total loss: 12.309448
+    GW/Distance ratio: 4323.036
+  GW Loss Components:
+    Raw GW loss: 138.460922
+    Raw distance loss: 0.027401
+    Weighted GW: 13.846092
+    Weighted distance: 0.548022
+    Total loss: 14.343891
+    GW/Distance ratio: 5053.114
+  GW Loss Components:
+    Raw GW loss: 114.310913
+    Raw distance loss: 0.024915
+    Weighted GW: 11.431091
+    Weighted distance: 0.498304
+    Total loss: 11.877942
+    GW/Distance ratio: 4588.001
+  GW Loss Components:
+    Raw GW loss: 114.560410
+    Raw distance loss: 0.025459
+    Weighted GW: 11.456041
+    Weighted distance: 0.509184
+    Total loss: 11.914886
+    GW/Distance ratio: 4499.764
+  GW Loss Components:
+    Raw GW loss: 137.243408
+    Raw distance loss: 0.026245
+    Weighted GW: 13.724341
+    Weighted distance: 0.524895
+    Total loss: 14.200483
+    GW/Distance ratio: 5229.360
+  GW Loss Components:
+    Raw GW loss: 122.039047
+    Raw distance loss: 0.025010
+    Weighted GW: 12.203905
+    Weighted distance: 0.500206
+    Total loss: 12.653422
+    GW/Distance ratio: 4879.548
+  GW Loss Components:
+    Raw GW loss: 120.821877
+    Raw distance loss: 0.024982
+    Weighted GW: 12.082188
+    Weighted distance: 0.499643
+    Total loss: 12.530949
+    GW/Distance ratio: 4836.328
+  GW Loss Components:
+    Raw GW loss: 124.181900
+    Raw distance loss: 0.024889
+    Weighted GW: 12.418190
+    Weighted distance: 0.497775
+    Total loss: 12.865588
+    GW/Distance ratio: 4989.473
+  GW Loss Components:
+    Raw GW loss: 110.544853
+    Raw distance loss: 0.024489
+    Weighted GW: 11.054485
+    Weighted distance: 0.489774
+    Total loss: 11.493524
+    GW/Distance ratio: 4514.115
+  GW Loss Components:
+    Raw GW loss: 112.627922
+    Raw distance loss: 0.025080
+    Weighted GW: 11.262793
+    Weighted distance: 0.501596
+    Total loss: 11.712834
+    GW/Distance ratio: 4490.784
+  GW Loss Components:
+    Raw GW loss: 140.294266
+    Raw distance loss: 0.025303
+    Weighted GW: 14.029427
+    Weighted distance: 0.506054
+    Total loss: 14.485066
+    GW/Distance ratio: 5544.629
+  GW Loss Components:
+    Raw GW loss: 111.679489
+    Raw distance loss: 0.023331
+    Weighted GW: 11.167949
+    Weighted distance: 0.466623
+    Total loss: 11.583634
+    GW/Distance ratio: 4786.715
+  GW Loss Components:
+    Raw GW loss: 111.901299
+    Raw distance loss: 0.023763
+    Weighted GW: 11.190130
+    Weighted distance: 0.475262
+    Total loss: 11.613295
+    GW/Distance ratio: 4709.036
+  GW Loss Components:
+    Raw GW loss: 135.416687
+    Raw distance loss: 0.024088
+    Weighted GW: 13.541669
+    Weighted distance: 0.481751
+    Total loss: 13.973618
+    GW/Distance ratio: 5621.849
+  GW Loss Components:
+    Raw GW loss: 112.786232
+    Raw distance loss: 0.024444
+    Weighted GW: 11.278624
+    Weighted distance: 0.488886
+    Total loss: 11.715797
+    GW/Distance ratio: 4614.011
+  GW Loss Components:
+    Raw GW loss: 129.470352
+    Raw distance loss: 0.024016
+    Weighted GW: 12.947036
+    Weighted distance: 0.480323
+    Total loss: 13.377575
+    GW/Distance ratio: 5390.966
+  GW Loss Components:
+    Raw GW loss: 123.415550
+    Raw distance loss: 0.024491
+    Weighted GW: 12.341556
+    Weighted distance: 0.489827
+    Total loss: 12.780419
+    GW/Distance ratio: 5039.150
+  GW Loss Components:
+    Raw GW loss: 122.881088
+    Raw distance loss: 0.023334
+    Weighted GW: 12.288109
+    Weighted distance: 0.466687
+    Total loss: 12.703483
+    GW/Distance ratio: 5266.097
+  GW Loss Components:
+    Raw GW loss: 122.050476
+    Raw distance loss: 0.024294
+    Weighted GW: 12.205048
+    Weighted distance: 0.485879
+    Total loss: 12.641026
+    GW/Distance ratio: 5023.904
+  GW Loss Components:
+    Raw GW loss: 144.485779
+    Raw distance loss: 0.025189
+    Weighted GW: 14.448578
+    Weighted distance: 0.503774
+    Total loss: 14.902539
+    GW/Distance ratio: 5736.127
+  GW Loss Components:
+    Raw GW loss: 114.747894
+    Raw distance loss: 0.023680
+    Weighted GW: 11.474790
+    Weighted distance: 0.473609
+    Total loss: 11.897359
+    GW/Distance ratio: 4845.682
+  GW Loss Components:
+    Raw GW loss: 111.348503
+    Raw distance loss: 0.024889
+    Weighted GW: 11.134851
+    Weighted distance: 0.497781
+    Total loss: 11.581187
+    GW/Distance ratio: 4473.795
+  GW Loss Components:
+    Raw GW loss: 144.864532
+    Raw distance loss: 0.026369
+    Weighted GW: 14.486453
+    Weighted distance: 0.527386
+    Total loss: 14.964713
+    GW/Distance ratio: 5493.685
+  GW Loss Components:
+    Raw GW loss: 96.470695
+    Raw distance loss: 0.024824
+    Weighted GW: 9.647070
+    Weighted distance: 0.496474
+    Total loss: 10.091365
+    GW/Distance ratio: 3886.235
+  GW Loss Components:
+    Raw GW loss: 118.601555
+    Raw distance loss: 0.024510
+    Weighted GW: 11.860156
+    Weighted distance: 0.490208
+    Total loss: 12.299739
+    GW/Distance ratio: 4838.827
+  GW Loss Components:
+    Raw GW loss: 114.855881
+    Raw distance loss: 0.026454
+    Weighted GW: 11.485588
+    Weighted distance: 0.529075
+    Total loss: 11.962282
+    GW/Distance ratio: 4341.763
+  GW Loss Components:
+    Raw GW loss: 125.594177
+    Raw distance loss: 0.025192
+    Weighted GW: 12.559418
+    Weighted distance: 0.503834
+    Total loss: 13.013718
+    GW/Distance ratio: 4985.534
+  GW Loss Components:
+    Raw GW loss: 112.879333
+    Raw distance loss: 0.026723
+    Weighted GW: 11.287933
+    Weighted distance: 0.534470
+    Total loss: 11.771813
+    GW/Distance ratio: 4223.972
+  GW Loss Components:
+    Raw GW loss: 144.477875
+    Raw distance loss: 0.026360
+    Weighted GW: 14.447787
+    Weighted distance: 0.527196
+    Total loss: 14.925049
+    GW/Distance ratio: 5480.988
+  GW Loss Components:
+    Raw GW loss: 125.285957
+    Raw distance loss: 0.025259
+    Weighted GW: 12.528596
+    Weighted distance: 0.505188
+    Total loss: 12.983954
+    GW/Distance ratio: 4959.968
+  GW Loss Components:
+    Raw GW loss: 117.839111
+    Raw distance loss: 0.025930
+    Weighted GW: 11.783912
+    Weighted distance: 0.518596
+    Total loss: 12.250427
+    GW/Distance ratio: 4544.542
+  GW Loss Components:
+    Raw GW loss: 132.312317
+    Raw distance loss: 0.027380
+    Weighted GW: 13.231232
+    Weighted distance: 0.547600
+    Total loss: 13.728013
+    GW/Distance ratio: 4832.441
+  GW Loss Components:
+    Raw GW loss: 111.779480
+    Raw distance loss: 0.025142
+    Weighted GW: 11.177948
+    Weighted distance: 0.502843
+    Total loss: 11.627907
+    GW/Distance ratio: 4445.898
+  GW Loss Components:
+    Raw GW loss: 101.673523
+    Raw distance loss: 0.025813
+    Weighted GW: 10.167353
+    Weighted distance: 0.516264
+    Total loss: 10.631493
+    GW/Distance ratio: 3938.819
+  GW Loss Components:
+    Raw GW loss: 105.139641
+    Raw distance loss: 0.026856
+    Weighted GW: 10.513965
+    Weighted distance: 0.537119
+    Total loss: 10.998890
+    GW/Distance ratio: 3914.949
+  GW Loss Components:
+    Raw GW loss: 98.787323
+    Raw distance loss: 0.023569
+    Weighted GW: 9.878733
+    Weighted distance: 0.471380
+    Total loss: 10.297503
+    GW/Distance ratio: 4191.411
+  GW Loss Components:
+    Raw GW loss: 96.826485
+    Raw distance loss: 0.026002
+    Weighted GW: 9.682649
+    Weighted distance: 0.520047
+    Total loss: 10.150525
+    GW/Distance ratio: 3723.755
+  GW Loss Components:
+    Raw GW loss: 113.839088
+    Raw distance loss: 0.025859
+    Weighted GW: 11.383909
+    Weighted distance: 0.517182
+    Total loss: 11.848102
+    GW/Distance ratio: 4402.286
+  GW Loss Components:
+    Raw GW loss: 118.755646
+    Raw distance loss: 0.023786
+    Weighted GW: 11.875565
+    Weighted distance: 0.475721
+    Total loss: 12.299451
+    GW/Distance ratio: 4992.661
+  GW Loss Components:
+    Raw GW loss: 114.720963
+    Raw distance loss: 0.025365
+    Weighted GW: 11.472096
+    Weighted distance: 0.507300
+    Total loss: 11.928329
+    GW/Distance ratio: 4522.806
+  GW Loss Components:
+    Raw GW loss: 125.910614
+    Raw distance loss: 0.024971
+    Weighted GW: 12.591062
+    Weighted distance: 0.499426
+    Total loss: 13.039336
+    GW/Distance ratio: 5042.214
+  GW Loss Components:
+    Raw GW loss: 117.318253
+    Raw distance loss: 0.024016
+    Weighted GW: 11.731826
+    Weighted distance: 0.480316
+    Total loss: 12.160818
+    GW/Distance ratio: 4885.043
+  GW Loss Components:
+    Raw GW loss: 99.465744
+    Raw distance loss: 0.023910
+    Weighted GW: 9.946574
+    Weighted distance: 0.478201
+    Total loss: 10.372702
+    GW/Distance ratio: 4159.996
+  GW Loss Components:
+    Raw GW loss: 133.329147
+    Raw distance loss: 0.025597
+    Weighted GW: 13.332915
+    Weighted distance: 0.511946
+    Total loss: 13.792788
+    GW/Distance ratio: 5208.716
+  GW Loss Components:
+    Raw GW loss: 103.449715
+    Raw distance loss: 0.023425
+    Weighted GW: 10.344972
+    Weighted distance: 0.468504
+    Total loss: 10.760082
+    GW/Distance ratio: 4416.173
+  GW Loss Components:
+    Raw GW loss: 113.868080
+    Raw distance loss: 0.024176
+    Weighted GW: 11.386808
+    Weighted distance: 0.483528
+    Total loss: 11.818022
+    GW/Distance ratio: 4709.885
+  GW Loss Components:
+    Raw GW loss: 119.712463
+    Raw distance loss: 0.025078
+    Weighted GW: 11.971247
+    Weighted distance: 0.501559
+    Total loss: 12.420995
+    GW/Distance ratio: 4773.616
+  GW Loss Components:
+    Raw GW loss: 98.566887
+    Raw distance loss: 0.024152
+    Weighted GW: 9.856688
+    Weighted distance: 0.483031
+    Total loss: 10.286823
+    GW/Distance ratio: 4081.177
+  GW Loss Components:
+    Raw GW loss: 106.163147
+    Raw distance loss: 0.024564
+    Weighted GW: 10.616315
+    Weighted distance: 0.491278
+    Total loss: 11.055429
+    GW/Distance ratio: 4321.916
+  GW Loss Components:
+    Raw GW loss: 126.027824
+    Raw distance loss: 0.025456
+    Weighted GW: 12.602782
+    Weighted distance: 0.509117
+    Total loss: 13.061240
+    GW/Distance ratio: 4950.839
+  GW Loss Components:
+    Raw GW loss: 135.686325
+    Raw distance loss: 0.024595
+    Weighted GW: 13.568633
+    Weighted distance: 0.491906
+    Total loss: 14.010165
+    GW/Distance ratio: 5516.751
+  GW Loss Components:
+    Raw GW loss: 83.332748
+    Raw distance loss: 0.024460
+    Weighted GW: 8.333275
+    Weighted distance: 0.489195
+    Total loss: 8.768606
+    GW/Distance ratio: 3406.930
+  GW Loss Components:
+    Raw GW loss: 131.931030
+    Raw distance loss: 0.025860
+    Weighted GW: 13.193103
+    Weighted distance: 0.517204
+    Total loss: 13.657308
+    GW/Distance ratio: 5101.700
+  GW Loss Components:
+    Raw GW loss: 114.528992
+    Raw distance loss: 0.024168
+    Weighted GW: 11.452899
+    Weighted distance: 0.483363
+    Total loss: 11.884898
+    GW/Distance ratio: 4738.837
+  GW Loss Components:
+    Raw GW loss: 121.724403
+    Raw distance loss: 0.027249
+    Weighted GW: 12.172441
+    Weighted distance: 0.544990
+    Total loss: 12.666524
+    GW/Distance ratio: 4467.033
+  GW Loss Components:
+    Raw GW loss: 127.984863
+    Raw distance loss: 0.026640
+    Weighted GW: 12.798487
+    Weighted distance: 0.532796
+    Total loss: 13.279583
+    GW/Distance ratio: 4804.269
+  GW Loss Components:
+    Raw GW loss: 111.063553
+    Raw distance loss: 0.025092
+    Weighted GW: 11.106356
+    Weighted distance: 0.501837
+    Total loss: 11.556091
+    GW/Distance ratio: 4426.277
+  GW Loss Components:
+    Raw GW loss: 102.051704
+    Raw distance loss: 0.025988
+    Weighted GW: 10.205171
+    Weighted distance: 0.519764
+    Total loss: 10.673775
+    GW/Distance ratio: 3926.846
+  GW Loss Components:
+    Raw GW loss: 124.856735
+    Raw distance loss: 0.026143
+    Weighted GW: 12.485674
+    Weighted distance: 0.522853
+    Total loss: 12.957475
+    GW/Distance ratio: 4775.973
+  GW Loss Components:
+    Raw GW loss: 120.038750
+    Raw distance loss: 0.024469
+    Weighted GW: 12.003875
+    Weighted distance: 0.489379
+    Total loss: 12.442735
+    GW/Distance ratio: 4905.756
+  GW Loss Components:
+    Raw GW loss: 123.743042
+    Raw distance loss: 0.025657
+    Weighted GW: 12.374305
+    Weighted distance: 0.513134
+    Total loss: 12.836885
+    GW/Distance ratio: 4823.032
+  GW Loss Components:
+    Raw GW loss: 110.837677
+    Raw distance loss: 0.026404
+    Weighted GW: 11.083768
+    Weighted distance: 0.528077
+    Total loss: 11.559222
+    GW/Distance ratio: 4197.786
+  GW Loss Components:
+    Raw GW loss: 110.661156
+    Raw distance loss: 0.023947
+    Weighted GW: 11.066115
+    Weighted distance: 0.478942
+    Total loss: 11.492215
+    GW/Distance ratio: 4621.063
+  GW Loss Components:
+    Raw GW loss: 123.913406
+    Raw distance loss: 0.024506
+    Weighted GW: 12.391341
+    Weighted distance: 0.490112
+    Total loss: 12.830836
+    GW/Distance ratio: 5056.535
+  GW Loss Components:
+    Raw GW loss: 114.440842
+    Raw distance loss: 0.025672
+    Weighted GW: 11.444084
+    Weighted distance: 0.513436
+    Total loss: 11.904798
+    GW/Distance ratio: 4457.837
+  GW Loss Components:
+    Raw GW loss: 113.640320
+    Raw distance loss: 0.023564
+    Weighted GW: 11.364032
+    Weighted distance: 0.471285
+    Total loss: 11.783228
+    GW/Distance ratio: 4822.576
+  GW Loss Components:
+    Raw GW loss: 102.173508
+    Raw distance loss: 0.024141
+    Weighted GW: 10.217351
+    Weighted distance: 0.482818
+    Total loss: 10.649526
+    GW/Distance ratio: 4232.381
+  GW Loss Components:
+    Raw GW loss: 134.643890
+    Raw distance loss: 0.023774
+    Weighted GW: 13.464389
+    Weighted distance: 0.475476
+    Total loss: 13.889069
+    GW/Distance ratio: 5663.535
+  GW Loss Components:
+    Raw GW loss: 122.534973
+    Raw distance loss: 0.022373
+    Weighted GW: 12.253497
+    Weighted distance: 0.447458
+    Total loss: 12.649553
+    GW/Distance ratio: 5476.935
+  GW Loss Components:
+    Raw GW loss: 109.502151
+    Raw distance loss: 0.024091
+    Weighted GW: 10.950215
+    Weighted distance: 0.481813
+    Total loss: 11.381271
+    GW/Distance ratio: 4545.421
+  GW Loss Components:
+    Raw GW loss: 112.355499
+    Raw distance loss: 0.023501
+    Weighted GW: 11.235550
+    Weighted distance: 0.470020
+    Total loss: 11.652965
+    GW/Distance ratio: 4780.879
+Batch 125/182: Loss=15.9963 (C:7.9992, R:0.0410, T:11.8946(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 107.477341
+    Raw distance loss: 0.021608
+    Weighted GW: 10.747734
+    Weighted distance: 0.432158
+    Total loss: 11.127658
+    GW/Distance ratio: 4973.982
+  GW Loss Components:
+    Raw GW loss: 110.158257
+    Raw distance loss: 0.022233
+    Weighted GW: 11.015826
+    Weighted distance: 0.444667
+    Total loss: 11.407937
+    GW/Distance ratio: 4954.634
+  GW Loss Components:
+    Raw GW loss: 127.970421
+    Raw distance loss: 0.022602
+    Weighted GW: 12.797042
+    Weighted distance: 0.452049
+    Total loss: 13.197524
+    GW/Distance ratio: 5661.790
+  GW Loss Components:
+    Raw GW loss: 100.064972
+    Raw distance loss: 0.021138
+    Weighted GW: 10.006497
+    Weighted distance: 0.422755
+    Total loss: 10.376378
+    GW/Distance ratio: 4733.949
+  GW Loss Components:
+    Raw GW loss: 105.628098
+    Raw distance loss: 0.022259
+    Weighted GW: 10.562810
+    Weighted distance: 0.445177
+    Total loss: 10.954707
+    GW/Distance ratio: 4745.441
+  GW Loss Components:
+    Raw GW loss: 116.174759
+    Raw distance loss: 0.022405
+    Weighted GW: 11.617476
+    Weighted distance: 0.448104
+    Total loss: 12.012432
+    GW/Distance ratio: 5185.162
+  GW Loss Components:
+    Raw GW loss: 98.732239
+    Raw distance loss: 0.021044
+    Weighted GW: 9.873224
+    Weighted distance: 0.420888
+    Total loss: 10.241233
+    GW/Distance ratio: 4691.615
+  GW Loss Components:
+    Raw GW loss: 108.929443
+    Raw distance loss: 0.020870
+    Weighted GW: 10.892944
+    Weighted distance: 0.417410
+    Total loss: 11.258406
+    GW/Distance ratio: 5219.305
+  GW Loss Components:
+    Raw GW loss: 100.355919
+    Raw distance loss: 0.021506
+    Weighted GW: 10.035592
+    Weighted distance: 0.430130
+    Total loss: 10.412101
+    GW/Distance ratio: 4666.305
+  GW Loss Components:
+    Raw GW loss: 100.446510
+    Raw distance loss: 0.020729
+    Weighted GW: 10.044651
+    Weighted distance: 0.414573
+    Total loss: 10.406511
+    GW/Distance ratio: 4845.779
+  GW Loss Components:
+    Raw GW loss: 97.981354
+    Raw distance loss: 0.021019
+    Weighted GW: 9.798136
+    Weighted distance: 0.420378
+    Total loss: 10.165949
+    GW/Distance ratio: 4661.582
+  GW Loss Components:
+    Raw GW loss: 127.204147
+    Raw distance loss: 0.022281
+    Weighted GW: 12.720415
+    Weighted distance: 0.445623
+    Total loss: 13.114541
+    GW/Distance ratio: 5709.044
+  GW Loss Components:
+    Raw GW loss: 104.575546
+    Raw distance loss: 0.021017
+    Weighted GW: 10.457555
+    Weighted distance: 0.420348
+    Total loss: 10.825501
+    GW/Distance ratio: 4975.661
+  GW Loss Components:
+    Raw GW loss: 102.011795
+    Raw distance loss: 0.022049
+    Weighted GW: 10.201180
+    Weighted distance: 0.440978
+    Total loss: 10.588768
+    GW/Distance ratio: 4626.616
+  GW Loss Components:
+    Raw GW loss: 110.203590
+    Raw distance loss: 0.023471
+    Weighted GW: 11.020359
+    Weighted distance: 0.469428
+    Total loss: 11.437872
+    GW/Distance ratio: 4695.226
+  GW Loss Components:
+    Raw GW loss: 104.512283
+    Raw distance loss: 0.022075
+    Weighted GW: 10.451228
+    Weighted distance: 0.441504
+    Total loss: 10.838961
+    GW/Distance ratio: 4734.372
+  GW Loss Components:
+    Raw GW loss: 93.304749
+    Raw distance loss: 0.023324
+    Weighted GW: 9.330475
+    Weighted distance: 0.466484
+    Total loss: 9.744414
+    GW/Distance ratio: 4000.341
+  GW Loss Components:
+    Raw GW loss: 109.614883
+    Raw distance loss: 0.023189
+    Weighted GW: 10.961489
+    Weighted distance: 0.463782
+    Total loss: 11.371987
+    GW/Distance ratio: 4727.003
+  GW Loss Components:
+    Raw GW loss: 90.514778
+    Raw distance loss: 0.024163
+    Weighted GW: 9.051478
+    Weighted distance: 0.483267
+    Total loss: 9.480199
+    GW/Distance ratio: 3745.953
+  GW Loss Components:
+    Raw GW loss: 119.220581
+    Raw distance loss: 0.024298
+    Weighted GW: 11.922058
+    Weighted distance: 0.485951
+    Total loss: 12.357303
+    GW/Distance ratio: 4906.694
+  GW Loss Components:
+    Raw GW loss: 112.015060
+    Raw distance loss: 0.025755
+    Weighted GW: 11.201507
+    Weighted distance: 0.515109
+    Total loss: 11.663812
+    GW/Distance ratio: 4349.174
+  GW Loss Components:
+    Raw GW loss: 105.180786
+    Raw distance loss: 0.026110
+    Weighted GW: 10.518079
+    Weighted distance: 0.522197
+    Total loss: 10.986806
+    GW/Distance ratio: 4028.391
+  GW Loss Components:
+    Raw GW loss: 109.865395
+    Raw distance loss: 0.026776
+    Weighted GW: 10.986540
+    Weighted distance: 0.535514
+    Total loss: 11.470244
+    GW/Distance ratio: 4103.176
+  GW Loss Components:
+    Raw GW loss: 128.408844
+    Raw distance loss: 0.026756
+    Weighted GW: 12.840884
+    Weighted distance: 0.535121
+    Total loss: 13.324635
+    GW/Distance ratio: 4799.244
+  GW Loss Components:
+    Raw GW loss: 91.549324
+    Raw distance loss: 0.024863
+    Weighted GW: 9.154933
+    Weighted distance: 0.497268
+    Total loss: 9.598551
+    GW/Distance ratio: 3682.087
+  GW Loss Components:
+    Raw GW loss: 105.163170
+    Raw distance loss: 0.027016
+    Weighted GW: 10.516317
+    Weighted distance: 0.540325
+    Total loss: 11.002998
+    GW/Distance ratio: 3892.586
+  GW Loss Components:
+    Raw GW loss: 115.721153
+    Raw distance loss: 0.026930
+    Weighted GW: 11.572116
+    Weighted distance: 0.538606
+    Total loss: 12.056923
+    GW/Distance ratio: 4297.058
+  GW Loss Components:
+    Raw GW loss: 113.879578
+    Raw distance loss: 0.024577
+    Weighted GW: 11.387958
+    Weighted distance: 0.491545
+    Total loss: 11.826496
+    GW/Distance ratio: 4633.533
+  GW Loss Components:
+    Raw GW loss: 104.872688
+    Raw distance loss: 0.024855
+    Weighted GW: 10.487269
+    Weighted distance: 0.497101
+    Total loss: 10.931291
+    GW/Distance ratio: 4219.370
+  GW Loss Components:
+    Raw GW loss: 115.016068
+    Raw distance loss: 0.024711
+    Weighted GW: 11.501607
+    Weighted distance: 0.494225
+    Total loss: 11.943385
+    GW/Distance ratio: 4654.395
+  GW Loss Components:
+    Raw GW loss: 93.929123
+    Raw distance loss: 0.022484
+    Weighted GW: 9.392913
+    Weighted distance: 0.449682
+    Total loss: 9.789598
+    GW/Distance ratio: 4177.579
+  GW Loss Components:
+    Raw GW loss: 98.452774
+    Raw distance loss: 0.024383
+    Weighted GW: 9.845278
+    Weighted distance: 0.487658
+    Total loss: 10.279325
+    GW/Distance ratio: 4037.781
+  GW Loss Components:
+    Raw GW loss: 112.116951
+    Raw distance loss: 0.023531
+    Weighted GW: 11.211696
+    Weighted distance: 0.470619
+    Total loss: 11.629603
+    GW/Distance ratio: 4764.656
+  GW Loss Components:
+    Raw GW loss: 95.036682
+    Raw distance loss: 0.021284
+    Weighted GW: 9.503669
+    Weighted distance: 0.425672
+    Total loss: 9.875906
+    GW/Distance ratio: 4465.254
+  GW Loss Components:
+    Raw GW loss: 123.974991
+    Raw distance loss: 0.021047
+    Weighted GW: 12.397499
+    Weighted distance: 0.420944
+    Total loss: 12.767392
+    GW/Distance ratio: 5890.331
+  GW Loss Components:
+    Raw GW loss: 112.242630
+    Raw distance loss: 0.021165
+    Weighted GW: 11.224263
+    Weighted distance: 0.423304
+    Total loss: 11.594935
+    GW/Distance ratio: 5303.165
+  GW Loss Components:
+    Raw GW loss: 101.850098
+    Raw distance loss: 0.019468
+    Weighted GW: 10.185010
+    Weighted distance: 0.389354
+    Total loss: 10.520941
+    GW/Distance ratio: 5231.743
+  GW Loss Components:
+    Raw GW loss: 112.080246
+    Raw distance loss: 0.020689
+    Weighted GW: 11.208025
+    Weighted distance: 0.413779
+    Total loss: 11.569424
+    GW/Distance ratio: 5417.398
+  GW Loss Components:
+    Raw GW loss: 109.494453
+    Raw distance loss: 0.019632
+    Weighted GW: 10.949446
+    Weighted distance: 0.392648
+    Total loss: 11.289042
+    GW/Distance ratio: 5577.224
+  GW Loss Components:
+    Raw GW loss: 98.822037
+    Raw distance loss: 0.018494
+    Weighted GW: 9.882204
+    Weighted distance: 0.369885
+    Total loss: 10.198145
+    GW/Distance ratio: 5343.394
+  GW Loss Components:
+    Raw GW loss: 94.916138
+    Raw distance loss: 0.018635
+    Weighted GW: 9.491614
+    Weighted distance: 0.372695
+    Total loss: 9.811500
+    GW/Distance ratio: 5093.500
+  GW Loss Components:
+    Raw GW loss: 125.043129
+    Raw distance loss: 0.017854
+    Weighted GW: 12.504313
+    Weighted distance: 0.357079
+    Total loss: 12.808578
+    GW/Distance ratio: 7003.671
+  GW Loss Components:
+    Raw GW loss: 90.247971
+    Raw distance loss: 0.017462
+    Weighted GW: 9.024797
+    Weighted distance: 0.349246
+    Total loss: 9.320250
+    GW/Distance ratio: 5168.161
+  GW Loss Components:
+    Raw GW loss: 88.701347
+    Raw distance loss: 0.018587
+    Weighted GW: 8.870135
+    Weighted distance: 0.371748
+    Total loss: 9.188325
+    GW/Distance ratio: 4772.121
+  GW Loss Components:
+    Raw GW loss: 88.912712
+    Raw distance loss: 0.018475
+    Weighted GW: 8.891272
+    Weighted distance: 0.369510
+    Total loss: 9.206572
+    GW/Distance ratio: 4812.464
+  GW Loss Components:
+    Raw GW loss: 108.640114
+    Raw distance loss: 0.017437
+    Weighted GW: 10.864012
+    Weighted distance: 0.348750
+    Total loss: 11.162186
+    GW/Distance ratio: 6230.255
+  GW Loss Components:
+    Raw GW loss: 103.435410
+    Raw distance loss: 0.018199
+    Weighted GW: 10.343541
+    Weighted distance: 0.363986
+    Total loss: 10.654962
+    GW/Distance ratio: 5683.474
+  GW Loss Components:
+    Raw GW loss: 105.566513
+    Raw distance loss: 0.018201
+    Weighted GW: 10.556651
+    Weighted distance: 0.364022
+    Total loss: 10.867970
+    GW/Distance ratio: 5800.000
+  GW Loss Components:
+    Raw GW loss: 103.413887
+    Raw distance loss: 0.017617
+    Weighted GW: 10.341389
+    Weighted distance: 0.352345
+    Total loss: 10.641019
+    GW/Distance ratio: 5870.028
+  GW Loss Components:
+    Raw GW loss: 90.319519
+    Raw distance loss: 0.017951
+    Weighted GW: 9.031952
+    Weighted distance: 0.359022
+    Total loss: 9.337759
+    GW/Distance ratio: 5031.417
+  GW Loss Components:
+    Raw GW loss: 107.722588
+    Raw distance loss: 0.017515
+    Weighted GW: 10.772259
+    Weighted distance: 0.350293
+    Total loss: 11.068155
+    GW/Distance ratio: 6150.424
+  GW Loss Components:
+    Raw GW loss: 104.714272
+    Raw distance loss: 0.017224
+    Weighted GW: 10.471427
+    Weighted distance: 0.344483
+    Total loss: 10.761847
+    GW/Distance ratio: 6079.491
+  GW Loss Components:
+    Raw GW loss: 97.177597
+    Raw distance loss: 0.018824
+    Weighted GW: 9.717760
+    Weighted distance: 0.376478
+    Total loss: 10.040772
+    GW/Distance ratio: 5162.462
+  GW Loss Components:
+    Raw GW loss: 112.978065
+    Raw distance loss: 0.018360
+    Weighted GW: 11.297807
+    Weighted distance: 0.367198
+    Total loss: 11.610247
+    GW/Distance ratio: 6153.522
+  GW Loss Components:
+    Raw GW loss: 100.408272
+    Raw distance loss: 0.017839
+    Weighted GW: 10.040828
+    Weighted distance: 0.356775
+    Total loss: 10.344180
+    GW/Distance ratio: 5628.658
+  GW Loss Components:
+    Raw GW loss: 86.318535
+    Raw distance loss: 0.018594
+    Weighted GW: 8.631854
+    Weighted distance: 0.371888
+    Total loss: 8.950516
+    GW/Distance ratio: 4642.174
+  GW Loss Components:
+    Raw GW loss: 122.144073
+    Raw distance loss: 0.018586
+    Weighted GW: 12.214408
+    Weighted distance: 0.371715
+    Total loss: 12.533474
+    GW/Distance ratio: 6571.909
+  GW Loss Components:
+    Raw GW loss: 97.761459
+    Raw distance loss: 0.018158
+    Weighted GW: 9.776146
+    Weighted distance: 0.363168
+    Total loss: 10.084298
+    GW/Distance ratio: 5383.808
+  GW Loss Components:
+    Raw GW loss: 98.853897
+    Raw distance loss: 0.018708
+    Weighted GW: 9.885390
+    Weighted distance: 0.374157
+    Total loss: 10.206076
+    GW/Distance ratio: 5284.080
+  GW Loss Components:
+    Raw GW loss: 115.847687
+    Raw distance loss: 0.019510
+    Weighted GW: 11.584769
+    Weighted distance: 0.390200
+    Total loss: 11.922703
+    GW/Distance ratio: 5937.854
+  GW Loss Components:
+    Raw GW loss: 120.883842
+    Raw distance loss: 0.019387
+    Weighted GW: 12.088385
+    Weighted distance: 0.387745
+    Total loss: 12.425750
+    GW/Distance ratio: 6235.225
+  GW Loss Components:
+    Raw GW loss: 94.367180
+    Raw distance loss: 0.018909
+    Weighted GW: 9.436718
+    Weighted distance: 0.378183
+    Total loss: 9.761165
+    GW/Distance ratio: 4990.553
+  GW Loss Components:
+    Raw GW loss: 125.804428
+    Raw distance loss: 0.019217
+    Weighted GW: 12.580443
+    Weighted distance: 0.384344
+    Total loss: 12.912704
+    GW/Distance ratio: 6546.451
+  GW Loss Components:
+    Raw GW loss: 101.272842
+    Raw distance loss: 0.019507
+    Weighted GW: 10.127284
+    Weighted distance: 0.390133
+    Total loss: 10.464213
+    GW/Distance ratio: 5191.704
+  GW Loss Components:
+    Raw GW loss: 97.942848
+    Raw distance loss: 0.019657
+    Weighted GW: 9.794285
+    Weighted distance: 0.393144
+    Total loss: 10.135171
+    GW/Distance ratio: 4982.546
+  GW Loss Components:
+    Raw GW loss: 95.536705
+    Raw distance loss: 0.019874
+    Weighted GW: 9.553671
+    Weighted distance: 0.397482
+    Total loss: 9.896633
+    GW/Distance ratio: 4807.091
+  GW Loss Components:
+    Raw GW loss: 90.554413
+    Raw distance loss: 0.019289
+    Weighted GW: 9.055442
+    Weighted distance: 0.385771
+    Total loss: 9.387726
+    GW/Distance ratio: 4694.724
+  GW Loss Components:
+    Raw GW loss: 105.621185
+    Raw distance loss: 0.020272
+    Weighted GW: 10.562119
+    Weighted distance: 0.405447
+    Total loss: 10.914270
+    GW/Distance ratio: 5210.104
+  GW Loss Components:
+    Raw GW loss: 98.527145
+    Raw distance loss: 0.020591
+    Weighted GW: 9.852715
+    Weighted distance: 0.411816
+    Total loss: 10.211164
+    GW/Distance ratio: 4785.005
+  GW Loss Components:
+    Raw GW loss: 99.412506
+    Raw distance loss: 0.020679
+    Weighted GW: 9.941251
+    Weighted distance: 0.413583
+    Total loss: 10.301635
+    GW/Distance ratio: 4807.373
+  GW Loss Components:
+    Raw GW loss: 103.414070
+    Raw distance loss: 0.020724
+    Weighted GW: 10.341407
+    Weighted distance: 0.414485
+    Total loss: 10.703269
+    GW/Distance ratio: 4990.005
+  GW Loss Components:
+    Raw GW loss: 89.713997
+    Raw distance loss: 0.021096
+    Weighted GW: 8.971400
+    Weighted distance: 0.421913
+    Total loss: 9.340587
+    GW/Distance ratio: 4252.718
+  GW Loss Components:
+    Raw GW loss: 119.175018
+    Raw distance loss: 0.020759
+    Weighted GW: 11.917502
+    Weighted distance: 0.415178
+    Total loss: 12.282427
+    GW/Distance ratio: 5740.907
+  GW Loss Components:
+    Raw GW loss: 84.017593
+    Raw distance loss: 0.020070
+    Weighted GW: 8.401759
+    Weighted distance: 0.401401
+    Total loss: 8.749722
+    GW/Distance ratio: 4186.211
+  GW Loss Components:
+    Raw GW loss: 119.378067
+    Raw distance loss: 0.019488
+    Weighted GW: 11.937807
+    Weighted distance: 0.389757
+    Total loss: 12.275705
+    GW/Distance ratio: 6125.772
+Batch 150/182: Loss=14.9211 (C:7.9999, R:0.0382, T:11.1026(w:1.000)⚠️)
+  GW Loss Components:
+    Raw GW loss: 86.833801
+    Raw distance loss: 0.019280
+    Weighted GW: 8.683380
+    Weighted distance: 0.385601
+    Total loss: 9.014782
+    GW/Distance ratio: 4503.814
+  GW Loss Components:
+    Raw GW loss: 92.486313
+    Raw distance loss: 0.019621
+    Weighted GW: 9.248631
+    Weighted distance: 0.392423
+    Total loss: 9.587855
+    GW/Distance ratio: 4713.596
+  GW Loss Components:
+    Raw GW loss: 121.751717
+    Raw distance loss: 0.019968
+    Weighted GW: 12.175172
+    Weighted distance: 0.399350
+    Total loss: 12.524490
+    GW/Distance ratio: 6097.486
+  GW Loss Components:
+    Raw GW loss: 101.487259
+    Raw distance loss: 0.019268
+    Weighted GW: 10.148726
+    Weighted distance: 0.385357
+    Total loss: 10.481619
+    GW/Distance ratio: 5267.174
+  GW Loss Components:
+    Raw GW loss: 111.706940
+    Raw distance loss: 0.020511
+    Weighted GW: 11.170694
+    Weighted distance: 0.410214
+    Total loss: 11.528643
+    GW/Distance ratio: 5446.272
+  GW Loss Components:
+    Raw GW loss: 96.397751
+    Raw distance loss: 0.019374
+    Weighted GW: 9.639775
+    Weighted distance: 0.387477
+    Total loss: 9.973770
+    GW/Distance ratio: 4975.667
+  GW Loss Components:
+    Raw GW loss: 96.959015
+    Raw distance loss: 0.020072
+    Weighted GW: 9.695902
+    Weighted distance: 0.401446
+    Total loss: 10.044387
+    GW/Distance ratio: 4830.486
+  GW Loss Components:
+    Raw GW loss: 94.144012
+    Raw distance loss: 0.019276
+    Weighted GW: 9.414401
+    Weighted distance: 0.385510
+    Total loss: 9.746885
+    GW/Distance ratio: 4884.125
+  GW Loss Components:
+    Raw GW loss: 111.624390
+    Raw distance loss: 0.018993
+    Weighted GW: 11.162439
+    Weighted distance: 0.379870
+    Total loss: 11.488908
+    GW/Distance ratio: 5876.982
+  GW Loss Components:
+    Raw GW loss: 93.570465
+    Raw distance loss: 0.019015
+    Weighted GW: 9.357047
+    Weighted distance: 0.380297
+    Total loss: 9.683610
+    GW/Distance ratio: 4920.913
+  GW Loss Components:
+    Raw GW loss: 99.147736
+    Raw distance loss: 0.018900
+    Weighted GW: 9.914774
+    Weighted distance: 0.377995
+    Total loss: 10.239112
+    GW/Distance ratio: 5245.980
+  GW Loss Components:
+    Raw GW loss: 122.300095
+    Raw distance loss: 0.018918
+    Weighted GW: 12.230010
+    Weighted distance: 0.378361
+    Total loss: 12.554655
+    GW/Distance ratio: 6464.730
+  GW Loss Components:
+    Raw GW loss: 90.138962
+    Raw distance loss: 0.018745
+    Weighted GW: 9.013896
+    Weighted distance: 0.374893
+    Total loss: 9.335305
+    GW/Distance ratio: 4808.783
+  GW Loss Components:
+    Raw GW loss: 104.129318
+    Raw distance loss: 0.019489
+    Weighted GW: 10.412932
+    Weighted distance: 0.389779
+    Total loss: 10.750190
+    GW/Distance ratio: 5342.990
+  GW Loss Components:
+    Raw GW loss: 101.754181
+    Raw distance loss: 0.019290
+    Weighted GW: 10.175418
+    Weighted distance: 0.385791
+    Total loss: 10.507869
+    GW/Distance ratio: 5275.085
+  GW Loss Components:
+    Raw GW loss: 99.231750
+    Raw distance loss: 0.018323
+    Weighted GW: 9.923175
+    Weighted distance: 0.366454
+    Total loss: 10.236382
+    GW/Distance ratio: 5415.777
+  GW Loss Components:
+    Raw GW loss: 83.982834
+    Raw distance loss: 0.018592
+    Weighted GW: 8.398284
+    Weighted distance: 0.371841
+    Total loss: 8.715760
+    GW/Distance ratio: 4517.132
+  GW Loss Components:
+    Raw GW loss: 98.692780
+    Raw distance loss: 0.018487
+    Weighted GW: 9.869278
+    Weighted distance: 0.369738
+    Total loss: 10.185160
+    GW/Distance ratio: 5338.519
+  GW Loss Components:
+    Raw GW loss: 96.807663
+    Raw distance loss: 0.016843
+    Weighted GW: 9.680766
+    Weighted distance: 0.336860
+    Total loss: 9.963121
+    GW/Distance ratio: 5747.655
+  GW Loss Components:
+    Raw GW loss: 83.773689
+    Raw distance loss: 0.017700
+    Weighted GW: 8.377369
+    Weighted distance: 0.353997
+    Total loss: 8.676951
+    GW/Distance ratio: 4733.014
+  GW Loss Components:
+    Raw GW loss: 105.917976
+    Raw distance loss: 0.018073
+    Weighted GW: 10.591798
+    Weighted distance: 0.361469
+    Total loss: 10.898953
+    GW/Distance ratio: 5860.418
+  GW Loss Components:
+    Raw GW loss: 88.212830
+    Raw distance loss: 0.017294
+    Weighted GW: 8.821283
+    Weighted distance: 0.345880
+    Total loss: 9.113025
+    GW/Distance ratio: 5100.770
+  GW Loss Components:
+    Raw GW loss: 90.734665
+    Raw distance loss: 0.017187
+    Weighted GW: 9.073466
+    Weighted distance: 0.343740
+    Total loss: 9.363033
+    GW/Distance ratio: 5279.256
+  GW Loss Components:
+    Raw GW loss: 108.427979
+    Raw distance loss: 0.016894
+    Weighted GW: 10.842798
+    Weighted distance: 0.337889
+    Total loss: 11.126726
+    GW/Distance ratio: 6417.960
+  GW Loss Components:
+    Raw GW loss: 93.773094
+    Raw distance loss: 0.017406
+    Weighted GW: 9.377310
+    Weighted distance: 0.348123
+    Total loss: 9.672327
+    GW/Distance ratio: 5387.355
+  GW Loss Components:
+    Raw GW loss: 89.275490
+    Raw distance loss: 0.018104
+    Weighted GW: 8.927549
+    Weighted distance: 0.362086
+    Total loss: 9.235494
+    GW/Distance ratio: 4931.177
+  GW Loss Components:
+    Raw GW loss: 108.139175
+    Raw distance loss: 0.016947
+    Weighted GW: 10.813918
+    Weighted distance: 0.338937
+    Total loss: 11.100183
+    GW/Distance ratio: 6381.077
+  GW Loss Components:
+    Raw GW loss: 80.040054
+    Raw distance loss: 0.016245
+    Weighted GW: 8.004005
+    Weighted distance: 0.324904
+    Total loss: 8.274391
+    GW/Distance ratio: 4927.001
+  GW Loss Components:
+    Raw GW loss: 80.504028
+    Raw distance loss: 0.016931
+    Weighted GW: 8.050403
+    Weighted distance: 0.338619
+    Total loss: 8.334914
+    GW/Distance ratio: 4754.839
+  GW Loss Components:
+    Raw GW loss: 112.837753
+    Raw distance loss: 0.017981
+    Weighted GW: 11.283775
+    Weighted distance: 0.359625
+    Total loss: 11.589761
+    GW/Distance ratio: 6275.299
+  GW Loss Components:
+    Raw GW loss: 90.088165
+    Raw distance loss: 0.016553
+    Weighted GW: 9.008817
+    Weighted distance: 0.331068
+    Total loss: 9.285283
+    GW/Distance ratio: 5442.277
+  GW Loss Components:
+    Raw GW loss: 109.866997
+    Raw distance loss: 0.016910
+    Weighted GW: 10.986700
+    Weighted distance: 0.338198
+    Total loss: 11.272136
+    GW/Distance ratio: 6497.197
+  GW Loss Components:
+    Raw GW loss: 78.281593
+    Raw distance loss: 0.017141
+    Weighted GW: 7.828159
+    Weighted distance: 0.342824
+    Total loss: 8.115815
+    GW/Distance ratio: 4566.860
+  GW Loss Components:
+    Raw GW loss: 97.498718
+    Raw distance loss: 0.017299
+    Weighted GW: 9.749872
+    Weighted distance: 0.345981
+    Total loss: 10.043760
+    GW/Distance ratio: 5636.069
+  GW Loss Components:
+    Raw GW loss: 98.738876
+    Raw distance loss: 0.017691
+    Weighted GW: 9.873888
+    Weighted distance: 0.353816
+    Total loss: 10.174018
+    GW/Distance ratio: 5581.371
+  GW Loss Components:
+    Raw GW loss: 111.611099
+    Raw distance loss: 0.017455
+    Weighted GW: 11.161110
+    Weighted distance: 0.349093
+    Total loss: 11.456428
+    GW/Distance ratio: 6394.336
+  GW Loss Components:
+    Raw GW loss: 98.134964
+    Raw distance loss: 0.017496
+    Weighted GW: 9.813497
+    Weighted distance: 0.349911
+    Total loss: 10.109480
+    GW/Distance ratio: 5609.141
+  GW Loss Components:
+    Raw GW loss: 86.114326
+    Raw distance loss: 0.017277
+    Weighted GW: 8.611433
+    Weighted distance: 0.345531
+    Total loss: 8.903099
+    GW/Distance ratio: 4984.462
+  GW Loss Components:
+    Raw GW loss: 98.548515
+    Raw distance loss: 0.017431
+    Weighted GW: 9.854852
+    Weighted distance: 0.348627
+    Total loss: 10.148694
+    GW/Distance ratio: 5653.519
+  GW Loss Components:
+    Raw GW loss: 89.273239
+    Raw distance loss: 0.018091
+    Weighted GW: 8.927324
+    Weighted distance: 0.361816
+    Total loss: 9.233969
+    GW/Distance ratio: 4934.723
+  GW Loss Components:
+    Raw GW loss: 81.918320
+    Raw distance loss: 0.017207
+    Weighted GW: 8.191833
+    Weighted distance: 0.344146
+    Total loss: 8.482101
+    GW/Distance ratio: 4760.674
+  GW Loss Components:
+    Raw GW loss: 111.252853
+    Raw distance loss: 0.017729
+    Weighted GW: 11.125285
+    Weighted distance: 0.354586
+    Total loss: 11.426137
+    GW/Distance ratio: 6275.076
+  GW Loss Components:
+    Raw GW loss: 88.531479
+    Raw distance loss: 0.016419
+    Weighted GW: 8.853148
+    Weighted distance: 0.328387
+    Total loss: 9.127556
+    GW/Distance ratio: 5391.888
+  GW Loss Components:
+    Raw GW loss: 94.936859
+    Raw distance loss: 0.016415
+    Weighted GW: 9.493686
+    Weighted distance: 0.328307
+    Total loss: 9.768799
+    GW/Distance ratio: 5783.415
+  GW Loss Components:
+    Raw GW loss: 108.007324
+    Raw distance loss: 0.016985
+    Weighted GW: 10.800733
+    Weighted distance: 0.339707
+    Total loss: 11.087860
+    GW/Distance ratio: 6358.849
+  GW Loss Components:
+    Raw GW loss: 83.468155
+    Raw distance loss: 0.016867
+    Weighted GW: 8.346816
+    Weighted distance: 0.337345
+    Total loss: 8.630323
+    GW/Distance ratio: 4948.534
+  GW Loss Components:
+    Raw GW loss: 90.775757
+    Raw distance loss: 0.016376
+    Weighted GW: 9.077576
+    Weighted distance: 0.327517
+    Total loss: 9.350023
+    GW/Distance ratio: 5543.272
+  GW Loss Components:
+    Raw GW loss: 107.583023
+    Raw distance loss: 0.016569
+    Weighted GW: 10.758303
+    Weighted distance: 0.331383
+    Total loss: 11.035196
+    GW/Distance ratio: 6492.969
+  GW Loss Components:
+    Raw GW loss: 91.226074
+    Raw distance loss: 0.016448
+    Weighted GW: 9.122607
+    Weighted distance: 0.328960
+    Total loss: 9.397775
+    GW/Distance ratio: 5546.335
+  GW Loss Components:
+    Raw GW loss: 74.799515
+    Raw distance loss: 0.016548
+    Weighted GW: 7.479951
+    Weighted distance: 0.330955
+    Total loss: 7.756831
+    GW/Distance ratio: 4520.216
+  GW Loss Components:
+    Raw GW loss: 95.959152
+    Raw distance loss: 0.016722
+    Weighted GW: 9.595916
+    Weighted distance: 0.334442
+    Total loss: 9.877091
+    GW/Distance ratio: 5738.465
+  GW Loss Components:
+    Raw GW loss: 111.438431
+    Raw distance loss: 0.016053
+    Weighted GW: 11.143844
+    Weighted distance: 0.321055
+    Total loss: 11.412825
+    GW/Distance ratio: 6942.015
+  GW Loss Components:
+    Raw GW loss: 100.465652
+    Raw distance loss: 0.016319
+    Weighted GW: 10.046565
+    Weighted distance: 0.326375
+    Total loss: 10.320719
+    GW/Distance ratio: 6156.443
+  GW Loss Components:
+    Raw GW loss: 85.316788
+    Raw distance loss: 0.016919
+    Weighted GW: 8.531679
+    Weighted distance: 0.338379
+    Total loss: 8.815003
+    GW/Distance ratio: 5042.673
+  GW Loss Components:
+    Raw GW loss: 83.875565
+    Raw distance loss: 0.016151
+    Weighted GW: 8.387557
+    Weighted distance: 0.323020
+    Total loss: 8.654788
+    GW/Distance ratio: 5193.212
+  GW Loss Components:
+    Raw GW loss: 74.180664
+    Raw distance loss: 0.015757
+    Weighted GW: 7.418067
+    Weighted distance: 0.315138
+    Total loss: 7.678064
+    GW/Distance ratio: 4707.813
+  GW Loss Components:
+    Raw GW loss: 101.837128
+    Raw distance loss: 0.016400
+    Weighted GW: 10.183713
+    Weighted distance: 0.328001
+    Total loss: 10.457561
+    GW/Distance ratio: 6209.565
+  GW Loss Components:
+    Raw GW loss: 83.837936
+    Raw distance loss: 0.014680
+    Weighted GW: 8.383794
+    Weighted distance: 0.293602
+    Total loss: 8.622966
+    GW/Distance ratio: 5710.980
+  GW Loss Components:
+    Raw GW loss: 98.633751
+    Raw distance loss: 0.015548
+    Weighted GW: 9.863376
+    Weighted distance: 0.310967
+    Total loss: 10.120708
+    GW/Distance ratio: 6343.685
+  GW Loss Components:
+    Raw GW loss: 105.262962
+    Raw distance loss: 0.015806
+    Weighted GW: 10.526297
+    Weighted distance: 0.316126
+    Total loss: 10.787713
+    GW/Distance ratio: 6659.548
+  GW Loss Components:
+    Raw GW loss: 106.418030
+    Raw distance loss: 0.016066
+    Weighted GW: 10.641803
+    Weighted distance: 0.321321
+    Total loss: 10.908601
+    GW/Distance ratio: 6623.782
+  GW Loss Components:
+    Raw GW loss: 94.077957
+    Raw distance loss: 0.015988
+    Weighted GW: 9.407796
+    Weighted distance: 0.319761
+    Total loss: 9.673594
+    GW/Distance ratio: 5884.269
+  GW Loss Components:
+    Raw GW loss: 96.454895
+    Raw distance loss: 0.016389
+    Weighted GW: 9.645490
+    Weighted distance: 0.327785
+    Total loss: 9.919094
+    GW/Distance ratio: 5885.251
+  GW Loss Components:
+    Raw GW loss: 84.708435
+    Raw distance loss: 0.016049
+    Weighted GW: 8.470843
+    Weighted distance: 0.320987
+    Total loss: 8.737530
+    GW/Distance ratio: 5277.999
+  GW Loss Components:
+    Raw GW loss: 89.713425
+    Raw distance loss: 0.017062
+    Weighted GW: 8.971343
+    Weighted distance: 0.341231
+    Total loss: 9.257858
+    GW/Distance ratio: 5258.218
+  GW Loss Components:
+    Raw GW loss: 103.236496
+    Raw distance loss: 0.016797
+    Weighted GW: 10.323649
+    Weighted distance: 0.335948
+    Total loss: 10.605983
+    GW/Distance ratio: 6145.981
+  GW Loss Components:
+    Raw GW loss: 77.430656
+    Raw distance loss: 0.016101
+    Weighted GW: 7.743066
+    Weighted distance: 0.322016
+    Total loss: 8.010552
+    GW/Distance ratio: 4809.109
+  GW Loss Components:
+    Raw GW loss: 75.932297
+    Raw distance loss: 0.016464
+    Weighted GW: 7.593230
+    Weighted distance: 0.329288
+    Total loss: 7.868552
+    GW/Distance ratio: 4611.903
+  GW Loss Components:
+    Raw GW loss: 93.846222
+    Raw distance loss: 0.016573
+    Weighted GW: 9.384623
+    Weighted distance: 0.331462
+    Total loss: 9.661614
+    GW/Distance ratio: 5662.567
+  GW Loss Components:
+    Raw GW loss: 90.399231
+    Raw distance loss: 0.016285
+    Weighted GW: 9.039924
+    Weighted distance: 0.325705
+    Total loss: 9.311829
+    GW/Distance ratio: 5550.977
+  GW Loss Components:
+    Raw GW loss: 77.420441
+    Raw distance loss: 0.016401
+    Weighted GW: 7.742044
+    Weighted distance: 0.328026
+    Total loss: 8.015597
+    GW/Distance ratio: 4720.377
+  GW Loss Components:
+    Raw GW loss: 91.128532
+    Raw distance loss: 0.016613
+    Weighted GW: 9.112853
+    Weighted distance: 0.332266
+    Total loss: 9.389713
+    GW/Distance ratio: 5485.277
+  GW Loss Components:
+    Raw GW loss: 90.828964
+    Raw distance loss: 0.016045
+    Weighted GW: 9.082896
+    Weighted distance: 0.320897
+    Total loss: 9.350768
+    GW/Distance ratio: 5660.943
+  GW Loss Components:
+    Raw GW loss: 75.404984
+    Raw distance loss: 0.016865
+    Weighted GW: 7.540498
+    Weighted distance: 0.337298
+    Total loss: 7.822797
+    GW/Distance ratio: 4471.117
+  GW Loss Components:
+    Raw GW loss: 94.133949
+    Raw distance loss: 0.016740
+    Weighted GW: 9.413395
+    Weighted distance: 0.334806
+    Total loss: 9.693970
+    GW/Distance ratio: 5623.187
+Batch 175/182: Loss=12.4282 (C:7.9993, R:0.0347, T:8.9558(w:1.000)🚀)
+  GW Loss Components:
+    Raw GW loss: 90.440331
+    Raw distance loss: 0.015716
+    Weighted GW: 9.044033
+    Weighted distance: 0.314317
+    Total loss: 9.304319
+    GW/Distance ratio: 5754.714
+  GW Loss Components:
+    Raw GW loss: 58.803650
+    Raw distance loss: 0.016586
+    Weighted GW: 5.880365
+    Weighted distance: 0.331717
+    Total loss: 6.156566
+    GW/Distance ratio: 3545.406
+  GW Loss Components:
+    Raw GW loss: 86.142014
+    Raw distance loss: 0.016425
+    Weighted GW: 8.614202
+    Weighted distance: 0.328508
+    Total loss: 8.888372
+    GW/Distance ratio: 5244.443
+  GW Loss Components:
+    Raw GW loss: 88.418243
+    Raw distance loss: 0.015180
+    Weighted GW: 8.841825
+    Weighted distance: 0.303601
+    Total loss: 9.090412
+    GW/Distance ratio: 5824.633
+  GW Loss Components:
+    Raw GW loss: 111.168694
+    Raw distance loss: 0.015242
+    Weighted GW: 11.116870
+    Weighted distance: 0.304847
+    Total loss: 11.368767
+    GW/Distance ratio: 7293.412
+  GW Loss Components:
+    Raw GW loss: 99.329941
+    Raw distance loss: 0.015744
+    Weighted GW: 9.932994
+    Weighted distance: 0.314875
+    Total loss: 10.195022
+    GW/Distance ratio: 6309.159
+  GW Loss Components:
+    Raw GW loss: 96.426498
+    Raw distance loss: 0.013985
+    Weighted GW: 9.642650
+    Weighted distance: 0.279705
+    Total loss: 9.869464
+    GW/Distance ratio: 6894.865
+  GW Loss Components:
+    Raw GW loss: 67.888832
+    Raw distance loss: 0.013961
+    Weighted GW: 6.788883
+    Weighted distance: 0.279226
+    Total loss: 7.012890
+    GW/Distance ratio: 4862.648
+  GW Loss Components:
+    Raw GW loss: 98.117203
+    Raw distance loss: 0.014751
+    Weighted GW: 9.811721
+    Weighted distance: 0.295022
+    Total loss: 10.051753
+    GW/Distance ratio: 6651.517
+  GW Loss Components:
+    Raw GW loss: 96.602463
+    Raw distance loss: 0.013227
+    Weighted GW: 9.660247
+    Weighted distance: 0.264546
+    Total loss: 9.870275
+    GW/Distance ratio: 7303.251
+  GW Loss Components:
+    Raw GW loss: 77.061928
+    Raw distance loss: 0.013044
+    Weighted GW: 7.706193
+    Weighted distance: 0.260871
+    Total loss: 7.911852
+    GW/Distance ratio: 5908.055
+  GW Loss Components:
+    Raw GW loss: 88.533600
+    Raw distance loss: 0.013193
+    Weighted GW: 8.853360
+    Weighted distance: 0.263867
+    Total loss: 9.062952
+    GW/Distance ratio: 6710.468
+  GW Loss Components:
+    Raw GW loss: 85.925186
+    Raw distance loss: 0.012353
+    Weighted GW: 8.592519
+    Weighted distance: 0.247054
+    Total loss: 8.785619
+    GW/Distance ratio: 6955.984
+  GW Loss Components:
+    Raw GW loss: 73.106125
+    Raw distance loss: 0.013091
+    Weighted GW: 7.310613
+    Weighted distance: 0.261830
+    Total loss: 7.517612
+    GW/Distance ratio: 5584.249
+  GW Loss Components:
+    Raw GW loss: 87.980339
+    Raw distance loss: 0.012926
+    Weighted GW: 8.798034
+    Weighted distance: 0.258526
+    Total loss: 9.002073
+    GW/Distance ratio: 6806.298
+  GW Loss Components:
+    Raw GW loss: 75.985252
+    Raw distance loss: 0.013039
+    Weighted GW: 7.598526
+    Weighted distance: 0.260785
+    Total loss: 7.803867
+    GW/Distance ratio: 5827.412
+  GW Loss Components:
+    Raw GW loss: 78.298386
+    Raw distance loss: 0.012598
+    Weighted GW: 7.829839
+    Weighted distance: 0.251964
+    Total loss: 8.026858
+    GW/Distance ratio: 6215.031
+  GW Loss Components:
+    Raw GW loss: 83.791763
+    Raw distance loss: 0.012403
+    Weighted GW: 8.379176
+    Weighted distance: 0.248054
+    Total loss: 8.572598
+    GW/Distance ratio: 6755.919
+🎉 MILESTONE: First topological learning detected at epoch 1!
+   Initial topological loss: 13.1965
+📈 New best topological loss: 13.1965
+
+📊 EPOCH 1 TRAINING SUMMARY:
+  Total Loss: 18.7382
+  Contrastive: 7.9995
+  Reconstruction: 0.0554
+  Topological: 13.1965 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+  GW Loss Components:
+    Raw GW loss: 244.381638
+    Raw distance loss: 0.711277
+    Weighted GW: 24.438164
+    Weighted distance: 14.225535
+    Total loss: 38.653931
+    GW/Distance ratio: 343.582
+  GW Loss Components:
+    Raw GW loss: 272.841980
+    Raw distance loss: 0.728785
+    Weighted GW: 27.284199
+    Weighted distance: 14.575708
+    Total loss: 41.850533
+    GW/Distance ratio: 374.379
+  GW Loss Components:
+    Raw GW loss: 282.859772
+    Raw distance loss: 0.736201
+    Weighted GW: 28.285978
+    Weighted distance: 14.724026
+    Total loss: 42.999805
+    GW/Distance ratio: 384.215
+  GW Loss Components:
+    Raw GW loss: 246.478622
+    Raw distance loss: 0.712394
+    Weighted GW: 24.647863
+    Weighted distance: 14.247875
+    Total loss: 38.886299
+    GW/Distance ratio: 345.987
+  GW Loss Components:
+    Raw GW loss: 273.074493
+    Raw distance loss: 0.727646
+    Weighted GW: 27.307449
+    Weighted distance: 14.552919
+    Total loss: 41.851990
+    GW/Distance ratio: 375.285
+  GW Loss Components:
+    Raw GW loss: 287.661743
+    Raw distance loss: 0.741789
+    Weighted GW: 28.766174
+    Weighted distance: 14.835788
+    Total loss: 43.592758
+    GW/Distance ratio: 387.794
+  GW Loss Components:
+    Raw GW loss: 314.845642
+    Raw distance loss: 0.707848
+    Weighted GW: 31.484564
+    Weighted distance: 14.156953
+    Total loss: 45.632000
+    GW/Distance ratio: 444.793
+  GW Loss Components:
+    Raw GW loss: 271.246124
+    Raw distance loss: 0.722472
+    Weighted GW: 27.124613
+    Weighted distance: 14.449450
+    Total loss: 41.564571
+    GW/Distance ratio: 375.441
+  GW Loss Components:
+    Raw GW loss: 291.088196
+    Raw distance loss: 0.740847
+    Weighted GW: 29.108820
+    Weighted distance: 14.816947
+    Total loss: 43.916374
+    GW/Distance ratio: 392.913
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 43.3264
+  Contrastive: 9.1708
+  Reconstruction: 0.0122
+  Topological: 42.1054 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+✅ New best model saved!
+
+🎯 EPOCH 1/100 COMPLETE (1355.6s)
+Train Loss: 18.7382 (C:7.9995, R:0.0554, T:13.1965)
+Val Loss:   43.3264 (C:9.1708, R:0.0122, T:42.1054)
+⚠️  High topological loss - may need adjustment
+⭐ Best model so far!
+------------------------------------------------------------
+
+============================================================
+EPOCH 2 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=12.9353 (C:7.9990, R:0.0348, T:9.4552(w:1.000)🚀)
+Batch  25/182: Loss=10.1386 (C:7.9999, R:0.0317, T:6.9641(w:1.000)🚀)
+Batch  50/182: Loss=10.4542 (C:8.0000, R:0.0283, T:7.6237(w:1.000)🚀)
+Batch  75/182: Loss=9.5358 (C:7.9999, R:0.0269, T:6.8424(w:1.000)🚀)
+Batch 100/182: Loss=9.5489 (C:8.0000, R:0.0244, T:7.1087(w:1.000)🚀)
+Batch 125/182: Loss=8.7706 (C:7.9997, R:0.0229, T:6.4758(w:1.000)🚀)
+Batch 150/182: Loss=8.1807 (C:7.9998, R:0.0223, T:5.9494(w:1.000)🚀)
+Batch 175/182: Loss=9.7702 (C:7.9997, R:0.0209, T:7.6851(w:1.000)🚀)
+📈 New best topological loss: 6.9556
+
+📊 EPOCH 2 TRAINING SUMMARY:
+  Total Loss: 9.5994
+  Contrastive: 7.9997
+  Reconstruction: 0.0264
+  Topological: 6.9556 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 44.0695
+  Contrastive: 9.4864
+  Reconstruction: 0.0112
+  Topological: 42.9512 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 2/100 COMPLETE (2702.6s)
+Train Loss: 9.5994 (C:7.9997, R:0.0264, T:6.9556)
+Val Loss:   44.0695 (C:9.4864, R:0.0112, T:42.9512)
+🚀 Good topological learning progress
+------------------------------------------------------------
+
+============================================================
+EPOCH 3 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=8.9872 (C:7.9997, R:0.0203, T:6.9553(w:1.000)🚀)
+Batch  25/182: Loss=8.6482 (C:7.9997, R:0.0192, T:6.7265(w:1.000)🚀)
+Batch  50/182: Loss=9.2672 (C:7.9997, R:0.0184, T:7.4277(w:1.000)🚀)
+Batch  75/182: Loss=10.1446 (C:8.0007, R:0.0172, T:8.4271(w:1.000)🚀)
+Batch 100/182: Loss=9.4605 (C:7.9993, R:0.0164, T:7.8228(w:1.000)🚀)
+Batch 125/182: Loss=9.5841 (C:8.0005, R:0.0153, T:8.0570(w:1.000)🚀)
+Batch 150/182: Loss=11.7194 (C:7.9999, R:0.0148, T:10.2411(w:1.000)⚠️)
+Batch 175/182: Loss=11.8985 (C:8.0003, R:0.0144, T:10.4571(w:1.000)⚠️)
+
+📊 EPOCH 3 TRAINING SUMMARY:
+  Total Loss: 9.9329
+  Contrastive: 7.9999
+  Reconstruction: 0.0168
+  Topological: 8.2536 (weight: 1.000)
+  Batches with topology: 182/182 (100.0%)
+
+📊 VALIDATION SUMMARY:
+  Total Loss: 45.1843
+  Contrastive: 9.5699
+  Reconstruction: 0.0102
+  Topological: 44.1637 (weight: 1.000)
+  Batches with topology: 3/3 (100.0%)
+
+🎯 EPOCH 3/100 COMPLETE (5278.6s)
+Train Loss: 9.9329 (C:7.9999, R:0.0168, T:8.2536)
+Val Loss:   45.1843 (C:9.5699, R:0.0102, T:44.1637)
+🚀 Good topological learning progress
+------------------------------------------------------------
+
+============================================================
+EPOCH 4 | Batches: 182 | Topological Weight: 1.0000
+🧠 Full topological learning active
+============================================================
+Batch   0/182: Loss=11.0285 (C:8.0004, R:0.0145, T:9.5833(w:1.000)🚀)

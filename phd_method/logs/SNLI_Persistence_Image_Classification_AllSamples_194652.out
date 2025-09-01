@@ -1,0 +1,310 @@
+Job ID: 194652
+Node: gpuvm18
+Time: Fri 15 Aug 07:55:37 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Aug 15 07:55:39 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   31C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+PERSISTENCE IMAGE CLASSIFICATION EXPERIMENTS
+================================================================================
+Loading precomputed persistence images...
+Persistence images: Train (150000, 900), Val (9842, 900)
+Image shape: 30x30 = 900 features per sample
+Computing SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Processing entailment: 50214 samples
+  Processed 1000/50214 entailment samples
+  Processed 2000/50214 entailment samples
+  Processed 3000/50214 entailment samples
+  Processed 4000/50214 entailment samples
+  Processed 5000/50214 entailment samples
+  Processed 6000/50214 entailment samples
+  Processed 7000/50214 entailment samples
+  Processed 8000/50214 entailment samples
+  Processed 9000/50214 entailment samples
+  Processed 10000/50214 entailment samples
+  Processed 11000/50214 entailment samples
+  Processed 12000/50214 entailment samples
+  Processed 13000/50214 entailment samples
+  Processed 14000/50214 entailment samples
+  Processed 15000/50214 entailment samples
+  Processed 16000/50214 entailment samples
+  Processed 17000/50214 entailment samples
+  Processed 18000/50214 entailment samples
+  Processed 19000/50214 entailment samples
+  Processed 20000/50214 entailment samples
+  Processed 21000/50214 entailment samples
+  Processed 22000/50214 entailment samples
+  Processed 23000/50214 entailment samples
+  Processed 24000/50214 entailment samples
+  Processed 25000/50214 entailment samples
+  Processed 26000/50214 entailment samples
+  Processed 27000/50214 entailment samples
+  Processed 28000/50214 entailment samples
+  Processed 29000/50214 entailment samples
+  Processed 30000/50214 entailment samples
+  Processed 31000/50214 entailment samples
+  Processed 32000/50214 entailment samples
+  Processed 33000/50214 entailment samples
+  Processed 34000/50214 entailment samples
+  Processed 35000/50214 entailment samples
+  Processed 36000/50214 entailment samples
+  Processed 37000/50214 entailment samples
+  Processed 38000/50214 entailment samples
+  Processed 39000/50214 entailment samples
+  Processed 40000/50214 entailment samples
+  Processed 41000/50214 entailment samples
+  Processed 42000/50214 entailment samples
+  Processed 43000/50214 entailment samples
+  Processed 44000/50214 entailment samples
+  Processed 45000/50214 entailment samples
+  Processed 46000/50214 entailment samples
+  Processed 47000/50214 entailment samples
+  Processed 48000/50214 entailment samples
+  Processed 49000/50214 entailment samples
+  Processed 50000/50214 entailment samples
+Processing neutral: 50069 samples
+  Processed 1000/50069 neutral samples
+  Processed 2000/50069 neutral samples
+  Processed 3000/50069 neutral samples
+  Processed 4000/50069 neutral samples
+  Processed 5000/50069 neutral samples
+  Processed 6000/50069 neutral samples
+  Processed 7000/50069 neutral samples
+  Processed 8000/50069 neutral samples
+  Processed 9000/50069 neutral samples
+  Processed 10000/50069 neutral samples
+  Processed 11000/50069 neutral samples
+  Processed 12000/50069 neutral samples
+  Processed 13000/50069 neutral samples
+  Processed 14000/50069 neutral samples
+  Processed 15000/50069 neutral samples
+  Processed 16000/50069 neutral samples
+  Processed 17000/50069 neutral samples
+  Processed 18000/50069 neutral samples
+  Processed 19000/50069 neutral samples
+  Processed 20000/50069 neutral samples
+  Processed 21000/50069 neutral samples
+  Processed 22000/50069 neutral samples
+  Processed 23000/50069 neutral samples
+  Processed 24000/50069 neutral samples
+  Processed 25000/50069 neutral samples
+  Processed 26000/50069 neutral samples
+  Processed 27000/50069 neutral samples
+  Processed 28000/50069 neutral samples
+  Processed 29000/50069 neutral samples
+  Processed 30000/50069 neutral samples
+  Processed 31000/50069 neutral samples
+  Processed 32000/50069 neutral samples
+  Processed 33000/50069 neutral samples
+  Processed 34000/50069 neutral samples
+  Processed 35000/50069 neutral samples
+  Processed 36000/50069 neutral samples
+  Processed 37000/50069 neutral samples
+  Processed 38000/50069 neutral samples
+  Processed 39000/50069 neutral samples
+  Processed 40000/50069 neutral samples
+  Processed 41000/50069 neutral samples
+  Processed 42000/50069 neutral samples
+  Processed 43000/50069 neutral samples
+  Processed 44000/50069 neutral samples
+  Processed 45000/50069 neutral samples
+  Processed 46000/50069 neutral samples
+  Processed 47000/50069 neutral samples
+  Processed 48000/50069 neutral samples
+  Processed 49000/50069 neutral samples
+  Processed 50000/50069 neutral samples
+Processing contradiction: 49717 samples
+  Processed 1000/49717 contradiction samples
+  Processed 2000/49717 contradiction samples
+  Processed 3000/49717 contradiction samples
+  Processed 4000/49717 contradiction samples
+  Processed 5000/49717 contradiction samples
+  Processed 6000/49717 contradiction samples
+  Processed 7000/49717 contradiction samples
+  Processed 8000/49717 contradiction samples
+  Processed 9000/49717 contradiction samples
+  Processed 10000/49717 contradiction samples
+  Processed 11000/49717 contradiction samples
+  Processed 12000/49717 contradiction samples
+  Processed 13000/49717 contradiction samples
+  Processed 14000/49717 contradiction samples
+  Processed 15000/49717 contradiction samples
+  Processed 16000/49717 contradiction samples
+  Processed 17000/49717 contradiction samples
+  Processed 18000/49717 contradiction samples
+  Processed 19000/49717 contradiction samples
+  Processed 20000/49717 contradiction samples
+  Processed 21000/49717 contradiction samples
+  Processed 22000/49717 contradiction samples
+  Processed 23000/49717 contradiction samples
+  Processed 24000/49717 contradiction samples
+  Processed 25000/49717 contradiction samples
+  Processed 26000/49717 contradiction samples
+  Processed 27000/49717 contradiction samples
+  Processed 28000/49717 contradiction samples
+  Processed 29000/49717 contradiction samples
+  Processed 30000/49717 contradiction samples
+  Processed 31000/49717 contradiction samples
+  Processed 32000/49717 contradiction samples
+  Processed 33000/49717 contradiction samples
+  Processed 34000/49717 contradiction samples
+  Processed 35000/49717 contradiction samples
+  Processed 36000/49717 contradiction samples
+  Processed 37000/49717 contradiction samples
+  Processed 38000/49717 contradiction samples
+  Processed 39000/49717 contradiction samples
+  Processed 40000/49717 contradiction samples
+  Processed 41000/49717 contradiction samples
+  Processed 42000/49717 contradiction samples
+  Processed 43000/49717 contradiction samples
+  Processed 44000/49717 contradiction samples
+  Processed 45000/49717 contradiction samples
+  Processed 46000/49717 contradiction samples
+  Processed 47000/49717 contradiction samples
+  Processed 48000/49717 contradiction samples
+  Processed 49000/49717 contradiction samples
+SBERT features: (150000, 3072), class distribution: {0: 50214, 1: 50069, 2: 49717}
+Computing SBERT baseline features from /vol/bitbucket/ahb24/tda_entailment_new/snli_val_sbert_tokens.pkl
+Processing entailment: 3329 samples
+  Processed 1000/3329 entailment samples
+  Processed 2000/3329 entailment samples
+  Processed 3000/3329 entailment samples
+Processing neutral: 3235 samples
+  Processed 1000/3235 neutral samples
+  Processed 2000/3235 neutral samples
+  Processed 3000/3235 neutral samples
+Processing contradiction: 3278 samples
+  Processed 1000/3278 contradiction samples
+  Processed 2000/3278 contradiction samples
+  Processed 3000/3278 contradiction samples
+SBERT features: (9842, 3072), class distribution: {0: 3329, 1: 3235, 2: 3278}
+Aligning persistence and SBERT datasets...
+Class 0: persistence=50214, sbert=50214, using=50214
+Class 1: persistence=50069, sbert=50069, using=50069
+Class 2: persistence=49717, sbert=49717, using=49717
+Aligned datasets: (150000, 900) persistence, (150000, 3072) SBERT
+
+============================================================
+EXPERIMENT 1: PURE TOPOLOGICAL (PERSISTENCE IMAGES)
+============================================================
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.5429 (Acc 0.814), Val Loss 0.7197 (Acc 0.723), Best Val 0.000
+Epoch   1: Train Loss 0.5116 (Acc 0.817), Val Loss 0.6774 (Acc 0.723), Best Val 0.723
+Epoch   2: Train Loss 0.4999 (Acc 0.819), Val Loss 0.6864 (Acc 0.724), Best Val 0.723
+Epoch   3: Train Loss 0.4918 (Acc 0.820), Val Loss 0.6814 (Acc 0.723), Best Val 0.724
+Epoch   4: Train Loss 0.4838 (Acc 0.822), Val Loss 0.6551 (Acc 0.734), Best Val 0.724
+Epoch   5: Train Loss 0.4780 (Acc 0.823), Val Loss 0.6429 (Acc 0.735), Best Val 0.734
+Epoch   6: Train Loss 0.4757 (Acc 0.824), Val Loss 0.6363 (Acc 0.733), Best Val 0.735
+Epoch   7: Train Loss 0.4714 (Acc 0.825), Val Loss 0.6286 (Acc 0.738), Best Val 0.735
+Epoch   8: Train Loss 0.4684 (Acc 0.825), Val Loss 0.6196 (Acc 0.737), Best Val 0.738
+Epoch   9: Train Loss 0.4643 (Acc 0.826), Val Loss 0.6787 (Acc 0.741), Best Val 0.738
+Epoch  20: Train Loss 0.4455 (Acc 0.832), Val Loss 0.5929 (Acc 0.746), Best Val 0.751
+Epoch  40: Train Loss 0.4327 (Acc 0.836), Val Loss 0.5769 (Acc 0.754), Best Val 0.756
+Epoch  60: Train Loss 0.4094 (Acc 0.844), Val Loss 0.5655 (Acc 0.760), Best Val 0.761
+Epoch  80: Train Loss 0.4037 (Acc 0.847), Val Loss 0.5663 (Acc 0.764), Best Val 0.764
+Training completed. Best validation accuracy: 0.765
+
+============================================================
+EXPERIMENT 2: SBERT BASELINE
+============================================================
+Standardizing SBERT features...
+Standardizing (150000, 3072) in-place...
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.6429 (Acc 0.732), Val Loss 0.5778 (Acc 0.776), Best Val 0.000
+Epoch   1: Train Loss 0.5785 (Acc 0.766), Val Loss 0.5568 (Acc 0.780), Best Val 0.776
+Epoch   2: Train Loss 0.5499 (Acc 0.779), Val Loss 0.5392 (Acc 0.785), Best Val 0.780
+Epoch   3: Train Loss 0.5256 (Acc 0.789), Val Loss 0.5179 (Acc 0.794), Best Val 0.785
+Epoch   4: Train Loss 0.5060 (Acc 0.798), Val Loss 0.5039 (Acc 0.802), Best Val 0.794
+Epoch   5: Train Loss 0.4906 (Acc 0.807), Val Loss 0.5086 (Acc 0.801), Best Val 0.802
+Epoch   6: Train Loss 0.4733 (Acc 0.813), Val Loss 0.5053 (Acc 0.803), Best Val 0.802
+Epoch   7: Train Loss 0.4609 (Acc 0.818), Val Loss 0.5058 (Acc 0.805), Best Val 0.803
+Epoch   8: Train Loss 0.4470 (Acc 0.825), Val Loss 0.5119 (Acc 0.803), Best Val 0.805
+Epoch   9: Train Loss 0.4356 (Acc 0.829), Val Loss 0.5227 (Acc 0.811), Best Val 0.805
+Epoch  20: Train Loss 0.2720 (Acc 0.895), Val Loss 0.5734 (Acc 0.815), Best Val 0.814
+Epoch  40: Train Loss 0.1365 (Acc 0.949), Val Loss 0.7391 (Acc 0.816), Best Val 0.819
+Epoch  60: Train Loss 0.0983 (Acc 0.964), Val Loss 0.8417 (Acc 0.817), Best Val 0.819
+Early stopping at epoch 73 (patience=25)
+Training completed. Best validation accuracy: 0.819
+
+============================================================
+EXPERIMENT 3: HYBRID (PERSISTENCE + SBERT)
+============================================================
+Training model on cuda...
+Training samples: 150000
+Validation samples: 9842
+Epoch   0: Train Loss 0.3812 (Acc 0.859), Val Loss 0.7884 (Acc 0.749), Best Val 0.000
+Epoch   1: Train Loss 0.3405 (Acc 0.876), Val Loss 0.6297 (Acc 0.754), Best Val 0.749
+Epoch   2: Train Loss 0.3185 (Acc 0.882), Val Loss 0.6669 (Acc 0.759), Best Val 0.754
+Epoch   3: Train Loss 0.3026 (Acc 0.889), Val Loss 0.7675 (Acc 0.761), Best Val 0.759
+Epoch   4: Train Loss 0.2917 (Acc 0.893), Val Loss 0.6662 (Acc 0.764), Best Val 0.761
+Epoch   5: Train Loss 0.2805 (Acc 0.898), Val Loss 0.7062 (Acc 0.769), Best Val 0.764
+Epoch   6: Train Loss 0.2682 (Acc 0.902), Val Loss 0.7333 (Acc 0.765), Best Val 0.769
+Epoch   7: Train Loss 0.2603 (Acc 0.904), Val Loss 0.7175 (Acc 0.775), Best Val 0.769
+Epoch   8: Train Loss 0.2515 (Acc 0.908), Val Loss 0.7044 (Acc 0.775), Best Val 0.775
+Epoch   9: Train Loss 0.2477 (Acc 0.911), Val Loss 0.7361 (Acc 0.777), Best Val 0.775
+Epoch  20: Train Loss 0.1385 (Acc 0.951), Val Loss 0.8931 (Acc 0.788), Best Val 0.792
+Epoch  40: Train Loss 0.0622 (Acc 0.979), Val Loss 1.1462 (Acc 0.794), Best Val 0.793
+Epoch  60: Train Loss 0.0423 (Acc 0.986), Val Loss 1.2779 (Acc 0.790), Best Val 0.794
+Early stopping at epoch 65 (patience=25)
+Training completed. Best validation accuracy: 0.794
+
+================================================================================
+FINAL RESULTS COMPARISON
+================================================================================
+Pure Topological (Persistence CNN):  0.765
+SBERT Baseline (Standard NN):        0.819
+Hybrid (Persistence + SBERT):        0.794
+
+Performance differences:
+  Topological vs SBERT: -0.054
+  Hybrid vs SBERT: -0.025
+  Hybrid vs Topological: +0.029
+
+📊 SBERT still ahead by 0.054
+
+All experiments completed!
+
+Analysis completed with exit code: 0
+Time: Fri 15 Aug 09:12:09 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

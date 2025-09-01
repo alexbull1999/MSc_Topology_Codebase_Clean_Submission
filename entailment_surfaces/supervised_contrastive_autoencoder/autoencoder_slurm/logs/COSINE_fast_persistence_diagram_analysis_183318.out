@@ -1,0 +1,1169 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 183318
+Node: gpuvm13
+Time: Thu 17 Jul 15:12:37 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 17 15:12:39 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   36C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Persistence Diagram Comparison...
+
+Starting ULTRA-FAST persistence diagram analysis...
+This version uses only statistical methods - no expensive distance computations
+Initialized ultra-fast analyzer (statistics-only approach)
+
+============================================================
+STARTING ULTRA-FAST ANALYSIS
+============================================================
+
+==================================================
+ULTRA-FAST ANALYSIS FOR H0
+==================================================
+
+--- Processing ENTAILMENT ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+
+  🔍 DEBUG: Checking cosine distances for entailment
+  ==================================================
+    Signature 0: [4.45377319e+02 7.61219382e-01 4.69312251e-01 9.00399983e-02
+ 9.49000000e+02 4.15534377e-01 4.81324136e-01 5.27334034e-01
+ 5.74672437e-01 5.27000000e+02]
+    Signature 1: [4.43269318e+02 7.68306851e-01 4.67090964e-01 9.20661539e-02
+ 9.49000000e+02 4.16517735e-01 4.74773765e-01 5.30629456e-01
+ 5.73513722e-01 5.09000000e+02]
+    Signature 2: [4.52332825e+02 7.98511386e-01 4.76641536e-01 8.66631269e-02
+ 9.49000000e+02 4.26041782e-01 4.79506135e-01 5.38357973e-01
+ 5.78306651e-01 4.96000000e+02]
+
+    Detailed cosine distance checks:
+
+    Pair (0,1):
+      Sig1: [4.45377319e+02 7.61219382e-01 4.69312251e-01 9.00399983e-02
+ 9.49000000e+02 4.15534377e-01 4.81324136e-01 5.27334034e-01
+ 5.74672437e-01 5.27000000e+02]
+      Sig2: [4.43269318e+02 7.68306851e-01 4.67090964e-01 9.20661539e-02
+ 9.49000000e+02 4.16517735e-01 4.74773765e-01 5.30629456e-01
+ 5.73513722e-01 5.09000000e+02]
+      Norm1: 1173.325521, Norm2: 1164.547772
+      Cosine similarity: 0.999908
+      Scipy cosine distance: 0.000092
+      Manual cosine distance: 0.000092
+      Euclidean distance: 18.123018
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,2):
+      Sig1: [4.45377319e+02 7.61219382e-01 4.69312251e-01 9.00399983e-02
+ 9.49000000e+02 4.15534377e-01 4.81324136e-01 5.27334034e-01
+ 5.74672437e-01 5.27000000e+02]
+      Sig2: [4.52332825e+02 7.98511386e-01 4.76641536e-01 8.66631269e-02
+ 9.49000000e+02 4.26041782e-01 4.79506135e-01 5.38357973e-01
+ 5.78306651e-01 4.96000000e+02]
+      Norm1: 1173.325521, Norm2: 1162.421564
+      Cosine similarity: 0.999674
+      Scipy cosine distance: 0.000326
+      Manual cosine distance: 0.000326
+      Euclidean distance: 31.770753
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,3):
+      Sig1: [4.45377319e+02 7.61219382e-01 4.69312251e-01 9.00399983e-02
+ 9.49000000e+02 4.15534377e-01 4.81324136e-01 5.27334034e-01
+ 5.74672437e-01 5.27000000e+02]
+      Sig2: [4.47221313e+02 7.23060727e-01 4.71255332e-01 8.87985751e-02
+ 9.49000000e+02 4.13460433e-01 4.81927335e-01 5.33603668e-01
+ 5.77110124e-01 5.07000000e+02]
+      Norm1: 1173.325521, Norm2: 1165.186113
+      Cosine similarity: 0.999877
+      Scipy cosine distance: 0.000123
+      Manual cosine distance: 0.000123
+      Euclidean distance: 20.084866
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,4):
+      Sig1: [4.45377319e+02 7.61219382e-01 4.69312251e-01 9.00399983e-02
+ 9.49000000e+02 4.15534377e-01 4.81324136e-01 5.27334034e-01
+ 5.74672437e-01 5.27000000e+02]
+      Sig2: [4.40159119e+02 7.47801185e-01 4.63813603e-01 9.13048759e-02
+ 9.49000000e+02 4.08399284e-01 4.76233900e-01 5.26910007e-01
+ 5.69275141e-01 5.43000000e+02]
+      Norm1: 1173.325521, Norm2: 1178.639821
+      Cosine similarity: 0.999908
+      Scipy cosine distance: 0.000092
+      Manual cosine distance: 0.000092
+      Euclidean distance: 16.829437
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,2):
+      Sig1: [4.43269318e+02 7.68306851e-01 4.67090964e-01 9.20661539e-02
+ 9.49000000e+02 4.16517735e-01 4.74773765e-01 5.30629456e-01
+ 5.73513722e-01 5.09000000e+02]
+      Sig2: [4.52332825e+02 7.98511386e-01 4.76641536e-01 8.66631269e-02
+ 9.49000000e+02 4.26041782e-01 4.79506135e-01 5.38357973e-01
+ 5.78306651e-01 4.96000000e+02]
+      Norm1: 1164.547772, Norm2: 1162.421564
+      Cosine similarity: 0.999909
+      Scipy cosine distance: 0.000091
+      Manual cosine distance: 0.000091
+      Euclidean distance: 15.847662
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,3):
+      Sig1: [4.43269318e+02 7.68306851e-01 4.67090964e-01 9.20661539e-02
+ 9.49000000e+02 4.16517735e-01 4.74773765e-01 5.30629456e-01
+ 5.73513722e-01 5.09000000e+02]
+      Sig2: [4.47221313e+02 7.23060727e-01 4.71255332e-01 8.87985751e-02
+ 9.49000000e+02 4.13460433e-01 4.81927335e-01 5.33603668e-01
+ 5.77110124e-01 5.07000000e+02]
+      Norm1: 1164.547772, Norm2: 1165.186113
+      Cosine similarity: 0.999993
+      Scipy cosine distance: 0.000007
+      Manual cosine distance: 0.000007
+      Euclidean distance: 4.429495
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,4):
+      Sig1: [4.43269318e+02 7.68306851e-01 4.67090964e-01 9.20661539e-02
+ 9.49000000e+02 4.16517735e-01 4.74773765e-01 5.30629456e-01
+ 5.73513722e-01 5.09000000e+02]
+      Sig2: [4.40159119e+02 7.47801185e-01 4.63813603e-01 9.13048759e-02
+ 9.49000000e+02 4.08399284e-01 4.76233900e-01 5.26910007e-01
+ 5.69275141e-01 5.43000000e+02]
+      Norm1: 1164.547772, Norm2: 1178.639821
+      Cosine similarity: 0.999648
+      Scipy cosine distance: 0.000352
+      Manual cosine distance: 0.000352
+      Euclidean distance: 34.141966
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,3):
+      Sig1: [4.52332825e+02 7.98511386e-01 4.76641536e-01 8.66631269e-02
+ 9.49000000e+02 4.26041782e-01 4.79506135e-01 5.38357973e-01
+ 5.78306651e-01 4.96000000e+02]
+      Sig2: [4.47221313e+02 7.23060727e-01 4.71255332e-01 8.87985751e-02
+ 9.49000000e+02 4.13460433e-01 4.81927335e-01 5.33603668e-01
+ 5.77110124e-01 5.07000000e+02]
+      Norm1: 1162.421564, Norm2: 1165.186113
+      Cosine similarity: 0.999949
+      Scipy cosine distance: 0.000051
+      Manual cosine distance: 0.000051
+      Euclidean distance: 12.129858
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,4):
+      Sig1: [4.52332825e+02 7.98511386e-01 4.76641536e-01 8.66631269e-02
+ 9.49000000e+02 4.26041782e-01 4.79506135e-01 5.38357973e-01
+ 5.78306651e-01 4.96000000e+02]
+      Sig2: [4.40159119e+02 7.47801185e-01 4.63813603e-01 9.13048759e-02
+ 9.49000000e+02 4.08399284e-01 4.76233900e-01 5.26910007e-01
+ 5.69275141e-01 5.43000000e+02]
+      Norm1: 1162.421564, Norm2: 1178.639821
+      Cosine similarity: 0.999236
+      Scipy cosine distance: 0.000764
+      Manual cosine distance: 0.000764
+      Euclidean distance: 48.551029
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Summary for entailment:
+      Signatures shape: (10, 10)
+      All signatures finite: True
+      Any zero signatures: False
+      Signature std devs: [4.02133184e+00 2.73985236e-02 4.23743961e-03 2.19530349e-03
+ 0.00000000e+00 5.78079225e-03 2.58499323e-03 3.82794538e-03
+ 3.45458246e-03 1.32094663e+01]
+      Mean cosine distance: 0.000137
+      Min cosine distance: 0.000002
+      Max cosine distance: 0.000764
+      Distances = 0.0: 0/45
+      Distances < 0.001: 45/45
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: nan
+    Mean signature distance: 0.000
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+--- Processing NEUTRAL ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+
+  🔍 DEBUG: Checking cosine distances for neutral
+  ==================================================
+    Signature 0: [5.13964844e+02 7.63480484e-01 5.41585743e-01 7.50063807e-02
+ 9.49000000e+02 4.99346077e-01 5.50936818e-01 5.91329336e-01
+ 6.30071330e-01 5.16000000e+02]
+    Signature 1: [5.16417419e+02 7.71283031e-01 5.44170082e-01 8.05340931e-02
+ 9.49000000e+02 4.99387145e-01 5.52726805e-01 5.98684251e-01
+ 6.39714777e-01 5.17000000e+02]
+    Signature 2: [5.15853882e+02 7.24208593e-01 5.43576300e-01 7.76879042e-02
+ 9.49000000e+02 5.00054121e-01 5.53260803e-01 5.94519317e-01
+ 6.34986997e-01 5.39000000e+02]
+
+    Detailed cosine distance checks:
+
+    Pair (0,1):
+      Sig1: [5.13964844e+02 7.63480484e-01 5.41585743e-01 7.50063807e-02
+ 9.49000000e+02 4.99346077e-01 5.50936818e-01 5.91329336e-01
+ 6.30071330e-01 5.16000000e+02]
+      Sig2: [5.16417419e+02 7.71283031e-01 5.44170082e-01 8.05340931e-02
+ 9.49000000e+02 4.99387145e-01 5.52726805e-01 5.98684251e-01
+ 6.39714777e-01 5.17000000e+02]
+      Norm1: 1196.252081, Norm2: 1197.739192
+      Cosine similarity: 0.999998
+      Scipy cosine distance: 0.000002
+      Manual cosine distance: 0.000002
+      Euclidean distance: 2.648655
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,2):
+      Sig1: [5.13964844e+02 7.63480484e-01 5.41585743e-01 7.50063807e-02
+ 9.49000000e+02 4.99346077e-01 5.50936818e-01 5.91329336e-01
+ 6.30071330e-01 5.16000000e+02]
+      Sig2: [5.15853882e+02 7.24208593e-01 5.43576300e-01 7.76879042e-02
+ 9.49000000e+02 5.00054121e-01 5.53260803e-01 5.94519317e-01
+ 6.34986997e-01 5.39000000e+02]
+      Norm1: 1196.252081, Norm2: 1207.157556
+      Cosine similarity: 0.999857
+      Scipy cosine distance: 0.000143
+      Manual cosine distance: 0.000143
+      Euclidean distance: 23.077479
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,3):
+      Sig1: [5.13964844e+02 7.63480484e-01 5.41585743e-01 7.50063807e-02
+ 9.49000000e+02 4.99346077e-01 5.50936818e-01 5.91329336e-01
+ 6.30071330e-01 5.16000000e+02]
+      Sig2: [5.11883270e+02 7.50138998e-01 5.39392292e-01 7.58626536e-02
+ 9.49000000e+02 4.95531440e-01 5.45894742e-01 5.88993251e-01
+ 6.33127367e-01 5.08000000e+02]
+      Norm1: 1196.252081, Norm2: 1191.927696
+      Cosine similarity: 0.999983
+      Scipy cosine distance: 0.000017
+      Manual cosine distance: 0.000017
+      Euclidean distance: 8.266389
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,4):
+      Sig1: [5.13964844e+02 7.63480484e-01 5.41585743e-01 7.50063807e-02
+ 9.49000000e+02 4.99346077e-01 5.50936818e-01 5.91329336e-01
+ 6.30071330e-01 5.16000000e+02]
+      Sig2: [5.15566650e+02 7.46973276e-01 5.43273628e-01 7.41055980e-02
+ 9.49000000e+02 5.02439797e-01 5.50899386e-01 5.92214406e-01
+ 6.26484048e-01 5.35000000e+02]
+      Norm1: 1196.252081, Norm2: 1205.253969
+      Cosine similarity: 0.999902
+      Scipy cosine distance: 0.000098
+      Manual cosine distance: 0.000098
+      Euclidean distance: 19.067409
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,2):
+      Sig1: [5.16417419e+02 7.71283031e-01 5.44170082e-01 8.05340931e-02
+ 9.49000000e+02 4.99387145e-01 5.52726805e-01 5.98684251e-01
+ 6.39714777e-01 5.17000000e+02]
+      Sig2: [5.15853882e+02 7.24208593e-01 5.43576300e-01 7.76879042e-02
+ 9.49000000e+02 5.00054121e-01 5.53260803e-01 5.94519317e-01
+ 6.34986997e-01 5.39000000e+02]
+      Norm1: 1197.739192, Norm2: 1207.157556
+      Cosine similarity: 0.999863
+      Scipy cosine distance: 0.000137
+      Manual cosine distance: 0.000137
+      Euclidean distance: 22.007268
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,3):
+      Sig1: [5.16417419e+02 7.71283031e-01 5.44170082e-01 8.05340931e-02
+ 9.49000000e+02 4.99387145e-01 5.52726805e-01 5.98684251e-01
+ 6.39714777e-01 5.17000000e+02]
+      Sig2: [5.11883270e+02 7.50138998e-01 5.39392292e-01 7.58626536e-02
+ 9.49000000e+02 4.95531440e-01 5.45894742e-01 5.88993251e-01
+ 6.33127367e-01 5.08000000e+02]
+      Norm1: 1197.739192, Norm2: 1191.927696
+      Cosine similarity: 0.999976
+      Scipy cosine distance: 0.000024
+      Manual cosine distance: 0.000024
+      Euclidean distance: 10.077658
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,4):
+      Sig1: [5.16417419e+02 7.71283031e-01 5.44170082e-01 8.05340931e-02
+ 9.49000000e+02 4.99387145e-01 5.52726805e-01 5.98684251e-01
+ 6.39714777e-01 5.17000000e+02]
+      Sig2: [5.15566650e+02 7.46973276e-01 5.43273628e-01 7.41055980e-02
+ 9.49000000e+02 5.02439797e-01 5.50899386e-01 5.92214406e-01
+ 6.26484048e-01 5.35000000e+02]
+      Norm1: 1197.739192, Norm2: 1205.253969
+      Cosine similarity: 0.999907
+      Scipy cosine distance: 0.000093
+      Manual cosine distance: 0.000093
+      Euclidean distance: 18.020118
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,3):
+      Sig1: [5.15853882e+02 7.24208593e-01 5.43576300e-01 7.76879042e-02
+ 9.49000000e+02 5.00054121e-01 5.53260803e-01 5.94519317e-01
+ 6.34986997e-01 5.39000000e+02]
+      Sig2: [5.11883270e+02 7.50138998e-01 5.39392292e-01 7.58626536e-02
+ 9.49000000e+02 4.95531440e-01 5.45894742e-01 5.88993251e-01
+ 6.33127367e-01 5.08000000e+02]
+      Norm1: 1207.157556, Norm2: 1191.927696
+      Cosine similarity: 0.999741
+      Scipy cosine distance: 0.000259
+      Manual cosine distance: 0.000259
+      Euclidean distance: 31.253265
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,4):
+      Sig1: [5.15853882e+02 7.24208593e-01 5.43576300e-01 7.76879042e-02
+ 9.49000000e+02 5.00054121e-01 5.53260803e-01 5.94519317e-01
+ 6.34986997e-01 5.39000000e+02]
+      Sig2: [5.15566650e+02 7.46973276e-01 5.43273628e-01 7.41055980e-02
+ 9.49000000e+02 5.02439797e-01 5.50899386e-01 5.92214406e-01
+ 6.26484048e-01 5.35000000e+02]
+      Norm1: 1207.157556, Norm2: 1205.253969
+      Cosine similarity: 0.999996
+      Scipy cosine distance: 0.000004
+      Manual cosine distance: 0.000004
+      Euclidean distance: 4.010377
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Summary for neutral:
+      Signatures shape: (10, 10)
+      All signatures finite: True
+      Any zero signatures: False
+      Signature std devs: [3.24876724e+00 2.99883137e-02 3.42336528e-03 2.92482590e-03
+ 0.00000000e+00 4.98634062e-03 3.89860340e-03 3.22937551e-03
+ 4.19344400e-03 1.24020160e+01]
+      Mean cosine distance: 0.000098
+      Min cosine distance: 0.000002
+      Max cosine distance: 0.000412
+      Distances = 0.0: 0/45
+      Distances < 0.001: 45/45
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: nan
+    Mean signature distance: 0.000
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+--- Processing CONTRADICTION ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+
+  🔍 DEBUG: Checking cosine distances for contradiction
+  ==================================================
+    Signature 0: [5.59998596e+02 7.66385078e-01 5.90093374e-01 7.05919638e-02
+ 9.49000000e+02 5.55444717e-01 5.96518397e-01 6.35161102e-01
+ 6.70548022e-01 5.20000000e+02]
+    Signature 1: [5.55749023e+02 7.88732708e-01 5.85615396e-01 7.56271407e-02
+ 9.49000000e+02 5.40383041e-01 5.91815710e-01 6.38444662e-01
+ 6.75922227e-01 5.00000000e+02]
+    Signature 2: [5.55918213e+02 7.64879525e-01 5.85793674e-01 8.04616511e-02
+ 9.49000000e+02 5.48270464e-01 5.94721317e-01 6.39157414e-01
+ 6.76335788e-01 5.34000000e+02]
+
+    Detailed cosine distance checks:
+
+    Pair (0,1):
+      Sig1: [5.59998596e+02 7.66385078e-01 5.90093374e-01 7.05919638e-02
+ 9.49000000e+02 5.55444717e-01 5.96518397e-01 6.35161102e-01
+ 6.70548022e-01 5.20000000e+02]
+      Sig2: [5.55749023e+02 7.88732708e-01 5.85615396e-01 7.56271407e-02
+ 9.49000000e+02 5.40383041e-01 5.91815710e-01 6.38444662e-01
+ 6.75922227e-01 5.00000000e+02]
+      Norm1: 1218.442401, Norm2: 1208.081311
+      Cosine similarity: 0.999894
+      Scipy cosine distance: 0.000106
+      Manual cosine distance: 0.000106
+      Euclidean distance: 20.446508
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,2):
+      Sig1: [5.59998596e+02 7.66385078e-01 5.90093374e-01 7.05919638e-02
+ 9.49000000e+02 5.55444717e-01 5.96518397e-01 6.35161102e-01
+ 6.70548022e-01 5.20000000e+02]
+      Sig2: [5.55918213e+02 7.64879525e-01 5.85793674e-01 8.04616511e-02
+ 9.49000000e+02 5.48270464e-01 5.94721317e-01 6.39157414e-01
+ 6.76335788e-01 5.34000000e+02]
+      Norm1: 1218.442401, Norm2: 1222.621983
+      Cosine similarity: 0.999934
+      Scipy cosine distance: 0.000066
+      Manual cosine distance: 0.000066
+      Euclidean distance: 14.582515
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,3):
+      Sig1: [5.59998596e+02 7.66385078e-01 5.90093374e-01 7.05919638e-02
+ 9.49000000e+02 5.55444717e-01 5.96518397e-01 6.35161102e-01
+ 6.70548022e-01 5.20000000e+02]
+      Sig2: [5.57750122e+02 7.79558539e-01 5.87724030e-01 7.00707957e-02
+ 9.49000000e+02 5.51392078e-01 5.92987895e-01 6.35306954e-01
+ 6.67398596e-01 5.18000000e+02]
+      Norm1: 1218.442401, Norm2: 1216.557710
+      Cosine similarity: 0.999998
+      Scipy cosine distance: 0.000002
+      Manual cosine distance: 0.000002
+      Euclidean distance: 3.009295
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,4):
+      Sig1: [5.59998596e+02 7.66385078e-01 5.90093374e-01 7.05919638e-02
+ 9.49000000e+02 5.55444717e-01 5.96518397e-01 6.35161102e-01
+ 6.70548022e-01 5.20000000e+02]
+      Sig2: [5.53606262e+02 8.38581860e-01 5.83357513e-01 7.60765672e-02
+ 9.49000000e+02 5.39798975e-01 5.94773531e-01 6.34990335e-01
+ 6.66616797e-01 5.37000000e+02]
+      Norm1: 1218.442401, Norm2: 1222.886927
+      Cosine similarity: 0.999896
+      Scipy cosine distance: 0.000104
+      Manual cosine distance: 0.000104
+      Euclidean distance: 18.162254
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,2):
+      Sig1: [5.55749023e+02 7.88732708e-01 5.85615396e-01 7.56271407e-02
+ 9.49000000e+02 5.40383041e-01 5.91815710e-01 6.38444662e-01
+ 6.75922227e-01 5.00000000e+02]
+      Sig2: [5.55918213e+02 7.64879525e-01 5.85793674e-01 8.04616511e-02
+ 9.49000000e+02 5.48270464e-01 5.94721317e-01 6.39157414e-01
+ 6.76335788e-01 5.34000000e+02]
+      Norm1: 1208.081311, Norm2: 1222.621983
+      Cosine similarity: 0.999680
+      Scipy cosine distance: 0.000320
+      Manual cosine distance: 0.000320
+      Euclidean distance: 34.000431
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,3):
+      Sig1: [5.55749023e+02 7.88732708e-01 5.85615396e-01 7.56271407e-02
+ 9.49000000e+02 5.40383041e-01 5.91815710e-01 6.38444662e-01
+ 6.75922227e-01 5.00000000e+02]
+      Sig2: [5.57750122e+02 7.79558539e-01 5.87724030e-01 7.00707957e-02
+ 9.49000000e+02 5.51392078e-01 5.92987895e-01 6.35306954e-01
+ 6.67398596e-01 5.18000000e+02]
+      Norm1: 1208.081311, Norm2: 1216.557710
+      Cosine similarity: 0.999913
+      Scipy cosine distance: 0.000087
+      Manual cosine distance: 0.000087
+      Euclidean distance: 18.110901
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,4):
+      Sig1: [5.55749023e+02 7.88732708e-01 5.85615396e-01 7.56271407e-02
+ 9.49000000e+02 5.40383041e-01 5.91815710e-01 6.38444662e-01
+ 6.75922227e-01 5.00000000e+02]
+      Sig2: [5.53606262e+02 8.38581860e-01 5.83357513e-01 7.60765672e-02
+ 9.49000000e+02 5.39798975e-01 5.94773531e-01 6.34990335e-01
+ 6.66616797e-01 5.37000000e+02]
+      Norm1: 1208.081311, Norm2: 1222.886927
+      Cosine similarity: 0.999609
+      Scipy cosine distance: 0.000391
+      Manual cosine distance: 0.000391
+      Euclidean distance: 37.062029
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,3):
+      Sig1: [5.55918213e+02 7.64879525e-01 5.85793674e-01 8.04616511e-02
+ 9.49000000e+02 5.48270464e-01 5.94721317e-01 6.39157414e-01
+ 6.76335788e-01 5.34000000e+02]
+      Sig2: [5.57750122e+02 7.79558539e-01 5.87724030e-01 7.00707957e-02
+ 9.49000000e+02 5.51392078e-01 5.92987895e-01 6.35306954e-01
+ 6.67398596e-01 5.18000000e+02]
+      Norm1: 1222.621983, Norm2: 1216.557710
+      Cosine similarity: 0.999925
+      Scipy cosine distance: 0.000075
+      Manual cosine distance: 0.000075
+      Euclidean distance: 16.104544
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,4):
+      Sig1: [5.55918213e+02 7.64879525e-01 5.85793674e-01 8.04616511e-02
+ 9.49000000e+02 5.48270464e-01 5.94721317e-01 6.39157414e-01
+ 6.76335788e-01 5.34000000e+02]
+      Sig2: [5.53606262e+02 8.38581860e-01 5.83357513e-01 7.60765672e-02
+ 9.49000000e+02 5.39798975e-01 5.94773531e-01 6.34990335e-01
+ 6.66616797e-01 5.37000000e+02]
+      Norm1: 1222.621983, Norm2: 1222.886927
+      Cosine similarity: 0.999995
+      Scipy cosine distance: 0.000005
+      Manual cosine distance: 0.000005
+      Euclidean distance: 3.788239
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Summary for contradiction:
+      Signatures shape: (10, 10)
+      All signatures finite: True
+      Any zero signatures: False
+      Signature std devs: [4.26772068e+00 2.93689309e-02 4.49707696e-03 3.95559784e-03
+ 0.00000000e+00 8.21817067e-03 4.01031363e-03 3.32327961e-03
+ 3.69078767e-03 1.02279030e+01]
+      Mean cosine distance: 0.000077
+      Min cosine distance: 0.000001
+      Max cosine distance: 0.000391
+      Distances = 0.0: 0/45
+      Distances < 0.001: 45/45
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: nan
+    Mean signature distance: 0.000
+    Feature count CV: 0.000
+    Persistence entropy CV: 0.000
+
+==================================================
+ULTRA-FAST ANALYSIS FOR H1
+==================================================
+
+--- Processing ENTAILMENT ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+
+  🔍 DEBUG: Checking cosine distances for entailment
+  ==================================================
+    Signature 0: [6.47358704e+01 2.01533377e-01 4.40080687e-02 3.93058397e-02
+ 1.47100000e+03 1.32046640e-02 3.30153704e-02 6.39757812e-02
+ 9.98028517e-02 5.74000000e+02]
+    Signature 1: [6.29653740e+01 2.14292884e-01 4.26594689e-02 4.02320214e-02
+ 1.47600000e+03 1.19565129e-02 2.79563963e-02 6.16943687e-02
+ 1.02856010e-01 5.71000000e+02]
+    Signature 2: [6.99882812e+01 2.07614243e-01 4.42403816e-02 4.02950533e-02
+ 1.58200000e+03 1.32746696e-02 3.12601626e-02 6.25914186e-02
+ 1.06055087e-01 6.01000000e+02]
+
+    Detailed cosine distance checks:
+
+    Pair (0,1):
+      Sig1: [6.47358704e+01 2.01533377e-01 4.40080687e-02 3.93058397e-02
+ 1.47100000e+03 1.32046640e-02 3.30153704e-02 6.39757812e-02
+ 9.98028517e-02 5.74000000e+02]
+      Sig2: [6.29653740e+01 2.14292884e-01 4.26594689e-02 4.02320214e-02
+ 1.47600000e+03 1.19565129e-02 2.79563963e-02 6.16943687e-02
+ 1.02856010e-01 5.71000000e+02]
+      Norm1: 1580.350528, Norm2: 1583.850278
+      Cosine similarity: 0.999995
+      Scipy cosine distance: 0.000005
+      Manual cosine distance: 0.000005
+      Euclidean distance: 6.093838
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,2):
+      Sig1: [6.47358704e+01 2.01533377e-01 4.40080687e-02 3.93058397e-02
+ 1.47100000e+03 1.32046640e-02 3.30153704e-02 6.39757812e-02
+ 9.98028517e-02 5.74000000e+02]
+      Sig2: [6.99882812e+01 2.07614243e-01 4.42403816e-02 4.02950533e-02
+ 1.58200000e+03 1.32746696e-02 3.12601626e-02 6.25914186e-02
+ 1.06055087e-01 6.01000000e+02]
+      Norm1: 1580.350528, Norm2: 1693.760143
+      Cosine similarity: 0.999960
+      Scipy cosine distance: 0.000040
+      Manual cosine distance: 0.000040
+      Euclidean distance: 114.357282
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,3):
+      Sig1: [6.47358704e+01 2.01533377e-01 4.40080687e-02 3.93058397e-02
+ 1.47100000e+03 1.32046640e-02 3.30153704e-02 6.39757812e-02
+ 9.98028517e-02 5.74000000e+02]
+      Sig2: [6.92377319e+01 2.14648962e-01 4.46119420e-02 3.83050628e-02
+ 1.55200000e+03 1.43975466e-02 3.43564153e-02 6.39961064e-02
+ 1.00657827e-01 6.28000000e+02]
+      Norm1: 1580.350528, Norm2: 1675.673575
+      Cosine similarity: 0.999922
+      Scipy cosine distance: 0.000078
+      Manual cosine distance: 0.000078
+      Euclidean distance: 97.453922
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,4):
+      Sig1: [6.47358704e+01 2.01533377e-01 4.40080687e-02 3.93058397e-02
+ 1.47100000e+03 1.32046640e-02 3.30153704e-02 6.39757812e-02
+ 9.98028517e-02 5.74000000e+02]
+      Sig2: [6.19859085e+01 2.19096422e-01 4.28968221e-02 3.96526754e-02
+ 1.44500000e+03 1.20942593e-02 3.07816267e-02 6.22441769e-02
+ 1.00651693e-01 5.45000000e+02]
+      Norm1: 1580.350528, Norm2: 1545.604192
+      Cosine similarity: 0.999935
+      Scipy cosine distance: 0.000065
+      Manual cosine distance: 0.000065
+      Euclidean distance: 39.045648
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,2):
+      Sig1: [6.29653740e+01 2.14292884e-01 4.26594689e-02 4.02320214e-02
+ 1.47600000e+03 1.19565129e-02 2.79563963e-02 6.16943687e-02
+ 1.02856010e-01 5.71000000e+02]
+      Sig2: [6.99882812e+01 2.07614243e-01 4.42403816e-02 4.02950533e-02
+ 1.58200000e+03 1.32746696e-02 3.12601626e-02 6.25914186e-02
+ 1.06055087e-01 6.01000000e+02]
+      Norm1: 1583.850278, Norm2: 1693.760143
+      Cosine similarity: 0.999980
+      Scipy cosine distance: 0.000020
+      Manual cosine distance: 0.000020
+      Euclidean distance: 110.387143
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,3):
+      Sig1: [6.29653740e+01 2.14292884e-01 4.26594689e-02 4.02320214e-02
+ 1.47600000e+03 1.19565129e-02 2.79563963e-02 6.16943687e-02
+ 1.02856010e-01 5.71000000e+02]
+      Sig2: [6.92377319e+01 2.14648962e-01 4.46119420e-02 3.83050628e-02
+ 1.55200000e+03 1.43975466e-02 3.43564153e-02 6.39961064e-02
+ 1.00657827e-01 6.28000000e+02]
+      Norm1: 1583.850278, Norm2: 1675.673575
+      Cosine similarity: 0.999881
+      Scipy cosine distance: 0.000119
+      Manual cosine distance: 0.000119
+      Euclidean distance: 95.206841
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,4):
+      Sig1: [6.29653740e+01 2.14292884e-01 4.26594689e-02 4.02320214e-02
+ 1.47600000e+03 1.19565129e-02 2.79563963e-02 6.16943687e-02
+ 1.02856010e-01 5.71000000e+02]
+      Sig2: [6.19859085e+01 2.19096422e-01 4.28968221e-02 3.96526754e-02
+ 1.44500000e+03 1.20942593e-02 3.07816267e-02 6.22441769e-02
+ 1.00651693e-01 5.45000000e+02]
+      Norm1: 1583.850278, Norm2: 1545.604192
+      Cosine similarity: 0.999964
+      Scipy cosine distance: 0.000036
+      Manual cosine distance: 0.000036
+      Euclidean distance: 40.471711
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,3):
+      Sig1: [6.99882812e+01 2.07614243e-01 4.42403816e-02 4.02950533e-02
+ 1.58200000e+03 1.32746696e-02 3.12601626e-02 6.25914186e-02
+ 1.06055087e-01 6.01000000e+02]
+      Sig2: [6.92377319e+01 2.14648962e-01 4.46119420e-02 3.83050628e-02
+ 1.55200000e+03 1.43975466e-02 3.43564153e-02 6.39961064e-02
+ 1.00657827e-01 6.28000000e+02]
+      Norm1: 1693.760143, Norm2: 1675.673575
+      Cosine similarity: 0.999771
+      Scipy cosine distance: 0.000229
+      Manual cosine distance: 0.000229
+      Euclidean distance: 40.367851
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,4):
+      Sig1: [6.99882812e+01 2.07614243e-01 4.42403816e-02 4.02950533e-02
+ 1.58200000e+03 1.32746696e-02 3.12601626e-02 6.25914186e-02
+ 1.06055087e-01 6.01000000e+02]
+      Sig2: [6.19859085e+01 2.19096422e-01 4.28968221e-02 3.96526754e-02
+ 1.44500000e+03 1.20942593e-02 3.07816267e-02 6.22441769e-02
+ 1.00651693e-01 5.45000000e+02]
+      Norm1: 1693.760143, Norm2: 1545.604192
+      Cosine similarity: 0.999996
+      Scipy cosine distance: 0.000004
+      Manual cosine distance: 0.000004
+      Euclidean distance: 148.219561
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Summary for entailment:
+      Signatures shape: (10, 10)
+      All signatures finite: True
+      Any zero signatures: False
+      Signature std devs: [2.68526244e+00 7.16263938e-03 8.30436225e-04 7.28209277e-04
+ 5.19677785e+01 7.40631201e-04 1.72379184e-03 1.32154887e-03
+ 2.10314455e-03 2.76593565e+01]
+      Mean cosine distance: 0.000065
+      Min cosine distance: 0.000000
+      Max cosine distance: 0.000430
+      Distances = 0.0: 0/45
+      Distances < 0.001: 45/45
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.035
+    Mean signature distance: 0.000
+    Feature count CV: 0.037
+    Persistence entropy CV: 0.006
+
+--- Processing NEUTRAL ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+
+  🔍 DEBUG: Checking cosine distances for neutral
+  ==================================================
+    Signature 0: [7.63135529e+01 1.89779043e-01 3.74453142e-02 3.42143103e-02
+ 2.03800000e+03 1.07785910e-02 2.75598764e-02 5.41329235e-02
+ 8.85790408e-02 7.91000000e+02]
+    Signature 1: [7.67392883e+01 2.06649125e-01 3.72340083e-02 3.35062258e-02
+ 2.06100000e+03 1.16766691e-02 2.69107819e-02 5.36658168e-02
+ 8.68069530e-02 7.92000000e+02]
+    Signature 2: [7.68400574e+01 1.92319930e-01 3.67655791e-02 3.36304456e-02
+ 2.09000000e+03 1.11824572e-02 2.62085497e-02 5.35186529e-02
+ 8.52281630e-02 7.89000000e+02]
+
+    Detailed cosine distance checks:
+
+    Pair (0,1):
+      Sig1: [7.63135529e+01 1.89779043e-01 3.74453142e-02 3.42143103e-02
+ 2.03800000e+03 1.07785910e-02 2.75598764e-02 5.41329235e-02
+ 8.85790408e-02 7.91000000e+02]
+      Sig2: [7.67392883e+01 2.06649125e-01 3.72340083e-02 3.35062258e-02
+ 2.06100000e+03 1.16766691e-02 2.69107819e-02 5.36658168e-02
+ 8.68069530e-02 7.92000000e+02]
+      Norm1: 2187.452584, Norm2: 2209.270009
+      Cosine similarity: 0.999994
+      Scipy cosine distance: 0.000006
+      Manual cosine distance: 0.000006
+      Euclidean distance: 23.025671
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,2):
+      Sig1: [7.63135529e+01 1.89779043e-01 3.74453142e-02 3.42143103e-02
+ 2.03800000e+03 1.07785910e-02 2.75598764e-02 5.41329235e-02
+ 8.85790408e-02 7.91000000e+02]
+      Sig2: [7.68400574e+01 1.92319930e-01 3.67655791e-02 3.36304456e-02
+ 2.09000000e+03 1.11824572e-02 2.62085497e-02 5.35186529e-02
+ 8.52281630e-02 7.89000000e+02]
+      Norm1: 2187.452584, Norm2: 2235.290908
+      Cosine similarity: 0.999957
+      Scipy cosine distance: 0.000043
+      Manual cosine distance: 0.000043
+      Euclidean distance: 52.041111
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,3):
+      Sig1: [7.63135529e+01 1.89779043e-01 3.74453142e-02 3.42143103e-02
+ 2.03800000e+03 1.07785910e-02 2.75598764e-02 5.41329235e-02
+ 8.85790408e-02 7.91000000e+02]
+      Sig2: [7.61665192e+01 1.80156589e-01 3.79882902e-02 3.35495621e-02
+ 2.00500000e+03 1.22209787e-02 2.79628634e-02 5.50229549e-02
+ 8.62066388e-02 7.91000000e+02]
+      Norm1: 2187.452584, Norm2: 2156.735354
+      Cosine similarity: 0.999985
+      Scipy cosine distance: 0.000015
+      Manual cosine distance: 0.000015
+      Euclidean distance: 33.000329
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,4):
+      Sig1: [7.63135529e+01 1.89779043e-01 3.74453142e-02 3.42143103e-02
+ 2.03800000e+03 1.07785910e-02 2.75598764e-02 5.41329235e-02
+ 8.85790408e-02 7.91000000e+02]
+      Sig2: [7.74676285e+01 1.83514714e-01 3.76421921e-02 3.39709185e-02
+ 2.05800000e+03 1.20231509e-02 2.70296931e-02 5.39159775e-02
+ 8.82577121e-02 7.86000000e+02]
+      Norm1: 2187.452584, Norm2: 2204.350535
+      Cosine similarity: 0.999985
+      Scipy cosine distance: 0.000015
+      Manual cosine distance: 0.000015
+      Euclidean distance: 20.647807
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,2):
+      Sig1: [7.67392883e+01 2.06649125e-01 3.72340083e-02 3.35062258e-02
+ 2.06100000e+03 1.16766691e-02 2.69107819e-02 5.36658168e-02
+ 8.68069530e-02 7.92000000e+02]
+      Sig2: [7.68400574e+01 1.92319930e-01 3.67655791e-02 3.36304456e-02
+ 2.09000000e+03 1.11824572e-02 2.62085497e-02 5.35186529e-02
+ 8.52281630e-02 7.89000000e+02]
+      Norm1: 2209.270009, Norm2: 2235.290908
+      Cosine similarity: 0.999982
+      Scipy cosine distance: 0.000018
+      Manual cosine distance: 0.000018
+      Euclidean distance: 29.154937
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,3):
+      Sig1: [7.67392883e+01 2.06649125e-01 3.72340083e-02 3.35062258e-02
+ 2.06100000e+03 1.16766691e-02 2.69107819e-02 5.36658168e-02
+ 8.68069530e-02 7.92000000e+02]
+      Sig2: [7.61665192e+01 1.80156589e-01 3.79882902e-02 3.35495621e-02
+ 2.00500000e+03 1.22209787e-02 2.79628634e-02 5.50229549e-02
+ 8.62066388e-02 7.91000000e+02]
+      Norm1: 2209.270009, Norm2: 2156.735354
+      Cosine similarity: 0.999960
+      Scipy cosine distance: 0.000040
+      Manual cosine distance: 0.000040
+      Euclidean distance: 56.011863
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,4):
+      Sig1: [7.67392883e+01 2.06649125e-01 3.72340083e-02 3.35062258e-02
+ 2.06100000e+03 1.16766691e-02 2.69107819e-02 5.36658168e-02
+ 8.68069530e-02 7.92000000e+02]
+      Sig2: [7.74676285e+01 1.83514714e-01 3.76421921e-02 3.39709185e-02
+ 2.05800000e+03 1.20231509e-02 2.70296931e-02 5.39159775e-02
+ 8.82577121e-02 7.86000000e+02]
+      Norm1: 2209.270009, Norm2: 2204.350535
+      Cosine similarity: 0.999998
+      Scipy cosine distance: 0.000002
+      Manual cosine distance: 0.000002
+      Euclidean distance: 6.747668
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,3):
+      Sig1: [7.68400574e+01 1.92319930e-01 3.67655791e-02 3.36304456e-02
+ 2.09000000e+03 1.11824572e-02 2.62085497e-02 5.35186529e-02
+ 8.52281630e-02 7.89000000e+02]
+      Sig2: [7.61665192e+01 1.80156589e-01 3.79882902e-02 3.35495621e-02
+ 2.00500000e+03 1.22209787e-02 2.79628634e-02 5.50229549e-02
+ 8.62066388e-02 7.91000000e+02]
+      Norm1: 2235.290908, Norm2: 2156.735354
+      Cosine similarity: 0.999890
+      Scipy cosine distance: 0.000110
+      Manual cosine distance: 0.000110
+      Euclidean distance: 85.026195
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,4):
+      Sig1: [7.68400574e+01 1.92319930e-01 3.67655791e-02 3.36304456e-02
+ 2.09000000e+03 1.11824572e-02 2.62085497e-02 5.35186529e-02
+ 8.52281630e-02 7.89000000e+02]
+      Sig2: [7.74676285e+01 1.83514714e-01 3.76421921e-02 3.39709185e-02
+ 2.05800000e+03 1.20231509e-02 2.70296931e-02 5.39159775e-02
+ 8.82577121e-02 7.86000000e+02]
+      Norm1: 2235.290908, Norm2: 2204.350535
+      Cosine similarity: 0.999992
+      Scipy cosine distance: 0.000008
+      Manual cosine distance: 0.000008
+      Euclidean distance: 32.146445
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Summary for neutral:
+      Signatures shape: (10, 10)
+      All signatures finite: True
+      Any zero signatures: False
+      Signature std devs: [4.92134443e-01 1.15261284e-02 8.08334490e-04 6.03676677e-04
+ 4.87755061e+01 4.65535775e-04 6.92739536e-04 1.63190230e-03
+ 1.85214022e-03 1.40996454e+01]
+      Mean cosine distance: 0.000020
+      Min cosine distance: 0.000000
+      Max cosine distance: 0.000110
+      Distances = 0.0: 0/45
+      Distances < 0.001: 45/45
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.029
+    Mean signature distance: 0.000
+    Feature count CV: 0.026
+    Persistence entropy CV: 0.004
+
+--- Processing CONTRADICTION ---
+  Total diagrams: 100
+  Computing comprehensive statistics...
+    Processed 0/100 statistics
+    Processed 25/100 statistics
+    Processed 50/100 statistics
+    Processed 75/100 statistics
+    Creating signature vectors for 100 diagrams...
+
+  🔍 DEBUG: Checking cosine distances for contradiction
+  ==================================================
+    Signature 0: [9.76316223e+01 2.02999413e-01 3.53994295e-02 3.16789486e-02
+ 2.75800000e+03 1.07537806e-02 2.65700221e-02 5.06777316e-02
+ 8.10943186e-02 1.05400000e+03]
+    Signature 1: [9.27630310e+01 1.85941517e-01 3.54598761e-02 3.13009545e-02
+ 2.61600000e+03 1.16436630e-02 2.66672373e-02 5.03799170e-02
+ 8.04730952e-02 1.02300000e+03]
+    Signature 2: [9.36502151e+01 1.71512723e-01 3.51012796e-02 3.16311643e-02
+ 2.66800000e+03 1.09290332e-02 2.54501402e-02 5.08530438e-02
+ 8.09849620e-02 1.02300000e+03]
+
+    Detailed cosine distance checks:
+
+    Pair (0,1):
+      Sig1: [9.76316223e+01 2.02999413e-01 3.53994295e-02 3.16789486e-02
+ 2.75800000e+03 1.07537806e-02 2.65700221e-02 5.06777316e-02
+ 8.10943186e-02 1.05400000e+03]
+      Sig2: [9.27630310e+01 1.85941517e-01 3.54598761e-02 3.13009545e-02
+ 2.61600000e+03 1.16436630e-02 2.66672373e-02 5.03799170e-02
+ 8.04730952e-02 1.02300000e+03]
+      Norm1: 2954.151653, Norm2: 2810.443030
+      Cosine similarity: 0.999970
+      Scipy cosine distance: 0.000030
+      Manual cosine distance: 0.000030
+      Euclidean distance: 145.425938
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,2):
+      Sig1: [9.76316223e+01 2.02999413e-01 3.53994295e-02 3.16789486e-02
+ 2.75800000e+03 1.07537806e-02 2.65700221e-02 5.06777316e-02
+ 8.10943186e-02 1.05400000e+03]
+      Sig2: [9.36502151e+01 1.71512723e-01 3.51012796e-02 3.16311643e-02
+ 2.66800000e+03 1.09290332e-02 2.54501402e-02 5.08530438e-02
+ 8.09849620e-02 1.02300000e+03]
+      Norm1: 2954.151653, Norm2: 2858.937461
+      Cosine similarity: 0.999999
+      Scipy cosine distance: 0.000001
+      Manual cosine distance: 0.000001
+      Euclidean distance: 95.272518
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,3):
+      Sig1: [9.76316223e+01 2.02999413e-01 3.53994295e-02 3.16789486e-02
+ 2.75800000e+03 1.07537806e-02 2.65700221e-02 5.06777316e-02
+ 8.10943186e-02 1.05400000e+03]
+      Sig2: [9.65059052e+01 1.85166299e-01 3.66942622e-02 3.27288844e-02
+ 2.63000000e+03 1.12811178e-02 2.67228186e-02 5.28187305e-02
+ 8.56593490e-02 1.00000000e+03]
+      Norm1: 2954.151653, Norm2: 2815.353164
+      Cosine similarity: 0.999998
+      Scipy cosine distance: 0.000002
+      Manual cosine distance: 0.000002
+      Euclidean distance: 138.929002
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (0,4):
+      Sig1: [9.76316223e+01 2.02999413e-01 3.53994295e-02 3.16789486e-02
+ 2.75800000e+03 1.07537806e-02 2.65700221e-02 5.06777316e-02
+ 8.10943186e-02 1.05400000e+03]
+      Sig2: [9.81647339e+01 1.67585254e-01 3.69874649e-02 3.19455676e-02
+ 2.65400000e+03 1.15860552e-02 2.78280675e-02 5.44190705e-02
+ 8.34987044e-02 1.05500000e+03]
+      Norm1: 2954.151653, Norm2: 2857.687414
+      Cosine similarity: 0.999910
+      Scipy cosine distance: 0.000090
+      Manual cosine distance: 0.000090
+      Euclidean distance: 104.006180
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,2):
+      Sig1: [9.27630310e+01 1.85941517e-01 3.54598761e-02 3.13009545e-02
+ 2.61600000e+03 1.16436630e-02 2.66672373e-02 5.03799170e-02
+ 8.04730952e-02 1.02300000e+03]
+      Sig2: [9.36502151e+01 1.71512723e-01 3.51012796e-02 3.16311643e-02
+ 2.66800000e+03 1.09290332e-02 2.54501402e-02 5.08530438e-02
+ 8.09849620e-02 1.02300000e+03]
+      Norm1: 2810.443030, Norm2: 2858.937461
+      Cosine similarity: 0.999978
+      Scipy cosine distance: 0.000022
+      Manual cosine distance: 0.000022
+      Euclidean distance: 52.007570
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,3):
+      Sig1: [9.27630310e+01 1.85941517e-01 3.54598761e-02 3.13009545e-02
+ 2.61600000e+03 1.16436630e-02 2.66672373e-02 5.03799170e-02
+ 8.04730952e-02 1.02300000e+03]
+      Sig2: [9.65059052e+01 1.85166299e-01 3.66942622e-02 3.27288844e-02
+ 2.63000000e+03 1.12811178e-02 2.67228186e-02 5.28187305e-02
+ 8.56593490e-02 1.00000000e+03]
+      Norm1: 2810.443030, Norm2: 2815.353164
+      Cosine similarity: 0.999955
+      Scipy cosine distance: 0.000045
+      Manual cosine distance: 0.000045
+      Euclidean distance: 27.184723
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (1,4):
+      Sig1: [9.27630310e+01 1.85941517e-01 3.54598761e-02 3.13009545e-02
+ 2.61600000e+03 1.16436630e-02 2.66672373e-02 5.03799170e-02
+ 8.04730952e-02 1.02300000e+03]
+      Sig2: [9.81647339e+01 1.67585254e-01 3.69874649e-02 3.19455676e-02
+ 2.65400000e+03 1.15860552e-02 2.78280675e-02 5.44190705e-02
+ 8.34987044e-02 1.05500000e+03]
+      Norm1: 2810.443030, Norm2: 2857.687414
+      Cosine similarity: 0.999983
+      Scipy cosine distance: 0.000017
+      Manual cosine distance: 0.000017
+      Euclidean distance: 49.971780
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,3):
+      Sig1: [9.36502151e+01 1.71512723e-01 3.51012796e-02 3.16311643e-02
+ 2.66800000e+03 1.09290332e-02 2.54501402e-02 5.08530438e-02
+ 8.09849620e-02 1.02300000e+03]
+      Sig2: [9.65059052e+01 1.85166299e-01 3.66942622e-02 3.27288844e-02
+ 2.63000000e+03 1.12811178e-02 2.67228186e-02 5.28187305e-02
+ 8.56593490e-02 1.00000000e+03]
+      Norm1: 2858.937461, Norm2: 2815.353164
+      Cosine similarity: 0.999995
+      Scipy cosine distance: 0.000005
+      Manual cosine distance: 0.000005
+      Euclidean distance: 44.510169
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Pair (2,4):
+      Sig1: [9.36502151e+01 1.71512723e-01 3.51012796e-02 3.16311643e-02
+ 2.66800000e+03 1.09290332e-02 2.54501402e-02 5.08530438e-02
+ 8.09849620e-02 1.02300000e+03]
+      Sig2: [9.81647339e+01 1.67585254e-01 3.69874649e-02 3.19455676e-02
+ 2.65400000e+03 1.15860552e-02 2.78280675e-02 5.44190705e-02
+ 8.34987044e-02 1.05500000e+03]
+      Norm1: 2858.937461, Norm2: 2857.687414
+      Cosine similarity: 0.999924
+      Scipy cosine distance: 0.000076
+      Manual cosine distance: 0.000076
+      Euclidean distance: 35.219042
+      ✅ Very similar vectors (cosine dist < 0.001)
+
+    Summary for contradiction:
+      Signatures shape: (10, 10)
+      All signatures finite: True
+      Any zero signatures: False
+      Signature std devs: [2.65439457e+00 1.24291541e-02 5.90249302e-04 4.36604633e-04
+ 7.17163859e+01 3.59435870e-04 6.30615014e-04 1.38858114e-03
+ 1.78725219e-03 3.43912780e+01]
+      Mean cosine distance: 0.000031
+      Min cosine distance: 0.000000
+      Max cosine distance: 0.000117
+      Distances = 0.0: 0/45
+      Distances < 0.001: 45/45
+      Processed 0/100 signatures
+      Processed 25/100 signatures
+      Processed 50/100 signatures
+      Processed 75/100 signatures
+    Computing signature distances for 50 pairs...
+    Completed 50 signature comparisons
+  Key Results:
+    Total persistence CV: 0.027
+    Mean signature distance: 0.000
+    Feature count CV: 0.027
+    Persistence entropy CV: 0.004
+
+Total analysis time: 1.3 seconds
+
+================================================================================
+ULTRA-FAST PERSISTENCE DIAGRAM SIMILARITY ANALYSIS
+================================================================================
+Uses statistical analysis and signature vectors instead of expensive distance computations
+Focus: Coefficient of Variation (CV) for stability assessment
+
+KEY STABILITY METRICS
+--------------------------------------------------------------------------------
+CLASS           H0_TOTAL_CV  H1_TOTAL_CV  H0_FEAT_CV   H1_FEAT_CV   H0_SIG_DIST  H1_SIG_DIST 
+--------------------------------------------------------------------------------
+entailment      nan          0.035        0.000        0.037        0.000        0.000       
+neutral         nan          0.029        0.000        0.026        0.000        0.000       
+contradiction   nan          0.027        0.000        0.027        0.000        0.000       
+
+============================================================
+DETAILED ANALYSIS PER CLASS
+============================================================
+
+ENTAILMENT CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: nan
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.035
+    Feature Count CV: 0.037
+    Persistence Entropy CV: 0.006
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.024
+
+NEUTRAL CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: nan
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.029
+    Feature Count CV: 0.026
+    Persistence Entropy CV: 0.004
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.019
+
+CONTRADICTION CLASS ANALYSIS:
+----------------------------------------
+  H0 Stability:
+    Total Persistence CV: nan
+    Feature Count CV: 0.000
+    Persistence Entropy CV: 0.000
+  H1 Stability:
+    Total Persistence CV: 0.027
+    Feature Count CV: 0.027
+    Persistence Entropy CV: 0.004
+  Overall Assessment: EXCELLENT - Very stable, ideal for averaging
+  Average CV: 0.018
+
+============================================================
+FINAL RECOMMENDATIONS
+============================================================
+
+Overall H1 Total Persistence CV: 0.030
+Final Recommendation: PROCEED with averaging - diagrams show excellent stability
+
+Ultra-fast analysis complete! Report saved to entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/ultra_fast_report_vCosine.txt
+
+Analysis completed with exit code: 0
+Time: Thu 17 Jul 15:12:56 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Persistence Diagram Analysis successful!
+
+
+Job finished.

@@ -1,0 +1,54 @@
+SEPARATE MODEL POINT CLOUD CLUSTERING VALIDATION RESULTS
+============================================================
+
+METHODOLOGY:
+------------
+1. OrderEmbeddingModel: Trained with Vendrov max-margin loss
+2. AsymmetryTransformModel: Trained with asymmetric directional loss
+3. Point cloud generation: SBERT + Order + Asymmetric features
+4. Clustering: Persistence images → k-means
+
+MODELS USED:
+------------
+Order Model: order_embedding_model.pt
+Asymmetry Model: asymmetry_transform_model.pt
+
+CLUSTERING PERFORMANCE:
+----------------------
+Accuracy: 0.500
+Silhouette Score: 0.443
+Adjusted Rand Index: 0.124
+Success (>70%): NO
+
+PH-DIMENSION STATISTICS:
+------------------------
+entailment: 3.12 ± 2.28 (range: 1.71-24.56)
+neutral: 1.70 ± 8.49 (range: -82.53-4.11)
+contradiction: 2.57 ± 0.66 (range: 1.44-4.31)
+
+POINT CLOUD STATISTICS:
+-----------------------
+entailment:
+  Combined: 611 ± 232 points
+  Premise: 98 points
+  Hypothesis: 44 points
+  Sufficient for PHD: 100%
+
+neutral:
+  Combined: 592 ± 152 points
+  Premise: 88 points
+  Hypothesis: 49 points
+  Sufficient for PHD: 100%
+
+contradiction:
+  Combined: 585 ± 185 points
+  Premise: 96 points
+  Hypothesis: 43 points
+  Sufficient for PHD: 100%
+
+NEXT STEPS:
+-----------
+- Check model training convergence (energy rankings)
+- Analyze point cloud generation statistics
+- Consider adjusting model architectures or training parameters
+- Experiment with different point cloud aggregation strategies

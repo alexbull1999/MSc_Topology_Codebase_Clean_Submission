@@ -1,0 +1,115 @@
+Starting SVM GridSearchCV Teacher Training Pipeline
+==================================================
+About to load data from: data/processed/snli_full_standard_SBERT.pt
+Loading SNLI data from data/processed/snli_full_standard_SBERT.pt
+Loaded 20000 samples
+Data loaded successfully!
+About to generate embeddings...
+Generating lattice containment embedding space
+/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/cuda/__init__.py:128: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789122112/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+Using device: cpu
+Processing 20000 samples on cpu
+Preparing labels...
+Analyzing lattice embeddings...
+
+==================================================
+LATTICE CONTAINMENT EMBEDDING ANALYSIS
+==================================================
+Embedding shape: (20000, 768)
+Total samples: 20000
+
+Entailment Class:
+  Count: 6684
+  Mean norm: 1.2192
+  Std norm: 0.0890
+  Mean per dimension: [0.01901406 0.03503703 0.0119783  0.02624365 0.02336202]...
+  Std per dimension: [0.03072502 0.04552096 0.01915631 0.0344714  0.03228919]...
+
+Neutral Class:
+  Count: 6609
+  Mean norm: 1.1614
+  Std norm: 0.0827
+  Mean per dimension: [0.01452191 0.02391717 0.00835278 0.02151337 0.01822664]...
+  Std per dimension: [0.03251456 0.04564863 0.02012716 0.03469324 0.03343669]...
+
+Contradiction Class:
+  Count: 6707
+  Mean norm: 1.0954
+  Std norm: 0.0677
+  Mean per dimension: [0.00785042 0.01809739 0.00439246 0.0121336  0.01004714]...
+  Std per dimension: [0.03345339 0.04771494 0.02066628 0.03556354 0.03438456]...
+Training SVM...
+Splitting data into train/test sets
+Scaling features
+Setting up GridSearchCV for RBF SVM hyperparameter optimization
+Parameter grid: {'C': [0.1, 1, 10, 100], 'gamma': ['scale', 'auto', 0.01, 0.1, 1]}
+Total combinations to test: 20
+Starting GridSearchCV (this may take several minutes)...
+Fitting 3 folds for each of 20 candidates, totalling 60 fits
+[CV] END ..................................C=0.1, gamma=auto; total time=19.4min
+[CV] END .................................C=0.1, gamma=scale; total time=19.4min
+[CV] END ..................................C=0.1, gamma=auto; total time=19.5min
+[CV] END .................................C=0.1, gamma=scale; total time=19.6min
+[CV] END .................................C=0.1, gamma=scale; total time=19.6min
+[CV] END ..................................C=0.1, gamma=auto; total time=19.6min
+[CV] END ..................................C=0.1, gamma=0.01; total time=25.7min
+[CV] END ..................................C=0.1, gamma=0.01; total time=25.8min
+[CV] END ...................................C=1, gamma=scale; total time=18.6min
+[CV] END ..................................C=0.1, gamma=0.01; total time=25.9min
+[CV] END ...................................C=0.1, gamma=0.1; total time=25.9min
+[CV] END ...................................C=0.1, gamma=0.1; total time=26.0min
+[CV] END .....................................C=0.1, gamma=1; total time=26.0min
+[CV] END ...................................C=0.1, gamma=0.1; total time=26.1min
+[CV] END .....................................C=0.1, gamma=1; total time=26.0min
+[CV] END .....................................C=0.1, gamma=1; total time=25.7min
+[CV] END ...................................C=1, gamma=scale; total time=18.3min
+[CV] END ...................................C=1, gamma=scale; total time=18.1min
+[CV] END ....................................C=1, gamma=auto; total time=18.5min
+[CV] END ....................................C=1, gamma=auto; total time=18.2min
+[CV] END ....................................C=1, gamma=auto; total time=18.5min
+[CV] END ....................................C=1, gamma=0.01; total time=25.9min
+[CV] END ....................................C=1, gamma=0.01; total time=26.1min
+[CV] END ....................................C=1, gamma=0.01; total time=25.8min
+[CV] END .....................................C=1, gamma=0.1; total time=26.2min
+[CV] END .....................................C=1, gamma=0.1; total time=26.1min
+[CV] END .......................................C=1, gamma=1; total time=26.4min
+[CV] END .....................................C=1, gamma=0.1; total time=26.5min
+[CV] END .......................................C=1, gamma=1; total time=26.4min
+[CV] END ..................................C=10, gamma=scale; total time=23.1min
+[CV] END .......................................C=1, gamma=1; total time=25.6min
+[CV] END ..................................C=10, gamma=scale; total time=23.1min
+[CV] END ..................................C=10, gamma=scale; total time=23.4min
+[CV] END ...................................C=10, gamma=auto; total time=23.6min
+[CV] END ...................................C=10, gamma=auto; total time=23.5min
+[CV] END ...................................C=10, gamma=auto; total time=23.6min
+[CV] END ...................................C=10, gamma=0.01; total time=26.4min
+[CV] END ...................................C=10, gamma=0.01; total time=25.8min
+[CV] END ...................................C=10, gamma=0.01; total time=25.7min
+[CV] END ....................................C=10, gamma=0.1; total time=25.8min
+[CV] END ....................................C=10, gamma=0.1; total time=26.3min
+[CV] END ....................................C=10, gamma=0.1; total time=26.2min
+[CV] END ......................................C=10, gamma=1; total time=26.2min
+[CV] END ......................................C=10, gamma=1; total time=26.3min
+[CV] END ......................................C=10, gamma=1; total time=26.3min
+[CV] END .................................C=100, gamma=scale; total time=23.2min
+[CV] END .................................C=100, gamma=scale; total time=23.1min
+[CV] END .................................C=100, gamma=scale; total time=22.9min
+[CV] END ..................................C=100, gamma=auto; total time=23.6min
+[CV] END ..................................C=100, gamma=auto; total time=23.5min
+[CV] END ..................................C=100, gamma=auto; total time=23.1min
+[CV] END ..................................C=100, gamma=0.01; total time=26.2min
+[CV] END ..................................C=100, gamma=0.01; total time=26.2min
+[CV] END ..................................C=100, gamma=0.01; total time=25.7min
+[CV] END ...................................C=100, gamma=0.1; total time=25.3min
+[CV] END ...................................C=100, gamma=0.1; total time=24.3min
+[CV] END ...................................C=100, gamma=0.1; total time=18.9min
+[CV] END .....................................C=100, gamma=1; total time=18.4min
+[CV] END .....................................C=100, gamma=1; total time=18.2min
+[CV] END .....................................C=100, gamma=1; total time=16.5min
+GridSearchCV completed!
+Best parameters: {'C': 1, 'gamma': 'scale'}
+Best cross-validation score: 0.6457
+Evaluating best SVM performance
+Best SVM Training Accuracy: 0.8948
+Best SVM Test Accuracy: 0.6560

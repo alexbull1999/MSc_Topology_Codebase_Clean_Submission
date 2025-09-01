@@ -1,0 +1,90 @@
+{
+  "timestamp": "20250708_171655",
+  "experiment_config": {
+    "sample_size": 5,
+    "embedding_space": "lattice_containment",
+    "classifier": "SGD",
+    "loss_function": "hinge",
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "performance_metrics": {
+    "test_accuracy": 0.6239692738955531,
+    "confusion_matrix": [
+      [
+        30813,
+        2972,
+        2898
+      ],
+      [
+        16024,
+        8247,
+        12282
+      ],
+      [
+        4327,
+        2813,
+        29498
+      ]
+    ],
+    "classification_report": {
+      "Entailment": {
+        "precision": 0.6022398561488547,
+        "recall": 0.8399803723795763,
+        "f1-score": 0.7015151342675332,
+        "support": 36683.0
+      },
+      "Neutral": {
+        "precision": 0.5877280501710376,
+        "recall": 0.22561759636691928,
+        "f1-score": 0.32606503904319467,
+        "support": 36553.0
+      },
+      "Contradiction": {
+        "precision": 0.6602354626438068,
+        "recall": 0.8051203668322506,
+        "f1-score": 0.7255152737468641,
+        "support": 36638.0
+      },
+      "accuracy": 0.6239692738955531,
+      "macro avg": {
+        "precision": 0.616734456321233,
+        "recall": 0.6235727785262487,
+        "f1-score": 0.5843651490191973,
+        "support": 109874.0
+      },
+      "weighted avg": {
+        "precision": 0.6167509596570087,
+        "recall": 0.6239692738955531,
+        "f1-score": 0.5846129534013454,
+        "support": 109874.0
+      }
+    }
+  },
+  "decision_function_stats": {
+    "shape": [
+      109874,
+      3
+    ],
+    "mean_per_class": [
+      -1.053328275680542,
+      -0.9655937552452087,
+      -0.8857306241989136
+    ],
+    "std_per_class": [
+      2.006758213043213,
+      0.4030449092388153,
+      1.7803047895431519
+    ],
+    "min_per_class": [
+      -9.051952362060547,
+      -2.733208179473877,
+      -6.258548736572266
+    ],
+    "max_per_class": [
+      5.2827653884887695,
+      0.8530369997024536,
+      6.445266246795654
+    ]
+  }
+}

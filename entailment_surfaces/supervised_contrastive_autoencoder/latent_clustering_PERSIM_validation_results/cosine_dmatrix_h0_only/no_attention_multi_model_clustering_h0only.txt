@@ -1,0 +1,55 @@
+================================================================================
+MULTI-MODEL PERSISTENCE IMAGE CLUSTERING SUMMARY
+================================================================================
+Models tested: 5
+Successful: 5
+Failed: 0
+Success rate: 100.0%
+
+--------------------------------------------------
+PERFORMANCE OVERVIEW
+--------------------------------------------------
+Best model accuracy: 0.7867
+Worst model accuracy: 0.4900
+Overall mean accuracy: 0.6127 ± 0.1012
+Performance range: 0.2967
+
+--------------------------------------------------
+MODEL RANKINGS
+--------------------------------------------------
+1. moor_topo+contrastive_no_attention
+   Accuracy: 0.7867, Consistency: GOOD (Reasonably consistent)
+   Perfect runs: 0, Ranking score: 0.588
+2. contrastive+recon_no_attention
+   Accuracy: 0.6533, Consistency: GOOD (Reasonably consistent)
+   Perfect runs: 0, Ranking score: 0.537
+3. moor_signatureh0only_lifted_no_attention
+   Accuracy: 0.5667, Consistency: GOOD (Reasonably consistent)
+   Perfect runs: 0, Ranking score: 0.499
+4. moor_signatureh0only_lifted_no_attention
+   Accuracy: 0.5667, Consistency: GOOD (Reasonably consistent)
+   Perfect runs: 0, Ranking score: 0.499
+5. moor_signatureh0h1_lifted_no_attention
+   Accuracy: 0.4900, Consistency: MODERATE (Some variation)
+   Perfect runs: 0, Ranking score: 0.462
+
+--------------------------------------------------
+PERFORMANCE CATEGORIES
+--------------------------------------------------
+Excellent (≥95%): 0 models
+Good (85-95%): 0 models
+Moderate (75-85%): 1 models
+Poor (<75%): 4 models
+
+--------------------------------------------------
+SBERT BASELINE COMPARISON
+--------------------------------------------------
+Original SBERT persistence image clustering: 100.00%
+Models achieving ≥90% (strong retention): 0
+Best model (moor_topo+contrastive_no_attention): 78.67% (78.7% retention)
+
+--------------------------------------------------
+CONSISTENCY ANALYSIS
+--------------------------------------------------
+Most consistent: contrastive+recon_no_attention (GOOD (Reasonably consistent))
+Least consistent: moor_signatureh0h1_lifted_no_attention (MODERATE (Some variation))

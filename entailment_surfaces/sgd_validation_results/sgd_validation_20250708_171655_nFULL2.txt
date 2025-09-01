@@ -1,0 +1,110 @@
+SVM TEACHER VALIDATION RESULTS
+==================================================
+
+Timestamp: 20250708_171655
+Sample Size: 5
+Embedding Space: lattice_containment
+SVM Kernel: linear
+
+PERFORMANCE METRICS
+------------------------------
+Test Accuracy: 0.6240
+
+Confusion Matrix:
+                Predicted
+               E   N   C
+Actual E 30813 2972 2898
+Actual N 16024 8247 12282
+Actual C 4327 2813 29498
+
+Classification Report:
+Entailment  : precision=0.602, recall=0.840, f1=0.702
+Neutral     : precision=0.588, recall=0.226, f1=0.326
+Contradiction: precision=0.660, recall=0.805, f1=0.726
+
+DECISION FUNCTION STATISTICS
+------------------------------
+Shape: (109874, 3)
+Mean per class: [-1.0533283  -0.96559376 -0.8857306 ]
+Std per class:  [2.0067582 0.4030449 1.7803048]
+Min per class:  [-9.051952  -2.7332082 -6.2585487]
+Max per class:  [5.2827654 0.853037  6.4452662]
+
+
+FULL PRINT STATEMENTS:
+
+Max_iter = 1000
+tolerance = 1e-3
+
+==================================================
+LATTICE CONTAINMENT EMBEDDING ANALYSIS
+==================================================
+Embedding shape: (549367, 768)
+Total samples: 549367
+
+Entailment Class:
+  Count: 183416
+  Mean norm: 1.2180
+  Std norm: 0.0892
+  Mean per dimension: [0.01899897 0.03403895 0.01193759 0.02587069 0.02328306]...
+  Std per dimension: [0.03066669 0.0450409  0.01954677 0.03404593 0.0320558 ]...
+
+Neutral Class:
+  Count: 182764
+  Mean norm: 1.1616
+  Std norm: 0.0826
+  Mean per dimension: [0.01435648 0.0245106  0.00862564 0.02098269 0.01836825]...
+  Std per dimension: [0.03267545 0.04597026 0.02015521 0.03497398 0.03309762]...
+
+Contradiction Class:
+  Count: 183187
+  Mean norm: 1.0955
+  Std norm: 0.0675
+  Mean per dimension: [0.00797416 0.01797984 0.00441561 0.01234577 0.01001009]...
+  Std per dimension: [0.0330552  0.04749043 0.02071265 0.03531532 0.03406962]...
+Training SGD...
+Splitting data into train/test sets
+Scaling features
+Training SGD classifier
+Evaluating SGD performance
+SGD Training Accuracy: 0.6261
+SGD Test Accuracy: 0.6240
+Validating SGD...
+
+==================================================
+SGD TEACHER VALIDATION RESULTS
+==================================================
+Manual Test Accuracy: 0.6240
+SGD Test Accuracy: 0.6240
+
+Classification Report:
+               precision    recall  f1-score   support
+
+   Entailment       0.60      0.84      0.70     36683
+      Neutral       0.59      0.23      0.33     36553
+Contradiction       0.66      0.81      0.73     36638
+
+     accuracy                           0.62    109874
+    macro avg       0.62      0.62      0.58    109874
+ weighted avg       0.62      0.62      0.58    109874
+
+
+Confusion Matrix:
+[[30813  2972  2898]
+ [16024  8247 12282]
+ [ 4327  2813 29498]]
+
+Decision Function Shape: (109874, 3)
+Decision Function Stats:
+  Mean: [-1.0533283  -0.96559376 -0.8857306 ]
+  Std: [2.0067582 0.4030449 1.7803048]
+  Min: [-9.051952  -2.7332082 -6.2585487]
+  Max: [5.2827654 0.853037  6.4452662]
+
+Results saved to:
+  JSON: entailment_surfaces/sgd_validation_results/sgd_validation_20250708_171655_n5.json
+  TXT:  entailment_surfaces/sgd_validation_results/sgd_validation_20250708_171655_n5.txt
+
+==================================================
+SGD TEACHER TRAINING COMPLETE
+==================================================

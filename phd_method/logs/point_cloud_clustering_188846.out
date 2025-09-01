@@ -1,0 +1,3305 @@
+Job ID: 188846
+Node: gpuvm24
+Time: Thu 31 Jul 18:24:11 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Thu Jul 31 18:24:13 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   33C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+Loading validation data: /vol/bitbucket/ahb24/tda_entailment_new/snli_val_sbert_tokens.pkl
+Loaded 9842 validation samples
+Loading separate models...
+Order model: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model.pt
+Asymmetry model: MSc_Topology_Codebase/phd_method/models/separate_models/asymmetry_transform_model.pt
+Both models loaded on cuda
+Order model training stats: Best val loss = 0.1832686284383138
+Asymmetry model training stats: Best val loss = 1.4873974243164068
+Separate model clustering validator initialized
+Samples per class: 100
+
+================================================================================
+SEPARATE MODEL POINT CLOUD CLUSTERING VALIDATION
+================================================================================
+Generating fixed sample indices...
+  entailment: 3329 total samples available
+Token filtering: 254/3329 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 48 ± 10 (range: 40-90)
+  neutral: 3235 total samples available
+Token filtering: 344/3235 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 45 ± 6 (range: 40-75)
+  contradiction: 3278 total samples available
+Token filtering: 288/3278 samples have ≥40 tokens
+    Selected 100 samples
+Token count stats: 46 ± 8 (range: 40-84)
+
+============================================================
+DIAGNOSING ENTAILMENT TOPOLOGY
+============================================================
+
+--- Topological Diagnostic: entailment_sample_1 ---
+Points: 207
+Point spread:
+  Mean distance from centroid: 5.8282
+  Std distance from centroid: 2.2852
+  Min/Max: 3.7205 / 15.3098
+Pairwise distances:
+  Mean: 7.2875
+  Std: 5.0650
+  Min/Max: 0.0272 / 19.9464
+Distance distribution:
+  <1.0: 5.8%
+  1.0-5.0: 45.5%
+  >5.0: 48.6%
+Persistence analysis:
+  H1 features (total): 35
+  H1 features (finite): 35
+  H1 lifespans: 0.0606 ± 0.1000
+  Longest lifespan: 0.4376
+
+--- Topological Diagnostic: entailment_sample_2 ---
+Points: 120
+Point spread:
+  Mean distance from centroid: 5.1453
+  Std distance from centroid: 1.9210
+  Min/Max: 3.4855 / 12.2946
+Pairwise distances:
+  Mean: 6.4893
+  Std: 4.3271
+  Min/Max: 0.0399 / 16.3349
+Distance distribution:
+  <1.0: 7.2%
+  1.0-5.0: 46.4%
+  >5.0: 46.5%
+Persistence analysis:
+  H1 features (total): 20
+  H1 features (finite): 20
+  H1 lifespans: 0.1030 ± 0.1400
+  Longest lifespan: 0.4536
+
+============================================================
+DIAGNOSING NEUTRAL TOPOLOGY
+============================================================
+
+--- Topological Diagnostic: neutral_sample_1 ---
+Points: 126
+Point spread:
+  Mean distance from centroid: 4.6158
+  Std distance from centroid: 1.6536
+  Min/Max: 2.2782 / 9.8941
+Pairwise distances:
+  Mean: 5.8929
+  Std: 3.7065
+  Min/Max: 0.0226 / 13.5463
+Distance distribution:
+  <1.0: 7.0%
+  1.0-5.0: 47.3%
+  >5.0: 45.8%
+Persistence analysis:
+  H1 features (total): 12
+  H1 features (finite): 12
+  H1 lifespans: 0.0408 ± 0.0365
+  Longest lifespan: 0.1444
+
+--- Topological Diagnostic: neutral_sample_2 ---
+Points: 147
+Point spread:
+  Mean distance from centroid: 6.5590
+  Std distance from centroid: 2.4842
+  Min/Max: 4.7868 / 14.7827
+Pairwise distances:
+  Mean: 8.2207
+  Std: 5.6104
+  Min/Max: 0.0683 / 19.8856
+Distance distribution:
+  <1.0: 3.6%
+  1.0-5.0: 43.9%
+  >5.0: 52.5%
+Persistence analysis:
+  H1 features (total): 12
+  H1 features (finite): 12
+  H1 lifespans: 0.0809 ± 0.1245
+  Longest lifespan: 0.4723
+
+============================================================
+DIAGNOSING CONTRADICTION TOPOLOGY
+============================================================
+
+--- Topological Diagnostic: contradiction_sample_1 ---
+Points: 144
+Point spread:
+  Mean distance from centroid: 5.5408
+  Std distance from centroid: 1.9761
+  Min/Max: 3.9888 / 13.1315
+Pairwise distances:
+  Mean: 6.9285
+  Std: 4.6574
+  Min/Max: 0.0594 / 17.5233
+Distance distribution:
+  <1.0: 6.9%
+  1.0-5.0: 46.1%
+  >5.0: 47.0%
+Persistence analysis:
+  H1 features (total): 13
+  H1 features (finite): 13
+  H1 lifespans: 0.0385 ± 0.0395
+  Longest lifespan: 0.1161
+
+--- Topological Diagnostic: contradiction_sample_2 ---
+Points: 126
+Point spread:
+  Mean distance from centroid: 5.8656
+  Std distance from centroid: 2.2482
+  Min/Max: 3.2846 / 13.8424
+Pairwise distances:
+  Mean: 7.4403
+  Std: 4.9185
+  Min/Max: 0.0260 / 18.2958
+Distance distribution:
+  <1.0: 4.8%
+  1.0-5.0: 44.2%
+  >5.0: 51.0%
+Persistence analysis:
+  H1 features (total): 10
+  H1 features (finite): 10
+  H1 lifespans: 0.1549 ± 0.2043
+  Longest lifespan: 0.5766
+
+============================================================
+DIAGNOSIS COMPLETE
+============================================================
+
+Processing entailment samples...
+  Sample 1: P=58 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 58 + 58 + 58 = 174
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 207 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5728
+      Asymmetric energy: 2.2000
+    PH-dimension: 0.00
+  Sample 2: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2310
+      Asymmetric energy: 2.0351
+    PH-dimension: 0.00
+  Sample 3: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2669
+      Asymmetric energy: 3.4580
+    PH-dimension: 0.00
+  Sample 4: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0171
+      Asymmetric energy: 7.4720
+    PH-dimension: 0.00
+  Sample 5: P=34 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2317
+      Asymmetric energy: 2.6741
+    PH-dimension: 0.00
+  Sample 6: P=22 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2567
+      Asymmetric energy: 1.1717
+    PH-dimension: 0.00
+  Sample 7: P=41 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1881
+      Asymmetric energy: 2.5722
+    PH-dimension: 0.00
+  Sample 8: P=36 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0001
+      Asymmetric energy: 6.8911
+    PH-dimension: 0.00
+  Sample 9: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1782
+      Asymmetric energy: 3.7229
+    PH-dimension: 0.00
+  Sample 10: P=39 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0113
+      Asymmetric energy: 8.6424
+    PH-dimension: 0.00
+  Sample 11: P=22 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4395
+      Asymmetric energy: 1.3349
+    PH-dimension: 0.00
+  Sample 12: P=28 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5335
+      Asymmetric energy: 3.9993
+    PH-dimension: 0.00
+  Sample 13: P=51 tokens, H=39 tokens
+    Point cloud breakdown:
+      Premise: 51 + 51 + 51 = 153
+      Hypothesis: 39 + 39 + 39 = 117
+      Combined: 270 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7652
+      Asymmetric energy: 2.1221
+    PH-dimension: 6.58
+  Sample 14: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6740
+      Asymmetric energy: 1.8183
+    PH-dimension: 0.00
+  Sample 15: P=54 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 54 + 54 + 54 = 162
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 237 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0903
+      Asymmetric energy: 3.9339
+    PH-dimension: 0.00
+  Sample 16: P=63 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 63 + 63 + 63 = 189
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 213 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0023
+      Asymmetric energy: 11.5705
+    PH-dimension: 0.00
+  Sample 17: P=24 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1296
+      Asymmetric energy: 0.9174
+    PH-dimension: 0.00
+  Sample 18: P=41 tokens, H=5 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 5 + 5 + 5 = 15
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1096
+      Asymmetric energy: 4.9458
+    PH-dimension: 0.00
+  Sample 19: P=24 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3403
+      Asymmetric energy: 1.4101
+    PH-dimension: 0.00
+  Sample 20: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4264
+      Asymmetric energy: 2.3762
+    PH-dimension: 0.00
+  Sample 21: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1929
+      Asymmetric energy: 4.3187
+    PH-dimension: 0.00
+  Sample 22: P=35 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2259
+      Asymmetric energy: 3.2566
+    PH-dimension: 0.00
+  Sample 23: P=37 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 168 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2064
+      Asymmetric energy: 3.5718
+    PH-dimension: 0.00
+  Sample 24: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7503
+      Asymmetric energy: 1.4174
+    PH-dimension: 0.00
+  Sample 25: P=40 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 40 + 40 + 40 = 120
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 177 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4494
+      Asymmetric energy: 2.7319
+    PH-dimension: 0.00
+  Sample 26: P=34 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4817
+      Asymmetric energy: 1.8078
+    PH-dimension: 0.00
+  Sample 27: P=53 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 53 + 53 + 53 = 159
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 192 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9251
+      Asymmetric energy: 1.7997
+    PH-dimension: 0.00
+  Sample 28: P=25 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3865
+      Asymmetric energy: 3.8786
+    PH-dimension: 0.00
+  Sample 29: P=33 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1719
+      Asymmetric energy: 4.1781
+    PH-dimension: 0.00
+  Sample 30: P=34 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3852
+      Asymmetric energy: 2.8752
+    PH-dimension: 0.00
+  Sample 31: P=33 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1694
+      Asymmetric energy: 5.3332
+    PH-dimension: 0.00
+  Sample 32: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1474
+      Asymmetric energy: 3.5469
+    PH-dimension: 0.00
+  Sample 33: P=26 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0170
+      Asymmetric energy: 0.9522
+    PH-dimension: 0.00
+  Sample 34: P=29 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2778
+      Asymmetric energy: 1.9146
+    PH-dimension: 0.00
+  Sample 35: P=51 tokens, H=39 tokens
+    Point cloud breakdown:
+      Premise: 51 + 51 + 51 = 153
+      Hypothesis: 39 + 39 + 39 = 117
+      Combined: 270 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6575
+      Asymmetric energy: 1.9798
+    PH-dimension: 14.31
+  Sample 36: P=29 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4359
+      Asymmetric energy: 2.7745
+    PH-dimension: 0.00
+  Sample 37: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0706
+      Asymmetric energy: 4.9365
+    PH-dimension: 0.00
+  Sample 38: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2243
+      Asymmetric energy: 1.0867
+    PH-dimension: 0.00
+  Sample 39: P=26 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1387
+      Asymmetric energy: 2.2404
+    PH-dimension: 0.00
+  Sample 40: P=31 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7532
+      Asymmetric energy: 2.6363
+    PH-dimension: 0.00
+  Sample 41: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1033
+      Asymmetric energy: 3.0909
+    PH-dimension: 0.00
+  Sample 42: P=37 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0210
+      Asymmetric energy: 8.1740
+    PH-dimension: 0.00
+  Sample 43: P=39 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 189 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7927
+      Asymmetric energy: 1.3392
+    PH-dimension: 0.00
+  Sample 44: P=39 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0325
+      Asymmetric energy: 7.8405
+    PH-dimension: 0.00
+  Sample 45: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5208
+      Asymmetric energy: 1.6376
+    PH-dimension: 0.00
+  Sample 46: P=38 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0663
+      Asymmetric energy: 3.6017
+    PH-dimension: 0.00
+  Sample 47: P=30 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6539
+      Asymmetric energy: 3.3334
+    PH-dimension: 0.00
+  Sample 48: P=25 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6005
+      Asymmetric energy: 1.9220
+    PH-dimension: 0.00
+  Sample 49: P=27 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6663
+      Asymmetric energy: 3.1715
+    PH-dimension: 0.00
+  Sample 50: P=27 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0630
+      Asymmetric energy: 5.6935
+    PH-dimension: 0.00
+  Sample 51: P=42 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 42 + 42 + 42 = 126
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 168 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0708
+      Asymmetric energy: 3.4398
+    PH-dimension: 0.00
+  Sample 52: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0468
+      Asymmetric energy: 4.9466
+    PH-dimension: 0.00
+  Sample 53: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0453
+      Asymmetric energy: 4.5921
+    PH-dimension: 0.00
+  Sample 54: P=25 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9627
+      Asymmetric energy: 2.1866
+    PH-dimension: 0.00
+  Sample 55: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0780
+      Asymmetric energy: 4.2303
+    PH-dimension: 0.00
+  Sample 56: P=31 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2255
+      Asymmetric energy: 1.5557
+    PH-dimension: 0.00
+  Sample 57: P=31 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2499
+      Asymmetric energy: 2.5764
+    PH-dimension: 0.00
+  Sample 58: P=39 tokens, H=6 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 6 + 6 + 6 = 18
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0006
+      Asymmetric energy: 13.8383
+    PH-dimension: 0.00
+  Sample 59: P=29 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2972
+      Asymmetric energy: 4.3928
+    PH-dimension: 0.00
+  Sample 60: P=38 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1745
+      Asymmetric energy: 4.7058
+    PH-dimension: 0.00
+  Sample 61: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1086
+      Asymmetric energy: 1.7559
+    PH-dimension: 0.00
+  Sample 62: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6815
+      Asymmetric energy: 2.1711
+    PH-dimension: 0.00
+  Sample 63: P=28 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0651
+      Asymmetric energy: 4.8825
+    PH-dimension: 0.00
+  Sample 64: P=33 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1740
+      Asymmetric energy: 3.9969
+    PH-dimension: 0.00
+  Sample 65: P=30 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2701
+      Asymmetric energy: 4.8441
+    PH-dimension: 0.00
+  Sample 66: P=28 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1514
+      Asymmetric energy: 3.0896
+    PH-dimension: 0.00
+  Sample 67: P=29 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2463
+      Asymmetric energy: 1.7101
+    PH-dimension: 0.00
+  Sample 68: P=25 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2563
+      Asymmetric energy: 2.1612
+    PH-dimension: 0.00
+  Sample 69: P=41 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6609
+      Asymmetric energy: 2.8208
+    PH-dimension: 0.00
+  Sample 70: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3425
+      Asymmetric energy: 3.5752
+    PH-dimension: 0.00
+  Sample 71: P=30 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0668
+      Asymmetric energy: 2.2808
+    PH-dimension: 0.00
+  Sample 72: P=26 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2379
+      Asymmetric energy: 1.7514
+    PH-dimension: 0.00
+  Sample 73: P=24 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4345
+      Asymmetric energy: 1.6028
+    PH-dimension: 0.00
+  Sample 74: P=28 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2495
+      Asymmetric energy: 2.1743
+    PH-dimension: 0.00
+  Sample 75: P=37 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 168 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1364
+      Asymmetric energy: 2.3448
+    PH-dimension: 0.00
+  Sample 76: P=24 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6461
+      Asymmetric energy: 1.9150
+    PH-dimension: 0.00
+  Sample 77: P=24 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2876
+      Asymmetric energy: 1.1595
+    PH-dimension: 0.00
+  Sample 78: P=31 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0364
+      Asymmetric energy: 9.2639
+    PH-dimension: 0.00
+  Sample 79: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2178
+      Asymmetric energy: 2.2133
+    PH-dimension: 0.00
+  Sample 80: P=37 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5106
+      Asymmetric energy: 3.7789
+    PH-dimension: 0.00
+  Sample 81: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6780
+      Asymmetric energy: 2.1027
+    PH-dimension: 0.00
+  Sample 82: P=24 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0300
+      Asymmetric energy: 1.1827
+    PH-dimension: 0.00
+  Sample 83: P=39 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6555
+      Asymmetric energy: 3.2176
+    PH-dimension: 0.00
+  Sample 84: P=27 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2987
+      Asymmetric energy: 2.5887
+    PH-dimension: 0.00
+  Sample 85: P=33 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0823
+      Asymmetric energy: 3.0503
+    PH-dimension: 0.00
+  Sample 86: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2417
+      Asymmetric energy: 1.5455
+    PH-dimension: 0.00
+  Sample 87: P=33 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2968
+      Asymmetric energy: 3.7112
+    PH-dimension: 0.00
+  Sample 88: P=35 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1189
+      Asymmetric energy: 2.9511
+    PH-dimension: 0.00
+  Sample 89: P=32 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0478
+      Asymmetric energy: 5.4473
+    PH-dimension: 0.00
+  Sample 90: P=22 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1105
+      Asymmetric energy: 2.0347
+    PH-dimension: 0.00
+  Sample 91: P=29 tokens, H=29 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 29 + 29 + 29 = 87
+      Combined: 174 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0140
+      Asymmetric energy: 0.1894
+    PH-dimension: 0.00
+  Sample 92: P=33 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6684
+      Asymmetric energy: 2.4806
+    PH-dimension: 0.00
+  Sample 93: P=31 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2556
+      Asymmetric energy: 3.2139
+    PH-dimension: 0.00
+  Sample 94: P=30 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1493
+      Asymmetric energy: 4.0285
+    PH-dimension: 0.00
+  Sample 95: P=37 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3974
+      Asymmetric energy: 2.1798
+    PH-dimension: 0.00
+  Sample 96: P=38 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4865
+      Asymmetric energy: 2.4415
+    PH-dimension: 0.00
+  Sample 97: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0401
+      Asymmetric energy: 6.0769
+    PH-dimension: 0.00
+  Sample 98: P=27 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3690
+      Asymmetric energy: 1.5433
+    PH-dimension: 0.00
+  Sample 99: P=28 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7359
+      Asymmetric energy: 2.8514
+    PH-dimension: 0.00
+  Sample 100: P=55 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 55 + 55 + 55 = 165
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 198 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1654
+      Asymmetric energy: 4.1711
+    PH-dimension: 0.00
+
+Processing neutral samples...
+  Sample 1: P=28 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8522
+      Asymmetric energy: 1.9791
+    PH-dimension: 0.00
+  Sample 2: P=26 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.3820
+      Asymmetric energy: 2.9488
+    PH-dimension: 0.00
+  Sample 3: P=45 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 45 + 45 + 45 = 135
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 162 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7574
+      Asymmetric energy: 2.9208
+    PH-dimension: 0.00
+  Sample 4: P=37 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8126
+      Asymmetric energy: 1.7998
+    PH-dimension: 0.00
+  Sample 5: P=25 tokens, H=30 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 30 + 30 + 30 = 90
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9268
+      Asymmetric energy: 3.0128
+    PH-dimension: 0.00
+  Sample 6: P=30 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0304
+      Asymmetric energy: 1.4406
+    PH-dimension: 0.00
+  Sample 7: P=32 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1544
+      Asymmetric energy: 4.2375
+    PH-dimension: 0.00
+  Sample 8: P=19 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 19 + 19 + 19 = 57
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8555
+      Asymmetric energy: 4.1546
+    PH-dimension: 0.00
+  Sample 9: P=28 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1764
+      Asymmetric energy: 1.8844
+    PH-dimension: 0.00
+  Sample 10: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9748
+      Asymmetric energy: 3.5641
+    PH-dimension: 0.00
+  Sample 11: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0725
+      Asymmetric energy: 1.6250
+    PH-dimension: 0.00
+  Sample 12: P=18 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 18 + 18 + 18 = 54
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8269
+      Asymmetric energy: 2.5510
+    PH-dimension: 0.00
+  Sample 13: P=29 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7509
+      Asymmetric energy: 1.7885
+    PH-dimension: 0.00
+  Sample 14: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.6353
+      Asymmetric energy: 4.0782
+    PH-dimension: 0.00
+  Sample 15: P=22 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2432
+      Asymmetric energy: 4.0585
+    PH-dimension: 0.00
+  Sample 16: P=28 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8986
+      Asymmetric energy: 1.8474
+    PH-dimension: 0.00
+  Sample 17: P=30 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6708
+      Asymmetric energy: 2.3494
+    PH-dimension: 0.00
+  Sample 18: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3379
+      Asymmetric energy: 3.0211
+    PH-dimension: 0.00
+  Sample 19: P=25 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1932
+      Asymmetric energy: 1.4448
+    PH-dimension: 0.00
+  Sample 20: P=23 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4500
+      Asymmetric energy: 2.9190
+    PH-dimension: 0.00
+  Sample 21: P=52 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 52 + 52 + 52 = 156
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 177 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9336
+      Asymmetric energy: 2.5485
+    PH-dimension: 0.00
+  Sample 22: P=25 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6696
+      Asymmetric energy: 2.4766
+    PH-dimension: 0.00
+  Sample 23: P=27 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9272
+      Asymmetric energy: 1.4945
+    PH-dimension: 0.00
+  Sample 24: P=22 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5235
+      Asymmetric energy: 2.3183
+    PH-dimension: 0.00
+  Sample 25: P=25 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5658
+      Asymmetric energy: 2.6424
+    PH-dimension: 0.00
+  Sample 26: P=27 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8177
+      Asymmetric energy: 2.0148
+    PH-dimension: 0.00
+  Sample 27: P=48 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 48 + 48 + 48 = 144
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 186 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5130
+      Asymmetric energy: 2.6281
+    PH-dimension: 0.00
+  Sample 28: P=24 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6863
+      Asymmetric energy: 2.7044
+    PH-dimension: 0.00
+  Sample 29: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 6.0000
+      Asymmetric energy: 6.4863
+    PH-dimension: 0.00
+  Sample 30: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4433
+      Asymmetric energy: 2.1607
+    PH-dimension: 0.00
+  Sample 31: P=28 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.1483
+      Asymmetric energy: 2.1741
+    PH-dimension: 0.00
+  Sample 32: P=38 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8155
+      Asymmetric energy: 2.8269
+    PH-dimension: 0.00
+  Sample 33: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2639
+      Asymmetric energy: 2.0391
+    PH-dimension: 0.00
+  Sample 34: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9773
+      Asymmetric energy: 1.0499
+    PH-dimension: 0.00
+  Sample 35: P=31 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7510
+      Asymmetric energy: 2.7584
+    PH-dimension: 0.00
+  Sample 36: P=33 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5214
+      Asymmetric energy: 2.9945
+    PH-dimension: 0.00
+  Sample 37: P=28 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4652
+      Asymmetric energy: 3.0550
+    PH-dimension: 0.00
+  Sample 38: P=38 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3753
+      Asymmetric energy: 2.3445
+    PH-dimension: 0.00
+  Sample 39: P=37 tokens, H=38 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 38 + 38 + 38 = 114
+      Combined: 225 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2446
+      Asymmetric energy: 0.8412
+    PH-dimension: 0.00
+  Sample 40: P=26 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8309
+      Asymmetric energy: 2.3151
+    PH-dimension: 0.00
+  Sample 41: P=20 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5347
+      Asymmetric energy: 3.0006
+    PH-dimension: 0.00
+  Sample 42: P=38 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7787
+      Asymmetric energy: 1.6665
+    PH-dimension: 0.00
+  Sample 43: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.0045
+      Asymmetric energy: 2.4899
+    PH-dimension: 0.00
+  Sample 44: P=34 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5256
+      Asymmetric energy: 1.8537
+    PH-dimension: 0.00
+  Sample 45: P=24 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4196
+      Asymmetric energy: 3.4391
+    PH-dimension: 0.00
+  Sample 46: P=31 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6548
+      Asymmetric energy: 3.2587
+    PH-dimension: 0.00
+  Sample 47: P=27 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8116
+      Asymmetric energy: 1.5698
+    PH-dimension: 0.00
+  Sample 48: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8082
+      Asymmetric energy: 3.4598
+    PH-dimension: 0.00
+  Sample 49: P=23 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3410
+      Asymmetric energy: 1.8282
+    PH-dimension: 0.00
+  Sample 50: P=23 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2955
+      Asymmetric energy: 2.3133
+    PH-dimension: 0.00
+  Sample 51: P=21 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5529
+      Asymmetric energy: 1.4003
+    PH-dimension: 0.00
+  Sample 52: P=22 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9537
+      Asymmetric energy: 1.9782
+    PH-dimension: 0.00
+  Sample 53: P=36 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1962
+      Asymmetric energy: 4.4600
+    PH-dimension: 0.00
+  Sample 54: P=34 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.2785
+      Asymmetric energy: 5.5746
+    PH-dimension: 0.00
+  Sample 55: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2993
+      Asymmetric energy: 1.3487
+    PH-dimension: 0.00
+  Sample 56: P=41 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7066
+      Asymmetric energy: 1.2521
+    PH-dimension: 0.00
+  Sample 57: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3835
+      Asymmetric energy: 1.8144
+    PH-dimension: 0.00
+  Sample 58: P=28 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6072
+      Asymmetric energy: 3.1153
+    PH-dimension: 0.00
+  Sample 59: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8099
+      Asymmetric energy: 4.0184
+    PH-dimension: 0.00
+  Sample 60: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.6263
+      Asymmetric energy: 3.1774
+    PH-dimension: 0.00
+  Sample 61: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1471
+      Asymmetric energy: 2.9337
+    PH-dimension: 0.00
+  Sample 62: P=20 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3802
+      Asymmetric energy: 1.2846
+    PH-dimension: 0.00
+  Sample 63: P=24 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.7268
+      Asymmetric energy: 3.5129
+    PH-dimension: 0.00
+  Sample 64: P=36 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3113
+      Asymmetric energy: 2.8328
+    PH-dimension: 0.00
+  Sample 65: P=27 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8333
+      Asymmetric energy: 3.0927
+    PH-dimension: 0.00
+  Sample 66: P=26 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4513
+      Asymmetric energy: 1.5341
+    PH-dimension: 0.00
+  Sample 67: P=35 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6556
+      Asymmetric energy: 1.4384
+    PH-dimension: 0.00
+  Sample 68: P=33 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0237
+      Asymmetric energy: 1.6084
+    PH-dimension: 0.00
+  Sample 69: P=29 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2024
+      Asymmetric energy: 2.4512
+    PH-dimension: 0.00
+  Sample 70: P=29 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6466
+      Asymmetric energy: 2.0193
+    PH-dimension: 0.00
+  Sample 71: P=27 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.2957
+      Asymmetric energy: 4.7665
+    PH-dimension: 0.00
+  Sample 72: P=26 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.3636
+      Asymmetric energy: 2.8570
+    PH-dimension: 0.00
+  Sample 73: P=28 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1974
+      Asymmetric energy: 2.3487
+    PH-dimension: 0.00
+  Sample 74: P=39 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4093
+      Asymmetric energy: 3.4249
+    PH-dimension: 0.00
+  Sample 75: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2982
+      Asymmetric energy: 3.8843
+    PH-dimension: 0.00
+  Sample 76: P=18 tokens, H=28 tokens
+    Point cloud breakdown:
+      Premise: 18 + 18 + 18 = 54
+      Hypothesis: 28 + 28 + 28 = 84
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0275
+      Asymmetric energy: 3.4125
+    PH-dimension: 0.00
+  Sample 77: P=29 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3716
+      Asymmetric energy: 1.4951
+    PH-dimension: 0.00
+  Sample 78: P=26 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3125
+      Asymmetric energy: 1.9266
+    PH-dimension: 0.00
+  Sample 79: P=30 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3521
+      Asymmetric energy: 3.3982
+    PH-dimension: 0.00
+  Sample 80: P=36 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5137
+      Asymmetric energy: 2.1372
+    PH-dimension: 0.00
+  Sample 81: P=30 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.6432
+      Asymmetric energy: 3.4014
+    PH-dimension: 0.00
+  Sample 82: P=33 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4913
+      Asymmetric energy: 1.6496
+    PH-dimension: 0.00
+  Sample 83: P=27 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6849
+      Asymmetric energy: 2.5412
+    PH-dimension: 0.00
+  Sample 84: P=25 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4955
+      Asymmetric energy: 2.3054
+    PH-dimension: 0.00
+  Sample 85: P=35 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7896
+      Asymmetric energy: 2.0966
+    PH-dimension: 0.00
+  Sample 86: P=29 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8494
+      Asymmetric energy: 2.4402
+    PH-dimension: 0.00
+  Sample 87: P=19 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 19 + 19 + 19 = 57
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.1811
+      Asymmetric energy: 3.9020
+    PH-dimension: 0.00
+  Sample 88: P=31 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3686
+      Asymmetric energy: 2.3081
+    PH-dimension: 0.00
+  Sample 89: P=39 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 183 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.0861
+      Asymmetric energy: 1.7028
+    PH-dimension: 0.00
+  Sample 90: P=17 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 17 + 17 + 17 = 51
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7577
+      Asymmetric energy: 3.2523
+    PH-dimension: 0.00
+  Sample 91: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8718
+      Asymmetric energy: 1.9618
+    PH-dimension: 0.00
+  Sample 92: P=23 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9433
+      Asymmetric energy: 3.2736
+    PH-dimension: 0.00
+  Sample 93: P=26 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3409
+      Asymmetric energy: 3.7421
+    PH-dimension: 0.00
+  Sample 94: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8028
+      Asymmetric energy: 4.1905
+    PH-dimension: 0.00
+  Sample 95: P=25 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5241
+      Asymmetric energy: 2.5580
+    PH-dimension: 0.00
+  Sample 96: P=22 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9239
+      Asymmetric energy: 3.3010
+    PH-dimension: 0.00
+  Sample 97: P=34 tokens, H=36 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 36 + 36 + 36 = 108
+      Combined: 210 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0319
+      Asymmetric energy: 0.3178
+    PH-dimension: 0.00
+  Sample 98: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.9563
+      Asymmetric energy: 2.4677
+    PH-dimension: 0.00
+  Sample 99: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2745
+      Asymmetric energy: 5.1183
+    PH-dimension: 0.00
+  Sample 100: P=33 tokens, H=7 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 7 + 7 + 7 = 21
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3009
+      Asymmetric energy: 3.5147
+    PH-dimension: 0.00
+
+Processing contradiction samples...
+  Sample 1: P=37 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5614
+      Asymmetric energy: 2.0609
+    PH-dimension: 0.00
+  Sample 2: P=27 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5958
+      Asymmetric energy: 1.3602
+    PH-dimension: 0.00
+  Sample 3: P=38 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2344
+      Asymmetric energy: 3.5387
+    PH-dimension: 0.00
+  Sample 4: P=45 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 45 + 45 + 45 = 135
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 165 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4373
+      Asymmetric energy: 2.2504
+    PH-dimension: 0.00
+  Sample 5: P=35 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7603
+      Asymmetric energy: 1.3663
+    PH-dimension: 0.00
+  Sample 6: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.3134
+      Asymmetric energy: 3.6068
+    PH-dimension: 0.00
+  Sample 7: P=23 tokens, H=23 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 23 + 23 + 23 = 69
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.5687
+      Asymmetric energy: 3.7406
+    PH-dimension: 0.00
+  Sample 8: P=25 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2445
+      Asymmetric energy: 2.0622
+    PH-dimension: 0.00
+  Sample 9: P=28 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1491
+      Asymmetric energy: 1.9434
+    PH-dimension: 0.00
+  Sample 10: P=31 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.3172
+      Asymmetric energy: 3.8898
+    PH-dimension: 0.00
+  Sample 11: P=59 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 59 + 59 + 59 = 177
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 201 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7108
+      Asymmetric energy: 2.0003
+    PH-dimension: 0.00
+  Sample 12: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6191
+      Asymmetric energy: 3.0401
+    PH-dimension: 0.00
+  Sample 13: P=24 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7397
+      Asymmetric energy: 2.8692
+    PH-dimension: 0.00
+  Sample 14: P=37 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 37 + 37 + 37 = 111
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8196
+      Asymmetric energy: 1.2128
+    PH-dimension: 0.00
+  Sample 15: P=25 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.8138
+      Asymmetric energy: 1.9204
+    PH-dimension: 0.00
+  Sample 16: P=23 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8013
+      Asymmetric energy: 1.8866
+    PH-dimension: 0.00
+  Sample 17: P=32 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.8153
+      Asymmetric energy: 3.2059
+    PH-dimension: 0.00
+  Sample 18: P=31 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.3108
+      Asymmetric energy: 3.2471
+    PH-dimension: 0.00
+  Sample 19: P=25 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.2220
+      Asymmetric energy: 2.1508
+    PH-dimension: 0.00
+  Sample 20: P=19 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 19 + 19 + 19 = 57
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1854
+      Asymmetric energy: 1.9771
+    PH-dimension: 0.00
+  Sample 21: P=42 tokens, H=42 tokens
+    Point cloud breakdown:
+      Premise: 42 + 42 + 42 = 126
+      Hypothesis: 42 + 42 + 42 = 126
+      Combined: 252 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.0252
+      Asymmetric energy: 0.1181
+    PH-dimension: 1.32
+  Sample 22: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.1908
+      Asymmetric energy: 4.9864
+    PH-dimension: 0.00
+  Sample 23: P=23 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7855
+      Asymmetric energy: 1.9769
+    PH-dimension: 0.00
+  Sample 24: P=26 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9592
+      Asymmetric energy: 2.1969
+    PH-dimension: 0.00
+  Sample 25: P=24 tokens, H=22 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 22 + 22 + 22 = 66
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.2359
+      Asymmetric energy: 5.6817
+    PH-dimension: 0.00
+  Sample 26: P=32 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6297
+      Asymmetric energy: 2.1455
+    PH-dimension: 0.00
+  Sample 27: P=39 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6986
+      Asymmetric energy: 6.9928
+    PH-dimension: 0.00
+  Sample 28: P=29 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0148
+      Asymmetric energy: 1.9162
+    PH-dimension: 0.00
+  Sample 29: P=41 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4972
+      Asymmetric energy: 3.2301
+    PH-dimension: 0.00
+  Sample 30: P=53 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 53 + 53 + 53 = 159
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 183 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7883
+      Asymmetric energy: 2.0330
+    PH-dimension: 0.00
+  Sample 31: P=40 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 40 + 40 + 40 = 120
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 159 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9027
+      Asymmetric energy: 2.1185
+    PH-dimension: 0.00
+  Sample 32: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5893
+      Asymmetric energy: 5.5123
+    PH-dimension: 0.00
+  Sample 33: P=45 tokens, H=21 tokens
+    Point cloud breakdown:
+      Premise: 45 + 45 + 45 = 135
+      Hypothesis: 21 + 21 + 21 = 63
+      Combined: 198 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5580
+      Asymmetric energy: 3.0308
+    PH-dimension: 0.00
+  Sample 34: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0423
+      Asymmetric energy: 3.3119
+    PH-dimension: 0.00
+  Sample 35: P=32 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6797
+      Asymmetric energy: 2.5999
+    PH-dimension: 0.00
+  Sample 36: P=31 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3186
+      Asymmetric energy: 2.8553
+    PH-dimension: 0.00
+  Sample 37: P=33 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9196
+      Asymmetric energy: 3.4138
+    PH-dimension: 0.00
+  Sample 38: P=35 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.5270
+      Asymmetric energy: 5.0119
+    PH-dimension: 0.00
+  Sample 39: P=20 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7614
+      Asymmetric energy: 2.0785
+    PH-dimension: 0.00
+  Sample 40: P=30 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.4891
+      Asymmetric energy: 2.5328
+    PH-dimension: 0.00
+  Sample 41: P=31 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4761
+      Asymmetric energy: 3.4178
+    PH-dimension: 0.00
+  Sample 42: P=23 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 23 + 23 + 23 = 69
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9109
+      Asymmetric energy: 1.5172
+    PH-dimension: 0.00
+  Sample 43: P=38 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.3619
+      Asymmetric energy: 3.3388
+    PH-dimension: 0.00
+  Sample 44: P=25 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8391
+      Asymmetric energy: 1.7006
+    PH-dimension: 0.00
+  Sample 45: P=29 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4313
+      Asymmetric energy: 1.4465
+    PH-dimension: 0.00
+  Sample 46: P=32 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8236
+      Asymmetric energy: 1.3243
+    PH-dimension: 0.00
+  Sample 47: P=27 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5323
+      Asymmetric energy: 1.7023
+    PH-dimension: 0.00
+  Sample 48: P=31 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 147 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5633
+      Asymmetric energy: 1.9874
+    PH-dimension: 0.00
+  Sample 49: P=30 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.6482
+      Asymmetric energy: 2.9055
+    PH-dimension: 0.00
+  Sample 50: P=39 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 144 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.7118
+      Asymmetric energy: 1.3386
+    PH-dimension: 0.00
+  Sample 51: P=31 tokens, H=27 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 27 + 27 + 27 = 81
+      Combined: 174 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9160
+      Asymmetric energy: 3.7675
+    PH-dimension: 0.00
+  Sample 52: P=43 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 43 + 43 + 43 = 129
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4922
+      Asymmetric energy: 1.8938
+    PH-dimension: 0.00
+  Sample 53: P=26 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1177
+      Asymmetric energy: 1.7548
+    PH-dimension: 0.00
+  Sample 54: P=25 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.6857
+      Asymmetric energy: 5.2762
+    PH-dimension: 0.00
+  Sample 55: P=30 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4765
+      Asymmetric energy: 2.4494
+    PH-dimension: 0.00
+  Sample 56: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.8783
+      Asymmetric energy: 1.6962
+    PH-dimension: 0.00
+  Sample 57: P=26 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 26 + 26 + 26 = 78
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.8574
+      Asymmetric energy: 2.0551
+    PH-dimension: 0.00
+  Sample 58: P=34 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9949
+      Asymmetric energy: 2.6706
+    PH-dimension: 0.00
+  Sample 59: P=27 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.6544
+      Asymmetric energy: 1.7056
+    PH-dimension: 0.00
+  Sample 60: P=29 tokens, H=11 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 11 + 11 + 11 = 33
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.9309
+      Asymmetric energy: 2.9108
+    PH-dimension: 0.00
+  Sample 61: P=35 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7917
+      Asymmetric energy: 3.2932
+    PH-dimension: 0.00
+  Sample 62: P=28 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.5950
+      Asymmetric energy: 2.2706
+    PH-dimension: 0.00
+  Sample 63: P=27 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.3798
+      Asymmetric energy: 2.7845
+    PH-dimension: 0.00
+  Sample 64: P=33 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.4518
+      Asymmetric energy: 2.3002
+    PH-dimension: 0.00
+  Sample 65: P=34 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 34 + 34 + 34 = 102
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1250
+      Asymmetric energy: 1.8954
+    PH-dimension: 0.00
+  Sample 66: P=20 tokens, H=31 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 31 + 31 + 31 = 93
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.4553
+      Asymmetric energy: 5.7710
+    PH-dimension: 0.00
+  Sample 67: P=35 tokens, H=9 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 9 + 9 + 9 = 27
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1221
+      Asymmetric energy: 1.9738
+    PH-dimension: 0.00
+  Sample 68: P=29 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3047
+      Asymmetric energy: 2.0465
+    PH-dimension: 0.00
+  Sample 69: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0864
+      Asymmetric energy: 3.2897
+    PH-dimension: 0.00
+  Sample 70: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4923
+      Asymmetric energy: 3.2474
+    PH-dimension: 0.00
+  Sample 71: P=20 tokens, H=25 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 25 + 25 + 25 = 75
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 4.1035
+      Asymmetric energy: 2.8897
+    PH-dimension: 0.00
+  Sample 72: P=50 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 50 + 50 + 50 = 150
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 180 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.2722
+      Asymmetric energy: 5.8600
+    PH-dimension: 0.00
+  Sample 73: P=24 tokens, H=18 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 18 + 18 + 18 = 54
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9754
+      Asymmetric energy: 2.2490
+    PH-dimension: 0.00
+  Sample 74: P=39 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 39 + 39 + 39 = 117
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.3973
+      Asymmetric energy: 2.8383
+    PH-dimension: 0.00
+  Sample 75: P=30 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.2266
+      Asymmetric energy: 2.2375
+    PH-dimension: 0.00
+  Sample 76: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2384
+      Asymmetric energy: 2.4514
+    PH-dimension: 0.00
+  Sample 77: P=21 tokens, H=26 tokens
+    Point cloud breakdown:
+      Premise: 21 + 21 + 21 = 63
+      Hypothesis: 26 + 26 + 26 = 78
+      Combined: 141 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.4228
+      Asymmetric energy: 2.4030
+    PH-dimension: 0.00
+  Sample 78: P=55 tokens, H=17 tokens
+    Point cloud breakdown:
+      Premise: 55 + 55 + 55 = 165
+      Hypothesis: 17 + 17 + 17 = 51
+      Combined: 216 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4529
+      Asymmetric energy: 1.7338
+    PH-dimension: 0.00
+  Sample 79: P=24 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 24 + 24 + 24 = 72
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4141
+      Asymmetric energy: 0.8544
+    PH-dimension: 0.00
+  Sample 80: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.9499
+      Asymmetric energy: 4.3086
+    PH-dimension: 0.00
+  Sample 81: P=28 tokens, H=24 tokens
+    Point cloud breakdown:
+      Premise: 28 + 28 + 28 = 84
+      Hypothesis: 24 + 24 + 24 = 72
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 5.6166
+      Asymmetric energy: 7.3274
+    PH-dimension: 0.00
+  Sample 82: P=25 tokens, H=15 tokens
+    Point cloud breakdown:
+      Premise: 25 + 25 + 25 = 75
+      Hypothesis: 15 + 15 + 15 = 45
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 3.4190
+      Asymmetric energy: 1.5065
+    PH-dimension: 0.00
+  Sample 83: P=27 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 27 + 27 + 27 = 81
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7869
+      Asymmetric energy: 2.3761
+    PH-dimension: 0.00
+  Sample 84: P=38 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.4270
+      Asymmetric energy: 3.3798
+    PH-dimension: 0.00
+  Sample 85: P=33 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 33 + 33 + 33 = 99
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 138 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5807
+      Asymmetric energy: 1.9719
+    PH-dimension: 0.00
+  Sample 86: P=36 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 36 + 36 + 36 = 108
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 150 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.7888
+      Asymmetric energy: 2.0927
+    PH-dimension: 0.00
+  Sample 87: P=20 tokens, H=20 tokens
+    Point cloud breakdown:
+      Premise: 20 + 20 + 20 = 60
+      Hypothesis: 20 + 20 + 20 = 60
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.7933
+      Asymmetric energy: 1.3016
+    PH-dimension: 0.00
+  Sample 88: P=35 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 35 + 35 + 35 = 105
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 135 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.8084
+      Asymmetric energy: 2.7915
+    PH-dimension: 0.00
+  Sample 89: P=29 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.1216
+      Asymmetric energy: 4.9768
+    PH-dimension: 0.00
+  Sample 90: P=48 tokens, H=16 tokens
+    Point cloud breakdown:
+      Premise: 48 + 48 + 48 = 144
+      Hypothesis: 16 + 16 + 16 = 48
+      Combined: 192 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6148
+      Asymmetric energy: 5.5955
+    PH-dimension: 0.00
+  Sample 91: P=52 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 52 + 52 + 52 = 156
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 186 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.1641
+      Asymmetric energy: 1.8905
+    PH-dimension: 0.00
+  Sample 92: P=30 tokens, H=12 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 12 + 12 + 12 = 36
+      Combined: 126 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.4436
+      Asymmetric energy: 1.7857
+    PH-dimension: 0.00
+  Sample 93: P=31 tokens, H=13 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 13 + 13 + 13 = 39
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.0903
+      Asymmetric energy: 2.0804
+    PH-dimension: 0.00
+  Sample 94: P=30 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 30 + 30 + 30 = 90
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 132 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 0.6763
+      Asymmetric energy: 2.8530
+    PH-dimension: 0.00
+  Sample 95: P=31 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 31 + 31 + 31 = 93
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2517
+      Asymmetric energy: 3.7670
+    PH-dimension: 0.00
+  Sample 96: P=22 tokens, H=19 tokens
+    Point cloud breakdown:
+      Premise: 22 + 22 + 22 = 66
+      Hypothesis: 19 + 19 + 19 = 57
+      Combined: 123 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.5235
+      Asymmetric energy: 2.0620
+    PH-dimension: 0.00
+  Sample 97: P=38 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 38 + 38 + 38 = 114
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 156 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.9787
+      Asymmetric energy: 1.5225
+    PH-dimension: 0.00
+  Sample 98: P=32 tokens, H=8 tokens
+    Point cloud breakdown:
+      Premise: 32 + 32 + 32 = 96
+      Hypothesis: 8 + 8 + 8 = 24
+      Combined: 120 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2673
+      Asymmetric energy: 2.4752
+    PH-dimension: 0.00
+  Sample 99: P=29 tokens, H=14 tokens
+    Point cloud breakdown:
+      Premise: 29 + 29 + 29 = 87
+      Hypothesis: 14 + 14 + 14 = 42
+      Combined: 129 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 2.1513
+      Asymmetric energy: 2.2822
+    PH-dimension: 0.00
+  Sample 100: P=41 tokens, H=10 tokens
+    Point cloud breakdown:
+      Premise: 41 + 41 + 41 = 123
+      Hypothesis: 10 + 10 + 10 = 30
+      Combined: 153 points
+      Sufficient for PHD: ✅
+    Model analysis:
+      Order violation energy: 1.2671
+      Asymmetric energy: 2.9404
+    PH-dimension: 0.00
+
+Generated 13 persistence images for clustering
+Performing clustering analysis...
+Clustering 13 persistence images...
+Feature matrix shape: (13, 400)
+True labels distribution: [7 2 4]
+Performing k-means with 3 clusters...
+Predicted labels distribution: [3 4 6]
+Clustering results:
+  Best accuracy: 0.923
+  Silhouette score: 0.442
+  Adjusted Rand Index: 0.770
+  Best permutation: (1, 2, 0)
+
+Confusion analysis:
+  True entailment: predicted as [6 1 0]
+  True neutral: predicted as [0 2 0]
+  True contradiction: predicted as [0 0 4]
+
+================================================================================
+SEPARATE MODEL CLUSTERING RESULTS
+================================================================================
+Clustering Accuracy: 0.923
+Silhouette Score: 0.442
+Adjusted Rand Index: 0.770
+Success (>70%): 🎉 YES
+
+PH-Dimension Statistics:
+  entailment: 0.21 ± 1.56
+  neutral: 0.00 ± 0.00
+  contradiction: 0.01 ± 0.13
+
+Point Cloud Statistics:
+  entailment:
+    Combined: 144 ± 29 points
+    Premise: 97, Hypothesis: 47
+    Sufficient for PHD: 100%
+  neutral:
+    Combined: 135 ± 18 points
+    Premise: 86, Hypothesis: 49
+    Sufficient for PHD: 100%
+  contradiction:
+    Combined: 139 ± 23 points
+    Premise: 95, Hypothesis: 44
+    Sufficient for PHD: 100%
+
+============================================================
+SEPARATE MODEL PERFORMANCE ANALYSIS
+============================================================
+Order Model (Vendrov Max-Margin Loss):
+  entailment: 0.3682 ± 0.3620
+  neutral: 1.6490 ± 1.1135
+  contradiction: 1.9116 ± 1.2656
+  ✅ ORDER MODEL SUCCESS: Correct energy ranking!
+
+Asymmetry Model (Directional Pattern Loss):
+  entailment:
+    Asymmetric energy: 3.3527 ± 2.1887
+    Forward energy: 0.3682
+    Backward energy: 1.8993
+  neutral:
+    Asymmetric energy: 2.6492 ± 1.0315
+    Forward energy: 1.6490
+    Backward energy: 1.2779
+  contradiction:
+    Asymmetric energy: 2.7361 ± 1.2966
+    Forward energy: 1.9116
+    Backward energy: 2.1465
+
+Asymmetry Pattern Analysis:
+  ✅ Forward energy: Entailment < Contradiction
+  ✅ Asymmetric energy: Contradiction > Neutral
+
+Comprehensive results saved to:
+  JSON: MSc_Topology_Codebase/phd_method/clustering_results/separate_model_clustering_results_20250731_182524.json
+  Summary: MSc_Topology_Codebase/phd_method/clustering_results/separate_model_clustering_summary_20250731_182524.txt
+
+================================================================================
+SEPARATE MODEL CLUSTERING VALIDATION COMPLETED!
+🎉 SUCCESS: Achieved >70% clustering accuracy!
+This validates that:
+  ✅ Separate model training approach works
+  ✅ Order embeddings create hierarchical structure in point clouds
+  ✅ Asymmetry models add directional discrimination
+  ✅ Individual premise-hypothesis pairs are topologically distinct
+  ✅ Token-level processing enables rich point cloud generation
+
+Detailed analysis available in: MSc_Topology_Codebase/phd_method/clustering_results/
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Thu 31 Jul 18:25:26 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Clustering successful!
+
+
+Job finished.

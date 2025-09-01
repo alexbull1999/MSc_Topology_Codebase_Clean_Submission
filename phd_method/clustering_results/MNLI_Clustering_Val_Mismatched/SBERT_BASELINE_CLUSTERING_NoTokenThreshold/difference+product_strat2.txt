@@ -1,0 +1,115 @@
+================================================================================
+SBERT CLUSTERING COMPARISON
+================================================================================
+Loading validation data: /vol/bitbucket/ahb24/tda_entailment_new/mnli_val_mismatched_sbert_tokens.pkl
+Loaded 9832 validation samples
+Separate model clustering validator initialized
+Samples per class: 100
+Generating maximum sample indices...
+  entailment: 3463 total samples available
+Token filtering: 3463/3463 samples have ≥0 tokens
+    Using ALL 3463 samples after token filtering
+Token count stats: 42 ± 20 (range: 9-209)
+  neutral: 3129 total samples available
+Token filtering: 3129/3129 samples have ≥0 tokens
+    Using ALL 3129 samples after token filtering
+Token count stats: 42 ± 18 (range: 10-212)
+  contradiction: 3240 total samples available
+Token filtering: 3240/3240 samples have ≥0 tokens
+    Using ALL 3240 samples after token filtering
+Token count stats: 41 ± 19 (range: 9-207)
+Extracting SBERT embeddings for clustering...
+Processing entailment: 3463 samples
+Processing neutral: 3129 samples
+Processing contradiction: 3240 samples
+SBERT clustering data: 9832 samples, 3072 dimensions
+
+============================================================
+SBERT CLUSTERING RESULTS
+============================================================
+SBERT Clustering Accuracy: 0.341
+Silhouette Score: 0.023
+Adjusted Rand Index: -0.000
+
+Comparison:
+Topological Clustering: ...%
+SBERT Clustering: 34.1%
+Difference: -...
+🔬 Topological features provide better clustering structure
+
+-- Rerunning for Confusion analysis
+
+================================================================================
+SBERT CLUSTERING COMPARISON
+================================================================================
+Loading validation data: /vol/bitbucket/ahb24/tda_entailment_new/mnli_val_mismatched_sbert_tokens.pkl
+Loaded 9832 validation samples
+Separate model clustering validator initialized
+Samples per class: 100
+Generating maximum sample indices...
+  entailment: 3463 total samples available
+Token filtering: 3463/3463 samples have ≥0 tokens
+    Using ALL 3463 samples after token filtering
+Token count stats: 42 ± 20 (range: 9-209)
+  neutral: 3129 total samples available
+Token filtering: 3129/3129 samples have ≥0 tokens
+    Using ALL 3129 samples after token filtering
+Token count stats: 42 ± 18 (range: 10-212)
+  contradiction: 3240 total samples available
+Token filtering: 3240/3240 samples have ≥0 tokens
+    Using ALL 3240 samples after token filtering
+Token count stats: 41 ± 19 (range: 9-207)
+Extracting SBERT embeddings for clustering...
+Processing entailment: 3463 samples
+Processing neutral: 3129 samples
+Processing contradiction: 3240 samples
+SBERT clustering data: 9832 samples, 3072 dimensions
+
+============================================================
+SBERT CLUSTERING RESULTS
+============================================================
+SBERT Clustering Accuracy: 0.341
+Silhouette Score: 0.023
+Adjusted Rand Index: -0.000
+
+Comparison:
+Topological Clustering: ...%
+SBERT Clustering: 34.1%
+Difference: ...
+
+Detailed confusion analysis:
+  True entailment (3463 samples):
+    → predicted as entailment: 1737 (50.2%)
+    → predicted as neutral: 637 (18.4%)
+    → predicted as contradiction: 1089 (31.4%)
+  True neutral (3129 samples):
+    → predicted as entailment: 1603 (51.2%)
+    → predicted as neutral: 570 (18.2%)
+    → predicted as contradiction: 956 (30.6%)
+  True contradiction (3240 samples):
+    → predicted as entailment: 1579 (48.7%)
+    → predicted as neutral: 618 (19.1%)
+    → predicted as contradiction: 1043 (32.2%)
+
+Per-class accuracy breakdown:
+  entailment: 0.502 (1737/3463)
+  neutral: 0.182 (570/3129)
+  contradiction: 0.322 (1043/3240)
+
+Misclassification analysis:
+  Total misclassified: 6482/9832 (65.9%)
+  Confusion breakdown:
+    entailment_as_neutral: 637
+    entailment_as_contradiction: 1089
+    neutral_as_entailment: 1603
+    neutral_as_contradiction: 956
+    contradiction_as_entailment: 1579
+    contradiction_as_neutral: 618
+
+============================================================
+COMPARISON WITH TOPOLOGICAL CLUSTERING
+============================================================
+Topological Clustering: ...%
+SBERT Clustering: 34.1%
+Difference: -...
+🔬 Topological features provide better clustering structure

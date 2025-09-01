@@ -1,0 +1,51 @@
+TOKEN-LEVEL ORDER EMBEDDING ANALYSIS
+==================================================
+
+SENTENCE-LEVEL vs TOKEN-LEVEL DIFFERENCES:
+----------------------------------------
+Original (Sentence): 1 embedding per text → 1 energy value
+New (Token): N tokens per text → N energy values → aggregated
+
+TOKEN-LEVEL PROCESSING NUANCES:
+------------------------------
+1. Variable sequence lengths: Premise ≠ Hypothesis token counts
+2. Energy aggregation: Token energies → mean() → sentence energy
+3. Richer representation: Each token captures different semantic aspects
+4. Point cloud generation: Each token becomes a point
+
+ORDER MODEL FINAL PERFORMANCE:
+------------------------------
+entailment: 0.2891 ± 0.3441 (n=10072)
+neutral: 1.2451 ± 0.8867 (n=10037)
+contradiction: 1.7835 ± 1.1388 (n=9891)
+✅ CORRECT ORDERING: Entailment < Neutral < Contradiction
+
+ASYMMETRY MODEL FINAL PERFORMANCE:
+-----------------------------------
+entailment:
+  Forward: 0.2891
+  Backward: 1.6404
+  Asymmetric: 4.4384
+  Samples: 10072
+
+neutral:
+  Forward: 1.2451
+  Backward: 1.2254
+  Asymmetric: 3.5552
+  Samples: 10037
+
+contradiction:
+  Forward: 1.7835
+  Backward: 1.7487
+  Asymmetric: 3.6350
+  Samples: 9891
+
+POINT CLOUD GENERATION STRATEGY:
+-----------------------------------
+Per text (premise or hypothesis):
+1. Original SBERT tokens: ~30-50 points
+2. Order embeddings: ~30-50 points
+3. Asymmetric features: ~30-50 points
+Total per text: ~90-150 points
+Combined premise+hypothesis: ~180-300 points
+✅ Sufficient for reliable PHD computation (≥200 points)

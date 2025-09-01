@@ -1,0 +1,146 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 180673
+Node: gpuvm15
+Time: Tue  8 Jul 13:03:24 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Tue Jul  8 13:03:31 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   37C    P8             14W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Checking for required input data and models...
+
+Starting SVM training...
+
+Starting SVM Centroid Distance Training Pipeline
+============================================================
+Loading SNLI data from data/processed/snli_full_standard_SBERT.pt
+Loaded 20000 samples
+Generating lattice containment embedding space
+Processing sample 0
+Processing sample 10000
+Computing class centroids
+Entailment Centroid:
+  Shape: (768,)
+  Norm: 0.7147
+  Sample count: 6684
+Neutral Centroid:
+  Shape: (768,)
+  Norm: 0.5581
+  Sample count: 6609
+Contradiction Centroid:
+  Shape: (768,)
+  Norm: 0.3252
+  Sample count: 6707
+Computing cosine distances to centroids
+Processing sample 0
+Processing sample 10000
+
+============================================================
+CENTROID DISTANCE FEATURES ANALYSIS (COSINE)
+============================================================
+Feature shape: (20000, 3)
+Total samples: 20000
+
+Entailment Class (n=6684):
+  Dist_to_E: mean=0.4198, std=0.1020
+  Dist_to_N: mean=0.4205, std=0.1017
+  Dist_to_C: mean=0.4255, std=0.1001
+
+Neutral Class (n=6609):
+  Dist_to_E: mean=0.5277, std=0.1336
+  Dist_to_N: mean=0.5271, std=0.1330
+  Dist_to_C: mean=0.5312, std=0.1311
+
+Contradiction Class (n=6707):
+  Dist_to_E: mean=0.7138, std=0.1740
+  Dist_to_N: mean=0.7134, std=0.1736
+  Dist_to_C: mean=0.7107, std=0.1700
+Splitting data into train/test sets
+Scaling features
+
+Training SVM with rbf kernel
+SVM RBF Training Accuracy: 0.6145
+SVM RBF Test Accuracy: 0.6032
+
+Training SVM with linear kernel
+SVM LINEAR Training Accuracy: 0.6219
+SVM LINEAR Test Accuracy: 0.6150
+
+Best kernel: linear (test accuracy: 0.6150)
+
+============================================================
+SVM CENTROID VALIDATION RESULTS
+============================================================
+Manual Test Accuracy: 0.6150
+SVM Test Accuracy: 0.6150
+
+Classification Report:
+               precision    recall  f1-score   support
+
+   Entailment       0.60      0.74      0.66      1337
+      Neutral       0.49      0.41      0.45      1322
+Contradiction       0.74      0.69      0.72      1341
+
+     accuracy                           0.61      4000
+    macro avg       0.61      0.61      0.61      4000
+ weighted avg       0.61      0.61      0.61      4000
+
+
+Confusion Matrix:
+                Predicted
+               E   N   C
+Actual E  987 291  59
+Actual N  519 542 261
+Actual C  142 268 931
+
+Decision Function Shape: (4000, 3)
+Decision Function Stats:
+  Mean: [0.96375402 1.4329197  0.70047039]
+  Std: [1.13595375 0.45768276 1.11249099]
+  Min: [-0.30644094  0.91914359 -0.28916678]
+  Max: [2.28567966 2.23909544 2.3044275 ]
+
+Results saved to:
+  JSON: entailment_surfaces/svm_validation_results/svm_centroid_cosine_20250708_130816_n20000.json
+  TXT:  entailment_surfaces/svm_validation_results/svm_centroid_cosine_20250708_130816_n20000.txt
+
+============================================================
+SVM CENTROID TRAINING COMPLETE
+============================================================
+
+Analysis completed with exit code: 0
+Time: Tue  8 Jul 13:08:18 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+SVM Training successful!
+
+
+Job finished.

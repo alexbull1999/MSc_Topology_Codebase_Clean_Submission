@@ -1,0 +1,135 @@
+Computing persistence diagrams for each class...
+  Computing for contradiction...
+    contradiction: 949 H0 features, 1603 H1 features
+    PH dimension: -7.7497
+  Computing for entailment...
+    entailment: 949 H0 features, 1159 H1 features
+    PH dimension: -84.8190
+  Computing for neutral...
+    neutral: 949 H0 features, 1495 H1 features
+    PH dimension: -11.7371
+Loaded prototypes from entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_bottleneck.pkl
+
+============================================================
+COMPARISON: Current Model vs Target Prototypes
+============================================================
+
+H0 DIMENSION COMPARISON:
+----------------------------------------
+
+CONTRADICTION - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 2307.3611
+    Max persistence: 3.6746
+    Mean persistence: 2.4314
+  Target prototype:
+    H0 features: 949
+    Total persistence: 4082.6074
+    Max persistence: 5.1267
+    Mean persistence: 4.3020
+  Gap ratio (current/target): 0.5652
+  ✅ Current model is reasonably close to target
+
+ENTAILMENT - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 1970.3495
+    Max persistence: 3.7547
+    Mean persistence: 2.0762
+  Target prototype:
+    H0 features: 949
+    Total persistence: 3643.2871
+    Max persistence: 5.0253
+    Mean persistence: 3.8391
+  Gap ratio (current/target): 0.5408
+  ✅ Current model is reasonably close to target
+
+NEUTRAL - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 2303.3049
+    Max persistence: 3.5486
+    Mean persistence: 2.4271
+  Target prototype:
+    H0 features: 949
+    Total persistence: 3955.7019
+    Max persistence: 5.1775
+    Mean persistence: 4.1683
+  Gap ratio (current/target): 0.5823
+  ✅ Current model is reasonably close to target
+
+H1 DIMENSION COMPARISON:
+----------------------------------------
+
+CONTRADICTION - H1:
+  Current model:
+    H1 features: 1603
+    Total persistence: 242.1431
+    Max persistence: 0.7186
+    Mean persistence: 0.1511
+  Target prototype:
+    H1 features: 2247
+    Total persistence: 258.2977
+    Max persistence: 0.5240
+    Mean persistence: 0.1150
+  Gap ratio (current/target): 0.9375
+  ✅ Current model is reasonably close to target
+
+ENTAILMENT - H1:
+  Current model:
+    H1 features: 1159
+    Total persistence: 213.7727
+    Max persistence: 0.8159
+    Mean persistence: 0.1844
+  Target prototype:
+    H1 features: 1351
+    Total persistence: 199.6935
+    Max persistence: 0.7458
+    Mean persistence: 0.1478
+  Gap ratio (current/target): 1.0705
+  ✅ Current model is reasonably close to target
+
+NEUTRAL - H1:
+  Current model:
+    H1 features: 1495
+    Total persistence: 259.3159
+    Max persistence: 0.7718
+    Mean persistence: 0.1735
+  Target prototype:
+    H1 features: 1692
+    Total persistence: 218.8049
+    Max persistence: 0.6817
+    Mean persistence: 0.1293
+  Gap ratio (current/target): 1.1851
+  ✅ Current model is reasonably close to target
+
+============================================================
+OVERALL ASSESSMENT:
+============================================================
+
+H0 DIMENSION:
+✅ GOOD NEWS: Current model is reasonably close to H0 targets
+   Small-scale topological regularization should work
+
+H1 DIMENSION:
+✅ GOOD NEWS: Current model is reasonably close to H1 targets
+   Small-scale topological regularization should work
+H0 visualization saved as 'H0_persistence_comparison.png'
+H1 visualization saved as 'H1_persistence_comparison.png'
+
+SUMMARY:
+========================================
+
+H0 DIMENSION:
+  contradiction: Close to target (0.57x)
+  entailment: Close to target (0.54x)
+  neutral: Close to target (0.58x)
+
+H1 DIMENSION:
+  contradiction: Close to target (0.94x)
+  entailment: Close to target (1.07x)
+  neutral: Close to target (1.19x)
+
+OVERALL ASSESSMENT:
+✅ EXCELLENT: Model topology is close to targets in both dimensions

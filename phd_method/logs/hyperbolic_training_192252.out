@@ -1,0 +1,134 @@
+Job ID: 192252
+Node: gpuvm13
+Time: Sat  9 Aug 09:10:22 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Sat Aug  9 09:10:24 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:07.0 Off |                    0 |
+| N/A   36C    P8             13W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+Training Token-Level Hyperbolic Projector
+==================================================
+Loading order model from: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+✅ Order model loaded (768D→768D)
+Loading asymmetry model from: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v2.pt
+✅ Asymmetry model loaded (768D→768D)
+Hyperbolic trainer initialized on cuda
+Training hyperbolic projector for 50 epochs...
+Train samples: 120000, Val samples: 30000
+Epoch 1/50: Train Loss=0.1588, Val Loss=0.1035
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.1035)
+Epoch 2/50: Train Loss=0.1035, Val Loss=0.0887
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0887)
+Epoch 3/50: Train Loss=0.0993, Val Loss=0.0992
+Epoch 4/50: Train Loss=0.0997, Val Loss=0.1105
+Epoch 5/50: Train Loss=0.0967, Val Loss=0.0944
+Epoch 6/50: Train Loss=0.0959, Val Loss=0.0987
+Epoch 7/50: Train Loss=0.0954, Val Loss=0.0967
+Epoch 8/50: Train Loss=0.0952, Val Loss=0.0889
+Epoch 9/50: Train Loss=0.0819, Val Loss=0.0838
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0838)
+Epoch 10/50: Train Loss=0.0810, Val Loss=0.0826
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0826)
+Epoch 11/50: Train Loss=0.0805, Val Loss=0.0824
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0824)
+Epoch 12/50: Train Loss=0.0805, Val Loss=0.0810
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0810)
+Epoch 13/50: Train Loss=0.0805, Val Loss=0.0805
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0805)
+Epoch 14/50: Train Loss=0.0800, Val Loss=0.0799
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0799)
+Epoch 15/50: Train Loss=0.0800, Val Loss=0.0792
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0792)
+Epoch 16/50: Train Loss=0.0800, Val Loss=0.0792
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0792)
+Epoch 17/50: Train Loss=0.0802, Val Loss=0.0791
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0791)
+Epoch 18/50: Train Loss=0.0797, Val Loss=0.0788
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0788)
+Epoch 19/50: Train Loss=0.0797, Val Loss=0.0785
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0785)
+Epoch 20/50: Train Loss=0.0798, Val Loss=0.0786
+Epoch 21/50: Train Loss=0.0795, Val Loss=0.0788
+Epoch 22/50: Train Loss=0.0794, Val Loss=0.0790
+Epoch 23/50: Train Loss=0.0800, Val Loss=0.0797
+Epoch 24/50: Train Loss=0.0797, Val Loss=0.0811
+Epoch 25/50: Train Loss=0.0795, Val Loss=0.0814
+Epoch 26/50: Train Loss=0.0745, Val Loss=0.0753
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0753)
+Epoch 27/50: Train Loss=0.0740, Val Loss=0.0755
+Epoch 28/50: Train Loss=0.0738, Val Loss=0.0752
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0752)
+Epoch 29/50: Train Loss=0.0736, Val Loss=0.0752
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0752)
+Epoch 30/50: Train Loss=0.0736, Val Loss=0.0751
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0751)
+Epoch 31/50: Train Loss=0.0736, Val Loss=0.0750
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0750)
+Epoch 32/50: Train Loss=0.0735, Val Loss=0.0749
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0749)
+Epoch 33/50: Train Loss=0.0734, Val Loss=0.0749
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0749)
+Epoch 34/50: Train Loss=0.0735, Val Loss=0.0750
+Epoch 35/50: Train Loss=0.0733, Val Loss=0.0749
+Epoch 36/50: Train Loss=0.0734, Val Loss=0.0750
+Epoch 37/50: Train Loss=0.0733, Val Loss=0.0748
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0748)
+Epoch 38/50: Train Loss=0.0732, Val Loss=0.0749
+Epoch 39/50: Train Loss=0.0733, Val Loss=0.0747
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0747)
+Epoch 40/50: Train Loss=0.0733, Val Loss=0.0750
+Epoch 41/50: Train Loss=0.0733, Val Loss=0.0749
+Epoch 42/50: Train Loss=0.0732, Val Loss=0.0758
+Epoch 43/50: Train Loss=0.0733, Val Loss=0.0748
+Epoch 44/50: Train Loss=0.0733, Val Loss=0.0748
+Epoch 45/50: Train Loss=0.0732, Val Loss=0.0750
+Epoch 46/50: Train Loss=0.0708, Val Loss=0.0733
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0733)
+Epoch 47/50: Train Loss=0.0704, Val Loss=0.0731
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0731)
+Epoch 48/50: Train Loss=0.0692, Val Loss=0.0703
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0703)
+Epoch 49/50: Train Loss=0.0670, Val Loss=0.0682
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0682)
+Epoch 50/50: Train Loss=0.0657, Val Loss=0.0670
+✅ Model saved to MSc_Topology_Codebase/phd_method/models/separate_models/snli_best_hyperbolic_projector_updated.pt (Val Loss: 0.0670)
+✅ Training completed! Best validation loss: 0.0670
+
+Analysis completed with exit code: 0
+Time: Sat  9 Aug 10:32:06 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Training successful!
+
+
+Job finished.

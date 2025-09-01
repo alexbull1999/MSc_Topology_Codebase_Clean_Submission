@@ -1,0 +1,180 @@
+Starting hyperbolic cone validation and TDA data preparation job...
+Job ID: 175819
+Node: gpuvm02
+Time: Wed 18 Jun 15:35:21 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jun 18 15:35:28 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.120                Driver Version: 550.120        CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:02:00.0 Off |                    0 |
+| N/A   33C    P0             29W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing required packages...
+PyTorch version: 2.4.1
+Geoopt version: 0.5.0
+NumPy version: 1.26.4
+
+Checking for required input files and scripts...
+All required files and scripts found!
+
+Starting hyperbolic cone validation and TDA data preparation...
+Analysis parameters:
+  - Input: SNLI 10k subset
+  - Cone validation and TDA data generation
+
+Hyperbolic Entailment Cones Validation
+============================================================
+Hyperbolic Entailment Cones using device: cuda
+Loaded order model (val_loss: 0.6916)
+Pipeline initialized: 50D → 30D hyperbolic
+Running on: cuda
+Successfuly loaded hyperbolic projection of order embeddings
+
+1. Running Energy Hierarchy Validation...
+Testing on real data: 9990 examples
+Using GPU batch processing for hyperbolic energies
+Processing 9990 samples in batches of 1000 on cuda
+  Processed batch 10/10
+Using GPU batch processing for cone energies
+Computing cone violations for 9990 samples on cuda
+  Processed batch 10/10
+Neutral pairs:
+  Cone energy: 1.1015 ± 0.5395
+  Order energy: 0.9733
+  Hyperbolic distance: 0.1687
+Entailment pairs:
+  Cone energy: 0.5606 ± 0.4938
+  Order energy: 0.1406
+  Hyperbolic distance: 0.1375
+Contradiction pairs:
+  Cone energy: 1.0418 ± 0.5439
+  Order energy: 0.9177
+  Hyperbolic distance: 0.1695
+
+Energy Hierarchy Validation:
+Entailment: 0.5606
+Neutral: 1.1015
+Contradiction: 1.0418
+Hierarchy invalid
+
+2. Running Correlation Validation...
+Validating correlation with order energies
+Using GPU batch processing for hyperbolic energies
+Processing 9990 samples in batches of 1000 on cuda
+  Processed batch 10/10
+Using GPU batch processing for cone energies
+Computing cone violations for 9990 samples on cuda
+  Processed batch 10/10
+Correlation Results (n=9990):
+Pearson correlation: 0.5581 (p=0.0000)
+Spearman correlation: 0.7610 (p=0.0000)
+Correlation valid
+
+3. Running Geometric Properties Validation...
+
+Validating geometric properties...
+Hyperbolic Entailment Cones using device: cuda
+Aperture bounds: max=0.3082, π/2=1.5708
+Aperture bounds valid: YES
+Asymmetry test: E(x,y)=2.3345, E(y,x)=0.0853
+Asymmetry valid: YES
+Transitivity hint:
+  General->Specific: 2.1556
+  Specific->VerySpecific: 2.6733
+  General->VerySpecific: 2.2286
+Transitivity hint valid: YES
+
+================================================================================
+ENHANCED VALIDATION REPORT SUMMARY (Phase 2B+ with TDA Data)
+================================================================================
+1. Energy Hierarchy Test: FAIL
+2. Correlation Test: PASS
+3. Geometric Properties Test: PASS
+4. TDA Data Collection: SUCCESS
+   - Individual violations: 9990 samples × 3 features
+   - Label distribution: {'neutral': 3330, 'entailment': 3330, 'contradiction': 3330}
+   - Text preservation: SUCCESS
+
+ OVERALL VALIDATION: FAIL
+ TDA READINESS: READY
+================================================================================
+
+Results saved to:
+   validation_results/cone_validation_results.pt (enhanced validation)
+   validation_results/tda_ready_data.pt (TDA-specific data)
+
+Hyperbolic cone validation and TDA data preparation completed with exit code: 0
+Time: Wed 18 Jun 15:36:45 BST 2025
+
+Files created in validation_results/:
+-rw-r--r-- 1 ahb24 mcs 2940206 Jun 18 15:36 validation_results/cone_validation_results_snli_10k.pt
+-rw-r--r-- 1 ahb24 mcs 2626860 Jun 18 15:36 validation_results/tda_ready_data_snli_10k.pt
+
+Current directory contents (relevant directories):
+Validation Results:
+total 6148
+drwxr-xr-x  2 ahb24 mcs      95 Jun 18 15:36 .
+drwxr-xr-x 15 ahb24 mcs    4096 Jun 18 15:36 ..
+-rw-r--r--  1 ahb24 mcs 2940206 Jun 18 15:36 cone_validation_results_snli_10k.pt
+-rw-r--r--  1 ahb24 mcs 2626860 Jun 18 15:36 tda_ready_data_snli_10k.pt
+Data:
+No data/processed directory
+Src:
+total 264
+drwxr-xr-x  3 ahb24 mcs  4096 Jun 18 14:19 .
+drwxr-xr-x 15 ahb24 mcs  4096 Jun 18 15:36 ..
+-rw-r--r--  1 ahb24 mcs 10253 Jun 17 16:42 anomaly_analysis.py
+-rw-r--r--  1 ahb24 mcs 16166 Jun 17 19:27 entailment_cones.py
+-rw-r--r--  1 ahb24 mcs  4303 Jun 17 16:42 geoopt_test.py
+-rw-r--r--  1 ahb24 mcs 19864 Jun 18 14:24 hyperbolic_projection.py
+-rw-r--r--  1 ahb24 mcs     0 Jun 17 16:42 __init__.py
+-rw-r--r--  1 ahb24 mcs 13895 Jun 17 16:42 OLD_cone_validation.py
+-rw-r--r--  1 ahb24 mcs 27054 Jun 17 16:42 OLD_tda_integration.py
+-rw-r--r--  1 ahb24 mcs 18151 Jun 17 16:42 OLD_tdaready_cone_validation.py
+-rw-r--r--  1 ahb24 mcs 15500 Jun 17 19:25 order_embeddings.py
+drwxr-xr-x  2 ahb24 mcs   190 Jun 18 14:30 __pycache__
+-rw-r--r--  1 ahb24 mcs 11317 Jun 17 19:31 real_data_cone_visualisations.py
+-rw-r--r--  1 ahb24 mcs 21366 Jun 17 16:42 synthetic_cone_visualisations.py
+-rw-r--r--  1 ahb24 mcs 11123 Jun 17 16:42 tda_debug.py
+-rw-r--r--  1 ahb24 mcs 37342 Jun 17 19:30 tda_integration_texts_preserved.py
+-rw-r--r--  1 ahb24 mcs 19539 Jun 17 19:28 tda_ready_cone_validation_texts_preserved.py
+-rw-r--r--  1 ahb24 mcs  1017 Jun 17 16:42 test_environment.py
+-rw-r--r--  1 ahb24 mcs  7024 Jun 18 12:11 text_processing.py
+
+=== HYPERBOLIC CONE VALIDATION AND TDA DATA PREPARATION SUCCESSFUL ===
+The cone validation and TDA data preparation script has completed successfully.
+
+Key validation checks performed:
+  ✓ Cone Energy Hierarchy validated
+  ✓ Correlation with Order Energies validated
+  ✓ Geometric Properties validated (Aperture, Asymmetry, Transitivity Hint)
+  ✓ TDA-ready data (cone violations, labels, texts, metadata) collected
+
+Generated outputs:
+  -  (full validation report)
+  -  (data specifically for TDA analysis)
+
+Next steps:
+  1. Review the validation results in .
+  2. Utilize  for further Topological Data Analysis.
+
+Job finished.

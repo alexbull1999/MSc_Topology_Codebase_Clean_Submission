@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/phdim_clustering_validation_v2.py", line 781, in <module>
+    main()
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/phdim_clustering_validation_v2.py", line 775, in main
+    results = validator.run_statistical_validation()
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/phdim_clustering_validation_v2.py", line 715, in run_statistical_validation
+    self._save_results(final_results)
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/phdim_clustering_validation_v2.py", line 758, in _save_results
+    json.dump(validation_results, f, indent=2, default=convert_numpy_types)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 439, in _iterencode
+    yield from _iterencode(o, _current_indent_level)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/json/encoder.py", line 436, in _iterencode
+    raise ValueError("Circular reference detected")
+ValueError: Circular reference detected

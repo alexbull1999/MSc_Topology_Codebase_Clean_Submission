@@ -1,0 +1,163 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 198858
+Node: parrot
+Time: Wed 27 Aug 18:07:50 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Aug 27 18:08:00 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A16                     Off |   00000000:D0:00.0 Off |                  Off |
+|  0%   42C    P8             15W /   62W |       0MiB /  16380MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A16
+GPU memory: 16.8 GB
+PyTorch setup verified!
+
+Starting SBERT Token Extraction...
+
+Loading SBERT model: sentence-transformers/all-mpnet-base-v2
+Device: cuda
+Hidden size: 768
+SBERT token extractor ready
+
+Processing SNLI validation data...
+Processing dataset: MSc_Topology_Codebase/data/raw/snli/test/snli_full_test.json
+Total samples to process: 9824
+Processed 100/9824 samples
+Processed 200/9824 samples
+Processed 300/9824 samples
+Processed 400/9824 samples
+Processed 500/9824 samples
+Processed 600/9824 samples
+Processed 700/9824 samples
+Processed 800/9824 samples
+Processed 900/9824 samples
+Processed 1000/9824 samples
+Processed 1100/9824 samples
+Processed 1200/9824 samples
+Processed 1300/9824 samples
+Processed 1400/9824 samples
+Processed 1500/9824 samples
+Processed 1600/9824 samples
+Processed 1700/9824 samples
+Processed 1800/9824 samples
+Processed 1900/9824 samples
+Processed 2000/9824 samples
+Processed 2100/9824 samples
+Processed 2200/9824 samples
+Processed 2300/9824 samples
+Processed 2400/9824 samples
+Processed 2500/9824 samples
+Processed 2600/9824 samples
+Processed 2700/9824 samples
+Processed 2800/9824 samples
+Processed 2900/9824 samples
+Processed 3000/9824 samples
+Processed 3100/9824 samples
+Processed 3200/9824 samples
+Processed 3300/9824 samples
+Processed 3400/9824 samples
+Processed 3500/9824 samples
+Processed 3600/9824 samples
+Processed 3700/9824 samples
+Processed 3800/9824 samples
+Processed 3900/9824 samples
+Processed 4000/9824 samples
+Processed 4100/9824 samples
+Processed 4200/9824 samples
+Processed 4300/9824 samples
+Processed 4400/9824 samples
+Processed 4500/9824 samples
+Processed 4600/9824 samples
+Processed 4700/9824 samples
+Processed 4800/9824 samples
+Processed 4900/9824 samples
+Processed 5000/9824 samples
+Processed 5100/9824 samples
+Processed 5200/9824 samples
+Processed 5300/9824 samples
+Processed 5400/9824 samples
+Processed 5500/9824 samples
+Processed 5600/9824 samples
+Processed 5700/9824 samples
+Processed 5800/9824 samples
+Processed 5900/9824 samples
+Processed 6000/9824 samples
+Processed 6100/9824 samples
+Processed 6200/9824 samples
+Processed 6300/9824 samples
+Processed 6400/9824 samples
+Processed 6500/9824 samples
+Processed 6600/9824 samples
+Processed 6700/9824 samples
+Processed 6800/9824 samples
+Processed 6900/9824 samples
+Processed 7000/9824 samples
+Processed 7100/9824 samples
+Processed 7200/9824 samples
+Processed 7300/9824 samples
+Processed 7400/9824 samples
+Processed 7500/9824 samples
+Processed 7600/9824 samples
+Processed 7700/9824 samples
+Processed 7800/9824 samples
+Processed 7900/9824 samples
+Processed 8000/9824 samples
+Processed 8100/9824 samples
+Processed 8200/9824 samples
+Processed 8300/9824 samples
+Processed 8400/9824 samples
+Processed 8500/9824 samples
+Processed 8600/9824 samples
+Processed 8700/9824 samples
+Processed 8800/9824 samples
+Processed 8900/9824 samples
+Processed 9000/9824 samples
+Processed 9100/9824 samples
+Processed 9200/9824 samples
+Processed 9300/9824 samples
+Processed 9400/9824 samples
+Processed 9500/9824 samples
+Processed 9600/9824 samples
+Processed 9700/9824 samples
+Processed 9800/9824 samples
+Saving processed data to: /vol/bitbucket/ahb24/tda_entailment_new/snli_test_sbert_tokens.pkl
+
+Processing Statistics:
+Successfully processed: 9824 samples
+Premise token counts - Mean: 17.8, Min: 6, Max: 59
+Hypothesis token counts - Mean: 10.6, Min: 4, Max: 34
+Label distribution: {'entailment': 3368, 'neutral': 3219, 'contradiction': 3237}
+
+SBERT token extraction completed!
+
+Analysis completed with exit code: 0
+Time: Wed 27 Aug 18:14:57 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Extraction successful!
+
+
+Job finished.

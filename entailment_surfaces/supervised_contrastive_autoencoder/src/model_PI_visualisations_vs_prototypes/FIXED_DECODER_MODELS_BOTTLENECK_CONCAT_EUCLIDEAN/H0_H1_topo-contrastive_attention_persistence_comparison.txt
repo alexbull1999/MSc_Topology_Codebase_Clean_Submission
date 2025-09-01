@@ -1,0 +1,135 @@
+Computing persistence diagrams for each class...
+  Computing for contradiction...
+    contradiction: 949 H0 features, 868 H1 features
+    PH dimension: -2.9175
+  Computing for entailment...
+    entailment: 949 H0 features, 699 H1 features
+    PH dimension: -5.9739
+  Computing for neutral...
+    neutral: 949 H0 features, 800 H1 features
+    PH dimension: -3.7160
+Loaded prototypes from entailment_surfaces/supervised_contrastive_autoencoder/src/persistence_diagrams/prototypes_bottleneck.pkl
+
+============================================================
+COMPARISON: Current Model vs Target Prototypes
+============================================================
+
+H0 DIMENSION COMPARISON:
+----------------------------------------
+
+CONTRADICTION - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 48432.3984
+    Max persistence: 237.7831
+    Mean persistence: 51.0352
+  Target prototype:
+    H0 features: 949
+    Total persistence: 4082.6074
+    Max persistence: 5.1267
+    Mean persistence: 4.3020
+  Gap ratio (current/target): 11.8631
+  ❌ Current model has much HIGHER complexity than target
+
+ENTAILMENT - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 41429.7148
+    Max persistence: 153.4860
+    Mean persistence: 43.6562
+  Target prototype:
+    H0 features: 949
+    Total persistence: 3643.2871
+    Max persistence: 5.0253
+    Mean persistence: 3.8391
+  Gap ratio (current/target): 11.3715
+  ❌ Current model has much HIGHER complexity than target
+
+NEUTRAL - H0:
+  Current model:
+    H0 features: 949
+    Total persistence: 44571.5000
+    Max persistence: 232.4212
+    Mean persistence: 46.9668
+  Target prototype:
+    H0 features: 949
+    Total persistence: 3955.7019
+    Max persistence: 5.1775
+    Mean persistence: 4.1683
+  Gap ratio (current/target): 11.2677
+  ❌ Current model has much HIGHER complexity than target
+
+H1 DIMENSION COMPARISON:
+----------------------------------------
+
+CONTRADICTION - H1:
+  Current model:
+    H1 features: 868
+    Total persistence: 2165.2397
+    Max persistence: 22.7165
+    Mean persistence: 2.4945
+  Target prototype:
+    H1 features: 2247
+    Total persistence: 258.2977
+    Max persistence: 0.5240
+    Mean persistence: 0.1150
+  Gap ratio (current/target): 8.3827
+  ❌ Current model has much HIGHER complexity than target
+
+ENTAILMENT - H1:
+  Current model:
+    H1 features: 699
+    Total persistence: 1881.7990
+    Max persistence: 24.4356
+    Mean persistence: 2.6921
+  Target prototype:
+    H1 features: 1351
+    Total persistence: 199.6935
+    Max persistence: 0.7458
+    Mean persistence: 0.1478
+  Gap ratio (current/target): 9.4234
+  ❌ Current model has much HIGHER complexity than target
+
+NEUTRAL - H1:
+  Current model:
+    H1 features: 800
+    Total persistence: 1856.1759
+    Max persistence: 18.0476
+    Mean persistence: 2.3202
+  Target prototype:
+    H1 features: 1692
+    Total persistence: 218.8049
+    Max persistence: 0.6817
+    Mean persistence: 0.1293
+  Gap ratio (current/target): 8.4832
+  ❌ Current model has much HIGHER complexity than target
+
+============================================================
+OVERALL ASSESSMENT:
+============================================================
+
+H0 DIMENSION:
+⚠️  MIXED RESULTS: Some classes close, others far off for H0
+   May need class-specific regularization weights
+
+H1 DIMENSION:
+⚠️  MIXED RESULTS: Some classes close, others far off for H1
+   May need class-specific regularization weights
+H0 visualization saved as 'H0_persistence_comparison.png'
+H1 visualization saved as 'H1_persistence_comparison.png'
+
+SUMMARY:
+========================================
+
+H0 DIMENSION:
+  contradiction: Much more complex than target (11.86x)
+  entailment: Much more complex than target (11.37x)
+  neutral: Much more complex than target (11.27x)
+
+H1 DIMENSION:
+  contradiction: Much more complex than target (8.38x)
+  entailment: Much more complex than target (9.42x)
+  neutral: Much more complex than target (8.48x)
+
+OVERALL ASSESSMENT:
+⚠️  MIXED: Some dimensions/classes close to target, others need work

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/full_pipeline_global.py", line 295, in main
+    train_history = train_model(trainer, train_loader, val_loader, config, checkpoints_dir)
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/full_pipeline_global.py", line 187, in train_model
+    trainer.train(
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/trainer_global.py", line 202, in train
+    train_losses = self.train_epoch(train_loader, epoch, debug_frequency)
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/trainer_global.py", line 101, in train_epoch
+    total_loss, contrastive_loss, reconstruction_loss = self.loss_function(
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/losses_global.py", line 275, in forward
+    contrastive_loss = self.contrastive_loss(latent_features, labels)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/vol/bitbucket/ahb24/tda_entailment_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/homes/ahb24/MSc_Topology_Codebase/entailment_surfaces/supervised_contrastive_autoencoder/src/losses_global.py", line 143, in forward
+    print(f"  Enhanced batch: {current_batch_size} current + {len(global_features_subset)} global = {len(all_features)} total")
+OSError: [Errno 122] Disk quota exceeded

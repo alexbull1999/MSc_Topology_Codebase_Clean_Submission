@@ -1,0 +1,117 @@
+{
+  "timestamp": "20250728_183153",
+  "test_config": {
+    "n_runs": 10,
+    "min_points": 200,
+    "max_points": 1000,
+    "point_jump": 50,
+    "seed_base": 42,
+    "note": "Each run uses different random sample of latent embeddings"
+  },
+  "results": {
+    "model_name": "moor_topo-contrative_no_attention",
+    "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/moor_topo-contrastive_autoencoder_noattention_20250725_170549_30%topo-acc_70%classi-acc/checkpoints/checkpoint_epoch_50.pt",
+    "n_runs": 10,
+    "class_results": {
+      "entailment": {
+        "mean": 6.995836258299255,
+        "std": 0.36110237277895196,
+        "min": 6.493154267772197,
+        "max": 7.85189056843739,
+        "range": 1.3587363006651927,
+        "cv": 0.05161675594544846,
+        "valid_runs": 10,
+        "all_values": [
+          6.893669124283639,
+          7.047486142395576,
+          7.053184588465189,
+          7.85189056843739,
+          6.5134079033596555,
+          7.187960659553924,
+          7.092609476974197,
+          6.84492567662689,
+          6.493154267772197,
+          6.980074175123895
+        ],
+        "stability": "EXCELLENT"
+      },
+      "neutral": {
+        "mean": 9.137888354813253,
+        "std": 0.542743990060854,
+        "min": 8.286534003083096,
+        "max": 10.245063518348102,
+        "range": 1.9585295152650062,
+        "cv": 0.05939490273756424,
+        "valid_runs": 10,
+        "all_values": [
+          8.896267638039687,
+          8.745773248586794,
+          9.394241646349855,
+          10.245063518348102,
+          8.286534003083096,
+          9.2130949822363,
+          9.254857153149514,
+          9.689283032008381,
+          8.510343143667221,
+          9.143425182663563
+        ],
+        "stability": "EXCELLENT"
+      },
+      "contradiction": {
+        "mean": 10.3425863654291,
+        "std": 0.5354625465719718,
+        "min": 9.229475921642509,
+        "max": 11.032611542551281,
+        "range": 1.8031356209087726,
+        "cv": 0.051772596104374534,
+        "valid_runs": 10,
+        "all_values": [
+          10.112349407266905,
+          11.032611542551281,
+          10.955645022889414,
+          10.398975916708,
+          10.868856675269203,
+          10.310778929699618,
+          10.2064811126012,
+          10.57570527084635,
+          9.229475921642509,
+          9.734983854816525
+        ],
+        "stability": "EXCELLENT"
+      }
+    }
+  }
+}
+
+ENTAILMENT STABILITY ANALYSIS:
+    Mean: 6.9958 ± 0.3611
+    Range: [6.4932, 7.8519]
+    Coefficient of Variation: 0.0516
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  NEUTRAL STABILITY ANALYSIS:
+    Mean: 9.1379 ± 0.5427
+    Range: [8.2865, 10.2451]
+    Coefficient of Variation: 0.0594
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+  CONTRADICTION STABILITY ANALYSIS:
+    Mean: 10.3426 ± 0.5355
+    Range: [9.2295, 11.0326]
+    Coefficient of Variation: 0.0518
+    Valid runs: 10/10
+    Stability: EXCELLENT
+
+Results saved to: entailment_surfaces/supervised_contrastive_autoencoder/phd_stability_results/moor_topo-contrative_no_attention_stability_results_20250728_183153.json
+
+================================================================================
+PH DIMENSION STABILITY SUMMARY
+================================================================================
+
+Model: moor_topo-contrative_no_attention
+--------------------------------------------------
+  entailment: 6.996 ± 0.361 (CV: 0.052, EXCELLENT)
+  neutral: 9.138 ± 0.543 (CV: 0.059, EXCELLENT)
+  contradiction: 10.343 ± 0.535 (CV: 0.052, EXCELLENT)

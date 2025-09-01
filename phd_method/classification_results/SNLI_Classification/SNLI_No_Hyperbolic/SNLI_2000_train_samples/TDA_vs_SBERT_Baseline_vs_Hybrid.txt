@@ -1,0 +1,268 @@
+================================================================================
+INTERPRETABLE TOPOLOGICAL FEATURE CLASSIFICATION
+================================================================================
+Loading training data...
+  entailment: 50214 total samples available
+    Token filtering: 2986/50214 samples have ≥40 tokens
+    After token filtering: 2986 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-104)
+  neutral: 50069 total samples available
+    Token filtering: 4211/50069 samples have ≥40 tokens
+    After token filtering: 4211 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-98)
+  contradiction: 49717 total samples available
+    Token filtering: 3264/49717 samples have ≥40 tokens
+    After token filtering: 3264 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 45 ± 6 (range: 40-99)
+Final loaded samples: {'entailment': 2000, 'neutral': 2000, 'contradiction': 2000}
+
+Training set: 6000 samples, 21 features
+Validation set: 886 samples, 21 features
+
+============================================================
+CLASSIFICATION RESULTS (21 Interpretable Features)
+============================================================
+
+Training Random Forest...
+Random Forest Validation Accuracy: 0.688
+
+Training SVM...
+SVM Validation Accuracy: 0.681
+
+Training Logistic Regression...
+Logistic Regression Validation Accuracy: 0.686
+
+Training PyTorch Neural Network...
+Epoch 0: Train Loss 0.6836, Val Loss 0.7886, Val Acc 0.6637
+Epoch 20: Train Loss 0.5435, Val Loss 0.7781, Val Acc 0.6930
+Epoch 40: Train Loss 0.5499, Val Loss 0.7781, Val Acc 0.6930
+Epoch 60: Train Loss 0.5440, Val Loss 0.7815, Val Acc 0.6840
+Epoch 80: Train Loss 0.5409, Val Loss 0.7893, Val Acc 0.6874
+PyTorch NN Validation Accuracy: 0.696
+
+============================================================
+BEST CLASSIFIER: PyTorch NN
+============================================================
+
+PyTorch NN Classification Report:
+               precision    recall  f1-score   support
+
+   entailment       0.69      0.74      0.72       254
+      neutral       0.62      0.68      0.65       344
+contradiction       0.79      0.66      0.72       288
+
+     accuracy                           0.69       886
+    macro avg       0.70      0.69      0.69       886
+ weighted avg       0.70      0.69      0.69       886
+
+
+PyTorch NN Confusion Matrix:
+[[189  60   5]
+ [ 67 233  44]
+ [ 18  81 189]]
+
+
+ ============================================================
+FEATURE IMPORTANCE ANALYSIS
+============================================================
+Top 15 Most Important Features:
+---------------------------------------------
+ 1. forward_energy            0.1927
+ 2. h0_lifespan_std           0.1241
+ 3. h0_total_persistence      0.0771
+ 4. h0_mean_lifespan          0.0544
+ 5. h1_mean_birth             0.0541
+ 6. h1_h0_ratio               0.0533
+ 7. gap_energy                0.0468
+ 8. h1_count                  0.0380
+ 9. h1_mean_death             0.0357
+10. h1_total_persistence      0.0344
+11. hypothesis_size           0.0326
+12. premise_size              0.0307
+13. backward_energy           0.0298
+14. h0_max_lifespan           0.0292
+15. total_features            0.0268
+
+Statistical Analysis of Top 5 Features:
+----------------------------------------
+
+forward_energy:
+  Importance: 0.1927
+  F-statistic: 4011.85, p-value: 0.0000
+  Entailment:       0.278 ± 0.262 (n=2000)
+  Neutral:          0.772 ± 0.396 (n=2000)
+  Contradiction:    2.121 ± 1.065 (n=2000)
+
+h0_lifespan_std:
+  Importance: 0.1241
+  F-statistic: 4327.94, p-value: 0.0000
+  Entailment:       0.114 ± 0.011 (n=2000)
+  Neutral:          0.131 ± 0.019 (n=2000)
+  Contradiction:    0.190 ± 0.041 (n=2000)
+
+h0_total_persistence:
+  Importance: 0.0771
+  F-statistic: 2313.89, p-value: 0.0000
+  Entailment:      46.889 ± 7.560 (n=2000)
+  Neutral:         53.239 ± 7.703 (n=2000)
+  Contradiction:   63.593 ± 8.231 (n=2000)
+
+h0_mean_lifespan:
+  Importance: 0.0544
+  F-statistic: 1721.81, p-value: 0.0000
+  Entailment:       0.088 ± 0.015 (n=2000)
+  Neutral:          0.105 ± 0.019 (n=2000)
+  Contradiction:    0.121 ± 0.019 (n=2000)
+
+h1_mean_birth:
+  Importance: 0.0541
+  F-statistic: 2293.31, p-value: 0.0000
+  Entailment:       0.144 ± 0.034 (n=2000)
+  Neutral:          0.198 ± 0.048 (n=2000)
+  Contradiction:    0.244 ± 0.056 (n=2000)
+
+
+============================================================
+COMPARISON WITH CLUSTERING BASELINE
+============================================================
+Clustering Baseline: 66.9%
+Best Classification: 0.696 (PyTorch NN)
+Improvement: +0.027 (+2.7%)
+✅ SUCCESS: Classification improves over clustering baseline
+
+
+
+📊 RUNNING SBERT BASELINE...
+================================================================================
+SBERT BASELINE COMPARISON (NO TOPOLOGICAL PROCESSING)
+================================================================================
+Loading training data...
+  entailment: 50214 total samples available
+    Token filtering: 2986/50214 samples have ≥40 tokens
+    After token filtering: 2986 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-104)
+  neutral: 50069 total samples available
+    Token filtering: 4211/50069 samples have ≥40 tokens
+    After token filtering: 4211 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-98)
+  contradiction: 49717 total samples available
+    Token filtering: 3264/49717 samples have ≥40 tokens
+    After token filtering: 3264 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 45 ± 6 (range: 40-99)
+Final loaded samples: {'entailment': 2000, 'neutral': 2000, 'contradiction': 2000}
+Loading validation data...
+  entailment: 3329 total samples available
+    Token filtering: 254/3329 samples have ≥40 tokens
+    After token filtering: 254 samples
+    Token count stats: 47 ± 8 (range: 40-90)
+  neutral: 3235 total samples available
+    Token filtering: 344/3235 samples have ≥40 tokens
+    After token filtering: 344 samples
+    Token count stats: 46 ± 7 (range: 40-78)
+  contradiction: 3278 total samples available
+    Token filtering: 288/3278 samples have ≥40 tokens
+    After token filtering: 288 samples
+    Token count stats: 46 ± 8 (range: 40-114)
+Final loaded samples: {'entailment': 254, 'neutral': 344, 'contradiction': 288}
+
+============================================================
+SBERT BASELINE RESULTS
+============================================================
+
+Training Random Forest on SBERT features...
+Random Forest SBERT Validation Accuracy: 0.640
+
+Training SVM on SBERT features...
+SVM SBERT Validation Accuracy: 0.735
+
+Training Logistic Regression on SBERT features...
+Logistic Regression SBERT Validation Accuracy: 0.630
+
+Training PyTorch Neural Network on SBERT features...
+Epoch 0: Train Loss 0.8574, Val Loss 0.7137, Val Acc 0.6874
+Epoch 20: Train Loss 0.0775, Val Loss 1.0705, Val Acc 0.6930
+Epoch 40: Train Loss 0.0691, Val Loss 1.1295, Val Acc 0.6930
+Epoch 60: Train Loss 0.0624, Val Loss 1.1153, Val Acc 0.6953
+Epoch 80: Train Loss 0.0587, Val Loss 1.1108, Val Acc 0.6953
+PyTorch NN SBERT Validation Accuracy: 0.721
+
+============================================================
+SBERT BASELINE SUMMARY
+============================================================
+Best SBERT Classifier: SVM
+Best SBERT Accuracy: 0.735
+
+================================================================================
+FINAL COMPARISON RESULTS
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.696      21        
+SBERT Baseline            SVM             0.735      3072      
+
+Topological vs SBERT Improvement: -0.038 (-3.8%)
+📊 SBERT BASELINE WINS: Raw embeddings more discriminative
+
+
+================================================================================
+HYBRID CLASSIFICATION: TOPOLOGICAL + SBERT
+================================================================================
+Loading training data...
+  entailment: 50214 total samples available
+    Token filtering: 2986/50214 samples have ≥40 tokens
+    After token filtering: 2986 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-104)
+  neutral: 50069 total samples available
+    Token filtering: 4211/50069 samples have ≥40 tokens
+    After token filtering: 4211 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 46 ± 7 (range: 40-98)
+  contradiction: 49717 total samples available
+    Token filtering: 3264/49717 samples have ≥40 tokens
+    After token filtering: 3264 samples
+    Sampling down to 2000 samples with random_seed=42...
+    Token count stats: 45 ± 6 (range: 40-99)
+Final loaded samples: {'entailment': 2000, 'neutral': 2000, 'contradiction': 2000}
+
+============================================================
+HYBRID CLASSIFICATION RESULTS
+============================================================
+
+Training Random Forest on hybrid features...
+Random Forest Hybrid Validation Accuracy: 0.670
+
+Training SVM on hybrid features...
+SVM Hybrid Validation Accuracy: 0.751
+
+Training Logistic Regression on hybrid features...
+Logistic Regression Hybrid Validation Accuracy: 0.664
+
+Training PyTorch Neural Network on hybrid features...
+Epoch 0: Train Loss 0.7474, Val Loss 0.6670, Val Acc 0.7201
+Epoch 20: Train Loss 0.0343, Val Loss 1.0912, Val Acc 0.7291
+Epoch 40: Train Loss 0.0206, Val Loss 1.1426, Val Acc 0.7269
+Epoch 60: Train Loss 0.0218, Val Loss 1.1169, Val Acc 0.7291
+Epoch 80: Train Loss 0.0219, Val Loss 1.1333, Val Acc 0.7269
+PyTorch NN Hybrid Validation Accuracy: 0.738
+
+================================================================================
+COMPREHENSIVE COMPARISON
+================================================================================
+Method                    Best Classifier Accuracy   Features  
+----------------------------------------------------------------------
+Topological               PyTorch NN      0.696      21        
+SBERT Baseline            SVM             0.735      3072      
+Hybrid (Top-{top_k_features}) SVM             0.751      3093      
+
+Hybrid Improvements:
+  vs Topological: +0.055 (+5.5%)
+  vs SBERT: +0.016 (+1.6%)
+🎉 EXCELLENT: Hybrid approach achieves >72% accuracy!
+

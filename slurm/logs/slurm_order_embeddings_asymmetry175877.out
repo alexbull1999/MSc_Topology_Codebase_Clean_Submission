@@ -1,0 +1,179 @@
+Starting order embeddings training job...
+Job ID: 175877
+Node: gpuvm02
+Time: Wed 18 Jun 19:15:43 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jun 18 19:15:45 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.120                Driver Version: 550.120        CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:02:00.0 Off |                    0 |
+| N/A   33C    P0             29W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.2 GB
+PyTorch setup verified!
+
+Checking for required input data...
+Required data file found: data/processed/snli_10k_subset_balanced.pt
+
+Starting order embeddings training...
+Training parameters:
+  - Epochs: 50
+  - Batch size: 32
+  - Order dimension: 50
+  - Random seed: 42
+
+Loading data from data/processed/snli_10k_subset_balanced.pt
+Training on 7992 samples, validating on 1998 samples
+Training on cuda with asymmetry_weight=0.2
+Epoch 5 / 80
+Train Loss: 0.8653, Val Loss: 1.0777
+  Energy Rankings:
+    entailment: 0.1482 ± 0.1808
+    neutral: 0.3419 ± 0.2966
+    contradiction: 0.3637 ± 0.3448
+Epoch 10 / 80
+Train Loss: 0.8039, Val Loss: 1.0935
+  Energy Rankings:
+    entailment: 0.1225 ± 0.1456
+    neutral: 0.2793 ± 0.2185
+    contradiction: 0.3128 ± 0.3064
+Epoch 15 / 80
+Train Loss: 0.7719, Val Loss: 1.0402
+  Energy Rankings:
+    entailment: 0.1597 ± 0.1892
+    neutral: 0.3696 ± 0.3059
+    contradiction: 0.4196 ± 0.3813
+Epoch 20 / 80
+Train Loss: 0.7581, Val Loss: 1.0510
+  Energy Rankings:
+    entailment: 0.1509 ± 0.1877
+    neutral: 0.3481 ± 0.2872
+    contradiction: 0.3858 ± 0.3440
+Epoch 25 / 80
+Train Loss: 0.7325, Val Loss: 1.0637
+  Energy Rankings:
+    entailment: 0.1369 ± 0.1649
+    neutral: 0.3250 ± 0.2656
+    contradiction: 0.3699 ± 0.3359
+Epoch 30 / 80
+Train Loss: 0.7194, Val Loss: 1.0518
+  Energy Rankings:
+    entailment: 0.1266 ± 0.1698
+    neutral: 0.3313 ± 0.2837
+    contradiction: 0.3876 ± 0.3842
+Epoch 35 / 80
+Train Loss: 0.6996, Val Loss: 1.0203
+  Energy Rankings:
+    entailment: 0.1622 ± 0.1977
+    neutral: 0.3760 ± 0.3102
+    contradiction: 0.4644 ± 0.4257
+Epoch 40 / 80
+Train Loss: 0.6940, Val Loss: 1.0379
+  Energy Rankings:
+    entailment: 0.1436 ± 0.1787
+    neutral: 0.3296 ± 0.2651
+    contradiction: 0.4257 ± 0.4068
+Epoch 45 / 80
+Train Loss: 0.6803, Val Loss: 1.0469
+  Energy Rankings:
+    entailment: 0.1484 ± 0.1839
+    neutral: 0.3291 ± 0.2657
+    contradiction: 0.4077 ± 0.3781
+Epoch 50 / 80
+Train Loss: 0.6772, Val Loss: 1.0096
+  Energy Rankings:
+    entailment: 0.1626 ± 0.1864
+    neutral: 0.3793 ± 0.3048
+    contradiction: 0.4630 ± 0.4178
+Epoch 55 / 80
+Train Loss: 0.6654, Val Loss: 1.0370
+  Energy Rankings:
+    entailment: 0.1531 ± 0.2121
+    neutral: 0.3558 ± 0.3097
+    contradiction: 0.4388 ± 0.4372
+Early stopping at epoch 59
+Training completed
+Final Energy Rankings:
+    Entailment: 0.1491
+    Neutral: 0.3584
+    Contradiction: 0.4619
+Binary separation (entailment vs others): False
+Neutral vs Contradiction gap: 0.1034
+⚠ Energy rankings may need adjustment
+
+Asymmetry Analysis:
+  entailment:
+    Forward Energy: 0.1484
+    Backward Energy: 0.4135
+    Asymmetric Energy: 0.1549
+    Asymmetry Measure: 0.3290
+  neutral:
+    Forward Energy: 0.3519
+    Backward Energy: 0.3781
+    Asymmetric Energy: 0.1172
+    Asymmetry Measure: 0.2726
+  contradiction:
+    Forward Energy: 0.4645
+    Backward Energy: 0.4118
+    Asymmetric Energy: 0.1372
+    Asymmetry Measure: 0.3690
+Enhanced training plots saved to plots/
+⚠ Warning: Energy rankings may need further tuning
+
+Training completed with exit code: 0
+Time: Wed 18 Jun 19:20:37 BST 2025
+
+Files created in models/:
+total 1964
+drwxr-xr-x  2 ahb24 mcs    151 Jun 18 19:15 .
+drwxr-xr-x 14 ahb24 mcs   4096 Jun 18 19:18 ..
+-rw-r--r--  1 ahb24 mcs 956050 Jun 18 19:19 enhanced_order_embeddings_snli_10k_tests.pt
+-rw-r--r--  1 ahb24 mcs 333472 Jun 18 12:18 order_embeddings_snli_10k.pt
+-rw-r--r--  1 ahb24 mcs 711888 Jun 18 19:04 order_embeddings_snli_10k_tests.pt
+
+Files created in plots/:
+total 5756
+drwxr-xr-x  4 ahb24 mcs    4096 Jun 18 19:20 .
+drwxr-xr-x 14 ahb24 mcs    4096 Jun 18 19:18 ..
+drwxr-xr-x  2 ahb24 mcs     142 Jun 17 16:42 cone_visualizations
+-rw-r--r--  1 ahb24 mcs 1053203 Jun 18 19:20 enhanced_order_embedding_training_snli_10_tests.png
+-rw-r--r--  1 ahb24 mcs  546301 Jun 17 16:42 hyperbolic_projection_analysis_large.png
+-rw-r--r--  1 ahb24 mcs  546385 Jun 17 16:42 hyperbolic_projection_analysis_small.png
+-rw-r--r--  1 ahb24 mcs 1026788 Jun 18 14:24 hyperbolic_projection_analysis_snli_10k.png
+-rw-r--r--  1 ahb24 mcs  770151 Jun 17 16:42 hyperbolic_projection_analysis_SNLI_1k.png
+-rw-r--r--  1 ahb24 mcs  218635 Jun 17 16:42 order_embedding_training_large.png
+-rw-r--r--  1 ahb24 mcs  239648 Jun 17 16:42 order_embedding_training_small.png
+-rw-r--r--  1 ahb24 mcs  296186 Jun 18 12:18 order_embedding_training_snli_10k.png
+-rw-r--r--  1 ahb24 mcs  334974 Jun 18 19:04 order_embedding_training_snli_10k_tests.png
+-rw-r--r--  1 ahb24 mcs  307996 Jun 17 16:42 order_embedding_training_SNLI_1k.png
+drwxr-xr-x  2 ahb24 mcs    4096 Jun 18 14:32 real_data_cone_visualizations
+
+=== TRAINING SUCCESSFUL ===
+Order embeddings model has been trained and saved.
+Check the output above for energy rankings validation.
+Training plots should be available in plots/order_embedding_training.png
+
+Job finished.

@@ -1,0 +1,725 @@
+Starting Surface Distance Metric Analysis job...
+Job ID: 197507
+Node: gpuvm15
+Time: Fri 22 Aug 16:20:08 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Fri Aug 22 16:20:10 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   40C    P8             11W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Checking for required input data and models...
+
+Starting PH-Dim Clustering Validation Analysis...
+
+Efficient Statistical Validation initialized
+Testing 32 combinations
+Embedding spaces: ['sbert_concat', 'lattice_containment', 'order_concat', 'hyperbolic_concat']
+Distance metrics: ['euclidean', 'manhattan', 'chebyshev', 'cosine', 'minkowski_3', 'minkowski_4', 'canberra', 'braycurtis']
+Device: cuda
+Loading BERT data...
+BERT data loaded:
+  Premise embeddings: torch.Size([392702, 768])
+  Hypothesis embeddings: torch.Size([392702, 768])
+  Labels: 392702
+  entailment: 130899 samples available
+  neutral: 130900 samples available
+  contradiction: 130903 samples available
+Loading existing order model...
+Existing order model loaded successfully
+Loading existing hyperbolic pipeline...
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Existing hyperbolic pipeline loaded successfully
+============================================================
+EFFICIENT STATISTICAL VALIDATION
+============================================================
+Generating all sample indices...
+Generated sample indices for 10 runs
+
+============================================================
+TESTING COMBINATION 1/32: sbert_concat + euclidean
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.667
+  Run 2/10...
+    Accuracy: 0.733
+  Run 3/10...
+    Accuracy: 0.633
+  Run 4/10...
+    Accuracy: 0.700
+  Run 5/10...
+    Accuracy: 0.667
+  Run 6/10...
+    Accuracy: 0.767
+  Run 7/10...
+    Accuracy: 0.600
+  Run 8/10...
+    Accuracy: 0.533
+  Run 9/10...
+    Accuracy: 0.800
+  Run 10/10...
+    Accuracy: 0.600
+
+  SUMMARY for sbert_concat + euclidean:
+    10 samples: Acc=0.670±0.078
+    Silhouette: 0.565±0.037
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 751.4s
+
+============================================================
+TESTING COMBINATION 2/32: sbert_concat + manhattan
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.333
+  Run 2/10...
+    Accuracy: 0.333
+  Run 3/10...
+    Accuracy: 0.333
+  Run 4/10...
+    Accuracy: 0.333
+  Run 5/10...
+    Accuracy: 0.333
+  Run 6/10...
+    Accuracy: 0.333
+  Run 7/10...
+    Accuracy: 0.333
+  Run 8/10...
+    Accuracy: 0.333
+  Run 9/10...
+    Accuracy: 0.333
+  Run 10/10...
+    Accuracy: 0.333
+
+  SUMMARY for sbert_concat + manhattan:
+    10 samples: Acc=0.333±0.000
+    Silhouette: 0.000±0.000
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000) (zero_variance)
+    Significantly > 90%: NO (p=1.0000) (zero_variance)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 717.0s
+
+============================================================
+TESTING COMBINATION 3/32: sbert_concat + chebyshev
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.633
+  Run 2/10...
+    Accuracy: 0.700
+  Run 3/10...
+    Accuracy: 0.533
+  Run 4/10...
+    Accuracy: 0.567
+  Run 5/10...
+    Accuracy: 0.533
+  Run 6/10...
+    Accuracy: 0.500
+  Run 7/10...
+    Accuracy: 0.567
+  Run 8/10...
+    Accuracy: 0.767
+  Run 9/10...
+    Accuracy: 0.633
+  Run 10/10...
+    Accuracy: 0.600
+
+  SUMMARY for sbert_concat + chebyshev:
+    10 samples: Acc=0.603±0.078
+    Silhouette: 0.393±0.039
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 941.3s
+
+============================================================
+TESTING COMBINATION 4/32: sbert_concat + cosine
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.633
+  Run 2/10...
+    Accuracy: 0.900
+  Run 3/10...
+    Accuracy: 0.733
+  Run 4/10...
+    Accuracy: 0.633
+  Run 5/10...
+    Accuracy: 0.633
+  Run 6/10...
+    Accuracy: 0.833
+  Run 7/10...
+    Accuracy: 0.667
+  Run 8/10...
+    Accuracy: 0.867
+  Run 9/10...
+    Accuracy: 0.600
+  Run 10/10...
+    Accuracy: 0.767
+
+  SUMMARY for sbert_concat + cosine:
+    10 samples: Acc=0.727±0.104
+    Silhouette: 0.443±0.058
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=0.9996)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 1259.7s
+
+============================================================
+TESTING COMBINATION 5/32: sbert_concat + minkowski_3
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.600
+  Run 2/10...
+    Accuracy: 0.667
+  Run 3/10...
+    Accuracy: 0.667
+  Run 4/10...
+    Accuracy: 0.533
+  Run 5/10...
+    Accuracy: 0.700
+  Run 6/10...
+    Accuracy: 0.600
+  Run 7/10...
+    Accuracy: 0.500
+  Run 8/10...
+    Accuracy: 0.467
+  Run 9/10...
+    Accuracy: 0.767
+  Run 10/10...
+    Accuracy: 0.733
+
+  SUMMARY for sbert_concat + minkowski_3:
+    10 samples: Acc=0.623±0.096
+    Silhouette: 0.505±0.048
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 4817.8s
+
+============================================================
+TESTING COMBINATION 6/32: sbert_concat + minkowski_4
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.567
+  Run 2/10...
+    Accuracy: 0.567
+  Run 3/10...
+    Accuracy: 0.533
+  Run 4/10...
+    Accuracy: 0.700
+  Run 5/10...
+    Accuracy: 0.633
+  Run 6/10...
+    Accuracy: 0.633
+  Run 7/10...
+    Accuracy: 0.500
+  Run 8/10...
+    Accuracy: 0.700
+  Run 9/10...
+    Accuracy: 0.800
+  Run 10/10...
+    Accuracy: 0.567
+
+  SUMMARY for sbert_concat + minkowski_4:
+    10 samples: Acc=0.620±0.087
+    Silhouette: 0.456±0.049
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 4812.1s
+
+============================================================
+TESTING COMBINATION 7/32: sbert_concat + canberra
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.333
+  Run 2/10...
+    Accuracy: 0.333
+  Run 3/10...
+    Accuracy: 0.333
+  Run 4/10...
+    Accuracy: 0.333
+  Run 5/10...
+    Accuracy: 0.333
+  Run 6/10...
+    Accuracy: 0.333
+  Run 7/10...
+    Accuracy: 0.333
+  Run 8/10...
+    Accuracy: 0.333
+  Run 9/10...
+    Accuracy: 0.333
+  Run 10/10...
+    Accuracy: 0.333
+
+  SUMMARY for sbert_concat + canberra:
+    10 samples: Acc=0.333±0.000
+    Silhouette: 0.000±0.000
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000) (zero_variance)
+    Significantly > 90%: NO (p=1.0000) (zero_variance)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 1391.7s
+
+============================================================
+TESTING COMBINATION 8/32: sbert_concat + braycurtis
+============================================================
+  Computing sbert_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.733
+  Run 2/10...
+    Accuracy: 0.833
+  Run 3/10...
+    Accuracy: 0.533
+  Run 4/10...
+    Accuracy: 0.833
+  Run 5/10...
+    Accuracy: 0.733
+  Run 6/10...
+    Accuracy: 0.667
+  Run 7/10...
+    Accuracy: 0.767
+  Run 8/10...
+    Accuracy: 0.933
+  Run 9/10...
+    Accuracy: 0.700
+  Run 10/10...
+    Accuracy: 0.933
+
+  SUMMARY for sbert_concat + braycurtis:
+    10 samples: Acc=0.767±0.116
+    Silhouette: 0.440±0.036
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=0.9963)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 1201.9s
+
+============================================================
+TESTING COMBINATION 9/32: lattice_containment + euclidean
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 0.700
+  Run 2/10...
+    Accuracy: 0.767
+  Run 3/10...
+    Accuracy: 0.700
+  Run 4/10...
+    Accuracy: 0.667
+  Run 5/10...
+    Accuracy: 0.733
+  Run 6/10...
+    Accuracy: 0.800
+  Run 7/10...
+    Accuracy: 0.533
+  Run 8/10...
+    Accuracy: 0.833
+  Run 9/10...
+    Accuracy: 0.633
+  Run 10/10...
+    Accuracy: 0.667
+
+  SUMMARY for lattice_containment + euclidean:
+    10 samples: Acc=0.703±0.082
+    Silhouette: 0.652±0.048
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 442.8s
+
+============================================================
+TESTING COMBINATION 10/32: lattice_containment + manhattan
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 0.367
+  Run 2/10...
+    Accuracy: 0.400
+  Run 3/10...
+    Accuracy: 0.433
+  Run 4/10...
+    Accuracy: 0.367
+  Run 5/10...
+    Accuracy: 0.367
+  Run 6/10...
+    Accuracy: 0.400
+  Run 7/10...
+    Accuracy: 0.333
+  Run 8/10...
+    Accuracy: 0.400
+  Run 9/10...
+    Accuracy: 0.367
+  Run 10/10...
+    Accuracy: 0.433
+
+  SUMMARY for lattice_containment + manhattan:
+    10 samples: Acc=0.387±0.031
+    Silhouette: -0.324±0.580
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0003)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 415.7s
+
+============================================================
+TESTING COMBINATION 11/32: lattice_containment + chebyshev
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 0.667
+  Run 2/10...
+    Accuracy: 0.733
+  Run 3/10...
+    Accuracy: 0.800
+  Run 4/10...
+    Accuracy: 0.567
+  Run 5/10...
+    Accuracy: 0.700
+  Run 6/10...
+    Accuracy: 0.700
+  Run 7/10...
+    Accuracy: 0.700
+  Run 8/10...
+    Accuracy: 0.533
+  Run 9/10...
+    Accuracy: 0.733
+  Run 10/10...
+    Accuracy: 0.800
+
+  SUMMARY for lattice_containment + chebyshev:
+    10 samples: Acc=0.693±0.083
+    Silhouette: 0.458±0.062
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 1071.8s
+
+============================================================
+TESTING COMBINATION 12/32: lattice_containment + cosine
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 1.000
+  Run 2/10...
+    Accuracy: 1.000
+  Run 3/10...
+    Accuracy: 1.000
+  Run 4/10...
+    Accuracy: 1.000
+  Run 5/10...
+    Accuracy: 1.000
+  Run 6/10...
+    Accuracy: 1.000
+  Run 7/10...
+    Accuracy: 1.000
+  Run 8/10...
+    Accuracy: 1.000
+  Run 9/10...
+    Accuracy: 0.967
+  Run 10/10...
+    Accuracy: 1.000
+
+  SUMMARY for lattice_containment + cosine:
+    10 samples: Acc=0.997±0.010
+    Silhouette: 0.815±0.031
+    Perfect clustering rate: 90.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: YES (p=0.0000)
+    Significantly > 70%: NO (p=0.1493)
+    Perfect clustering: 9/10 runs
+  Combination completed in 400.5s
+
+============================================================
+TESTING COMBINATION 13/32: lattice_containment + minkowski_3
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 0.533
+  Run 2/10...
+    Accuracy: 0.667
+  Run 3/10...
+    Accuracy: 0.567
+  Run 4/10...
+    Accuracy: 0.767
+  Run 5/10...
+    Accuracy: 0.767
+  Run 6/10...
+    Accuracy: 0.667
+  Run 7/10...
+    Accuracy: 0.600
+  Run 8/10...
+    Accuracy: 0.733
+  Run 9/10...
+    Accuracy: 0.800
+  Run 10/10...
+    Accuracy: 0.767
+
+  SUMMARY for lattice_containment + minkowski_3:
+    10 samples: Acc=0.687±0.090
+    Silhouette: 0.648±0.032
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 2504.7s
+
+============================================================
+TESTING COMBINATION 14/32: lattice_containment + minkowski_4
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 0.667
+  Run 2/10...
+    Accuracy: 0.733
+  Run 3/10...
+    Accuracy: 0.667
+  Run 4/10...
+    Accuracy: 0.567
+  Run 5/10...
+    Accuracy: 0.600
+  Run 6/10...
+    Accuracy: 0.667
+  Run 7/10...
+    Accuracy: 0.667
+  Run 8/10...
+    Accuracy: 0.667
+  Run 9/10...
+    Accuracy: 0.767
+  Run 10/10...
+    Accuracy: 0.667
+
+  SUMMARY for lattice_containment + minkowski_4:
+    10 samples: Acc=0.667±0.054
+    Silhouette: 0.639±0.053
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 2544.6s
+
+============================================================
+TESTING COMBINATION 15/32: lattice_containment + canberra
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 0.333
+  Run 2/10...
+    Accuracy: 0.333
+  Run 3/10...
+    Accuracy: 0.333
+  Run 4/10...
+    Accuracy: 0.333
+  Run 5/10...
+    Accuracy: 0.333
+  Run 6/10...
+    Accuracy: 0.333
+  Run 7/10...
+    Accuracy: 0.333
+  Run 8/10...
+    Accuracy: 0.333
+  Run 9/10...
+    Accuracy: 0.333
+  Run 10/10...
+    Accuracy: 0.333
+
+  SUMMARY for lattice_containment + canberra:
+    10 samples: Acc=0.333±0.000
+    Silhouette: 0.000±0.000
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000) (zero_variance)
+    Significantly > 90%: NO (p=1.0000) (zero_variance)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 395.2s
+
+============================================================
+TESTING COMBINATION 16/32: lattice_containment + braycurtis
+============================================================
+  Computing lattice_containment embeddings...
+  Run 1/10...
+    Accuracy: 1.000
+  Run 2/10...
+    Accuracy: 1.000
+  Run 3/10...
+    Accuracy: 0.967
+  Run 4/10...
+    Accuracy: 1.000
+  Run 5/10...
+    Accuracy: 1.000
+  Run 6/10...
+    Accuracy: 1.000
+  Run 7/10...
+    Accuracy: 1.000
+  Run 8/10...
+    Accuracy: 1.000
+  Run 9/10...
+    Accuracy: 0.967
+  Run 10/10...
+    Accuracy: 1.000
+
+  SUMMARY for lattice_containment + braycurtis:
+    10 samples: Acc=0.993±0.013
+    Silhouette: 0.800±0.039
+    Perfect clustering rate: 80.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: YES (p=0.0000)
+    Significantly > 70%: NO (p=0.3828)
+    Perfect clustering: 8/10 runs
+  Combination completed in 323.9s
+
+============================================================
+TESTING COMBINATION 17/32: order_concat + euclidean
+============================================================
+  Computing order_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.867
+  Run 2/10...
+    Accuracy: 0.767
+  Run 3/10...
+    Accuracy: 0.633
+  Run 4/10...
+    Accuracy: 0.700
+  Run 5/10...
+    Accuracy: 0.667
+  Run 6/10...
+    Accuracy: 0.733
+  Run 7/10...
+    Accuracy: 0.667
+  Run 8/10...
+    Accuracy: 0.733
+  Run 9/10...
+    Accuracy: 0.567
+  Run 10/10...
+    Accuracy: 0.700
+
+  SUMMARY for order_concat + euclidean:
+    10 samples: Acc=0.703±0.077
+    Silhouette: 0.561±0.048
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 508.4s
+
+============================================================
+TESTING COMBINATION 18/32: order_concat + manhattan
+============================================================
+  Computing order_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.400
+  Run 2/10...
+    Accuracy: 0.367
+  Run 3/10...
+    Accuracy: 0.433
+  Run 4/10...
+    Accuracy: 0.400
+  Run 5/10...
+    Accuracy: 0.400
+  Run 6/10...
+    Accuracy: 0.400
+  Run 7/10...
+    Accuracy: 0.367
+  Run 8/10...
+    Accuracy: 0.433
+  Run 9/10...
+    Accuracy: 0.400
+  Run 10/10...
+    Accuracy: 0.400
+
+  SUMMARY for order_concat + manhattan:
+    10 samples: Acc=0.400±0.021
+    Silhouette: 0.822±0.060
+    Perfect clustering rate: 0.0%
+    Significantly > random (33%): YES (p=0.0000)
+    Significantly > 90%: NO (p=1.0000)
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+  Combination completed in 490.0s
+
+============================================================
+TESTING COMBINATION 19/32: order_concat + chebyshev
+============================================================
+  Computing order_concat embeddings...
+  Run 1/10...
+    Accuracy: 0.633
+  Run 2/10...
+    Accuracy: 0.667
+  Run 3/10...
+    Accuracy: 0.633
+  Run 4/10...
+    Accuracy: 0.700
+  Run 5/10...
+    Accuracy: 0.800
+  Run 6/10...
+    Accuracy: 0.667
+  Run 7/10...
+
+Analysis completed with exit code: 137
+Time: Fri 22 Aug 23:25:45 BST 2025
+
+=== ANALYSIS FAILED ===
+Please check the error output above for debugging information.
+
+
+Job finished.

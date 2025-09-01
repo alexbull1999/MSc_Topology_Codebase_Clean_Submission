@@ -1,0 +1,83 @@
+Starting TDA integration job...
+Job ID: 175831
+Node: gpuvm07
+Time: Wed 18 Jun 16:18:00 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Wed Jun 18 16:18:02 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.120                Driver Version: 550.120        CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     Off |   00000000:00:11.0 Off |                    0 |
+| N/A   28C    P0             25W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing required packages...
+PyTorch version: 2.4.1
+NumPy version: 1.26.4
+Ripser version: 0.6.12
+CUDA available: True
+CUDA device: NVIDIA A30
+GPU memory: 25.2 GB
+All packages loaded successfully!
+
+Checking for required input files...
+All required files found!
+
+Starting TDA integration analysis...
+Analysis parameters:
+  - Input: TDA-ready cone violations from SNLI 10k
+  - TDA method: Persistent homology with Ripser
+  - Max dimension: H0, H1, H2
+  - Visualizations: Persistence diagrams, UMAP/t-SNE projections
+
+
+TDA integration completed with exit code: 137
+Time: Wed 18 Jun 16:27:14 BST 2025
+
+Files created in results/tda_integration/:
+total 1128
+drwxr-xr-x 3 ahb24 mcs    191 Jun 17 16:42 .
+drwxr-xr-x 6 ahb24 mcs    108 Jun 17 16:42 ..
+drwxr-xr-x 2 ahb24 mcs   4096 Jun 17 16:42 graphs
+-rw-r--r-- 1 ahb24 mcs 649010 Jun 17 16:42 tda_analysis_with_texts.json
+-rw-r--r-- 1 ahb24 mcs 406011 Jun 17 16:42 tda_features_SNLI_1k_with_texts.npz
+-rw-r--r-- 1 ahb24 mcs  55990 Jun 17 16:42 tda_features_toy_large.npz
+-rw-r--r-- 1 ahb24 mcs  30490 Jun 17 16:42 tda_features_toy_small.npz
+
+Generated visualizations:
+No visualization files found
+
+Generated data files:
+No PyTorch data files found
+-rw-r--r-- 1 ahb24 mcs 406011 Jun 17 16:42 results/tda_integration/tda_features_SNLI_1k_with_texts.npz
+-rw-r--r-- 1 ahb24 mcs  55990 Jun 17 16:42 results/tda_integration/tda_features_toy_large.npz
+-rw-r--r-- 1 ahb24 mcs  30490 Jun 17 16:42 results/tda_integration/tda_features_toy_small.npz
+-rw-r--r-- 1 ahb24 mcs 649010 Jun 17 16:42 results/tda_integration/tda_analysis_with_texts.json
+
+=== TDA INTEGRATION FAILED ===
+Please check the error output above for debugging information.
+
+Common issues to check:
+  - Ripser library installation
+  - Input data format from cone validation
+  - Memory requirements for TDA computation
+  - Missing dependencies (persim, umap-learn)
+
+Job finished.

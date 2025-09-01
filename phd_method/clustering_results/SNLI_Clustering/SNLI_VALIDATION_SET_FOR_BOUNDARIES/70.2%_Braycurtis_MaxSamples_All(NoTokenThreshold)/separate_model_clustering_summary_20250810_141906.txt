@@ -1,0 +1,276 @@
+SEPARATE MODEL POINT CLOUD CLUSTERING VALIDATION RESULTS
+============================================================
+
+METHODOLOGY:
+------------
+1. OrderEmbeddingModel: Trained with Vendrov max-margin loss
+2. AsymmetryTransformModel: Trained with asymmetric directional loss
+3. Point cloud generation: SBERT + Order + Asymmetric features
+4. Clustering: Persistence images → k-means
+
+MODELS USED:
+------------
+Order Model: order_embedding_model_separate_margins.pt
+Asymmetry Model: new_independent_asymmetry_transform_model_v2.pt
+
+CLUSTERING PERFORMANCE:
+----------------------
+Accuracy: 0.702
+Silhouette Score: 0.534
+Adjusted Rand Index: 0.330
+Success (>70%): YES
+
+PH-DIMENSION STATISTICS:
+------------------------
+entailment: 3.33 ± 11.98 (range: -575.55-142.50)
+neutral: 2.27 ± 105.21 (range: -5977.94-71.26)
+contradiction: 5.14 ± 33.49 (range: -922.39-1225.19)
+
+POINT CLOUD STATISTICS:
+-----------------------
+entailment:
+  Combined: 376 ± 88 points
+  Premise: 54 points
+  Hypothesis: 30 points
+  Sufficient for PHD: 100%
+
+neutral:
+  Combined: 346 ± 96 points
+  Premise: 53 points
+  Hypothesis: 35 points
+  Sufficient for PHD: 100%
+
+contradiction:
+  Combined: 339 ± 102 points
+  Premise: 54 points
+  Hypothesis: 32 points
+  Sufficient for PHD: 100%
+
+IMPLICATIONS:
+------------
+✅ Separate model training approach successful!
+✅ Order embeddings create topologically distinct point clouds
+✅ Asymmetric features enhance directional discrimination
+✅ Individual premise-hypothesis pairs are topologically classifiable
+✅ Validates extension from global to local topological analysis
+
+
+Further debug from log:
+Persistence image conversion results:
+  Successful: 9842/9842
+  Success rate: 100.0%
+Generated 9842 persistence images for clustering
+Performing clustering analysis...
+Clustering 9842 persistence images...
+Feature matrix shape: (9842, 900)
+True labels distribution: [3329 3235 3278]
+Performing k-means with 3 clusters...
+Predicted labels distribution: [3711 2734 3397]
+
+==================================================
+CLUSTERING FAILURE ANALYSIS
+==================================================
+Misclassified samples: 2929/9842
+Confusion breakdown:
+  entailment_as_neutral: 792
+  entailment_as_contradiction: 22
+  neutral_as_entailment: 745
+  neutral_as_contradiction: 402
+  contradiction_as_entailment: 137
+  contradiction_as_neutral: 831
+Clustering results:
+  Best accuracy: 0.702
+  Silhouette score: 0.534
+  Adjusted Rand Index: 0.330
+  Best permutation: (1, 2, 0)
+
+Confusion analysis:
+  True entailment: predicted as [2515  792   22]
+  True neutral: predicted as [ 745 2088  402]
+  True contradiction: predicted as [ 137  831 2310]
+
+================================================================================
+SEPARATE MODEL CLUSTERING RESULTS
+================================================================================
+Clustering Accuracy: 0.702
+Silhouette Score: 0.534
+Adjusted Rand Index: 0.330
+Success (>70%): 🎉 YES
+
+PH-Dimension Statistics:
+  entailment: 3.33 ± 11.98
+  neutral: 2.27 ± 105.21
+  contradiction: 5.14 ± 33.49
+
+Point Cloud Statistics:
+  entailment:
+    Combined: 376 ± 88 points
+    Premise: 54, Hypothesis: 30
+    Sufficient for PHD: 100%
+  neutral:
+    Combined: 346 ± 96 points
+    Premise: 53, Hypothesis: 35
+    Sufficient for PHD: 100%
+  contradiction:
+    Combined: 339 ± 102 points
+    Premise: 54, Hypothesis: 32
+    Sufficient for PHD: 100%
+
+============================================================
+SEPARATE MODEL PERFORMANCE ANALYSIS
+============================================================
+Order Model (Vendrov Max-Margin Loss):
+  entailment: 0.3682 ± 0.3364
+  neutral: 1.0928 ± 0.5934
+  contradiction: 2.4473 ± 1.2633
+  ✅ ORDER MODEL SUCCESS: Correct energy ranking!
+
+Asymmetry Model (Directional Pattern Loss):
+  entailment:
+    Asymmetric energy: 0.8891 ± 0.7732
+    Forward energy: 0.3682
+    Backward energy: 2.1791
+  neutral:
+    Asymmetric energy: 1.0227 ± 0.8270
+    Forward energy: 1.0928
+    Backward energy: 1.8984
+  contradiction:
+    Asymmetric energy: 1.3966 ± 1.0714
+    Forward energy: 2.4473
+    Backward energy: 2.7532
+
+Asymmetry Pattern Analysis:
+  ✅ Forward energy: Entailment < Contradiction
+  ✅ Asymmetric energy: Contradiction > Neutral
+
+============================================================
+DEBUGGING NEUTRAL DETECTION LOGIC
+============================================================
+Generating maximum sample indices...
+  entailment: 3329 total samples available
+Token filtering: 3329/3329 samples have ≥0 tokens
+    Using ALL 3329 samples after token filtering
+Token count stats: 28 ± 8 (range: 10-90)
+  neutral: 3235 total samples available
+Token filtering: 3235/3235 samples have ≥0 tokens
+    Using ALL 3235 samples after token filtering
+Token count stats: 29 ± 8 (range: 12-78)
+  contradiction: 3278 total samples available
+Token filtering: 3278/3278 samples have ≥0 tokens
+    Using ALL 3278 samples after token filtering
+Token count stats: 28 ± 8 (range: 12-114)
+
+Energy Analysis:
+FROM ORDER MODEL
+  entailment:
+    Forward: 0.267
+    Backward: 1.355
+    Gap: 1.150
+    Low forward (<0.6): 2967/3329
+    Low backward (<0.8): 1364/3329
+    Mid forward (0.6< x <=1.4): 328/3329
+    Low backward and low gap (<0.8 backward, < 0.5 gap): 1164/3329
+    Symmetric (<0.2): 708/3329
+FROM ASYMMETRY MODEL
+    Asymmetric: 0.932
+    Asymmetric (<0.4): 1018/3329
+FROM ORDER MODEL
+  neutral:
+    Forward: 0.876
+    Backward: 1.189
+    Gap: 0.752
+    Low forward (<0.6): 1123/3235
+    Low backward (<0.8): 1326/3235
+    Mid forward (0.6< x <=1.4): 1612/3235
+    Low backward and low gap (<0.8 backward, < 0.5 gap): 878/3235
+    Symmetric (<0.2): 706/3235
+FROM ASYMMETRY MODEL
+    Asymmetric: 1.082
+    Asymmetric (<0.4): 793/3235
+FROM ORDER MODEL
+  contradiction:
+    Forward: 2.269
+    Backward: 1.925
+    Gap: 1.124
+    Low forward (<0.6): 187/3278
+    Low backward (<0.8): 479/3278
+    Mid forward (0.6< x <=1.4): 664/3278
+    Low backward and low gap (<0.8 backward, < 0.5 gap): 175/3278
+    Symmetric (<0.2): 435/3278
+FROM ASYMMETRY MODEL
+    Asymmetric: 1.459
+    Asymmetric (<0.4): 586/3278
+Generating maximum sample indices...
+  entailment: 3329 total samples available
+Token filtering: 3329/3329 samples have ≥0 tokens
+    Using ALL 3329 samples after token filtering
+Token count stats: 28 ± 8 (range: 10-90)
+  neutral: 3235 total samples available
+Token filtering: 3235/3235 samples have ≥0 tokens
+    Using ALL 3235 samples after token filtering
+Token count stats: 29 ± 8 (range: 12-78)
+  contradiction: 3278 total samples available
+Token filtering: 3278/3278 samples have ≥0 tokens
+    Using ALL 3278 samples after token filtering
+Token count stats: 28 ± 8 (range: 12-114)
+
+=== COLLECTING ENTAILMENT DATA ===
+
+=== COLLECTING NEUTRAL DATA ===
+
+=== COLLECTING CONTRADICTION DATA ===
+
+=== COMPREHENSIVE ENERGY STATISTICS ===
+
+FORWARD Energy Statistics:
+entailment: mean=0.253, std=0.324, median=0.147
+  25%=0.066, 75%=0.272, range=[0.000, 1.756]
+neutral: mean=0.803, std=0.547, median=0.686
+  25%=0.424, 75%=1.070, range=[0.000, 2.962]
+contradiction: mean=2.215, std=1.147, median=1.974
+  25%=1.449, 75%=2.961, range=[0.194, 5.038]
+
+BACKWARD Energy Statistics:
+entailment: mean=1.540, std=1.465, median=1.061
+  25%=0.512, 75%=2.052, range=[0.001, 7.277]
+neutral: mean=1.191, std=0.869, median=0.933
+  25%=0.535, 75%=1.765, range=[0.046, 3.955]
+contradiction: mean=2.013, std=1.237, median=1.767
+  25%=1.219, 75%=2.593, range=[0.184, 6.991]
+
+GAP Energy Statistics:
+entailment: mean=1.352, std=1.488, median=0.859
+  25%=0.297, 75%=1.750, range=[0.000, 7.276]
+neutral: mean=0.768, std=0.739, median=0.560
+  25%=0.210, 75%=1.065, range=[0.005, 3.463]
+contradiction: mean=1.037, std=1.014, median=0.684
+  25%=0.278, 75%=1.511, range=[0.008, 4.793]
+
+ASYMMETRIC Energy Statistics:
+entailment: mean=0.873, std=0.695, median=0.803
+  25%=0.291, 75%=1.216, range=[0.002, 2.850]
+neutral: mean=0.991, std=0.812, median=0.843
+  25%=0.332, 75%=1.439, range=[0.057, 4.498]
+contradiction: mean=1.423, std=1.107, median=1.265
+  25%=0.516, 75%=2.090, range=[0.008, 4.642]
+
+=== MULTI-ENERGY BOUNDARY OPTIMIZATION ===
+
+=== OPTIMAL MULTI-ENERGY BOUNDARIES ===
+
+Comprehensive results saved to:
+  JSON: MSc_Topology_Codebase/phd_method/clustering_results/separate_model_clustering_results_20250810_141906.json
+  Summary: MSc_Topology_Codebase/phd_method/clustering_results/separate_model_clustering_summary_20250810_141906.txt
+
+================================================================================
+SEPARATE MODEL CLUSTERING VALIDATION COMPLETED!
+🎉 SUCCESS: Achieved >70% clustering accuracy!
+This validates that:
+  ✅ Separate model training approach works
+  ✅ Order embeddings create hierarchical structure in point clouds
+  ✅ Asymmetry models add directional discrimination
+  ✅ Individual premise-hypothesis pairs are topologically distinct
+  ✅ Token-level processing enables rich point cloud generation
+
+Detailed analysis available in: MSc_Topology_Codebase/phd_method/clustering_results/
+================================================================================

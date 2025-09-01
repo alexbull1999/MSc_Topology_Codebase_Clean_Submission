@@ -1,0 +1,250 @@
+RAW EMBEDDING CLUSTERING VALIDATION SUMMARY
+==================================================
+
+Testing K-means clustering directly on raw embeddings (no topology)
+Compare with topological results to show topology's contribution
+
+======================================================================
+RAW EMBEDDING CLUSTERING VALIDATION
+======================================================================
+Testing K-means clustering directly on raw embeddings (no topology)
+Testing 10 independent validation runs per combination
+Loading BERT data...
+Loaded data: 392702 samples
+  entailment: 130899 samples
+  neutral: 130900 samples
+  contradiction: 130903 samples
+Generating raw embedding spaces...
+  Processing sbert_concat...
+  Processing lattice_containment...
+Raw embedding spaces generated
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + euclidean
+======================================================================
+
+Raw Embedding Validation: sbert_concat + euclidean
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.024 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + euclidean:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + chebyshev
+======================================================================
+
+Raw Embedding Validation: sbert_concat + chebyshev
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.027 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + chebyshev:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + cosine
+======================================================================
+
+Raw Embedding Validation: sbert_concat + cosine
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.047 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + cosine:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + minkowski_3
+======================================================================
+
+Raw Embedding Validation: sbert_concat + minkowski_3
+  Testing with 10 independent validation runs...
+    Sample 5/10
+
+
+
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.025 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + minkowski_3:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + minkowski_4
+======================================================================
+
+Raw Embedding Validation: sbert_concat + minkowski_4
+  Testing with 10 independent validation runs...
+    Sample 5/10
+
+
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.026 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + minkowski_4:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + braycurtis
+======================================================================
+
+Raw Embedding Validation: sbert_concat + braycurtis
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.042 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + braycurtis:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: sbert_concat + canberra
+======================================================================
+
+Raw Embedding Validation: sbert_concat + canberra
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.343 ± 0.002
+    Silhouette: 0.014 ± 0.000
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for sbert_concat + canberra:
+    10 samples: Acc=0.343±0.002, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + euclidean
+======================================================================
+
+Raw Embedding Validation: lattice_containment + euclidean
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: 0.013 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + euclidean:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + chebyshev
+======================================================================
+
+Raw Embedding Validation: lattice_containment + chebyshev
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: 0.017 ± 0.000
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + chebyshev:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + cosine
+======================================================================
+
+Raw Embedding Validation: lattice_containment + cosine
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: -0.034 ± 0.003
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + cosine:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + minkowski_3
+======================================================================
+
+Raw Embedding Validation: lattice_containment + minkowski_3
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: 0.014 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + minkowski_3:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + minkowski_4
+======================================================================
+
+Raw Embedding Validation: lattice_containment + minkowski_4
+  Testing with 10 independent validation runs...
+
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: 0.015 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + minkowski_4:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + braycurtis
+======================================================================
+
+Raw Embedding Validation: lattice_containment + braycurtis
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: -0.033 ± 0.003
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + braycurtis:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs
+
+======================================================================
+RAW EMBEDDING VALIDATION: lattice_containment + canberra
+======================================================================
+
+Raw Embedding Validation: lattice_containment + canberra
+  Testing with 10 independent validation runs...
+    Sample 5/10
+    Accuracy: 0.523 ± 0.008
+    Silhouette: -0.006 ± 0.001
+    Perfect clustering rate: 0.0%
+
+  SUMMARY for lattice_containment + canberra:
+    10 samples: Acc=0.523±0.008, Perfect=0.0%
+    Significantly > 70%: NO (p=1.0000)
+    Perfect clustering: 0/10 runs

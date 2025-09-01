@@ -1,0 +1,1038 @@
+{
+  "timestamp": "20250829_151758",
+  "test_config": {
+    "n_clusters": 3,
+    "samples_per_class": 10,
+    "sample_size": 1000,
+    "random_state": 42,
+    "ph_params": {
+      "min_points": 200,
+      "max_points": 1000,
+      "point_jump": 50,
+      "h_dim": 0,
+      "alpha": 1.0
+    },
+    "methodology": "CORRECTED: Extract samples -> Compute H0+H1 diagrams -> Create combined images -> Cluster"
+  },
+  "results": {
+    "individual_results": {
+      "contrastive+recon_no_attention": {
+        "natural_clustering_accuracy_mean": 0.6333333333333332,
+        "natural_clustering_accuracy_std": 0.055777335102271695,
+        "natural_clustering_accuracy_min": 0.5333333333333333,
+        "natural_clustering_accuracy_max": 0.7333333333333333,
+        "natural_clustering_accuracy_all_runs": [
+          0.7,
+          0.6666666666666666,
+          0.5333333333333333,
+          0.7333333333333333,
+          0.6333333333333333,
+          0.6333333333333333,
+          0.5666666666666667,
+          0.6333333333333333,
+          0.6333333333333333,
+          0.6
+        ],
+        "adjusted_rand_score_mean": 0.2617226242363956,
+        "adjusted_rand_score_std": 0.08946168759925749,
+        "normalized_mutual_info_mean": 0.35071123624697775,
+        "normalized_mutual_info_std": 0.09367234895127859,
+        "silhouette_score_mean": 0.5967982114191466,
+        "silhouette_score_std": 0.049682668918460196,
+        "n_runs": 10,
+        "successful_runs": 10,
+        "samples_per_class": 10,
+        "sample_size": 1000,
+        "clustering_method": "Combined H0+H1 persistence images",
+        "accuracy_coefficient_of_variation": 0.08806947647727112,
+        "runs_above_90_percent": 0,
+        "runs_above_95_percent": 0,
+        "runs_above_99_percent": 0,
+        "image_info_by_run": [
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 0,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 0,
+              "1": 2,
+              "2": 1
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 0,
+              "1": 2,
+              "2": 1
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 0,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 0,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 0,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 2,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 2,
+              "2": 0
+            }
+          }
+        ],
+        "clustering_consistency": "GOOD (Reasonably consistent)",
+        "model_name": "contrastive+recon_no_attention",
+        "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/global_concat_contrastive_test_no_attention_20250724_203741/checkpoints/best_model.pt",
+        "success": true
+      },
+      "moor+recon_no_attention": {
+        "model_name": "moor+recon_no_attention",
+        "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/pure_moor_topological_autoencoder_no_attention_20250724_222029/checkpoints/best_model.pt",
+        "success": false,
+        "error": "[Errno 2] No such file or directory: 'entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/pure_moor_topological_autoencoder_no_attention_20250724_222029/checkpoints/best_model.pt'"
+      },
+      "moor_topo+contrastive_no_attention": {
+        "natural_clustering_accuracy_mean": 0.9333333333333333,
+        "natural_clustering_accuracy_std": 0.05163977794943222,
+        "natural_clustering_accuracy_min": 0.8333333333333334,
+        "natural_clustering_accuracy_max": 1.0,
+        "natural_clustering_accuracy_all_runs": [
+          1.0,
+          0.9,
+          0.8666666666666667,
+          1.0,
+          0.9333333333333333,
+          0.9333333333333333,
+          0.9333333333333333,
+          0.9666666666666667,
+          0.8333333333333334,
+          0.9666666666666667
+        ],
+        "adjusted_rand_score_mean": 0.822038556079217,
+        "adjusted_rand_score_std": 0.12385328126481296,
+        "normalized_mutual_info_mean": 0.8441370582853113,
+        "normalized_mutual_info_std": 0.09844935765287262,
+        "silhouette_score_mean": 0.6194197375547756,
+        "silhouette_score_std": 0.03079054436044814,
+        "n_runs": 10,
+        "successful_runs": 10,
+        "samples_per_class": 10,
+        "sample_size": 1000,
+        "clustering_method": "Combined H0+H1 persistence images",
+        "accuracy_coefficient_of_variation": 0.05532833351724881,
+        "runs_above_90_percent": 8,
+        "runs_above_95_percent": 4,
+        "runs_above_99_percent": 2,
+        "image_info_by_run": [
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 2,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 0,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 1,
+              "1": 0,
+              "2": 2
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          },
+          {
+            "n_images": 30,
+            "image_shape": [
+              30,
+              400
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "natural_mapping": {
+              "0": 2,
+              "1": 1,
+              "2": 0
+            }
+          }
+        ],
+        "clustering_consistency": "GOOD (Reasonably consistent)",
+        "model_name": "moor_topo+contrastive_no_attention",
+        "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/FIXED_DECODERS/moor_topo-contrastive_autoencoder_noattention_20250725_170549_30%topo-acc_70%classi-acc/checkpoints/checkpoint_epoch_50.pt",
+        "success": true
+      }
+    },
+    "comparative_analysis": {
+      "overall_accuracy_mean": 0.7833333333333332,
+      "overall_accuracy_std": 0.15000000000000008,
+      "best_model_accuracy": 0.9333333333333333,
+      "worst_model_accuracy": 0.6333333333333332,
+      "accuracy_range": 0.30000000000000016,
+      "model_rankings": [
+        {
+          "model": "moor_topo+contrastive_no_attention",
+          "score": 0.7767348332781587
+        },
+        {
+          "model": "contrastive+recon_no_attention",
+          "score": 0.5269124903901519
+        }
+      ],
+      "best_model": "moor_topo+contrastive_no_attention",
+      "worst_model": "contrastive+recon_no_attention",
+      "excellent_models": [],
+      "good_models": [
+        "moor_topo+contrastive_no_attention"
+      ],
+      "moderate_models": [],
+      "poor_models": [
+        "contrastive+recon_no_attention"
+      ],
+      "most_consistent_model": "moor_topo+contrastive_no_attention",
+      "least_consistent_model": "contrastive+recon_no_attention",
+      "models_with_perfect_runs": [
+        "moor_topo+contrastive_no_attention"
+      ],
+      "total_perfect_runs": 2,
+      "models_above_sbert_threshold": [
+        "moor_topo+contrastive_no_attention"
+      ],
+      "retention_scores": {
+        "contrastive+recon_no_attention": 0.6333333333333332,
+        "moor_topo+contrastive_no_attention": 0.9333333333333333
+      }
+    },
+    "summary": {
+      "total_models": 3,
+      "successful_models": 2,
+      "failed_models": 1,
+      "success_rate": 0.6666666666666666,
+      "successful_model_names": [
+        "contrastive+recon_no_attention",
+        "moor_topo+contrastive_no_attention"
+      ],
+      "failed_model_names": [
+        "moor+recon_no_attention"
+      ]
+    }
+  }
+}

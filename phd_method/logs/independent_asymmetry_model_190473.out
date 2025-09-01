@@ -1,0 +1,711 @@
+Job ID: 190473
+Node: gpuvm18
+Time: Tue  5 Aug 13:00:38 BST 2025
+Loading CUDA...
+Activating conda environment...
+Activated conda environment: /vol/bitbucket/ahb24/tda_entailment_new
+Python location: /vol/bitbucket/ahb24/tda_entailment_new/bin/python
+Checking GPU availability...
+Tue Aug  5 13:00:40 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.07             Driver Version: 570.133.07     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:06.0 Off |                    0 |
+| N/A   32C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Testing PyTorch and CUDA...
+PyTorch version: 2.4.1
+CUDA available: True
+CUDA device: Tesla T4
+GPU memory: 15.6 GB
+PyTorch setup verified!
+
+Starting Model training...
+
+================================================================================
+TRAINING NEW ASYMMETRY TRANSFORM MODEL
+================================================================================
+Loading processed dataset: /vol/bitbucket/ahb24/tda_entailment_new/snli_train_sbert_tokens.pkl
+Loaded 150000 samples
+Label distribution: {'contradiction': 49717, 'entailment': 50214, 'neutral': 50069}
+Loading order model from: MSc_Topology_Codebase/phd_method/models/separate_models/order_embedding_model_separate_margins.pt
+✅ Order model loaded and frozen
+AsymmetryTrainer initialized on cuda
+Training asymmetry model directly on SBERT tokens
+Training AsymmetryTransformModel directly on SBERT tokens
+Target: Entailment=HIGH asymmetric, Neutral=LOW asymmetric, Contradiction=MEDIUM
+Epochs: 80, Batch size: 1020
+
+Epoch 1/80
+Train Loss: 5281.8254, Val Loss: 318.6031
+Asymmetry Stats:
+  entailment: fwd=15.718, bwd=16.139, asym=1.109
+  neutral: fwd=18.852, bwd=19.090, asym=1.361
+  contradiction: fwd=22.908, bwd=22.698, asym=1.753
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 2/80
+Train Loss: 355.3235, Val Loss: 15.4341
+Asymmetry Stats:
+  entailment: fwd=3.781, bwd=3.974, asym=0.343
+  neutral: fwd=4.603, bwd=4.719, asym=0.399
+  contradiction: fwd=5.662, bwd=5.656, asym=0.498
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 3/80
+Train Loss: 43.1349, Val Loss: 2.5404
+Asymmetry Stats:
+  entailment: fwd=1.634, bwd=1.766, asym=0.208
+  neutral: fwd=2.013, bwd=2.089, asym=0.229
+  contradiction: fwd=2.494, bwd=2.504, asym=0.284
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 4/80
+Train Loss: 11.2742, Val Loss: 1.5403
+Asymmetry Stats:
+  entailment: fwd=1.064, bwd=1.178, asym=0.175
+  neutral: fwd=1.323, bwd=1.386, asym=0.188
+  contradiction: fwd=1.650, bwd=1.658, asym=0.235
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 5/80
+Train Loss: 4.7012, Val Loss: 1.4643
+Asymmetry Stats:
+  entailment: fwd=0.862, bwd=0.973, asym=0.167
+  neutral: fwd=1.080, bwd=1.138, asym=0.175
+  contradiction: fwd=1.355, bwd=1.357, asym=0.222
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 6/80
+Train Loss: 2.6970, Val Loss: 1.4575
+Asymmetry Stats:
+  entailment: fwd=0.769, bwd=0.892, asym=0.173
+  neutral: fwd=0.975, bwd=1.033, asym=0.175
+  contradiction: fwd=1.234, bwd=1.223, asym=0.228
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 7/80
+Train Loss: 1.9793, Val Loss: 1.4212
+Asymmetry Stats:
+  entailment: fwd=0.718, bwd=0.879, asym=0.208
+  neutral: fwd=0.933, bwd=0.994, asym=0.199
+  contradiction: fwd=1.212, bwd=1.150, asym=0.277
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 8/80
+Train Loss: 1.7199, Val Loss: 1.3714
+Asymmetry Stats:
+  entailment: fwd=0.686, bwd=0.895, asym=0.262
+  neutral: fwd=0.920, bwd=0.981, asym=0.242
+  contradiction: fwd=1.234, bwd=1.105, asym=0.360
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 9/80
+Train Loss: 1.5918, Val Loss: 1.3453
+Asymmetry Stats:
+  entailment: fwd=0.665, bwd=0.908, asym=0.299
+  neutral: fwd=0.910, bwd=0.974, asym=0.269
+  contradiction: fwd=1.242, bwd=1.080, asym=0.410
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 10/80
+Train Loss: 1.5143, Val Loss: 1.3298
+Asymmetry Stats:
+  entailment: fwd=0.649, bwd=0.916, asym=0.324
+  neutral: fwd=0.902, bwd=0.969, asym=0.286
+  contradiction: fwd=1.243, bwd=1.065, asym=0.440
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 11/80
+Train Loss: 1.4600, Val Loss: 1.3214
+Asymmetry Stats:
+  entailment: fwd=0.637, bwd=0.921, asym=0.340
+  neutral: fwd=0.895, bwd=0.965, asym=0.294
+  contradiction: fwd=1.238, bwd=1.057, asym=0.453
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 12/80
+Train Loss: 1.4203, Val Loss: 1.3118
+Asymmetry Stats:
+  entailment: fwd=0.626, bwd=0.929, asym=0.359
+  neutral: fwd=0.889, bwd=0.963, asym=0.305
+  contradiction: fwd=1.237, bwd=1.049, asym=0.471
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 13/80
+Train Loss: 1.3904, Val Loss: 1.3055
+Asymmetry Stats:
+  entailment: fwd=0.618, bwd=0.933, asym=0.371
+  neutral: fwd=0.884, bwd=0.959, asym=0.311
+  contradiction: fwd=1.234, bwd=1.042, asym=0.482
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 14/80
+Train Loss: 1.3655, Val Loss: 1.2997
+Asymmetry Stats:
+  entailment: fwd=0.610, bwd=0.938, asym=0.383
+  neutral: fwd=0.879, bwd=0.958, asym=0.317
+  contradiction: fwd=1.231, bwd=1.038, asym=0.491
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 15/80
+Train Loss: 1.3471, Val Loss: 1.2936
+Asymmetry Stats:
+  entailment: fwd=0.603, bwd=0.944, asym=0.396
+  neutral: fwd=0.875, bwd=0.956, asym=0.323
+  contradiction: fwd=1.230, bwd=1.032, asym=0.503
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 16/80
+Train Loss: 1.3289, Val Loss: 1.2882
+Asymmetry Stats:
+  entailment: fwd=0.596, bwd=0.949, asym=0.407
+  neutral: fwd=0.872, bwd=0.954, asym=0.329
+  contradiction: fwd=1.230, bwd=1.028, asym=0.514
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 17/80
+Train Loss: 1.3109, Val Loss: 1.2828
+Asymmetry Stats:
+  entailment: fwd=0.590, bwd=0.955, asym=0.420
+  neutral: fwd=0.869, bwd=0.954, asym=0.337
+  contradiction: fwd=1.230, bwd=1.025, asym=0.526
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 18/80
+Train Loss: 1.2987, Val Loss: 1.2798
+Asymmetry Stats:
+  entailment: fwd=0.585, bwd=0.957, asym=0.427
+  neutral: fwd=0.865, bwd=0.952, asym=0.339
+  contradiction: fwd=1.227, bwd=1.021, asym=0.531
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 19/80
+Train Loss: 1.2866, Val Loss: 1.2765
+Asymmetry Stats:
+  entailment: fwd=0.580, bwd=0.960, asym=0.435
+  neutral: fwd=0.862, bwd=0.950, asym=0.343
+  contradiction: fwd=1.226, bwd=1.017, asym=0.538
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 20/80
+Train Loss: 1.2754, Val Loss: 1.2730
+Asymmetry Stats:
+  entailment: fwd=0.575, bwd=0.964, asym=0.443
+  neutral: fwd=0.859, bwd=0.949, asym=0.347
+  contradiction: fwd=1.225, bwd=1.013, asym=0.545
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 21/80
+Train Loss: 1.2659, Val Loss: 1.2709
+Asymmetry Stats:
+  entailment: fwd=0.570, bwd=0.966, asym=0.449
+  neutral: fwd=0.855, bwd=0.948, asym=0.349
+  contradiction: fwd=1.222, bwd=1.011, asym=0.549
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 22/80
+Train Loss: 1.2585, Val Loss: 1.2663
+Asymmetry Stats:
+  entailment: fwd=0.566, bwd=0.971, asym=0.460
+  neutral: fwd=0.853, bwd=0.946, asym=0.356
+  contradiction: fwd=1.226, bwd=1.005, asym=0.564
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 23/80
+Train Loss: 1.2505, Val Loss: 1.2660
+Asymmetry Stats:
+  entailment: fwd=0.562, bwd=0.969, asym=0.461
+  neutral: fwd=0.850, bwd=0.943, asym=0.355
+  contradiction: fwd=1.220, bwd=1.002, asym=0.561
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 24/80
+Train Loss: 1.2429, Val Loss: 1.2632
+Asymmetry Stats:
+  entailment: fwd=0.558, bwd=0.973, asym=0.468
+  neutral: fwd=0.847, bwd=0.942, asym=0.359
+  contradiction: fwd=1.221, bwd=0.999, asym=0.569
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 25/80
+Train Loss: 1.2349, Val Loss: 1.2595
+Asymmetry Stats:
+  entailment: fwd=0.553, bwd=0.978, asym=0.479
+  neutral: fwd=0.845, bwd=0.940, asym=0.365
+  contradiction: fwd=1.224, bwd=0.994, asym=0.583
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 26/80
+Train Loss: 1.2289, Val Loss: 1.2585
+Asymmetry Stats:
+  entailment: fwd=0.550, bwd=0.978, asym=0.483
+  neutral: fwd=0.841, bwd=0.938, asym=0.365
+  contradiction: fwd=1.219, bwd=0.992, asym=0.583
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 27/80
+Train Loss: 1.2235, Val Loss: 1.2561
+Asymmetry Stats:
+  entailment: fwd=0.546, bwd=0.980, asym=0.489
+  neutral: fwd=0.839, bwd=0.936, asym=0.369
+  contradiction: fwd=1.222, bwd=0.986, asym=0.594
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 28/80
+Train Loss: 1.2175, Val Loss: 1.2536
+Asymmetry Stats:
+  entailment: fwd=0.542, bwd=0.984, asym=0.497
+  neutral: fwd=0.837, bwd=0.933, asym=0.373
+  contradiction: fwd=1.224, bwd=0.980, asym=0.603
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 29/80
+Train Loss: 1.2105, Val Loss: 1.2529
+Asymmetry Stats:
+  entailment: fwd=0.538, bwd=0.983, asym=0.500
+  neutral: fwd=0.833, bwd=0.931, asym=0.373
+  contradiction: fwd=1.220, bwd=0.978, asym=0.603
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 30/80
+Train Loss: 1.2061, Val Loss: 1.2493
+Asymmetry Stats:
+  entailment: fwd=0.533, bwd=0.990, asym=0.513
+  neutral: fwd=0.831, bwd=0.931, asym=0.380
+  contradiction: fwd=1.223, bwd=0.974, asym=0.618
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 31/80
+Train Loss: 1.1999, Val Loss: 1.2494
+Asymmetry Stats:
+  entailment: fwd=0.530, bwd=0.989, asym=0.513
+  neutral: fwd=0.826, bwd=0.928, asym=0.378
+  contradiction: fwd=1.216, bwd=0.972, asym=0.614
+Patience: 1/15
+
+Epoch 32/80
+Train Loss: 1.1939, Val Loss: 1.2451
+Asymmetry Stats:
+  entailment: fwd=0.525, bwd=0.996, asym=0.526
+  neutral: fwd=0.825, bwd=0.927, asym=0.386
+  contradiction: fwd=1.224, bwd=0.966, asym=0.633
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 33/80
+Train Loss: 1.1885, Val Loss: 1.2450
+Asymmetry Stats:
+  entailment: fwd=0.522, bwd=0.995, asym=0.529
+  neutral: fwd=0.821, bwd=0.924, asym=0.385
+  contradiction: fwd=1.217, bwd=0.964, asym=0.630
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 34/80
+Train Loss: 1.1857, Val Loss: 1.2432
+Asymmetry Stats:
+  entailment: fwd=0.518, bwd=0.997, asym=0.534
+  neutral: fwd=0.818, bwd=0.921, asym=0.387
+  contradiction: fwd=1.218, bwd=0.960, asym=0.637
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 35/80
+Train Loss: 1.1817, Val Loss: 1.2418
+Asymmetry Stats:
+  entailment: fwd=0.514, bwd=0.999, asym=0.539
+  neutral: fwd=0.815, bwd=0.919, asym=0.388
+  contradiction: fwd=1.216, bwd=0.956, asym=0.641
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 36/80
+Train Loss: 1.1751, Val Loss: 1.2416
+Asymmetry Stats:
+  entailment: fwd=0.510, bwd=0.999, asym=0.542
+  neutral: fwd=0.811, bwd=0.917, asym=0.387
+  contradiction: fwd=1.208, bwd=0.956, asym=0.639
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 37/80
+Train Loss: 1.1697, Val Loss: 1.2385
+Asymmetry Stats:
+  entailment: fwd=0.506, bwd=1.005, asym=0.554
+  neutral: fwd=0.808, bwd=0.916, asym=0.393
+  contradiction: fwd=1.210, bwd=0.954, asym=0.651
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 38/80
+Train Loss: 1.1653, Val Loss: 1.2349
+Asymmetry Stats:
+  entailment: fwd=0.502, bwd=1.011, asym=0.564
+  neutral: fwd=0.808, bwd=0.914, asym=0.398
+  contradiction: fwd=1.218, bwd=0.947, asym=0.667
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 39/80
+Train Loss: 1.1604, Val Loss: 1.2346
+Asymmetry Stats:
+  entailment: fwd=0.499, bwd=1.010, asym=0.566
+  neutral: fwd=0.803, bwd=0.912, asym=0.396
+  contradiction: fwd=1.213, bwd=0.946, asym=0.666
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 40/80
+Train Loss: 1.1562, Val Loss: 1.2317
+Asymmetry Stats:
+  entailment: fwd=0.496, bwd=1.013, asym=0.573
+  neutral: fwd=0.802, bwd=0.908, asym=0.400
+  contradiction: fwd=1.220, bwd=0.938, asym=0.679
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 41/80
+Train Loss: 1.1514, Val Loss: 1.2305
+Asymmetry Stats:
+  entailment: fwd=0.492, bwd=1.015, asym=0.578
+  neutral: fwd=0.799, bwd=0.907, asym=0.399
+  contradiction: fwd=1.213, bwd=0.939, asym=0.675
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 42/80
+Train Loss: 1.1446, Val Loss: 1.2278
+Asymmetry Stats:
+  entailment: fwd=0.488, bwd=1.022, asym=0.589
+  neutral: fwd=0.795, bwd=0.907, asym=0.403
+  contradiction: fwd=1.213, bwd=0.938, asym=0.684
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 43/80
+Train Loss: 1.1405, Val Loss: 1.2261
+Asymmetry Stats:
+  entailment: fwd=0.485, bwd=1.023, asym=0.592
+  neutral: fwd=0.793, bwd=0.905, asym=0.403
+  contradiction: fwd=1.212, bwd=0.936, asym=0.687
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 44/80
+Train Loss: 1.1341, Val Loss: 1.2231
+Asymmetry Stats:
+  entailment: fwd=0.481, bwd=1.032, asym=0.607
+  neutral: fwd=0.791, bwd=0.906, asym=0.409
+  contradiction: fwd=1.215, bwd=0.936, asym=0.702
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 45/80
+Train Loss: 1.1304, Val Loss: 1.2204
+Asymmetry Stats:
+  entailment: fwd=0.478, bwd=1.037, asym=0.614
+  neutral: fwd=0.791, bwd=0.903, asym=0.412
+  contradiction: fwd=1.218, bwd=0.932, asym=0.710
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 46/80
+Train Loss: 1.1243, Val Loss: 1.2168
+Asymmetry Stats:
+  entailment: fwd=0.476, bwd=1.042, asym=0.623
+  neutral: fwd=0.790, bwd=0.903, asym=0.416
+  contradiction: fwd=1.229, bwd=0.927, asym=0.728
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 47/80
+Train Loss: 1.1207, Val Loss: 1.2159
+Asymmetry Stats:
+  entailment: fwd=0.473, bwd=1.044, asym=0.627
+  neutral: fwd=0.785, bwd=0.904, asym=0.415
+  contradiction: fwd=1.220, bwd=0.930, asym=0.722
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 48/80
+Train Loss: 1.1158, Val Loss: 1.2133
+Asymmetry Stats:
+  entailment: fwd=0.471, bwd=1.050, asym=0.635
+  neutral: fwd=0.785, bwd=0.903, asym=0.418
+  contradiction: fwd=1.223, bwd=0.930, asym=0.729
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 49/80
+Train Loss: 1.1114, Val Loss: 1.2140
+Asymmetry Stats:
+  entailment: fwd=0.470, bwd=1.046, asym=0.631
+  neutral: fwd=0.781, bwd=0.901, asym=0.411
+  contradiction: fwd=1.209, bwd=0.932, asym=0.714
+Patience: 1/15
+
+Epoch 50/80
+Train Loss: 1.1059, Val Loss: 1.2093
+Asymmetry Stats:
+  entailment: fwd=0.466, bwd=1.060, asym=0.651
+  neutral: fwd=0.783, bwd=0.903, asym=0.423
+  contradiction: fwd=1.224, bwd=0.931, asym=0.741
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 51/80
+Train Loss: 1.1022, Val Loss: 1.2082
+Asymmetry Stats:
+  entailment: fwd=0.464, bwd=1.064, asym=0.656
+  neutral: fwd=0.781, bwd=0.902, asym=0.423
+  contradiction: fwd=1.220, bwd=0.931, asym=0.738
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 52/80
+Train Loss: 1.0975, Val Loss: 1.2065
+Asymmetry Stats:
+  entailment: fwd=0.463, bwd=1.066, asym=0.660
+  neutral: fwd=0.781, bwd=0.901, asym=0.426
+  contradiction: fwd=1.224, bwd=0.930, asym=0.746
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 53/80
+Train Loss: 1.0934, Val Loss: 1.2057
+Asymmetry Stats:
+  entailment: fwd=0.462, bwd=1.066, asym=0.660
+  neutral: fwd=0.779, bwd=0.900, asym=0.424
+  contradiction: fwd=1.221, bwd=0.930, asym=0.744
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 54/80
+Train Loss: 1.0884, Val Loss: 1.2023
+Asymmetry Stats:
+  entailment: fwd=0.458, bwd=1.090, asym=0.690
+  neutral: fwd=0.780, bwd=0.908, asym=0.439
+  contradiction: fwd=1.226, bwd=0.938, asym=0.763
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 55/80
+Train Loss: 1.0848, Val Loss: 1.2001
+Asymmetry Stats:
+  entailment: fwd=0.460, bwd=1.076, asym=0.676
+  neutral: fwd=0.784, bwd=0.898, asym=0.433
+  contradiction: fwd=1.248, bwd=0.921, asym=0.780
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 56/80
+Train Loss: 1.0830, Val Loss: 1.2005
+Asymmetry Stats:
+  entailment: fwd=0.458, bwd=1.076, asym=0.676
+  neutral: fwd=0.780, bwd=0.898, asym=0.429
+  contradiction: fwd=1.228, bwd=0.929, asym=0.761
+Patience: 1/15
+
+Epoch 57/80
+Train Loss: 1.0771, Val Loss: 1.1966
+Asymmetry Stats:
+  entailment: fwd=0.457, bwd=1.085, asym=0.689
+  neutral: fwd=0.781, bwd=0.900, asym=0.437
+  contradiction: fwd=1.249, bwd=0.924, asym=0.788
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 58/80
+Train Loss: 1.0743, Val Loss: 1.1958
+Asymmetry Stats:
+  entailment: fwd=0.455, bwd=1.090, asym=0.695
+  neutral: fwd=0.780, bwd=0.901, asym=0.438
+  contradiction: fwd=1.240, bwd=0.929, asym=0.782
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 59/80
+Train Loss: 1.0699, Val Loss: 1.1952
+Asymmetry Stats:
+  entailment: fwd=0.454, bwd=1.092, asym=0.696
+  neutral: fwd=0.776, bwd=0.903, asym=0.437
+  contradiction: fwd=1.233, bwd=0.934, asym=0.776
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 60/80
+Train Loss: 1.0655, Val Loss: 1.1929
+Asymmetry Stats:
+  entailment: fwd=0.452, bwd=1.103, asym=0.711
+  neutral: fwd=0.780, bwd=0.903, asym=0.445
+  contradiction: fwd=1.242, bwd=0.934, asym=0.792
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 61/80
+Train Loss: 1.0627, Val Loss: 1.1910
+Asymmetry Stats:
+  entailment: fwd=0.450, bwd=1.116, asym=0.727
+  neutral: fwd=0.780, bwd=0.907, asym=0.453
+  contradiction: fwd=1.251, bwd=0.934, asym=0.807
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 62/80
+Train Loss: 1.0619, Val Loss: 1.1932
+Asymmetry Stats:
+  entailment: fwd=0.451, bwd=1.097, asym=0.705
+  neutral: fwd=0.773, bwd=0.902, asym=0.438
+  contradiction: fwd=1.225, bwd=0.937, asym=0.770
+Patience: 1/15
+
+Epoch 63/80
+Train Loss: 1.0565, Val Loss: 1.1906
+Asymmetry Stats:
+  entailment: fwd=0.449, bwd=1.101, asym=0.711
+  neutral: fwd=0.775, bwd=0.901, asym=0.441
+  contradiction: fwd=1.231, bwd=0.936, asym=0.780
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 64/80
+Train Loss: 1.0534, Val Loss: 1.1909
+Asymmetry Stats:
+  entailment: fwd=0.449, bwd=1.100, asym=0.711
+  neutral: fwd=0.775, bwd=0.898, asym=0.442
+  contradiction: fwd=1.235, bwd=0.932, asym=0.787
+Patience: 1/15
+
+Epoch 65/80
+Train Loss: 1.0486, Val Loss: 1.1880
+Asymmetry Stats:
+  entailment: fwd=0.448, bwd=1.110, asym=0.722
+  neutral: fwd=0.775, bwd=0.902, asym=0.447
+  contradiction: fwd=1.242, bwd=0.936, asym=0.800
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 66/80
+Train Loss: 1.0466, Val Loss: 1.1882
+Asymmetry Stats:
+  entailment: fwd=0.447, bwd=1.105, asym=0.718
+  neutral: fwd=0.774, bwd=0.899, asym=0.445
+  contradiction: fwd=1.240, bwd=0.933, asym=0.795
+Patience: 1/15
+
+Epoch 67/80
+Train Loss: 1.0441, Val Loss: 1.1869
+Asymmetry Stats:
+  entailment: fwd=0.445, bwd=1.115, asym=0.730
+  neutral: fwd=0.773, bwd=0.903, asym=0.449
+  contradiction: fwd=1.236, bwd=0.939, asym=0.795
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 68/80
+Train Loss: 1.0400, Val Loss: 1.1865
+Asymmetry Stats:
+  entailment: fwd=0.445, bwd=1.113, asym=0.728
+  neutral: fwd=0.772, bwd=0.901, asym=0.446
+  contradiction: fwd=1.234, bwd=0.939, asym=0.791
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 69/80
+Train Loss: 1.0364, Val Loss: 1.1852
+Asymmetry Stats:
+  entailment: fwd=0.445, bwd=1.113, asym=0.729
+  neutral: fwd=0.773, bwd=0.900, asym=0.449
+  contradiction: fwd=1.249, bwd=0.932, asym=0.809
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 70/80
+Train Loss: 1.0326, Val Loss: 1.1826
+Asymmetry Stats:
+  entailment: fwd=0.443, bwd=1.122, asym=0.742
+  neutral: fwd=0.775, bwd=0.900, asym=0.455
+  contradiction: fwd=1.257, bwd=0.931, asym=0.820
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 71/80
+Train Loss: 1.0300, Val Loss: 1.1835
+Asymmetry Stats:
+  entailment: fwd=0.442, bwd=1.119, asym=0.738
+  neutral: fwd=0.772, bwd=0.899, asym=0.452
+  contradiction: fwd=1.242, bwd=0.937, asym=0.806
+Patience: 1/15
+
+Epoch 72/80
+Train Loss: 1.0258, Val Loss: 1.1825
+Asymmetry Stats:
+  entailment: fwd=0.442, bwd=1.117, asym=0.736
+  neutral: fwd=0.772, bwd=0.898, asym=0.451
+  contradiction: fwd=1.245, bwd=0.936, asym=0.810
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 73/80
+Train Loss: 1.0227, Val Loss: 1.1818
+Asymmetry Stats:
+  entailment: fwd=0.441, bwd=1.124, asym=0.743
+  neutral: fwd=0.772, bwd=0.900, asym=0.453
+  contradiction: fwd=1.241, bwd=0.943, asym=0.808
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 74/80
+Train Loss: 1.0197, Val Loss: 1.1802
+Asymmetry Stats:
+  entailment: fwd=0.440, bwd=1.129, asym=0.752
+  neutral: fwd=0.774, bwd=0.900, asym=0.461
+  contradiction: fwd=1.265, bwd=0.933, asym=0.838
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 75/80
+Train Loss: 1.0157, Val Loss: 1.1793
+Asymmetry Stats:
+  entailment: fwd=0.438, bwd=1.137, asym=0.761
+  neutral: fwd=0.773, bwd=0.902, asym=0.462
+  contradiction: fwd=1.252, bwd=0.943, asym=0.827
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 76/80
+Train Loss: 1.0134, Val Loss: 1.1791
+Asymmetry Stats:
+  entailment: fwd=0.438, bwd=1.132, asym=0.757
+  neutral: fwd=0.771, bwd=0.900, asym=0.460
+  contradiction: fwd=1.254, bwd=0.941, asym=0.830
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 77/80
+Train Loss: 1.0082, Val Loss: 1.1787
+Asymmetry Stats:
+  entailment: fwd=0.438, bwd=1.140, asym=0.766
+  neutral: fwd=0.774, bwd=0.902, asym=0.467
+  contradiction: fwd=1.265, bwd=0.941, asym=0.845
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 78/80
+Train Loss: 1.0073, Val Loss: 1.1768
+Asymmetry Stats:
+  entailment: fwd=0.436, bwd=1.142, asym=0.768
+  neutral: fwd=0.772, bwd=0.903, asym=0.466
+  contradiction: fwd=1.262, bwd=0.942, asym=0.841
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+
+Epoch 79/80
+Train Loss: 1.0044, Val Loss: 1.1791
+Asymmetry Stats:
+  entailment: fwd=0.437, bwd=1.126, asym=0.751
+  neutral: fwd=0.769, bwd=0.895, asym=0.456
+  contradiction: fwd=1.247, bwd=0.942, asym=0.821
+Patience: 1/15
+
+Epoch 80/80
+Train Loss: 1.0005, Val Loss: 1.1754
+Asymmetry Stats:
+  entailment: fwd=0.433, bwd=1.157, asym=0.788
+  neutral: fwd=0.774, bwd=0.904, asym=0.476
+  contradiction: fwd=1.267, bwd=0.947, asym=0.857
+✅ New asymmetry model saved: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_transform_model_v4.pt
+Training plots saved to: MSc_Topology_Codebase/phd_method/models/separate_models/new_independent_asymmetry_v4_training_progress_20250806_004320.png
+Training summary saved to: MSc_Topology_Codebase/phd_method/models/separate_models/new_asymmetry_training_v4_summary_20250806_004320.txt
+
+================================================================================
+NEW ASYMMETRY MODEL TRAINING COMPLETE!
+✅ Trained for up to 50 epochs with early stopping
+✅ Now uses SBERT tokens directly (not order embeddings)
+✅ Corrected loss: Entailment=HIGH, Neutral=LOW, Contradiction=MEDIUM
+✅ Includes forward/backward energy computation
+✅ Training plots and summary generated
+================================================================================
+
+Analysis completed with exit code: 0
+Time: Wed  6 Aug 00:43:54 BST 2025
+
+=== ANALYSIS SUCCESSFUL ===
+Training successful!
+
+
+Job finished.

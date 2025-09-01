@@ -1,0 +1,1104 @@
+{
+  "optimization_summary": {
+    "baseline_accuracy": 0.8317,
+    "best_accuracy": 0.8350762527233115,
+    "total_improvement": 0.003376252723311546,
+    "best_parameters": {
+      "k": 10,
+      "weights": "uniform",
+      "metric": "cosine"
+    },
+    "total_experiments": 30,
+    "model_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/coarse_embeddingcosine_concat_hiddendims[1024, 768, 512, 256, 128]_dropout0.2_optimAdam_lr0.0001_20250715_204239/checkpoints/best_model.pt",
+    "config_path": "entailment_surfaces/supervised_contrastive_autoencoder/experiments/coarse_embeddingcosine_concat_hiddendims[1024, 768, 512, 256, 128]_dropout0.2_optimAdam_lr0.0001_20250715_204239/config.json"
+  },
+  "top_5_results": [
+    {
+      "experiment_id": 20,
+      "k": 10,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.8350762527233115,
+      "improvement": 0.003376252723311546,
+      "per_class_f1": {
+        "entailment": 0.8568189180434078,
+        "neutral": 0.7830840971217237,
+        "contradiction": 0.8667672197083962
+      },
+      "confusion_matrix": [
+        [
+          2645,
+          364,
+          51
+        ],
+        [
+          355,
+          2435,
+          270
+        ],
+        [
+          114,
+          360,
+          2586
+        ]
+      ],
+      "timestamp": "2025-07-16T15:20:38.132631"
+    },
+    {
+      "experiment_id": 14,
+      "k": 7,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.834640522875817,
+      "improvement": 0.002940522875817031,
+      "per_class_f1": {
+        "entailment": 0.8569108331979861,
+        "neutral": 0.7829991980753809,
+        "contradiction": 0.8656166219839142
+      },
+      "confusion_matrix": [
+        [
+          2638,
+          370,
+          52
+        ],
+        [
+          346,
+          2441,
+          273
+        ],
+        [
+          113,
+          364,
+          2583
+        ]
+      ],
+      "timestamp": "2025-07-16T15:18:25.793647"
+    },
+    {
+      "experiment_id": 23,
+      "k": 10,
+      "weights": "distance",
+      "metric": "cosine",
+      "accuracy": 0.8343137254901961,
+      "improvement": 0.002613725490196117,
+      "per_class_f1": {
+        "entailment": 0.8579738245273875,
+        "neutral": 0.7819790828640386,
+        "contradiction": 0.8643384822028206
+      },
+      "confusion_matrix": [
+        [
+          2655,
+          353,
+          52
+        ],
+        [
+          360,
+          2430,
+          270
+        ],
+        [
+          114,
+          372,
+          2574
+        ]
+      ],
+      "timestamp": "2025-07-16T15:21:43.939919"
+    },
+    {
+      "experiment_id": 19,
+      "k": 10,
+      "weights": "uniform",
+      "metric": "euclidean",
+      "accuracy": 0.8339869281045752,
+      "improvement": 0.0022869281045752032,
+      "per_class_f1": {
+        "entailment": 0.8545839439830647,
+        "neutral": 0.7822890025575449,
+        "contradiction": 0.8670132483649169
+      },
+      "confusion_matrix": [
+        [
+          2624,
+          384,
+          52
+        ],
+        [
+          347,
+          2447,
+          266
+        ],
+        [
+          110,
+          365,
+          2585
+        ]
+      ],
+      "timestamp": "2025-07-16T15:19:44.047632"
+    },
+    {
+      "experiment_id": 21,
+      "k": 10,
+      "weights": "uniform",
+      "metric": "minkowski",
+      "accuracy": 0.8339869281045752,
+      "improvement": 0.0022869281045752032,
+      "per_class_f1": {
+        "entailment": 0.8545839439830647,
+        "neutral": 0.7822890025575449,
+        "contradiction": 0.8670132483649169
+      },
+      "confusion_matrix": [
+        [
+          2624,
+          384,
+          52
+        ],
+        [
+          347,
+          2447,
+          266
+        ],
+        [
+          110,
+          365,
+          2585
+        ]
+      ],
+      "timestamp": "2025-07-16T15:20:44.168202"
+    }
+  ],
+  "all_results": [
+    {
+      "experiment_id": 20,
+      "k": 10,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.8350762527233115,
+      "improvement": 0.003376252723311546,
+      "per_class_f1": {
+        "entailment": 0.8568189180434078,
+        "neutral": 0.7830840971217237,
+        "contradiction": 0.8667672197083962
+      },
+      "confusion_matrix": [
+        [
+          2645,
+          364,
+          51
+        ],
+        [
+          355,
+          2435,
+          270
+        ],
+        [
+          114,
+          360,
+          2586
+        ]
+      ],
+      "timestamp": "2025-07-16T15:20:38.132631"
+    },
+    {
+      "experiment_id": 14,
+      "k": 7,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.834640522875817,
+      "improvement": 0.002940522875817031,
+      "per_class_f1": {
+        "entailment": 0.8569108331979861,
+        "neutral": 0.7829991980753809,
+        "contradiction": 0.8656166219839142
+      },
+      "confusion_matrix": [
+        [
+          2638,
+          370,
+          52
+        ],
+        [
+          346,
+          2441,
+          273
+        ],
+        [
+          113,
+          364,
+          2583
+        ]
+      ],
+      "timestamp": "2025-07-16T15:18:25.793647"
+    },
+    {
+      "experiment_id": 23,
+      "k": 10,
+      "weights": "distance",
+      "metric": "cosine",
+      "accuracy": 0.8343137254901961,
+      "improvement": 0.002613725490196117,
+      "per_class_f1": {
+        "entailment": 0.8579738245273875,
+        "neutral": 0.7819790828640386,
+        "contradiction": 0.8643384822028206
+      },
+      "confusion_matrix": [
+        [
+          2655,
+          353,
+          52
+        ],
+        [
+          360,
+          2430,
+          270
+        ],
+        [
+          114,
+          372,
+          2574
+        ]
+      ],
+      "timestamp": "2025-07-16T15:21:43.939919"
+    },
+    {
+      "experiment_id": 19,
+      "k": 10,
+      "weights": "uniform",
+      "metric": "euclidean",
+      "accuracy": 0.8339869281045752,
+      "improvement": 0.0022869281045752032,
+      "per_class_f1": {
+        "entailment": 0.8545839439830647,
+        "neutral": 0.7822890025575449,
+        "contradiction": 0.8670132483649169
+      },
+      "confusion_matrix": [
+        [
+          2624,
+          384,
+          52
+        ],
+        [
+          347,
+          2447,
+          266
+        ],
+        [
+          110,
+          365,
+          2585
+        ]
+      ],
+      "timestamp": "2025-07-16T15:19:44.047632"
+    },
+    {
+      "experiment_id": 21,
+      "k": 10,
+      "weights": "uniform",
+      "metric": "minkowski",
+      "accuracy": 0.8339869281045752,
+      "improvement": 0.0022869281045752032,
+      "per_class_f1": {
+        "entailment": 0.8545839439830647,
+        "neutral": 0.7822890025575449,
+        "contradiction": 0.8670132483649169
+      },
+      "confusion_matrix": [
+        [
+          2624,
+          384,
+          52
+        ],
+        [
+          347,
+          2447,
+          266
+        ],
+        [
+          110,
+          365,
+          2585
+        ]
+      ],
+      "timestamp": "2025-07-16T15:20:44.168202"
+    },
+    {
+      "experiment_id": 17,
+      "k": 7,
+      "weights": "distance",
+      "metric": "cosine",
+      "accuracy": 0.8338779956427015,
+      "improvement": 0.0021779956427014913,
+      "per_class_f1": {
+        "entailment": 0.8579305870904963,
+        "neutral": 0.7816607887143314,
+        "contradiction": 0.8636668905305573
+      },
+      "confusion_matrix": [
+        [
+          2645,
+          363,
+          52
+        ],
+        [
+          350,
+          2438,
+          272
+        ],
+        [
+          111,
+          377,
+          2572
+        ]
+      ],
+      "timestamp": "2025-07-16T15:19:31.953752"
+    },
+    {
+      "experiment_id": 25,
+      "k": 15,
+      "weights": "uniform",
+      "metric": "euclidean",
+      "accuracy": 0.8337690631808279,
+      "improvement": 0.0020690631808278903,
+      "per_class_f1": {
+        "entailment": 0.8545365694738556,
+        "neutral": 0.78144,
+        "contradiction": 0.8671914252219058
+      },
+      "confusion_matrix": [
+        [
+          2623,
+          387,
+          50
+        ],
+        [
+          346,
+          2442,
+          272
+        ],
+        [
+          110,
+          361,
+          2589
+        ]
+      ],
+      "timestamp": "2025-07-16T15:21:56.191732"
+    },
+    {
+      "experiment_id": 27,
+      "k": 15,
+      "weights": "uniform",
+      "metric": "minkowski",
+      "accuracy": 0.8337690631808279,
+      "improvement": 0.0020690631808278903,
+      "per_class_f1": {
+        "entailment": 0.8545365694738556,
+        "neutral": 0.78144,
+        "contradiction": 0.8671914252219058
+      },
+      "confusion_matrix": [
+        [
+          2623,
+          387,
+          50
+        ],
+        [
+          346,
+          2442,
+          272
+        ],
+        [
+          110,
+          361,
+          2589
+        ]
+      ],
+      "timestamp": "2025-07-16T15:22:56.253262"
+    },
+    {
+      "experiment_id": 8,
+      "k": 5,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.8332244008714597,
+      "improvement": 0.0015244008714596635,
+      "per_class_f1": {
+        "entailment": 0.8544921875,
+        "neutral": 0.7812050503436152,
+        "contradiction": 0.8659171001845947
+      },
+      "confusion_matrix": [
+        [
+          2625,
+          384,
+          51
+        ],
+        [
+          348,
+          2444,
+          268
+        ],
+        [
+          111,
+          369,
+          2580
+        ]
+      ],
+      "timestamp": "2025-07-16T15:16:12.318800"
+    },
+    {
+      "experiment_id": 26,
+      "k": 15,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.8331154684095861,
+      "improvement": 0.0014154684095860626,
+      "per_class_f1": {
+        "entailment": 0.8545897644191714,
+        "neutral": 0.7802215443891475,
+        "contradiction": 0.8661311914323963
+      },
+      "confusion_matrix": [
+        [
+          2630,
+          378,
+          52
+        ],
+        [
+          354,
+          2430,
+          276
+        ],
+        [
+          111,
+          361,
+          2588
+        ]
+      ],
+      "timestamp": "2025-07-16T15:22:50.216549"
+    },
+    {
+      "experiment_id": 13,
+      "k": 7,
+      "weights": "uniform",
+      "metric": "euclidean",
+      "accuracy": 0.8328976034858387,
+      "improvement": 0.0011976034858387496,
+      "per_class_f1": {
+        "entailment": 0.8533810143042913,
+        "neutral": 0.7812149382913929,
+        "contradiction": 0.8658066677835484
+      },
+      "confusion_matrix": [
+        [
+          2625,
+          381,
+          54
+        ],
+        [
+          352,
+          2437,
+          271
+        ],
+        [
+          115,
+          361,
+          2584
+        ]
+      ],
+      "timestamp": "2025-07-16T15:17:31.087820"
+    },
+    {
+      "experiment_id": 15,
+      "k": 7,
+      "weights": "uniform",
+      "metric": "minkowski",
+      "accuracy": 0.8328976034858387,
+      "improvement": 0.0011976034858387496,
+      "per_class_f1": {
+        "entailment": 0.8533810143042913,
+        "neutral": 0.7812149382913929,
+        "contradiction": 0.8658066677835484
+      },
+      "confusion_matrix": [
+        [
+          2625,
+          381,
+          54
+        ],
+        [
+          352,
+          2437,
+          271
+        ],
+        [
+          115,
+          361,
+          2584
+        ]
+      ],
+      "timestamp": "2025-07-16T15:18:31.896656"
+    },
+    {
+      "experiment_id": 29,
+      "k": 15,
+      "weights": "distance",
+      "metric": "cosine",
+      "accuracy": 0.8325708061002178,
+      "improvement": 0.0008708061002178358,
+      "per_class_f1": {
+        "entailment": 0.8559857443706465,
+        "neutral": 0.7795085916171511,
+        "contradiction": 0.8637583892617451
+      },
+      "confusion_matrix": [
+        [
+          2642,
+          365,
+          53
+        ],
+        [
+          360,
+          2427,
+          273
+        ],
+        [
+          111,
+          375,
+          2574
+        ]
+      ],
+      "timestamp": "2025-07-16T15:23:54.816180"
+    },
+    {
+      "experiment_id": 11,
+      "k": 5,
+      "weights": "distance",
+      "metric": "cosine",
+      "accuracy": 0.8323529411764706,
+      "improvement": 0.0006529411764706339,
+      "per_class_f1": {
+        "entailment": 0.8552845528455284,
+        "neutral": 0.7797314578005115,
+        "contradiction": 0.863957003694995
+      },
+      "confusion_matrix": [
+        [
+          2630,
+          378,
+          52
+        ],
+        [
+          351,
+          2439,
+          270
+        ],
+        [
+          109,
+          379,
+          2572
+        ]
+      ],
+      "timestamp": "2025-07-16T15:17:18.859985"
+    },
+    {
+      "experiment_id": 7,
+      "k": 5,
+      "weights": "uniform",
+      "metric": "euclidean",
+      "accuracy": 0.831917211328976,
+      "improvement": 0.00021721132897600803,
+      "per_class_f1": {
+        "entailment": 0.8515751867489444,
+        "neutral": 0.779878244152515,
+        "contradiction": 0.8661073825503356
+      },
+      "confusion_matrix": [
+        [
+          2622,
+          385,
+          53
+        ],
+        [
+          360,
+          2434,
+          266
+        ],
+        [
+          116,
+          363,
+          2581
+        ]
+      ],
+      "timestamp": "2025-07-16T15:15:18.255942"
+    },
+    {
+      "experiment_id": 9,
+      "k": 5,
+      "weights": "uniform",
+      "metric": "minkowski",
+      "accuracy": 0.831917211328976,
+      "improvement": 0.00021721132897600803,
+      "per_class_f1": {
+        "entailment": 0.8515751867489444,
+        "neutral": 0.779878244152515,
+        "contradiction": 0.8661073825503356
+      },
+      "confusion_matrix": [
+        [
+          2622,
+          385,
+          53
+        ],
+        [
+          360,
+          2434,
+          266
+        ],
+        [
+          116,
+          363,
+          2581
+        ]
+      ],
+      "timestamp": "2025-07-16T15:16:18.153904"
+    },
+    {
+      "experiment_id": 2,
+      "k": 3,
+      "weights": "uniform",
+      "metric": "cosine",
+      "accuracy": 0.8308278867102397,
+      "improvement": -0.0008721132897603345,
+      "per_class_f1": {
+        "entailment": 0.8526554404145077,
+        "neutral": 0.777331834965484,
+        "contradiction": 0.8641477749790093
+      },
+      "confusion_matrix": [
+        [
+          2633,
+          373,
+          54
+        ],
+        [
+          371,
+          2421,
+          268
+        ],
+        [
+          112,
+          375,
+          2573
+        ]
+      ],
+      "timestamp": "2025-07-16T15:14:04.835861"
+    },
+    {
+      "experiment_id": 22,
+      "k": 10,
+      "weights": "distance",
+      "metric": "euclidean",
+      "accuracy": 0.8307189542483661,
+      "improvement": -0.0009810457516339355,
+      "per_class_f1": {
+        "entailment": 0.8522986631887838,
+        "neutral": 0.7783109404990403,
+        "contradiction": 0.8634081017743556
+      },
+      "confusion_matrix": [
+        [
+          2614,
+          387,
+          59
+        ],
+        [
+          351,
+          2433,
+          276
+        ],
+        [
+          109,
+          372,
+          2579
+        ]
+      ],
+      "timestamp": "2025-07-16T15:20:50.051670"
+    },
+    {
+      "experiment_id": 24,
+      "k": 10,
+      "weights": "distance",
+      "metric": "minkowski",
+      "accuracy": 0.8307189542483661,
+      "improvement": -0.0009810457516339355,
+      "per_class_f1": {
+        "entailment": 0.8522986631887838,
+        "neutral": 0.7783109404990403,
+        "contradiction": 0.8634081017743556
+      },
+      "confusion_matrix": [
+        [
+          2614,
+          387,
+          59
+        ],
+        [
+          351,
+          2433,
+          276
+        ],
+        [
+          109,
+          372,
+          2579
+        ]
+      ],
+      "timestamp": "2025-07-16T15:21:50.021104"
+    },
+    {
+      "experiment_id": 28,
+      "k": 15,
+      "weights": "distance",
+      "metric": "euclidean",
+      "accuracy": 0.8306100217864923,
+      "improvement": -0.0010899782135076475,
+      "per_class_f1": {
+        "entailment": 0.8520632849453597,
+        "neutral": 0.7781864704941628,
+        "contradiction": 0.8634538152610441
+      },
+      "confusion_matrix": [
+        [
+          2612,
+          389,
+          59
+        ],
+        [
+          350,
+          2433,
+          277
+        ],
+        [
+          109,
+          371,
+          2580
+        ]
+      ],
+      "timestamp": "2025-07-16T15:23:01.993019"
+    },
+    {
+      "experiment_id": 30,
+      "k": 15,
+      "weights": "distance",
+      "metric": "minkowski",
+      "accuracy": 0.8306100217864923,
+      "improvement": -0.0010899782135076475,
+      "per_class_f1": {
+        "entailment": 0.8520632849453597,
+        "neutral": 0.7781864704941628,
+        "contradiction": 0.8634538152610441
+      },
+      "confusion_matrix": [
+        [
+          2612,
+          389,
+          59
+        ],
+        [
+          350,
+          2433,
+          277
+        ],
+        [
+          109,
+          371,
+          2580
+        ]
+      ],
+      "timestamp": "2025-07-16T15:24:00.393431"
+    },
+    {
+      "experiment_id": 5,
+      "k": 3,
+      "weights": "distance",
+      "metric": "cosine",
+      "accuracy": 0.8303921568627451,
+      "improvement": -0.0013078431372548494,
+      "per_class_f1": {
+        "entailment": 0.8530744336569579,
+        "neutral": 0.7763685984909294,
+        "contradiction": 0.8633843051587968
+      },
+      "confusion_matrix": [
+        [
+          2636,
+          370,
+          54
+        ],
+        [
+          374,
+          2418,
+          268
+        ],
+        [
+          110,
+          381,
+          2569
+        ]
+      ],
+      "timestamp": "2025-07-16T15:15:06.665087"
+    },
+    {
+      "experiment_id": 16,
+      "k": 7,
+      "weights": "distance",
+      "metric": "euclidean",
+      "accuracy": 0.8296296296296296,
+      "improvement": -0.002070370370370389,
+      "per_class_f1": {
+        "entailment": 0.8515013054830287,
+        "neutral": 0.7773162939297125,
+        "contradiction": 0.8620227729403885
+      },
+      "confusion_matrix": [
+        [
+          2609,
+          389,
+          62
+        ],
+        [
+          351,
+          2433,
+          276
+        ],
+        [
+          108,
+          378,
+          2574
+        ]
+      ],
+      "timestamp": "2025-07-16T15:18:37.956795"
+    },
+    {
+      "experiment_id": 18,
+      "k": 7,
+      "weights": "distance",
+      "metric": "minkowski",
+      "accuracy": 0.8296296296296296,
+      "improvement": -0.002070370370370389,
+      "per_class_f1": {
+        "entailment": 0.8515013054830287,
+        "neutral": 0.7773162939297125,
+        "contradiction": 0.8620227729403885
+      },
+      "confusion_matrix": [
+        [
+          2609,
+          389,
+          62
+        ],
+        [
+          351,
+          2433,
+          276
+        ],
+        [
+          108,
+          378,
+          2574
+        ]
+      ],
+      "timestamp": "2025-07-16T15:19:38.032776"
+    },
+    {
+      "experiment_id": 1,
+      "k": 3,
+      "weights": "uniform",
+      "metric": "euclidean",
+      "accuracy": 0.8288671023965142,
+      "improvement": -0.0028328976034858178,
+      "per_class_f1": {
+        "entailment": 0.8463673469387756,
+        "neutral": 0.7770883054892602,
+        "contradiction": 0.8655462184873949
+      },
+      "confusion_matrix": [
+        [
+          2592,
+          412,
+          56
+        ],
+        [
+          359,
+          2442,
+          259
+        ],
+        [
+          114,
+          371,
+          2575
+        ]
+      ],
+      "timestamp": "2025-07-16T15:13:13.813572"
+    },
+    {
+      "experiment_id": 3,
+      "k": 3,
+      "weights": "uniform",
+      "metric": "minkowski",
+      "accuracy": 0.8288671023965142,
+      "improvement": -0.0028328976034858178,
+      "per_class_f1": {
+        "entailment": 0.8463673469387756,
+        "neutral": 0.7770883054892602,
+        "contradiction": 0.8655462184873949
+      },
+      "confusion_matrix": [
+        [
+          2592,
+          412,
+          56
+        ],
+        [
+          359,
+          2442,
+          259
+        ],
+        [
+          114,
+          371,
+          2575
+        ]
+      ],
+      "timestamp": "2025-07-16T15:14:10.666607"
+    },
+    {
+      "experiment_id": 10,
+      "k": 5,
+      "weights": "distance",
+      "metric": "euclidean",
+      "accuracy": 0.828322440087146,
+      "improvement": -0.0033775599128540446,
+      "per_class_f1": {
+        "entailment": 0.848791639451339,
+        "neutral": 0.7762003509331631,
+        "contradiction": 0.8620747444276857
+      },
+      "confusion_matrix": [
+        [
+          2599,
+          397,
+          64
+        ],
+        [
+          356,
+          2433,
+          271
+        ],
+        [
+          109,
+          379,
+          2572
+        ]
+      ],
+      "timestamp": "2025-07-16T15:16:23.972695"
+    },
+    {
+      "experiment_id": 12,
+      "k": 5,
+      "weights": "distance",
+      "metric": "minkowski",
+      "accuracy": 0.828322440087146,
+      "improvement": -0.0033775599128540446,
+      "per_class_f1": {
+        "entailment": 0.848791639451339,
+        "neutral": 0.7762003509331631,
+        "contradiction": 0.8620747444276857
+      },
+      "confusion_matrix": [
+        [
+          2599,
+          397,
+          64
+        ],
+        [
+          356,
+          2433,
+          271
+        ],
+        [
+          109,
+          379,
+          2572
+        ]
+      ],
+      "timestamp": "2025-07-16T15:17:24.828353"
+    },
+    {
+      "experiment_id": 4,
+      "k": 3,
+      "weights": "distance",
+      "metric": "euclidean",
+      "accuracy": 0.8249455337690632,
+      "improvement": -0.006754466230936784,
+      "per_class_f1": {
+        "entailment": 0.8439192516001969,
+        "neutral": 0.7728426395939086,
+        "contradiction": 0.860640617139024
+      },
+      "confusion_matrix": [
+        [
+          2571,
+          422,
+          67
+        ],
+        [
+          354,
+          2436,
+          270
+        ],
+        [
+          108,
+          386,
+          2566
+        ]
+      ],
+      "timestamp": "2025-07-16T15:14:16.599952"
+    },
+    {
+      "experiment_id": 6,
+      "k": 3,
+      "weights": "distance",
+      "metric": "minkowski",
+      "accuracy": 0.8249455337690632,
+      "improvement": -0.006754466230936784,
+      "per_class_f1": {
+        "entailment": 0.8439192516001969,
+        "neutral": 0.7728426395939086,
+        "contradiction": 0.860640617139024
+      },
+      "confusion_matrix": [
+        [
+          2571,
+          422,
+          67
+        ],
+        [
+          354,
+          2436,
+          270
+        ],
+        [
+          108,
+          386,
+          2566
+        ]
+      ],
+      "timestamp": "2025-07-16T15:15:12.383863"
+    }
+  ]
+}

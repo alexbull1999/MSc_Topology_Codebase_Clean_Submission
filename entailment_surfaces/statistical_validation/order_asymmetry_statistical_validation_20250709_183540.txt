@@ -1,0 +1,132 @@
+Starting PH-Dim Clustering Validation Analysis...
+
+Phase 1 Clustering Validator initialized
+Target spaces: ['order_asymmetry', 'directional_order_asymmetry']
+Distance metrics: ['euclidean', 'manhattan', 'chebyshev', 'cosine', 'minkowski_3', 'minkowski_4']
+Samples per class: 10
+Points per sample: 1000
+Surface Distance Metric Analyzer initialized
+FOCUS: Testing distance metrics for premise-hypothesis pair relationships
+Device: cuda
+BERT data: data/processed/snli_full_standard_SBERT.pt
+Order model: models/enhanced_order_embeddings_snli_SBERT_full.pt
+Distance metrics: 8 total
+Relational embedding spaces: 5 total
+Each space represents premise-hypothesis pair relationships
+Loading pre-processed data...
+Loading BERT embeddings from data/processed/snli_full_standard_SBERT.pt
+BERT data loaded:
+  Premise embeddings: torch.Size([549367, 768])
+  Hypothesis embeddings: torch.Size([549367, 768])
+  Labels: 549367
+  Label distribution: {'contradiction': 183187, 'entailment': 183416, 'neutral': 182764}
+Loading order model from models/enhanced_order_embeddings_snli_SBERT_full.pt
+Order model loaded (validation loss: 3.202074103355408)
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Hyperbolic pipeline loaded successfully
+Enhanced Hyperbolic Entailment Cones using device: cuda
+Loaded enhanced order model (val_loss: 3.2021)
+Model asymmetry_weight: 1.9
+Pipeline initialized: 125D → 30D hyperbolic
+Running on: cuda
+Enhanced model with asymmetry_weight: 1.9
+Successfully loaded enhanced hyperbolic projection of order embeddings
+Enhanced cone pipeline loaded successfully
+Statistical Validation initialized for 6 combinations
+Testing with 10 independent validation runs
+Each run uses 30 samples (10 per class) for clustering
+Output directory: entailment_surfaces/statistical_validation
+============================================================
+PHASE 1 STATISTICAL VALIDATION: ROBUST STATISTICAL TESTING
+============================================================
+Testing 10 independent validation runs per combination
+Each run uses 30 samples (10 per class) for clustering
+Computing confidence intervals and significance tests
+
+============================================================
+STATISTICAL VALIDATION: order_asymmetry + euclidean
+============================================================
+
+Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.872 ± 0.016
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for order_asymmetry + euclidean:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs
+
+============================================================
+STATISTICAL VALIDATION: order_asymmetry + chebyshev
+============================================================
+
+Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.844 ± 0.024
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for order_asymmetry + chebyshev:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs
+
+============================================================
+STATISTICAL VALIDATION: order_asymmetry + minkowski_3
+============================================================
+
+ Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.880 ± 0.018
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for order_asymmetry + minkowski_3:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs
+
+============================================================
+STATISTICAL VALIDATION: directional_order_asymmetry + euclidean
+============================================================
+
+Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.891 ± 0.011
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for directional_order_asymmetry + euclidean:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs
+
+============================================================
+STATISTICAL VALIDATION: directional_order_asymmetry + chebyshev
+============================================================
+
+Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.887 ± 0.018
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for directional_order_asymmetry + chebyshev:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs
+
+============================================================
+STATISTICAL VALIDATION: directional_order_asymmetry + minkowski_3
+============================================================
+
+Testing with 10 independent validation runs...
+    Accuracy: 1.000 ± 0.000
+    Silhouette: 0.900 ± 0.013
+    Perfect clustering rate: 100.0%
+
+  SUMMARY for directional_order_asymmetry + minkowski_3:
+    10 samples: Acc=1.000±0.000, Perfect=100.0%
+    Significantly > 70%: YES (p=0.0282)
+    Perfect clustering: 10/10 runs

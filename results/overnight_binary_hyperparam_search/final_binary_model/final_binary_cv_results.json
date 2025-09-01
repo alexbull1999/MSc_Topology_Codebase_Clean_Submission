@@ -1,0 +1,218 @@
+{
+  "summary": {
+    "validation_accuracy": {
+      "mean": 79.26926926926926,
+      "std": 0.16569514872119417,
+      "min": 78.97897897897897,
+      "max": 79.47947947947948,
+      "values": [
+        79.22922922922922,
+        79.32932932932934,
+        78.97897897897897,
+        79.47947947947948,
+        79.32932932932934
+      ]
+    },
+    "validation_f1_macro": {
+      "mean": 0.7803157976065281,
+      "std": 0.003230327868542689,
+      "min": 0.7759843331051781,
+      "max": 0.7850219182223566,
+      "values": [
+        0.781553340508015,
+        0.7774560635829031,
+        0.7759843331051781,
+        0.7850219182223566,
+        0.7815633326141884
+      ]
+    },
+    "training_accuracy": {
+      "mean": 79.67467467467468,
+      "std": 0.7144458378895496,
+      "values": [
+        79.30430430430431,
+        80.36786786786787,
+        80.48048048048048,
+        78.54104104104104,
+        79.67967967967968
+      ]
+    },
+    "training_time_seconds": {
+      "mean": 19.861376333236695,
+      "total": 99.30688166618347,
+      "values": [
+        16.01679015159607,
+        31.283413887023926,
+        19.345868825912476,
+        15.74629521369934,
+        16.91451358795166
+      ]
+    },
+    "epochs_trained": {
+      "mean": 48.6,
+      "values": [
+        39,
+        77,
+        47,
+        39,
+        41
+      ]
+    }
+  },
+  "fold_results": [
+    {
+      "fold": 0,
+      "train_accuracy": 79.30430430430431,
+      "val_accuracy": 79.22922922922922,
+      "train_f1_macro": 0.7821642394776676,
+      "val_f1_macro": 0.781553340508015,
+      "train_loss": 0.4482545077800751,
+      "val_loss": 0.43096630554646254,
+      "epochs_trained": 39,
+      "training_time": 16.01679015159607,
+      "val_f1_per_class": [
+        0.7331189710610932,
+        0.8299877099549366
+      ],
+      "confusion_matrix": [
+        [
+          570,
+          96
+        ],
+        [
+          319,
+          1013
+        ]
+      ],
+      "classification_report": "                precision    recall  f1-score   support\n\n    entailment       0.64      0.86      0.73       666\nnon-entailment       0.91      0.76      0.83      1332\n\n      accuracy                           0.79      1998\n     macro avg       0.78      0.81      0.78      1998\n  weighted avg       0.82      0.79      0.80      1998\n"
+    },
+    {
+      "fold": 1,
+      "train_accuracy": 80.36786786786787,
+      "val_accuracy": 79.32932932932934,
+      "train_f1_macro": 0.7901815887617383,
+      "val_f1_macro": 0.7774560635829031,
+      "train_loss": 0.4456174635887146,
+      "val_loss": 0.44676837511360645,
+      "epochs_trained": 77,
+      "training_time": 31.283413887023926,
+      "val_f1_per_class": [
+        0.7180887372013652,
+        0.8368233899644408
+      ],
+      "confusion_matrix": [
+        [
+          526,
+          140
+        ],
+        [
+          273,
+          1059
+        ]
+      ],
+      "classification_report": "                precision    recall  f1-score   support\n\n    entailment       0.66      0.79      0.72       666\nnon-entailment       0.88      0.80      0.84      1332\n\n      accuracy                           0.79      1998\n     macro avg       0.77      0.79      0.78      1998\n  weighted avg       0.81      0.79      0.80      1998\n"
+    },
+    {
+      "fold": 2,
+      "train_accuracy": 80.48048048048048,
+      "val_accuracy": 78.97897897897897,
+      "train_f1_macro": 0.7909132792687734,
+      "val_f1_macro": 0.7759843331051781,
+      "train_loss": 0.44545253419876096,
+      "val_loss": 0.4469616524875164,
+      "epochs_trained": 47,
+      "training_time": 19.345868825912476,
+      "val_f1_per_class": [
+        0.7203728362183754,
+        0.8315958299919808
+      ],
+      "confusion_matrix": [
+        [
+          541,
+          125
+        ],
+        [
+          295,
+          1037
+        ]
+      ],
+      "classification_report": "                precision    recall  f1-score   support\n\n    entailment       0.65      0.81      0.72       666\nnon-entailment       0.89      0.78      0.83      1332\n\n      accuracy                           0.79      1998\n     macro avg       0.77      0.80      0.78      1998\n  weighted avg       0.81      0.79      0.79      1998\n"
+    },
+    {
+      "fold": 3,
+      "train_accuracy": 78.54104104104104,
+      "val_accuracy": 79.47947947947948,
+      "train_f1_macro": 0.7751024238544212,
+      "val_f1_macro": 0.7850219182223566,
+      "train_loss": 0.4488201243877411,
+      "val_loss": 0.438365594483912,
+      "epochs_trained": 39,
+      "training_time": 15.74629521369934,
+      "val_f1_per_class": [
+        0.7391857506361323,
+        0.8308580858085809
+      ],
+      "confusion_matrix": [
+        [
+          581,
+          85
+        ],
+        [
+          325,
+          1007
+        ]
+      ],
+      "classification_report": "                precision    recall  f1-score   support\n\n    entailment       0.64      0.87      0.74       666\nnon-entailment       0.92      0.76      0.83      1332\n\n      accuracy                           0.79      1998\n     macro avg       0.78      0.81      0.79      1998\n  weighted avg       0.83      0.79      0.80      1998\n"
+    },
+    {
+      "fold": 4,
+      "train_accuracy": 79.67967967967968,
+      "val_accuracy": 79.32932932932934,
+      "train_f1_macro": 0.7845967252880532,
+      "val_f1_macro": 0.7815633326141884,
+      "train_loss": 0.449845468044281,
+      "val_loss": 0.4329631067812443,
+      "epochs_trained": 41,
+      "training_time": 16.91451358795166,
+      "val_f1_per_class": [
+        0.7309446254071661,
+        0.8321820398212109
+      ],
+      "confusion_matrix": [
+        [
+          561,
+          105
+        ],
+        [
+          308,
+          1024
+        ]
+      ],
+      "classification_report": "                precision    recall  f1-score   support\n\n    entailment       0.65      0.84      0.73       666\nnon-entailment       0.91      0.77      0.83      1332\n\n      accuracy                           0.79      1998\n     macro avg       0.78      0.81      0.78      1998\n  weighted avg       0.82      0.79      0.80      1998\n"
+    }
+  ],
+  "config": {
+    "learning_rate": 0.005,
+    "batch_size": 64,
+    "dropout_rate": 0.5,
+    "weight_decay": 0.0001,
+    "max_epochs": 100,
+    "patience": 15,
+    "min_delta": 0.0001,
+    "use_scheduler": true,
+    "scheduler_patience": 5,
+    "scheduler_factor": 0.5,
+    "min_lr": 1e-06,
+    "gradient_clip_norm": 1.0,
+    "use_class_weights": true,
+    "n_folds": 5,
+    "random_seed": 42
+  },
+  "best_hyperparameters": {
+    "learning_rate": 0.005,
+    "batch_size": 64,
+    "dropout_rate": 0.5,
+    "weight_decay": 0.0001
+  },
+  "classification_type": "binary"
+}
