@@ -77,7 +77,6 @@ echo "  - Random seed: 42"
 echo ""
 
 # Run surface distance analysis
-# Start with 20k samples for faster initial analysis
 python entailment_surfaces/phdim_distance_metric_optimized.py 
 
 
@@ -101,32 +100,11 @@ du -sh results/step_1_1_analysis/ 2>/dev/null || echo "No results to measure"
 if [ $EXIT_CODE -eq 0 ]; then
     echo ""
     echo "=== ANALYSIS SUCCESSFUL ==="
-    echo "Surface distance metric analysis completed successfully!"
-    echo ""
-    echo "Key outputs:"
-    echo "  - JSON results: results/step_1_1_analysis/comprehensive_surface_analysis_*.json"
-    echo "  - Plain report: results/step_1_1_analysis/simple_analysis_report_*.txt"
-    echo "  - Individual space results: results/step_1_1_analysis/surface_analysis_*_*.json"
-    echo ""
-    echo "Next steps:"
-    echo "  1. Review the simple_analysis_report_*.txt for plain results"
-    echo "  2. Identify top-performing space+metric combinations"
-    echo "  3. Consider re-running with --max_samples 167000 for full analysis"
-    echo ""
-    echo "To run full analysis on promising combinations:"
-    echo "  python step_1_1_surface_analysis_corrected.py \\"
-    echo "    --bert_data 'data/processed/snli_full_standard_BERT.pt' \\"
-    echo "    --order_model '$ORDER_MODEL' \\"
-    echo "    --max_samples 167000"
 else
     echo ""
     echo "=== ANALYSIS FAILED ==="
     echo "Please check the error output above for debugging information."
     echo ""
-    echo "Common issues to check:"
-    echo "  - Missing dependencies (topology.py, order_embeddings_asymmetry.py)"
-    echo "  - Memory issues (try reducing --max_samples)"
-    echo "  - CUDA out of memory (check GPU usage with nvidia-smi)"
 fi
 
 echo ""
