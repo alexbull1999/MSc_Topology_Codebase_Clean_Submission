@@ -705,10 +705,10 @@ class LatentPHDimensionClusteringValidator:
             
                 if result.get('success', False):
                     successful_models.append(model_name)
-                    print(f"✓ {model_name}: SUCCESS")
+                    print(f"{model_name}: SUCCESS")
                 else:
                     failed_models.append(model_name)
-                    print(f"✗ {model_name}: FAILED")
+                    print(f"{model_name}: FAILED")
                 
             except Exception as e:
                 print(f"✗ {model_name}: ERROR - {e}")

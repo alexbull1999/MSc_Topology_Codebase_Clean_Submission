@@ -527,10 +527,10 @@ class LatentPHDimensionClusteringValidator:
                     mean_accuracy = results['natural_clustering_accuracy_mean']
                     std_accuracy = results['natural_clustering_accuracy_std']
                     runs_95 = results['runs_above_95_percent']
-                    print(f"\n✅ {config['name']}: {mean_accuracy:.4f} ± {std_accuracy:.4f} PH-dim clustering accuracy")
-                    print(f"   {runs_95}/{results['successful_runs']} runs achieved ≥95% accuracy")
+                    print(f"\n{config['name']}: {mean_accuracy:.4f} ± {std_accuracy:.4f} PH-dim clustering accuracy")
+                    print(f"{runs_95}/{results['successful_runs']} runs achieved ≥95% accuracy")
                 else:
-                    print(f"\n❌ {config['name']}: FAILED")
+                    print(f"\n{config['name']}: FAILED")
                     
             except Exception as e:
                 print(f"Error testing model {config['name']}: {e}")
@@ -637,16 +637,16 @@ class LatentPHDimensionClusteringValidator:
         
         # Check if we achieved perfect clustering like original SBERT
         if results['runs_above_99_percent'] > 0:
-            print(f"\n🎉 PERFECT PH-DIM CLUSTERING ACHIEVED IN {results['runs_above_99_percent']} RUNS! 🎉")
+            print(f"\nPERFECT PH-DIM CLUSTERING ACHIEVED IN {results['runs_above_99_percent']} RUNS! 🎉")
             if results['runs_above_99_percent'] >= results['successful_runs'] * 0.8:
                 print("This model consistently preserves the same PH-dimension clustering properties as original SBERT!")
         
         # Statistical significance assessment
         if results['accuracy_coefficient_of_variation'] < 0.05:
-            print(f"\n📊 EXCELLENT STATISTICAL CONSISTENCY")
+            print(f"\nEXCELLENT STATISTICAL CONSISTENCY")
             print("PH-dimension clustering results are highly reliable across multiple runs")
         elif results['accuracy_coefficient_of_variation'] < 0.10:
-            print(f"\n📊 GOOD STATISTICAL CONSISTENCY") 
+            print(f"\nGOOD STATISTICAL CONSISTENCY") 
             print("PH-dimension clustering results show reasonable stability across runs")
 
 
@@ -684,20 +684,20 @@ class LatentPHDimensionClusteringValidator:
                 print(f"     Silhouette: {silhouette:.3f}")
                 
                 if accuracy >= 0.99:
-                    print(f"     🎉 PERFECT CLUSTERING!")
+                    print(f"     PERFECT CLUSTERING!")
                 elif accuracy >= 0.90:
-                    print(f"     ⭐ EXCELLENT")
+                    print(f"     EXCELLENT")
                 elif accuracy >= 0.80:
-                    print(f"     ✅ GOOD")
+                    print(f"     GOOD")
                 else:
-                    print(f"     ⚠️  NEEDS IMPROVEMENT")
+                    print(f"     NEEDS IMPROVEMENT")
                 print()
         
         if failed_models:
             print(f"\nFailed Models:")
             print("-" * 20)
             for result in failed_models:
-                print(f"❌ {result['model_name']}: {result.get('error', 'Unknown error')}")
+                print(f"{result['model_name']}: {result.get('error', 'Unknown error')}")
         
         print(f"\nAll individual results saved to: {self.output_dir}")
 

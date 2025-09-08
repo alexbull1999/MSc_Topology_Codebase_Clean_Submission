@@ -141,7 +141,7 @@ class ChaosNLIPersistenceImagePrecomputer:
         print(f"Found {valid_diagrams_count} valid diagrams with {len(all_lifespans)} total finite features")
         
         if len(all_lifespans) == 0:
-            print("❌ No finite features found across all diagrams!")
+            print("No finite features found across all diagrams!")
             return []
         
         # Calculate actual data ranges
@@ -348,7 +348,7 @@ class ChaosNLIPersistenceImagePrecomputer:
             data_path, total_samples, time.time() - start_time
         )
         
-        print(f"\n✅ ChaosNLI persistence image precomputation completed!")
+        print(f"\nChaosNLI persistence image precomputation completed!")
         print(f"Total time: {(time.time() - start_time)/3600:.1f} hours")
         print(f"Persistence images saved to: {output_path}")
     

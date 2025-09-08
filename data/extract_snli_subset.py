@@ -9,7 +9,7 @@ def extract_snli_balanced_subset(arrow_file_path, output_path, samples_per_class
     """
     Extract a balanced subset with equal samples from each class
     Total samples = samples_per_class * 3 ≈ 5K
-    Converts to toy dataset format: [premise, hypothesis, label]
+    Converts to dataset format: [premise, hypothesis, label]
     """
     # Label mapping for conversion
     label_map = {0: "entailment", 1: "neutral", 2: "contradiction"}
@@ -35,7 +35,7 @@ def extract_snli_balanced_subset(arrow_file_path, output_path, samples_per_class
     print(f"Label distribution (original integers):")
     print(balanced_df['label'].value_counts())
 
-    # Save as JSON in toy dataset format: [premise, hypothesis, label]
+    # Save as JSON in dataset format: [premise, hypothesis, label]
     output_data = []
     for _, row in balanced_df.iterrows():
         output_data.append([

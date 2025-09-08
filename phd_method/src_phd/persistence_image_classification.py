@@ -557,9 +557,9 @@ def run_persistence_image_experiments(persistence_train_path, persistence_val_pa
     print(f"  Hybrid vs Topological: {improvement_vs_topo:+.3f}")
     
     if topo_acc > sbert_acc:
-        print(f"\n🎉 Topological approach beats SBERT baseline by {topo_vs_sbert:.3f}!")
+        print(f"\nTopological approach beats SBERT baseline by {topo_vs_sbert:.3f}!")
     else:
-        print(f"\n📊 SBERT still ahead by {-topo_vs_sbert:.3f}")
+        print(f"\nSBERT still ahead by {-topo_vs_sbert:.3f}")
     
     return results
 

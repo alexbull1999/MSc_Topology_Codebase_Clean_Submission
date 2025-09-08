@@ -64,10 +64,10 @@ def run_identity_baseline_evaluation(train_loader, val_loader, test_loader, save
     
     print(f"\nBaseline results saved to: {results_file}")
     print("\nThis baseline shows performance with:")
-    print("  ✅ No dimensionality reduction (1536D → 1536D)")
-    print("  ✅ Perfect reconstruction (MSE = 0.0)")
-    print("  ✅ Original SBERT semantic structure preserved")
-    print("  ✅ No learned transformations")
+    print("  No dimensionality reduction (1536D → 1536D)")
+    print("  Perfect reconstruction (MSE = 0.0)")
+    print("  Original SBERT semantic structure preserved")
+    print("  No learned transformations")
     
     return results
 

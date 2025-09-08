@@ -562,7 +562,7 @@ def test_evaluator():
     if os.path.exists(save_dir):
         shutil.rmtree(save_dir)
     
-    print("✅ Evaluator test completed!")
+    print("Evaluator test completed!")
 
 
 if __name__ == "__main__":

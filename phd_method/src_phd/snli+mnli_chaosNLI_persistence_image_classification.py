@@ -888,18 +888,18 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     print("COMPLETE ARCHITECTURE COMPARISON RESULTS")
     print("=" * 80)
     
-    print("📊 SNLI+MNLI Validation Accuracies:")
+    print("SNLI+MNLI Validation Accuracies:")
     snli_sorted = sorted(results.items(), key=lambda x: x[1]['snli_mnli_accuracy'], reverse=True)
     for i, (model_name, result) in enumerate(snli_sorted):
         print(f"  {i+1}. {model_name:<20}: {result['snli_mnli_accuracy']:.3f}")
     
-    print("\n🎯 ChaosNLI-SNLI Uncertainty Quantification (JSD):")
+    print("\nChaosNLI-SNLI Uncertainty Quantification (JSD):")
     snli_jsd_sorted = sorted(results.items(), key=lambda x: x[1]['chaosnli_snli_jsd'])
     for i, (model_name, result) in enumerate(snli_jsd_sorted):
         jsd_status = "✅" if result['beats_roberta_snli'] else "❌" 
         print(f"  {i+1}. {model_name:<20}: {result['chaosnli_snli_jsd']:.4f} {jsd_status}")
     
-    print("\n🎯 ChaosNLI-MNLI Uncertainty Quantification (JSD):")
+    print("\nChaosNLI-MNLI Uncertainty Quantification (JSD):")
     mnli_jsd_sorted = sorted(results.items(), key=lambda x: x[1]['chaosnli_mnli_jsd'])
     for i, (model_name, result) in enumerate(mnli_jsd_sorted):
         jsd_status = "✅" if result['beats_roberta_mnli'] else "❌" 
@@ -910,7 +910,7 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     best_snli_jsd_model = snli_jsd_sorted[0][0]
     best_mnli_jsd_model = mnli_jsd_sorted[0][0]
     
-    print(f"\n🏆 SUMMARY:")
+    print(f"\nSUMMARY:")
     print(f"  Best SNLI+MNLI accuracy: {best_accuracy_model}")
     print(f"  Best ChaosNLI-SNLI JSD: {best_snli_jsd_model}")
     print(f"  Best ChaosNLI-MNLI JSD: {best_mnli_jsd_model}")
@@ -920,12 +920,12 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     beating_roberta_mnli = [name for name, result in results.items() if result['beats_roberta_mnli']]
     
     if beating_roberta_snli:
-        print(f"\n🎉 Models beating RoBERTa JSD on SNLI: {', '.join(beating_roberta_snli)}")
+        print(f"\nModels beating RoBERTa JSD on SNLI: {', '.join(beating_roberta_snli)}")
     if beating_roberta_mnli:
-        print(f"🎉 Models beating RoBERTa JSD on MNLI: {', '.join(beating_roberta_mnli)}")
+        print(f"Models beating RoBERTa JSD on MNLI: {', '.join(beating_roberta_mnli)}")
     
     if not beating_roberta_snli and not beating_roberta_mnli:
-        print(f"\n📈 None beat published baselines yet - but larger training data should help!")
+        print(f"\nNone beat published baselines yet - but larger training data should help!")
     
     return results
 

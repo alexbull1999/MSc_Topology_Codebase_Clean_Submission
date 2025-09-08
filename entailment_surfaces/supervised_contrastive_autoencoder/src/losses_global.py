@@ -32,7 +32,7 @@ class FullDatasetContrastiveLoss(nn.Module):
         """
         Extract features for the entire dataset
         """
-        print("🌍 Extracting features for entire dataset...")
+        print("Extracting features for entire dataset...")
         model.eval()
         
         all_features = []
@@ -106,13 +106,13 @@ class FullDatasetContrastiveLoss(nn.Module):
             print(f"    Gap: {gap:.3f}")
             
             if ratio > 3.0:
-                print("    ✅ Excellent global separation!")
+                print("Excellent global separation!")
             elif ratio > 2.0:
-                print("    ✅ Good global separation")
+                print("Good global separation")
             elif ratio > 1.5:
-                print("    ⚠️  Moderate global separation")
+                print("Moderate global separation")
             else:
-                print("    ❌ Poor global separation")
+                print("Poor global separation")
     
     def forward(self, features, labels):
         """
@@ -465,7 +465,7 @@ def test_losses():
     stats = loss_fn.get_distance_stats(features, labels)
     print(f"Distance stats: Ratio={stats['separation_ratio']:.2f}x, Gap={stats['gap']:.3f}")
     
-    print("✅ Loss functions test completed!")
+    print("Loss functions test completed!")
 
 
 if __name__ == "__main__":

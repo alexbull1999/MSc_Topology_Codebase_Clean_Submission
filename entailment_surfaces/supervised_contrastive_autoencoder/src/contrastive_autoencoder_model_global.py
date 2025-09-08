@@ -166,7 +166,7 @@ def test_model():
     mse_loss = F.mse_loss(reconstructed, x)
     print(f"Reconstruction MSE: {mse_loss.item():.6f}")
     
-    print("✅ Model test completed successfully!")
+    print("Model test completed successfully!")
 
 
 if __name__ == "__main__":

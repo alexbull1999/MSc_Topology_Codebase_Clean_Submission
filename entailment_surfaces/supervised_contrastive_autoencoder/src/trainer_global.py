@@ -242,7 +242,7 @@ class GlobalDatasetTrainer:
                 
                 # Save best model
                 self.save_checkpoint(save_dir, f'best_model.pt', epoch + 1, is_best=True)
-                print(f"✅ New best model saved (Val Loss: {self.best_val_loss:.4f})")
+                print(f"New best model saved (Val Loss: {self.best_val_loss:.4f})")
             else:
                 self.patience_counter += 1
                 print(f"No improvement for {self.patience_counter} epochs")
@@ -393,7 +393,7 @@ def test_trainer():
         debug_frequency=5
     )
     
-    print("✅ Trainer test completed!")
+    print("Trainer test completed!")
     
     # Clean up
     import shutil

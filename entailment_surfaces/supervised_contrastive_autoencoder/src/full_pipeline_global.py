@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 import numpy as np
 
-# Import our clean modules
+# Import clean modules
 from contrastive_autoencoder_model_global import ContrastiveAutoencoder
 from losses_global import FullDatasetCombinedLoss
 from trainer_global import GlobalDatasetTrainer

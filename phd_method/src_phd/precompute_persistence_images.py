@@ -141,7 +141,7 @@ class PersistenceImagePrecomputer:
         print(f"Found {valid_diagrams_count} valid diagrams with {len(all_lifespans)} total finite features")
         
         if len(all_lifespans) == 0:
-            print("❌ No finite features found across all diagrams!")
+            print("No finite features found across all diagrams!")
             return []
         
         # Calculate actual data ranges
@@ -321,7 +321,7 @@ class PersistenceImagePrecomputer:
             data_path, total_samples, time.time() - start_time
         )
         
-        print(f"\n✅ Precomputation completed!")
+        print(f"\nPrecomputation completed!")
         print(f"Total time: {(time.time() - start_time)/3600:.1f} hours")
         print(f"Persistence images saved to: {output_path}")
     

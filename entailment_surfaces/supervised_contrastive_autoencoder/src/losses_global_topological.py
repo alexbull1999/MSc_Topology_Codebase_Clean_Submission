@@ -112,13 +112,13 @@ class FullDatasetContrastiveLoss(nn.Module):
             print(f"    Gap: {gap:.3f}")
             
             if ratio > 3.0:
-                print("    ✅ Excellent global separation!")
+                print("Excellent global separation!")
             elif ratio > 2.0:
-                print("    ✅ Good global separation")
+                print("Good global separation")
             elif ratio > 1.5:
-                print("    ⚠️  Moderate global separation")
+                print("Moderate global separation")
             else:
-                print("    ❌ Poor global separation")
+                print("Poor global separation")
     
     def forward(self, features, labels):
         """

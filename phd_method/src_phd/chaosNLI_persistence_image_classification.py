@@ -837,7 +837,7 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     # Sort by ChaosNLI JSD (lower is better for uncertainty quantification)
     sorted_by_jsd = sorted(results.items(), key=lambda x: x[1]['chaosnli_jsd'])
     
-    print("📊 SNLI Validation Accuracies:")
+    print("SNLI Validation Accuracies:")
     snli_sorted = sorted(results.items(), key=lambda x: x[1]['snli_accuracy'], reverse=True)
     for i, (model_name, result) in enumerate(snli_sorted):
         print(f"  {i+1}. {model_name:<20}: {result['snli_accuracy']:.3f}")
@@ -858,7 +858,7 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     best_jsd_model = sorted_by_jsd[0][0]
     best_kl_model = kl_sorted[0][0]
     
-    print(f"\n🏆 SUMMARY:")
+    print(f"\nSUMMARY:")
     print(f"  Best SNLI accuracy: {best_snli_model}")
     print(f"  Best JSD (uncertainty): {best_jsd_model}")
     print(f"  Best KL (uncertainty): {best_kl_model}")
@@ -868,12 +868,12 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     beating_bart = [name for name, result in results.items() if result['beats_bart_kl']]
     
     if beating_roberta:
-        print(f"\n🎉 Models beating RoBERTa JSD (0.22): {', '.join(beating_roberta)}")
+        print(f"\nModels beating RoBERTa JSD (0.22): {', '.join(beating_roberta)}")
     if beating_bart:
-        print(f"🎉 Models beating BART KL (0.47): {', '.join(beating_bart)}")
+        print(f"Models beating BART KL (0.47): {', '.join(beating_bart)}")
     
     if not beating_roberta and not beating_bart:
-        print(f"\n📈 None beat published baselines yet - try 900k training data next!")
+        print(f"\nNone beat published baselines yet - try 900k training data next!")
     
     return results
 
@@ -997,11 +997,11 @@ def run_snli_train_chaosnli_eval(snli_persistence_train_path, snli_persistence_v
     print(f"  KL:  {'Persistence CNN' if persistence_better_kl else 'SBERT'} is better")
     
     if persistence_better_jsd and persistence_better_kl:
-        print(f"\n🎉 Persistence CNN wins on both uncertainty metrics!")
+        print(f"\nPersistence CNN wins on both uncertainty metrics!")
     elif persistence_better_jsd or persistence_better_kl:
-        print(f"\n📊 Mixed results - each approach has strengths")
+        print(f"\nMixed results - each approach has strengths")
     else:
-        print(f"\n📈 SBERT baseline still leads on uncertainty quantification")
+        print(f"\nSBERT baseline still leads on uncertainty quantification")
     
     return {
         'snli_training': {

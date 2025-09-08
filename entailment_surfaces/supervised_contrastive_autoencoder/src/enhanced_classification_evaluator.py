@@ -514,11 +514,11 @@ if __name__ == "__main__":
         # Load trained model
         print(f"Loading model from: {MODEL_PATH}")
         
-        # Create model instance (adjust parameters to match your trained model)
+        # Create model instance (adjust parameters to match trained model)
         model = ContrastiveAutoencoder(
             input_dim=1536,  # Adjust if different
-            latent_dim=100,  # Adjust to match your trained model
-            hidden_dims=[],  # Adjust to match your model
+            latent_dim=100,  # Adjust to match trained model
+            hidden_dims=[],  # Adjust to match model
             dropout_rate=0.2
         )
 

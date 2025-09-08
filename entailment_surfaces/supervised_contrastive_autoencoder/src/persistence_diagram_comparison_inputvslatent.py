@@ -345,16 +345,16 @@ class BestModelDiagnostic:
                     print(f"  Gap ratio (current/target): {gap_ratio:.4f}")
                 
                     if gap_ratio < 0.5:
-                        print(f"  ❌ Current model has much LOWER complexity than target")
+                        print(f"  Current model has much LOWER complexity than target")
                     elif gap_ratio > 2.0:
-                        print(f"  ❌ Current model has much HIGHER complexity than target")
+                        print(f"  Current model has much HIGHER complexity than target")
                     else:
-                        print(f"  ✅ Current model is reasonably close to target")
+                        print(f"  Current model is reasonably close to target")
                 elif current_total == 0:
-                    print(f"  ❌ Current model has NO topological complexity!")
+                    print(f"  Current model has NO topological complexity!")
                     overall_gaps[dim_name][class_name] = 0
                 elif target_total == 0:
-                    print(f"  ❌ Target has no complexity (unexpected)")
+                    print(f"  Target has no complexity (unexpected)")
                     overall_gaps[dim_name][class_name] = float('inf')
     
         # Overall assessment for each dimension
@@ -367,14 +367,14 @@ class BestModelDiagnostic:
             gaps = overall_gaps[dim_name]
         
             if all(gap == 0 for gap in gaps.values()):
-                print(f"❌ FUNDAMENTAL PROBLEM: Current model has NO {dim_name} topological complexity")
+                print(f"FUNDAMENTAL PROBLEM: Current model has NO {dim_name} topological complexity")
                 print(f"   The latent space is too simple/uniform to generate {dim_name} features")
                 print("   Recommendation: Need to establish basic topological structure first")
             elif all(0.5 <= gap <= 2.0 for gap in gaps.values() if gap > 0):
-                print(f"✅ GOOD NEWS: Current model is reasonably close to {dim_name} targets")
+                print(f"GOOD NEWS: Current model is reasonably close to {dim_name} targets")
                 print("   Small-scale topological regularization should work")
             else:
-                print(f"⚠️  MIXED RESULTS: Some classes close, others far off for {dim_name}")
+                print(f"MIXED RESULTS: Some classes close, others far off for {dim_name}")
                 print("   May need class-specific regularization weights")
             
         return overall_gaps
@@ -519,13 +519,13 @@ if __name__ == "__main__":
 
     print(f"\nOVERALL ASSESSMENT:")
     if not all_gaps:
-        print("❌ NO DATA: Unable to compute any gaps")
+        print("NO DATA: Unable to compute any gaps")
     elif all(gap == 0 for gap in all_gaps):
-        print("❌ CRITICAL: Model has NO topological complexity in either dimension")
+        print("CRITICAL: Model has NO topological complexity in either dimension")
     elif all(0.5 <= gap <= 2.0 for gap in all_gaps if gap > 0):
-        print("✅ EXCELLENT: Model topology is close to targets in both dimensions")
+        print("EXCELLENT: Model topology is close to targets in both dimensions")
     else:
-        print("⚠️  MIXED: Some dimensions/classes close to target, others need work")
+        print("MIXED: Some dimensions/classes close to target, others need work")
 
     
 

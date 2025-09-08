@@ -78,7 +78,7 @@ def compare_with_baseline(results_path, baseline_accuracy=0.8167):
     metrics = ['clustering_accuracy', 'silhouette_score', 'separation_ratio']
     current_values = [results[metric] for metric in metrics]
     
-    # For comparison, assume baseline values (adjust based on your actual baseline)
+    # For comparison, baseline values
     baseline_values = [baseline_accuracy, 0.53, 3.55]  # From your project docs
     
     x = np.arange(len(metrics))

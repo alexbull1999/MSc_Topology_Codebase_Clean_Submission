@@ -28,13 +28,13 @@ def debug_reconstruction_model():
     
     # Check if model exists
     if not os.path.exists(MODEL_PATH):
-        print(f"❌ ERROR: Model not found at {MODEL_PATH}")
+        print(f"ERROR: Model not found at {MODEL_PATH}")
         print("Please update MODEL_PATH to your actual model checkpoint")
         return
     
     try:
         # 1. Load the model
-        print("\n1️⃣ Loading model...")
+        print("\nLoading model...")
         model = ContrastiveAutoencoder(
             input_dim=1536,  # SBERT concat
             latent_dim=75,  # Your reconstruction model
@@ -52,10 +52,10 @@ def debug_reconstruction_model():
         
         model.to(device)
         model.eval()
-        print("✅ Model loaded successfully")
+        print("Model loaded successfully")
         
         # 2. Load data
-        print("\n2️⃣ Loading data...")
+        print("\nLoading data...")
         from data_loader_global import GlobalDataLoader
         
         loader = GlobalDataLoader(
@@ -70,10 +70,10 @@ def debug_reconstruction_model():
         train_dataset, val_dataset, test_dataset = loader.load_data()
         train_loader, val_loader, test_loader = loader.get_dataloaders(batch_size=1020)
         
-        print("✅ Data loaded successfully")
+        print("Data loaded successfully")
         
         # 3. Extract latent representations for a subset
-        print("\n3️⃣ Extracting latent representations...")
+        print("\nExtracting latent representations...")
         
         def extract_subset_latents(dataloader, max_samples=5000):
             all_latents = []
@@ -107,7 +107,7 @@ def debug_reconstruction_model():
         print(f"Train samples: {len(train_latents)}, Val samples: {len(val_latents)}")
         
         # 4. Analyze class distributions
-        print("\n4️⃣ Analyzing class distributions...")
+        print("\nAnalyzing class distributions...")
         train_class_dist = np.bincount(train_labels)
         val_class_dist = np.bincount(val_labels)
         
@@ -122,7 +122,7 @@ def debug_reconstruction_model():
         print(f"  Contradiction: {val_class_dist[2]} ({val_class_dist[2]/len(val_labels)*100:.1f}%)")
         
         # 5. Analyze latent space collapse
-        print("\n5️⃣ Analyzing latent space structure...")
+        print("\nAnalyzing latent space structure...")
         
         print(f"Latent space shape: {train_latents.shape}")
         print(f"Latent space statistics:")
@@ -139,7 +139,7 @@ def debug_reconstruction_model():
         print(f"  Min dimension std: {per_dim_std.min():.6f}")
         
         # Check pairwise distances
-        print("\n6️⃣ Checking pairwise distances...")
+        print("\nChecking pairwise distances...")
         sample_indices = np.random.choice(len(train_latents), min(1000, len(train_latents)), replace=False)
         sample_latents = train_latents[sample_indices]
         
@@ -157,7 +157,7 @@ def debug_reconstruction_model():
         print(f"  Distances < 0.001: {np.sum(distances_no_diag < 0.001)} / {len(distances_no_diag)}")
         
         # 7. Test k-NN behavior
-        print("\n7️⃣ Testing k-NN classifier behavior...")
+        print("\nTesting k-NN classifier behavior...")
         
         # Train k-NN
         knn = KNeighborsClassifier(n_neighbors=5)
@@ -173,7 +173,7 @@ def debug_reconstruction_model():
         print(f"  Predicts contradiction: {pred_dist[2]} times ({pred_dist[2]/len(predictions)*100:.1f}%)")
         
         # Check a few individual predictions
-        print(f"\n8️⃣ Analyzing individual k-NN decisions...")
+        print(f"\nAnalyzing individual k-NN decisions...")
         for i in range(min(5, len(val_latents))):
             query_point = val_latents[i:i+1]
             distances, indices = knn.kneighbors(query_point)
@@ -185,21 +185,21 @@ def debug_reconstruction_model():
             print(f"  Predicted: {predictions[i]}")
         
         # 9. Final diagnosis
-        print("\n9️⃣ DIAGNOSIS:")
+        print("\nDIAGNOSIS:")
         print("=" * 40)
         
         if train_class_dist[1] > train_class_dist[0] + train_class_dist[2]:
-            print("🔴 CLASS IMBALANCE: Neutral class dominates training data")
+            print("CLASS IMBALANCE: Neutral class dominates training data")
             print("   → k-NN biased toward predicting neutral")
         
         if pred_dist[1] / len(predictions) > 0.8:
-            print("🔴 k-NN PREDICTION COLLAPSE: Almost always predicts neutral")
+            print("k-NN PREDICTION COLLAPSE: Almost always predicts neutral")
             print("   → Combination of latent collapse + class imbalance")
         
         print("\nThis explains why k-NN performance is essentially random!")
 
          # 10. Test actual reconstruction behavior
-        print("\n🔟 Testing actual reconstruction behavior...")
+        print("\nTesting actual reconstruction behavior...")
         print("=" * 50)
         
         # Test with a few different inputs
@@ -235,7 +235,7 @@ def debug_reconstruction_model():
             print(f"  Input difference sample 0 vs {i}: {input_diff:.6f}")
         
         # Test what happens when we manually set latent to different values
-        print(f"\n🧪 Testing manual latent manipulation...")
+        print(f"\nTesting manual latent manipulation...")
         test_input = val_dataset[0]['embeddings'].unsqueeze(0).to(device)
         
         # Get original reconstruction
@@ -265,16 +265,16 @@ def debug_reconstruction_model():
             print(f"Difference from original: zero={diff1:.6f}, 0.1={diff2:.6f}, random={diff3:.6f}")
         
         # 11. Final comprehensive diagnosis
-        print("\n1️⃣1️⃣ COMPREHENSIVE DIAGNOSIS:")
+        print("\nCOMPREHENSIVE DIAGNOSIS:")
         print("=" * 50)
         
         if diff1 < 0.001 and diff2 < 0.001 and diff3 < 0.001:
-            print("🔴 DECODER IGNORES LATENT: Decoder produces same output regardless of latent input!")
+            print("DECODER IGNORES LATENT: Decoder produces same output regardless of latent input!")
             print("   → This explains both latent collapse AND good reconstruction")
             print("   → The decoder learned to output some 'average' representation")
             print("   → Reconstruction loss is computed incorrectly or model has bypass connection")
         else:
-            print("🟡 DECODER RESPONDS TO LATENT: Different latents produce different outputs")
+            print("DECODER RESPONDS TO LATENT: Different latents produce different outputs")
             print("   → But all samples still collapse to same latent point")
             print("   → This suggests encoder problem or optimization failure")
         
@@ -286,12 +286,12 @@ def debug_reconstruction_model():
         print(f"\nIs reconstruction just the mean input? Difference: {mean_diff:.6f}")
         
         if mean_diff < 0.0001:
-            print("🔴 RECONSTRUCTION IS MEAN: Model learned to output average of all inputs!")
+            print("RECONSTRUCTION IS MEAN: Model learned to output average of all inputs!")
             print("   → This minimizes MSE when all latents are identical")
             print("   → Classic degenerate autoencoder solution")
         
     except Exception as e:
-        print(f"❌ ERROR: {e}")
+        print(f"ERROR: {e}")
         import traceback
         traceback.print_exc()
 

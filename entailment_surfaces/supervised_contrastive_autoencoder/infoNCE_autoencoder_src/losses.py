@@ -31,7 +31,7 @@ class InfoNCELoss(nn.Module):
         """
         Extract features for the entire dataset using the current model
         """
-        print("🌍 Extracting global features for InfoNCE...")
+        print("Extracting global features for InfoNCE...")
         model.eval()
         
         all_features = []
@@ -164,11 +164,9 @@ class OrderEmbeddingLoss(nn.Module):
     def order_violation_energy(self, premise_embeddings, hypothesis_embeddings):
         """
         Compute order violation energy: E(u,v) = ||max(0, u-v)||²
-        For entailment: premise ⊑ hypothesis, so violations should be premise - hypothesis
+        For entailment: premise ⊑ hypothesis, so violations should be hypothesis - premise
         """
-        # Correct order: premise should be ≤ hypothesis for entailment
-        # So we penalize when premise > hypothesis
-        violations = torch.clamp(premise_embeddings - hypothesis_embeddings, min=0)
+        violations = torch.clamp(hypothesis_embeddings - premise_embeddings, min=0)
         energy = torch.norm(violations, p=2, dim=1) ** 2
         
         # Normalize by dimension to keep energies reasonable

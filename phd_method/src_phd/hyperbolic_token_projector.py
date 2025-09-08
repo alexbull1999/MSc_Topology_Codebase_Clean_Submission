@@ -115,7 +115,7 @@ class HyperbolicProjectorTrainer:
         
         model.to(self.device)
         model.eval()
-        print(f"✅ Order model loaded (768D→768D)")
+        print(f"Order model loaded (768D→768D)")
         return model
         
     def _load_asymmetry_model(self, model_path: str):
@@ -135,7 +135,7 @@ class HyperbolicProjectorTrainer:
 
         model.to(self.device)
         model.eval()
-        print(f"✅ Asymmetry model loaded (768D→768D)")
+        print(f"Asymmetry model loaded (768D→768D)")
         return model
 
     def hyperbolic_entailment_loss(self, 
@@ -301,7 +301,7 @@ class HyperbolicProjectorTrainer:
             }
         }
         torch.save(checkpoint, save_path)
-        print(f"✅ Model saved to {save_path} (Val Loss: {val_loss:.4f})")
+        print(f"Model saved to {save_path} (Val Loss: {val_loss:.4f})")
 
 def main():
     set_random_seed(42)

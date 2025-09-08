@@ -649,7 +649,7 @@ class SeparateModelClusteringValidator:
         print(f"Found {valid_diagrams_count} valid diagrams with {len(all_lifespans)} total finite features")
         
         if len(all_lifespans) == 0:
-            print("❌ No finite features found across all diagrams!")
+            print("No finite features found across all diagrams!")
             return []
         
         # Calculate actual data ranges
@@ -964,7 +964,7 @@ class SeparateModelClusteringValidator:
                 
                 # Skip if insufficient points
                 if not stats['sufficient_for_phd']:
-                    print(f"    ⚠️ Skipping due to insufficient points")
+                    print(f"    Skipping due to insufficient points")
                     continue
                 
                 # Compute distance matrix
@@ -985,7 +985,7 @@ class SeparateModelClusteringValidator:
                 # ← FIX: Actually collect the diagrams!
                 all_persistence_diagrams.append(diagrams)
                 sample_labels.append(class_idx)
-                print(f"    ✅ Added diagrams to collection (total: {len(all_persistence_diagrams)})")
+                print(f"    Added diagrams to collection (total: {len(all_persistence_diagrams)})")
 
         # ← FIX: Move this OUTSIDE the loops
         print(f"\nCollected {len(all_persistence_diagrams)} diagram sets for clustering")
@@ -1011,7 +1011,7 @@ class SeparateModelClusteringValidator:
                 persistence_images, sample_labels  # ← FIX: Use correct variable name
             )
         else:
-            print("❌ No persistence images generated - cannot perform clustering")
+            print("No persistence images generated - cannot perform clustering")
             accuracy, sil_score, ari_score = 0.0, 0.0, 0.0
     
         
@@ -1067,7 +1067,7 @@ class SeparateModelClusteringValidator:
         print(f"Clustering Accuracy: {accuracy:.3f}")
         print(f"Silhouette Score: {sil_score:.3f}")
         print(f"Adjusted Rand Index: {ari_score:.3f}")
-        print(f"Success (>70%): {'🎉 YES' if result.success else '❌ NO'}")
+        print(f"Success (>70%): {'YES' if result.success else 'NO'}")
         
         print(f"\nPH-Dimension Statistics:")
         for class_name, stats in ph_dim_stats.items():
@@ -1197,9 +1197,9 @@ class SeparateModelClusteringValidator:
             contra_energy = order_energies.get('contradiction', float('inf'))
             
             if entail_energy < neutral_energy < contra_energy:
-                print("  ✅ ORDER MODEL SUCCESS: Correct energy ranking!")
+                print("  ORDER MODEL SUCCESS: Correct energy ranking!")
             else:
-                print("  ❌ ORDER MODEL ISSUE: Incorrect energy ranking")
+                print("  ORDER MODEL ISSUE: Incorrect energy ranking")
         
         # Analyze asymmetry model patterns
         print("\nAsymmetry Model (Directional Pattern Loss):")
@@ -1230,14 +1230,14 @@ class SeparateModelClusteringValidator:
             
             print(f"\nAsymmetry Pattern Analysis:")
             if entail_forward < contra_forward:
-                print("  ✅ Forward energy: Entailment < Contradiction")
+                print("  Forward energy: Entailment < Contradiction")
             else:
-                print("  ❌ Forward energy: Incorrect pattern")
+                print("  Forward energy: Incorrect pattern")
             
             if contra_asym > neutral_asym:
-                print("  ✅ Asymmetric energy: Contradiction > Neutral") 
+                print("  Asymmetric energy: Contradiction > Neutral") 
             else:
-                print("  ❌ Asymmetric energy: Incorrect pattern")
+                print("  Asymmetric energy: Incorrect pattern")
 
 
     def save_comprehensive_results(self, result: ClusteringResult):
@@ -1324,11 +1324,11 @@ class SeparateModelClusteringValidator:
             if result.success:
                 f.write("IMPLICATIONS:\n")
                 f.write("-" * 12 + "\n")
-                f.write("✅ Separate model training approach successful!\n")
-                f.write("✅ Order embeddings create topologically distinct point clouds\n")
-                f.write("✅ Asymmetric features enhance directional discrimination\n")
-                f.write("✅ Individual premise-hypothesis pairs are topologically classifiable\n")
-                f.write("✅ Validates extension from global to local topological analysis\n")
+                f.write("Separate model training approach successful!\n")
+                f.write("Order embeddings create topologically distinct point clouds\n")
+                f.write("Asymmetric features enhance directional discrimination\n")
+                f.write("Individual premise-hypothesis pairs are topologically classifiable\n")
+                f.write("Validates extension from global to local topological analysis\n")
             else:
                 f.write("NEXT STEPS:\n")
                 f.write("-" * 11 + "\n")
@@ -1448,7 +1448,7 @@ class SeparateModelClusteringValidator:
                 all_diagrams.append(direct_diagrams)
                 
             except Exception as e:
-                print(f"   ❌ Direct ripser failed: {e}")
+                print(f"   Direct ripser failed: {e}")
                 continue
             
             # Test your fixed ph_dim function
@@ -1461,20 +1461,20 @@ class SeparateModelClusteringValidator:
                 print(f"   Returned diagrams: H0={len(ph_diagrams[0])}, H1={len(ph_diagrams[1])}")
                 
             except Exception as e:
-                print(f"   ❌ PH-dim function failed: {e}")
+                print(f"   PH-dim function failed: {e}")
         
         # Test persistence image conversion
         if all_diagrams:
             print(f"\n6. Testing persistence image conversion on {len(all_diagrams)} diagrams...")
             try:
                 persistence_images = self.persistence_diagrams_to_images(all_diagrams)
-                print(f"   ✅ Generated {len(persistence_images)} persistence images")
+                print(f"   Generated {len(persistence_images)} persistence images")
                 return len(persistence_images) > 0
             except Exception as e:
-                print(f"   ❌ Persistence image conversion failed: {e}")
+                print(f"   Persistence image conversion failed: {e}")
                 return False
         else:
-            print("6. ❌ No diagrams to convert to images")
+            print("6. No diagrams to convert to images")
             return False
 
 
@@ -1821,7 +1821,7 @@ class SeparateModelClusteringValidator:
                 )
                 
                 if len(persistence_images) == 0:
-                    print(f"  ❌ No images generated")
+                    print(f"  No images generated")
                     continue
                 
                 # Test clustering performance
@@ -1845,7 +1845,7 @@ class SeparateModelClusteringValidator:
                 print(f"  Results: Acc={accuracy:.3f}, Sil={sil_score:.3f}, ARI={ari_score:.3f}")
                 
             except Exception as e:
-                print(f"  ❌ Failed: {e}")
+                print(f"  Failed: {e}")
                 continue
         
         # Analyze results
@@ -1865,7 +1865,7 @@ class SeparateModelClusteringValidator:
                     f"{result['silhouette']:<12.3f} {result['ari']:<8.3f} {result['num_images']:<8}")
             
             best_result = results[0]
-            print(f"\n🏆 BEST CONFIGURATION: {best_result['config_name']}")
+            print(f"\nBEST CONFIGURATION: {best_result['config_name']}")
             print(f"   Accuracy: {best_result['accuracy']:.3f}")
             print(f"   Pixel size: {best_result['pixel_size']:.4f}")
             print(f"   Sigma: {best_result['sigma']:.4f}")
@@ -1876,9 +1876,9 @@ class SeparateModelClusteringValidator:
             improvement = best_result['accuracy'] - current_accuracy
             
             if improvement > 0.01:  # 1% improvement threshold
-                print(f"🎉 IMPROVEMENT FOUND: +{improvement:.3f} ({improvement*100:.1f}%)")
+                print(f"IMPROVEMENT FOUND: +{improvement:.3f} ({improvement*100:.1f}%)")
             else:
-                print(f"📊 Marginal change: {improvement:+.3f}")
+                print(f"Marginal change: {improvement:+.3f}")
         
         return results
 
@@ -2079,15 +2079,15 @@ def main():
     print("SEPARATE MODEL CLUSTERING VALIDATION COMPLETED!")
     
     if result.success:
-        print("🎉 SUCCESS: Achieved >70% clustering accuracy!")
+        print("SUCCESS: Achieved >70% clustering accuracy!")
         print("This validates that:")
-        print("  ✅ Separate model training approach works")
-        print("  ✅ Order embeddings create hierarchical structure in point clouds")
-        print("  ✅ Asymmetry models add directional discrimination")
-        print("  ✅ Individual premise-hypothesis pairs are topologically distinct")
-        print("  ✅ Token-level processing enables rich point cloud generation")
+        print("  Separate model training approach works")
+        print("  Order embeddings create hierarchical structure in point clouds")
+        print("  Asymmetry models add directional discrimination")
+        print("  Individual premise-hypothesis pairs are topologically distinct")
+        print("  Token-level processing enables rich point cloud generation")
     else:
-        print("❌ Did not achieve 70% clustering threshold")
+        print("Did not achieve 70% clustering threshold")
         print("Analysis points to consider:")
         print("  - Check if models trained to convergence")
         print("  - Verify point cloud generation produces sufficient points")
@@ -2249,9 +2249,9 @@ def main():
 #     print(f"Difference: {improvement:+.3f} ({improvement*100:+.1f} percentage points)")
     
 #     if best_accuracy > 0.702:
-#         print("📊 SBERT embeddings cluster better than topological features")
+#         print("SBERT embeddings cluster better than topological features")
 #     else:
-#         print("🔬 Topological features provide better clustering structure")
+#         print("Topological features provide better clustering structure")
     
 #     return {
 #         'sbert_clustering_accuracy': best_accuracy,

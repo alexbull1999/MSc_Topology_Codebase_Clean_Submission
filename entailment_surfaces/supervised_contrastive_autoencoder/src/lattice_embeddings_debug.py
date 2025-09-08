@@ -26,10 +26,10 @@ def find_data_file():
     for path in possible_paths:
         print(f"Checking: {path}")
         if os.path.exists(path):
-            print(f"✅ Found data file: {path}")
+            print(f"Found data file: {path}")
             return path
     
-    print("❌ Could not find SBERT data file in any of these locations:")
+    print("Could not find SBERT data file in any of these locations:")
     for path in possible_paths:
         print(f"  {os.path.abspath(path)}")
     
@@ -65,8 +65,8 @@ def analyze_lattice_embeddings(premise_embeddings, hypothesis_embeddings, labels
     
     # Check for collapse
     if lattice_embeddings.std().item() < 0.01:
-        print(f"⚠️  WARNING: Lattice embeddings have very low variance ({lattice_embeddings.std().item():.6f})")
-        print("   This suggests feature collapse!")
+        print(f"WARNING: Lattice embeddings have very low variance ({lattice_embeddings.std().item():.6f})")
+        print("This suggests feature collapse!")
     
     # Analyze per-class separation
     print(f"\nPer-class analysis:")
@@ -97,8 +97,8 @@ def analyze_lattice_embeddings(premise_embeddings, hypothesis_embeddings, labels
     print(f"  Gap: {(neg_distances.min() - pos_distances.max()).item():.4f}")
     
     if neg_distances.mean() / pos_distances.mean() < 1.5:
-        print("⚠️  WARNING: Poor class separation in lattice embeddings!")
-        print("   This will make contrastive learning very difficult.")
+        print("WARNING: Poor class separation in lattice embeddings!")
+        print("This will make contrastive learning very difficult.")
     
     return lattice_embeddings
 
@@ -266,14 +266,14 @@ def analyze_sbert_embedding_properties(premise_embeddings, hypothesis_embeddings
     
     # Check if they're unit normalized
     if torch.abs(premise_norms.mean() - 1.0) < 0.1:
-        print("✅ Premise embeddings appear to be unit normalized")
+        print("Premise embeddings appear to be unit normalized")
     else:
-        print("⚠️  Premise embeddings are NOT unit normalized")
+        print("Premise embeddings are NOT unit normalized")
     
     if torch.abs(hypothesis_norms.mean() - 1.0) < 0.1:
-        print("✅ Hypothesis embeddings appear to be unit normalized")
+        print("Hypothesis embeddings appear to be unit normalized")
     else:
-        print("⚠️  Hypothesis embeddings are NOT unit normalized")
+        print("Hypothesis embeddings are NOT unit normalized")
     
     # Check cosine similarities between premise and hypothesis
     cos_sims = torch.cosine_similarity(premise_embeddings, hypothesis_embeddings, dim=1)

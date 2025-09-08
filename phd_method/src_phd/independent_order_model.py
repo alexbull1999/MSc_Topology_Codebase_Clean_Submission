@@ -305,15 +305,15 @@ def plot_order_embedding_training_progress(trainer: OrderEmbeddingTrainerSeparat
         final_contra = contra_means[-1] if contra_means else 0
         
         if final_entail < 1.0 and 1.0 <= final_neutral <= 1.5 and final_contra > 1.8:
-            ax2.text(0.02, 0.98, '✅ Perfect Separation:\nE<1.0, 1.0≤N≤1.5, C>1.8', 
+            ax2.text(0.02, 0.98, 'Perfect Separation:\nE<1.0, 1.0≤N≤1.5, C>1.8', 
                     transform=ax2.transAxes, fontsize=10, verticalalignment='top',
                     bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.8))
         elif final_entail < final_neutral < final_contra:
-            ax2.text(0.02, 0.98, '✅ Correct ordering:\nEntailment < Neutral < Contradiction', 
+            ax2.text(0.02, 0.98, 'Correct ordering:\nEntailment < Neutral < Contradiction', 
                     transform=ax2.transAxes, fontsize=10, verticalalignment='top',
                     bbox=dict(boxstyle='round', facecolor='yellow', alpha=0.8))
         else:
-            ax2.text(0.02, 0.98, '❌ Incorrect ordering', 
+            ax2.text(0.02, 0.98, 'Incorrect ordering', 
                     transform=ax2.transAxes, fontsize=10, verticalalignment='top',
                     bbox=dict(boxstyle='round', facecolor='lightcoral', alpha=0.8))
     
@@ -436,11 +436,11 @@ def train_order_embedding_separate_margins(processed_data_path: str, output_dir:
                            1.0 <= neutral_mean <= 1.5 and 
                            contra_mean > 1.8)
             if zones_correct:
-                print("  ✅ Perfect target zones achieved!")
+                print("  Perfect target zones achieved!")
             elif entail_mean < neutral_mean < contra_mean:
-                print("  ✅ Correct ordering maintained")
+                print("  Correct ordering maintained")
             else:
-                print("  ❌ Ordering needs improvement")
+                print("  Ordering needs improvement")
         
         if val_loss < best_val_loss:
             best_val_loss = val_loss
@@ -464,7 +464,7 @@ def train_order_embedding_separate_margins(processed_data_path: str, output_dir:
                 'epoch': epoch,
             }, order_model_path)
             
-            print(f"✅ Order model saved: {order_model_path}")
+            print(f"Order model saved: {order_model_path}")
         else:
             patience_counter += 1
         
@@ -510,11 +510,11 @@ def train_order_embedding_separate_margins(processed_data_path: str, output_dir:
             f.write(f"Contradiction in target zone (> {contradiction_margin}): {'✅' if contra_mean > contradiction_margin else '❌'}\n")
             
             if entail_mean < neutral_margin and neutral_margin <= neutral_mean <= neutral_upper_bound and contra_mean > contradiction_margin:
-                f.write("🎯 PERFECT SEPARATION ACHIEVED!\n")
+                f.write("PERFECT SEPARATION ACHIEVED!\n")
             elif entail_mean < neutral_mean < contra_mean:
-                f.write("✅ CORRECT ORDERING MAINTAINED\n")
+                f.write("CORRECT ORDERING MAINTAINED\n")
             else:
-                f.write("❌ ORDERING NEEDS IMPROVEMENT\n")
+                f.write("ORDERING NEEDS IMPROVEMENT\n")
         
         f.write(f"\nBest validation loss: {best_val_loss:.6f}\n")
         f.write(f"Training completed at epoch: {len(order_trainer.train_losses)}\n")
@@ -523,9 +523,9 @@ def train_order_embedding_separate_margins(processed_data_path: str, output_dir:
     
     print("\n" + "="*80)
     print("ORDER EMBEDDING MODEL WITH SEPARATE MARGINS TRAINING COMPLETE!")
-    print("✅ Separate margin loss: Enhanced neutral class separation")
-    print("✅ Target energy zones: E<1.0, 1.0≤N≤1.5, C>1.8")
-    print("✅ Comprehensive analysis and plots generated")
+    print("Separate margin loss: Enhanced neutral class separation")
+    print("Target energy zones: E<1.0, 1.0≤N≤1.5, C>1.8")
+    print("Comprehensive analysis and plots generated")
     print("Next: Use this model for improved point cloud clustering")
     print("="*80)
     

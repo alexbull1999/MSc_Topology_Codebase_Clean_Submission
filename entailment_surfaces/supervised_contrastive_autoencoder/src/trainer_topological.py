@@ -94,7 +94,7 @@ class TopologicalTrainer:
             
             update_freq = getattr(self.loss_function.base_loss.contrastive_loss, 'update_frequency', 3)
             if current_epoch % update_freq == 0:
-                print(f"\n🌍 Updating global dataset at epoch {current_epoch + 1}")
+                print(f"\nUpdating global dataset at epoch {current_epoch + 1}")
                 self.loss_function.update_global_datasets(
                     train_loader, self.model, self.device
                 )
@@ -233,7 +233,7 @@ class TopologicalTrainer:
         os.makedirs(save_dir, exist_ok=True)
         
         print("\n" + "="*70)
-        print("🧠 TOPOLOGICAL AUTOENCODER TRAINING STARTED")
+        print("TOPOLOGICAL AUTOENCODER TRAINING STARTED")
         print("="*70)
         
         for epoch in range(num_epochs):
@@ -262,7 +262,7 @@ class TopologicalTrainer:
                 
                 # Save best model
                 self._save_checkpoint(epoch, save_dir, 'best_model.pt', train_losses, val_losses)
-                print("✅ New best model saved!")
+                print("New best model saved!")
             else:
                 self.patience_counter += 1
             
@@ -278,7 +278,7 @@ class TopologicalTrainer:
             
             # Early stopping check
             if self.patience_counter >= patience:
-                print(f"\n🛑 Early stopping triggered after {epoch+1} epochs")
+                print(f"\nEarly stopping triggered after {epoch+1} epochs")
                 print(f"Best model was at epoch {self.best_epoch+1} with Val Loss: {self.best_val_loss:.4f}")
                 break
         
@@ -299,25 +299,25 @@ class TopologicalTrainer:
         print(f"EPOCH {epoch+1} | Batches: {len(train_loader)} | Topological Weight: {current_topo_weight:.4f}")
         
         if current_topo_weight == 0:
-            print("🔄 Topological warmup phase")
+            print("Topological warmup phase")
         elif current_topo_weight < 0.05:
-            print("🌱 Early topological learning")
+            print("Early topological learning")
         else:
-            print("🧠 Full topological learning active")
+            print("Full topological learning active")
         print("="*60)
     
     def _print_batch_debug(self, batch_idx, num_batches, loss, loss_components, topo_weight):
         """Print enhanced batch debug information"""
-        # Topological status emoji
+        # Topological status 
         topo_loss = loss_components.get('topological_loss', 0.0)
         if topo_loss == 0:
-            topo_status = "❌"
+            topo_status = "error"
         elif topo_loss < 1.0:
-            topo_status = "🎉"
+            topo_status = "very low loss"
         elif topo_loss < 10.0:
-            topo_status = "🚀"
+            topo_status = "low loss"
         else:
-            topo_status = "⚠️"
+            topo_status = "warning - above 10"
         
         print(f"Batch {batch_idx:3d}/{num_batches}: "
               f"Loss={loss.item():.4f} "
@@ -328,7 +328,7 @@ class TopologicalTrainer:
     def _print_training_summary(self, epoch, avg_loss, avg_c, avg_r, avg_t, topo_weight, 
                                batches_with_topo, total_batches):
         """Print training epoch summary"""
-        print(f"\n📊 EPOCH {epoch+1} TRAINING SUMMARY:")
+        print(f"\nEPOCH {epoch+1} TRAINING SUMMARY:")
         print(f"  Total Loss: {avg_loss:.4f}")
         print(f"  Contrastive: {avg_c:.4f}")
         print(f"  Reconstruction: {avg_r:.4f}")
@@ -338,7 +338,7 @@ class TopologicalTrainer:
     def _print_validation_summary(self, avg_loss, avg_c, avg_r, avg_t, topo_weight, 
                                  batches_with_topo, total_batches):
         """Print validation summary"""
-        print(f"\n📊 VALIDATION SUMMARY:")
+        print(f"\nVALIDATION SUMMARY:")
         print(f"  Total Loss: {avg_loss:.4f}")
         print(f"  Contrastive: {avg_c:.4f}")
         print(f"  Reconstruction: {avg_r:.4f}")
@@ -347,7 +347,7 @@ class TopologicalTrainer:
     
     def _print_epoch_completion(self, epoch, num_epochs, epoch_time, train_losses, val_losses, is_best):
         """Print epoch completion summary"""
-        print(f"\n🎯 EPOCH {epoch+1}/{num_epochs} COMPLETE ({epoch_time:.1f}s)")
+        print(f"\nEPOCH {epoch+1}/{num_epochs} COMPLETE ({epoch_time:.1f}s)")
         print(f"Train Loss: {train_losses['total_loss']:.4f} "
               f"(C:{train_losses['contrastive_loss']:.4f}, "
               f"R:{train_losses['reconstruction_loss']:.4f}, "
@@ -360,16 +360,16 @@ class TopologicalTrainer:
         # Topological progress indicator
         if train_losses['topological_loss'] > 0:
             if train_losses['topological_loss'] < 1.0:
-                print("🎉 Topological complexity detected!")
+                print("Topological complexity detected!")
             elif train_losses['topological_loss'] < 10.0:
-                print("🚀 Good topological learning progress")
+                print("Good topological learning progress")
             else:
-                print("⚠️  High topological loss - may need adjustment")
+                print("High topological loss - may need adjustment")
         else:
-            print("❌ No topological learning yet")
+            print("No topological learning yet")
         
         if is_best:
-            print("⭐ Best model so far!")
+            print("Best model so far!")
         
         print("-" * 60)
     
@@ -380,7 +380,7 @@ class TopologicalTrainer:
             if self.topological_milestones['first_nonzero_epoch'] is None:
                 self.topological_milestones['first_nonzero_epoch'] = epoch
                 self.topological_milestones['first_nonzero_loss'] = avg_topological_loss
-                print(f"🎉 MILESTONE: First topological learning detected at epoch {epoch+1}!")
+                print(f"MILESTONE: First topological learning detected at epoch {epoch+1}!")
                 print(f"   Initial topological loss: {avg_topological_loss:.4f}")
             
             # Track consecutive epochs with topology
@@ -394,7 +394,7 @@ class TopologicalTrainer:
             # Track best topological loss
             if avg_topological_loss < self.topological_milestones['best_topological_loss']:
                 self.topological_milestones['best_topological_loss'] = avg_topological_loss
-                print(f"📈 New best topological loss: {avg_topological_loss:.4f}")
+                print(f"New best topological loss: {avg_topological_loss:.4f}")
         else:
             # Reset consecutive counter if no topology this epoch
             self.topological_milestones['consecutive_topology_epochs'] = 0
@@ -437,7 +437,7 @@ class TopologicalTrainer:
     def _print_final_topological_analysis(self):
         """Print final analysis of topological learning"""
         print("\n" + "="*70)
-        print("📈 FINAL TOPOLOGICAL LEARNING ANALYSIS")
+        print("FINAL TOPOLOGICAL LEARNING ANALYSIS")
         print("="*70)
         
         milestones = self.topological_milestones
@@ -452,26 +452,26 @@ class TopologicalTrainer:
         
         # Success assessment
         if milestones['first_nonzero_epoch'] is not None:
-            print("✅ SUCCESS: Topological learning achieved!")
+            print("SUCCESS: Topological learning achieved!")
             
             # Detailed success analysis
             topology_percentage = milestones['epochs_with_topology'] / total_epochs
             if topology_percentage > 0.8:
-                print("🚀 EXCELLENT: Very consistent topological learning (>80%)")
+                print("EXCELLENT: Very consistent topological learning (>80%)")
             elif topology_percentage > 0.5:
-                print("👍 GOOD: Fairly consistent topological learning (>50%)")
+                print("GOOD: Fairly consistent topological learning (>50%)")
             elif topology_percentage > 0.2:
-                print("⚠️  PARTIAL: Some topological learning but inconsistent (>20%)")
+                print("PARTIAL: Some topological learning but inconsistent (>20%)")
             else:
-                print("🔍 MINIMAL: Very limited topological learning (<20%)")
+                print("MINIMAL: Very limited topological learning (<20%)")
                 
             # Check if learning is stable
             if milestones['max_consecutive_topology'] > 10:
-                print("📈 Topological learning appears stable")
+                print("Topological learning appears stable")
             else:
-                print("📊 Topological learning appears unstable")
+                print("Topological learning appears unstable")
         else:
-            print("❌ FAILURE: No topological learning detected")
+            print("FAILURE: No topological learning detected")
             print("   Recommendations:")
             print("   - Increase topological weight")
             print("   - Check TorchPH implementation")
@@ -489,7 +489,7 @@ class TopologicalTrainer:
         topo_losses = self.train_history['train_topological_loss']
         topo_weights = self.train_history['topological_weight']
         
-        print("\n📈 TOPOLOGICAL LEARNING DIAGNOSIS:")
+        print("\nTOPOLOGICAL LEARNING DIAGNOSIS:")
         print(f"  Total epochs: {len(topo_losses)}")
         print(f"  Epochs with topological learning: {sum(1 for x in topo_losses if x > 0)}")
         print(f"  Current topological loss: {topo_losses[-1]:.4f}")
@@ -499,11 +499,11 @@ class TopologicalTrainer:
         recent_losses = topo_losses[-5:] if len(topo_losses) >= 5 else topo_losses
         if all(x > 0 for x in recent_losses):
             if recent_losses[-1] < recent_losses[0]:
-                print("  ✅ Topological loss is decreasing (good progress)")
+                print("  Topological loss is decreasing (good progress)")
             else:
-                print("  ⚠️  Topological loss is increasing (may need tuning)")
+                print("  Topological loss is increasing (may need tuning)")
         else:
-            print("  ❌ Topological loss still zero (no structure learned yet)")
+            print("  Topological loss still zero (no structure learned yet)")
         
         return {
             'epochs_with_topology': sum(1 for x in topo_losses if x > 0),

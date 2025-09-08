@@ -763,11 +763,11 @@ def run_snli_train_chaosnli_eval(snli_persistence_train_path, snli_persistence_v
     print(f"  KL:  {'Persistence CNN' if persistence_better_kl else 'SBERT'} is better")
     
     if persistence_better_jsd and persistence_better_kl:
-        print(f"\n🎉 Persistence CNN wins on both uncertainty metrics!")
+        print(f"\nPersistence CNN wins on both uncertainty metrics!")
     elif persistence_better_jsd or persistence_better_kl:
-        print(f"\n📊 Mixed results - each approach has strengths")
+        print(f"\nMixed results - each approach has strengths")
     else:
-        print(f"\n📈 SBERT baseline still leads on uncertainty quantification")
+        print(f"\nSBERT baseline still leads on uncertainty quantification")
     
     return {
         'snli_training': {

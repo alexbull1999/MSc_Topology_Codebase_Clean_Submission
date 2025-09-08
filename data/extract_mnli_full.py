@@ -1,7 +1,6 @@
 """
 MNLI dataset extraction script
 Extracts MNLI data in the same format as extract_snli_full.py
-Compatible with existing TDA entailment pipeline
 """
 
 import pandas as pd
@@ -41,7 +40,7 @@ def extract_mnli_full_dataset(arrow_file_path, output_path, seed=42):
     print(f"Label distribution (original integers):")
     print(df['label'].value_counts().sort_index())
 
-    # Save as JSON in toy dataset format: [premise, hypothesis, label]
+    # Save as JSON in dataset format: [premise, hypothesis, label]
     output_data = []
     for _, row in df.iterrows():
         output_data.append([
@@ -72,10 +71,10 @@ def extract_mnli_full_dataset(arrow_file_path, output_path, seed=42):
 
 
 if __name__ == "__main__":
-    # Configuration - matching your existing paths
+    # Configuration - matching existing paths
     mnli_raw_path = "data/raw/mnli/validation_mismatched/data-00000-of-00001.arrow"
     
-    # Output paths matching your existing structure
+    # Output paths matching existing structure
     full_output_path = "data/raw/mnli/validation_mismatched/mnli_full_validation_mismatched.json"
     
     print("MNLI Dataset Extraction")

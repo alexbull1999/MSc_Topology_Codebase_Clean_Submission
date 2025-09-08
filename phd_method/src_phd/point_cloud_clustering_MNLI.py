@@ -846,11 +846,11 @@ class SeparateModelPointCloudGenerator:
         print(f"Improvement: {improvement:+.3f} ({improvement/0.669*100:+.1f}%)")
         
         if best_accuracy > 0.75:
-            print("🎉 EXCELLENT: Classification significantly outperforms clustering!")
+            print("EXCELLENT: Classification significantly outperforms clustering!")
         elif best_accuracy > 0.669:
-            print("✅ SUCCESS: Classification improves over clustering baseline")
+            print("SUCCESS: Classification improves over clustering baseline")
         else:
-            print("⚠️ INVESTIGATION NEEDED: Classification underperforms clustering")
+            print("INVESTIGATION NEEDED: Classification underperforms clustering")
 
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -959,14 +959,14 @@ class SeparateModelPointCloudGenerator:
             f.write("-" * 15 + "\n")
             best_improvement = best_result['accuracy'] - clustering_baseline
             if best_improvement > 0.05:
-                f.write("🎉 EXCELLENT: Classification significantly outperforms clustering!\n")
-                f.write("✅ Ready for ChaosNLI uncertainty quantification\n")
-                f.write("✅ Ready for MNLI robustness testing\n")
+                f.write("EXCELLENT: Classification significantly outperforms clustering!\n")
+                f.write("Ready for ChaosNLI uncertainty quantification\n")
+                f.write("Ready for MNLI robustness testing\n")
             elif best_improvement > 0:
-                f.write("✅ SUCCESS: Classification improves over clustering baseline\n")
+                f.write("SUCCESS: Classification improves over clustering baseline\n")
                 f.write("→ Proceed with ChaosNLI and MNLI validation\n")
             else:
-                f.write("⚠️ INVESTIGATION NEEDED: Classification underperforms clustering\n")
+                f.write("INVESTIGATION NEEDED: Classification underperforms clustering\n")
                 f.write("→ Analyze feature importance and consider feature engineering\n")
             
             f.write(f"\nNEXT STEPS:\n")
@@ -976,7 +976,7 @@ class SeparateModelPointCloudGenerator:
             f.write("3. Binary classification for LLM regularization\n")
             f.write("4. Feature ablation study to identify key topological signatures\n")
         
-        print(f"\n✅ Human-readable results saved to: {results_file}")
+        print(f"\nHuman-readable results saved to: {results_file}")
         
         return results, X_train, y_train, X_val, y_val, scaler
 
@@ -1096,7 +1096,7 @@ class SeparateModelPointCloudGenerator:
         
         # Use Random Forest for feature importance
         if 'Random Forest' not in results:
-            print("⚠️ Random Forest not available for feature importance analysis")
+            print("Random Forest not available for feature importance analysis")
             return None
             
         rf_model = results['Random Forest']['model']
@@ -1331,11 +1331,11 @@ class SeparateModelPointCloudGenerator:
         print(f"\nTopological vs SBERT Improvement: {improvement:+.3f} ({improvement/best_sbert_acc*100:+.1f}%)")
         
         if improvement > 0:
-            print("🎉 TOPOLOGICAL FEATURES WIN! Geometric structure adds discriminative power!")
+            print("TOPOLOGICAL FEATURES WIN! Geometric structure adds discriminative power!")
         elif abs(improvement) < 0.01:
-            print("🤝 TIE: Both approaches perform similarly")
+            print("TIE: Both approaches perform similarly")
         else:
-            print("📊 SBERT BASELINE WINS: Raw embeddings more discriminative")
+            print("SBERT BASELINE WINS: Raw embeddings more discriminative")
         
         return {
             'topological': {'results': topo_results, 'best_accuracy': best_topo_acc, 'best_model': best_topo_name},
@@ -1467,13 +1467,13 @@ class SeparateModelPointCloudGenerator:
         print(f"  vs SBERT: {sbert_improvement:+.3f} ({sbert_improvement/0.694*100:+.1f}%)")
         
         if best_hybrid_accuracy > 0.720:
-            print("🎉 EXCELLENT: Hybrid approach achieves >72% accuracy!")
+            print("EXCELLENT: Hybrid approach achieves >72% accuracy!")
         elif best_hybrid_accuracy > 0.710:
-            print("🚀 GREAT: Hybrid approach improves over both baselines!")
+            print("GREAT: Hybrid approach improves over both baselines!")
         elif best_hybrid_accuracy > max(0.700, 0.694):
-            print("✅ SUCCESS: Hybrid approach beats individual methods!")
+            print("SUCCESS: Hybrid approach beats individual methods!")
         else:
-            print("📊 ANALYSIS: Hybrid doesn't improve - features may be redundant")
+            print("ANALYSIS: Hybrid doesn't improve - features may be redundant")
         
         return hybrid_results, X_train_hybrid, X_val_hybrid
 
@@ -1634,7 +1634,7 @@ class SeparateModelClusteringValidator:
         print(f"Found {valid_diagrams_count} valid diagrams with {len(all_lifespans)} total finite features")
         
         if len(all_lifespans) == 0:
-            print("❌ No finite features found across all diagrams!")
+            print("No finite features found across all diagrams!")
             return []
         
         # Calculate actual data ranges
@@ -1949,7 +1949,7 @@ class SeparateModelClusteringValidator:
                 
                 # Skip if insufficient points
                 if not stats['sufficient_for_phd']:
-                    print(f"    ⚠️ Skipping due to insufficient points")
+                    print(f"    Skipping due to insufficient points")
                     continue
                 
                 # Compute distance matrix
@@ -1970,7 +1970,7 @@ class SeparateModelClusteringValidator:
                 # ← FIX: Actually collect the diagrams!
                 all_persistence_diagrams.append(diagrams)
                 sample_labels.append(class_idx)
-                print(f"    ✅ Added diagrams to collection (total: {len(all_persistence_diagrams)})")
+                print(f"    Added diagrams to collection (total: {len(all_persistence_diagrams)})")
 
         # ← FIX: Move this OUTSIDE the loops
         print(f"\nCollected {len(all_persistence_diagrams)} diagram sets for clustering")
@@ -1996,7 +1996,7 @@ class SeparateModelClusteringValidator:
                 persistence_images, sample_labels  # ← FIX: Use correct variable name
             )
         else:
-            print("❌ No persistence images generated - cannot perform clustering")
+            print("No persistence images generated - cannot perform clustering")
             accuracy, sil_score, ari_score = 0.0, 0.0, 0.0
     
         
@@ -2052,7 +2052,7 @@ class SeparateModelClusteringValidator:
         print(f"Clustering Accuracy: {accuracy:.3f}")
         print(f"Silhouette Score: {sil_score:.3f}")
         print(f"Adjusted Rand Index: {ari_score:.3f}")
-        print(f"Success (>70%): {'🎉 YES' if result.success else '❌ NO'}")
+        print(f"Success (>70%): {'YES' if result.success else 'NO'}")
         
         print(f"\nPH-Dimension Statistics:")
         for class_name, stats in ph_dim_stats.items():
@@ -2182,9 +2182,9 @@ class SeparateModelClusteringValidator:
             contra_energy = order_energies.get('contradiction', float('inf'))
             
             if entail_energy < neutral_energy < contra_energy:
-                print("  ✅ ORDER MODEL SUCCESS: Correct energy ranking!")
+                print("  ORDER MODEL SUCCESS: Correct energy ranking!")
             else:
-                print("  ❌ ORDER MODEL ISSUE: Incorrect energy ranking")
+                print("  ORDER MODEL ISSUE: Incorrect energy ranking")
         
         # Analyze asymmetry model patterns
         print("\nAsymmetry Model (Directional Pattern Loss):")
@@ -2215,14 +2215,14 @@ class SeparateModelClusteringValidator:
             
             print(f"\nAsymmetry Pattern Analysis:")
             if entail_forward < contra_forward:
-                print("  ✅ Forward energy: Entailment < Contradiction")
+                print("  Forward energy: Entailment < Contradiction")
             else:
-                print("  ❌ Forward energy: Incorrect pattern")
+                print("  Forward energy: Incorrect pattern")
             
             if contra_asym > neutral_asym:
-                print("  ✅ Asymmetric energy: Contradiction > Neutral") 
+                print("  Asymmetric energy: Contradiction > Neutral") 
             else:
-                print("  ❌ Asymmetric energy: Incorrect pattern")
+                print("  Asymmetric energy: Incorrect pattern")
 
 
     def save_comprehensive_results(self, result: ClusteringResult):
@@ -2309,11 +2309,11 @@ class SeparateModelClusteringValidator:
             if result.success:
                 f.write("IMPLICATIONS:\n")
                 f.write("-" * 12 + "\n")
-                f.write("✅ Separate model training approach successful!\n")
-                f.write("✅ Order embeddings create topologically distinct point clouds\n")
-                f.write("✅ Asymmetric features enhance directional discrimination\n")
-                f.write("✅ Individual premise-hypothesis pairs are topologically classifiable\n")
-                f.write("✅ Validates extension from global to local topological analysis\n")
+                f.write("Separate model training approach successful!\n")
+                f.write("Order embeddings create topologically distinct point clouds\n")
+                f.write("Asymmetric features enhance directional discrimination\n")
+                f.write("Individual premise-hypothesis pairs are topologically classifiable\n")
+                f.write("Validates extension from global to local topological analysis\n")
             else:
                 f.write("NEXT STEPS:\n")
                 f.write("-" * 11 + "\n")
@@ -2433,7 +2433,7 @@ class SeparateModelClusteringValidator:
                 all_diagrams.append(direct_diagrams)
                 
             except Exception as e:
-                print(f"   ❌ Direct ripser failed: {e}")
+                print(f"   Direct ripser failed: {e}")
                 continue
             
             # Test your fixed ph_dim function
@@ -2446,20 +2446,20 @@ class SeparateModelClusteringValidator:
                 print(f"   Returned diagrams: H0={len(ph_diagrams[0])}, H1={len(ph_diagrams[1])}")
                 
             except Exception as e:
-                print(f"   ❌ PH-dim function failed: {e}")
+                print(f"   PH-dim function failed: {e}")
         
         # Test persistence image conversion
         if all_diagrams:
             print(f"\n6. Testing persistence image conversion on {len(all_diagrams)} diagrams...")
             try:
                 persistence_images = self.persistence_diagrams_to_images(all_diagrams)
-                print(f"   ✅ Generated {len(persistence_images)} persistence images")
+                print(f"   Generated {len(persistence_images)} persistence images")
                 return len(persistence_images) > 0
             except Exception as e:
-                print(f"   ❌ Persistence image conversion failed: {e}")
+                print(f"   Persistence image conversion failed: {e}")
                 return False
         else:
-            print("6. ❌ No diagrams to convert to images")
+            print("6. No diagrams to convert to images")
             return False
 
 
@@ -2806,7 +2806,7 @@ class SeparateModelClusteringValidator:
                 )
                 
                 if len(persistence_images) == 0:
-                    print(f"  ❌ No images generated")
+                    print(f"  No images generated")
                     continue
                 
                 # Test clustering performance
@@ -2830,7 +2830,7 @@ class SeparateModelClusteringValidator:
                 print(f"  Results: Acc={accuracy:.3f}, Sil={sil_score:.3f}, ARI={ari_score:.3f}")
                 
             except Exception as e:
-                print(f"  ❌ Failed: {e}")
+                print(f"  Failed: {e}")
                 continue
         
         # Analyze results
@@ -2861,9 +2861,9 @@ class SeparateModelClusteringValidator:
             improvement = best_result['accuracy'] - current_accuracy
             
             if improvement > 0.01:  # 1% improvement threshold
-                print(f"🎉 IMPROVEMENT FOUND: +{improvement:.3f} ({improvement*100:.1f}%)")
+                print(f"IMPROVEMENT FOUND: +{improvement:.3f} ({improvement*100:.1f}%)")
             else:
-                print(f"📊 Marginal change: {improvement:+.3f}")
+                print(f"Marginal change: {improvement:+.3f}")
         
         return results
 
@@ -3208,7 +3208,7 @@ def train_pytorch_classifier(X_train, y_train, X_val, y_val, epochs=200):
     final_val_loss = val_losses[-1]
     
     if final_val_loss > 2 * final_train_loss:
-        print(f"  ⚠️ Warning: Possible overfitting (val_loss/train_loss = {final_val_loss/final_train_loss:.2f})")
+        print(f"  Warning: Possible overfitting (val_loss/train_loss = {final_val_loss/final_train_loss:.2f})")
     
     return model, best_val_acc
 
@@ -3369,15 +3369,15 @@ def main():
     print("SEPARATE MODEL CLUSTERING VALIDATION COMPLETED!")
     
     if result.success:
-        print("🎉 SUCCESS: Achieved >70% clustering accuracy!")
+        print("SUCCESS: Achieved >70% clustering accuracy!")
         print("This validates that:")
-        print("  ✅ Separate model training approach works")
-        print("  ✅ Order embeddings create hierarchical structure in point clouds")
-        print("  ✅ Asymmetry models add directional discrimination")
-        print("  ✅ Individual premise-hypothesis pairs are topologically distinct")
-        print("  ✅ Token-level processing enables rich point cloud generation")
+        print("  Separate model training approach works")
+        print("  Order embeddings create hierarchical structure in point clouds")
+        print("  Asymmetry models add directional discrimination")
+        print("  Individual premise-hypothesis pairs are topologically distinct")
+        print("  Token-level processing enables rich point cloud generation")
     else:
-        print("❌ Did not achieve 70% clustering threshold")
+        print("Did not achieve 70% clustering threshold")
         print("Analysis points to consider:")
         print("  - Check if models trained to convergence")
         print("  - Verify point cloud generation produces sufficient points")

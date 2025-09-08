@@ -31,8 +31,8 @@ def create_config():
         
         'model': {
             'input_dim': 1536,  # SBERT concat dimension
-            'latent_dim': 75,   # Your proven latent dimension
-            'hidden_dims': [1024, 768, 512, 256],  # Your proven architecture
+            'latent_dim': 75,   
+            'hidden_dims': [1024, 768, 512, 256], 
             'dropout_rate': 0.2
         },
         
@@ -52,7 +52,7 @@ def create_config():
         },
         
         'optimizer': {
-            'lr': 0.0001,      # Your proven learning rate
+            'lr': 0.0001,      
             'weight_decay': 1e-5
         },
         
@@ -140,10 +140,10 @@ def main():
     print()
     
     print("Expected improvements over distance-based contrastive:")
-    print("  ✅ InfoNCE preserves topological structure (no representation collapse)")
-    print("  ✅ Order embeddings add asymmetric entailment constraints")
-    print("  ✅ Moor topological loss preserves input→latent topology (applied sparsely)")
-    print("  ✅ Target performance: 81.67% → 88-93% accuracy")
+    print("  InfoNCE preserves topological structure (no representation collapse)")
+    print("  Order embeddings add asymmetric entailment constraints")
+    print("  Moor topological loss preserves input→latent topology (applied sparsely)")
+    print("  Target performance: 81.67% → 88-93% accuracy")
     print()
     
     # Train model
@@ -161,7 +161,7 @@ def main():
         with open(f"{results_dir}/train_history.json", 'w') as f:
             json.dump(train_history, f, indent=2)
         
-        print("✅ Training completed successfully!")
+        print("Training completed successfully!")
         
         # Plot training history
         print("\nGenerating training plots...")
@@ -220,7 +220,7 @@ def main():
         print(f"Comparison plots saved to: {results_dir}/baseline_comparison.png")
         
     except Exception as e:
-        print(f"❌ Training failed with error: {e}")
+        print(f"Training failed with error: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -302,13 +302,13 @@ def quick_test():
         # Test backward pass
         print("\nTesting backward pass...")
         total_loss.backward()
-        print("✅ Backward pass successful!")
+        print("Backward pass successful!")
         
-        print("\n✅ All tests passed! Ready for full training.")
+        print("\nAll tests passed. Ready for training.")
         return True
         
     except Exception as e:
-        print(f"❌ Test failed: {e}")
+        print(f"Test failed: {e}")
         import traceback
         traceback.print_exc()
         return False

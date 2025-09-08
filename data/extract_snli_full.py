@@ -9,7 +9,7 @@ import pandas as pd
 def extract_snli_full_dataset(arrow_file_path, output_path, seed=42):
     """
     Extract the entire SNLI train dataset
-    Converts to toy dataset format: [premise, hypothesis, label]
+    Converts to format: [premise, hypothesis, label]
     """
     # Label mapping for conversion
     label_map = {0: "entailment", 1: "neutral", 2: "contradiction"}
@@ -18,7 +18,7 @@ def extract_snli_full_dataset(arrow_file_path, output_path, seed=42):
     dataset = Dataset.from_file(arrow_file_path)
     df = dataset.to_pandas()
     
-    # Filter out any invalid labels (sometimes datasets have -1 for invalid samples)
+    # Filter out any invalid labels 
     df = df[df['label'].isin([0, 1, 2])]
 
     # Shuffle the dataset
@@ -29,7 +29,7 @@ def extract_snli_full_dataset(arrow_file_path, output_path, seed=42):
     print(f"Label distribution (original integers):")
     print(df['label'].value_counts().sort_index())
 
-    # Save as JSON in toy dataset format: [premise, hypothesis, label]
+    # Save as JSON in dataset format: [premise, hypothesis, label]
     output_data = []
     for _, row in df.iterrows():
         output_data.append([

@@ -250,7 +250,7 @@ def main_topological_training():
             debug_frequency=config['training']['debug_frequency']
         )
         
-        print("✅ Topological training completed successfully!")
+        print("Topological training completed successfully!")
         
         train_history = trainer.train_history
         create_and_save_topological_plots(train_history, exp_dir, config['output']['experiment_name'])
@@ -292,13 +292,13 @@ def main_topological_training():
         if diagnosis:
             topo_percentage = diagnosis['topology_percentage']
             if topo_percentage > 0.8:
-                print("🚀 EXCELLENT: Consistent topological learning achieved!")
+                print("EXCELLENT: Consistent topological learning achieved!")
             elif topo_percentage > 0.5:
-                print("✅ GOOD: Reasonable topological learning")
+                print("GOOD: Reasonable topological learning")
             elif topo_percentage > 0.2:
-                print("⚠️  PARTIAL: Some topological learning but inconsistent")
+                print("PARTIAL: Some topological learning but inconsistent")
             else:
-                print("❌ POOR: Very limited topological learning")
+                print("POOR: Very limited topological learning")
             
             print(f"Final topological loss: {diagnosis['current_loss']:.4f}")
             print(f"Epochs with topology: {diagnosis['epochs_with_topology']}/{diagnosis['total_epochs']}")
@@ -308,11 +308,11 @@ def main_topological_training():
         if 'clustering_accuracy' in clustering_results:
             clustering_acc = clustering_results['clustering_accuracy']
             if clustering_acc > 0.9:
-                print(f"🎯 Excellent clustering accuracy: {clustering_acc:.3f}")
+                print(f"Excellent clustering accuracy: {clustering_acc:.3f}")
             elif clustering_acc > 0.7:
-                print(f"👍 Good clustering accuracy: {clustering_acc:.3f}")
+                print(f"Good clustering accuracy: {clustering_acc:.3f}")
             else:
-                print(f"⚠️  Poor clustering accuracy: {clustering_acc:.3f}")
+                print(f"Poor clustering accuracy: {clustering_acc:.3f}")
         
         # Save final analysis
         final_analysis = {
@@ -344,7 +344,7 @@ def main_topological_training():
         print(f"\nFinal analysis saved to: {analysis_path}")
         
     except Exception as e:
-        print(f"❌ Training failed: {e}")
+        print(f"Training failed: {e}")
         import traceback
         traceback.print_exc()
     

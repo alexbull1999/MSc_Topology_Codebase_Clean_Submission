@@ -487,7 +487,7 @@ def test_data_loader():
         if os.path.exists(test_path):
             os.remove(test_path)
     
-    print("✅ Data loader test completed!")
+    print("Data loader test completed!")
 
 
 if __name__ == "__main__":

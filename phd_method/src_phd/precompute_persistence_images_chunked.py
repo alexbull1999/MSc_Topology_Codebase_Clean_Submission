@@ -143,7 +143,7 @@ class ChunkedPersistenceImagePrecomputer:
         print(f"Found {valid_diagrams_count} valid diagrams with {len(all_lifespans)} total finite features")
         
         if len(all_lifespans) == 0:
-            print("❌ No finite features found across all diagrams!")
+            print("No finite features found across all diagrams!")
             return []
         
         # Calculate actual data ranges
@@ -317,7 +317,7 @@ class ChunkedPersistenceImagePrecomputer:
             chunk_path, chunk_metadata, total_samples, time.time() - start_time
         )
         
-        print(f"\n✅ Chunk processing completed!")
+        print(f"\nChunk processing completed!")
         print(f"Chunk time: {(time.time() - start_time)/60:.1f} minutes")
         print(f"Persistence images saved to: {output_path}")
         
@@ -361,12 +361,12 @@ class ChunkedPersistenceImagePrecomputer:
             
             # Check if chunk file exists
             if not chunk_path.exists():
-                print(f"❌ Chunk file not found: {chunk_path}")
+                print(f"Chunk file not found: {chunk_path}")
                 continue
             
             # Check if output already exists
             if output_path.exists():
-                print(f"⚠️  Output already exists: {output_path}")
+                print(f"Output already exists: {output_path}")
                 print("Skipping this chunk...")
                 continue
             
@@ -376,10 +376,10 @@ class ChunkedPersistenceImagePrecomputer:
                 self.process_single_chunk(chunk_path, output_path, batch_size)
                 
                 chunk_time = time.time() - chunk_start_time
-                print(f"✅ Chunk {chunk_idx} completed in {chunk_time/60:.1f} minutes")
+                print(f"Chunk {chunk_idx} completed in {chunk_time/60:.1f} minutes")
                 
             except Exception as e:
-                print(f"❌ Error processing chunk {chunk_idx}: {e}")
+                print(f"Error processing chunk {chunk_idx}: {e}")
                 print("Continuing to next chunk...")
                 continue
         

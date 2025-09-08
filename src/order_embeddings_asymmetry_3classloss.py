@@ -813,9 +813,9 @@ def test_order_embeddings():
     plot_training_progress(trainer)
 
     if ranking_correct:
-        print("✓ Success: Enhanced order embeddings working!")
+        print("Success: Enhanced order embeddings working!")
     else:
-        print("⚠ Warning: Energy rankings may need further tuning")
+        print("Warning: Energy rankings may need further tuning")
 
     return model, trainer
 

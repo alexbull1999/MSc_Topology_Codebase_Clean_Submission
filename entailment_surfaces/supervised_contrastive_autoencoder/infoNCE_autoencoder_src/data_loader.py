@@ -1,7 +1,7 @@
-# FILE: data_loader.py (FIXED VERSION - Compatible with your existing format)
+# FILE: data_loader.py (FIXED VERSION - Compatible with existing format)
 """
 Data loader for InfoNCE + Order Embeddings training
-Compatible with your existing SNLI data format
+Compatible with existing SNLI data format
 """
 
 import torch
@@ -12,7 +12,7 @@ import os
 class SNLIDataset(Dataset):
     """
     SNLI dataset for premise-hypothesis pairs
-    Compatible with your existing data format:
+    Compatible with existing data format:
     {
         'premise_embeddings': torch.Tensor [N, 768],
         'hypothesis_embeddings': torch.Tensor [N, 768],
@@ -119,11 +119,11 @@ def create_data_loaders(config):
             num_workers=0
         )
         
-        print("✅ Data loaders created successfully!")
+        print("Data loaders created successfully!")
         return train_loader, val_loader, test_loader
         
     except Exception as e:
-        print(f"❌ Error creating data loaders: {e}")
+        print(f"Error creating data loaders: {e}")
         print("Debugging data structure...")
         
         # Debug first available file
@@ -186,11 +186,11 @@ def test_data_loading():
             print(f"Label distribution in batch: {torch.unique(batch['label'], return_counts=True)}")
             break
         
-        print("✅ Data loading test successful!")
+        print("Data loading test successful!")
         return True
         
     except Exception as e:
-        print(f"❌ Data loading test failed: {e}")
+        print(f"Data loading test failed: {e}")
         return False
 
 

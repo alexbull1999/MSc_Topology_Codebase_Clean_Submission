@@ -341,7 +341,7 @@ def train_asymmetry_model_only(processed_data_path: str, output_dir: str,
                 'epoch': epoch,
             }, asymmetry_model_path)
             
-            print(f"✅ New asymmetry model saved: {asymmetry_model_path}")
+            print(f"New asymmetry model saved: {asymmetry_model_path}")
         else:
             patience_counter += 1
             print(f"Patience: {patience_counter}/{patience}")
@@ -448,10 +448,10 @@ def plot_new_asymmetry_training(asymmetry_trainer: AsymmetryTrainer, output_dir:
                 final_contra_gap = contra_neutral_gap[-1]
                 
                 if final_entail_gap > 0.7 and final_contra_gap > 0.1 and final_entail_gap > final_contra_gap:
-                    success_text = '✅ Good separation:\nEntailment > Contradiction > Neutral'
+                    success_text = 'Good separation:\nEntailment > Contradiction > Neutral'
                     color = 'lightgreen'
                 else:
-                    success_text = '❌ Insufficient separation'
+                    success_text = 'Insufficient separation'
                     color = 'lightcoral'
                 
                 ax4.text(0.02, 0.98, success_text, transform=ax4.transAxes, fontsize=9,
@@ -517,13 +517,13 @@ def generate_training_summary(asymmetry_trainer: AsymmetryTrainer, output_dir: s
             f.write("SUCCESS ANALYSIS:\n")
             f.write("-"*15 + "\n")
             if entail_asym > neutral_asym and contra_asym > neutral_asym:
-                f.write("✅ CORRECT PATTERN: Entailment & Contradiction > Neutral\n")
+                f.write("CORRECT PATTERN: Entailment & Contradiction > Neutral\n")
                 if entail_asym > contra_asym:
-                    f.write("✅ IDEAL: Entailment > Contradiction > Neutral\n")
+                    f.write("IDEAL: Entailment > Contradiction > Neutral\n")
                 else:
-                    f.write("⚠️  PARTIAL: Contradiction ≥ Entailment > Neutral\n")
+                    f.write("PARTIAL: Contradiction ≥ Entailment > Neutral\n")
             else:
-                f.write("❌ INCORRECT PATTERN: Neutral not lowest\n")
+                f.write("INCORRECT PATTERN: Neutral not lowest\n")
         
         f.write("\nNEXT STEPS:\n")
         f.write("-"*10 + "\n")
@@ -552,11 +552,11 @@ def main():
     
     print("\n" + "="*80)
     print("NEW ASYMMETRY MODEL TRAINING COMPLETE!")
-    print("✅ Trained for up to 50 epochs with early stopping")
-    print("✅ Now uses SBERT tokens directly (not order embeddings)")
-    print("✅ Corrected loss: Entailment=HIGH, Neutral=LOW, Contradiction=MEDIUM")
-    print("✅ Includes forward/backward energy computation")
-    print("✅ Training plots and summary generated")
+    print("Trained for up to 50 epochs with early stopping")
+    print("Now uses SBERT tokens directly (not order embeddings)")
+    print("Corrected loss: Entailment=HIGH, Neutral=LOW, Contradiction=MEDIUM")
+    print("Includes forward/backward energy computation")
+    print("Training plots and summary generated")
     print("="*80)
     
     return asymmetry_model

@@ -79,7 +79,7 @@ def test_identity_autoencoder():
     
     assert reconstruction_error.item() == 0.0, "Reconstruction error should be exactly 0"
     
-    print("✅ Identity autoencoder test passed!")
+    print("Identity autoencoder test passed!")
     print("This model will give you perfect baseline metrics:")
     print("  - Reconstruction MSE: 0.0")
     print("  - Latent representations: Identical to original SBERT embeddings")

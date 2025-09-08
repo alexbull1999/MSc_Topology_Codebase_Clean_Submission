@@ -455,7 +455,7 @@ def run_comprehensive_evaluation(published_predictions, persistence_data, weight
             all_results[model_name] = fusion_results
             
             # Print summary for this model
-            print(f"\n📊 {model_name} Results Summary:")
+            print(f"\n{model_name} Results Summary:")
             baseline_jsd = fusion_results[0.0]['jsd']  # α=0.0 is pure published model
             baseline_kl = fusion_results[0.0]['kl']   # α=0.0 KL divergence
             best_alpha = min(fusion_results.keys(), key=lambda a: fusion_results[a]['jsd'])  # Choose best α based on JSD
@@ -466,11 +466,11 @@ def run_comprehensive_evaluation(published_predictions, persistence_data, weight
 
             print(f"   Baseline (α=0.0): JSD = {baseline_jsd:.4f}, KL = {baseline_kl:.4f}")
             print(f"   Best (α={best_alpha}): JSD = {best_jsd:.4f}, KL = {best_kl:.4f}")
-            print(f"   {'✅ JSD Improvement' if jsd_improvement > 0 else '❌ No JSD improvement'}: {jsd_improvement:+.4f}")
-            print(f"   {'✅ KL Improvement' if kl_improvement > 0 else '❌ No KL improvement'}: {kl_improvement:+.4f}")
+            print(f"   {'JSD Improvement' if jsd_improvement > 0 else 'No JSD improvement'}: {jsd_improvement:+.4f}")
+            print(f"   {'KL Improvement' if kl_improvement > 0 else 'No KL improvement'}: {kl_improvement:+.4f}")
             
         except Exception as e:
-            print(f"❌ Error evaluating {model_name}: {e}")
+            print(f"Error evaluating {model_name}: {e}")
             all_results[model_name] = None
     
     return all_results
@@ -482,7 +482,7 @@ def print_final_summary(all_results, published_baselines):
     print(f"FINAL COMPREHENSIVE RESULTS")
     print(f"{'='*80}")
     
-    print(f"\n📊 Model Performance Summary:")
+    print(f"\nModel Performance Summary:")
     print(f"{'Model':<15} {'Baseline JSD':<12} {'Best JSD':<10} {'Baseline KL':<12} {'Best KL':<10} {'Best α':<8} {'JSD Δ':<10} {'KL Δ'}")
     print(f"-" * 95)
     
@@ -514,7 +514,7 @@ def print_final_summary(all_results, published_baselines):
         best_overall_jsd = best_model_results[best_alpha]['jsd']
         best_overall_kl = best_model_results[best_alpha]['kl']
         
-        print(f"\n🏆 BEST OVERALL RESULT:")
+        print(f"\nBEST OVERALL RESULT:")
         print(f"   Model: {best_model}")
         print(f"   Optimal α: {best_alpha}")
         print(f"   JSD: {best_overall_jsd:.4f}")
@@ -524,9 +524,9 @@ def print_final_summary(all_results, published_baselines):
         # Compare with state-of-the-art
         sota_jsd = 0.2203  # BART-large from ChaosNLI paper
         if best_overall_jsd < sota_jsd:
-            print(f"   🎉 BEATS STATE-OF-THE-ART by {sota_jsd - best_overall_jsd:.4f}!")
+            print(f"   BEATS STATE-OF-THE-ART by {sota_jsd - best_overall_jsd:.4f}!")
         else:
-            print(f"   📊 Still {best_overall_jsd - sota_jsd:.4f} away from SOTA")
+            print(f"   Still {best_overall_jsd - sota_jsd:.4f} away from SOTA")
 
 def main():
     """Main evaluation function"""
@@ -542,7 +542,7 @@ def main():
     # Create weight range
     weight_range = np.linspace(args.weight_start, args.weight_end, args.weight_steps)
     
-    print(f"🚀 Starting comprehensive hybrid model evaluation...")
+    print(f"Starting comprehensive hybrid model evaluation...")
     print(f"   Device: {args.device}")
     print(f"   Weight range: α ∈ [{args.weight_start}, {args.weight_end}] ({args.weight_steps} steps)")
     
@@ -569,7 +569,7 @@ def main():
     # Print final summary
     print_final_summary(all_results, published_baselines)
     
-    print(f"\n🎉 Comprehensive evaluation completed!")
+    print(f"\nComprehensive evaluation completed!")
 
 if __name__ == "__main__":
     main()

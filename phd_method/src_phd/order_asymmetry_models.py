@@ -515,7 +515,7 @@ def train_order_embedding_model(processed_data_path: str, output_dir: str, epoch
                 'epoch': epoch,
             }, order_model_path)
             
-            print(f"✅ Order model saved: {order_model_path}")
+            print(f"Order model saved: {order_model_path}")
         else:
             patience_counter += 1
         
@@ -601,7 +601,7 @@ def train_asymmetry_model(processed_data_path: str, order_model: OrderEmbeddingM
                 'epoch': epoch,
             }, asymmetry_model_path)
             
-            print(f"✅ Asymmetry model saved: {asymmetry_model_path}")
+            print(f"Asymmetry model saved: {asymmetry_model_path}")
         else:
             patience_counter += 1
         
@@ -659,11 +659,11 @@ def plot_training_progress(order_trainer: OrderEmbeddingTrainer, asymmetry_train
         final_contra = contra_means[-1] if contra_means else 0
         
         if final_entail < final_neutral < final_contra:
-            ax2.text(0.02, 0.98, '✅ Correct ordering:\nEntailment < Neutral < Contradiction', 
+            ax2.text(0.02, 0.98, 'Correct ordering:\nEntailment < Neutral < Contradiction', 
                     transform=ax2.transAxes, fontsize=10, verticalalignment='top',
                     bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.8))
         else:
-            ax2.text(0.02, 0.98, '❌ Incorrect ordering', 
+            ax2.text(0.02, 0.98, 'Incorrect ordering', 
                     transform=ax2.transAxes, fontsize=10, verticalalignment='top',
                     bbox=dict(boxstyle='round', facecolor='lightcoral', alpha=0.8))
     
@@ -734,10 +734,10 @@ def plot_training_progress(order_trainer: OrderEmbeddingTrainer, asymmetry_train
             final_contra_forward = contra_forward[-1]
             
             if final_entail_forward < final_contra_forward:
-                pattern_text = '✅ Correct pattern:\nEntailment forward < Contradiction forward'
+                pattern_text = 'Correct pattern:\nEntailment forward < Contradiction forward'
                 color = 'lightgreen'
             else:
-                pattern_text = '❌ Incorrect pattern'
+                pattern_text = 'Incorrect pattern'
                 color = 'lightcoral'
             
             ax4.text(0.02, 0.98, pattern_text, transform=ax4.transAxes, fontsize=9,
@@ -906,10 +906,10 @@ def plot_individual_model_progress(order_trainer: OrderEmbeddingTrainer, asymmet
             final_neutral_diff = neutral_diff[-1]
             
             if abs(final_neutral_diff) < abs(final_entail_diff):
-                pattern_text = '✅ Correct:\nNeutral more symmetric than Entailment'
+                pattern_text = 'Correct:\nNeutral more symmetric than Entailment'
                 color = 'lightgreen'
             else:
-                pattern_text = '❌ Incorrect asymmetry pattern'
+                pattern_text = 'Incorrect asymmetry pattern'
                 color = 'lightcoral'
             
             ax4.text(0.02, 0.98, pattern_text, transform=ax4.transAxes, fontsize=9,
@@ -955,9 +955,9 @@ def plot_individual_model_progress(order_trainer: OrderEmbeddingTrainer, asymmet
             contra_mean = final_ranking.get('contradiction', {}).get('mean', float('inf'))
             
             if entail_mean < neutral_mean < contra_mean:
-                f.write("✅ CORRECT ORDERING: Entailment < Neutral < Contradiction\n")
+                f.write("CORRECT ORDERING: Entailment < Neutral < Contradiction\n")
             else:
-                f.write("❌ INCORRECT ORDERING\n")
+                f.write("INCORRECT ORDERING\n")
         
         if asymmetry_trainer.asymmetry_stats:
             f.write("\nASYMMETRY MODEL FINAL PERFORMANCE:\n")
@@ -978,7 +978,7 @@ def plot_individual_model_progress(order_trainer: OrderEmbeddingTrainer, asymmet
         f.write("3. Asymmetric features: ~30-50 points\n")
         f.write("Total per text: ~90-150 points\n")
         f.write("Combined premise+hypothesis: ~180-300 points\n")
-        f.write("✅ Sufficient for reliable PHD computation (≥200 points)\n")
+        f.write("Sufficient for reliable PHD computation (≥200 points)\n")
     
     print(f"Token-level analysis summary saved to: {analysis_file}")
 
@@ -1010,8 +1010,8 @@ def main():
     
     print("\n" + "="*80)
     print("SEPARATE MODEL TRAINING COMPLETE!")
-    print("✅ OrderEmbeddingModel: Pure hierarchy (Vendrov et al.)")
-    print("✅ AsymmetryTransformModel: Directional patterns")
+    print("OrderEmbeddingModel: Pure hierarchy (Vendrov et al.)")
+    print("AsymmetryTransformModel: Directional patterns")
     print("\nPoint cloud structure per sample:")
     print("  - SBERT tokens: ~30-50 points")
     print("  - Order embeddings: ~30-50 points") 

@@ -77,7 +77,6 @@ class InfoNCEOrderTrainer:
             latent_dim = latent_features.shape[1]
             
             # For loss computation, we treat the latent as representing the pair
-            # We can split it or use it as is - let's split it for order embeddings
             premise_latent = latent_features  # Use full latent as premise representation
             hypothesis_latent = latent_features  # Use same for hypothesis (they represent the pair)
             

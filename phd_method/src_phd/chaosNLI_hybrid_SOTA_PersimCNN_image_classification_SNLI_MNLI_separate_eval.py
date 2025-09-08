@@ -494,7 +494,7 @@ def run_separate_evaluation(published_predictions, snli_data, mnli_data, weight_
             print(f"   ChaosNLI-M: Improvements JSD={mnli_baseline_jsd-mnli_best_jsd:+.4f}, KL={mnli_baseline_kl-mnli_best_kl:+.4f}")
             
         except Exception as e:
-            print(f"❌ Error evaluating {model_name}: {e}")
+            print(f"Error evaluating {model_name}: {e}")
             all_results[model_name] = None
     
     return all_results
@@ -503,7 +503,7 @@ def print_table_format_summary(all_results):
     """Print results in ChaosNLI Table 5 format"""
     
     print(f"\n{'='*120}")
-    print("📊 RESULTS IN CHAOSNLI TABLE 5 FORMAT")
+    print("RESULTS IN CHAOSNLI TABLE 5 FORMAT")
     print(f"{'='*120}")
     
     # Published baselines for comparison
@@ -577,9 +577,9 @@ def print_table_format_summary(all_results):
         published_best_mnli = 0.3055  # BERT-base
         
         if best_snli_jsd < published_best_snli:
-            print(f"   🎉 BEATS ChaosNLI-S SOTA by {published_best_snli - best_snli_jsd:.4f}!")
+            print(f"   BEATS ChaosNLI-S SOTA by {published_best_snli - best_snli_jsd:.4f}!")
         if best_mnli_jsd < published_best_mnli:
-            print(f"   🎉 BEATS ChaosNLI-M SOTA by {published_best_mnli - best_mnli_jsd:.4f}!")
+            print(f"   BEATS ChaosNLI-M SOTA by {published_best_mnli - best_mnli_jsd:.4f}!")
 
 def main():
     """Main evaluation function"""
@@ -595,7 +595,7 @@ def main():
     # Create weight range
     weight_range = np.linspace(args.weight_start, args.weight_end, args.weight_steps)
     
-    print(f"🚀 Starting separate ChaosNLI-S and ChaosNLI-M evaluation...")
+    print(f"Starting separate ChaosNLI-S and ChaosNLI-M evaluation...")
     print(f"   Device: {args.device}")
     print(f"   Weight range: α ∈ [{args.weight_start}, {args.weight_end}] ({args.weight_steps} steps)")
     
@@ -611,8 +611,8 @@ def main():
     # Print results in Table 5 format
     print_table_format_summary(all_results)
     
-    print(f"\n🎉 Separate evaluation completed!")
-    print(f"💡 Results can now be directly compared with ChaosNLI Table 5!")
+    print(f"\nSeparate evaluation completed!")
+    print(f"Results can now be directly compared with ChaosNLI Table 5!")
 
 if __name__ == "__main__":
     main()
