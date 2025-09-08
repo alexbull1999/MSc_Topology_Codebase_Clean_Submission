@@ -50,7 +50,10 @@ class ChaosNLIPersistenceImagePrecomputer:
                                  point_jump: int = 25,
                                  h_dim: int = 0,
                                  alpha: float = 1.0):
-        """EXACT COPY from clustering code - compute persistence on FULL point cloud"""        
+        """EXACT COPY from clustering code - compute persistence on FULL point cloud
+        Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+        With thanks to the original authors
+        """        
         assert dm.ndim == 2 and dm.shape[0] == dm.shape[1]
         
         print(f"Computing persistence on full {dm.shape[0]} point cloud...")

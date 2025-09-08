@@ -42,7 +42,10 @@ def ph_dim_and_diagrams_from_distance_matrix(dm: np.ndarray,
                                             point_jump=50,
                                             h_dim=0,
                                             alpha: float = 1.) -> Tuple[float, List]:
-    """Compute PH-dimension and persistence diagrams from distance matrix"""
+    """Compute PH-dimension and persistence diagrams from distance matrix
+    Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+    With thanks to the original authors
+    """
     assert dm.ndim == 2, dm
     assert dm.shape[0] == dm.shape[1], dm.shape
 

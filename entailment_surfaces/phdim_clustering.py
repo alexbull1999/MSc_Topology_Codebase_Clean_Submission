@@ -68,6 +68,9 @@ def ph_dim_and_diagrams_from_distance_matrix(dm: np.ndarray,
     """
     Modified version of ph_dim_from_distance_matrix that returns BOTH 
     PH-dimension and persistence diagrams
+    Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+    With thanks to the original authors
+        
     
     Returns:
         Tuple of (ph_dimension, list_of_persistence_diagrams)

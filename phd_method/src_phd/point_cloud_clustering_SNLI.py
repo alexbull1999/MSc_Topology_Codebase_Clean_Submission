@@ -1433,7 +1433,10 @@ class SeparateModelClusteringValidator:
                                  alpha: float = 1.0) -> Tuple[float, List]:
         """
         FIXED VERSION: Compute persistence on FULL point cloud, not subsampled
+        Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+        With thanks to the original authors
         """
+        
         assert dm.ndim == 2 and dm.shape[0] == dm.shape[1]
         
         # DON'T SUBSAMPLE - use the full distance matrix for topology!

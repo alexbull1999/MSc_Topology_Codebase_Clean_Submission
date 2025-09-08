@@ -31,7 +31,8 @@ def ph_dim_and_diagrams_from_distance_matrix(dm: np.ndarray,
                                            seed: int = 42) -> Tuple[float, List[np.ndarray]]:
     """
     Compute both PH dimension and persistence diagrams from distance matrix
-    Adapted from your existing function to return both
+    Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+    With thanks to the original authors
     """
 
     assert dm.ndim == 2, dm

@@ -48,6 +48,8 @@ def ph_dim_and_diagrams_from_distance_matrix(dm: np.ndarray,
     
     Returns:
         Tuple of (ph_dimension, list_of_persistence_diagrams)
+    Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+    With thanks to the original authors    
     """
     assert dm.ndim == 2, dm
     assert dm.shape[0] == dm.shape[1], dm.shape

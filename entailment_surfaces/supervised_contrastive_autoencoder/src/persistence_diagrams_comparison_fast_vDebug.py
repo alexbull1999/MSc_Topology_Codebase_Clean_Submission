@@ -31,6 +31,8 @@ def ph_dim_and_diagrams_from_distance_matrix(dm: np.ndarray,
                                            seed: int = 42) -> Tuple[float, List[np.ndarray]]:
     """
     Debug version with detailed H0 investigation
+    Code adapted with variations from: https://github.com/benjiDupuis/data_dependent_dimensions/blob/master/topology.py
+    With thanks to the original authors    
     """
     assert dm.ndim == 2, dm
     assert dm.shape[0] == dm.shape[1], dm.shape
