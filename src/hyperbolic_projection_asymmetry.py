@@ -406,9 +406,9 @@ def test_enhanced_hyperbolic_projection():
     max_norm = max(premise_norms_float.max().item(), hypothesis_norms_float.max().item())
 
     if max_norm < 1.0:
-        print(f"✓ All points inside unit ball (max norm: {max_norm:.4f})")
+        print(f"All points inside unit ball (max norm: {max_norm:.4f})")
     else:
-        print(f"⚠ Some points outside unit ball (max norm: {max_norm:.4f})")
+        print(f"Some points outside unit ball (max norm: {max_norm:.4f})")
 
     #Check 2: Order energy hierarchy maintained
     entail_energies = hyperbolic_stats.get('entailment', {}).get('order_energies', [])
@@ -421,9 +421,9 @@ def test_enhanced_hyperbolic_projection():
         contra_mean = np.mean(contra_energies)
 
         if entail_mean < neutral_mean < contra_mean:
-            print("✓ Order energy hierarchy maintained in hyperbolic space")
+            print("Order energy hierarchy maintained in hyperbolic space")
         else:
-            print("⚠ Order energy hierarchy changed after hyperbolic projection")
+            print("Order energy hierarchy changed after hyperbolic projection")
 
     #Check 3: Asymmetry patterns
     print("\nAsymmetry Pattern Analysis:")
@@ -440,7 +440,7 @@ def test_enhanced_hyperbolic_projection():
     hyp_distances_float = [safe_tensor_to_float(x) for x in hyp_distances]
     min_dist = min(hyp_distances_float)
     max_dist = max(hyp_distances_float)
-    print(f"✓ Hyperbolic distance range: {min_dist:.4f} - {max_dist:.4f}")
+    print(f"Hyperbolic distance range: {min_dist:.4f} - {max_dist:.4f}")
 
     return pipeline, results, hyperbolic_stats
 

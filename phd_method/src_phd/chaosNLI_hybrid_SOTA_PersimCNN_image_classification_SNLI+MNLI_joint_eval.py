@@ -499,8 +499,8 @@ def print_final_summary(all_results, published_baselines):
         jsd_improvement = baseline_jsd - best_jsd
         kl_improvement = baseline_kl - best_kl
         
-        jsd_status = "✅" if jsd_improvement > 0 else "❌"
-        kl_status = "✅" if kl_improvement > 0 else "❌"
+        jsd_status = "Improvement" if jsd_improvement > 0 else "NO Improvement"
+        kl_status = "Improvement" if kl_improvement > 0 else "NO Improvement"
         
         print(f"{model_name:<15} {baseline_jsd:<12.4f} {best_jsd:<10.4f} {baseline_kl:<12.4f} {best_kl:<10.4f} {best_alpha:<8.1f} {jsd_status} {jsd_improvement:+.4f} {kl_status} {kl_improvement:+.4f}")
     

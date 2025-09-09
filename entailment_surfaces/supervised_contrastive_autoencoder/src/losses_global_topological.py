@@ -38,7 +38,7 @@ class FullDatasetContrastiveLoss(nn.Module):
         """
         Extract features for the entire dataset
         """
-        print("🌍 Extracting features for entire dataset...")
+        print("Extracting features for entire dataset...")
         model.eval()
         
         all_features = []

@@ -525,12 +525,6 @@ def generate_training_summary(asymmetry_trainer: AsymmetryTrainer, output_dir: s
             else:
                 f.write("INCORRECT PATTERN: Neutral not lowest\n")
         
-        f.write("\nNEXT STEPS:\n")
-        f.write("-"*10 + "\n")
-        f.write("1. Update point_cloud_clustering_test.py to use new model\n")
-        f.write("2. Test updated stratification with corrected energy patterns\n")
-        f.write("3. Compare clustering performance against old asymmetry model\n")
-        f.write("4. Monitor forward/backward energy patterns for neutral detection\n")
     
     print(f"Training summary saved to: {summary_file}")
 

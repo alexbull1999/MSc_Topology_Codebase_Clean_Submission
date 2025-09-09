@@ -284,7 +284,7 @@ class HyperbolicProjectorTrainer:
                 
             scheduler.step(avg_val_loss)
             
-        print(f"✅ Training completed! Best validation loss: {best_val_loss:.4f}")
+        print(f"Training completed! Best validation loss: {best_val_loss:.4f}")
 
     def save_model(self, save_dir: str, filename: str, epoch: int, val_loss: float):
         Path(save_dir).mkdir(parents=True, exist_ok=True)

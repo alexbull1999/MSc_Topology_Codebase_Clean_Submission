@@ -1944,7 +1944,7 @@ class SeparateModelClusteringValidator:
                 print(f"      Premise: {stats['premise_original_points']} + {stats['premise_order_points']} + {stats['premise_asymmetric_points']} = {stats['premise_total_points']}")
                 print(f"      Hypothesis: {stats['hypothesis_original_points']} + {stats['hypothesis_order_points']} + {stats['hypothesis_asymmetric_points']} = {stats['hypothesis_total_points']}")
                 print(f"      Combined: {stats['combined_total_points']} points")
-                print(f"      Sufficient for PHD: {'✅' if stats['sufficient_for_phd'] else '❌'}")
+                print(f"      Sufficient for PHD: {'Sufficient' if stats['sufficient_for_phd'] else 'Insufficient'}")
                 
                 print(f"    Model analysis:")
                 print(f"      Order violation energy: {analysis['order_model']['order_violation_energy']:.4f}")

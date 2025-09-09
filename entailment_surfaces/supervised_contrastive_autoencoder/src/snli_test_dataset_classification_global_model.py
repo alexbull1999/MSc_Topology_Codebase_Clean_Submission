@@ -224,7 +224,7 @@ def main():
         print(f"\nResults saved to: {results_file}")
         
         # Summary
-        print(f"\n🎯 FINAL SUMMARY")
+        print(f"\nFINAL SUMMARY")
         print(f"=" * 30)
         print(f"Validation Accuracy (previous): ~81.67%")
         print(f"Test Accuracy (unseen data):    {test_results['test_accuracy']*100:.2f}%")
@@ -244,7 +244,7 @@ def main():
         traceback.print_exc()
         return 1
     
-    print(f"\n🎉 Test evaluation completed successfully!")
+    print(f"\nTest evaluation completed successfully!")
     return 0
 
 

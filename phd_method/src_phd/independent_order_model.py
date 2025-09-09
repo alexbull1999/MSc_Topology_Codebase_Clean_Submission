@@ -505,9 +505,9 @@ def train_order_embedding_separate_margins(processed_data_path: str, output_dir:
             
             f.write(f"\nZONE ANALYSIS:\n")
             f.write("-"*15 + "\n")
-            f.write(f"Entailment in target zone (< {neutral_margin}): {'✅' if entail_mean < neutral_margin else '❌'}\n")
-            f.write(f"Neutral in target zone ([{neutral_margin}, {neutral_upper_bound}]): {'✅' if neutral_margin <= neutral_mean <= neutral_upper_bound else '❌'}\n")
-            f.write(f"Contradiction in target zone (> {contradiction_margin}): {'✅' if contra_mean > contradiction_margin else '❌'}\n")
+            f.write(f"Entailment in target zone (< {neutral_margin}): {'Correct entailment zone' if entail_mean < neutral_margin else 'Incorrect entailment zone'}\n")
+            f.write(f"Neutral in target zone ([{neutral_margin}, {neutral_upper_bound}]): {'Correct neutral zone' if neutral_margin <= neutral_mean <= neutral_upper_bound else 'Incorrect neutral zone'}\n")
+            f.write(f"Contradiction in target zone (> {contradiction_margin}): {'Correct contradiction zone' if contra_mean > contradiction_margin else 'Incorrect contradiction zone'}\n")
             
             if entail_mean < neutral_margin and neutral_margin <= neutral_mean <= neutral_upper_bound and contra_mean > contradiction_margin:
                 f.write("PERFECT SEPARATION ACHIEVED!\n")
@@ -526,7 +526,6 @@ def train_order_embedding_separate_margins(processed_data_path: str, output_dir:
     print("Separate margin loss: Enhanced neutral class separation")
     print("Target energy zones: E<1.0, 1.0≤N≤1.5, C>1.8")
     print("Comprehensive analysis and plots generated")
-    print("Next: Use this model for improved point cloud clustering")
     print("="*80)
     
     return order_model, order_trainer
@@ -553,7 +552,6 @@ def main():
     
     print("\n" + "="*80)
     print("SEPARATE MARGINS ORDER EMBEDDING TRAINING COMPLETE!")
-    print("Next: Update point_cloud_clustering_test.py to use new model")
     print("="*80)
     
     return order_model

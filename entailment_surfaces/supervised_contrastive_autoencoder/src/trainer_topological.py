@@ -286,7 +286,7 @@ class TopologicalTrainer:
         self._print_final_topological_analysis()
         
         print("\n" + "="*70)
-        print("🎯 TOPOLOGICAL AUTOENCODER TRAINING COMPLETED")
+        print("TOPOLOGICAL AUTOENCODER TRAINING COMPLETED")
         print("="*70)
     
     def _print_epoch_header(self, epoch, train_loader):

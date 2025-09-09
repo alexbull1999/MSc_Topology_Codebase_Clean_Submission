@@ -469,7 +469,7 @@ def run_separate_evaluation(published_predictions, snli_data, mnli_data, weight_
             }
             
             # Print summary for this model
-            print(f"\n📊 {model_name} Results Summary:")
+            print(f"\n{model_name} Results Summary:")
             
             # SNLI results
             snli_baseline_jsd = snli_results[0.0]['jsd']
@@ -568,7 +568,7 @@ def print_table_format_summary(all_results):
                             key=lambda a: valid_results[best_mnli_model]['mnli'][a]['jsd'])
         best_mnli_jsd = valid_results[best_mnli_model]['mnli'][best_mnli_alpha]['jsd']
         
-        print(f"\n🏆 BEST RESULTS:")
+        print(f"\nBEST RESULTS:")
         print(f"   ChaosNLI-S: {best_snli_model} (α={best_snli_alpha:.1f}) → JSD={best_snli_jsd:.4f}")
         print(f"   ChaosNLI-M: {best_mnli_model} (α={best_mnli_alpha:.1f}) → JSD={best_mnli_jsd:.4f}")
         

@@ -896,13 +896,13 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     print("\nChaosNLI-SNLI Uncertainty Quantification (JSD):")
     snli_jsd_sorted = sorted(results.items(), key=lambda x: x[1]['chaosnli_snli_jsd'])
     for i, (model_name, result) in enumerate(snli_jsd_sorted):
-        jsd_status = "✅" if result['beats_roberta_snli'] else "❌" 
+        jsd_status = "Improvement" if result['beats_roberta_snli'] else "NO Improvement" 
         print(f"  {i+1}. {model_name:<20}: {result['chaosnli_snli_jsd']:.4f} {jsd_status}")
     
     print("\nChaosNLI-MNLI Uncertainty Quantification (JSD):")
     mnli_jsd_sorted = sorted(results.items(), key=lambda x: x[1]['chaosnli_mnli_jsd'])
     for i, (model_name, result) in enumerate(mnli_jsd_sorted):
-        jsd_status = "✅" if result['beats_roberta_mnli'] else "❌" 
+        jsd_status = "Improvement" if result['beats_roberta_mnli'] else "NO Improvement" 
         print(f"  {i+1}. {model_name:<20}: {result['chaosnli_mnli_jsd']:.4f} {jsd_status}")
     
     # Determine overall winners

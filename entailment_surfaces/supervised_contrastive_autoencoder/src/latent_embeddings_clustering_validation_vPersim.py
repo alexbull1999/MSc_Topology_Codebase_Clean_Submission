@@ -884,7 +884,7 @@ class LatentPHDimensionClusteringValidator:
         
         # Perfect clustering analysis
         if comparative['models_with_perfect_runs']:
-            print(f"\n🎉 MODELS WITH PERFECT CLUSTERING RUNS:")
+            print(f"\nMODELS WITH PERFECT CLUSTERING RUNS:")
             for model in comparative['models_with_perfect_runs']:
                 perfect_runs = individual[model]['runs_above_99_percent']
                 total_runs = individual[model]['successful_runs']

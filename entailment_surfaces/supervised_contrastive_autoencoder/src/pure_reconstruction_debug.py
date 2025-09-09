@@ -16,7 +16,7 @@ from data_loader_global import GlobalDataLoader
 def debug_reconstruction_model():
     """Debug the pure reconstruction model's latent space and k-NN behavior"""
     
-    print("🔍 DEBUGGING PURE RECONSTRUCTION MODEL")
+    print("DEBUGGING PURE RECONSTRUCTION MODEL")
     print("=" * 60)
     
     # Configuration

@@ -1012,12 +1012,6 @@ def main():
     print("SEPARATE MODEL TRAINING COMPLETE!")
     print("OrderEmbeddingModel: Pure hierarchy (Vendrov et al.)")
     print("AsymmetryTransformModel: Directional patterns")
-    print("\nPoint cloud structure per sample:")
-    print("  - SBERT tokens: ~30-50 points")
-    print("  - Order embeddings: ~30-50 points") 
-    print("  - Asymmetric features: ~30-50 points")
-    print("  - Total: ~90-150 points per text")
-    print("Next: Update point_cloud_clustering_test.py to use both models")
     print("="*80)
     
     return order_model, asymmetry_model

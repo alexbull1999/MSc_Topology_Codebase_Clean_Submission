@@ -842,15 +842,15 @@ def run_complete_architecture_comparison(snli_persistence_train_path, snli_persi
     for i, (model_name, result) in enumerate(snli_sorted):
         print(f"  {i+1}. {model_name:<20}: {result['snli_accuracy']:.3f}")
     
-    print("\n🎯 ChaosNLI Uncertainty Quantification (JSD - lower is better):")
+    print("\nChaosNLI Uncertainty Quantification (JSD - lower is better):")
     for i, (model_name, result) in enumerate(sorted_by_jsd):
-        jsd_status = "✅" if result['beats_roberta_jsd'] else "❌" 
+        jsd_status = "Improvement" if result['beats_roberta_jsd'] else "NO Improvement" 
         print(f"  {i+1}. {model_name:<20}: {result['chaosnli_jsd']:.4f} {jsd_status}")
     
-    print("\n🎯 ChaosNLI Uncertainty Quantification (KL - lower is better):")
+    print("\nChaosNLI Uncertainty Quantification (KL - lower is better):")
     kl_sorted = sorted(results.items(), key=lambda x: x[1]['chaosnli_kl'])
     for i, (model_name, result) in enumerate(kl_sorted):
-        kl_status = "✅" if result['beats_bart_kl'] else "❌"
+        kl_status = "Improvement" if result['beats_bart_kl'] else "NO Improvement"
         print(f"  {i+1}. {model_name:<20}: {result['chaosnli_kl']:.4f} {kl_status}")
     
     # Determine overall winners
