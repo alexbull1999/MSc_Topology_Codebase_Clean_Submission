@@ -15,8 +15,3 @@ fracas.save_to_disk("data/raw/fracas")
 
 pascal = load_dataset("nyu-mll/glue", "rte")
 pascal.save_to_disk("data/raw/pascal")
-
-# snli_ve = load_dataset('HuggingFaceM4/SNLI-VE')
-# snli_ve.save_to_disk("data/raw/snli-ve")
-
-# add SNLI VE when onto multimodal part of experiments -- later on
